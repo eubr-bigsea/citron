@@ -7,6 +7,14 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  app.import('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css');
+  app.import('bower_components/bootstrap-material-design/dist/css/ripples.css');
+  app.import('bower_components/bootstrap-material-design/dist/js/material.js');
+  app.import('bower_components/bootstrap-material-design/dist/js/ripples.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
