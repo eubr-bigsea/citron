@@ -4,6 +4,7 @@
     "ember": "~2.7.0",
     "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
-    "bootstrap-material-design": "0.5.10"
+    "bootstrap": "v4.0.0-alpha.2",
+    "modular-admin-html": "git@github.com:modularcode/modular-admin-html.git#^1.0.1"
   }
 }

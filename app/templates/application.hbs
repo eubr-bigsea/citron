@@ -1,72 +1,113 @@
-<div class="navbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-    </div>
-    <div class="navbar-collapse collapse navbar-inverse-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="javascript:void(0)">Active</a></li>
-        <li><a href="javascript:void(0)">Link</a></li>
-        <li class="dropdown">
-          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-            <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="javascript:void(0)">Action</a></li>
-            <li><a href="javascript:void(0)">Another action</a></li>
-            <li><a href="javascript:void(0)">Something else here</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Dropdown header</li>
-            <li><a href="javascript:void(0)">Separated link</a></li>
-            <li><a href="javascript:void(0)">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group is-empty">
-          <input type="text" class="form-control col-md-8" placeholder="Search">
+<div class="main-wrapper">
+  <div class="app sidebar-fixed header-fixed footer-fixed" id="app">
+    {{lemonade-header}}
+    {{lemonade-sidebar}}
+    <article class="content dashboard-page">
+      <section class="section">
+        <div class="row sameheight-container">
+          <div class="col col-xs-12 col-sm-12 col-md-6 col-xl-5 stats-col">
+            <div class="card sameheight-item stats" data-exclude="xs">
+              <div class="card-block">
+                <div class="title-block">
+                  <h4 class="title">
+                    Stats
+                  </h4>
+                  <p class="title-description"> Website metrics for <a href="http://modularteam.github.io/modularity-free-admin-dashboard-theme-html/">
+                      your awesome project
+                  </a> </p>
+                </div>
+                <div class="row row-sm stats-container">
+                  <div class="col-xs-12 col-sm-6 stat-col">
+                    <div class="stat-icon"> <i class="fa fa-rocket"></i> </div>
+                    <div class="stat">
+                      <div class="value"> 5407 </div>
+                      <div class="name"> Active items </div>
+                      </div> <progress class="progress stat-progress" value="75" max="100">
+                      <div class="progress">
+                        <span class="progress-bar" style="width: 75%;"></span>
+                      </div>
+                  </progress> </div>
+                  <div class="col-xs-12 col-sm-6 stat-col">
+                    <div class="stat-icon"> <i class="fa fa-shopping-cart"></i> </div>
+                    <div class="stat">
+                      <div class="value"> 78464 </div>
+                      <div class="name"> Items sold </div>
+                      </div> <progress class="progress stat-progress" value="25" max="100">
+                      <div class="progress">
+                        <span class="progress-bar" style="width: 25%;"></span>
+                      </div>
+                  </progress> </div>
+                  <div class="col-xs-12 col-sm-6  stat-col">
+                    <div class="stat-icon"> <i class="fa fa-line-chart"></i> </div>
+                    <div class="stat">
+                      <div class="value"> $80.560 </div>
+                      <div class="name"> Monthly income </div>
+                      </div> <progress class="progress stat-progress" value="60" max="100">
+                      <div class="progress">
+                        <span class="progress-bar" style="width: 60%;"></span>
+                      </div>
+                  </progress> </div>
+                  <div class="col-xs-12 col-sm-6  stat-col">
+                    <div class="stat-icon"> <i class="fa fa-users"></i> </div>
+                    <div class="stat">
+                      <div class="value"> 359 </div>
+                      <div class="name"> Total users </div>
+                      </div> <progress class="progress stat-progress" value="34" max="100">
+                      <div class="progress">
+                        <span class="progress-bar" style="width: 34%;"></span>
+                      </div>
+                  </progress> </div>
+                  <div class="col-xs-12 col-sm-6  stat-col">
+                    <div class="stat-icon"> <i class="fa fa-list-alt"></i> </div>
+                    <div class="stat">
+                      <div class="value"> 59 </div>
+                      <div class="name"> Tickets closed </div>
+                      </div> <progress class="progress stat-progress" value="49" max="100">
+                      <div class="progress">
+                        <span class="progress-bar" style="width: 49%;"></span>
+                      </div>
+                  </progress> </div>
+                  <div class="col-xs-12 col-sm-6 stat-col">
+                    <div class="stat-icon"> <i class="fa fa-dollar"></i> </div>
+                    <div class="stat">
+                      <div class="value"> $780.064 </div>
+                      <div class="name"> Total income </div>
+                      </div> <progress class="progress stat-progress" value="15" max="100">
+                      <div class="progress">
+                        <span class="progress-bar" style="width: 15%;"></span>
+                      </div>
+                  </progress> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-xs-12 col-sm-12 col-md-6 col-xl-7 history-col">
+            <div class="card sameheight-item" data-exclude="xs">
+              <div class="card-header card-header-sm bordered">
+                <div class="header-block">
+                  <h3 class="title">History</h3> </div>
+                <ul class="nav nav-tabs pull-right" role="tablist">
+                  <li class="nav-item"> <a class="nav-link active" href="#visits" role="tab" data-toggle="tab">Visits</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="#downloads" role="tab" data-toggle="tab">Downloads</a> </li>
+                </ul>
+              </div>
+              <div class="card-block">
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active fade in" id="visits">
+                    <p class="title-description"> Number of unique visits last 30 days </p>
+                    <div id="dashboard-visits-chart"></div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="downloads">
+                    <p class="title-description"> Number of downloads last 30 days </p>
+                    <div id="dashboard-downloads-chart"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="javascript:void(0)">Link</a></li>
-        <li class="dropdown">
-          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-            <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="javascript:void(0)">Action</a></li>
-            <li><a href="javascript:void(0)">Another action</a></li>
-            <li><a href="javascript:void(0)">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+      </section>
+    </article>
+    {{lemonade-footer}}
   </div>
 </div>
-
-<!--<div class="row">
-  <nav class="col-xs-3 menu">
-    <ul>
-      <li class="withripple active" data-target="#about">Material Design for Bootstrap<div class="ripple-container"></div></li>
-      <li class="withripple" data-target="#getting-started">Getting Started<div class="ripple-container"></div></li>
-      <li class="withripple" data-target="#checkbox">Checkbox<div class="ripple-container"></div></li>
-      <li class="withripple" data-target="#radio-button">Radio Button</li>
-      <li class="withripple" data-target="#toggle-button">Toggle Button</li>
-      <li class="withripple" data-target="#input">Input</li>
-      <li class="withripple" data-target="#fileinput">File Input</li>
-      <li class="withripple" data-target="#navbar">Navbar<div class="ripple-container"></div></li>
-      <li class="withripple" data-target="#progress-bar">Progress Bar</li>
-      <li class="withripple" data-target="#slider">Slider</li>
-      <li class="withripple" data-target="#dropdown">Dropdown (Work in progress)</li>
-      <li class="withripple" data-target="#dropdown-menu">Dropdown Menu</li>
-      <li class="withripple" data-target="#dialog">Dialog</li>
-    </ul>
-  </nav>
-  <div class="col-xs-9"></div>
-</div>
--->
