@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   didInsertElement() {
-    $("#sidebar-menu").metisMenu();
+    this._super(...arguments);
+    this.$("#sidebar-menu").metisMenu();
   }
 });
