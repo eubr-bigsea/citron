@@ -12,19 +12,14 @@ module.exports = function(defaults) {
   app.import('bower_components/tether/dist/js/tether.js');
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  app.import('bower_components/jsPlumb/dist/js/jsPlumb-2.1.7.js');
 
-  //Needed by modular-admin-html. We need to pick which ones we will use
   app.import('bower_components/animate.css/animate.css');
-  app.import('bower_components/responsive-bootstrap-toolkit/dist/bootstrap-toolkit.js');
-  app.import('bower_components/tinycolor/dist/tinycolor-min.js');
   app.import('bower_components/nprogress/nprogress.js');
   app.import('bower_components/nprogress/nprogress.css');
-  app.import('bower_components/Sortable/Sortable.js');
-  app.import('bower_components/Sortable/jquery.binding.js');
   app.import('bower_components/metisMenu/dist/metisMenu.css');
   app.import('bower_components/metisMenu/dist/metisMenu.js');
 
-  //We need to choose a single theme here
   app.import('vendor/modular-admin-html-1.0.1/dist/js/app.js');
   app.import('vendor/modular-admin-html-1.0.1/dist/css/app-seagreen.css');
 
