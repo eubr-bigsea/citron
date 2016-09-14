@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+/* global jsPlumb */
+
 export default Ember.Component.extend({
   classNames: ['box'],
   didInsertElement() {

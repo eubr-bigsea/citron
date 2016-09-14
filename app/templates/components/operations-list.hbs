@@ -1,0 +1,10 @@
+{{#each-in operations as |category operations|}}
+  <li>
+    <a href="#">{{category}}</a>
+    <ul>
+      {{#each operations as |operation|}}
+        {{operation-element operation=operation}}
+      {{/each}}
+    </ul>
+  </li>
+{{/each-in}}
