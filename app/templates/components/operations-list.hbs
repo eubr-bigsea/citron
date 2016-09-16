@@ -1,6 +1,8 @@
 {{#each-in operations as |category operations|}}
   <li>
-    <a href="#">{{category}}</a>
+    <a href="#">
+      <i class="fa fa-th-large"></i>{{category}}
+    </a>
     <ul>
       {{#each operations as |operation|}}
         {{operation-element operation=operation}}
