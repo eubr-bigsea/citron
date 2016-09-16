@@ -25,6 +25,8 @@ You will need the following things properly installed on your computer.
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
+If an error such as `Error: Unknown system error -121: Unknown system error -121, chown '$HOME/.config/configstore/ember-cli.json.2476383093'` is thrown, set the npm configstore directory using the variable `XDG_CONFIG_HOME`. 
+
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details
