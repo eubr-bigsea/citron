@@ -5,7 +5,6 @@
     "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
     "bootstrap": "v4.0.0-alpha.2",
-    "animate.css": "^3.5.2",
     "nprogress": "^0.2.0",
     "metisMenu": "^2.5.2",
     "jsPlumb": "^2.1.7",
