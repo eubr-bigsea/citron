@@ -19,7 +19,6 @@ module.exports = function(defaults) {
   app.import('bower_components/metisMenu/dist/metisMenu.css');
   app.import('bower_components/metisMenu/dist/metisMenu.js');
 
-  app.import('vendor/modular-admin-html-1.0.1/dist/js/app.js');
   app.import('vendor/modular-admin-html-1.0.1/dist/css/app-seagreen.css');
 
   // Use `app.import` to add additional libraries to the generated
