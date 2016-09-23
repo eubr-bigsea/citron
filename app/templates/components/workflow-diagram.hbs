@@ -1,5 +1,3 @@
-{{workflow-box name="step1"}}
-<br />
-<br />
-<br />
-{{workflow-box name="step2"}}
+{{#each boxes as |box|}}
+  {{workflow-box box=box removeBox=(action "removeBox" box)}}
+{{/each}}
