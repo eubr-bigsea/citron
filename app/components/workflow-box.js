@@ -5,6 +5,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['box'],
   didInsertElement() {
-    jsPlumb.getInstance({Container: "diagram"}).draggable(this.elementId, {containment: true});
+    let id = Ember.$(`#${this.elementId}`);
+    let opts = {containment: true};
+    jsPlumb.getInstance({Container: 'diagram'}).draggable(id, opts);
+    id.css(this.get('box').position);
   }
 });

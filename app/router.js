@@ -8,6 +8,8 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('workflows');
+  this.route('workflow');
+  this.route('workflow', {path: 'workflow/:id'});
 });
 
 export default Router;
