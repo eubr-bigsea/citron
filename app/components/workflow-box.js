@@ -9,5 +9,10 @@ export default Ember.Component.extend({
     let opts = {containment: true};
     jsPlumb.getInstance({Container: 'diagram'}).draggable(id, opts);
     id.css(this.get('box').position);
+  },
+  actions: {
+    onDestroy() {
+      this.get('removeBox')();
+    }
   }
 });

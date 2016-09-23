@@ -12,4 +12,9 @@ export default Ember.Component.extend({
       }
     });
   },
+  actions: {
+    removeBox(box) {
+      this.get('boxes').removeObject(box);
+    }
+  }
 });
