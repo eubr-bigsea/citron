@@ -1,26 +1,10 @@
 import Ember from 'ember';
-
-let url = "http://beta.ctweb.inweb.org.br/tahiti";
+import groupByCategory from 'lemonade-ember/utils/group-by-category';
 
 export default Ember.Route.extend({
   model() {
-    /*FIXME improve */
     this._super(...arguments);
-    var data = Ember.$.get(`${url}/operations`, {token: '123456'});
 
-    return data.then(function(rawObj) {
-      var el = {};
-      rawObj.forEach(function(o) {
-        var cat = o.categories.filter(e => e.type === 'parent')[0];
-        var name = cat === undefined? 'Others' : cat.name;
-
-        if(el[name] === undefined) {
-          el[name] = [];
-        }
-
-        el[name].push(o);
-      });
-      return el;
-    });
+    return groupByCategory(this.store.query('operation', {token: 123456}));
   }
 });
