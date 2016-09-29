@@ -27,6 +27,8 @@ module.exports = function(defaults) {
   app.import('vendor/modular-admin-html-1.0.1/css/sidebar.css');
   app.import('vendor/modular-admin-html-1.0.1/css/nav.css');
   app.import('vendor/modular-admin-html-1.0.1/css/misc.css');
+  app.import('vendor/modular-admin-html-1.0.1/css/auth.css');
+  app.import('vendor/modular-admin-html-1.0.1/css/btn.css');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
