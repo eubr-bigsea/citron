@@ -1,10 +1,10 @@
 import Ember from 'ember';
-import groupByCategory from 'lemonade-ember/utils/group-by-category';
+import groupBy from 'lemonade-ember/utils/group-by';
 
 export default Ember.Route.extend({
   model() {
     this._super(...arguments);
 
-    return groupByCategory(this.store.query('operation', {token: 123456}));
+    return groupBy(this.store.query('operation', {token: 123456}), 'category');
   }
 });
