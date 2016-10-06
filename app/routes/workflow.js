@@ -5,6 +5,6 @@ export default Ember.Route.extend({
   model() {
     this._super(...arguments);
 
-    return groupBy(this.store.query('operation', {token: 123456}), 'categories');
+    return groupBy(this.store.findAll('operation'), 'categories');
   }
 });
