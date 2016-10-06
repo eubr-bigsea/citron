@@ -8,4 +8,3 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     return groupBy(this.store.findAll('operation'), 'categories');
   }
 });
-
