@@ -14,6 +14,7 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
   app.import('bower_components/jsPlumb/dist/js/jsPlumb-2.2.1.js');
 
+
   app.import('bower_components/nprogress/nprogress.js');
   app.import('bower_components/nprogress/nprogress.css');
   app.import('bower_components/metisMenu/dist/metisMenu.css');
