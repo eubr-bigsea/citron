@@ -55,14 +55,17 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Deployment options are defined on `config/deploy.js`.
+Deployment options are defined on `config/deploy.js` or through variable
+```
+DEPLOY_HOST
+```
 
 Setup ssh-like server address at file `.env.delpoy.<environment>` where
 environment can be production, staging or development.
 
 ```
 cat << EOF > .env.deploy.development
-HOST=username@ember-example-server.com.br
+DEPLOY_HOST=username@ember-example-server.com.br
 EOF
 ```
 

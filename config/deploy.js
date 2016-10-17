@@ -9,7 +9,7 @@ module.exports = function(deployTarget) {
   var rsync = {
       type: 'rsync',
       dest: '/var/www/html',
-      host: process.env.HOST,
+      host: process.env.DEPLOY_HOST,
       ssh: true,
       recursive: true,
       delete: true,
