@@ -6,5 +6,6 @@ export default DS.Model.extend({
   name: attr('string'),
   icon: attr('string'),
   type: attr('string'),
-  categories: attr()
+  categories: attr(),
+  ports: attr()
 });
