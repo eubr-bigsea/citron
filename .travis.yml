@@ -24,13 +24,24 @@ script:
   - npm test
 
 before_deploy:
-- |
-   $(npm bin)/set-up-ssh --key "$encrypted_3f0d43c1617b_key" \
-                         --iv "$encrypted_3f0d43c1617b_iv" \
-                         --path-encrypted-key ".travis/github_deploy_key.enc"
+  - |
+
+       declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/id_rsa)"
+
+       openssl aes-256-cbc \
+         -K $encrypted_3f0d43c1617b_key \
+         -iv $encrypted_3f0d43c1617b_iv \
+         -in ".travis/github_deploy_key.enc" \
+         -out "$SSH_FILE" -d
+       chmod 600 $SSH_FILE
+       ssh-add $SSH_FILE
+
 deploy:
   provider: script
   script: ember deploy $DEPLOY_ENV
   skip_cleanup: true
-  on:
-    tags: true
+  branches:
+    only:
+      - gm_deploy
+#  on:
+#    tags: true
