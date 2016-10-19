@@ -1,16 +1,18 @@
 import Ember from 'ember';
 
-export default Ember.Service.extend({
-  current_user: null,
+const { inject: { service }, isEmpty } = Ember;
 
-  init(){
-    this._super(...arguments);
-    this.set('current_user', []);
+export default Ember.Service.extend({
+  session: service('session'),
+
+  loadCurrentUser(){
+    var currentUser = this.get('session.data.authenticated.currentUser');
+    if(currentUser){
+      const serv = this;
+      Object.keys(currentUser).forEach(function (key) {
+        if(!isEmpty(key)){ serv.set(key, currentUser[key]);}
+      });
+    };
   },
 
-  set(user){
-    this.get('current_user').pushObject(user)
-  }
-
 });
-

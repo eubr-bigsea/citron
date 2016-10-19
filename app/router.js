@@ -11,6 +11,10 @@ Router.map(function() {
   this.route('workflow');
   this.route('workflow', {path: 'workflow/:id'});
   this.route('login');
+  this.route('signup');
+  this.route('password-recovery');
+  this.route('password-change', {path:'users/password/edit'});
+  this.route('policy');
 });
 
 export default Router;

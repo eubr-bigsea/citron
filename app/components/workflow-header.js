@@ -1,13 +1,13 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  session: Ember.inject.service('session'),
+const { inject: { service }, Component } = Ember;
+
+export default Component.extend({
+  session: service('session'),
+  currentUser: service('current-user'),
 
   actions: {
-    showSession(){
-      console.log(this.get('session'));
-    },
-    invalidateSession() {
+    invalidateSession(){
       this.get('session').invalidate();
     }
   }

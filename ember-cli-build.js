@@ -5,9 +5,13 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
+    dotEnv: {
+      clientAllowedKeys: ['PRIVATE_KEY']
+    }
   });
 
   app.import('bower_components/font-awesome/css/font-awesome.css');
+  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.eot');
   app.import('bower_components/tether/dist/css/tether.css');
   app.import('bower_components/tether/dist/js/tether.js');
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
@@ -30,6 +34,7 @@ module.exports = function(defaults) {
   app.import('vendor/modular-admin-html-1.0.1/css/misc.css');
   app.import('vendor/modular-admin-html-1.0.1/css/auth.css');
   app.import('vendor/modular-admin-html-1.0.1/css/btn.css');
+  app.import('vendor/modular-admin-html-1.0.1/css/form.css');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
