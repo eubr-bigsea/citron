@@ -1,3 +1,3 @@
-{{#each boxes as |box|}}
-  {{workflow-box jsplumb=jsplumb box=box removeBox=(action "removeBox" box)}}
+{{#each tasks as |task|}}
+  {{workflow-task elementId=task.id jsplumb=jsplumb task=task saveTasks=(action "saveTasks") addFlow=(action "addFlow") removeFlow=(action "removeFlow") removeTask=(action "removeTask" task)}}
 {{/each}}

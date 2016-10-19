@@ -1,4 +1,4 @@
-.box {
+.task {
   border-radius: 25px;
   border: 2px solid #73AD21;
   padding: 10px;
@@ -8,8 +8,12 @@
   background: #DDD;
 }
 
-.box p {
+.task p {
   margin-bottom: 0;
+}
+
+textarea {
+  height: 70vh;
 }
 
 #diagram {
