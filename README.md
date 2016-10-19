@@ -1,4 +1,5 @@
-# Lemonade-ember
+# Citron
+[![Build Status](https://travis-ci.org/eubr-bigsea/ember-citron.svg?branch=gm_deploy)](https://travis-ci.org/eubr-bigsea/ember-citron)
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
@@ -13,12 +14,20 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](http://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
 
+```
+# npm install -g bower
+# npm install -g ember-cli
+$ npm install phantomjs-prebuilt
+```
+
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+```
+$ git clone https://github.com/eubr-bigsea/ember-citron.git
+$ cd ember-citron
+$ npm install
+$ bower install
+```
 
 ## Running / Development
 
@@ -45,7 +54,19 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+Deployment options are defined on `config/deploy.js` or through variable
+```
+DEPLOY_HOST
+```
+
+Setup ssh-like server address at file `.env.delpoy.<environment>` where
+environment can be production, staging or development.
+
+```
+cat << EOF > .env.deploy.development
+DEPLOY_HOST=username@ember-example-server.com.br
+EOF
+```
 
 ## Further Reading / Useful Links
 
