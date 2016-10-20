@@ -26,7 +26,6 @@ export default Ember.Controller.extend({
             this.set('passwordFormGroup', 'form-group has-error');
             this.set('invalidPasswordErrorMessage', reason.errorMessage);
           } else if ( reason.code === 2){
-            console.log(reason);
             this.set('emailFormGroup', 'form-group has-error');
             this.set('invalidEmailErrorMessage', reason.errorMessage);
           }

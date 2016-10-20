@@ -13,10 +13,9 @@ Router.map(function() {
   this.route('login');
   this.route('signup');
   this.route('policy');
-  this.route('change',{path:'users/password/edit'});
-  this.route('password', function() {
-    this.route('change');
+  this.route('password', {path:'users/password'}, function() {
     this.route('request');
+    this.route('edit');
   });
 });
 

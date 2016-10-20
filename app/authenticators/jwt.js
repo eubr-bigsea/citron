@@ -30,21 +30,17 @@ export default Base.extend({
     };
 
     return new Promise((resolve, reject) => {
-      ajax(requestOptions)
-        .then(
-          (response) => {
-            var authToken = response.auth_token;
-            var decodedToken = jwt.verify(authToken, ENV.PRIVATE_KEY);
-            window.d = decodedToken;
-            if (decodedToken){
-              run(() => { resolve({token: authToken, currentUser: decodedToken.user}); });
-            }else{
-              run(() => { reject({error:'Session expired'}); });
-            }
-          },
-          (error) => {
-            run(() => { reject(JSON.parse(error.responseText)); }); }
-        );
+      ajax(requestOptions).then(
+        (response) => {
+          var authToken = response.auth_token;
+          var decodedToken = jwt.verify(authToken, ENV.CITRON_PRIVATE_KEY);
+          if (decodedToken){
+            run(() => { resolve({token: authToken, currentUser: decodedToken.user}); });
+          }else{ run(() => { reject({error:'Session expired'}); }); }
+        },
+        (error) => {
+          run(() => { reject(error.responseJSON); }); }
+      );
     }); },
 
   invalidate(data) { return Promise.resolve(data); },

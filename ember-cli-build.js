@@ -6,7 +6,7 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
     dotEnv: {
-      clientAllowedKeys: ['PRIVATE_KEY']
+      clientAllowedKeys: ['CITRON_PRIVATE_KEY']
     }
   });
 
