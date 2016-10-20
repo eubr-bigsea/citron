@@ -12,7 +12,7 @@ export default Ember.Service.extend({
       Object.keys(currentUser).forEach(function (key) {
         if(!isEmpty(key)){ serv.set(key, currentUser[key]);}
       });
-    };
+    }
   },
 
 });

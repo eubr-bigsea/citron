@@ -22,8 +22,8 @@ export default Ember.Controller.extend({
     };
     return new Promise((resolve, reject) => {
       ajax(requestOptions).then(
-        (response) => {
-          run(() => { resolve( {email: userData.email, password: userData.password} )});
+        () => {
+          run(() => { resolve( {email: userData.email, password: userData.password} ); });
         },
         (error) => {
           run(() => { reject(error.responseJSON); }); }
@@ -43,7 +43,7 @@ export default Ember.Controller.extend({
       this.set('passwordFormGroup', 'form-group has-error');
       this.set('invalidPasswordErrorMessage', 'Password to short');
       return false;
-    } else if( password != retypePassword){
+    } else if( password !== retypePassword){
       this.set('passwordFormGroup', 'form-group has-error');
       this.set('invalidPasswordErrorMessage', 'Retyped password not match');
       return false;
@@ -66,10 +66,10 @@ export default Ember.Controller.extend({
             if ( reason.code === 3 ){
               this.set('emailFormGroup', 'form-group has-error');
               this.set('invalidEmailErrorMessage', reason.errorMessage);
-            };
+            }
           })
           .then((creds) => {
-            this.get('session').authenticate('authenticator:jwt', creds)
+            this.get('session').authenticate('authenticator:jwt', creds);
           });
       }
     },
