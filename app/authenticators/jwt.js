@@ -35,6 +35,7 @@ export default Base.extend({
           (response) => {
             var authToken = response.auth_token;
             var decodedToken = jwt.verify(authToken, ENV.PRIVATE_KEY);
+            window.d = decodedToken;
             if (decodedToken){
               run(() => { resolve({token: authToken, currentUser: decodedToken.user}); });
             }else{
@@ -42,7 +43,7 @@ export default Base.extend({
             }
           },
           (error) => {
-            run(() => { reject(JSON.parse(error.responseText)['errors'][0]); }); }
+            run(() => { reject(JSON.parse(error.responseText)); }); }
         );
     }); },
 
