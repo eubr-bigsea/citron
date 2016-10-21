@@ -1,0 +1,40 @@
+<div class="auth">
+  <div class="auth-container">
+    <div class="card">
+      <header class="auth-header">
+        <h1 class="auth-title">
+          <div class="logo"></div>
+          Lemonade
+        </h1>
+      </header>
+      <div class="auth-content">
+        <p class="text-xs-center"></p>
+        <form id="password-change-form" {{action 'request' on='submit'}}>
+          <div class={{emailFormGroup}}>
+            <label for="email">Email</label>
+            {{input type="email" class="form-control underlined" name="email" id="email" placeholder="Enter email address"  value=email}}
+            {{#if invalidEmailErrorMessage}}<span id="email-error" class="has-error">{{invalidEmailErrorMessage}}</span>{{/if}}
+          </div>
+          <div class={{passwordFormGroup}}> <label for="password">Password</label>
+            <div class="row">
+              <div class="col-sm-6">
+                {{input type="password" class="form-control underlined" name="password" id="password" placeholder="Enter password"  value=password}} </div>
+              <div class="col-sm-6">
+                {{input type="password" class="form-control underlined" name="retype_password" id="retype_password" placeholder="Re-type password" value=retypePassword}}
+              </div>
+              {{#if invalidPasswordErrorMessage}} <span id="password-error" class="has-error">{{invalidPasswordErrorMessage}}</span>{{/if}}
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-block btn-primary">Send email</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
