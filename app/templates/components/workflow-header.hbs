@@ -19,7 +19,7 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <div class="img" style="background-image: url('/assets/images/tux.jpeg')"> </div>
           <span class="name">
-            John Doe
+            {{currentUser.firstname}} {{currentUser.lastname}}
           </span>
         </a>
         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -27,12 +27,12 @@
             <i class="fa fa-user icon"></i>
             Profile
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#" {{action 'showSession'}} >
             <i class="fa fa-gear icon"></i>
             Settings
           </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="login.html">
+          <a class="dropdown-item" href="#" {{action 'invalidateSession'}}>
             <i class="fa fa-power-off icon"></i>
             Logout
           </a>
