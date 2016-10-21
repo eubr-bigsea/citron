@@ -12,8 +12,6 @@ export default Ember.Controller.extend({
   passwordFormGroup: 'form-group',
   invalidPasswordErrorMessage: null,
 
-
-
   createAccount: function(userData){
     var requestOptions = {
       url: `${config.host}/users`,
@@ -30,6 +28,7 @@ export default Ember.Controller.extend({
       );
     });
   },
+
   resetAlerts: function(){
     this.setProperties({
       mailFormGroup: 'form-group',
@@ -38,6 +37,7 @@ export default Ember.Controller.extend({
       invalidPasswordErrorMessage: null,
     });
   },
+
   validatePassword: function(password, retypePassword){
     if(password.length < 6){
       this.set('passwordFormGroup', 'form-group has-error');
@@ -52,15 +52,14 @@ export default Ember.Controller.extend({
   },
 
   actions:{
-
-    signup: function(){
+    signup(){
 
       this.resetAlerts();
 
       let userData = this.getProperties('email', 'password','firstname', 'lastname');
       let retypePassword = this.getProperties('retypePassword').retypePassword;
-      if(this.validatePassword(userData.password, retypePassword)){
 
+      if(this.validatePassword(userData.password, retypePassword)){
         this.createAccount(userData)
           .catch((reason) => {
             if ( reason.code === 3 ){
@@ -73,5 +72,5 @@ export default Ember.Controller.extend({
           });
       }
     },
-  }
+  },
 });

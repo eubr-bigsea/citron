@@ -7,28 +7,22 @@ import jsonwebtoken from 'npm:jsonwebtoken';
 const { RSVP: { Promise }, $: { ajax }, run } = Ember;
 const jwt  = jsonwebtoken;
 
-
 export default Base.extend({
-
   tokenEndpoint: `${config.host}/users/sign_in`,
 
-  restore(data) {
-    return new Promise(
-      (resolve, reject) => {
-        if (!Ember.isEmpty(data.token)) { resolve(data); }
-        else { reject(); }
-      });
+  restore(data){
+    return new Promise((resolve, reject) => {
+      if (!Ember.isEmpty(data.token)) { resolve(data); }
+      else { reject(); }
+    });
   },
 
-
-  authenticate(creds) {
-
+  authenticate(creds){
     const requestOptions = {
       url: this.tokenEndpoint,
       type: 'GET',
       data: creds,
     };
-
     return new Promise((resolve, reject) => {
       ajax(requestOptions).then(
         (response) => {
@@ -41,7 +35,8 @@ export default Base.extend({
         (error) => {
           run(() => { reject(error.responseJSON); }); }
       );
-    }); },
+    });
+  },
 
-  invalidate(data) { return Promise.resolve(data); },
+  invalidate(data){ return Promise.resolve(data); },
 });

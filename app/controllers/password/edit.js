@@ -60,9 +60,7 @@ export default Ember.Controller.extend({
         );
       })
         .then((response) =>{
-
           this.set('successMessage', response.successMessage);
-          //sleep 7 seg then redirect
           run(() => { this.transitionToRoute('login'); });
         })
         .catch((reason) => {

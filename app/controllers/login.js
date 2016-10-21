@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   invalidPasswordErrorMessage: null,
 
   actions: {
-    login: function() {
+    login(){
       this.setProperties({
         mailFormGroup: 'form-group',
         invalidEmailErrorMessage: null,
