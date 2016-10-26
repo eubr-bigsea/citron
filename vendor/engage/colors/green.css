@@ -4,6 +4,9 @@ a{
 a.titulo{
 	color: #3a4651;
 }
+a.titulo:hover{
+  color: #526b84;
+}
 a:hover{
 	color: #526b84;
 }

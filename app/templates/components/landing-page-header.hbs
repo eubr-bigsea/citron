@@ -1,52 +1,31 @@
 <section id="header">
-<nav class="navbar navbar-light" data-spy="affix" data-offset-top="50">
-	<div class="container">
-		<button class='navbar-toggler hidden-md-up pull-xs-right' data-target='#main-menu' data-toggle='collapse' type='button'>
+	<nav class="navbar navbar-light" data-spy="affix" data-offset-top="50">
+		<div class="container">
+			<button class='navbar-toggler hidden-md-up pull-xs-right' data-target='#main-menu' data-toggle='collapse' type='button'>
 
-		</button>
-		<!-- Brand -->
-		<a class="navbar-brand">
-			{{#link-to 'landing-page'}}<img src="assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
-		</a>
-		<div class="collapse navbar-toggleable-sm pull-xs-left pull-md-right" id="main-menu">
-			<!-- Navbar Starts -->
-			<ul class="nav nav-inline">
-				<li class="nav-item dropdown">
-					{{#link-to 'landing-page' class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"}}Home{{/link-to}}
-				</li>
-				<li class="nav-item dropdown">
-						{{#link-to 'policy' class="nav-link dropdown-toggle" role="button"}}Policy{{/link-to}}
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-						Shortcodes
-					</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="accordions.html">Accordions</a>
-						<a class="dropdown-item" href="tabs.html">Tabs</a>
-						<a class="dropdown-item" href="buttons.html">Buttons</a>
-						<a class="dropdown-item" href="skills.html">Progress Bars</a>
-						<a class="dropdown-item" href="testimonials.html">Testimonials</a>
-						<a class="dropdown-item" href="clients.html">Clients</a>
-						<a class="dropdown-item" href="icon.html">Icon Boxes</a>
-						<a class="dropdown-item" href="team.html">Team</a>
-						<a class="dropdown-item" href="carousel.html">Carousel</a>
-						<a class="dropdown-item" href="maps.html">Google Maps</a>
-						<a class="dropdown-item" href="pricing.html">Pricing tables</a>
-						<a class="dropdown-item" href="notification.html">Notification</a>
-					</div>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-						Contact Us
-					</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="contact1.html">Contact us 1</a>
-						<a class="dropdown-item" href="contact2.html">Contact us 2</a>
-					</div>
-				</li>
-			</ul>
+			</button>
+			<a class="navbar-brand">
+				{{#link-to 'landing-page'}}<img src="assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
+				</a>
+				<div class="collapse navbar-toggleable-sm pull-xs-left pull-md-right" id="main-menu">
+					<ul class="nav nav-inline">
+						<li class="nav-item dropdown">
+							{{#link-to 'landing-page' class="page-scroll nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"}}Home{{/link-to}}
+							</li>
+							<li class="nav-item dropdown">
+								<a class="page-scroll" href="#about-us">About Us</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="page-scroll" href="#our-services">Services</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="page-scroll" href="#meet-us">Meet Us</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="page-scroll" href="#footer">Contact Us</a>
+							</li>
+					</ul>
+				</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 </section>

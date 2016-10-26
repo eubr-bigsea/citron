@@ -934,7 +934,7 @@ ul li > ul {
 ul li > ul > li > a {
   color: #666;
   padding: 10px 0 10px 15px;
-  margin: 5px 0;
+  /*margin: 5px 0;*/
 }
 ul li > ul > li > a:hover,
 ul li > ul > li > a .active {
@@ -2619,38 +2619,6 @@ span.published-time i.fa {
 
     color: #fff;
 }
-
-.sidebar-area .widget {
-  margin-bottom: 60px;
-}
-.sidebar-area .search-bar {
-  position: relative;
-}
-.sidebar-area .search-bar .form-control {
-  border-radius: 0;
-  color: #333 !important;
-  font-size: 13px;
-  height: 46px;
-}
-.form-control:focus {
-
-}
-.sidebar-area .search-bar button {
-  background-color: transparent;
-  border: 0 none;
-  height: 46px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 40px;
-}
-.sidebar-area .search-bar button i.fa {
-
-}
-.sidebar-area .search-bar button .fa {
-  color: #333;
-}
-
 h2.widget-title {
   font-size: 20px;
   font-weight: 600;
