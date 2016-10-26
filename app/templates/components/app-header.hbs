@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="header-block header-block-collapse hidden-lg-up">
+    <button class="collapse-btn" id="sidebar-collapse-btn">
+      <i class="fa fa-bars"></i>
+    </button>
+  </div>
+  <div class="header-block header-block-search hidden-sm-down">
+    <form role="search">
+      <div class="input-container">
+        {{!-- TODO <i class="fa fa-search"></i>--}}
+        {{!-- <input type="search" placeholder="Search">--}}
+        <div class="underline"></div>
+      </div>
+    </form>
+  </div>
+  <div class="header-block header-block-nav">
+    <ul class="nav-profile">
+      <li>
+        {{#link-to 'home' }}
+        <i class="fa fa-home fa-lg"></i>
+        <span>Home</span>
+        {{/link-to}}
+      </li>
+      {{notification-bell}}
+      {{profile-dropdown}}
+
+
+    </ul>
+  </div>
+</header>

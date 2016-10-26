@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:workflows', 'Unit | Route | workflows', {
+moduleFor('route:home/workflows', 'Unit | Route | home/workflows', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

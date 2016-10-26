@@ -1,0 +1,11 @@
+<article class="content items-list-page">
+<div class="card items">
+	<ul class="item-list striped">
+    {{table-header}}
+    {{#each model as |workflow|}}
+      {{table-item name=workflow.name}}
+    {{/each}}
+  </ul>
+</div>
+</article>
+{{outlet}}
