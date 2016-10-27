@@ -38,6 +38,13 @@ If an error such as `Error: Unknown system error -121: Unknown system error
 -121, chown '$HOME/.config/configstore/ember-cli.json.2476383093'` is thrown,
 set the npm configstore directory using the variable `XDG_CONFIG_HOME`.
 
+### Running with docker
+```
+ember build
+docker run -p 8080:80 -v $PWD/dist:/usr/share/nginx/html nginx
+```
+Now access `http://localhost:8080`
+
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details
