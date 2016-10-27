@@ -52,6 +52,15 @@ module.exports = function(defaults) {
   app.import('vendor/modular-admin-html-1.0.1/css/sidebar.css');
   app.import('vendor/modular-admin-html-1.0.1/css/table.css');
 
+  app.import('vendor/engage/css/main.css');
+  app.import('vendor/engage/css/responsive.css');
+  app.import('vendor/engage/extras/animate.css');
+  app.import('vendor/engage/extras/normalize.css');
+  app.import('vendor/engage/extras/settings.css');
+  app.import('vendor/engage/extras/owl/owl.carousel.css');
+  app.import('vendor/engage/extras/owl/owl.theme.css');
+  app.import('vendor/engage/css/color-switcher.css');
+  app.import('vendor/engage/colors/green.css');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
