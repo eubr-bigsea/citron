@@ -1,2 +1,11 @@
-<h1> lista de workflows no futuro</h1>
-<h6>{{#link-to "workflow" 1 }}Workflow 1{{/link-to}}</h6>
+<h1>Workflows</h1>
+
+<br />
+<br />
+<h3>{{#link-to 'workflow.new'}}Criar Novo Workflow{{/link-to}}</h3>
+<br />
+<br />
+
+{{#each model as |workflow|}}
+  <h6>{{#link-to 'workflow.edit' workflow.id }}{{workflow.name}}{{/link-to}}</h6>
+{{/each}}
