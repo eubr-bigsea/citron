@@ -15,30 +15,7 @@
           <span style="color: white;">Home</span>
           {{/link-to}}
         </li>
-        <li>
-          {{#link-to 'home.workflows' }}
-          <i class="fa fa-flask"></i>
-          Workflows
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'home.jobs' }}
-          <i class="fa fa-tasks"></i>
-          Jobs
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'home.datasources' }}
-          <i class="fa fa-database"></i>
-          Datasources
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'home.configurations' }}
-          <i class="fa fa-cog"></i>
-          Configurations
-          {{/link-to}}
-        </li>
+        {{operations-list operations=operations}}
       </ul>
     </nav>
   </div>

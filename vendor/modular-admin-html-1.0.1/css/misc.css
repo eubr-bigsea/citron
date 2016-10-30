@@ -6,14 +6,11 @@
   @media (max-width: 767px) {
     .card > .item-list .item > .item-row {
       padding: 0 10px; } }
-
 a:not(.btn) {
   -webkit-transition: initial;
           transition: initial;
-  text-decoration: underline;
   color: #969696; }
   a:not(.btn):hover {
-    text-decoration: underline;
     color: #33be85; }
     a:not(.btn):hover:before {
       -webkit-transform: scaleX(1);
