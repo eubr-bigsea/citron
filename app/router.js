@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('new');
     this.route('edit', {path: ':id/edit'});
     this.route('tasks');
+    this.route('config', {path: ':id/config'});
   });
   this.route('login');
   this.route('signup');
@@ -26,6 +27,8 @@ Router.map(function() {
     this.route('jobs');
   });
   this.route('landing-page');
+  this.route('user', {path: 'user/:id'});
+  this.route('group', {path: 'group/:id'});
 });
 
 export default Router;
