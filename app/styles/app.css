@@ -20,3 +20,8 @@ textarea {
   background: #d7dde4;
   height: 70vh;
 }
+
+#diagram .ui-selected {
+  background: #F39814;
+  color: white;
+}

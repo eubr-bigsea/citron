@@ -40,6 +40,10 @@ export default Ember.Component.extend({
         this.get('tasks').addObject(task);
         this.get('workflow').save();
       }
+    }).selectable({
+      selected: function() {
+        $('.ui-selected').removeClass('ui-selected');
+      }
     });
     this.get('workflow').get('flows').forEach((flow) => {
       this.get('flows').addObject(flow);

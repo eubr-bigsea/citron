@@ -70,6 +70,11 @@ export default Ember.Component.extend({
         this.get('saveTasks')();
       }
     });
+
+    $(el).click((e) => {
+      $('.ui-selected').removeClass('ui-selected');
+      $(el).addClass('ui-selected');
+    });
   },
   actions: {
     onDestroy() {
