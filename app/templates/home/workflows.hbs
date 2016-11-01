@@ -1,11 +1,13 @@
+{{home-sidebar workflowActive='sidebar-active'}}
 <article class="content items-list-page">
-<div class="card items">
-	<ul class="item-list striped">
-    {{workflows.table-header}}
-    {{#each model as |workflow|}}
-      {{workflows.table-item name=workflow.name author=workflow.user_name id=workflow.id updated=workflow.updated authorId=workflow.user_id}}
-    {{/each}}
-  </ul>
-</div>
+  {{workflows.button-bar}}
+  <div class="card items">
+    <ul class="item-list striped">
+      {{workflows.table-header}}
+      {{#each model as |workflow|}}
+        {{workflows.table-item workflow=workflow}}
+      {{/each}}
+    </ul>
+  </div>
 </article>
 {{outlet}}

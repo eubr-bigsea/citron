@@ -1,16 +1,10 @@
-<div class="main-wrapper">
-  <div class="app sidebar-fixed header-fixed footer-fixed" id="app">
-    {{workflow-header workflow=model.workflow}}
-    {{workflow-sidebar operations=model.operations}}
-    <div class="content">
-      <div class="row">
-        {{workflow-diagram id="diagram" workflow=model.workflow}}
-      </div>
-    </div>
-    {{outlet}}
-    {{workflow-footer}}
+{{workflow.workflow-sidebar operations=model.operations workflow=model.workflow}}
+<div class="content">
+  <div class="row">
+    {{workflow-diagram id="diagram" workflow=model.workflow}}
   </div>
 </div>
+{{outlet}}
 
 
 

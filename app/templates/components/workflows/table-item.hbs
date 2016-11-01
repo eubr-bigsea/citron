@@ -7,58 +7,48 @@
       </label>
     </div>
     <div class="item-col fixed item-col-img md">
-      {{#link-to 'workflow.edit' id class='workflow'}}
-      <div class="item-img rounded" style="background-image: url(http://www.clker.com/cliparts/3/a/e/b/1346440375869169067LemonandLime.svg.med.png)"></div>
+      {{#link-to 'workflow.edit' workflow.id class='workflow'}}
+        <div class="item-img rounded" style="background-image: url(http://www.clker.com/cliparts/3/a/e/b/1346440375869169067LemonandLime.svg.med.png)"></div>
       {{/link-to}}
     </div>
     <div class="item-col item-col-stats no-overflow">
       <div class="item-heading">ID</div>
       <div class="no-overflow">
-        {{#link-to 'workflow.edit' id class='workflow'}}
-        {{id}}
-        {{/link-to}}
+        {{#link-to 'workflow.edit' workflow.id class='workflow'}} {{workflow.id}} {{/link-to}}
       </div>
     </div>
     <div class="item-col fixed pull-left item-col-title">
       <div class="item-heading">Name</div>
       <div>
-        {{#link-to 'workflow.edit' id}}
-        <h4 class="item-title">	{{name}} </h4>
-        {{/link-to}}
+        {{#link-to 'workflow.edit' workflow.id}} <h4 class="item-title">	{{workflow.name}} </h4> {{/link-to}}
       </div>
     </div>
     <div class="item-col item-col-stats no-overflow">
       <div class="item-heading">Stats</div>
-      <div class="no-overflow">
-        <div class="item-stats sparkline" data-type="bar">
-          <canvas width="84" height="23" style="display: inline-block; width: 84px; height: 23px; vertical-align: top;"></canvas>
-        </div>
-      </div>
+      <div class="no-overflow"></div>
     </div>
     <div class="item-col item-col-category no-overflow">
       <div class="item-heading">Category</div>
       <div class="no-overflow">
-        {{#link-to 'group' 0}}
-        Software
-        {{/link-to}}
+        {{#link-to 'group' 0}} UFMG {{/link-to}}
       </div>
     </div>
     <div class="item-col item-col-author">
       <div class="item-heading">Author</div>
       <div class="no-overflow">
-        {{#link-to 'user' authorId}}
-        <h4 class="item-title"> {{author}} </h4>
+        {{#link-to 'user' workflow.user_id}}
+        <h4 class="item-title"> {{workflow.user_name}} </h4>
         {{/link-to}}
       </div>
     </div>
     <div class="item-col item-col-date">
       <div class="item-heading">Created</div>
-      <div class="no-overflow"> {{updated}} </div>
+      <div class="no-overflow"> {{workflow.updated}} </div>
     </div>
     <div class="item-col fixed item-col-actions-dropdown">
       <div class="item-actions-dropdown">
-        <a class="remove" {{action 'deleteWorkflow'}} href="#" > <i class="fa fa-trash-o "></i></a>
-        {{#link-to 'workflow.config' id }}
+        <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i class="fa fa-trash-o "></i></a>
+        {{#link-to 'workflow.config' workflow.id }}
         <i class="fa fa-pencil"></i>
         {{/link-to}}
       </div>

@@ -5,10 +5,9 @@ export default Ember.Component.extend({
   tagName: 'li',
 
   actions: {
-    deleteWorkflow(){
-      alert('implement this');
+    deleteWorkflow(workflow){
+      var confirmText = 'Delete workflow ' + workflow.name + ' ?';
+      if(confirm( confirmText)){ workflow.destroyRecord(); }
     },
-
   },
-
 });
