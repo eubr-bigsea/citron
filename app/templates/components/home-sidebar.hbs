@@ -9,34 +9,34 @@
     <nav class="menu">
       <ul class="nav metismenu" id="sidebar-menu">
         <li><p></p></li>
-        <li style='background:#4bcf99;'>
+        <li class={{indexActive}}>
           {{#link-to 'home' }}
-          <i class="fa fa-home" style="color: white;"></i>
-          <span style="color: white;">Home</span>
+            <i class="fa fa-home" ></i>
+            <span >Home</span>
           {{/link-to}}
         </li>
-        <li>
+        <li class={{workflowActive}}>
           {{#link-to 'home.workflows' }}
-          <i class="fa fa-flask"></i>
-          Workflows
+            <i class="fa fa-flask"></i>
+            <span >Workflows</span>
           {{/link-to}}
         </li>
-        <li>
+        <li class={{jobsActive}}>
           {{#link-to 'home.jobs' }}
-          <i class="fa fa-tasks"></i>
-          Jobs
+            <i class="fa fa-tasks" ></i>
+            <span >Jobs</span>
           {{/link-to}}
         </li>
-        <li>
+        <li class={{datasourcesActive}}>
           {{#link-to 'home.datasources' }}
-          <i class="fa fa-database"></i>
-          Datasources
+            <i class="fa fa-database"></i>
+            <span >Datasources</span>
           {{/link-to}}
         </li>
-        <li>
+        <li class={{configurationsActive}}>
           {{#link-to 'home.configurations' }}
-          <i class="fa fa-cog"></i>
-          Configurations
+            <i class="fa fa-cog" ></i>
+            <span >Configuration</span>
           {{/link-to}}
         </li>
       </ul>

@@ -1,0 +1,16 @@
+{{home-sidebar indexActive='sidebar-active'}}
+<article class="content dashboard-page">
+  <section class="section">
+    <div class="row sameheight-container">
+      {{dashboard.stats-table}}
+      {{dashboard.history-graph}}
+    </div>
+  </section>
+  <section class="section map-tasks">
+    <div class="row sameheight-container">
+      {{dashboard.map-graph}}
+      {{dashboard.task-board}}
+    </div>
+  </section>
+</article>
+{{outlet}}

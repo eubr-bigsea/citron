@@ -5,13 +5,16 @@
     </button>
   </div>
   <div class="header-block header-block-search hidden-sm-down">
-    <form role="search">
-      <div class="input-container">
-        {{!-- TODO <i class="fa fa-search"></i>--}}
-        {{!-- <input type="search" placeholder="Search">--}}
-        <div class="underline"></div>
-      </div>
-    </form>
+    <div class="header-block header-block-search hidden-sm-down">
+      {{#if workflow}}
+        {{#if isEditing}}
+          {{input insert-newline='toggleEdit' value=workflow.name focus-out="toggleEdit"}}
+        {{else}}
+          <label {{action "toggleEdit"}}><a href="#" style="font-family:Open Sans; color:#3a4651; ">{{workflow.name}}    </a> </label>
+          <a {{action "toggleEdit"}}> <i class="fa fa-pencil" style="position: relative; left: 10px;"></i> </a>
+        {{/if}}
+      {{/if}}
+    </div>
   </div>
   <div class="header-block header-block-nav">
     <ul class="nav-profile">
@@ -23,8 +26,6 @@
       </li>
       {{notification-bell}}
       {{profile-dropdown}}
-
-
     </ul>
   </div>
 </header>
