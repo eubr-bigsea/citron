@@ -16,8 +16,7 @@ module.exports = function(defaults) {
   app.import('bower_components/tether/dist/js/tether.js');
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
-  app.import('bower_components/jsPlumb/dist/js/jsPlumb-2.2.3.js');
-
+  app.import('bower_components/jsPlumb/dist/js/jsPlumb-2.2.4.js');
   app.import('bower_components/nprogress/nprogress.js');
   app.import('bower_components/nprogress/nprogress.css');
   app.import('bower_components/metisMenu/dist/metisMenu.css');

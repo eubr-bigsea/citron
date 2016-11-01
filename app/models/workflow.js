@@ -9,4 +9,6 @@ export default DS.Model.extend({
   user_name: attr('string'),
   flows: attr(),
   tasks: attr(),
+  updated: attr('dates'),
+  description: attr('string'),
 });

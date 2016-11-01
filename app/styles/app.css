@@ -12,6 +12,10 @@
   margin-bottom: 0;
 }
 
+#description {
+  height: 30vh;
+}
+
 textarea {
   height: 70vh;
 }
@@ -20,3 +24,14 @@ textarea {
   background: #d7dde4;
   height: 70vh;
 }
+
+.sidebar-active {
+  background: #4bcf99;
+}
+.sidebar-active .fa {
+  color: white;
+}
+.sidebar-active span{
+  color: white;
+}
+

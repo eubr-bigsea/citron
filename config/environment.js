@@ -44,7 +44,7 @@ module.exports = function(environment) {
   }
   ENV['ember-simple-auth'] = {
         authorizer: 'authorizer:custom',
-        routeAfterAuthentication: '/workflows'
+        routeAfterAuthentication: '/home'
   };
 
   return ENV;
