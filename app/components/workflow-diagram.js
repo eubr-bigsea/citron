@@ -42,7 +42,7 @@ export default Ember.Component.extend({
       }
     }).selectable({
       selected: function() {
-        $('.ui-selected').removeClass('ui-selected');
+        Ember.$('.ui-selected').removeClass('ui-selected');
       }
     });
     this.get('workflow').get('flows').forEach((flow) => {

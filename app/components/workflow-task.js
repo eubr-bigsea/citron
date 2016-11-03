@@ -71,9 +71,9 @@ export default Ember.Component.extend({
       }
     });
 
-    $(el).click((e) => {
-      $('.ui-selected').removeClass('ui-selected');
-      $(el).addClass('ui-selected');
+    Ember.$(el).click(() => {
+      Ember.$('.ui-selected').removeClass('ui-selected');
+      Ember.$(el).addClass('ui-selected');
     });
   },
   actions: {
