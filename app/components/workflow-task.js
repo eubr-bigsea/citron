@@ -12,6 +12,7 @@ export default Ember.Component.extend({
     const task = this.get('task');
     const el = Ember.$(`#${this.elementId}`);
     const jsplumb = this.get('jsplumb');
+    const clickTask = this.get('clickTask');
 
     el.css('top', task.top);
     el.css('left', task.left);
@@ -21,6 +22,14 @@ export default Ember.Component.extend({
         let fn = function(a, b) { return a.order > b.order; };
         let input = op.get('ports').filter(p => p.type === 'INPUT').sort(fn);
         let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
+
+        this.set('forms', op.get('forms'));
+        task.forms = Ember.Object.create();
+        op.get('forms').forEach((el) => {
+          el.fields.forEach((field) => {
+            task.forms.set(field.name, field.default);
+          });
+        });
 
         let isInput = true;
         [input, output].forEach((type) => {
@@ -74,6 +83,7 @@ export default Ember.Component.extend({
     Ember.$(el).click(() => {
       Ember.$('.ui-selected').removeClass('ui-selected');
       Ember.$(el).addClass('ui-selected');
+      clickTask(this.get('forms'));
     });
   },
   actions: {

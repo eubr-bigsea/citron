@@ -5,7 +5,6 @@ import generateUUID from 'lemonade-ember/utils/generate-uuid';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
-  classNames: ['col-xs-12'],
   tasks: [],
   flows: [],
   init() {
@@ -51,6 +50,9 @@ export default Ember.Component.extend({
     });
   },
   actions: {
+    clickTask(forms) {
+      this.set('forms', forms);
+    },
     saveTasks() {
       this.get('workflow').save();
     },

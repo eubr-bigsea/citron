@@ -21,6 +21,11 @@ textarea {
   height: 70vh;
 }
 
+#forms {
+  background: white;
+  height: 70vh;
+}
+
 #diagram .ui-selected {
   background: #F39814;
   color: white;
