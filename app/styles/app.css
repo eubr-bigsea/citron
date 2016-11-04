@@ -26,3 +26,15 @@
   background: #F39814;
   color: white;
 }
+
+.color-item {
+  float: left;
+  height: 20px;
+  margin-right: 1px;
+  width: 20px;
+  border: 1px solid #CCC;
+}
+
+.color_item .active {
+  border-color: #555;
+}
