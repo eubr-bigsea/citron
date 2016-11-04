@@ -1,6 +1,9 @@
 {{#each forms as |form|}}
-  {{form.name}}
-  {{#each form.fields as |field|}}
-    {{field.name}}
-  {{/each}}
+  <fieldset>
+    <legend>{{form.name}}</legend>
+    {{#each form.fields as |field|}}
+      {{log field.suggested_widget}}
+      {{component (concat 'form-' field.suggested_widget) field=field}}
+    {{/each}}
+  </fieldset>
 {{/each}}
