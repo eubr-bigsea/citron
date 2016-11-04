@@ -20,6 +20,8 @@ export default Ember.Component.extend({
     });
   },
   didInsertElement() {
+    let el = this;
+
     Ember.$(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
         let task = {
@@ -40,8 +42,11 @@ export default Ember.Component.extend({
         this.get('workflow').save();
       }
     }).selectable({
-      selected: function() {
+      selected() {
         Ember.$('.ui-selected').removeClass('ui-selected');
+      },
+      stop() {
+        el.set('forms', Ember.Object.create());
       }
     });
     this.get('workflow').get('flows').forEach((flow) => {
