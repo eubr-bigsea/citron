@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
   actions: {
     deleteWorkflow(workflow){
-      var confirmText = 'Delete workflow ' + workflow.name + ' ?';
+      var confirmText = `Delete workflow ${workflow.get('name')} ?`;
       if(confirm( confirmText)){ workflow.destroyRecord(); }
     },
   },

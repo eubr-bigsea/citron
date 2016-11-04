@@ -8,25 +8,23 @@ export default Ember.Route.extend({
 
   model() {
     this._super(...arguments);
-    var user = this.get('currentUser')
+    var user = this.get('currentUser');
 
-    return RSVP.hash({
-      workflow: this.get('store').createRecord('workflow', {
-        tasks: [],
-        flows: [],
-        user_id: user.id,
-        user_login: user.email,
-        user_name: user.firstname + ' ' + user.lastname,
-        name: "My new Workflow",
-        description: "My workflow..."
-      })
+    return this.get('store').createRecord('workflow', {
+      tasks: [],
+      flows: [],
+      user_id: user.id,
+      user_login: user.email,
+      user_name: `${user.firstname} ${user.lastname}`,
+      name: "My new Workflow",
+      description: "My workflow..."
     });
   },
   actions:{
     create(){
-      var workflow = this.currentModel.workflow
+      var workflow = this.currentModel;
       workflow.save().then(() => {
-        this.transitionTo('workflow.edit', workflow.get('id'))
+        this.transitionTo('workflow.edit', workflow.get('id'));
       });
     },
   },

@@ -10,7 +10,6 @@ export default DS.Transform.extend({
   },
 
   serialize(deserialized) {
-    window.des = deserialized;
     return deserialized;
   }
 });

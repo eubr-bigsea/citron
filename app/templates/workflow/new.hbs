@@ -1,4 +1,4 @@
-{{workflow.config-sidebar workflowConfig='sidebar-active' workflow=model.workflow currentAction='Creating new'}}
+{{workflow.config-sidebar workflowConfig='sidebar-active' workflow=model currentAction='Creating new'}}
 <article class="content item-editor-page">
   <div class="title-block">
     <h3 class="title"> Creating new workflow:
@@ -6,6 +6,6 @@
     </h3>
   </div>
   <form name="item" id="edit-workflow" {{action 'create' on='submit'}}>
-    {{workflow.workflow-form workflow=model.workflow buttonText='Create' }}
+    {{workflow.workflow-form workflow=model buttonText='Create' }}
   </form>
 </article>

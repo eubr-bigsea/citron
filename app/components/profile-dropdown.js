@@ -11,9 +11,6 @@ export default Component.extend({
   isEditing: false,
 
   actions: {
-    getSession(){
-      window.s = this;
-    },
     invalidateSession(){
       this.get('session').invalidate();
     },
