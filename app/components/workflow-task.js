@@ -40,6 +40,23 @@ export default Ember.Component.extend({
               isTarget: isInput,
               anchors: anchorPosition(isInput, type.length, i),
               uuid: uuid,
+              endpoint: [
+                isInput ? "Dot" : "Rectangle", {
+                  radius: 5,
+                  width: 10,
+                  height: 10
+                }
+              ],
+              connector: 'Flowchart',
+              connectorOverlays: [
+                [
+                  "Arrow", {
+                    location: 0.75,
+                    length: 15,
+                    foldback: 0.8
+                  }
+                ]
+              ],
               maxConnections: -1,
               beforeDetach: (params) => {
                 let id1 = params.endpoints[0].getUuid().split('/');

@@ -1,4 +1,4 @@
 {{form-label field=field}}
 {{#each parsedValues as |value|}}
-  <div class="color-item" style={{backgroundColor value.value}}></div>
+  <div {{action 'updateColor' value.value}} class="color-item" style={{backgroundColor value.value}}></div>
 {{/each}}

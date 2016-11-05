@@ -3,9 +3,9 @@
     {{workflow-header workflow=workflow}}
     {{workflow-sidebar operations=operations}}
     <div class="content">
-      <div class="row">
-        {{workflow-diagram id="diagram" class="col-xs-10" workflow=workflow forms=forms}}
-        {{workflow-forms id="forms" class="col-xs-2" forms=forms}}
+      <div id="workflow" class="row">
+        {{workflow-diagram id="diagram" class="col-xs-9" workflow=workflow forms=forms}}
+        {{workflow-forms id="forms" class="col-xs-3" forms=forms}}
       </div>
     </div>
     {{workflow-footer}}
