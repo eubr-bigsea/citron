@@ -6,8 +6,9 @@ export default Ember.Component.extend({
     this.set('parsedValues', JSON.parse(this.get('field.values')));
   },
   actions: {
-    updateColor(color) {
-      this.set('value', color);
+    valueUpdated(newValue) {
+      this.set('value', newValue);
+      this.get('onChange')(this.get('field.name'), this.get('value'));
     }
   }
 });

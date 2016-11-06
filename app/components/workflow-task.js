@@ -34,6 +34,8 @@ export default Ember.Component.extend({
           });
         });
 
+        el.css('background-color', task.forms.get('color'));
+
         let isInput = true;
         [input, output].forEach((type) => {
           type.forEach((port, i) => {
@@ -103,7 +105,7 @@ export default Ember.Component.extend({
     Ember.$(el).click(() => {
       Ember.$('.ui-selected').removeClass('ui-selected');
       Ember.$(el).addClass('ui-selected');
-      clickTask(this.get('forms'), task.forms);
+      clickTask(this.get('forms'), task.forms, task);
     });
   },
   actions: {

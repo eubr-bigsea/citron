@@ -50,8 +50,7 @@ fieldset p {
 }
 
 #diagram .ui-selected {
-  background: #F39814;
-  color: white;
+  border-color: #F39814;
 }
 
 .color-item {

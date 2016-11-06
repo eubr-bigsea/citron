@@ -56,10 +56,11 @@ export default Ember.Component.extend({
     });
   },
   actions: {
-    clickTask(forms, filledForms) {
+    clickTask(forms, filledForms, task) {
       let fn = function(a, b) { return a.order > b.order; };
       this.set('forms', forms.sort(fn));
       this.set('filledForms', filledForms);
+      this.set('task', task);
     },
     saveTasks() {
       this.get('workflow').save();
