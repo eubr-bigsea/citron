@@ -47,6 +47,7 @@ export default Ember.Component.extend({
       },
       stop() {
         el.set('forms', Ember.Object.create());
+        el.set('filledForms', Ember.Object.create());
       }
     });
     this.get('workflow').get('flows').forEach((flow) => {
@@ -55,9 +56,10 @@ export default Ember.Component.extend({
     });
   },
   actions: {
-    clickTask(forms) {
+    clickTask(forms, filledForms) {
       let fn = function(a, b) { return a.order > b.order; };
       this.set('forms', forms.sort(fn));
+      this.set('filledForms', filledForms);
     },
     saveTasks() {
       this.get('workflow').save();
