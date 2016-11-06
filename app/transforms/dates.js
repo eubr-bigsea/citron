@@ -5,7 +5,7 @@ export default DS.Transform.extend({
 
   deserialize(serialized) {
     var date = serialized.split('T')[0].split('-');
-    var month = this.get('months')[date[1]-1]
+    var month = this.get('months')[date[1]-1];
     return [date[2],month,date[0]].join(' ');
   },
 
