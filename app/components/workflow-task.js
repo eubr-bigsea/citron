@@ -24,10 +24,13 @@ export default Ember.Component.extend({
         let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
 
         this.set('forms', op.get('forms'));
-        task.forms = Ember.Object.create();
+
+        task.forms = Ember.Object.create(task.forms);
         op.get('forms').forEach((el) => {
           el.fields.forEach((field) => {
-            task.forms.set(field.name, field.default);
+            if(task.forms.get(field.name) === undefined) {
+              task.forms.set(field.name, field.default);
+            }
           });
         });
 
