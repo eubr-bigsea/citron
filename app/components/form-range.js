@@ -1,15 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  value: Ember.computed('field', function() {
-    return this.get('field.values');
-  }),
-  deltaValue: Ember.computed('value', function() {
-    return 100 - this.get('value');
-  }),
+  init() {
+    this._super(...arguments);
+    this.set('value', this.get('field.values'));
+    this.set('deltaValue', 100 - this.get('field.values'));
+  },
   actions: {
-    updateValue() {
-      this.set('value', Ember.$(this.element).children('input').val());
+    updateValue(newValue) {
+      this.set('value', newValue);
+      this.set('deltaValue', 100 - newValue);
+      this.get('onChange')(this.get('field.name'), newValue);
     }
   }
 });

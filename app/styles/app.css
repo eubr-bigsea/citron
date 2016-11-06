@@ -62,6 +62,6 @@ fieldset p {
   border: 1px solid #CCC;
 }
 
-.color_item .active {
+.color-item.active {
   border-color: #555;
 }

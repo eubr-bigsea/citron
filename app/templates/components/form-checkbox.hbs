@@ -1,4 +1,1 @@
-<input type="checkbox" value={{input.value}} value="Y" id="checkboxComponentInput"/>
-<label for="checkboxComponentInput">
-  {{field.label}}
-</label>
+<input type="checkbox" value={{value}} onchange={{action 'valueUpdated' value='target.value'}}/>
