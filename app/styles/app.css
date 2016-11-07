@@ -12,10 +12,6 @@
   margin-bottom: 0;
 }
 
-#description {
-  height: 30vh;
-}
-
 textarea {
   height: 70vh;
 }
@@ -27,15 +23,5 @@ textarea {
 
 #diagram .ui-selected {
   background: #F39814;
-  color: white;
-}
-
-.sidebar-active {
-  background: #4bcf99;
-}
-.sidebar-active .fa {
-  color: white;
-}
-.sidebar-active span{
   color: white;
 }

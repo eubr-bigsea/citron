@@ -1,30 +1,22 @@
 import Ember from 'ember';
+import groupBy from 'lemonade-ember/utils/group-by';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import RSVP from 'rsvp';
 
-const { inject: { service } } = Ember;
-
-export default Ember.Route.extend({
-  currentUser: service('current-user'),
-
+export default Ember.Route.extend(AuthenticatedRouteMixin,{
   model() {
     this._super(...arguments);
-    var user = this.get('currentUser');
 
-    return this.get('store').createRecord('workflow', {
-      tasks: [],
-      flows: [],
-      user_id: user.id,
-      user_login: user.email,
-      user_name: `${user.firstname} ${user.lastname}`,
-      name: "My new Workflow",
-      description: "My workflow..."
+    return RSVP.hash({
+      workflow: this.get('store').createRecord('workflow', {
+        tasks: [],
+        flows: [],
+        user_id: 1,
+        user_login: 'walter',
+        user_name: 'Walter dos Santos Filho',
+        name: "My new Workflow"
+      }),
+      operations: groupBy(this.store.findAll('operation'), 'categories')
     });
-  },
-  actions:{
-    create(){
-      var workflow = this.currentModel;
-      workflow.save().then(() => {
-        this.transitionTo('workflow.edit', workflow.get('id'));
-      });
-    },
-  },
+  }
 });
