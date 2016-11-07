@@ -12,6 +12,7 @@ export default Ember.Component.extend({
     const task = this.get('task');
     const el = Ember.$(`#${this.elementId}`);
     const jsplumb = this.get('jsplumb');
+    const clickTask = this.get('clickTask');
 
     el.css('top', task.top);
     el.css('left', task.left);
@@ -22,6 +23,19 @@ export default Ember.Component.extend({
         let input = op.get('ports').filter(p => p.type === 'INPUT').sort(fn);
         let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
 
+        this.set('forms', op.get('forms'));
+
+        task.forms = Ember.Object.create(task.forms);
+        op.get('forms').forEach((el) => {
+          el.fields.forEach((field) => {
+            if(task.forms.get(field.name) === undefined) {
+              task.forms.set(field.name, field.default);
+            }
+          });
+        });
+
+        el.css('background-color', task.forms.get('color'));
+
         let isInput = true;
         [input, output].forEach((type) => {
           type.forEach((port, i) => {
@@ -31,6 +45,23 @@ export default Ember.Component.extend({
               isTarget: isInput,
               anchors: anchorPosition(isInput, type.length, i),
               uuid: uuid,
+              endpoint: [
+                isInput ? "Dot" : "Rectangle", {
+                  radius: 5,
+                  width: 10,
+                  height: 10
+                }
+              ],
+              connector: 'Flowchart',
+              connectorOverlays: [
+                [
+                  "Arrow", {
+                    location: 0.75,
+                    length: 15,
+                    foldback: 0.8
+                  }
+                ]
+              ],
               maxConnections: -1,
               beforeDetach: (params) => {
                 let id1 = params.endpoints[0].getUuid().split('/');
@@ -74,6 +105,7 @@ export default Ember.Component.extend({
     Ember.$(el).click(() => {
       Ember.$('.ui-selected').removeClass('ui-selected');
       Ember.$(el).addClass('ui-selected');
+      clickTask(this.get('forms'), task.forms, task);
     });
   },
   actions: {

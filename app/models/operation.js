@@ -8,5 +8,6 @@ export default DS.Model.extend({
   type: attr('string'),
   slug: attr('string'),
   categories: attr(),
-  ports: attr()
+  ports: attr(),
+  forms: attr(),
 });

@@ -5,7 +5,6 @@ import generateUUID from 'lemonade-ember/utils/generate-uuid';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
-  classNames: ['col-xs-12'],
   tasks: [],
   flows: [],
   init() {
@@ -21,6 +20,8 @@ export default Ember.Component.extend({
     });
   },
   didInsertElement() {
+    let el = this;
+
     Ember.$(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
         let task = {
@@ -41,8 +42,12 @@ export default Ember.Component.extend({
         this.get('workflow').save();
       }
     }).selectable({
-      selected: function() {
+      selected() {
         Ember.$('.ui-selected').removeClass('ui-selected');
+      },
+      stop() {
+        el.set('forms', Ember.Object.create());
+        el.set('filledForms', Ember.Object.create());
       }
     });
     this.get('workflow').get('flows').forEach((flow) => {
@@ -51,6 +56,12 @@ export default Ember.Component.extend({
     });
   },
   actions: {
+    clickTask(forms, filledForms, task) {
+      let fn = function(a, b) { return a.order > b.order; };
+      this.set('forms', forms.sort(fn));
+      this.set('filledForms', filledForms);
+      this.set('task', task);
+    },
     saveTasks() {
       this.get('workflow').save();
     },

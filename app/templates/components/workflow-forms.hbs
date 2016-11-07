@@ -1,0 +1,12 @@
+{{#each forms as |form|}}
+  <fieldset>
+    <legend>{{form.name}}</legend>
+    {{#each form.fields as |field|}}
+      {{form-label field=field}}
+      {{component (concat 'form-' field.suggested_widget) value=(get filledForms field.name) field=field onChange=(action 'formChanged')}}
+    {{/each}}
+  </fieldset>
+{{/each}}
+{{#if forms.length}}
+  <button {{action 'saveForm'}} class="btn btn-default" type="button">Salvar</button>
+{{/if}}
