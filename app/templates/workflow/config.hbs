@@ -1,0 +1,12 @@
+{{workflow.config-sidebar workflowConfig='sidebar-active' workflow=model.workflow currentAction='Editing this'}}
+<article class="content item-editor-page">
+  <div class="title-block">
+    <h3 class="title"> Editing workflow: {{model.name}}
+      <span class="sparkline bar" data-type="bar"></span>
+    </h3>
+  </div>
+  <form name="item" id="edit-workflow" {{action 'save' on='submit'}}>
+    {{workflow.workflow-form workflow=model buttonText='Save'}}
+  </form>
+</article>
+
