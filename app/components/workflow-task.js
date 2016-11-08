@@ -28,13 +28,14 @@ export default Ember.Component.extend({
         task.forms = Ember.Object.create(task.forms);
         op.get('forms').forEach((el) => {
           el.fields.forEach((field) => {
-            if(task.forms.get(field.name) === undefined) {
-              task.forms.set(field.name, field.default);
+            if(task.forms.get(field.name) === undefined ||
+              task.forms.get(field.name).value === undefined) {
+              task.forms.set(field.name, {value: field.default});
             }
           });
         });
 
-        el.css('background-color', task.forms.get('color'));
+        el.css('background-color', task.forms.get('color').value);
 
         let isInput = true;
         [input, output].forEach((type) => {
