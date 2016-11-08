@@ -48,6 +48,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.host = 'http://torn.speed.dcc.ufmg.br';
   }
 
   return ENV;
