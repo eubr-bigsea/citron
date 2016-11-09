@@ -27,7 +27,7 @@ export default Base.extend({
       ajax(requestOptions).then(
         (response) => {
           var authToken = response.auth_token;
-          var decodedToken = jwt.verify(authToken, ENV.CITRON_PRIVATE_KEY);
+          var decodedToken = jwt.decode(authToken);
           if (decodedToken){
             run(() => { resolve({token: authToken, currentUser: decodedToken.user}); });
           }else{ run(() => { reject({error:'Session expired'}); }); }
