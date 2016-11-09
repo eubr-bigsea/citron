@@ -1,10 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300);
-@import url(https://fonts.googleapis.com/css?family=Muli);
-/*You can add your won color also */
-
-
 .bgimg {
-  background-image: url('images/lemon.jpg');
+  background-image: url('/assets/images/lemon.jpg');
   min-height: 400px;
 }
 
@@ -152,13 +147,11 @@ button:hover {
   border-radius: 1.5em;
 }
 .btn-outline {
-
   border-width: 2px;
 }
 .btn-outline:hover {
   color: #fff;
   border: 2px solid transparent;
-
 }
 .btn-common:hover:before {
   width: 100%;
@@ -934,7 +927,6 @@ ul li > ul {
 ul li > ul > li > a {
   color: #666;
   padding: 10px 0 10px 15px;
-  margin: 5px 0;
 }
 ul li > ul > li > a:hover,
 ul li > ul > li > a .active {
@@ -1357,7 +1349,6 @@ ul li > ul > li.active > a {
   padding-left: 100px;
 }
 #other-services .other-service-item .service-content h3 {
-
   font-size: 24px;
   clear: inherit;
 }
@@ -1779,7 +1770,6 @@ ul li > ul > li.active > a {
 }
 #team .team-item .social a:hover {
   background: transparent;
-
 }
 #team .info {
   background: #F6F6F6;
@@ -1798,7 +1788,6 @@ ul li > ul > li.active > a {
   text-transform: uppercase;
 }
 .orange-line {
-
   margin: 12px auto 6px;
   width: 52px;
   height: 1px;

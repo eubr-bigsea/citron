@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import RSVP from 'rsvp';
 
 export default Ember.Route.extend({
   model(params) {
@@ -9,7 +8,7 @@ export default Ember.Route.extend({
   actions:{
     save(){
       var workflow = this.currentModel;
-      this.transitionTo('workflow.edit',workflow.id);
+      this.transitionTo('workflow.edit', workflow.id);
     },
   },
 });

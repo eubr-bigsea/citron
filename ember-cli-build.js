@@ -24,44 +24,6 @@ module.exports = function(defaults) {
   app.import('bower_components/jquery-ui/themes/base/jquery-ui.css');
   app.import('bower_components/jquery-ui/jquery-ui.js');
 
-  //app.import('vendor/modular-admin-html-1.0.1/css/misc.css');
-  app.import('vendor/engage/css/main.css');
-  app.import('vendor/engage/css/responsive.css');
-  app.import('vendor/engage/extras/animate.css');
-  app.import('vendor/engage/extras/normalize.css');
-  app.import('vendor/engage/extras/settings.css');
-  app.import('vendor/engage/extras/owl/owl.carousel.css');
-  app.import('vendor/engage/extras/owl/owl.theme.css');
-  app.import('vendor/engage/css/color-switcher.css');
-  app.import('vendor/engage/colors/green.css');
-
-  app.import('vendor/modular-admin-html-1.0.1/css/alert.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/app.css')
-  app.import('vendor/modular-admin-html-1.0.1/css/auth.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/btn.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/card.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/dashboard.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/dropdownmenu.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/errors.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/footer.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/form.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/header.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/images.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/item.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/nav.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/sidebar.css');
-  app.import('vendor/modular-admin-html-1.0.1/css/table.css');
-
-  app.import('vendor/engage/css/main.css');
-  app.import('vendor/engage/css/responsive.css');
-  app.import('vendor/engage/extras/animate.css');
-  app.import('vendor/engage/extras/normalize.css');
-  app.import('vendor/engage/extras/settings.css');
-  app.import('vendor/engage/extras/owl/owl.carousel.css');
-  app.import('vendor/engage/extras/owl/owl.theme.css');
-  app.import('vendor/engage/css/color-switcher.css');
-  app.import('vendor/engage/colors/green.css');
-
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
