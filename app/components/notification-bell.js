@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['notifications', 'new,'],
+  classNames: ['notifications', 'new'],
   tagName: 'li',
 });
