@@ -5,11 +5,12 @@ import generateUUID from 'lemonade-ember/utils/generate-uuid';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
-  tasks: [],
-  flows: [],
   init() {
     this._super(...arguments);
     this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
+
+    this.set('tasks', Ember.A());
+    this.set('flows', Ember.A());
 
     this.get('workflow').get('tasks').forEach((task) => {
       this.get('tasks').addObject(task);
