@@ -1,0 +1,24 @@
+.btn {
+  background-image: none;
+  border-radius: 0;
+  margin-bottom: 5px; }
+  .btn.btn-pill-left:focus, .btn.btn-pill-right:focus, .btn.btn-oval:focus {
+    outline: none;
+    outline-offset: initial; }
+  .btn.btn-pill-left {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px; }
+  .btn.btn-pill-right {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px; }
+  .btn.btn-oval {
+    border-radius: 25px; }
+  .btn.btn-link {
+    text-decoration: none; }
+  .btn strong {
+    font-weight: 600; }
+
+.btn-group .dropdown-menu > li:last-child a:hover:before {
+  height: 0px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0); }
