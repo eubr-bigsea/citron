@@ -23,6 +23,8 @@ export default Ember.Component.extend({
   didInsertElement() {
     let el = this;
 
+    Ps.initialize(document.getElementById(this.elementId));
+
     Ember.$(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
         let task = {

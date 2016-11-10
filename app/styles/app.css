@@ -105,14 +105,16 @@ body {
 
 #diagram {
   background: #d7dde4;
-  height: 100vh;
+  height: 70vh;
+  overflow: hidden;
 }
 
 #forms {
   background: white;
-  height: 100vh;
+  height: 70vh;
   font-family: Verdana;
   font-size: 10px;
+  overflow: hidden;
 }
 
 fieldset {

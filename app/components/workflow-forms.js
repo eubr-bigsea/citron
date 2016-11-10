@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  didInsertElement() {
+    Ps.initialize(document.getElementById(this.elementId));
+  },
   actions: {
     formChanged(key, value) {
       this.set(`filledForms.${key}.value`, value);

@@ -24,6 +24,9 @@ module.exports = function(defaults) {
   app.import('bower_components/jquery-ui/themes/base/jquery-ui.css');
   app.import('bower_components/jquery-ui/jquery-ui.js');
 
+  app.import('bower_components/perfect-scrollbar/js/perfect-scrollbar.js');
+  app.import('bower_components/perfect-scrollbar/css/perfect-scrollbar.css');
+
 //  app.import('vendor/modular-admin-html-1.0.1/css/alert.css');
 //  app.import('vendor/modular-admin-html-1.0.1/css/app.css');
 //  app.import('vendor/modular-admin-html-1.0.1/css/btn.css');
