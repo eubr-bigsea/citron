@@ -1,4 +1,5 @@
 /* global jsPlumb */
+/* global Ps */
 
 import Ember from 'ember';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';

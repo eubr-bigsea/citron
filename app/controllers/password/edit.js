@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
   validatePassword: function(password, retypePassword){
     if(password.length < 6){
       this.set('passwordFormGroup', 'form-group has-error');
-      this.set('invalidPasswordErrorMessage', 'Password to short');
+      this.set('invalidPasswordErrorMessage', 'Password too short');
       return false;
     } else if( password !== retypePassword){
       this.set('passwordFormGroup', 'form-group has-error');

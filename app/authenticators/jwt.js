@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import Base from 'ember-simple-auth/authenticators/base';
 import config from '../config/environment';
-import ENV from '../config/environment';
 import jsonwebtoken from 'npm:jsonwebtoken';
 
 const { RSVP: { Promise }, $: { ajax }, run } = Ember;
