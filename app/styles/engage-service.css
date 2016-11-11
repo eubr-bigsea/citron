@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Service Section Start
+   ========================================================================== */
+.service-item {
+  text-align: center;
+}
+.service-item .icon-wrapper {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.service-item .icon-wrapper i {
+  display: block;
+  margin: 0 auto;
+
+}
+.service-item h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+.service-item p {
+  font-size: 13px;
+}
+/* Pulse Shrink */
+@-webkit-keyframes pulse-shrink {
+  to {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@keyframes pulse-shrink {
+  to {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+.pulse-shrink {
+  display: inline-block;
+}
+.service-item:hover .pulse-shrink {
+  -webkit-animation-name: pulse-shrink;
+  animation-name: pulse-shrink;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+
+#other-services {
+  background: #fff;
+}
+#other-services .nav-tabs {
+  border-bottom: none;
+  float: left;
+}
+#other-services .nav-tabs li {
+  float: none;
+}
+#other-services .nav-tabs li a {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+#other-services .nav-tabs li a i {
+  background: #81868e;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  float: left;
+  width: 50px;
+  border-radius: 50%;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#other-services .nav-tabs li a:hover i,
+#other-services .nav-tabs li a:focus,
+#other-services .nav-tabs li a.active i {
+
+}
+#other-services .tab-content {
+  margin: 10px 0px 0px 80px;
+}
+#other-services .service-content h3 {
+  font-size: 20px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+#other-services .service-content p.lead {
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 25px;
+}
+#other-services .service-content p {
+  font-size: 14px;
+}
+#other-services .other-service-item {
+  padding-bottom: 30px;
+}
+#other-services .other-service-item .icon {
+  float: left;
+}
+#other-services .other-service-item .icon .icon-medium {
+  background: #E74C3C;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+  float: left;
+  width: 70px;
+  border-radius: 50%;
+  height: 70px;
+  line-height: 70px;
+  margin: 12px 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#other-services .other-service-item .service-content {
+  padding-left: 100px;
+}
+#other-services .other-service-item .service-content h3 {
+  font-size: 24px;
+  clear: inherit;
+}
+#other-services .other-service-item .service-content p {
+  padding: 0px 36px 0px 0px;
+}
+#other-services .other-service-item:hover .icon-medium {
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  -o-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+  -webkit-transition: all 0.6s linear;
+  -moz-transition: all 0.6s linear;
+  -o-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+  background: #666;
+}
+#other-services img {
+  max-width: 100%;
+  padding: 22px;
+}
+.skill p {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.progress {
+  background: #F5F5F5;
+  height: 10px;
+  margin: 0 0 20px;
+  position: relative;
+  width: 100%;
+}
+
+

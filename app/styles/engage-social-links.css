@@ -1,0 +1,39 @@
+.social-links {
+  display: inline-block;
+}
+.social-links a {
+  display: inline-block;
+  margin: 0 0 0 5px;
+}
+.social-links a i {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  border-radius: 100%;
+  line-height: 32px;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social-links a i:hover {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social-links a .fa-twitter:hover {
+  color: #00aced;
+}
+.social-links a .fa-facebook:hover {
+  color: #3b5998;
+}
+.social-links a .fa-google-plus:hover {
+  color: #dd4b39;
+}
+.social-links a .fa-youtube-play:hover {
+  color: #bb0000;
+}
+.social-links a .fa-linkedin:hover {
+  color: #007bb6;
+}
