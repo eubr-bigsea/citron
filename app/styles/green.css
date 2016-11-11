@@ -18,7 +18,6 @@ a:hover{
 .small-title::before{
 	border-color: #9C3;
 }
-.page-header-section{background: #9C3;}
 #service-block-main .service-item:hover i{
 	color: #9C3;
 	border-color: #9C3;
@@ -34,54 +33,7 @@ a:hover{
 }
 
 
-.scroll-top:hover{
-	background: #9C3;
-	border-color: #9C3;
-}
 
-/* services */
-#service-block-1 .service-item:hover .service-content h2{
-	color: #9C3;
-}
-#service-block-1 .service-item:hover .icon{
-	border-color: #9C3;
-}
-#service-block-1 .service-item:hover .icon i{
-	background: #9C3;
-}
-#service-block-2 .service-inner:hover i{
-	color: #9C3;
-}
-#service-block-2 .service-inner:hover h3{
-	color: #9C3;
-}
-#team-block-2 .team-member:hover{
-	border-color: #9C3;
-}
-
-/*  Mobile menu */
-.slicknav_btn{
-  border-color: #9C3;
-}
-.slicknav_btn:hover{
-	background: #9C3;
-}
-.slicknav_nav a:hover,
-.slicknav_open .active a{
-  color: #9C3;
-}
-.slicknav_menu .slicknav_icon-bar{
-  background: #9C3;
-}
-.tparrows.preview2:hover:after{
-	color: #9C3;
-}
-#default-tab .nav-tabs > li > a.active , #default-tab .nav-tabs > li a.active:focus, #default-tab .nav-tabs > li a.active:hover {
-    color: #9C3;
-}
-#default-tab ul.nav-tabs > li a.active::before {
-  background-color: #9C3;
-}
 
 /* New Css */
 
@@ -89,10 +41,7 @@ a:hover{
 i.icon-round {
   background-color: #9C3;
 }
-i.icon-round-border {
-  border: 3px solid #9C3;
-  color: #9C3;
-}
+
 
 .btn-common {
   background: #3a4651 none repeat scroll 0 0;
@@ -120,10 +69,7 @@ i.icon-round-border {
   background: #9C3 none repeat scroll 0 0;
 }
 
-#main-menu ul .dropdown .dropdown-menu .dropdown-item.active, #main-menu ul .dropdown .dropdown-menu .dropdown-item.active:focus, #main-menu ul .dropdown .dropdown-menu .dropdown-item.active:hover {
-  color: #9C3  ;
-  background-color: #eee;
-}
+
 #main-menu .nav-link.active {
   color: #9C3;
 }
@@ -136,6 +82,4 @@ i.icon-round-border {
 #team .team-item .social a:hover {
   color: #9C3;
 }
-#main-menu ul .dropdown .dropdown-menu a:hover, #main-menu .dropdown .dropdown-menu a .active {
-  color: #9C3;
-}
+

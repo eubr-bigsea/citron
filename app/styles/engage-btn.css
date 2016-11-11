@@ -1,7 +1,6 @@
-.btn,
+.btn-lndg-pg,
 button {
   padding: 7px 30px;
-  border-radius: 0px;
   font-weight: 400;
   color: #fff;
   font-size: 13px;
@@ -10,17 +9,17 @@ button {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   display: inline-block;
+  border-radius: 0;
+  margin-bottom: 5px;
 }
-.btn:hover,
+.btn-lndg-pg:hover,
 button:hover {
   color: #fff;
 }
 .section {
   padding: 80px 0;
 }
-.input-group-btn button {
-  padding: 11px 20px;
-}
+
 .btn-common {
   color: #FFF;
   background: #ff5959;
@@ -43,48 +42,15 @@ button:hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-.btn-radius:before {
-  border-radius: 5px 0px 0px 5px;
-}
-.btn-round {
-  border-radius: 1.5em;
-}
-.btn-outline {
-  border-width: 2px;
-}
-.btn-outline:hover {
-  color: #fff;
-  border: 2px solid transparent;
-}
+
+
 .btn-common:hover:before {
   width: 100%;
 }
-.btn-border {
-  background: rgba(255, 255, 255, 0.18);
-  border: 2px solid #fff;
-  color: #fff;
-}
-.btn-border:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border: 2px solid #ffffff;
-  color: #fff;
-}
+
 .btn-lg {
   padding: 14px 33px;
   text-transform: uppercase;
   font-size: 16px;
 }
-.btn-xs {
-  font-size: 11px;
-  padding: 10px 12px;
-}
-.btn-sm {
-  padding: 12px 15px;
-}
-.btn-md {
-  font-size: 15px;
-  padding: 12px 25px;
-}
-.btn-radius {
-  border-radius: 5px;
-}
+
