@@ -22,8 +22,8 @@ module.exports = function(environment) {
       // when it is created
     },
     'ember-simple-auth': {
-      authorizer: 'authorizer:custom',
-      routeAfterAuthentication: '/workflows'
+      authorizer: 'authorizer:devise',
+      routeAfterAuthentication: '/home/workflows'
     },
   };
 
@@ -33,7 +33,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.host = 'http://localhost:3000';
+    ENV.thorn = 'http://localhost:3000';
   }
 
   if (environment === 'test') {
@@ -48,10 +48,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.host = 'http://torn.speed.dcc.ufmg.br';
+    ENV.thorn = 'http://thorn.speed.dcc.ufmg.br';
   }
   ENV['ember-simple-auth'] = {
-    authorizer: 'authorizer:custom',
+    authorizer: 'authorizer:devise',
     routeAfterAuthentication: '/home/workflows'
   };
 

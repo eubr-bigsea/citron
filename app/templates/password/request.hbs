@@ -11,7 +11,7 @@
         <p class="text-xs-center">PASSWORD RECOVER</p>
         <p class="text-muted text-xs-center"><small>Enter your email address to recover your password.</small></p>
         {{else}}
-        <h3 class="text-xs-center">{{successMessage}}</h3>
+        <h6 class="text-xs-center" style="color: #40bb89;">{{successMessage}}</h6>
         {{/unless}}
         <form id="reset-form" {{ action 'request'  on='submit'}}>
           <div class={{emailFormGroup}}>

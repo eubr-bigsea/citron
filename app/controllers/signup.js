@@ -14,22 +14,18 @@ export default Ember.Controller.extend({
 
   createAccount: function(userData){
     var requestOptions = {
-      url: `${config.host}/users`,
+      url: `${config.thorn}/users`,
       type: 'POST',
-      data: {user: userData},
+      data: userData,
     };
     return new Promise((resolve, reject) => {
       ajax(requestOptions).then(
-        () => {
-          run(() => { resolve( {email: userData.email, password: userData.password} ); });
-        },
-        (error) => {
-          run(() => { reject(error.responseJSON); }); }
-      );
+        () => { run(() => { resolve( {email: userData.email, password: userData.password} ); }); },
+        (error) => { run(() => { reject(error.responseJSON); }); });
     });
   },
 
-  resetAlerts: function(){
+  resetAlerts(){
     this.setProperties({
       mailFormGroup: 'form-group',
       invalidEmailErrorMessage: null,
@@ -38,39 +34,26 @@ export default Ember.Controller.extend({
     });
   },
 
-  validatePassword: function(password, retypePassword){
-    if(password.length < 6){
+  alertErrors(errors){
+    if (errors.email){
+      this.set('emailFormGroup', 'form-group has-error');
+      this.set('invalidEmailErrorMessage', `This email ${errors.email}`);
+    } else if (errors.password){
       this.set('passwordFormGroup', 'form-group has-error');
-      this.set('invalidPasswordErrorMessage', 'Password too short');
-      return false;
-    } else if( password !== retypePassword){
+      this.set('invalidPasswordErrorMessage', `Password ${errors.password}`);
+    } else if (errors.password_confirmation){
       this.set('passwordFormGroup', 'form-group has-error');
-      this.set('invalidPasswordErrorMessage', 'Retyped password not match');
-      return false;
+      this.set('invalidPasswordErrorMessage', `Password ${errors.password_confirmation}`);
     }
-    return true;
   },
 
   actions:{
     signup(){
-
       this.resetAlerts();
-
-      let userData = this.getProperties('email', 'password','firstname', 'lastname');
-      let retypePassword = this.getProperties('retypePassword').retypePassword;
-
-      if(this.validatePassword(userData.password, retypePassword)){
-        this.createAccount(userData)
-          .catch((reason) => {
-            if ( reason.code === 3 ){
-              this.set('emailFormGroup', 'form-group has-error');
-              this.set('invalidEmailErrorMessage', reason.errorMessage);
-            }
-          })
-          .then((creds) => {
-            this.get('session').authenticate('authenticator:jwt', creds);
-          });
-      }
+      let userData = this.getProperties('email', 'password','firstname', 'lastname', 'password_confirmation');
+      this.createAccount(userData)
+        .catch((reason) => { if(reason.errors){ this.alertErrors(reason.errors); }})
+        .then(()=>{this.get('session').authenticate('authenticator:devise', userData.email, userData.password); });
     },
   },
 });
