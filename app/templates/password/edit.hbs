@@ -20,7 +20,7 @@
               <div class="col-sm-6">
                 {{input type="password" class="form-control underlined" name="password" id="password" placeholder="Enter password"  value=password}} </div>
               <div class="col-sm-6">
-                {{input type="password" class="form-control underlined" name="retype_password" id="retype_password" placeholder="Re-type password" value=retypePassword}}
+                {{input type="password" class="form-control underlined" name="retype_password" id="retype_password" placeholder="Re-type password" value=password_confirmation}}
               </div>
               {{#if invalidPasswordErrorMessage}} <span id="password-error" class="has-error">{{invalidPasswordErrorMessage}}</span>{{/if}}
             </div>

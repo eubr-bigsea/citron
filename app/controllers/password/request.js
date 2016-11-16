@@ -8,7 +8,8 @@ export default Ember.Controller.extend({
   processingRequest: false,
   emailFormGroup: 'form-group',
   invalidEmailErrorMessage: null,
-  resetAlerts: function(){
+
+  resetAlerts(){
     this.setProperties({
       successMessage: null,
       mailFormGroup: 'form-group',
@@ -18,35 +19,27 @@ export default Ember.Controller.extend({
   },
 
   actions:{
-    request: function(){
+    request(){
       this.resetAlerts();
       this.set('processingRequest', true);
-      var email =  this.getProperties('email');
+      var cred =  this.getProperties('email');
       var requestOptions = {
-        url: `${config.host}/users/password/new`,
-        type: 'GET',
-        data: email,
+        url: `${config.thorn}/users/password`,
+        type: 'POST',
+        data: { email: cred.email, redirect_url:`${config.citron}` }
       };
       return new Promise((resolve, reject) => {
         ajax(requestOptions).then(
-          (success) => {
-            run(() => { resolve(success); });
-          },
-          (error) => {
-            run(() => { reject(error.responseJSON); }); }
+          (success) => { run(() => { resolve(success); }); },
+          (error) => { run(() => { reject(error.responseJSON); }); }
         );
       })
-        .then((response) =>{
-          this.set('successMessage', response.successMessage);
-          //sleep 7 seg then redirect
-          run.later(() => { this.transitionToRoute('/'); }, 7000);
-        })
+        .then(() =>{ run.later(() => { this.transitionToRoute('/'); }, 7000); })
         .catch((reason) => {
           this.set('processingRequest', false);
           this.set('emailFormGroup', 'form-group has-error');
-          this.set('invalidEmailErrorMessage', reason.errorMessage);
+          this.set('invalidEmailErrorMessage', reason.errors);
         });
-
     },
   },
 });

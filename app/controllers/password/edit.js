@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import config from '../../config/environment';
 
-const { RSVP: { Promise }, $: { ajax }, run } = Ember;
+const { $: { ajax }, run } = Ember;
 
 export default Ember.Controller.extend({
   queryParams: ['reset_password_token'],
@@ -23,52 +23,43 @@ export default Ember.Controller.extend({
       processingRequest: false,
     });
   },
-  validatePassword: function(password, retypePassword){
-    if(password.length < 6){
-      this.set('passwordFormGroup', 'form-group has-error');
-      this.set('invalidPasswordErrorMessage', 'Password too short');
-      return false;
-    } else if( password !== retypePassword){
-      this.set('passwordFormGroup', 'form-group has-error');
-      this.set('invalidPasswordErrorMessage', 'Retyped password not match');
-      return false;
-    }
-    return true;
-  },
 
+  alertErrors(errors){
+    if (errors.email){
+      this.set('emailFormGroup', 'form-group has-error');
+      this.set('invalidEmailErrorMessage', `This email ${errors.email}`);
+    } else if (errors.password){
+      this.set('passwordFormGroup', 'form-group has-error');
+      this.set('invalidPasswordErrorMessage', `Password ${errors.password}`);
+    } else if (errors.password_confirmation){
+      this.set('passwordFormGroup', 'form-group has-error');
+      this.set('invalidPasswordErrorMessage', `Password ${errors.password_confirmation}`);
+    } else if (errors[0]){
+      this.set('passwordFormGroup', 'form-group has-error');
+      this.set('invalidPasswordErrorMessage', errors[0]);
+    }
+  },
 
   actions:{
     request: function(){
       this.resetAlerts();
       this.set('processingRequest', true);
-      var userData =  this.getProperties('email', 'password', 'retypePassword', 'reset_password_token');
-      if(this.validatePassword(userData.password, userData.retypePassword)){
-
+      let { email, password, password_confirmation, reset_password_token } = this.getProperties('email', 'password', 'password_confirmation', 'reset_password_token');
       var requestOptions = {
-        url: `${config.host}/users/password`,
-        data: userData,
-        type : 'POST',
-
+        url: `${config.thorn}/users/password`,
+        data: {
+          email: email,
+          password: password,
+          password_confirmation: password_confirmation,
+          reset_password_token: reset_password_token
+        },
+        type : 'PUT',
       };
-      return new Promise((resolve, reject) => {
-        ajax(requestOptions).then(
-          (success) => {
-            run(() => { resolve(success); });
-          },
-          (error) => {
-            run(() => { reject(error.responseJSON); }); }
+      ajax(requestOptions)
+        .then(
+          () =>{ run(() => { this.transitionToRoute('login'); });},
+          (reason) => { this.alertErrors(reason.responseJSON.errors); }
         );
-      })
-        .then((response) =>{
-          this.set('successMessage', response.successMessage);
-          run(() => { this.transitionToRoute('login'); });
-        })
-        .catch((reason) => {
-          this.set('processingRequest', false);
-          this.set('emailFormGroup', 'form-group has-error');
-          this.set('invalidEmailErrorMessage', reason.errorMessage);
-        });
-      }
     },
   },
 });
