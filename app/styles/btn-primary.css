@@ -2,7 +2,7 @@
     color: #ffffff;
     background-color: #4bcf99;
     border-color: #4bcf99; }
-    .btn.btn-primary:hover {
+    .btn.btn-primary:not(.play):not(.pause):not(.stop):hover {
       color: #ffffff;
       background-color: #31b680;
       border-color: #2eae7a; }
@@ -29,4 +29,4 @@
     .btn.btn-primary.disabled:hover, .btn.btn-primary:disabled:hover {
       background-color: #4bcf99;
       border-color: #4bcf99; }
-      
+

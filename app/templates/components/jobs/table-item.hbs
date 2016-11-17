@@ -1,0 +1,61 @@
+<li class="item">
+  <div class="item-row">
+    <div class="item-col fixed item-col-check">
+      <label class="item-check" id="select-all-items">
+        <input type="checkbox" class="checkbox">
+        <span></span>
+      </label>
+    </div>
+    <div class="item-col fixed item-col-img md">
+      <i class={{job.status.icon}} ></i>
+    </div>
+    <div class="item-col item-col-id no-overflow">
+      <div class="item-heading">ID</div>
+      <div class="no-overflow">
+        {{#link-to 'job.show' job.id class='job'}} {{job.id}} {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col fixed pull-left item-col-title no-overflow">
+      <div class="item-heading">Job</div>
+      <div class="no-overflow">
+        {{#link-to 'job.show' job.id}} <h4 class="item-title">{{job.workflow.name}} V1</h4> {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col fixed pull-left item-col-title no-overflow">
+      <div class="item-heading">Workflow</div>
+      <div class="no-overflow">
+        {{#link-to 'workflow.draw' job.workflow.id}} <h4 class="item-title">{{job.workflow.name}}</h4> {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col item-col-stats no-overflow">
+      <div class="item-heading">Status</div>
+      <div class="no-overflow">
+        {{#link-to 'job.show' job.id class=job.status}} {{job.status.message}} {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col item-col-author">
+      <div class="item-heading">Author</div>
+      <div class="no-overflow">
+        {{#link-to 'user' workflow.user_id}}
+        <h4 class="item-title"> {{job.user.name}} </h4>
+        {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col item-col-category">
+      <div class="item-heading">Option</div>
+      <div class="no-overflow">
+        {{button-execute-bar}}
+      </div>
+    </div>
+    <div class="item-col item-col-date">
+      <div class="item-heading">Started</div>
+      <div class="no-overflow"> {{job.started}} </div>
+    </div>
+    <div class="item-col item-col-date">
+      <div class="item-heading">Finished</div>
+      <div class="no-overflow"> {{job.finished}} </div>
+    </div>
+
+
+  </div>
+</li>

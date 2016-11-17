@@ -176,6 +176,23 @@ span a {
 
 .rounded-s {
   border-radius: 0.2rem; }
+  .rounded-s.play{
+    background-color: #6DD66E;
+    border-color: #6DD66E; }
+    .rounded-s.play:hover {
+       background-color: #68C184; }
+  .rounded-s.pause{
+    background-color: #74BFAD;
+    border-color: #74BFAD; }
+    .rounded-s.pause:hover {
+       background-color: #6BC6B0; }
+  .rounded-s.stop{
+    background-color: #C91808;
+    border-color: #C91808; }
+    .rounded-s.stop:hover {
+       background-color: #CC2614; }
+
+
 
 .jqstooltip {
   height: 25px !important;

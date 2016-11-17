@@ -34,7 +34,6 @@
 @import "engage-team.css";
 @import "engage-footer.css";
 /*@import "table.css";*/
-@import "green.css";
 
 html,
 body {
@@ -143,7 +142,7 @@ body {
 }
 #forms fieldset {
     zoom: 75%;
-    margin: 0;    
+    margin: 0;
 }
 
 fieldset {
@@ -192,3 +191,12 @@ fieldset p {
 .sidebar-active span{
   color: white;
 }
+.pending {
+  color: yellow;
+}
+a .pending{
+  color: yellow;
+}
+
+
+

@@ -10,8 +10,14 @@ module.exports = function(defaults) {
     }
   });
 
+
+  app.import('bower_components/font-awesome/fonts/FontAwesome.otf', {destDir: 'fonts'});
+  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.eot', {destDir: 'fonts'});
+  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.svg', {destDir: 'fonts'});
+  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.ttf', {destDir: 'fonts'});
+  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.woff', {destDir: 'fonts'});
+  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.woff2', {destDir: 'fonts'});
   app.import('bower_components/font-awesome/css/font-awesome.css');
-  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.eot');
   app.import('bower_components/tether/dist/css/tether.css');
   app.import('bower_components/tether/dist/js/tether.js');
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
