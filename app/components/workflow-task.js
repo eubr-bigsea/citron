@@ -18,7 +18,7 @@ export default Ember.Component.extend({
     el.css('left', task.left);
 
     Ember.run(() => {
-      this.get('store').findRecord('operation', task.operation.id).then(op => {
+      this.get('store').findRecord('operation', task.operation.id, {backgroundReload: false}).then(op => {
         let fn = function(a, b) { return a.order > b.order; };
         let input = op.get('ports').filter(p => p.type === 'INPUT').sort(fn);
         let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
