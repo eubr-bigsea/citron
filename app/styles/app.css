@@ -23,8 +23,18 @@
 @import "nav.css";
 @import "sidebar.css";
 @import "engage.css";
-@import "green.css";
+@import "engage-btn.css";
+@import "engage-form-group.css";
+@import "engage-social-links.css";
+@import "engage-nav-bar.css";
+@import "engage-main-menu.css";
+@import "engage-slick-menu-responsive";
+@import "engage-service.css";
+@import "engage-aboutus.css";
+@import "engage-team.css";
+@import "engage-footer.css";
 /*@import "table.css";*/
+@import "green.css";
 
 html,
 body {
