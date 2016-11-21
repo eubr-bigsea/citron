@@ -17,51 +17,7 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.form-group .help-block {
-  color: red;
-}
-.roof-menu ul li.active a:hover {
-  opacity: 0.8;
-}
-.roof-menu ul li a:hover {
-  opacity: 0.8;
-}
-.section-padding {
-  padding: 110px 0;
-}
-.mt-10 {
-  margin-top: 10px;
-}
-.mt-20 {
-  margin-top: 20px;
-}
-.mt-30 {
-  margin-top: 30px;
-}
-.mt-40 {
-  margin-top: 40px;
-}
-.mt-50 {
-  margin-top: 50px;
-}
-.mt-80 {
-  margin-top: 80px;
-}
-.mb-10 {
-  margin-bottom: 10px;
-}
-.mb-20 {
-  margin-bottom: 20px;
-}
-.mb-30 {
-  margin-bottom: 30px;
-}
-.mb-40 {
-  margin-bottom: 40px;
-}
-.mb-50 {
-  margin-bottom: 50pxs;
-}
+
 h1,
 h2,
 h3,
@@ -89,19 +45,6 @@ a:focus {
   outline: none;
   text-decoration: none;
 }
-.ordinary-row {
-  padding: 80px 0 90px;
-}
-.section-title + .row {
-  padding: 40px 0 90px;
-}
-
-
-.label {
-  font-weight: normal;
-  margin: 0 2px;
-}
-
 
 i {
   transition: all 0.3s ease-in-out;
@@ -129,69 +72,13 @@ i:hover {
   text-align: left;
 }
 
-.mr {
-  margin-right: 10px;
-}
 
-.active.slicknav_collapsed,
-.slicknav_parent.slicknav_open {
-  background: #eee;
-}
-.wpb-mobile-menu {
-  display: none;
-}
-ul li > ul {
-  padding: 0;
-  border-style: solid;
-  border-width: 4px 0 0 0;
-  border-radius: 0;
-  left: 0;
-  right: 0;
-  border-color: transparent;
-}
-ul li > ul > li > a {
-  color: #666;
-  padding: 10px 0 10px 15px;
-}
-ul li > ul > li > a:hover,
-ul li > ul > li > a .active {
-  background: #ecf0f1;
-}
-ul li > ul > li.active > a {
-  background: #ecf0f1;
-}
-.slicknav_menu {
-  display: none;
-}
 @media screen and (max-width: 767px) {
   .navbar-brand {
     position: absolute;
     top: 0;
   }
   /* #menu is the original menu */
-  #wpb-mobile-menu {
-    display: none;
-  }
-  .slicknav_menu {
-    display: block;
-  }
-}
-
-#error-404 {
-  background: #ECF0F1;
-  padding: 36px;
-}
-#error-404 h1 {
-  font-size: 120px;
-}
-#error-404 h3 {
-  font-size: 40px;
-  margin-bottom: 30px;
-}
-#content {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  min-height: 600px;
 }
 
 
@@ -211,19 +98,7 @@ i.icon-round {
   vertical-align: middle;
   width: 100px;
 }
-i.icon-round-border {
 
-  border-radius: 100%;
-
-  font-size: 45px;
-  height: 100px;
-  line-height: 100px;
-  margin-bottom: 12px;
-  margin-right: 12px;
-  text-align: center;
-  vertical-align: middle;
-  width: 100px;
-}
 
 
 

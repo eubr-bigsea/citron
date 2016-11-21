@@ -17,43 +17,14 @@ footer ul li {
 footer ul li a {
   color: #999;
 }
-footer ul li.tweet {
-  margin-bottom: 15px;
-}
-footer ul li.tweet .fa-twitter {
-  padding: 5px;
-  color: #fff;
 
-  border-radius: 100%;
-  width: 24px;
-  height: 24px;
-}
+
 footer ul li.tweet .tweet-date {
   font-size: 12px;
   font-style: italic;
   color: #bdc3c7;
 }
-footer .plain-flicker-gallery {
-  margin-right: -5px;
-  margin-left: -5px;
-}
-footer .plain-flicker-gallery a {
-  display: inline-block;
-  width: 32%;
-  font-size: 0px;
-  padding: 5px;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -0-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-footer .plain-flicker-gallery a:hover {
-  opacity: 0.7;
-}
-footer .plain-flicker-gallery a img {
-  width: 100%;
-}
+
 footer .contact-us .form-control {
   color: #999;
   font-size: 14px;
