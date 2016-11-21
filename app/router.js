@@ -13,6 +13,10 @@ Router.map(function() {
     this.route('tasks');
     this.route('draw', {path: ':id/draw'});
   });
+  this.route('job', function() {
+    this.route('show', {path: ':id/show'});
+  });
+
   this.route('login');
   this.route('signup');
   this.route('policy');

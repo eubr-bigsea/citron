@@ -173,9 +173,9 @@
       .item-list .item-heading {
         width: 40%; } }
   .item-list .item-col.item-col-check {
-    -webkit-flex-basis: 30px;
-        -ms-flex-preferred-size: 30px;
-            flex-basis: 30px; }
+    -webkit-flex-basis: 40px;
+        -ms-flex-preferred-size: 40px;
+            flex-basis: 40px; }
     @media (max-width: 767px) {
       .item-list .item-col.item-col-check {
         -webkit-box-ordinal-group: -7;
@@ -196,6 +196,34 @@
     -webkit-flex-basis: 70px;
         -ms-flex-preferred-size: 70px;
             flex-basis: 70px; }
+    .item-list .item-col.item-col-img .canceled {
+      color: #FF6C39;
+      margin: auto;
+    }
+    .item-list .item-col.item-col-img .completed {
+      color: #71BA51;
+      margin: auto;
+    }
+    .item-list .item-col.item-col-img .error {
+      color: #E22211;
+      margin: auto;
+    }
+    .item-list .item-col.item-col-img .interrupted {
+      color: #FF9A43;
+      margin: auto;
+    }
+    .item-list .item-col.item-col-img .pending {
+      color: #FFBD4B;
+      margin: auto;
+    }
+    .item-list .item-col.item-col-img .running {
+      color: #3D8EB9;
+      margin: auto;
+    }
+    .item-list .item-col.item-col-img .waiting {
+      color: #7F6B4B;
+      margin: auto;
+    }
     .item-list .item-col.item-col-img.xs {
       -webkit-flex-basis: 40px;
           -ms-flex-preferred-size: 40px;
@@ -356,7 +384,7 @@
   text-align: left; }
 
 .items-list-page .item-list .item-col.item-col-img {
-  text-align: left;
+  text-align: center;
   width: auto;
   text-align: center;
   -webkit-flex-basis: 70px;
@@ -376,14 +404,25 @@
   -webkit-box-flex: 9;
   -webkit-flex-grow: 9;
       -ms-flex-positive: 9;
-          flex-grow: 9; }
+          flex-grow: 6; }
 
 .items-list-page .item-list .item-col.item-col-sales {
   text-align: right;
   font-weight: 600; }
 
+.items-list-page .item-list .item-col.item-col-id {
+  text-align: center;
+  font-weight: 600; }
+
 .items-list-page .item-list .item-col.item-col-stats {
   text-align: center; }
+
+.items-list-page .item-list .item-col.item-col-id {
+  text-align: center;
+  -webkit-box-flex: 2;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2; }
 
 .items-list-page .item-list .item-col.item-col-category {
   text-align: left;
@@ -436,7 +475,7 @@
     border-bottom: 1px solid #d7dde4; }
     .items-list-page .item-list .item-col.item-col-check .item-heading, .items-list-page .item-list .item-col.item-col-title .item-heading, .items-list-page .item-list .item-col.item-col-actions-dropdown .item-heading {
       display: none; }
-  .items-list-page .item-list .item-col.item-col-sales, .items-list-page .item-list .item-col.item-col-stats, .items-list-page .item-list .item-col.item-col-category, .items-list-page .item-list .item-col.item-col-author, .items-list-page .item-list .item-col.item-col-date {
+  .items-list-page .item-list .item-col.item-col-sales, .items-list-page .item-list .item-col.item-col-id, .items-list-page .item-list .item-col.item-col-stats, .items-list-page .item-list .item-col.item-col-category, .items-list-page .item-list .item-col.item-col-author, .items-list-page .item-list .item-col.item-col-date {
     padding-top: 40px;
     position: relative; }
   .items-list-page .item-list .item-col.item-col-check {
@@ -457,6 +496,8 @@
   .items-list-page .item-list .item-col.item-col-sales {
     text-align: left; }
   .items-list-page .item-list .item-col.item-col-stats {
+    text-align: center; }
+  .items-list-page .item-list .item-col.item-col-id {
     text-align: center; }
   .items-list-page .item-list .item-col.item-col-category {
     text-align: center; }
@@ -519,9 +560,12 @@
         text-align: left; }
       .items-list-page .item-list .item .item-col.item-col-stats {
         text-align: left; }
+      .items-list-page .item-list .item .item-col.item-col-id {
+        text-align: center; }
       .items-list-page .item-list .item .item-col.item-col-category {
         text-align: left; }
       .items-list-page .item-list .item .item-col.item-col-author {
         text-align: left; }
       .items-list-page .item-list .item .item-col.item-col-date {
-        text-align: left; } }
+        text-align: left; }
+
