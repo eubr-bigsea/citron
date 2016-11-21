@@ -1,36 +1,39 @@
-/*@import "alert.css";*/
-@import "auth.css";
-@import "btn.css";
-@import "btn-primary.css";
-@import "btn-secondary.css";
-/*@import "btn-success.css";
-@import "btn-info.css";
-@import "btn-warning.css";
-@import "btn-danger.css";
-@import "btn-outline.css";*/
-@import "card.css";
-/*@import "card-header.css";
-@import "card-misc.css";
-@import "dashboard.css";*/
-@import "dropdownmenu.css";
-/*@import "errors.css";*/
-@import "footer.css";
-@import "form.css";
-@import "header.css";
-@import "images.css";
-@import "item.css";
-@import "misc.css";
-@import "nav.css";
-@import "sidebar.css";
-@import "engage.css";
-@import "engage-btn.css";
-@import "engage-nav-bar.css";
-@import "engage-main-menu.css";
-@import "engage-slick-menu-responsive";
-@import "engage-service.css";
-@import "engage-team.css";
-@import "engage-footer.css";
-/*@import "table.css";*/
+/*@import "alert.scss";*/
+@import "auth.scss";
+@import "btn.scss";
+@import "btn-primary.scss";
+@import "btn-secondary.scss";
+/*@import "btn-success.scss";
+@import "btn-info.scss";
+@import "btn-warning.scss";
+@import "btn-danger.scss";
+@import "btn-outline.scss";*/
+@import "card.scss";
+/*@import "card-header.scss";
+@import "card-misc.scss";
+@import "dashboard.scss";*/
+@import "dropdownmenu.scss";
+/*@import "errors.scss";*/
+@import "footer.scss";
+@import "form.scss";
+@import "header.scss";
+@import "images.scss";
+@import "item.scss";
+@import "misc.scss";
+@import "nav.scss";
+@import "sidebar.scss";
+@import "engage.scss";
+@import "engage-btn.scss";
+@import "engage-nav-bar.scss";
+@import "engage-main-menu.scss";
+@import "engage-slick-menu-responsive.scss";
+@import "engage-service.scss";
+@import "engage-team.scss";
+@import "engage-footer.scss";
+@import "theme-color.scss";
+@import "green.scss";
+/*@import "table.scss";*/
+
 
 html,
 body {
@@ -180,7 +183,7 @@ fieldset p {
 }
 
 .sidebar-active {
-  background: #4bcf99;
+  background: $main-theme-color;
 }
 .sidebar-active .fa {
   color: white;

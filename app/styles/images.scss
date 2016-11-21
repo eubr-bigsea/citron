@@ -1,0 +1,118 @@
+@import "theme-color.scss";
+
+.images-container {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .image-container {
+    float: left;
+    padding: 3px;
+    margin-right: 10px;
+    margin-bottom: 35px;
+    position: relative;
+    border: 1px solid #e6eaee;
+    overflow: hidden;
+
+    &.active {
+      border-color: $main-theme-color;
+    }
+
+    &:hover .controls {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+
+  .controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    bottom: -35px;
+    text-align: center;
+    height: 35px;
+    font-size: 24px;
+    -webkit-transition: bottom 0.2s ease, opacity 0.2s ease;
+    transition: bottom 0.2s ease, opacity 0.2s ease;
+    background-color: #fff;
+
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .control-btn {
+      display: inline-block;
+      color: #4f5f6f;
+      cursor: pointer;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      opacity: 0.5;
+      -webkit-transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.move {
+        cursor: move;
+      }
+
+      &.star {
+        color: #FFB300;
+
+        i:before {
+          content: "\f006";
+        }
+
+        &.active i:before {
+          content: "\f005";
+        }
+      }
+
+      &.remove {
+        color: #FF4444;
+      }
+    }
+  }
+
+  .image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 135px;
+    line-height: 135px;
+    text-align: center;
+  }
+
+  .image-container {
+    &.main {
+      border-color: #FFB300;
+    }
+
+    &.new {
+      opacity: 0.6;
+      -webkit-transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease;
+      border-style: dashed;
+      border: 1px $main-theme-color solid;
+      color: $main-theme-color;
+
+      .image {
+        font-size: 2.5rem;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

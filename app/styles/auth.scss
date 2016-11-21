@@ -1,3 +1,5 @@
+@import "theme-color.scss";
+
 .auth {
   position: absolute;
   width: 100%;
@@ -5,7 +7,8 @@
   left: 0;
   background-color: #667380;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: auto;
+}
 
 .auth-container {
   width: 450px;
@@ -14,22 +17,28 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
-          transform: translateY(-50%) translateX(-50%); }
-  .auth-container .auth-header {
+  transform: translateY(-50%) translateX(-50%);
+
+  .auth-header {
     text-align: center;
-    border-bottom: 1px solid #4bcf99; }
-  .auth-container .auth-title {
+    border-bottom: 1px solid $main-theme-color;
+  }
+
+  .auth-title {
     color: #97A4B1;
     padding: 20px;
     line-height: 30px;
     font-size: 26px;
     font-weight: 600;
-    margin: 0; }
-  .auth-container .auth-content {
+    margin: 0;
+  }
+
+  .auth-content {
     padding: 30px 50px;
-    min-height: 260px; }
-  .auth-container .forgot-btn {
-    line-height: 28px; }
-  
+    min-height: 260px;
+  }
 
-
+  .forgot-btn {
+    line-height: 28px;
+  }
+}

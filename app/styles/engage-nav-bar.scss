@@ -1,8 +1,9 @@
 .navbar {
   margin-bottom: 0;
-}
-.navbar li {
-  color: #666;
+
+  li {
+    color: #666;
+  }
 }
 
 .navbar-brand {
@@ -16,38 +17,43 @@
     opacity: 0;
     -webkit-transform: translateY(10px);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
   }
 }
+
 @keyframes fadeInUpMenu {
   0% {
     opacity: 0;
     transform: translateY(10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-
 @-webkit-keyframes fadeInUpMenu {
   0% {
     opacity: 0;
     -webkit-transform: translateY(10px);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
   }
 }
+
 @keyframes fadeInUpMenu {
   0% {
     opacity: 0;
     transform: translateY(10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -58,7 +64,7 @@
   padding: 0px;
   border-bottom: 1px solid #e4e4e4;
 }
+
 .nav-inline .nav-item + .nav-item {
   margin-left: 0px;
-
 }

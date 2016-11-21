@@ -1,10 +1,13 @@
+@import "theme-color.scss";
+
 .dropdown-menu {
   float: left;
   box-shadow: 2px 3px 6px rgba(126, 142, 159, 0.1);
   border: 1px solid rgba(126, 142, 159, 0.1);
   border-top-left-radius: 0;
-  border-top-right-radius: 0; }
-  .dropdown-menu .dropdown-item {
+  border-top-right-radius: 0;
+
+  .dropdown-item {
     display: block;
     padding: 0px 15px;
     clear: both;
@@ -12,10 +15,16 @@
     color: #4f5f6f;
     white-space: nowrap;
     -webkit-transition: none;
-            transition: none; }
-    .dropdown-menu .dropdown-item i {
-      margin-right: 2px; }
-    .dropdown-menu .dropdown-item:hover {
-      color: #4bcf99 !important;
+    transition: none;
+
+    i {
+      margin-right: 2px;
+    }
+
+    &:hover {
+      color: $main-theme-color !important;
       background: none;
-      background-color: whitesmoke; }
+      background-color: whitesmoke;
+    }
+  }
+}

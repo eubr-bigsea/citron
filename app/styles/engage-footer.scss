@@ -1,0 +1,61 @@
+footer {
+  background: #282828;
+  color: #7C7C7C;
+
+  .small-title {
+    margin-bottom: 30px;
+    color: #fff;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      line-height: 25px;
+
+      a {
+        color: #999;
+      }
+
+      &.tweet .tweet-date {
+        font-size: 12px;
+        font-style: italic;
+        color: #bdc3c7;
+      }
+    }
+  }
+
+  .contact-us .form-control {
+    color: #999;
+    font-size: 14px;
+    background: #1D1D1D;
+    border-radius: 0px;
+    border: 1px solid transparent;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  #copyright {
+    background: #1D1D1D;
+
+    .row {
+      padding: 15px 0;
+    }
+
+    .copyright-text, .nav-inline {
+      margin-top: 15px;
+    }
+  }
+}
+
+.social-footer a .fa {
+  font-size: 14px;
+  height: 35px;
+  line-height: 35px;
+  margin: 4px;
+  width: 35px;
+}
