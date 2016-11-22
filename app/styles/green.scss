@@ -1,0 +1,89 @@
+@import "theme-color.scss";
+
+a {
+  color: $main-theme-color;
+
+  &.titulo {
+    color: #3a4651;
+
+    &:hover {
+      color: #526b84;
+    }
+  }
+
+  &:hover {
+    color: #526b84;
+  }
+}
+
+.section-title::before, .small-title::before {
+  border-color: $main-theme-color;
+}
+
+#service-block-main .service-item:hover {
+  i {
+    color: $main-theme-color;
+    border-color: $main-theme-color;
+  }
+
+  h2 {
+    color: $main-theme-color;
+  }
+
+  .icon-wrapper {
+    &::before, &::after {
+      background: $main-theme-color;
+    }
+  }
+}
+
+/* New Css */
+
+i.icon-round {
+  background-color: $main-theme-color;
+}
+
+.btn-common {
+  background: #3a4651 none repeat scroll 0 0;
+
+  /*9C3*/
+
+  &::before {
+    background: #526b84 none repeat scroll 0 0;
+
+    /*7aa427*/
+  }
+}
+
+#other-services .nav-tabs li a {
+  &:hover i, &:focus, &.active i {
+    background: $main-theme-color none repeat scroll 0 0;
+  }
+}
+
+#team .team-item {
+  figure figcaption .orange-line {
+    background: $main-theme-color none repeat scroll 0 0;
+  }
+
+  .social {
+    .facebook, .twitter, .google-plus {
+      background: $main-theme-color none repeat scroll 0 0;
+      border: 1px solid $main-theme-color;
+    }
+  }
+}
+
+.orange-line {
+  background: $main-theme-color none repeat scroll 0 0;
+}
+
+#main-menu .nav-link {
+  &.active, &:hover {
+    color: $main-theme-color;
+  }
+}
+
+.sup-desc-wrap .sup-link a:hover, #team .team-item .social a:hover {
+  color: $main-theme-color;
+}

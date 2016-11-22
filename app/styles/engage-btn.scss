@@ -1,5 +1,4 @@
-.btn-lndg-pg,
-button {
+.btn-lndg-pg, button {
   padding: 7px 30px;
   font-weight: 400;
   color: #fff;
@@ -12,10 +11,11 @@ button {
   border-radius: 0;
   margin-bottom: 5px;
 }
-.btn-lndg-pg:hover,
-button:hover {
+
+.btn-lndg-pg:hover, button:hover {
   color: #fff;
 }
+
 .section {
   padding: 80px 0;
 }
@@ -26,26 +26,24 @@ button:hover {
   position: relative;
   border: transparent;
   z-index: 1;
-}
 
-.btn-common:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  z-index: -1;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    z-index: -1;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
 
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-
-
-.btn-common:hover:before {
-  width: 100%;
+  &:hover:before {
+    width: 100%;
+  }
 }
 
 .btn-lg {
@@ -53,4 +51,3 @@ button:hover {
   text-transform: uppercase;
   font-size: 16px;
 }
-
