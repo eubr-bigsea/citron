@@ -48,12 +48,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.thorn = 'http://thorn.speed.dcc.ufmg.br';
+    ENV.thorn = process.env.THORN || 'http://thorn.speed.dcc.ufmg.br';
   }
-  ENV['ember-simple-auth'] = {
-    authorizer: 'authorizer:devise',
-    routeAfterAuthentication: '/home/workflows'
-  };
 
   return ENV;
 };
