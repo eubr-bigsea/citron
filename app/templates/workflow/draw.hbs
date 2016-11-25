@@ -1,11 +1,6 @@
 {{workflow.workflow-sidebar operations=model.operations workflow=model.workflow}}
-<div class="content">
-  <div class="row">
-    {{workflow-draw workflow=model.workflow operations=model.operations}}
-  </div>
+<div class="content container-fluid">
+  {{workflow.option-bar workflow=model.workflow}}
+  {{workflow-draw workflow=model.workflow operations=model.operations}}
 </div>
 {{outlet}}
-
-
-
-

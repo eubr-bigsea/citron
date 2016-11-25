@@ -1,0 +1,93 @@
+.row.execute-bar {
+  padding: 2px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.execute-bar.execute-btn {
+   padding-left: 5px;
+  padding-right: 5px;
+  margin: auto;
+  display: block;
+ i{
+    color: white;
+  }
+
+  &.breakline {
+    padding: 5px;
+  }
+
+  &.inline {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  &.play {
+    background-color: #6DD66E;
+    border-color: #6DD66E;
+
+    &:hover {
+      background-color: #179318;
+    }
+  }
+
+  &.pause {
+    background-color: #74BFAD;
+    border-color: #74BFAD;
+
+    &:hover {
+      background-color: #0b6c54;
+    }
+  }
+
+  &.stop {
+    background-color: #C91808;
+    border-color: #C91808;
+
+    &:hover {
+      background-color: #9f190d;
+    }
+  }
+}
+
+.row.option-bar {
+  padding: 2px;
+}
+
+.option-bar {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: auto;
+  display: block;
+  overflow: hidden;
+
+  .opt-btn {
+    padding-left: 1px;
+    padding-right: 1px;
+    display: block;
+    background-color: #f0f3f6;
+    border-color: #f0f3f6;
+
+    &:hover {
+      background-color: #4bcf99;
+    }
+
+    i {
+      color: #3a4651;
+    }
+  }
+}
+
+.name-editor {
+  .form-control.underlined {
+    padding: 9px;
+    width: 85%;
+    background-color: #f0f3f6;
+    display: inline;
+  }
+
+  i {
+    position: relative;
+    left: 5px;
+  }
+}
