@@ -4,20 +4,20 @@ const { inject: { service } } = Ember;
 
 export default Ember.Route.extend({
   currentUser: service('current-user'),
+  session: service('session'),
 
   model() {
     this._super(...arguments);
-    var user = this.get('currentUser');
-
-    return this.get('store').createRecord('workflow', {
+    var currentUser = this.get('currentUser');
+    var defaultWorkflow = {
       tasks: [],
       flows: [],
-      user_id: user.id,
-      user_login: user.email,
-      user_name: `${user.firstname} ${user.lastname}`,
+      platform_id: '1',
+      user: currentUser,
       name: "My new Workflow",
       description: "My workflow..."
-    });
+    };
+    return this.get('store').createRecord('workflow', defaultWorkflow);
   },
   actions:{
     create(){
