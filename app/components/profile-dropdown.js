@@ -8,11 +8,9 @@ export default Component.extend({
 
   session: service('session'),
   currentUser: service('current-user'),
-  isEditing: false,
 
   actions: {
     getSession(){
-//      debugger;
     },
     invalidateSession(){
       this.get('session').invalidate();

@@ -6,9 +6,9 @@ export default Ember.Route.extend({
   beforeModel(){
     var currentUser = this.get('session.isAuthenticated');
     if(currentUser){
-      this.transitionTo('home.workflows');
+      this.replaceWith('home.workflows');
     } else {
-      this.transitionTo('landing-page');
+      this.replaceWith('landing-page');
     }
   }
 });
