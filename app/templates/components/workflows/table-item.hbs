@@ -7,8 +7,8 @@
       </label>
     </div>
     <div class="item-col fixed item-col-img md">
-      {{#link-to 'workflow.draw' workflow.id class='workflow'}}
-        <div class="item-img rounded" style="background-image: url(http://www.clker.com/cliparts/3/a/e/b/1346440375869169067LemonandLime.svg.med.png)"></div>
+      {{#link-to 'workflow.params' workflow.id class='workflow'}}
+        <div class="item-img rounded" style="background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSCygJA-ekdyncq1BI1okQKzwnSo-JEad-yFyI5LOfNYE874K50)"></div>
       {{/link-to}}
     </div>
     <div class="item-col item-col-id no-overflow">
@@ -23,9 +23,24 @@
         {{#link-to 'workflow.draw' workflow.id}} <h4 class="item-title">	{{workflow.name}} </h4> {{/link-to}}
       </div>
     </div>
-    <div class="item-col item-col-stats no-overflow">
-      <div class="item-heading">Stats</div>
-      <div class="no-overflow"></div>
+    <div class="item-col item-col-options">
+      <div class="item-heading">Options</div>
+      <div class="container">
+      <div class="row">
+        <div class="icon col-xs-3 col-sm-6 col-xl-3 text-center">
+          {{#link-to 'workflow.params' workflow.id }}<i class="fa fa-sliders fa-lg"></i>{{/link-to}}
+        </div>
+        <div class="icon col-xs-3 col-sm-6 col-xl-3">
+      {{#link-to 'workflow.edit' workflow.id }}<i class="fa fa-cog fa-lg"></i>{{/link-to}}
+        </div>
+      <div class="icon col-xs-3 col-sm-6 col-xl-3">
+      {{#link-to 'workflow.draw' workflow.id }}<i class="fa fa-pencil fa-lg"></i>{{/link-to}}
+      </div>
+      <div class="icon col-xs-3 col-sm-6 col-xl-3">
+      <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i class="fa fa-trash-o fa-lg"></i></a>
+      </div>
+      </div>
+    </div>
     </div>
     <div class="item-col item-col-category no-overflow">
       <div class="item-heading">Category</div>
@@ -44,14 +59,6 @@
     <div class="item-col item-col-date">
       <div class="item-heading">Created</div>
       <div class="no-overflow"> {{workflow.updated}} </div>
-    </div>
-    <div class="item-col fixed item-col-actions-dropdown">
-      <div class="item-actions-dropdown">
-        <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i class="fa fa-trash-o "></i></a>
-        {{#link-to 'workflow.edit' workflow.id }}
-        <i class="fa fa-pencil"></i>
-        {{/link-to}}
-      </div>
     </div>
   </div>
 </li>

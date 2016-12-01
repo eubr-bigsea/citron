@@ -3,7 +3,6 @@
   min-height: 400px;
   margin-top: 74px;
 }
-
 body {
   font-family: 'Open Sans', sans-serif;
   background: #fff;
@@ -44,15 +43,6 @@ a {
   &:focus {
     outline: none;
     text-decoration: none;
-  }
-}
-
-i {
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    opacity: 0.8;
-    transition: all 0.3s ease-in-out;
   }
 }
 
