@@ -1,29 +1,28 @@
-{{workflow.config-sidebar workflowParams='active' workflow=model
-currentAction='Editing this'}}
+{{workflow.config-sidebar workflowParams='active' workflow=model currentAction='Editing this'}}
 <article class="content dashboard-page">
   <div class="title-block">
     <h3 class="title"> Editing workflow: {{model.workflow.name}}
-       <span class="sparkline bar" data-type="bar"></span>
+      <span class="sparkline bar" data-type="bar"></span>
     </h3>
-</div>
-    <section>
+  </div>
+  <section>
     {{forms.form-terms-frequency terms=model.terms}}
-    </section>
-		<section>
-			<div class="row sameheight-container">
-				<div class="col-xs-12">
-					<div class="card sameheight-item" data-exclude="xs,sm">
-						<div class="card-header">
-							<div class="header-block">
-								<h3 class="title">
-									Filter
-								</h3>
-							 </div>
-						</div>
-						{{forms.form-filter}}
-					</div>
-				</div>
-			</div>
-		</section>
+  </section>
+  <section>
+    <div class="row sameheight-container">
+      <div class="col-xs-12">
+        <div class="card sameheight-item" data-exclude="xs,sm">
+          <div class="card-header">
+            <div class="header-block">
+              <h3 class="title">
+                Filter
+              </h3>
+            </div>
+          </div>
+          {{forms.form-filter}}
+        </div>
+      </div>
+    </div>
+  </section>
 </article>
 {{outlet}}
