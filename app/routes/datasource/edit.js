@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import config from '../../config/environment';
 
-const {$: { ajax }} = Ember;
+const {$: { ajax }, inject: { service }, run} = Ember;
 
 export default Ember.Route.extend({
   model(params) {
@@ -10,6 +10,7 @@ export default Ember.Route.extend({
       url: `${config.ai_social_rails}/datasources/${params.id}`,
       type: 'GET'
     };
+    var datasource = {};
     return ajax(requestOptions);
   },
   actions:{
@@ -19,7 +20,7 @@ export default Ember.Route.extend({
         url: `${config.ai_social_rails}/datasources/${datasource.id}`,
         type: 'PATCH',
         data: {datasource: datasource}
-      });
+      })
     },
-  },
+  }
 });
