@@ -28,5 +28,17 @@ module.exports = function(defaults) {
   app.import('bower_components/perfect-scrollbar/js/perfect-scrollbar.js');
   app.import('bower_components/perfect-scrollbar/css/perfect-scrollbar.css');
 
+  app.import('bower_components/doT/doT.js');
+  app.import('bower_components/jquery-extendext/jQuery.extendext.js');
+  app.import('bower_components/jQuery-QueryBuilder/dist/js/query-builder.js');
+  app.import('bower_components/jQuery-QueryBuilder/dist/css/query-builder.default.css');
+  app.import('bower_components/jQuery-QueryBuilder/dist/i18n/query-builder.pt-BR.js');
+
+  app.import('bower_components/jstree-bootstrap-theme/dist/themes/proton/30px.png', {destDir: 'assets'});
+  app.import('bower_components/jstree-bootstrap-theme/dist/themes/proton/32px.png', {destDir: 'assets'});
+  app.import('bower_components/jstree-bootstrap-theme/dist/themes/proton/throbber.gif', {destDir: 'assets'});
+  app.import('bower_components/jstree/dist/themes/default/style.css');
+  app.import('bower_components/jstree-bootstrap-theme/dist/themes/proton/style.css');
+  app.import('bower_components/jstree/dist/jstree.js');
   return app.toTree();
 };
