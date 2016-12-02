@@ -1,3 +1,0 @@
-{{#each tasks as |task|}}
-  {{workflow-task elementId=task.id jsplumb=jsplumb task=task clickTask=(action "clickTask") saveTasks=(action "saveTasks") addFlow=(action "addFlow") removeFlow=(action "removeFlow") removeTask=(action "removeTask" task)}}
-{{/each}}

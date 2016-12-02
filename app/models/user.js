@@ -7,5 +7,7 @@ export default DS.Model.extend({
   email: DS.attr(''),
   name: Ember.computed('firstName', 'lastName', function() {
     return `${this.get('firstName')} ${this.get('lastName')}`;
-  })
+  }),
+  datasources: DS.hasMany('datasource'),
+  workflows: DS.hasMany('workflow'),
 });
