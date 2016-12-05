@@ -46,6 +46,7 @@
     "loader.js": "^4.0.10"
   },
   "dependencies": {
-    "jsonwebtoken": "^7.1.9"
+    "jsonwebtoken": "^7.1.9",
+    "moment": "^2.17.1"
   }
 }
