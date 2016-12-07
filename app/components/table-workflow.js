@@ -10,11 +10,12 @@ export default Ember.Component.extend({
 
   actions: {
     changeSorter(sortProp){
-      var sortAtual = sortProp + ":asc";
-      if(this.get('sortBy') == sortAtual){
-        var sortOrder = 'desc';
+      var sortOrder;
+      var sortAtual = [sortProp + ":asc"];
+      if(this.get('sortBy')[0] === sortAtual[0]){
+        sortOrder = 'desc';
       } else {
-        var sortOrder = 'asc';
+        sortOrder = 'asc';
       }
       this.set('sortBy',[sortProp + ":" + sortOrder]);
     }
