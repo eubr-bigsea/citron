@@ -3,10 +3,7 @@
   {{workflows.button-bar}}
   <div class="card items">
     <ul class="item-list striped">
-      {{workflows.table-header}}
-      {{#each model as |workflow|}}
-        {{workflows.table-item workflow=workflow}}
-      {{/each}}
+      {{table-workflow workflows=model}}
     </ul>
   </div>
 </article>

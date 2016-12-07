@@ -12,12 +12,12 @@
   </div>
   <div class="item-col item-col-header item-col-id">
     <div>
-      <span>ID</span>
+      <span {{action 'changeSorter' 'id'}}>ID</span>
     </div>
   </div>
   <div class="item-col item-col-header item-col-title">
     <div>
-      <span>Name</span>
+      <span {{action 'changeSorter' 'name'}}>Name</span>
     </div>
   </div>
   <div class="item-col item-col-header item-col-options">
@@ -32,12 +32,16 @@
   </div>
   <div class="item-col item-col-header item-col-author">
     <div class="no-overflow">
-      <span>Author</span>
+      <span {{action 'changeSorter' 'user.name'}}>Author</span>
     </div>
   </div>
   <div class="item-col item-col-header item-col-date">
     <div>
-      <span>Created</span>
+      <span {{action 'changeSorter' 'updated'}}>Created</span>
     </div>
   </div>
 </div>
+{{#each sortedModel as |workflow|}}
+  {{workflows.table-item workflow=workflow}}
+{{/each}}
+{{outlet}}
