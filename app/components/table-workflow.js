@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
   classNames: ['item', 'item-list-header', 'hidden-sm-down'],
   tagName: 'li',
 
@@ -19,6 +18,5 @@ export default Ember.Component.extend({
       }
       this.set('sortBy',[sortProp + ":" + sortOrder]);
     }
-
   }
 });
