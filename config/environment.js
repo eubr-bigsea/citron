@@ -50,7 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.thorn = process.env.THORN || 'http://localhost:3000';
+    ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
   }
 
   return ENV;
