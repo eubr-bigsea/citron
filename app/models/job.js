@@ -3,10 +3,11 @@ import DS from 'ember-data';
 const { attr } = DS;
 
 export default DS.Model.extend({
-  created: attr('dates'),
+  created_at: attr('dates'),
+  updated_at: attr('dates'),
   started: attr('dates'),
   finished: attr('dates'),
   status:attr('status'),
-  user: attr(),
+  user_id: DS.belongsTo('user'),
   workflow: attr(),
 });

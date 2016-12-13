@@ -18,7 +18,7 @@
     <div class="item-col fixed pull-left item-col-title no-overflow">
       <div class="item-heading">Job</div>
       <div class="no-overflow">
-        {{#link-to 'job.show' job.id}} <h4 class="item-title">{{job.workflow.name}} V1</h4> {{/link-to}}
+        {{#link-to 'job.show' job.id}} <h4 class="item-title">{{job.workflow.name}} </h4> {{/link-to}}
       </div>
     </div>
     <div class="item-col fixed pull-left item-col-title no-overflow">
@@ -34,19 +34,24 @@
       </div>
     </div>
     <div class="item-col item-col-author">
-      <div class="item-heading">Author</div>
+      <div class="item-heading">Visualization</div>
       <div class="no-overflow">
-        {{#link-to 'user' workflow.user_id}}
-        <h4 class="item-title"> {{job.user.name}} </h4>
+        {{#link-to 'visualization' job.id}}
+        {{option-bar.exec-btn class='play' icon='eye'}}
         {{/link-to}}
       </div>
     </div>
+    <!--<div class="item-col item-col-author">
+      <div class="item-heading">Visualization</div>
+      <div class="no-overflow">
+        {{#link-to 'user' job.user_id}}
+        <h4 class="item-title"> {{job.user_id.name}} </h4>
+        {{/link-to}}
+      </div>
+    </div> -->
     <div class="item-col item-col-category">
       <div class="item-heading">Option</div>
       <div class="row execute-bar">
-        <div class="col-xs-12 col-xl-4 execute-bar execute-btn inline">
-          {{option-bar.exec-btn class='breakline play' icon='play'}}
-        </div>
         <div class="col-xs-12 col-xl-4 execute-bar execute-btn inline">
           {{option-bar.exec-btn class='breakline pause' icon='pause'}}
         </div>
@@ -57,11 +62,11 @@
     </div>
     <div class="item-col item-col-date">
       <div class="item-heading">Started</div>
-      <div class="no-overflow"> {{job.started}} </div>
+      <div class="no-overflow"> {{job.created_at}} </div>
     </div>
     <div class="item-col item-col-date">
       <div class="item-heading">Finished</div>
-      <div class="no-overflow"> {{job.finished}} </div>
+      <div class="no-overflow"> {{job.updated_at}} </div>
     </div>
 
 
