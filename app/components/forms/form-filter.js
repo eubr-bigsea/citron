@@ -160,7 +160,7 @@ export default Ember.Component.extend({
     var selected = treeJson.get_selected();
     var types = [];
     selected.forEach(function(element){
-      types.push(treeJson.get_text(element))
+      types.push(treeJson.get_text(element));
     });
     return types;
   },
