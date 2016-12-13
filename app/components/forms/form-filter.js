@@ -169,8 +169,17 @@ export default Ember.Component.extend({
     Ember.$(`#${this.elementId} .filter`).queryBuilder(qbJson);
     Ember.$(`#${this.elementId} .categories`).jstree(jstreeJson);
   },
+<<<<<<< HEAD
   isFilter(element){
     return element.operation.name === 'Filter (selection)';
+=======
+  isFilter(element, index, array){
+    if(element.operation.name == 'Filter (selection)'){
+      return true;
+    } else {
+      return false;
+    }
+>>>>>>> sending workflow to execute
   },
   actions: {
     makeQueryBuilder(){
