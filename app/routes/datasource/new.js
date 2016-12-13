@@ -23,7 +23,7 @@ export default Ember.Route.extend({
         url: `${config.ai_social_rails}/datasources`,
         type: 'POST',
         data: { datasource: datasource }
-      })
+      });
     },
   },
 });
