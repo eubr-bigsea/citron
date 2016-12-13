@@ -23,8 +23,7 @@ export default Ember.Route.extend({
   },
   actions: {
     onSearch(){
-      debugger;
-      this.transitionTo('home/jobs');
+      this.transitionTo('home.jobs');
     },
   },
 });
