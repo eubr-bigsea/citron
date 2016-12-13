@@ -14,11 +14,7 @@ export default Ember.Component.extend({
         data: { job: JSON.stringify(workflow) }
       });
     },
-    pause(){
-      return
-    },
-    stop(){
-      return
-    },
+    pause(){},
+    stop(){},
   },
 });
