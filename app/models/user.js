@@ -10,4 +10,5 @@ export default DS.Model.extend({
   }),
   datasources: DS.hasMany('datasource'),
   workflows: DS.hasMany('workflow'),
+  jobs: DS.hasMany('job'),
 });
