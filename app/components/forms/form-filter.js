@@ -1,4 +1,7 @@
 import Ember from 'ember';
+import config from '../../config/environment';
+
+const { $:{ajax} } = Ember;
 
 var leiStructure = {
   text: 'Tudo',
@@ -156,17 +159,33 @@ export default Ember.Component.extend({
     Ember.$(`#${this.elementId} .filter`).queryBuilder(qbJson);
     Ember.$(`#${this.elementId} .categories`).jstree(jstreeJson);
   },
-
+  isFilter(element, index, array){
+    if(element.operation.name == 'Filter (selection)'){
+      return true;
+    } else {
+      return false;
+    }
+  },
   actions: {
     makeQueryBuilder(){
       var expression = Ember.$(".query.text").val();
       var json = this.makeJSON(expression)[0];
       Ember.$(`#${this.elementId} .filter`).queryBuilder('setRules', json);
     },
-    getQueryText() {
+    search() {
       var json = Ember.$(`#${this.elementId} .filter`).queryBuilder('getRules');
       var expression = this.makeExpression(json);
-      Ember.$(".query.text").val(expression);
+      let workflow = JSON.parse(JSON.stringify(this.get('workflow')));
+
+      var filterIndex = workflow.tasks.findIndex(this.isFilter);
+      workflow.tasks[filterIndex].forms.filter = expression;
+      workflow.tasks[filterIndex].forms.types = ["geral", "artigo", "capitulo", "inciso", "paragrafo", "secao", "alinea"]
+
+      ajax({
+        url:`${config.ai_social_rails}/jobs`,
+        type: 'POST',
+        data: { job: workflow }
+      });
     }
   }
 });
