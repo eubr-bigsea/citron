@@ -160,12 +160,8 @@ export default Ember.Component.extend({
     Ember.$(`#${this.elementId} .filter`).queryBuilder(qbJson);
     Ember.$(`#${this.elementId} .categories`).jstree(jstreeJson);
   },
-  isFilter(element, index, array){
-    if(element.operation.name == 'Filter (selection)'){
-      return true;
-    } else {
-      return false;
-    }
+  isFilter(element){
+    return element.operation.name === 'Filter (selection)';
   },
   actions: {
     makeQueryBuilder(){
@@ -180,7 +176,7 @@ export default Ember.Component.extend({
 
       var filterIndex = workflow.tasks.findIndex(this.isFilter);
       workflow.tasks[filterIndex].forms.filter = expression;
-      workflow.tasks[filterIndex].forms.types = ["geral", "artigo", "capitulo", "inciso", "paragrafo", "secao", "alinea"]
+      workflow.tasks[filterIndex].forms.types = ["geral", "artigo", "capitulo", "inciso", "paragrafo", "secao", "alinea"];
 
       ajax({
         url:`${config.ai_social_rails}/jobs`,
