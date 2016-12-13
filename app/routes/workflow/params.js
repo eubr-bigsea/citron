@@ -21,9 +21,4 @@ export default Ember.Route.extend({
       workflow: this.get('store').findRecord('workflow', params.id)
     });
   },
-  actions: {
-    onSearch(){
-      this.transitionTo('home.jobs');
-    },
-  },
 });

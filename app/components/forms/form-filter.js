@@ -181,6 +181,7 @@ export default Ember.Component.extend({
       ajax({
         url:`${config.ai_social_rails}/jobs`,
         type: 'POST',
+        async: false,
         data: { job: workflow }
       });
       this.get("routing").transitionTo('home.jobs');
