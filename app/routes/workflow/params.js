@@ -20,5 +20,11 @@ export default Ember.Route.extend({
       terms: { frequent: freq , preDefined: preDef},
       workflow: this.get('store').findRecord('workflow', params.id)
     });
-  }
+  },
+  actions: {
+    onSearch(){
+      debugger;
+      this.transitionTo('home/jobs');
+    },
+  },
 });

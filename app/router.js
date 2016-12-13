@@ -37,6 +37,7 @@ Router.map(function() {
   this.route('landing-page');
   this.route('user', {path: 'user/:id'});
   this.route('group', {path: 'group/:id'});
+  this.route('visualization', {path: 'visualization/:id'});
 });
 
 export default Router;

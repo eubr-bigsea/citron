@@ -169,7 +169,7 @@ export default Ember.Component.extend({
       var json = this.makeJSON(expression)[0];
       Ember.$(`#${this.elementId} .filter`).queryBuilder('setRules', json);
     },
-    search() {
+    onSearch() {
       var json = Ember.$(`#${this.elementId} .filter`).queryBuilder('getRules');
       var expression = this.makeExpression(json);
       let workflow = JSON.parse(JSON.stringify(this.get('workflow')));
