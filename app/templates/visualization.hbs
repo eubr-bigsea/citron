@@ -1,30 +1,29 @@
 <div class="main-wrapper">
   <div class="app sidebar-fixed header-fixed footer-fixed" id="app">
     {{app-header}}
-		{{home-sidebar}}
-		<article class="content item-editor-page">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-3">
-						<a href="#" onclick="var id  = location.pathname.split('/')[2];window.open('http://citron.ctweb.inweb.org.br:8000/correlacao?id='+id, '_blank')">
-							<div style="background-image: url('/assets/images/vis_correlacoes.png'); height: 200px; width: 200px;">
-							</div>
-							<h2> Correlation</h2>
-						</a>
-					</div>
+    {{home-sidebar}}
+    <article class="content item-editor-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3">
+            <a href="#" onclick="var host = location.hostname; var id = location.pathname.split('/')[2];window.open('http://' + host + ':8000/correlacao?id='+id, '_blank')">
+              <div style="background-image: url('/assets/images/vis_correlacoes.png'); height: 200px; width: 200px;">
+              </div>
+              <h2> Correlation</h2>
+            </a>
+          </div>
 
-					<div class="col-xs-3">
-						<a href="#" onclick="var id  = location.pathname.split('/')[2];window.open('http://citron.ctweb.inweb.org.br:8000/sentimento?id='+id, '_blank')">
-
-							<div style="background-image: url('/assets/images/vis_sentimento.png'); height: 200px; width: 200px;">
-							</div>
-							<h2>Sentiment Analysis</h2>
-						</a>
-					</div>
-				</div>
-			</div>
-		</article>
-		{{outlet}}
-		{{app-footer}}
-	</div>
+          <div class="col-xs-3">
+            <a href="#" onclick="var host = location.hostname; var id = location.pathname.split('/')[2];window.open('http://' + host + ':8000/sentimento?id='+id, '_blank')">
+              <div style="background-image: url('/assets/images/vis_sentimento.png'); height: 200px; width: 200px;">
+              </div>
+              <h2>Sentiment Analysis</h2>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+    {{outlet}}
+    {{app-footer}}
+  </div>
 </div>

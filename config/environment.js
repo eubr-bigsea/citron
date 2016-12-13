@@ -51,6 +51,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
+    ENV.ai_social_rails = 'http://citron.ctweb.inweb.org.br:8000';
   }
 
   return ENV;
