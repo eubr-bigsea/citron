@@ -86,6 +86,7 @@ var jstreeJson = {
 
 export default Ember.Component.extend({
   classNames: ['filter', 'queryBuilder'],
+  routing: Ember.inject.service('-routing'),
 
   makeExpression(jsonQuery){
     var expression = "";
@@ -186,6 +187,7 @@ export default Ember.Component.extend({
         type: 'POST',
         data: { job: workflow }
       });
+      this.get("routing").transitionTo('home.jobs');
     }
   }
 });
