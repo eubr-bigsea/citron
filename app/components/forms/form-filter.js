@@ -8,6 +8,7 @@ var leiStructure = {
   li_attr: {class: 'category'},
   a_attr: {class: 'category'},
   icon: 'fa fa-align-left',
+  state: {selected  : true},
   children: [
     { text: 'Capítulo',
       li_attr: {class: 'category'},
@@ -39,11 +40,11 @@ var leiStructure = {
               li_attr: {class: 'category'},
               a_attr: {class: 'category'},
               children: [
-                {text: 'Inciso',
+                { text: 'Inciso',
                   li_attr: {class: 'category'},
                   a_attr: {class: 'category'},
                   icon: 'fa fa-align-left'},
-                {text: 'Alinea',
+                { text: 'Alinea',
                   li_attr: {class: 'category'},
                   a_attr: {class: 'category'},
                   icon: 'fa fa-align-left'}
@@ -91,7 +92,7 @@ export default Ember.Component.extend({
   makeExpression(jsonQuery){
     var expression = "";
     var groupElems = [];
-    var operationsHash = {not_equal: "NOT ", equal: "", contains: "CONTAINS ", AND: " AND ", OR: " OR "};
+    var operationsHash = {not_equal: "!", equal: "", contains: "CONTAINS ", AND: "&", OR: "|"};
 
     jsonQuery.rules.forEach((elem) => {
       if(elem.condition){  groupElems.push(`( ${this.makeExpression(elem)} )`); }
@@ -155,6 +156,14 @@ export default Ember.Component.extend({
     }
     return [json, i];
   },
+  getTypes(treeJson){
+    var selected = treeJson.get_selected();
+    var types = [];
+    selected.forEach(function(element){
+      types.push(treeJson.get_text(element))
+    });
+    return types;
+  },
 
   didInsertElement() {
     Ember.$(`#${this.elementId} .filter`).queryBuilder(qbJson);
@@ -173,10 +182,9 @@ export default Ember.Component.extend({
       var json = Ember.$(`#${this.elementId} .filter`).queryBuilder('getRules');
       var expression = this.makeExpression(json);
       let workflow = JSON.parse(JSON.stringify(this.get('workflow')));
-
       var filterIndex = workflow.tasks.findIndex(this.isFilter);
       workflow.tasks[filterIndex].forms.filter = expression;
-      workflow.tasks[filterIndex].forms.types = ["geral", "artigo", "capitulo", "inciso", "paragrafo", "secao", "alinea"];
+      workflow.tasks[filterIndex].forms.types = this.getTypes(Ember.$(`#${this.elementId} .categories`).jstree());
 
       ajax({
         url:`${config.ai_social_rails}/jobs`,
