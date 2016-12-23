@@ -12,9 +12,6 @@ export default Ember.Component.extend({
       if(key === 'color') {
         Ember.$('#' + this.get('task').id).css('background-color', value);
       }
-    },
-    saveForm() {
-      this.get('workflow').save();
     }
   }
 });
