@@ -5,10 +5,10 @@ export default Ember.Route.extend({
     this._super(...arguments);
     return  this.get('store').findRecord('workflow', params.id);
   },
-  actions:{
-    save(){
+  actions: {
+    save() {
       var workflow = this.currentModel;
       this.transitionTo('workflow.edit', workflow.id);
-    },
-  },
+    }
+  }
 });

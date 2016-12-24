@@ -43,7 +43,6 @@ export default Ember.Component.extend({
         };
         this.get('workflow').get('tasks').addObject(task);
         this.get('tasks').addObject(task);
-        this.get('workflow').save();
       }
     }).selectable({
       selected() {
@@ -66,9 +65,6 @@ export default Ember.Component.extend({
       this.set('filledForms', filledForms);
       this.set('task', task);
     },
-    saveTasks() {
-      this.get('workflow').save();
-    },
     removeTask(task) {
       let toRemove = this.get('workflow').get('flows').filter((el) => {
         return el.source_id === task.id || el.target_id === task.id;
@@ -77,7 +73,6 @@ export default Ember.Component.extend({
       this.get('workflow').get('flows').removeObjects(toRemove);
       this.get('tasks').removeObject(task);
       this.get('flows').removeObjects(toRemove);
-      this.get('workflow').save();
     },
     addFlow(flow, save = false) {
       this.get('jsplumb').connect({
@@ -89,7 +84,6 @@ export default Ember.Component.extend({
       if(save) {
         this.get('workflow').get('flows').addObject(flow);
         this.get('flows').addObject(flow);
-        this.get('workflow').save();
       }
     },
     removeFlow(flow) {
@@ -104,7 +98,6 @@ export default Ember.Component.extend({
 
       this.get('workflow').get('flows').removeObject(obj);
       this.get('flows').removeObject(obj);
-      this.get('workflow').save();
     },
   }
 });

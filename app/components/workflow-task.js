@@ -99,7 +99,6 @@ export default Ember.Component.extend({
       stop: (ev) => {
         this.get('task').left = ev.pos[0];
         this.get('task').top  = ev.pos[1];
-        this.get('saveTasks')();
       }
     });
 

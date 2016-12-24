@@ -14,10 +14,6 @@ export default Component.extend({
     },
     invalidateSession(){
       this.get('session').invalidate();
-    },
-    toggleEdit() {
-      this.toggleProperty('isEditing');
-      this.get('workflow').save();
     }
   }
 });
