@@ -58,7 +58,7 @@ overflow-x: hidden; }
 .app {
   position: relative;
   width: 100%;
-  padding-left: 230px;
+  padding-left: 50px;
   min-height: 100vh;
   margin: 0 auto;
   left: 0;
@@ -72,18 +72,18 @@ overflow: hidden; }
 min-height: 100vh; }
 @media (min-width: 1200px) {
   .app .content {
-padding: 65px 20px 0px 20px; } }
+padding: 45px 20px 0px 20px; } }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .app .content {
-padding: 110px 30px 90px 30px; } }
+padding: 45px 30px 90px 30px; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .app .content {
-padding: 95px 20px 75px 20px; } }
+padding: 45px 20px 75px 70px; } }
 @media (max-width: 767px) {
   .app .content {
-padding: 65px 10px 65px 10px; } }
+padding: 45px 10px 65px 10px; } }
 @media (max-width: 991px) {
   .app {
 padding-left: 0; } }
@@ -92,6 +92,29 @@ padding-left: 0; } }
 left: 0; } }
 .app.blank {
 background-color: #667380; }
+
+
+.app .drawer{
+  padding: 110px 30px 90px 30px;
+min-height: 100vh; }
+@media (min-width: 1200px) {
+  .app .drawer {
+padding: 45px 20px 0px 260px; } }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .app .drawer {
+padding: 45px 30px 90px 260px; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .app .drawer {
+padding: 45px 20px 75px 260px; } }
+@media (max-width: 767px) {
+  .app .drawer {
+padding: 45px 10px 65px 260px; } }
+@media (max-width: 991px) {
+  .app .drawer {
+padding: 45px 10px 65px 310px; } }
+
 
 .task {
   font-family: Roboto;

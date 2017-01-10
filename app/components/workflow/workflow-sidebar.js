@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   didInsertElement() {
-    Ember.$('#sidebar-menu').metisMenu();
+    Ember.$('#workflow-sidebar').metisMenu();
 
     Ember.$('#sidebar-collapse-btn').on('click', (event) => {
       event.preventDefault();
