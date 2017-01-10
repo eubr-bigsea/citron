@@ -8,8 +8,12 @@ moduleForComponent('cards/card-video-tutorial', 'Integration | Component | cards
 test('it renders frame', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
+  var testModel = {
+    title: "tutorial",
+    youtubeID: "5_sHXJC9ocA"
+  };
+  this.set('videoTutorialTest', testModel);
+  this.render(hbs`{{cards/card-video-tutorial videoTutorial= videoTutorialTest }}`);
 
-  this.render(hbs`{{cards/card-video-tutorial title='tutorial' youtubeID='8IJJGK2td2c'}}`);
-
-  assert.equal(this.$('#video-tutorial .title').text().trim(), 'tutorial', 'title as tutorial');
+  assert.equal(this.$('#video-tutorial .title').text().trim(), testModel.title, 'title as tutorial');
 });
