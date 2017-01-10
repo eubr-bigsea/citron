@@ -49,6 +49,7 @@ export default Ember.Component.extend({
         Ember.$('.ui-selected').removeClass('ui-selected');
       },
       stop() {
+        $('#forms').toggle(false);
         el.set('forms', Ember.Object.create());
         el.set('filledForms', Ember.Object.create());
       }

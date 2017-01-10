@@ -1,0 +1,12 @@
+<aside class="sidebar" id="forms" style="left:400px;">
+  {{#each forms as |form|}}
+    <fieldset>
+      <legend>{{form.name}}</legend>
+      {{#each form.fields as |field|}}
+        {{forms.form-label field=field}}
+        {{component (concat 'forms.form-' field.suggested_widget) value=(get (get filledForms field.name) 'value') field=field onChange=(action 'formChanged')}}
+      {{/each}}
+    </fieldset>
+  {{/each}}
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
