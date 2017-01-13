@@ -1,0 +1,40 @@
+<li class="item">
+	<div class="item-row">
+		<div class="item-col item-col-id no-overflow">
+			<div class="item-heading">ID</div>
+			<div class="no-overflow">
+				{{#link-to 'workflow.draw' workflow.id class='workflow'}} {{workflow.id}} {{/link-to}}
+			</div>
+		</div>
+		<div class="item-col fixed pull-left item-col-title">
+			<div class="item-heading">Name</div>
+			<div>
+				{{#link-to 'workflow.draw' workflow.id}} <h4 class="item-title">  {{workflow.name}} </h4> {{/link-to}}
+			</div>
+		</div>
+		<div class="item-col item-col-options">
+			<div class="item-heading">Options</div>
+			<div class="container">
+				<div class="row">
+					<div class="icon col-xs-3 col-sm-6 col-xl-3 text-center">
+						{{#link-to 'workflow.params' workflow.id }}<i class="fa fa-sliders fa-lg"></i>{{/link-to}}
+					</div>
+					<div class="icon col-xs-3 col-sm-6 col-xl-3">
+						{{#link-to 'workflow.edit' workflow.id }}<i class="fa fa-cog fa-lg"></i>{{/link-to}}
+					</div>
+					<div class="icon col-xs-3 col-sm-6 col-xl-3">
+						{{#link-to 'workflow.draw' workflow.id }}<i class="fa fa-pencil fa-lg"></i>{{/link-to}}
+					</div>
+					<div class="icon col-xs-3 col-sm-6 col-xl-3">
+						<a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i class="fa fa-trash-o fa-lg"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item-col item-col-date">
+			<div class="item-heading">Created</div>
+			<div class="no-overflow"> {{workflow.updated}} </div>
+		</div>
+	</div>
+</li>
+
