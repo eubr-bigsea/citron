@@ -12,33 +12,39 @@
       {{/link-to}}
     </div>
     <!--
-    <div class="item-col item-col-id no-overflow">
+      <div class="item-col item-col-id no-overflow">
       <div class="item-heading">ID</div>
       <div class="no-overflow">
-        {{#link-to 'datasource.edit' datasource.id class='datasource text-center' }} {{datasource.id}} {{/link-to}}
+      {{#link-to 'datasource.edit' datasource.id class='datasource text-center'}}
+        {{datasource.id}}
+      {{/link-to}}
       </div>
-    </div>
+      </div>
     -->
     <div class="item-col fixed pull-left item-col-title">
       <div class="item-heading">Name</div>
       <div>
-        {{#link-to 'datasource.edit' datasource.id}} <h4 class="item-title">	{{datasource.name}} </h4> {{/link-to}}
+        {{#link-to 'datasource.edit' datasource.id}}
+          <h4 class="item-title">
+            {{datasource.name}}
+          </h4>
+        {{/link-to}}
       </div>
     </div>
     <div class="item-col item-col-size no-overflow">
       <div class="item-heading">Size</div>
       <div class="no-overflow">
-      {{#link-to 'datasource.edit' datasource.id class='datasource'}}
-      {{datasource.size}}
-      {{/link-to}}
+        {{#link-to 'datasource.edit' datasource.id class='datasource'}}
+          {{datasource.size}}
+        {{/link-to}}
       </div>
     </div>
     <div class="item-col item-col-type no-overflow">
       <div class="item-heading">Type</div>
       <div class="no-overflow">
-      {{#link-to 'datasource.edit' datasource.id class='datasource'}}
-      {{datasource.data_type}}
-      {{/link-to}}
+        {{#link-to 'datasource.edit' datasource.id class='datasource'}}
+          {{datasource.data_type}}
+        {{/link-to}}
       </div>
     </div>
     <div class="item-col item-col-category no-overflow">
@@ -51,7 +57,7 @@
       <div class="item-heading">Author</div>
       <div class="no-overflow">
         {{#link-to 'user' datasource.user.id}}
-        <h4 class="item-title"> {{datasource.user_id.firstname}} </h4>
+          <h4 class="item-title"> {{datasource.user_id.firstname}} </h4>
         {{/link-to}}
       </div>
     </div>
@@ -63,7 +69,7 @@
       <div class="item-actions-dropdown">
         <a class="remove" {{action 'deleteDatasource' datasource}} href="#" > <i class="fa fa-trash-o "></i></a>
         {{#link-to 'datasource.edit' datasource.id }}
-        <i class="fa fa-pencil"></i>
+          <i class="fa fa-pencil"></i>
         {{/link-to}}
       </div>
     </div>

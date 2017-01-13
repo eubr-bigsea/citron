@@ -13,36 +13,36 @@
       </div>
     </div>
   </div>
-	<div class="form-group row">
-		<label class="col-sm-2 form-control-label text-xs-right"> File: </label>
-		<div class="col-sm-10">
-			{{datasource.browser-upload}}
-		</div>
-	</div>
+  <div class="form-group row">
+    <label class="col-sm-2 form-control-label text-xs-right"> File: </label>
+    <div class="col-sm-10">
+      {{datasource.browser-upload}}
+    </div>
+  </div>
   <div class="form-group row">
     <label class="col-sm-2 form-control-label text-xs-right"> Type: </label>
     <div class="col-sm-10">
       <select class="c-select form-control boxed" onchange={{action "setDataType" value="target.value" }}>
         <option value="invalid">----------</option>
         <option value="database">Database</option>
-				<option value="dictionary">Dictionary</option>
-			</select> </div>
-	</div>
-	<div class="form-group row">
-		<label class="col-sm-2 form-control-label text-xs-right"> Format: </label>
-		<div class="col-sm-10">
+        <option value="dictionary">Dictionary</option>
+      </select> </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 form-control-label text-xs-right"> Format: </label>
+    <div class="col-sm-10">
       <select class="c-select form-control boxed" onchange={{action "setDataFormat" value="target.value" }}>
         <option value="invalid">----------</option>
-				<option value="json">json</option>
-				<option value="csv">csv</option>
-				<option value="txt">txt</option>
-				<option value="doc">doc</option>
-				<option value="pdf">pdf</option>
-			</select> </div>
-	</div>
-	<div class="form-group row">
-		<div class="col-sm-10 col-sm-offset-2">
-			<button type="submit" class="btn btn-primary"> {{buttonText}} </button>
-		</div>
-	</div>
+        <option value="json">json</option>
+        <option value="csv">csv</option>
+        <option value="txt">txt</option>
+        <option value="doc">doc</option>
+        <option value="pdf">pdf</option>
+      </select> </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10 col-sm-offset-2">
+      <button type="submit" class="btn btn-primary"> {{buttonText}} </button>
+    </div>
+  </div>
 </div>

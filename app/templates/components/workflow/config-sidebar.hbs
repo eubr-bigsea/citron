@@ -15,10 +15,12 @@
           {{/link-to}}
         </li>
         <li class={{workflowEdit}}>
-          {{#link-to 'workflow.edit' workflow.id}}
-            <i class="fa fa-arrow-right"></i>
-            <span> {{currentAction}} Workflow </span>
-          {{/link-to}}
+          {{#if workflow.id}}
+            {{#link-to 'workflow.edit' workflow.id}}
+              <i class="fa fa-arrow-right"></i>
+              <span> {{currentAction}} Workflow </span>
+            {{/link-to}}
+          {{/if}}
         </li>
         <li>
           {{#if workflow.id}}
