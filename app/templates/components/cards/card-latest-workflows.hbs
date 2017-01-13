@@ -1,0 +1,39 @@
+<div class="card" id='release-notes'>
+  <div class="card-header">
+    <div class="header-block">
+      <h3 class="title">Latest workflow edited</h3>
+    </div>
+  </div>
+  <div class="card-block">
+    <ul class="item-list striped">
+    <li class="item item-list-header hidden-sm-down">
+      <div class="item-row">
+        <div class="item-col item-col-header item-col-id">
+          <div class="item-col item-col-id no-overflow">
+            <span {{action 'changeSorter' 'id'}}>ID</span>
+          </div>
+        </div>
+        <div class="item-col item-col-header item-col-title">
+          <div>
+            <span {{action 'changeSorter' 'name'}}>Name</span>
+          </div>
+        </div>
+        <div class="item-col item-col-header item-col-options">
+          <div class="no-overflow">
+            <span>Options</span>
+          </div>
+        </div>
+        <div class="item-col item-col-header item-col-date">
+          <div>
+            <span {{action 'changeSorter' 'updated'}}>Created</span>
+          </div>
+        </div>
+      </div>
+      {{#each slicedModel as |workflow|}}
+      {{cards.item-list-workflow workflow=workflow}}
+      {{/each}}
+      {{outlet}}
+    </li>
+    </ul>
+  </div>
+</div>

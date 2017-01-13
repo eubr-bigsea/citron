@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['item', 'item-list-header', 'hidden-sm-down'],
-  tagName: 'li',
 
   sortBy: ['name'],
   sortedModel: Ember.computed.sort('workflows','sortBy'),

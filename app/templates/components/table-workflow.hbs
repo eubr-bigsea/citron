@@ -1,46 +1,48 @@
-<div class="item-row">
-  <div class="item-col fixed item-col-check">
-    <label class="item-check" id="select-all-items">
-      <input type="checkbox" class="checkbox">
-      <span></span>
-    </label>
-  </div>
-  <div class="item-col item-col-header fixed item-col-img md">
-    <div>
-      <span>Logo</span>
+<li class="item item-list-header hidden-sm-down">
+  <div class="item-row">
+    <div class="item-col fixed item-col-check">
+      <label class="item-check" id="select-all-items">
+        <input type="checkbox" class="checkbox">
+        <span></span>
+      </label>
+    </div>
+    <div class="item-col item-col-header fixed item-col-img md">
+      <div>
+        <span>Logo</span>
+      </div>
+    </div>
+    <div class="item-col item-col-header item-col-id">
+      <div>
+        <span {{action 'changeSorter' 'id'}}>ID</span>
+      </div>
+    </div>
+    <div class="item-col item-col-header item-col-title">
+      <div>
+        <span {{action 'changeSorter' 'name'}}>Name</span>
+      </div>
+    </div>
+    <div class="item-col item-col-header item-col-options">
+      <div class="no-overflow">
+        <span>Options</span>
+      </div>
+    </div>
+    <div class="item-col item-col-header item-col-category">
+      <div class="no-overflow">
+        <span>Group</span>
+      </div>
+    </div>
+    <div class="item-col item-col-header item-col-author">
+      <div class="no-overflow">
+        <span {{action 'changeSorter' 'user.name'}}>Author</span>
+      </div>
+    </div>
+    <div class="item-col item-col-header item-col-date">
+      <div>
+        <span {{action 'changeSorter' 'updated'}}>Updated at</span>
+      </div>
     </div>
   </div>
-  <div class="item-col item-col-header item-col-id">
-    <div>
-      <span {{action 'changeSorter' 'id'}}>ID</span>
-    </div>
-  </div>
-  <div class="item-col item-col-header item-col-title">
-    <div>
-      <span {{action 'changeSorter' 'name'}}>Name</span>
-    </div>
-  </div>
-  <div class="item-col item-col-header item-col-options">
-    <div class="no-overflow">
-      <span>Options</span>
-    </div>
-  </div>
-  <div class="item-col item-col-header item-col-category">
-    <div class="no-overflow">
-      <span>Group</span>
-    </div>
-  </div>
-  <div class="item-col item-col-header item-col-author">
-    <div class="no-overflow">
-      <span {{action 'changeSorter' 'user.name'}}>Author</span>
-    </div>
-  </div>
-  <div class="item-col item-col-header item-col-date">
-    <div>
-      <span {{action 'changeSorter' 'updated'}}>Created</span>
-    </div>
-  </div>
-</div>
+</li>
 {{#each sortedModel as |workflow|}}
   {{workflows.table-item workflow=workflow}}
 {{/each}}
