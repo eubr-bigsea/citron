@@ -100,11 +100,11 @@
     }
 
     &.active > a {
-      background-color: #70b327 !important;
+      background-color: $main-theme-hover-green !important;
       color: #ffffff !important;
 
       &:hover {
-        background-color: $main-theme-color !important;
+        background-color: $main-theme-hover-green !important;
         color: #ffffff !important;
       }
     }
@@ -210,7 +210,7 @@
 
 .main-menu {
   //background:#85ce36;
-  background:#598629;
+  background: $main-theme-dark-green;
   position:fixed;
   top:0;
   bottom:0;
@@ -303,7 +303,7 @@ li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.
 .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page
 nav.dashboard-menu ul li.active a {
   color:#fff;
-  background-color:#70b327;
+  background-color:$main-theme-hover-green;
 }
 .area {
   float: left;

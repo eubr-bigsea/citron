@@ -10,12 +10,12 @@
 
 .nav {
   &.nav-tabs-bordered {
-    border-color: $main-theme-color;
+    border-color: $main-theme-green;
 
     + .tab-content {
       border-style: solid;
       border-width: 0 1px 1px 1px;
-      border-color: $main-theme-color;
+      border-color: $main-theme-green;
       padding: 10px 20px 0;
     }
 
@@ -24,12 +24,12 @@
 
       &:hover {
         color: #ffffff;
-        background-color: $main-theme-color;
-        border: 1px solid $main-theme-color;
+        background-color: $main-theme-green;
+        border: 1px solid $main-theme-green;
       }
 
       &.active {
-        border-color: $main-theme-color;
+        border-color: $main-theme-green;
         border-bottom-color: transparent;
 
         &:hover {
@@ -56,12 +56,12 @@
       }
 
       &.active {
-        border-color: $main-theme-color;
+        border-color: $main-theme-green;
         border-bottom-color: transparent;
-        background-color: $main-theme-color;
+        background-color: $main-theme-green;
 
         &:hover {
-          background-color: $main-theme-color;
+          background-color: $main-theme-green;
           color: #ffffff;
         }
       }

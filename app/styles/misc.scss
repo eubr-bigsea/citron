@@ -21,7 +21,7 @@ a:not(.btn) {
   color: #969696;
 
   &:hover {
-    color: $main-theme-color;
+    color: $main-theme-green;
 
     &:before {
       -webkit-transform: scaleX(1);
@@ -43,18 +43,18 @@ span a {
 
   .page-item {
     .page-link {
-      color: $main-theme-color;
+      color: $main-theme-green;
     }
 
     &.active .page-link {
       color: #fff;
-      border-color: $main-theme-color;
-      background-color: $main-theme-color;
+      border-color: $main-theme-green;
+      background-color: $main-theme-green;
 
       &:focus, &:hover {
         color: #fff;
-        border-color: $main-theme-color;
-        background-color: $main-theme-color;
+        border-color: $main-theme-green;
+        background-color: $main-theme-green;
       }
     }
   }
@@ -77,10 +77,10 @@ span a {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 0;
-  background: $main-theme-hover-color;
+  background: $main-theme-hover-green;
 
   &:window-inactive {
-    background: $main-theme-color;
+    background: $main-theme-green;
   }
 }
 
@@ -164,7 +164,7 @@ span a {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: $main-theme-color;
+  background-color: $main-theme-green;
   content: '';
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -335,7 +335,7 @@ span a {
 }
 
 .text-primary {
-  color: $main-theme-color;
+  color: $main-theme-green;
 }
 
 .text-muted {
