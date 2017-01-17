@@ -1,0 +1,31 @@
+.slider.slider-horizontal {
+  width: 100%;
+  height: 18px;
+
+  .slider-track {
+    height: 6px;
+
+    .slider-track-low, .slider-track-high {
+      background-color: $full-white;
+      border-color: $border-light-gray;
+      border-radius: 3px;
+    }
+    .slider-selection {
+      border-radius: 3px;
+      border-color: $border-light-gray;
+      background: $dark-gray;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+  }
+
+  .slider-handle.round {
+    top: 0px;
+    width: 14px;
+    height: 14px;
+    border-color: $border-light-gray;
+    background: $dark-gray;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}

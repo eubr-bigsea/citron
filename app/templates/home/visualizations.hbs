@@ -1,0 +1,14 @@
+{{home-sidebar visualizationsActive='active'}}
+<article class="content items-list-page">
+  {{visualizations.button-bar icon="fa-bar-chart" title="Visualizations" subtitle="List of all visualizatios"}}
+  <ul class='nav metismenu'>
+    <li>
+      {{#link-to 'visualizations.correlation-matrix' }}
+        <i class="fa fa-list"></i>
+        <span >Correlation Matrix</span>
+      {{/link-to}}
+    </li>
+  </ul>
+</article>
+
+{{outlet}}

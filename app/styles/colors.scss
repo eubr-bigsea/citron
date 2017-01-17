@@ -1,0 +1,15 @@
+.circle {
+
+  &[data-value='1'][data-name='bid'] { background-color: $bid1; }
+  &[data-value='2'][data-name='bid'] { background-color: $bid2; }
+  &[data-value='3'][data-name='bid'] { background-color: $bid3; }
+  &[data-value='4'][data-name='bid'] { background-color: $bid4; }
+  &[data-value='5'][data-name='bid'] { background-color: $bid5; }
+
+  &[data-value='1'][data-name='ask'] { background-color: $ask1; }
+  &[data-value='2'][data-name='ask'] { background-color: $ask2; }
+  &[data-value='3'][data-name='ask'] { background-color: $ask3; }
+  &[data-value='4'][data-name='ask'] { background-color: $ask4; }
+  &[data-value='5'][data-name='ask'] { background-color: $ask5; }
+
+}

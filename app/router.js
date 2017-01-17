@@ -35,10 +35,14 @@ Router.map(function() {
     this.route('datasources');
     this.route('configurations');
     this.route('jobs');
+    this.route('visualizations');
   });
   this.route('landing-page');
   this.route('user', {path: 'user/:id'});
   this.route('group', {path: 'group/:id'});
+  this.route('visualizations', function() {
+    this.route('correlation-matrix');
+  });
 });
 
 export default Router;
