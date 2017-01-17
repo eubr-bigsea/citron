@@ -5,7 +5,32 @@ export default Ember.Component.extend({
   tagName: 'li',
 
   sortBy: ['name'],
-  sortedModel: Ember.computed.sort('workflows','sortBy'),
+  sortedModel: Ember.computed.sort('filteredResults','sortBy'),
+  filterText: '',
+
+  filteredResults: function() {
+    var filter = this.get('filterText').toString().toLowerCase();
+    return this.get('workflows').filter(function(item){
+      return item.get('name').toString().toLowerCase().indexOf(filter) !== -1;
+    });
+  }.property('filterText'),
+
+  didInsertElement(){
+
+    Ember.$('#submit').click(() =>{
+      this.triggerAction({
+        action:'search',
+        target: this
+      });
+    });
+
+    Ember.$('#input').on('keyup', () =>{
+      this.triggerAction({
+        action:'search',
+        target: this
+      });
+    });
+  },
 
   actions: {
     changeSorter(sortProp){
@@ -17,6 +42,9 @@ export default Ember.Component.extend({
         sortOrder = 'asc';
       }
       this.set('sortBy',[sortProp + ":" + sortOrder]);
+    },
+    search(){
+      this.set('filterText', Ember.$('#input').val().toString().toLowerCase());
     }
   }
 });
