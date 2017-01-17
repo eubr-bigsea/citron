@@ -10,6 +10,10 @@
 
     {{content-for "head"}}
 
+    <!-- Gfranciscani -->
+    <link href="{{rootURL}}assets/libs/css/tooltipster.bundle.min.css" rel="stylesheet">
+    <!-- /Gfranciscani -->
+
     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link rel="stylesheet" href="{{rootURL}}assets/lemonade-ember.css">
 
@@ -17,6 +21,23 @@
   </head>
   <body>
     {{content-for "body"}}
+
+    <!-- Gfranciscani -->
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="{{rootURL}}assets/libs/js/tooltipster.bundle.min.js"></script>
+
+    <!-- gViz Library -->
+    <script src="{{rootURL}}assets/js/gViz/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/initializers/tooltipster.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/initializers/libs.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/colors.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/date.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/loading.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/number.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/selection.js"></script>
+    <!-- /gViz Library -->
+
+    <!-- /Gfranciscani -->
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/lemonade-ember.js"></script>

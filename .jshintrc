@@ -2,7 +2,10 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "$",
+    "jQuery",
+    "gViz"
   ],
   "browser": true,
   "boss": true,
