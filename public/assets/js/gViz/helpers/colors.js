@@ -4,6 +4,8 @@ if (!gViz.helpers.colors) { gViz.helpers.colors = {}; }
 // Initializer main color pallete
 gViz.helpers.colors.main = d3.scaleOrdinal(["#b172b2","#eb65a0","#bccf02","#5bb12f","#73c5e1"]);
 
+gViz.helpers.colors.d310 = d3.scaleOrdinal(d3.schemeCategory10);
+
 // Initializer gray scale color pallete
 gViz.helpers.colors.gray = d3.scaleOrdinal(["#000","#333","#666","#999","#bbb","#ccc","#ddd","#eee"]);
 

@@ -20,17 +20,26 @@ export default Ember.Component.extend({
     // Initialize variables
     let component = this;
 
-    //// Call visualization
-    //component._var = gViz.vis.time()
-    //  ._var(component._var)
-    //  .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-    //  .data(data)
-    //  .click({ selector: ".chart-elements", fn: () => component.draw() })
-    //  .zoom({ fn: (time) => { component.draw(time); } })
-    //  .width($.isNumeric(component.get('width')) ? component.get('width') : null)
-    //  .height(component.get('height'))
-    //  .shape('line')
-    //  .build();
+    let data_url = "https://raw.githubusercontent.com/d3/d3-plugins/master/graph/data/miserables.json"
+
+    d3.json(data_url, function(err, data) {
+      if(err) console.log(err);
+
+      component._var = gViz.vis.correlation_matrix()
+      ._var(component._var)
+      ._class("correlation-matrix-chart")
+      .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
+      .data(data)
+      .build();
+
+    });
+
+    // Call visualization
+      // .click({ selector: ".chart-elements", fn: () => component.draw() })
+      // .zoom({ fn: (time) => { component.draw(time); } })
+      // .width($.isNumeric(component.get('width')) ? component.get('width') : null)
+      // .height(component.get('height'))
+      // .shape('line')
 
   },
 
