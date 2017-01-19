@@ -59,12 +59,12 @@ var leiStructure = {
 
 var qbJson = {
   filters: [{
-    id: 'term',
+    id: 'text',
     label: 'Term',
     type: 'string',
-    operators: ['equal', 'not_equal', 'contains'],
+    operators: ['contains']
   }],
-  default_filter: 'term',
+  default_filter: 'text',
   lang_code: 'en',
   icons:{
     add_group: 'fa fa-plus',
