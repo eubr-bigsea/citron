@@ -29,7 +29,7 @@ export default Ember.Component.extend({
       ._var(component._var)
       ._class("correlation-matrix-chart")
       .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-      .data(data)
+      .data(our_random_data)
       .build();
 
     });

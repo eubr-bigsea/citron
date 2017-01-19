@@ -11,7 +11,7 @@ gViz.vis.correlation_matrix.initialize = function() {
   var animation   = 900;
   var data        = [];
   var height      = 100;
-  var margin      = { top: 10, right: 10, bottom: 10, left: 10 };
+  var margin      = { top: 50, right: 50, bottom: 50, left: 50 };
   var width       = 100;
 
   // Validate attributes

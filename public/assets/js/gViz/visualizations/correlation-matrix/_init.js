@@ -12,7 +12,7 @@ gViz.vis.correlation_matrix = function() {
   let container   = undefined;
   let data        = [];
   let height      = undefined;
-  let margin      = { top: 0, right: 0, bottom: 0, left: 0 };
+  let margin      = { top: 50, right: 50, bottom: 50, left: 50 };
   let width       = undefined;
 
   // Validate attributes
@@ -24,7 +24,7 @@ gViz.vis.correlation_matrix = function() {
       case 'create':         return true;
       case 'scales':         return true;
       case 'setup':          return true;
-      //case 'draw':           return true;
+      case 'draw':           return true;
       default: return false;
     }
   };
