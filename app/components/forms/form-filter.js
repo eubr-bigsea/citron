@@ -181,11 +181,11 @@ export default Ember.Component.extend({
     onSearch() {
       var json = Ember.$(`#${this.elementId} .filter`).queryBuilder('getRules');
       var expression = this.makeExpression(json);
-      var mongoQuery = Ember.$(`#${this.elementId} .filter`).queryBuilder('getMongo');
+      var mongo_query = Ember.$(`#${this.elementId} .filter`).queryBuilder('getMongo');
       let workflow = JSON.parse(JSON.stringify(this.get('workflow')));
       var filterIndex = workflow.tasks.findIndex(this.isFilter);
       workflow.tasks[filterIndex].forms.filter = expression;
-      workflow.tasks[filterIndex].forms.mongoQuery = mongoQuery;
+      workflow.tasks[filterIndex].forms.mongo_query = mongo_query;
       workflow.tasks[filterIndex].forms.types = this.getTypes(Ember.$(`#${this.elementId} .categories`).jstree());
       workflow.workflow_id = this.get('workflow').id;
       workflow.name = Ember.$('#jobName').val();
@@ -193,7 +193,7 @@ export default Ember.Component.extend({
         url:`${config.ai_social_rails}/jobs`,
         type: 'POST',
         async: false,
-        data: { job: workflow }
+        data: { job: JSON.stringify(workflow) }
       });
       this.get("routing").transitionTo('home.jobs');
     }
