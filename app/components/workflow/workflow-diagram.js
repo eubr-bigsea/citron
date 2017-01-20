@@ -4,6 +4,8 @@
 import Ember from 'ember';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
 
+const {$} = Ember;
+
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   init() {
@@ -49,6 +51,7 @@ export default Ember.Component.extend({
         Ember.$('.ui-selected').removeClass('ui-selected');
       },
       stop() {
+        $('#forms').toggle(false);
         el.set('forms', Ember.Object.create());
         el.set('filledForms', Ember.Object.create());
       }

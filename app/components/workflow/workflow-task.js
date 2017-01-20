@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 
+const {$} = Ember;
+
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   classNames: ['task'],
@@ -102,7 +104,10 @@ export default Ember.Component.extend({
       }
     });
 
+
     Ember.$(el).click(() => {
+      $('#forms').toggle(true);
+
       Ember.$('.ui-selected').removeClass('ui-selected');
       Ember.$(el).addClass('ui-selected');
       clickTask(this.get('forms'), task.forms, task);
