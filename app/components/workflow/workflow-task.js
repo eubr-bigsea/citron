@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 
+const {$} = Ember;
+
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   classNames: ['task'],

@@ -4,6 +4,8 @@
 import Ember from 'ember';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
 
+const {$} = Ember;
+
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   init() {
