@@ -43,15 +43,16 @@ gViz.vis.correlation_matrix.draw = function() {
 									.style("fill-opacity", function(d) { return _var.zScale(d.z); })
 									.style("fill", function(d) { 
                     return _var._data.rows[d.x].group == _var._data.columns[d.y].group ? 
-                      _var.colors.scale(_var._data.rows[d.x].group) : "none"; });
-
+                      _var.colors.scale(_var._data.rows[d.x].group) : "none"; 
+                  });
               }
 
               // Appends matrix placeholder
-              _var.g.append("rect")
+              _var.background = _var.g.append("rect")
                	.attr("class", `${_var._class} background`)
                 .attr("width", _var.width)
                 .attr("height", _var.height);
+
 
               // For each row appends the rectangles
               _var.row = _var.g.selectAll(`.${_var._class}.row`)

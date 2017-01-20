@@ -15,36 +15,33 @@ export default Ember.Component.extend({
   _var: null,
 
   // Draw Chart
-  draw: function(){
+  draw: function(data_index){
 
     // Initialize variables
     let component = this;
 
     let data_url = "https://raw.githubusercontent.com/d3/d3-plugins/master/graph/data/miserables.json"
 
-    d3.json(data_url, function(err, data) {
-      if(err) console.log(err);
-
-      component._var = gViz.vis.correlation_matrix()
+    component._var = gViz.vis.correlation_matrix()
       ._var(component._var)
       ._class("correlation-matrix-chart")
       .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-      .data(our_random_data)
+      .data(our_random_data[data_index])
       .build();
-
-    });
-
-    // Call visualization
-      // .click({ selector: ".chart-elements", fn: () => component.draw() })
-      // .zoom({ fn: (time) => { component.draw(time); } })
-      // .width($.isNumeric(component.get('width')) ? component.get('width') : null)
-      // .height(component.get('height'))
-      // .shape('line')
-
   },
 
   didInsertElement: function(){
-    this.draw();
-  }
 
+    let component = this;
+    var data_index = 0;
+
+    d3.selectAll(`.btn[data-id=${component.get('_id')}`)
+      .on("click", function() {
+        
+        var data_index = this.value - 1;
+        component.draw(data_index);
+    });
+
+   this.draw(data_index);
+  }
 });

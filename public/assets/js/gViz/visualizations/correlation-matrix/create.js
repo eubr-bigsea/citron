@@ -44,6 +44,23 @@ gViz.vis.correlation_matrix.create = function() {
           // Update inner dimensions
           _var.g.attr("transform", `translate(${_var.margin.left},${_var.margin.top})`);
 
+          _var.background = _var.g.selectAll(`.${_var._class}.background`).data(["chart-wrap"], d => d);
+          _var.background.exit().remove();
+          _var.background = _var.g.enter().append('g').attr("class", `${_var._class} background`).merge(_var.background);
+
+          // Update Rows
+          _var.row = _var.g.selectAll(`.${_var._class}.row`).data(["chart-wrap"], d => d);
+          _var.row.exit().remove();
+          _var.row = _var.g.enter().append('g').attr("class", `${_var._class} row`).merge(_var.row);
+
+          // Update Columns
+          _var.column = _var.g.selectAll(`.${_var._class}.column`).data(["chart-wrap"], d => d);
+          _var.column.exit().remove();
+          _var.column = _var.g.enter().append('g').attr("class", `${_var._class} column`).merge(_var.column);
+
+
+          _var.matrix = [];
+
           break;
       }
     }
