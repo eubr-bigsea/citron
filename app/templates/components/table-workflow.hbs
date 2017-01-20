@@ -43,7 +43,8 @@
     </div>
   </div>
 </li>
-{{#each sortedModel as |workflow|}}
+{{#each pagedContent as |workflow|}}
   {{workflows.table-item workflow=workflow}}
 {{/each}}
+{{page-numbers content=pagedContent}}
 {{outlet}}

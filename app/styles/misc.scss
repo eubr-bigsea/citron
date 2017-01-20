@@ -38,10 +38,21 @@ span a {
   vertical-align: text-bottom;
 }
 
-.pagination {
-  margin-top: 0;
+.page-number {
+  display: inline;
+}
 
-  .page-item {
+.arrow {
+  display: inline;
+}
+
+.pagination {
+  text-align: right !important;
+  margin-top: 0;
+  margin-right: 10px;
+  display: inline;
+
+  .page-number {
     .page-link {
       color: $main-theme-green;
     }
