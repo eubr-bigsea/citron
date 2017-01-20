@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Ember.Component.extend({
 
@@ -12,6 +13,13 @@ export default Ember.Component.extend({
       return item.get('name').toString().toLowerCase().indexOf(filter) !== -1;
     });
   }.property('filterText'),
+
+  queryParams: ["page", "perPage"],
+  page: 1,
+  perPage: 8,
+
+  pagedContent: pagedArray('sortedModel', {pageBinding: "page", perPageBinding: "perPage"}),
+  totalPagesBinding: "pagedContent.totalPages",
 
   didInsertElement(){
 
@@ -43,6 +51,7 @@ export default Ember.Component.extend({
     },
     search(){
       this.set('filterText', Ember.$('#input').val().toString().toLowerCase());
+      this.set('page', 1);
     }
   }
 });
