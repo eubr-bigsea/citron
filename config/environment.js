@@ -35,6 +35,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     // ENV.thorn = 'http://localhost:3000';
     ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
+    ENV.ai_social_rails = 'http://localhost:8000'
   }
 
   if (environment === 'test') {
@@ -50,6 +51,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
+    ENV.ai_social_rails = 'http://citron.ctweb.inweb.org.br:8000';
   }
 
   return ENV;

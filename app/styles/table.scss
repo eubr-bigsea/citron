@@ -1,0 +1,86 @@
+.table-flip-scroll table {
+  width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+  .table-flip-scroll {
+    .flip-content:after, .flip-header:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+    }
+
+    html {
+      .flip-content, .flip-header {
+        -ms-zoom: 1;
+        zoom: 1;
+      }
+    }
+
+    *:first-child + html {
+      .flip-content, .flip-header {
+        -ms-zoom: 1;
+        zoom: 1;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      display: block;
+      position: relative;
+    }
+
+    th, td {
+      margin: 0;
+      vertical-align: top;
+    }
+
+    th:last-child, td:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      border: 0 !important;
+      border-right: 1px solid #ddd !important;
+      width: auto !important;
+      display: block;
+      text-align: right;
+    }
+
+    td {
+      display: block;
+      text-align: left;
+      border: 0 !important;
+      border-bottom: 1px solid #ddd !important;
+    }
+
+    thead {
+      display: block;
+      float: left;
+
+      tr {
+        display: block;
+      }
+    }
+
+    tbody {
+      display: block;
+      width: auto;
+      position: relative;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      tr {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: -5px;
+        border-left: 1px solid #ddd;
+      }
+    }
+  }
+}

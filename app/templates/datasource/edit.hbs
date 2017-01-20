@@ -1,0 +1,11 @@
+{{home-sidebar datasourcesActive='active'}}
+<article class="content item-editor-page">
+  <div class="title-block">
+    <h3 class="title"> Editing the datasource:
+      <span class="sparkline bar" data-type="bar"></span>
+    </h3>
+  </div>
+  <form name="item" id="edit-workflow" {{action 'save' on='submit'}}>
+    {{datasource.datasource-form datasource=model buttonText='Change' }}
+  </form>
+</article>

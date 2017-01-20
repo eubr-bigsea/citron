@@ -14,6 +14,10 @@ Router.map(function() {
     this.route('draw', {path: ':id/draw'});
     this.route('params', {path: ':id/params'});
   });
+  this.route('datasource', function() {
+    this.route('new');
+    this.route('edit', {path: ':id/edit'});
+  });
   this.route('job', function() {
     this.route('show', {path: ':id/show'});
   });
@@ -33,6 +37,7 @@ Router.map(function() {
   this.route('landing-page');
   this.route('user', {path: 'user/:id'});
   this.route('group', {path: 'group/:id'});
+  this.route('visualization', {path: 'visualization/:id'});
 });
 
 export default Router;

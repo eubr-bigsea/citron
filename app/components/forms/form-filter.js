@@ -1,10 +1,14 @@
 import Ember from 'ember';
+import config from '../../config/environment';
+
+const { $:{ajax} } = Ember;
 
 var leiStructure = {
   text: 'Tudo',
   li_attr: {class: 'category'},
   a_attr: {class: 'category'},
   icon: 'fa fa-align-left',
+  state: {selected  : true},
   children: [
     { text: 'Capítulo',
       li_attr: {class: 'category'},
@@ -36,11 +40,11 @@ var leiStructure = {
               li_attr: {class: 'category'},
               a_attr: {class: 'category'},
               children: [
-                {text: 'Inciso',
+                { text: 'Inciso',
                   li_attr: {class: 'category'},
                   a_attr: {class: 'category'},
                   icon: 'fa fa-align-left'},
-                {text: 'Alinea',
+                { text: 'Alinea',
                   li_attr: {class: 'category'},
                   a_attr: {class: 'category'},
                   icon: 'fa fa-align-left'}
@@ -55,12 +59,12 @@ var leiStructure = {
 
 var qbJson = {
   filters: [{
-    id: 'term',
+    id: 'text',
     label: 'Term',
     type: 'string',
-    operators: ['equal', 'not_equal', 'contains'],
+    operators: ['contains']
   }],
-  default_filter: 'term',
+  default_filter: 'text',
   lang_code: 'en',
   icons:{
     add_group: 'fa fa-plus',
@@ -83,11 +87,12 @@ var jstreeJson = {
 
 export default Ember.Component.extend({
   classNames: ['filter', 'queryBuilder'],
+  routing: Ember.inject.service('-routing'),
 
   makeExpression(jsonQuery){
     var expression = "";
     var groupElems = [];
-    var operationsHash = {not_equal: "NOT ", equal: "", contains: "CONTAINS ", AND: " AND ", OR: " OR "};
+    var operationsHash = {not_equal: "!", equal: "", contains: "CONTAINS ", AND: "&", OR: "|"};
 
     jsonQuery.rules.forEach((elem) => {
       if(elem.condition){  groupElems.push(`( ${this.makeExpression(elem)} )`); }
@@ -151,22 +156,46 @@ export default Ember.Component.extend({
     }
     return [json, i];
   },
+  getTypes(treeJson){
+    var selected = treeJson.get_selected();
+    var types = [];
+    selected.forEach(function(element){
+      types.push(treeJson.get_text(element));
+    });
+    return types;
+  },
 
   didInsertElement() {
     Ember.$(`#${this.elementId} .filter`).queryBuilder(qbJson);
     Ember.$(`#${this.elementId} .categories`).jstree(jstreeJson);
   },
-
+  isFilter(element){
+    return element.operation.name === 'Filter (selection)';
+  },
   actions: {
     makeQueryBuilder(){
       var expression = Ember.$(".query.text").val();
       var json = this.makeJSON(expression)[0];
       Ember.$(`#${this.elementId} .filter`).queryBuilder('setRules', json);
     },
-    getQueryText() {
+    onSearch() {
       var json = Ember.$(`#${this.elementId} .filter`).queryBuilder('getRules');
       var expression = this.makeExpression(json);
-      Ember.$(".query.text").val(expression);
+      var mongo_query = Ember.$(`#${this.elementId} .filter`).queryBuilder('getMongo');
+      let workflow = JSON.parse(JSON.stringify(this.get('workflow')));
+      var filterIndex = workflow.tasks.findIndex(this.isFilter);
+      workflow.tasks[filterIndex].forms.filter = expression;
+      workflow.tasks[filterIndex].forms.mongo_query = mongo_query;
+      workflow.tasks[filterIndex].forms.types = this.getTypes(Ember.$(`#${this.elementId} .categories`).jstree());
+      workflow.workflow_id = this.get('workflow').id;
+      workflow.name = Ember.$('#jobName').val();
+      ajax({
+        url:`${config.ai_social_rails}/jobs`,
+        type: 'POST',
+        async: false,
+        data: { job: JSON.stringify(workflow) }
+      });
+      this.get("routing").transitionTo('home.jobs');
     }
   }
 });

@@ -1,0 +1,43 @@
+<div class="card" id='release-notes'>
+  <div class="card-header">
+    <div class="header-block">
+      <h3 class="title">Latest updated jobs</h3>
+    </div>
+  </div>
+  <div class="card-block">
+    <ul class="item-list striped">
+      <li class="item item-list-header hidden-sm-down">
+        <div class="item-row">
+          <div class="item-col item-col-header fixed item-col-img md">
+            <div>
+              <span></span>
+            </div>
+          </div>
+          <div class="item-col item-col-header item-col-id">
+            <span {{action 'changeSorter' 'id'}}>ID</span>
+          </div>
+          <div class="item-col item-col-header item-col-title">
+            <span {{action 'changeSorter' 'name'}}>Name</span>
+          </div>
+          <div class="item-col item-col-header item-col-title">
+            <span {{action 'changeSorter' 'name'}}>Workflow</span>
+          </div>
+          <div class="item-col item-col-header item-col-stats">
+            <div class="no-overflow">
+              <span>Status</span>
+            </div>
+          </div>
+          <div class="item-col item-col-header item-col-author">
+            <div class="no-overflow">
+              <span>Visualize</span>
+            </div>
+          </div>
+        </div>
+        {{#each slicedModel as |job|}}
+          {{cards.item-list-jobs job=job}}
+        {{/each}}
+        {{outlet}}
+      </li>
+    </ul>
+  </div>
+</div>

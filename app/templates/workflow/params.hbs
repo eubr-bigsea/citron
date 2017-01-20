@@ -1,10 +1,33 @@
 {{workflow.config-sidebar workflowParams='active' workflow=model currentAction='Editing this'}}
 <article class="content dashboard-page">
   <div class="title-block">
-    <h3 class="title"> Editing workflow: {{model.workflow.name}}
+    <h3 class="title"> Create job to workflow: {{model.workflow.name}}
+
       <span class="sparkline bar" data-type="bar"></span>
     </h3>
   </div>
+  <section>
+    <div class="row sameheight-container">
+      <div class="col-xs-12">
+        <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+          <div class="card-header bordered">
+            <div class="header-block" style="width:100%">
+              <div class="row">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 col-xl-1">
+                  <h4 class="title"> Job name: </h4>
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10 col-xl-11">
+                  <h4 class="title" style="width:95%">
+                    <input id="jobName" focus-out="toggleEdit" class="form-control underlined">
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section>
     {{forms.form-terms-frequency terms=model.terms}}
   </section>
@@ -19,7 +42,7 @@
               </h3>
             </div>
           </div>
-          {{forms.form-filter}}
+          {{forms.form-filter workflow=model.workflow }}
         </div>
       </div>
     </div>

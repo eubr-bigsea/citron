@@ -550,6 +550,10 @@
     &.item-col-stats {
       text-align: center;
     }
+    &.item-col-size {
+      text-align: center;
+    }
+
 
     &.item-col-options {
       text-align: center;
@@ -576,6 +580,14 @@
       -webkit-flex-grow: 4;
       -ms-flex-positive: 4;
       flex-grow: 4;
+    }
+    &.item-col-size{
+      text-align: center;
+      flex-grow: 2;
+    }
+    &.item-col-type {
+    text-align: center;
+    flex-grow: 2;
     }
 
     &.item-col-date {
@@ -634,6 +646,9 @@
         -ms-flex-positive: 3;
         flex-grow: 3;
       }
+      .item-col.item-col-size{
+        text-align: center;
+      }
     }
   }
 }
@@ -670,7 +685,7 @@
         display: none;
       }
 
-      &.item-col-sales, &.item-col-id, &.item-col-options, &.item-col-stats, &.item-col-category, &.item-col-author, &.item-col-date {
+      &.item-col-sales, &.item-col-id, &.item-col-options, &.item-col-stats, &.item-col-size  &.item-col-category, &.item-col-author, &.item-col-date {
         padding-top: 40px;
         position: relative;
       }
@@ -700,7 +715,7 @@
         text-align: left;
       }
 
-      &.item-col-stats, &.item-col-options, &.item-col-id, &.item-col-category, &.item-col-author {
+      &.item-col-stats, &.item-col-size &.item-col-options, &.item-col-id, &.item-col-category, &.item-col-author {
         text-align: center;
       }
 

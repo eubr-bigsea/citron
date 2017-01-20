@@ -1,0 +1,34 @@
+<div class="main-wrapper">
+  <div class="app sidebar-fixed header-fixed footer-fixed" id="app">
+    {{app-header}}
+    {{home-sidebar}}
+    <article class="content item-editor-page">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-3">
+            <a href="#" {{action 'openVisualization' 'correlacao'}}>
+              {{visualization.card-visualization image='/assets/images/vis_correlacoes.png' algorithm='Correlation' description='Correlation metrics comments authors x law articles'}}
+            </a>
+          </div>
+          <div class="col-xs-3">
+            <a href="#" {{action 'openVisualization' 'sentimento'}}>
+              {{visualization.card-visualization image='/assets/images/vis_sentimento.png' algorithm='Sentiment Analysis' description='Sentiment Analysis metrics of comments in law articles'}}
+            </a>
+          </div>
+          <div class="col-xs-3">
+            <a href="#" {{action 'openVisualization' 'wordvec'}}>
+              {{visualization.card-visualization image='/assets/images/vis_wordvec.png' algorithm='Wordvec Analysis' description='Wordvec Analysis visualization of all of the filtered comments'}}
+            </a>
+          </div>
+          <div class="col-xs-3">
+            <a href="#" {{action 'openVisualization' 'search'}}>
+              {{visualization.card-visualization image='/assets/images/vis_search.png' algorithm='Search Tools' description='Exploratory tool which can be used search the filtered comments'}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+    {{outlet}}
+    {{app-footer}}
+  </div>
+</div>
