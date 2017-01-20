@@ -20,6 +20,8 @@ Router.map(function() {
   });
   this.route('job', function() {
     this.route('show', {path: ':id/show'});
+    this.route('result', {path: ':id/result'});
+    this.route('visualization', {path: ':id/visualization'});
   });
   this.route('login');
   this.route('signup');
@@ -37,7 +39,6 @@ Router.map(function() {
   this.route('landing-page');
   this.route('user', {path: 'user/:id'});
   this.route('group', {path: 'group/:id'});
-  this.route('visualization', {path: 'visualization/:id'});
 });
 
 export default Router;

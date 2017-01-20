@@ -19,7 +19,7 @@ export default Ember.Route.extend({
         url: `${config.ai_social_rails}/datasources/${datasource.id}`,
         type: 'PATCH',
         data: {datasource: datasource}
-      });
+      })
     },
-  },
+  }
 });
