@@ -1,58 +1,10 @@
 <aside class="sidebar">
   <div class="sidebar-container">
     <div class="sidebar-header">
-      <div class="brand">
-        <img src="/assets/images/minilogo.png" width=40 />
-        Lemonade
-      </div>
     </div>
     <nav class="menu">
-      <ul class="nav metismenu" id="sidebar-menu">
+      <ul class="nav metismenu" id="workflow-sidebar">
         <li><p></p></li>
-        <li>
-          <a href="#">
-            <i class="fa fa-bars" style="color: white;"></i>
-            <span style="color: white"> Options </span>
-          </a>
-          <ul>
-            <li>
-              {{#link-to 'workflow.edit' workflow.id}}
-                <i class="fa fa-pencil"></i>
-                <span> Edit this workflow </span>
-              {{/link-to}}
-            </li>
-            <li>
-              {{#link-to 'home' }}
-                <i class="fa fa-home" ></i>
-                <span >Home</span>
-              {{/link-to}}
-            </li>
-            <li class={{workflowActive}}>
-              {{#link-to 'home.workflows' }}
-                <i class="fa fa-flask"></i>
-                <span >Workflows</span>
-              {{/link-to}}
-            </li>
-            <li class={{jobsActive}}>
-              {{#link-to 'home.jobs' }}
-                <i class="fa fa-tasks" ></i>
-                <span >Jobs</span>
-              {{/link-to}}
-            </li>
-            <li class={{datasourcesActive}}>
-              {{#link-to 'home.datasources' }}
-                <i class="fa fa-database"></i>
-                <span >Datasources</span>
-              {{/link-to}}
-            </li>
-            <li class={{configurationsActive}}>
-              {{#link-to 'home.configurations' }}
-                <i class="fa fa-cog" ></i>
-                <span >Configuration</span>
-              {{/link-to}}
-            </li>
-          </ul>
-        </li>
         {{operations-list operations=operations}}
       </ul>
     </nav>

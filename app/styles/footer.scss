@@ -1,10 +1,10 @@
 .footer {
-  background-color: #fff;
+  background-color: $main-theme-grey;
   position: absolute;
-  left: 230px;
+  left: 60px;
   right: 0;
   bottom: 0;
-  height: 30px;
+  height: 40px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -55,7 +55,7 @@
 
 @media (max-width: 991px) {
   .footer {
-    left: 0;
+    left: 60px;
   }
 }
 

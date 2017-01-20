@@ -1,10 +1,10 @@
 @import "theme-color.scss";
 
 .header {
-  background-color: #d7dde4;
-  height: 60px;
+  background-color: $main-theme-grey;
+  height: 40px;
   position: absolute;
-  left: 230px;
+  left: 60px;
   right: 0;
   -webkit-transition: left 0.3s ease;
   transition: left 0.3s ease;
@@ -17,12 +17,6 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-@media (max-width: 991px) {
-  .header {
-    left: 0;
-  }
 }
 
 @media (max-width: 767px) {
@@ -67,7 +61,7 @@
       background: none;
       border: none;
       box-shadow: none;
-      color: $main-theme-color;
+      color: $main-theme-green;
       font-size: 24px;
       line-height: 40px;
       border-radius: 0;
@@ -124,10 +118,10 @@
 
         > a {
           padding: 0 15px;
-          color: #4f5f6f;
+          color: #fff;
 
           &:hover {
-            color: $main-theme-color;
+            color: $main-theme-green;
           }
         }
       }
@@ -313,7 +307,7 @@
 
         &:hover {
           background-color: #f5f5f5;
-          color: $main-theme-color;
+          color: $main-theme-green;
         }
       }
     }
@@ -343,7 +337,7 @@
     }
 
     .arrow {
-      color: $main-theme-color;
+      color: $main-theme-green;
     }
   }
 
@@ -370,7 +364,7 @@
       padding: 10px 15px;
 
       .icon {
-        color: $main-theme-color;
+        color: $main-theme-green;
         text-align: center;
         width: 16px;
       }

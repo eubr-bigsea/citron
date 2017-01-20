@@ -17,7 +17,7 @@
     overflow: hidden;
 
     &.active {
-      border-color: $main-theme-color;
+      border-color: $main-theme-green;
     }
 
     &:hover .controls {
@@ -103,8 +103,8 @@
       -webkit-transition: opacity 0.3s ease;
       transition: opacity 0.3s ease;
       border-style: dashed;
-      border: 1px $main-theme-color solid;
-      color: $main-theme-color;
+      border: 1px $main-theme-green solid;
+      color: $main-theme-green;
 
       .image {
         font-size: 2.5rem;

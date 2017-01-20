@@ -1,7 +1,7 @@
 @import "theme-color.scss";
 
 a {
-  color: $main-theme-color;
+  color: $main-theme-green;
 
   &.titulo {
     color: #3a4651;
@@ -17,22 +17,22 @@ a {
 }
 
 .section-title::before, .small-title::before {
-  border-color: $main-theme-color;
+  border-color: $main-theme-green;
 }
 
 #service-block-main .service-item:hover {
   i {
-    color: $main-theme-color;
-    border-color: $main-theme-color;
+    color: $main-theme-green;
+    border-color: $main-theme-green;
   }
 
   h2 {
-    color: $main-theme-color;
+    color: $main-theme-green;
   }
 
   .icon-wrapper {
     &::before, &::after {
-      background: $main-theme-color;
+      background: $main-theme-green;
     }
   }
 }
@@ -40,7 +40,7 @@ a {
 /* New Css */
 
 i.icon-round {
-  background-color: $main-theme-color;
+  background-color: $main-theme-green;
 }
 
 .btn-common {
@@ -57,33 +57,33 @@ i.icon-round {
 
 #other-services .nav-tabs li a {
   &:hover i, &:focus, &.active i {
-    background: $main-theme-color none repeat scroll 0 0;
+    background: $main-theme-green none repeat scroll 0 0;
   }
 }
 
 #team .team-item {
   figure figcaption .orange-line {
-    background: $main-theme-color none repeat scroll 0 0;
+    background: $main-theme-green none repeat scroll 0 0;
   }
 
   .social {
     .facebook, .twitter, .google-plus {
-      background: $main-theme-color none repeat scroll 0 0;
-      border: 1px solid $main-theme-color;
+      background: $main-theme-green none repeat scroll 0 0;
+      border: 1px solid $main-theme-green;
     }
   }
 }
 
 .orange-line {
-  background: $main-theme-color none repeat scroll 0 0;
+  background: $main-theme-green none repeat scroll 0 0;
 }
 
 #main-menu .nav-link {
   &.active, &:hover {
-    color: $main-theme-color;
+    color: $main-theme-green;
   }
 }
 
 .sup-desc-wrap .sup-link a:hover, #team .team-item .social a:hover {
-  color: $main-theme-color;
+  color: $main-theme-green;
 }

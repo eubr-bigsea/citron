@@ -41,13 +41,13 @@ input, textarea {
 
   &.has-success {
     span.has-success {
-      color: $main-theme-color;
+      color: $main-theme-green;
       font-size: 13px;
       display: block !important;
     }
 
     .form-control-feedback {
-      color: $main-theme-color;
+      color: $main-theme-green;
     }
   }
 }
@@ -71,7 +71,7 @@ input, textarea {
     transition: background-color ease-in-out 15s, color ease-in-out .15s;
 
     &.focus {
-      background-color: $main-theme-color;
+      background-color: $main-theme-green;
       color: #ffffff;
     }
   }
@@ -98,7 +98,7 @@ label, .control-label {
 .has-error .form-control.underlined:focus, .has-warning .form-control.underlined:focus, .has-success .form-control.underlined:focus, .form-control.underlined:focus {
   border: none;
   box-shadow: none;
-  border-bottom: 1px solid $main-theme-color;
+  border-bottom: 1px solid $main-theme-green;
 }
 
 .has-error .form-control.underlined {
@@ -113,7 +113,7 @@ label, .control-label {
 
 .has-success .form-control.underlined {
   box-shadow: none;
-  border-color: $main-theme-color;
+  border-color: $main-theme-green;
 }
 
 .form-control.boxed {
@@ -121,7 +121,7 @@ label, .control-label {
   box-shadow: none;
 
   &:focus {
-    border: 1px solid $main-theme-color;
+    border: 1px solid $main-theme-green;
   }
 }
 
@@ -144,7 +144,7 @@ label, .control-label {
 }
 
 .radio:checked + span:before, .checkbox:checked + span:before {
-  color: $main-theme-color;
+  color: $main-theme-green;
 }
 
 .radio:disabled + span:before, .checkbox:disabled + span:before {
