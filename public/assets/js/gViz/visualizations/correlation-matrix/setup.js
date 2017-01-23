@@ -32,6 +32,7 @@ gViz.vis.correlation_matrix.setup = function() {
 							// Compute index per node.
 							_var._data.rows.forEach(function(node, i) {
 							  node.index = i;
+                node.count = 0;
 
                 // Parse Group to Int
                 if ($.type(node.group) === 'string')
@@ -44,9 +45,11 @@ gViz.vis.correlation_matrix.setup = function() {
 
 
               // Parse Group to Int
-              _var._data.columns.forEach(function(node) {
+              _var._data.columns.forEach(function(node, i) {
                 if ($.type(node.group) === 'string')
                   node.group = parseInt(node.group.split(" ")[1]);
+                  node.count = 0;
+							    node.index = i;
               });
 
 							// Convert links to matrix; count occurrences.
@@ -62,14 +65,49 @@ gViz.vis.correlation_matrix.setup = function() {
                 else
                   var column = link.column;
 
-								_var.matrix[row][column].z    += link.value;
+								_var.matrix[row][column].z          += link.value;
+								_var._data.rows[row].count          += link.value;
+								_var._data.columns[column].count    += link.value;
+
 							});
 
+
+  						// Precompute the orders.
+							_var.orders = {};
+
+              _var.orders.y = {
+								name:  d3.range(_var._data.rows.length).sort(function(a, b) { 
+                  return d3.ascending(_var._data.rows[a].name, _var._data.rows[b].name); 
+                }),
+
+								count: d3.range(_var._data.rows.length).sort(function(a, b) { 
+                  return _var._data.rows[b].count - _var._data.rows[a].count; 
+                }),
+
+								group: d3.range(_var._data.rows.length).sort(function(a, b) { 
+                  return _var._data.rows[b].group - _var._data.rows[a].group; 
+                })
+							};
+
+              _var.orders.x = {
+								name:  d3.range(_var._data.columns.length).sort(function(a, b) { 
+                  return d3.ascending(_var._data.columns[a].name, _var._data.columns[b].name); 
+                }),
+
+								count: d3.range(_var._data.columns.length).sort(function(a, b) { 
+                  return _var._data.columns[b].count - _var._data.columns[a].count; 
+                }),
+
+								group: d3.range(_var._data.columns.length).sort(function(a, b) { 
+                  return _var._data.columns[b].group - _var._data.columns[a].group; 
+                })
+              }
+
               // xScale positions each column on the x axis
-							_var.xScale.domain(d3.range(_var._data.columns.length));
+							_var.xScale.domain(_var.orders.x.name);
 
               // yScale positions each row on the y axis
-							_var.yScale.domain(d3.range(_var._data.rows.length));
+							_var.yScale.domain(_var.orders.y.name);
 
               break;
           }

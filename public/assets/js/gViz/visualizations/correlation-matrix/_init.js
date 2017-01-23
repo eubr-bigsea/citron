@@ -25,6 +25,7 @@ gViz.vis.correlation_matrix = function() {
       case 'scales':         return true;
       case 'setup':          return true;
       case 'draw':           return true;
+      case 'sort':           return true;
       default: return false;
     }
   };
@@ -45,6 +46,7 @@ gViz.vis.correlation_matrix = function() {
           main('scales');
           main('setup');
           main('draw');
+          main('sort');
           break;
 
           // Initialize visualization variable
@@ -101,6 +103,15 @@ gViz.vis.correlation_matrix = function() {
             ._var(_var)
             .run();
           break;
+
+        // Draw Matrix
+        case 'sort':
+        
+          // Setup
+          _var = gViz.vis.correlation_matrix.sort()
+            ._var(_var)
+            .run();
+          break;
       }
     }
 
@@ -133,6 +144,7 @@ gViz.vis.correlation_matrix = function() {
   main.scales         = _ => main("scales");
   main.setup          = _ => main("setup");
   main.draw           = _ => main("draw");
+  main.draw           = _ => main("sort");
 
   // Execute the specific called function
   main.run = _ => main(_);

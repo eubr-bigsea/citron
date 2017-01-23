@@ -63,14 +63,18 @@ gViz.vis.correlation_matrix.draw = function() {
 
               // Appends rows division lines
               _var.row.append("line")
+                .attr("class", `${_var._class} row line`)
                 .attr("x2", _var.width)
                 .attr("transform", function(d, i) { 
                   return "translate(0," + _var.yScale(i) + ")"; })
               
               // Rows labels
               _var.row.append("text")
+                .attr("class", `${_var._class} row text`)
                 .attr("x", -6)
-                .attr("y", function(d, i) { return _var.yScale(i) + (_var.yScale.bandwidth() / 2) })
+                .attr("transform", (d, i) => { 
+                  return `translate(0, ${_var.yScale(i) + (_var.yScale.bandwidth() / 2)})`;
+                })
                 .attr("dy", ".32em")
                 .attr("text-anchor", "end")
                 .text(function(d, i) { return _var._data.rows[i].name; });
@@ -82,16 +86,20 @@ gViz.vis.correlation_matrix.draw = function() {
                 .attr("class", `${_var._class} column`);
 
               _var.column.append("line")
-                .attr("y1", _var.height)
+                .attr("class", `${_var._class} column line`)
+                .attr("y2", _var.height)
                 .attr("transform", function(d, i) { 
-                  return "translate(" + _var.xScale(i) + ")"; });
+                  return "translate(" + _var.xScale(i) + ",0)"; });
 
               // Appends columns labels
               _var.column.append("text")
-                .attr("x", function(d, i) { return _var.xScale(i) + 8; })
+                .attr("class", `${_var._class} column text`)
                 .attr("y", -15)
+                .attr("transform", (d, i) => { 
+                  return `translate(${_var.xScale(i) + (_var.xScale.bandwidth() / 2)} ,0)`;
+                })
                 .attr("dy", ".32em")
-                .attr("text-anchor", "start")
+                .attr("text-anchor", "middle")
                 .text(function(d, i) { return _var._data.columns[i].name; });
 
             break;

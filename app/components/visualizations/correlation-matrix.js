@@ -37,7 +37,6 @@ export default Ember.Component.extend({
 
     d3.selectAll(`.btn[data-id=${component.get('_id')}`)
       .on("click", function() {
-        
         var data_index = this.value - 1;
         component.draw(data_index);
     });

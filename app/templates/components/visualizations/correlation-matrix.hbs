@@ -1,20 +1,33 @@
 <div class="gViz-header">
-  <div class='symbol'>
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-list fa-stack-1x fa-inverse"></i>
-    </span>
-  </div>
-  <span class='title'>{{title}}</span>
-  <!-- <span class='subtitle'>{{subtitle}}</span> -->
+	<div class='symbol'>
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-list fa-stack-1x fa-inverse"></i>
+		</span>
+	</div>
+	<span class='title'>{{title}}</span>
+	<!-- <span class='subtitle'>{{subtitle}}</span> -->
 </div>
 
-<div class="col-md-12">
-  <br>
-  <button class="btn btn-primary btn-xs" value="1" data-id={{_id}}>1</button>
-  <button class="btn btn-primary btn-xs" value="2" data-id={{_id}}>2</button>
-  <button class="btn btn-primary btn-xs" value="3" data-id={{_id}}>3</button>
-  <button class="btn btn-primary btn-xs" value="4" data-id={{_id}}>4</button>
-</div>
+<div class='gViz-wrapper' data-id={{_id}} style={{style}} >
 
-<div class='gViz-wrapper' data-id={{_id}} style={{style}} ></div>
+	<br>
+	<div class="controls col-md-12">
+		<button class="btn btn-primary btn-xs" value="1" data-id={{_id}}>1</button>
+		<button class="btn btn-primary btn-xs" value="2" data-id={{_id}}>2</button>
+		<button class="btn btn-primary btn-xs" value="3" data-id={{_id}}>3</button>
+		<button class="btn btn-primary btn-xs" value="4" data-id={{_id}}>4</button>
+
+		<div class="pull-right" role="group" aria-label="">
+			<label for="order">Sort</label>
+			<div class="col-md-10">
+				<select id="order" class="form-control">
+					<option value="name">by Name</option>
+					<option value="count">by Frequency</option>
+					<option value="group">by Cluster</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+</div>
