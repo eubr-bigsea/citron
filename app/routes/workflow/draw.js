@@ -10,4 +10,12 @@ export default Ember.Route.extend({
       operations: groupBy(this.store.findAll('operation'), 'categories')
     });
   },
+
+  actions: {
+    willTransition(transition){
+      if(!confirm("Are you sure you want to leave this page? All unsaved progress will be lost")){
+        transition.abort();
+      }
+    }
+  }
 });
