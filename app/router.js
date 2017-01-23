@@ -42,6 +42,7 @@ Router.map(function() {
   this.route('group', {path: 'group/:id'});
   this.route('visualizations', function() {
     this.route('correlation-matrix');
+    this.route('graph-canvas');
   });
 });
 

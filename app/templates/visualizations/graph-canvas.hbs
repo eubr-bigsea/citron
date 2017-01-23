@@ -1,0 +1,25 @@
+{{home-sidebar visualizationsActive='active'}}
+<article class="content items-list-page">
+  {{visualizations.button-bar
+    icon="fa-list"
+    title="Graph"
+    subtitle="Graph visualization using canvas."
+  }}
+
+  <div class='row'>
+    <div class='col-xs-12 col-md-12'>
+
+      {{!-- Time chart --}}
+      {{visualizations/graph-canvas
+        model=model
+        width="100%"
+        height="500px"
+        _id="graph-canvas"
+        title="Example of graph using canvas."
+      }}
+
+    </div>
+  </div>
+</article>
+
+{{outlet}}

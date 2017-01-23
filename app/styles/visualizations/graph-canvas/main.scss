@@ -1,0 +1,100 @@
+.canvas-wrapper {
+
+  min-height: 400px;
+  position: relative;
+
+  .controls {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    width: 100%;
+
+    #zoom-reset { display: none; float: right; }
+    #highlight-reset { margin-right: 10px; }
+
+    .btn-dark {
+      margin-right: 5px;
+      float: left;
+      background-color: $full-white;
+      border: 1px solid $border-light-gray;
+      color: $dark-gray;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: none !important;
+
+      &:hover {
+        color: $full-white;
+        background-color: $dark-gray;
+        border: 1px solid $border-light-gray;
+      }
+    }
+
+    .btn-group {
+      margin-right: 5px;
+      .btn-dark {
+        margin-right: 0px;
+        background-color: $full-white;
+        border: 1px solid $border-light-gray;
+        color: $dark-gray;
+
+        &.active { background-color: $dark-gray; color: $full-white; }
+
+        &:hover:not(.active) {
+          background-color: $dark-gray;
+          color: $full-white;
+        }
+      }
+    }
+  }
+
+  [data-canvas="graph-canvas"] {
+
+    width: 100%;
+
+    svg, canvas {
+      position: absolute;
+      top: 50px;
+      left: 15px;
+    }
+
+    .link {
+      stroke: #ccc;
+    }
+
+    .node {
+      stroke: #FFF;
+      stroke-width: 2px;
+      fill-opacity: .9;
+      cursor: pointer !important;
+    }
+
+    .hovered  { opacity: 1 !important; }
+    .nohovered  { opacity: .2; }
+    .active   { opacity: 1 !important; }
+    .inactive { opacity: .2; }
+
+    text {
+      pointer-events: none;
+      font: 10px sans-serif;
+    }
+
+    .noselect {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    rect.zoom {
+      fill: $full-white;
+    }
+
+    rect.zoom {
+      stroke: $dark-gray;
+      stroke-width: 1px;
+      fill-opacity: 0.5;
+    }
+  }
+}
