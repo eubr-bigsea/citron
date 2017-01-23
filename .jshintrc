@@ -4,6 +4,8 @@
     "window",
     "-Promise",
     "$",
+    "d3",
+    "moment",
     "jQuery",
     "gViz"
   ],
