@@ -1,0 +1,25 @@
+{{home-sidebar visualizationsActive='active'}}
+<article class="content items-list-page">
+  {{visualizations.button-bar
+    icon="fa-bar-chart"
+    title="Bar Chart"
+    subtitle="Example Bar Chart"
+  }}
+
+  <div class='row'>
+    <div class='col-xs-12 col-md-12'>
+
+      {{!-- Bar Chart --}}
+      {{visualizations/bar-chart
+        model=model
+        width="100%"
+        height="300px"
+        _id="trending"
+        title="Example Bar Chart"
+      }}
+
+    </div>
+  </div>
+</article>
+
+{{outlet}}

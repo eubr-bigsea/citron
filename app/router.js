@@ -43,6 +43,7 @@ Router.map(function() {
   this.route('visualizations', function() {
     this.route('correlation-matrix');
     this.route('graph-canvas');
+    this.route('bar-chart');
   });
 });
 
