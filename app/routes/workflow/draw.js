@@ -7,15 +7,7 @@ export default Ember.Route.extend({
     this._super(...arguments);
     return RSVP.hash({
       workflow: this.get('store').findRecord('workflow', params.id),
-      operations: groupBy(this.store.findAll('operation'), 'categories')
+      operations: groupBy(this.store.query('operation',{platform: params.platform}), 'categories')
     });
   },
-
-  actions: {
-    willTransition(transition){
-      if(!confirm("Are you sure you want to leave this page? All unsaved progress will be lost")){
-        transition.abort();
-      }
-    }
-  }
 });

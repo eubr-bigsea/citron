@@ -4,10 +4,8 @@ const { attr } = DS;
 
 export default DS.Model.extend({
   name: attr('string'),
-  user: attr(),
-  flows: attr(),
-  tasks: attr(),
-  platform: attr(),
-  updated: attr('dates'),
+  slug: attr('string'),
+  enabled: attr('boolean'),
   description: attr('string'),
+  icon: attr('string'),
 });
