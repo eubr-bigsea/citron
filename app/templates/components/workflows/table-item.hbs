@@ -8,7 +8,11 @@
     </div>
     <div class="item-col fixed item-col-img md">
       {{#link-to 'workflow.params' workflow.id class='workflow'}}
-        <div class="item-img rounded" style="background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSCygJA-ekdyncq1BI1okQKzwnSo-JEad-yFyI5LOfNYE874K50)"></div>
+        {{#if workflow.image}}
+          <div class="item-img rounded" style="background-image: url({{workflow.image}})"></div>
+        {{else}}
+          <div class="item-img rounded" style="background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSCygJA-ekdyncq1BI1okQKzwnSo-JEad-yFyI5LOfNYE874K50)"></div>
+        {{/if}}
       {{/link-to}}
     </div>
     <div class="item-col item-col-id no-overflow">
