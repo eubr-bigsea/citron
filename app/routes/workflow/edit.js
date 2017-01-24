@@ -1,14 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(params) {
+  model(params){
     this._super(...arguments);
-    return  this.get('store').findRecord('workflow', params.id);
+    return this.get('store').findRecord('workflow', params.id);
   },
-  actions: {
-    save() {
+  actions:{
+    save(){
       var workflow = this.currentModel;
+      workflow.save();
       this.transitionTo('workflow.edit', workflow.id);
-    }
-  }
+    },
+  },
 });
