@@ -47,6 +47,9 @@ gViz.vis.correlation_matrix.initialize = function() {
 
           _var.margin = margin;
 
+          _var.min_cell_size = 30;
+          _var.max_cell_size = 50;
+
           // Define height and width
           _var.height = ((height != null) ? height : _var.container.jq.outerHeight()) - (_var.margin.top + _var.margin.bottom);
           _var.width = ((width != null) ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);

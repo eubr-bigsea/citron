@@ -36,6 +36,9 @@ gViz.vis.correlation_matrix.scales = function() {
               // Colour Intensity
               _var.zScale = d3.scaleLinear().domain([0, 4]).clamp(true);
 
+
+              debugger;
+
               break;
           }
 

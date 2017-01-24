@@ -36,15 +36,14 @@ gViz.vis.correlation_matrix.draw = function() {
 									.data(row.filter(function(d) { return d.z; }))
 									.enter().append("rect")
 									.attr("class", `${_var._class} cell`)
-									.attr("x", function(d) { return _var.xScale(d.y); })
+									.attr("x", function(d, i) { return _var.xScale(d.y); })
 									.attr("y", function(d) { return _var.yScale(d.x); })
 									.attr("width",  _var.xScale.bandwidth())
 									.attr("height", _var.yScale.bandwidth())
 									.style("fill-opacity", function(d) { return _var.zScale(d.z); })
-									.style("fill", function(d) { 
-                    return _var._data.rows[d.x].group == _var._data.columns[d.y].group ? 
-                      _var.colors.scale(_var._data.rows[d.x].group) : "none"; 
-                  });
+									.style("fill", function(d) {
+                    return _var.colors.scale(_var.matrix[d.x][d.y].z); 
+                  })
               }
 
               // Appends matrix placeholder
@@ -96,7 +95,7 @@ gViz.vis.correlation_matrix.draw = function() {
                 .attr("class", `${_var._class} column text`)
                 .attr("y", -15)
                 .attr("transform", (d, i) => { 
-                  return `translate(${_var.xScale(i) + (_var.xScale.bandwidth() / 2)} ,0)`;
+                  return `translate(${_var.xScale(i) + (_var.xScale.bandwidth() / 2)} ,0) rotate(-90)`;
                 })
                 .attr("dy", ".32em")
                 .attr("text-anchor", "middle")

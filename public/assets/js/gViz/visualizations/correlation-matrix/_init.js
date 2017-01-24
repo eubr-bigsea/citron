@@ -12,7 +12,7 @@ gViz.vis.correlation_matrix = function() {
   let container   = undefined;
   let data        = [];
   let height      = undefined;
-  let margin      = { top: 50, right: 50, bottom: 50, left: 50 };
+  var margin      = { top: 50, right: 50, bottom: 50, left: 50 };
   let width       = undefined;
 
   // Validate attributes

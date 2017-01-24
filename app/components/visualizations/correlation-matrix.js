@@ -34,11 +34,14 @@ export default Ember.Component.extend({
       //data: JSON.stringify({}),
       success(data) {
 
+        let margin = {top: 50, left: 200, right: 50, bottom: 50};
+
         component._var = gViz.vis.correlation_matrix()
           ._var(component._var)
           ._class("correlation-matrix-chart")
           .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-          .data(data)
+          .margin(margin)
+          .data(our_random_data[0])
           .build();
 
       },

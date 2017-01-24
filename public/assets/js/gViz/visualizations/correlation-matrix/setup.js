@@ -35,8 +35,7 @@ gViz.vis.correlation_matrix.setup = function() {
                 node.count = 0;
 
                 // Parse Group to Int
-                if ($.type(node.group) === 'string')
-                  node.group = parseInt(node.group.split(" ")[1]);
+                // node.group = parseInt(node.group);
 
                 // For convention x = line and y = column. Z is the value of
                 // each cell
@@ -47,7 +46,7 @@ gViz.vis.correlation_matrix.setup = function() {
               // Parse Group to Int
               _var._data.columns.forEach(function(node, i) {
                 if ($.type(node.group) === 'string')
-                  node.group = parseInt(node.group.split(" ")[1]);
+                  // node.group = parseInt(node.group);
                   node.count = 0;
 							    node.index = i;
               });
@@ -55,15 +54,12 @@ gViz.vis.correlation_matrix.setup = function() {
 							// Convert links to matrix; count occurrences.
 							_var._data.links.forEach(function(link) {
 
-                if ($.type(link.row) === 'string')
-                  var row = parseInt(link.row.split("-")[1]) - 1;
-                else 
-                  var row = link.row;
+                // Finds ids on arrays. 
+                var row = $.grep(_var._data.rows, function(d) { return d.id == link.row; });
+                var row = row[0]["index"];
 
-                if ($.type(link.column) === 'string')
-                  var column = parseInt(link.column.split("-")[1]) - 1;
-                else
-                  var column = link.column;
+                var column = $.grep(_var._data.columns, function(d) { return d.id == link.column; });
+                var column= column[0]["index"];
 
 								_var.matrix[row][column].z          += link.value;
 								_var._data.rows[row].count          += link.value;
@@ -84,9 +80,9 @@ gViz.vis.correlation_matrix.setup = function() {
                   return _var._data.rows[b].count - _var._data.rows[a].count; 
                 }),
 
-								group: d3.range(_var._data.rows.length).sort(function(a, b) { 
+								/* group: d3.range(_var._data.rows.length).sort(function(a, b) { 
                   return _var._data.rows[b].group - _var._data.rows[a].group; 
-                })
+                }) */
 							};
 
               _var.orders.x = {
@@ -98,9 +94,9 @@ gViz.vis.correlation_matrix.setup = function() {
                   return _var._data.columns[b].count - _var._data.columns[a].count; 
                 }),
 
-								group: d3.range(_var._data.columns.length).sort(function(a, b) { 
+								/* group: d3.range(_var._data.columns.length).sort(function(a, b) { 
                   return _var._data.columns[b].group - _var._data.columns[a].group; 
-                })
+                }) */
               }
 
               // xScale positions each column on the x axis
