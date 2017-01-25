@@ -9,9 +9,9 @@
     <div class="item-col fixed item-col-img md">
       {{#link-to 'workflow.params' workflow.id class='workflow'}}
         {{#if workflow.image}}
-          <div class="item-img rounded" style="background-image: url({{workflow.image}})"></div>
+          <img src="/assets/images/{{workflow.image}}" style="height:60px; width:60px;">
         {{else}}
-          <div class="item-img rounded" style="background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSCygJA-ekdyncq1BI1okQKzwnSo-JEad-yFyI5LOfNYE874K50)"></div>
+          <img src="/assets/images/img0.png" style="height:60px; width:60px;">
         {{/if}}
       {{/link-to}}
     </div>
