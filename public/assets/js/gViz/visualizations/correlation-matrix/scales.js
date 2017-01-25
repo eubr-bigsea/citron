@@ -30,14 +30,11 @@ gViz.vis.correlation_matrix.scales = function() {
             case 'create':
 
               // Columns
-              _var.xScale = d3.scaleBand().range([0, _var.width]);
+              _var.xScale = d3.scaleBand().range([0, _var.matrix_width]);
               // Rows
-              _var.yScale = d3.scaleBand().range([0, _var.height]);
+              _var.yScale = d3.scaleBand().range([0, _var.matrix_height]);
               // Colour Intensity
               _var.zScale = d3.scaleLinear().domain([0, 4]).clamp(true);
-
-
-              debugger;
 
               break;
           }

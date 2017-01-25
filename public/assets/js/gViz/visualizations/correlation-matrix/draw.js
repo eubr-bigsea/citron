@@ -49,8 +49,8 @@ gViz.vis.correlation_matrix.draw = function() {
               // Appends matrix placeholder
               _var.background = _var.g.append("rect")
                	.attr("class", `${_var._class} background`)
-                .attr("width", _var.width)
-                .attr("height", _var.height);
+                .attr("width", _var._matrix_width)
+                .attr("height", _var._matrix_height);
 
 
               // For each row appends the rectangles
@@ -63,7 +63,7 @@ gViz.vis.correlation_matrix.draw = function() {
               // Appends rows division lines
               _var.row.append("line")
                 .attr("class", `${_var._class} row line`)
-                .attr("x2", _var.width)
+                .attr("x2", _var.matrix_width)
                 .attr("transform", function(d, i) { 
                   return "translate(0," + _var.yScale(i) + ")"; })
               
@@ -86,20 +86,27 @@ gViz.vis.correlation_matrix.draw = function() {
 
               _var.column.append("line")
                 .attr("class", `${_var._class} column line`)
-                .attr("y2", _var.height)
+                .attr("y2", _var.matrix_height)
                 .attr("transform", function(d, i) { 
                   return "translate(" + _var.xScale(i) + ",0)"; });
 
               // Appends columns labels
               _var.column.append("text")
                 .attr("class", `${_var._class} column text`)
-                .attr("y", -15)
+                .attr("x", 40)
                 .attr("transform", (d, i) => { 
                   return `translate(${_var.xScale(i) + (_var.xScale.bandwidth() / 2)} ,0) rotate(-90)`;
                 })
                 .attr("dy", ".32em")
                 .attr("text-anchor", "middle")
                 .text(function(d, i) { return _var._data.columns[i].name; });
+
+              if(_var.matrix_width < $(_var.container.el).width()) {
+                _var.g
+                  .attr("transform", `translate(${($(_var.container.el).width()/2)  - (_var.matrix_width/2)}, 
+                                                ${($(_var.container.el).height()/2) - (_var.matrix_height/2)})`
+                       );
+              } 
 
             break;
           }

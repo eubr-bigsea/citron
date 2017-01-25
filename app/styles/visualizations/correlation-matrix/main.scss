@@ -11,3 +11,7 @@ svg.correlation-matrix-chart {
 		fill: red;
 	}
 }
+
+.gViz-wrapper.correlation-matrix-chart {
+  overflow: auto;
+}

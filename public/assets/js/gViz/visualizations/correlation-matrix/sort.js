@@ -60,7 +60,7 @@ gViz.vis.correlation_matrix.sort = function() {
                 // Updates Columns Labels
                 t.selectAll(`.${_var._class}.column.text`)
                   .attr("transform", (d, i) => { 
-                    return "translate(" + (_var.xScale(i) + _var.xScale.bandwidth()/2) + ", 0)"; });
+                    return "translate(" + (_var.xScale(i) + _var.xScale.bandwidth()/2) + ", 0) rotate(-90)"; });
 
                 // Updates each cell
 								t.selectAll(`.${_var._class}.cell`)

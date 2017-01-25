@@ -47,12 +47,18 @@ gViz.vis.correlation_matrix.initialize = function() {
 
           _var.margin = margin;
 
-          _var.min_cell_size = 30;
-          _var.max_cell_size = 50;
+          _var.max_cell_size = 17;
+
+          _var.matrix_height = _var.max_cell_size * _var._data.rows.length;
+          _var.matrix_width  = _var.max_cell_size * _var._data.columns.length;
+
+          if(_var.matrix_width > _var.container.jq.outerWidth()) {
+            width = _var.matrix_width;
+          }
 
           // Define height and width
           _var.height = ((height != null) ? height : _var.container.jq.outerHeight()) - (_var.margin.top + _var.margin.bottom);
-          _var.width = ((width != null) ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);
+          _var.width = ((width != null) ? width : _var.container.jq.outerWidth());// - (_var.margin.left + _var.margin.right);
 
           // Set attribute _id to container
           _var.container.jq.attr('data-vis-id', _var._id);
