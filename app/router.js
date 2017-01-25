@@ -44,6 +44,7 @@ Router.map(function() {
     this.route('correlation-matrix');
     this.route('graph-canvas');
     this.route('bar-chart');
+    this.route('wordtree-diagram');
   });
 });
 
