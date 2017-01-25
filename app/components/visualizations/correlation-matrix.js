@@ -18,12 +18,11 @@ export default Ember.Component.extend({
   _var: null,
 
   // Draw Chart
-  draw: function(data_index){
+  draw: function(){
 
     // Initialize variables
     let component = this;
     let dataUrl = this.get('dataUrl');
-    //let dataUrl = "https://raw.githubusercontent.com/d3/d3-plugins/master/graph/data/miserables.json";
 
     // Get data from API
     $.ajax({
@@ -42,6 +41,7 @@ export default Ember.Component.extend({
           .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
           .margin(margin)
           .data(data)
+          //.data(our_random_data[1])
           .build();
 
       },
@@ -63,15 +63,6 @@ export default Ember.Component.extend({
 
   didInsertElement: function(){
 
-    let component = this;
-    var data_index = 0;
-
-    d3.selectAll(`.btn[data-id=${component.get('_id')}`)
-      .on("click", function() {
-        var data_index = this.value - 1;
-        component.draw(data_index);
-    });
-
-   this.draw(data_index);
+    this.draw();
   }
 });

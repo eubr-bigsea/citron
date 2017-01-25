@@ -49,8 +49,8 @@ gViz.vis.correlation_matrix.draw = function() {
               // Appends matrix placeholder
               _var.background = _var.g.append("rect")
                	.attr("class", `${_var._class} background`)
-                .attr("width", _var._matrix_width)
-                .attr("height", _var._matrix_height);
+                .attr("width", _var.matrix_width)
+                .attr("height", _var.matrix_height);
 
 
               // For each row appends the rectangles
@@ -101,7 +101,9 @@ gViz.vis.correlation_matrix.draw = function() {
                 .attr("text-anchor", "middle")
                 .text(function(d, i) { return _var._data.columns[i].name; });
 
-              if(_var.matrix_width < $(_var.container.el).width()) {
+              if(_var.matrix_width < $(_var.container.el).width() && 
+                _var.matrix_height < $(_var.container.el).height()) {
+
                 _var.g
                   .attr("transform", `translate(${($(_var.container.el).width()/2)  - (_var.matrix_width/2)}, 
                                                 ${($(_var.container.el).height()/2) - (_var.matrix_height/2)})`
