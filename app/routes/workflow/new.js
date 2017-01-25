@@ -51,7 +51,7 @@ export default Ember.Route.extend({
       Ember.$('.image-container').removeClass('active');
       Ember.$(`#img${id}`).addClass('active');
       var workflow = this.currentModel.workflow;
-      workflow.set('image', name)
+      workflow.set('image', name);
     }
   },
 });

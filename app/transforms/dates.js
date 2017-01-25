@@ -6,8 +6,7 @@ export default DS.Transform.extend({
 
   deserialize(serialized) {
     if(serialized){
-      moment.locale();
-      var dateFinal =  moment(serialized).format('ll HH:mm');
+      var dateFinal =  moment(serialized).format();
       return dateFinal;
     } else { return null; }
   },

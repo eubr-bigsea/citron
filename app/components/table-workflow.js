@@ -18,8 +18,8 @@ export default Ember.Component.extend({
   page: 1,
   perPage: 8,
 
-  pagedContent: pagedArray('sortedModel', {pageBinding: "page", perPageBinding: "perPage"}),
-  totalPagesBinding: "pagedContent.totalPages",
+  pagedContent: pagedArray('sortedModel', 'page, perPage'),
+  totalPages: "pagedContent.totalPages",
 
   didInsertElement(){
 
