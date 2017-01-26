@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-
-
 export default Ember.Component.extend({
   init() {
     this._super(...arguments);
@@ -18,25 +16,9 @@ export default Ember.Component.extend({
   _var: null,
 
   // Draw Chart
-  draw: function(data){
+  draw: function(){
 
     // Initialize variables
-    let component = this;
-
-    let margin = {top: 100, left: 650, right: 50, bottom: 10};
-
-    component._var = gViz.vis.correlation_matrix()
-      ._var(component._var)
-      ._class("correlation-matrix-chart")
-      .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-      .margin(margin)
-      .data(data)
-      //.data(our_random_data[1])
-      .build();
-  },
-
-  didInsertElement: function(){
-
     let component = this;
     let dataUrl = this.get('dataUrl');
 
@@ -49,20 +31,17 @@ export default Ember.Component.extend({
       //data: JSON.stringify({}),
       success(data) {
 
-        for(let i = 0; i < data.length; i++) {
-          $("<button>")
-            .attr("value", i + 1)
-            .attr("class", "btn btn-primary btn-xs")
-            .text(i + 1)
-            .css("margin-left", "0.5em")
-            .appendTo("#data-buttons")
-            .on("click", function() {
-              $("#order").val("name");
-              component.draw(data[i]);
-            }); 
-        }
+        let margin = {top: 100, left: 650, right: 50, bottom: 10};
 
-        component.draw(data[0]);
+        component._var = gViz.vis.correlation_matrix()
+          ._var(component._var)
+          ._class("correlation-matrix-chart")
+          .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
+          .margin(margin)
+          .data(data)
+          //.data(our_random_data[1])
+          .build();
+
       },
 
       // Hide loading div and render error
@@ -77,5 +56,11 @@ export default Ember.Component.extend({
         //console.log("complete");
       }
     });
+
+  },
+
+  didInsertElement: function(){
+
+    this.draw();
   }
 });
