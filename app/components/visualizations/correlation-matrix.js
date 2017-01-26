@@ -43,7 +43,7 @@ export default Ember.Component.extend({
     // Get data from API
     $.ajax({
       url: dataUrl,
-      type: "POST",
+      type: "GET",
       beforeSend() { gViz.helpers.loading.show(); },
       contentType: "application/json",
       //data: JSON.stringify({}),
@@ -59,7 +59,7 @@ export default Ember.Component.extend({
             .on("click", function() {
               $("#order").val("name");
               component.draw(data[i]);
-            }); 
+            });
         });
 
         component.draw(data[0]);
