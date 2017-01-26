@@ -41,6 +41,8 @@ gViz.vis.bar_chart.axis = function() {
                 .attr("class", `${_var._class} y axis`)
                 .call(d3.axisLeft(_var.yScale));
 
+              debugger;
+
               break;
           }
 

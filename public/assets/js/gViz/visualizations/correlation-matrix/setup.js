@@ -29,6 +29,8 @@ gViz.vis.correlation_matrix.setup = function() {
 
             case 'setup':
 
+              _var.matrix = [];
+
 							// Compute index per node.
 							_var._data.rows.forEach(function(node, i) {
 							  node.index = i;

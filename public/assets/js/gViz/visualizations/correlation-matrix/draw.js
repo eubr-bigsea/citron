@@ -47,10 +47,12 @@ gViz.vis.correlation_matrix.draw = function() {
               }
 
               // Appends matrix placeholder
-              _var.background = _var.g.append("rect")
-               	.attr("class", `${_var._class} background`)
-                .attr("width", _var.matrix_width)
-                .attr("height", _var.matrix_height);
+              // _var.background = _var.g//.selectAll(`.${_var._class}.background`)
+              //   .data(["matrix-background-x"]).enter()
+              //   .append("rect")
+              //  	.attr("class", `${_var._class} background`)
+              //   .attr("width", _var.matrix_width)
+              //   .attr("height", _var.matrix_height);
 
 
               // For each row appends the rectangles

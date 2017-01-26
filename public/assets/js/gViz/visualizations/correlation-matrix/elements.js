@@ -1,5 +1,5 @@
 // Initialize the visualization class
-gViz.vis.correlation_matrix.create = function() {
+gViz.vis.correlation_matrix.elements = function() {
   "use strict";
 
   // Get attributes values
@@ -26,23 +26,25 @@ gViz.vis.correlation_matrix.create = function() {
         // Build entire visualizations
         case 'run':
 
-          // Draw svg
-          _var.wrap = _var.container.d3.selectAll(`svg.chart-${_var._id}`).data(["chart-svg"], d => d);
-          _var.wrap.exit().remove();
-          _var.wrap = _var.wrap.enter().append("svg").attr('class',`${_var._class} chart-${_var._id}`).merge(_var.wrap); // svg
+          let bg_rect = undefined;
 
-          // Update outer dimensions
-          _var.wrap
-            .attr("width",  _var.width +  _var.margin.left + _var.margin.right)
-            .attr("height", _var.height + _var.margin.top +  _var.margin.bottom);
+          // Updates background
+          bg_rect = _var.g.selectAll(`.${_var._class}.background`).data(["bg-rect"], d => d);
+          bg_rect.exit().remove();
+          bg_rect = bg_rect.enter().insert("rect", ":first-child")
+            .attr("class", `${_var._class} background`).merge(bg_rect);
+          bg_rect.attr("x", 0).attr("y", 0).attr("width", _var.matrix_width)
+            .attr("height", _var.matrix_height);
 
-          // Draw g
-          _var.g = _var.wrap.selectAll("g.chart-wrap").data(["chart-wrap"]); // svg:g
-          _var.g.exit().remove();
-          _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
+          // Update Rows
+          _var.row = _var.g.selectAll(`.${_var._class}.row`).data(["matrix-rows"], d => d);
+          _var.row.exit().remove();
+          _var.row = _var.g.enter().append('g').attr("class", `${_var._class} row`).merge(_var.row);
 
-          // Update inner dimensions
-          _var.g.attr("transform", `translate(${_var.margin.left},${_var.margin.top})`);
+          // Update Columns
+          _var.column = _var.g.selectAll(`.${_var._class}.column`).data(["matrix-columns"], d => d);
+          _var.column.exit().remove();
+          _var.column = _var.g.enter().append('g').attr("class", `${_var._class} column`).merge(_var.column);
 
           break;
       }
