@@ -16,7 +16,7 @@ export default Ember.Component.extend({
 
   // Draw Chart
   draw: function(data_index){
-
+    var dataURL, discrete, continuous;
 
     // Initialize variables
     let component = this;
@@ -32,17 +32,16 @@ export default Ember.Component.extend({
     };
 
     switch(data_index) {
-
       case 0:
-        var dataURL     = `../assets/data/letters.csv`;
-        var discrete    = "letter";
-        var continuous  = "frequency";
+        dataURL     = "../assets/data/letters.csv";
+        discrete    = "letter";
+        continuous  = "frequency";
         break;
 
       default:
-        var dataURL= `../assets/data/sales.csv`;
-        var discrete    = "salesperson";
-        var continuous  = "sales";
+        dataURL     = "../assets/data/sales.csv";
+        discrete    = "salesperson";
+        continuous  = "sales";
     }
 
     d3.csv(dataURL, (err, data) => {
@@ -58,7 +57,7 @@ export default Ember.Component.extend({
         .data(data)
         .build();
     });
-    
+
   },
 
   didInsertElement: function(){
@@ -70,8 +69,8 @@ export default Ember.Component.extend({
       .on("click", function() {
         var data_index = this.value - 1;
         component.draw(data_index);
-    });
+      });
 
-   this.draw(data_index);
+    this.draw(data_index);
   }
 });
