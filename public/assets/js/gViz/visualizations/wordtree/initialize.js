@@ -50,14 +50,6 @@ gViz.vis.wordtree.initialize = function() {
           _var.height = ((height != null) ? height : _var.container.jq.outerHeight()) - (_var.margin.top + _var.margin.bottom);
           _var.width = ((width != null) ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);
 
-          // Declares a tree layout and assigns the size
-          _var.treemap = d3.tree().size([_var.height, _var.width]);
-
-          // Assigns parent, children, height, depth
-          _var.root = d3.hierarchy(_var._data, d => d.children);
-          _var.root.x0 = _var.height / 2;
-          _var.root.y0 = 0;
-
           // Set attribute _id to container
           _var.container.jq.attr('data-vis-id', _var._id);
 

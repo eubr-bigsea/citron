@@ -12,21 +12,21 @@ gViz.vis.wordtree = function() {
   let container = undefined;
   let data      = [];
   let height    = undefined;
-  let margin    = { top: 1, right: 1, bottom: 1, left: 1 };
+  let margin    = { top: 10, right: 10, bottom: 10, left: 30 };
   let width     = undefined;
 
   // Validate attributes
   let validate = function(step) {
 
     switch (step) {
-      case 'build':          return (container != null) && $(container).length !== 0;
-      case 'initialize':     return true;
-      case 'create':         return data.length !== 0;
-      case 'scale':          return data.length !== 0;
-      case 'axis':           return data.length !== 0;
-      case 'elements':       return data.length !== 0;
-      case 'bind':           return data.length !== 0;
-      case 'tooltip':        return data.length !== 0;
+      case 'build':      return (container != null) && $(container).length !== 0;
+      case 'initialize': return true;
+      case 'helpers':    return true;
+      case 'create':     return data.length !== 0;
+      case 'data_':      return data.length !== 0;
+      case 'setup':      return data.length !== 0;
+      case 'bind':       return data.length !== 0;
+      case 'tooltip':    return data.length !== 0;
       default: return false;
     }
   };
@@ -43,10 +43,10 @@ gViz.vis.wordtree = function() {
         case 'build':
 
           main('initialize');
+          main('helpers');
+          main('data_');
           main('create');
-          //main('scale');
-          //main('axis');
-          //main('elements');
+          main('setup');
           //main('bind');
           //main('tooltip');
           break;
@@ -70,6 +70,24 @@ gViz.vis.wordtree = function() {
             .run();
           break;
 
+        // Initialize helpers functions
+        case 'helpers':
+
+          // Initialize helpers functions
+          _var = gViz.vis.wordtree.helpers()
+            ._var(_var)
+            .run();
+          break;
+
+        // Parse data
+        case 'data_':
+
+          // Creating
+          _var = gViz.vis.wordtree.data_()
+            ._var(_var)
+            .run();
+          break;
+
         // Create initial elements
         case 'create':
 
@@ -79,31 +97,11 @@ gViz.vis.wordtree = function() {
             .run();
           break;
 
-        // Setup scale
-        case 'scale':
-
-          // Creating
-          _var = gViz.vis.wordtree.scale()
-            ._var(_var)
-            .action('update-domain')
-            .run();
-          break;
-
-        // Setup axis elements
-        case 'axis':
-
-          // Creating
-          _var = gViz.vis.wordtree.axis()
-            ._var(_var)
-            .action('create')
-            .run();
-          break;
-
         // Setup elements
-        case 'elements':
+        case 'setup':
 
-          // Drawing elements
-          _var = gViz.vis.wordtree.elements()
+          // Creating
+          _var = gViz.vis.wordtree.setup()
             ._var(_var)
             .run();
           break;
@@ -162,10 +160,10 @@ gViz.vis.wordtree = function() {
   // Secondary functions
   main.build          = _ => main("build");
   main.initialize     = _ => main("initialize");
+  main.helpers        = _ => main("helpers");
   main.create         = _ => main("create");
-  main.scale          = _ => main("scale");
-  main.axis           = _ => main("axis");
-  main.elements       = _ => main("elements");
+  main.data_          = _ => main("data_");
+  main.setup          = _ => main("setup");
   main.bind           = _ => main("bind");
   main.tooltip        = _ => main("tooltip");
 

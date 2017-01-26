@@ -87,11 +87,20 @@ gViz.vis.graph.setup = function() {
                 _var.data.nodes.forEach(_var.drawNode);
                 return _var.context.restore();
               };
+
               _var.scales = {
                 size: {},
-                weight: d3.scaleLinear().domain([4, 10]).range([.5, 4])
+                weight: d3.scaleLinear().domain(d3.extent(_var.data.links.map( d => +d.weight))).range([.5, 4])
               };
-              ['trls', 'sciences', 'authors', 'documents', 'concepts'].forEach(function(key) {
+
+              // Map groups
+              let groups = {};
+              _var.data.nodes.forEach( d => {
+                d.group = d.group == null ? "No group" : d.group;
+                groups[d.group] = true;
+              });
+
+              Object.keys(groups).forEach(function(key) {
                 return _var.scales.size[key] = d3.scaleLinear().domain(d3.extent(_var.data.nodes.filter(function(d) {
                   return d.group === key;
                 }), function(d) {

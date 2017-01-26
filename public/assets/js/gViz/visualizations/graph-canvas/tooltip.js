@@ -38,10 +38,9 @@ gViz.vis.graph.tooltip = function() {
                   top:  _var.container.jq.offset().top + (node.y * _var.transform.k) + _var.transform.y,
                   width: node.group === 'documents' ? 15 : 15
                 };
-                _var.tooltip.content = "<span class='title'>" + node.attrs.id + "</span>";
-                _var.tooltip.content += "<span class='subtitle'>Nome: <b>" + node.attrs.nome + "</b>";
-                _var.tooltip.content += "<br> Grupo: <b>" + node.attrs.grupo + "</b>";
-                _var.tooltip.content += "<br> Comunidade: <b>" + node.community + "</b></span>";
+                _var.tooltip.content = "<span class='title'>" + (node.attrs.id == null ? node.id : node.attrs.id) + "</span>";
+                //_var.tooltip.content += "<span class='subtitle'>Name: <b>" + (node.attrs.name == null ? node.name : node.attrs.name) + "</b>";
+                //_var.tooltip.content += "<br> Group: <b>" + (node.attrs.group == null ? node.group : node.attrs.group) + "</b>";
                 _var.tooltip.content += "</span>";
                 d3.select('.tooltipster-visualization .tooltipster-content').html(_var.tooltip.content);
                 offset = {

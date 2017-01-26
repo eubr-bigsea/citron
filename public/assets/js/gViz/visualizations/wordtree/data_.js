@@ -1,12 +1,10 @@
 // Initialize the visualization class
-gViz.vis.time.pan = function() {
+gViz.vis.wordtree.data_ = function() {
   "use strict";
 
   // Get attributes values
   let _var      = undefined;
-  let animation = 900;
-  let action    = 'run';
-  let selector = undefined;
+  let duration = 500;
 
   // Validate attributes
   let validate = function(step) {
@@ -25,18 +23,34 @@ gViz.vis.time.pan = function() {
 
       switch (step) {
 
-        // Run
+        // Build entire visualizations
         case 'run':
+
+          //// Declares a tree layout and assigns the size
+          //_var.treemap = d3.tree().size([_var.height, _var.width]);
+
+          //// Assigns parent, children, height, depth
+          //_var.root = d3.hierarchy(_var._data, d => d.children);
+          //_var.root.x0 = _var.height / 2;
+          //_var.root.y0 = 0;
+
+          //// Declare child levels
+          //_var.i = 0;
+          //_var.depth = { max: 0, current: 0 };
+
+          //// Collapse after the second level
+          //_var.root.children.forEach(_var.collapse);
 
           break;
       }
     }
 
+
     return _var;
   };
 
   // Exposicao de variaveis globais
-  ['_var','animation','action','selector'].forEach(function(key) {
+  ['_var','duration'].forEach(function(key) {
 
     // Attach variables to validation function
     validate[key] = function(_) {
