@@ -88,7 +88,6 @@ gViz.vis.wordtree.helpers = function() {
 
             // Get y
             let y = d.y == null ? _var.width : d.y;
-            console.log(y);
 
             // Set width levels
             if(_var.levels.width[d.depth] == null) { _var.levels.width[d.depth] = y + d.bbox.height + _var.offset.y; }

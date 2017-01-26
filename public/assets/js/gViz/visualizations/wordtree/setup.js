@@ -75,7 +75,9 @@ gViz.vis.wordtree.setup = function() {
             // Transition to the proper position for the node
             nodeUpdate.transition()
               .duration(duration)
-              .attr("transform", d => "translate(" + d.y + "," + d.x + ")");
+              .attr("transform", d => "translate(" + d.y + "," + d.x + ")")
+              .selectAll("text")
+                .style("font-weight", d => !d.children && d._children && d._children.length > 0 ? "bold" : "normal")
 
             //// Update the node attributes and style
             //nodeUpdate.select('circle.node')
