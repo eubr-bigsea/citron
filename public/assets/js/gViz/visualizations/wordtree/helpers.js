@@ -26,17 +26,6 @@ gViz.vis.wordtree.helpers = function() {
         // Build entire visualizations
         case 'run':
 
-          // declares a tree layout and assigns the size
-          _var.treemap = d3.tree().size([_var.height, _var.width]);
-
-          // Assigns parent, children, height, depth
-          _var.root = d3.hierarchy(_var._data, d => d.children);
-          _var.root.x0 = _var.height / 2;
-          _var.root.y0 = 0;
-
-          // Map levels
-          _var.levels = { sizes: [] }
-
           // Creates a curved (diagonal) path from parent to the child nodes
           _var.diagonal = (s, d)  => { return `M ${s.y} ${s.x} C ${(s.y + d.y) / 2} ${s.x}, ${(s.y + d.y) / 2} ${d.x}, ${d.y} ${d.x}`; }
 
@@ -47,9 +36,8 @@ gViz.vis.wordtree.helpers = function() {
             if(_var.levels.sizes[i] == null) { _var.levels.sizes[i] = 1; }
             else { _var.levels.sizes[i] += 1; }
 
-            if(d.children) {
-              d.children.forEach( c => _var.getLevelSizes(c, i+1));
-            }
+            // Recursive iteration
+            if(d.children) { d.children.forEach( c => _var.getLevelSizes(c, i+1)); }
           }
 
           // Collapse the node and all it's children
@@ -60,14 +48,6 @@ gViz.vis.wordtree.helpers = function() {
               d.children = null
             }
           }
-
-          // Collapse after the second level
-          _var.root.children.forEach(_var.collapse);
-
-          _var.getLevelSizes(_var.root, 0);
-
-          console.log(_var.levels);
-
 
           break;
       }

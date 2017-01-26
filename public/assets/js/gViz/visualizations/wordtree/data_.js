@@ -26,20 +26,27 @@ gViz.vis.wordtree.data_ = function() {
         // Build entire visualizations
         case 'run':
 
-          //// Declares a tree layout and assigns the size
-          //_var.treemap = d3.tree().size([_var.height, _var.width]);
+          // Declares a tree layout and assigns the size
+          _var.treemap = d3.tree().size([_var.height, _var.width]);
 
-          //// Assigns parent, children, height, depth
-          //_var.root = d3.hierarchy(_var._data, d => d.children);
-          //_var.root.x0 = _var.height / 2;
-          //_var.root.y0 = 0;
+          // Assigns parent, children, height, depth
+          _var.root = d3.hierarchy(_var._data, d => d.children);
+          _var.root.x0 = _var.height / 2;
+          _var.root.y0 = 0;
 
-          //// Declare child levels
-          //_var.i = 0;
-          //_var.depth = { max: 0, current: 0 };
+          // Declare child levels
+          _var.i = 0;
+          _var.depth = { max: 0, current: 0 };
 
-          //// Collapse after the second level
-          //_var.root.children.forEach(_var.collapse);
+          // Map levels
+          _var.levels = { sizes: [] }
+
+          // Collapse after the second level
+          _var.root.children.forEach(_var.collapse);
+
+          _var.getLevelSizes(_var.root, 0);
+
+          console.log(_var.levels);
 
           break;
       }
