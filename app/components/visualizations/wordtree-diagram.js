@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   width:    function(){ return this.get('width'); }.property('width'),
   height:   function(){ return this.get('height'); }.property('height'),
   _id:      function(){ return this.get('_id'); }.property('_id'),
-  style:    function(){ return "width:"+this.get('width')+"; height:"+this.get('height')+";"; }.property('style'),
+  style:    function(){ return "width:"+this.get('width')+"; height:"+this.get('height')+"; overflow-x: auto; overflow-y: hidden;"; }.property('style'),
 
   // Chart var
   _var: null,

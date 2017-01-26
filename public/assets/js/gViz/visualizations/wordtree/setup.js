@@ -39,8 +39,8 @@ gViz.vis.wordtree.setup = function() {
             var nodes = treeData.descendants(),
                 links = treeData.descendants().slice(1);
 
-            // Normalize for fixed-depth.
-            nodes.forEach(function(d){ d.y = d.depth * 180});
+            // Get offsets for widths
+            nodes.forEach( d => d.y = d.offset = d.parent == null ? (d.bbox.width + 2 * _var.offset.y) : (d.parent.offset + d.parent.bbox.width + _var.offset.y) );
 
             // ****************** Nodes section ***************************
 
@@ -51,29 +51,23 @@ gViz.vis.wordtree.setup = function() {
             // Enter any new modes at the parent's previous position.
             var nodeEnter = node.enter().append('g')
                 .attr('class', 'node')
-                .attr("transform", function(d) {
-                  return "translate(" + source.y0 + "," + source.x0 + ")";
-              })
+                .attr("transform", d => "translate(" + source.y0 + "," + source.x0 + ")")
               .on('click', click);
 
-            // Add Circle for the nodes
-            nodeEnter.append('circle')
-                .attr('class', 'node')
-                .attr('r', 1e-6)
-                .style("fill", function(d) {
-                    return d._children ? "lightsteelblue" : "#fff";
-                });
+            //// Add Circle for the nodes
+            //nodeEnter.append('circle')
+            //    .attr('class', 'node')
+            //    .attr('r', 1e-6)
+            //    .style("fill", d => d._children ? "lightsteelblue" : "#fff");
 
             // Add labels for the nodes
             nodeEnter.append('text')
-                .attr("dy", ".35em")
-                .attr("x", function(d) {
-                    return d.children || d._children ? -13 : 13;
-                })
-                .attr("text-anchor", function(d) {
-                    return d.children || d._children ? "end" : "start";
-                })
-                .text(function(d) { return d.data.name; });
+                .attr("y", d => d.depth === 0 ?  d.bbox.height * .24 : d.bbox.height * .25)
+                .attr("x", d => d.depth === 0 ? -d.bbox.width : 5)
+                .attr("text-anchor", "start")
+                .style("font-size", d => `${d.fontSize}px`)
+                //.style("display", "none")
+                .text( d => d.data.name);
 
             // UPDATE
             var nodeUpdate = nodeEnter.merge(node);
@@ -81,48 +75,36 @@ gViz.vis.wordtree.setup = function() {
             // Transition to the proper position for the node
             nodeUpdate.transition()
               .duration(duration)
-              .attr("transform", function(d) {
-                  return "translate(" + d.y + "," + d.x + ")";
-               });
+              .attr("transform", d => "translate(" + d.y + "," + d.x + ")");
 
-            // Update the node attributes and style
-            nodeUpdate.select('circle.node')
-              .attr('r', 10)
-              .style("fill", function(d) {
-                  return d._children ? "lightsteelblue" : "#fff";
-              })
-              .attr('cursor', 'pointer');
-
+            //// Update the node attributes and style
+            //nodeUpdate.select('circle.node')
+            //  .attr('r', 2)
+            //  .style("fill", d => d._children ? "lightsteelblue" : "#fff")
+            //  .attr('cursor', 'pointer');
 
             // Remove any exiting nodes
             var nodeExit = node.exit().transition()
                 .duration(duration)
-                .attr("transform", function(d) {
-                    return "translate(" + source.y + "," + source.x + ")";
-                })
+                .attr("transform", d => "translate(" + source.y + "," + source.x + ")")
                 .remove();
 
-            // On exit reduce the node circles size to 0
-            nodeExit.select('circle')
-              .attr('r', 1e-6);
+            //// On exit reduce the node circles size to 0
+            //nodeExit.select('circle')
+            //  .attr('r', 1e-6);
 
             // On exit reduce the opacity of text labels
-            nodeExit.select('text')
-              .style('fill-opacity', 1e-6);
+            nodeExit.select('text').style('fill-opacity', 1e-6);
 
             // ****************** links section ***************************
 
             // Update the links...
-            var link = _var.g.selectAll('path.link')
-                .data(links, function(d) { return d.id; });
+            var link = _var.g.selectAll('path.link').data(links, d => d.id);
 
             // Enter any new links at the parent's previous position.
             var linkEnter = link.enter().insert('path', "g")
                 .attr("class", "link")
-                .attr('d', function(d){
-                  var o = {x: source.x0, y: source.y0}
-                  return _var.diagonal(o, o)
-                });
+                .attr('d', (d) => _var.diagonal({x: source.x0, y: source.y0, bbox: source.bbox, depth: source.depth}, {x: source.x0, y: source.y0, bbox: source.bbox, depth: source.depth}));
 
             // UPDATE
             var linkUpdate = linkEnter.merge(link);
@@ -130,19 +112,16 @@ gViz.vis.wordtree.setup = function() {
             // Transition back to the parent element position
             linkUpdate.transition()
                 .duration(duration)
-                .attr('d', function(d){ return _var.diagonal(d, d.parent) });
+                .attr('d', d => _var.diagonal(d, d.parent));
 
             // Remove any exiting links
             var linkExit = link.exit().transition()
                 .duration(duration)
-                .attr('d', function(d) {
-                  var o = {x: source.x, y: source.y}
-                  return _var.diagonal(o, o)
-                })
+                .attr('d', (d) => _var.diagonal({x: source.x, y: source.y, bbox: source.bbox, depth: source.depth}, {x: source.x, y: source.y, bbox: source.bbox, depth: source.depth}))
                 .remove();
 
             // Store the old positions for transition.
-            nodes.forEach(function(d){
+            nodes.forEach((d) => {
               d.x0 = d.x;
               d.y0 = d.y;
             });
@@ -161,6 +140,9 @@ gViz.vis.wordtree.setup = function() {
                 d._children = null;
               }
 
+              // Reset sizes based on tree
+              _var.resetSizes();
+
               // Update tree
               _var.update(d);
             }
@@ -168,12 +150,6 @@ gViz.vis.wordtree.setup = function() {
 
           // Update tree
           _var.update(_var.root);
-
-          //// Draw Stroke Background rect
-          //bg_rect_str = elements.selectAll("rect.bg-rect-stroke").data(["bg-rect-stroke"]);
-          //bg_rect_str.exit().remove();
-          //bg_rect_str = bg_rect_str.enter().insert('rect',':first-child').attr("class", "bg-rect-stroke").merge(bg_rect_str);
-          //bg_rect_str.attr("x", 0).attr('y',0).attr('width', _var.width).attr("height", _var.height);
 
           break;
       }

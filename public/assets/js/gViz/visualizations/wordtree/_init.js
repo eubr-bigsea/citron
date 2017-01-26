@@ -12,7 +12,7 @@ gViz.vis.wordtree = function() {
   let container = undefined;
   let data      = [];
   let height    = undefined;
-  let margin    = { top: 10, right: 10, bottom: 10, left: 30 };
+  let margin    = { top: 10, right: 10, bottom: 10, left: 10 };
   let width     = undefined;
 
   // Validate attributes
@@ -43,6 +43,7 @@ gViz.vis.wordtree = function() {
         case 'build':
 
           main('initialize');
+          main('create');
           main('helpers');
           main('data_');
           main('create');
