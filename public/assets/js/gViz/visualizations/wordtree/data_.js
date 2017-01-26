@@ -37,7 +37,7 @@ gViz.vis.wordtree.data_ = function() {
           // Declare child levels
           _var.i = 0;
           _var.depth = { max: 0, current: 0 };
-          _var.offset = { x: 10, y: 50 };
+          _var.offset = { x: 5, y: 50 };
 
           //// Calculate levels sizes
           //_var.getLevelSizes(_var.root);

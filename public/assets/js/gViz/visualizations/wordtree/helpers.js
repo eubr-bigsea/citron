@@ -86,9 +86,13 @@ gViz.vis.wordtree.helpers = function() {
             // Set bbox
             if(d.bbox == null) { d.bbox = gViz.helpers.text.getBBox(_var.g, d.data.name, d.fontSize); }
 
+            // Get y
+            let y = d.y == null ? _var.width : d.y;
+            console.log(y);
+
             // Set width levels
-            if(_var.levels.width[d.depth] == null) { _var.levels.width[d.depth] = d.bbox.height + _var.offset.y; }
-            else if(_var.levels.width[d.depth] < d.bbox.height + _var.offset.y) { _var.levels.width[d.depth] = d.bbox.height + _var.offset.y; }
+            if(_var.levels.width[d.depth] == null) { _var.levels.width[d.depth] = y + d.bbox.height + _var.offset.y; }
+            else if(_var.levels.width[d.depth] < y + d.bbox.height + _var.offset.y) { _var.levels.width[d.depth] = y + d.bbox.height + _var.offset.y; }
 
             // Set height levels
             if(_var.levels.height[d.depth] == null) { _var.levels.height[d.depth] = d.bbox.height + _var.offset.x; }
@@ -103,7 +107,7 @@ gViz.vis.wordtree.helpers = function() {
             _var.getFontSizes(_var.root);
 
             _var.height = d3.sum(_var.levels.height);
-            _var.width = d3.sum(_var.levels.width) + _var.margin.left + _var.margin.right;
+            _var.width = d3.max(_var.levels.width) + _var.margin.left + _var.margin.right + 2 * _var.offset.y;
 
             // Declares a tree layout and assigns the size
             _var.treemap = d3.tree().size([_var.height, _var.width]);
