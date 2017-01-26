@@ -25,7 +25,7 @@ export default Ember.Component.extend({
     // Get data from API
     $.ajax({
       url: dataUrl,
-      type: "POST",
+      type: "GET",
       beforeSend() { gViz.helpers.loading.show(); },
       contentType: "application/json",
       success(data) {

@@ -21,7 +21,7 @@ Router.map(function() {
   this.route('job', function() {
     this.route('show', {path: ':id/show'});
     this.route('result', {path: ':id/result'});
-    this.route('visualization', {path: ':id/visualization'});
+    this.route('visualization', {path: ':id/visualization/:which'});
   });
   this.route('login');
   this.route('signup');

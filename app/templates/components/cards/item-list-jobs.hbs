@@ -1,44 +1,43 @@
 <li class="item">
-	<div class="item-row">
-		<div class="item-col fixed item-col-img md">
-			<i class={{job.status.icon}} ></i>
-		</div>
-		<div class="item-col item-col-id no-overflow">
-			<div class="item-heading">ID</div>
-			<div class="no-overflow">
-				{{#link-to 'job.show' job.id class='job'}} {{job.id}} {{/link-to}}
-			</div>
-		</div>
-		<div class="item-col fixed pull-left item-col-title">
-			<div class="item-heading">Name</div>
-			<div>
-				{{#link-to 'job.show' job.id}} <h4 class="item-title">  {{job.name}} </h4> {{/link-to}}
-			</div>
-		</div>
-		<div class="item-col fixed pull-left item-col-title no-overflow">
-			<div class="item-heading">Workflow</div>
-			<div class="no-overflow">
-				{{#link-to 'workflow.draw' job.workflow_id}} <h4 class="item-title">{{job.workflow_id.name}}</h4> {{/link-to}}
-			</div>
-		</div>
-		<div class="item-col item-col-stats no-overflow">
-			<div class="item-heading">Status</div>
-			<div class="no-overflow">
-				{{#link-to 'job.show' job.id class=job.status}} {{job.status.message}} {{/link-to}}
-			</div>
-		</div>
-		<div class="item-col item-col-author">
-			<div class="item-heading">Visualization</div>
-			<div class="no-overflow" style="text_align: center;">
-				{{#if job.hasCompleted}}
-				{{#link-to 'job.visualization' job.id}}
-				{{option-bar.exec-btn class='play' icon='eye'}}
-				{{/link-to}}
-				{{else}}
-				-
-				{{/if}}
-			</div>
-		</div>
-	</div>
+  <div class="item-row">
+    <div class="item-col fixed item-col-img md">
+      <i class={{job.status.icon}} ></i>
+    </div>
+    <div class="item-col item-col-id no-overflow">
+      <div class="item-heading">ID</div>
+      <div class="no-overflow">
+        {{#link-to 'job.show' job.id class='job'}} {{job.id}} {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col fixed pull-left item-col-title">
+      <div class="item-heading">Name</div>
+      <div>
+        {{#link-to 'job.show' job.id}} <h4 class="item-title">  {{job.name}} </h4> {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col fixed pull-left item-col-title no-overflow">
+      <div class="item-heading">Workflow</div>
+      <div class="no-overflow">
+        {{#link-to 'workflow.draw' job.workflow_id}} <h4 class="item-title">{{job.workflow_id.name}}</h4> {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col item-col-stats no-overflow">
+      <div class="item-heading">Status</div>
+      <div class="no-overflow">
+        {{#link-to 'job.show' job.id class=job.status}} {{job.status.message}} {{/link-to}}
+      </div>
+    </div>
+    <div class="item-col item-col-author">
+      <div class="item-heading">Visualization</div>
+      <div class="no-overflow" style="text_align: center;">
+        {{#if job.hasCompleted}}
+          {{#link-to 'job.result' job.id}}
+            {{option-bar.exec-btn class='play' icon='eye'}}
+          {{/link-to}}
+        {{else}}
+          -
+        {{/if}}
+      </div>
+    </div>
+  </div>
 </li>
-
