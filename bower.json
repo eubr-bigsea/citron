@@ -16,5 +16,9 @@
     "jstree": "^3.3.3",
     "jstree-bootstrap-theme": "^1.0.1",
     "moment": "^2.17.1"
+  },
+  "resolutions": {
+    "jstree": "^3.3.3",
+    "bootstrap": "v4.0.0-alpha.2"
   }
 }

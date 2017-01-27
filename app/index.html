@@ -10,6 +10,10 @@
 
     {{content-for "head"}}
 
+    <!-- Gfranciscani -->
+    <link href="{{rootURL}}assets/libs/css/tooltipster.bundle.min.css" rel="stylesheet">
+    <!-- /Gfranciscani -->
+
     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link rel="stylesheet" href="{{rootURL}}assets/lemonade-ember.css">
 
@@ -18,7 +22,78 @@
   <body>
     {{content-for "body"}}
 
+    <!-- Add vendors before -->
     <script src="{{rootURL}}assets/vendor.js"></script>
+    <!-- Add vendors before -->
+
+    <!-- Gfranciscani -->
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="{{rootURL}}assets/libs/js/d3.position.js"></script>
+    <script src="{{rootURL}}assets/libs/js/tooltipster.bundle.min.js"></script>
+
+    <!-- gViz Library -->
+    <script src="{{rootURL}}assets/js/gViz/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/initializers/tooltipster.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/initializers/libs.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/colors.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/date.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/loading.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/number.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/selection.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/helpers/text.js"></script>
+    <!-- /gViz Library -->
+
+    <!-- gViz Library - Correlation Matrix -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/random_data.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/scales.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/setup.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/elements.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/draw.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/correlation-matrix/sort.js"></script>
+    <!-- /gViz Library - Correlation Matrix -->
+
+    <!-- gViz Library - Bar Chart -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/scales.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/axis.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/draw.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/sort.js"></script>
+    <!-- /gViz Library - Bar Chart -->
+
+    <!-- gViz Library - Graph -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/bind.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/brush.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/drag.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/setup.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/tooltip.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/zoom.js"></script>
+    <!-- /gViz Library - Graph -->
+
+    <!-- gViz Library - Wordtree -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/helpers.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/data_.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/setup.js"></script>
+    <!--
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/bind.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/tooltip.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/zoom.js"></script>
+    -->
+    <!-- /gViz Library - Wordtree -->
+
+
+    <!-- /Gfranciscani -->
+
     <script src="{{rootURL}}assets/lemonade-ember.js"></script>
 
     {{content-for "body-footer"}}

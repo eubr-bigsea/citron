@@ -1,0 +1,34 @@
+{{main-sidebar visualizationsActive='active'}}
+<article class="content items-list-page">
+  {{visualizations.button-bar icon="fa-bar-chart" title="Visualizations" subtitle="List of all visualizatios"}}
+  <ul class='nav metismenu'>
+    <li>
+      {{#link-to 'visualizations.correlation-matrix' }}
+        <i class="fa fa-list"></i>
+        <span >Correlation Matrix</span>
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'visualizations.graph-canvas' }}
+        <i class="fa fa-sitemap"></i>
+        <span >Graph</span>
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'visualizations.wordtree-diagram' }}
+        <i class="fa fa-tree"></i>
+        <span >WordTree Diagram</span>
+      {{/link-to}}
+    </li>
+    <!--
+      <li>
+      {{#link-to 'visualizations.bar-chart' }}
+        <i class="fa fa-bar-chart"></i>
+        <span >Barchart</span>
+      {{/link-to}}
+      </li>
+    -->
+  </ul>
+</article>
+
+{{outlet}}

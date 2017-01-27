@@ -1,0 +1,17 @@
+svg.time-chart {
+  .x.axis, .y.axis {
+    text { font-size: 9px; font-weight: 400; letter-spacing: 1px;  fill: #666; }
+    line { fill: none; stroke-width: 2px; stroke: $full-white; stroke-opacity: 1; shape-rendering: crispEdges; }
+    path { fill: none; stroke-width: 2px; stroke: $full-white; stroke-opacity: 1; shape-rendering: crispEdges; }
+  }
+  .y.axis {
+    text { font-size: 10px; font-weight: 600; letter-spacing: 1px;  fill: #999; }
+    line { fill: none; stroke-width: 2px; stroke: $full-white; stroke-opacity: 1; shape-rendering: crispEdges; }
+  }
+  .area { fill-opacity: .6; stroke-width: 1px; }
+  .line { fill: none !important; stroke-width: 1px; }
+  .bg-rect { fill: $middle-white; fill-opacity: 1; }
+  .bg-rect-stroke { fill: $full-white; fill-opacity: 0; stroke: $dark-white; stroke-opacity: 1; }
+  .periodo-rect { fill: #FFF; stroke-width: 2px; stroke: #ccc; fill-opacity: .6; }
+  .periodo-ref  { fill: $info-bg; stroke-width: 1px; stroke: none; fill-opacity: .6; cursor: -webkit-grab; cursor: grab; }
+}

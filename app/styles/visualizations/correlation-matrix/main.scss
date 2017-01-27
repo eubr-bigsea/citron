@@ -1,0 +1,17 @@
+svg.correlation-matrix-chart {
+	.background {
+		fill: #eee;
+	}
+
+	line {
+		stroke: #fff;
+	}
+
+	text.active {
+		fill: red;
+	}
+}
+
+.gViz-wrapper.correlation-matrix-chart {
+  overflow: auto;
+}

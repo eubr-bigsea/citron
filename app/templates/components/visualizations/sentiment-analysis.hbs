@@ -1,0 +1,25 @@
+<div class="gViz-header">
+	<div class='symbol'>
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-list fa-stack-1x fa-inverse"></i>
+		</span>
+	</div>
+	<span class='title'>{{title}}</span>
+	<!-- <span class='subtitle'>{{subtitle}}</span> -->
+</div>
+
+<div class='gViz-wrapper correlation-matrix-chart' data-id={{_id}} style={{style}} >
+
+	<br>
+	<div class="controls col-md-12">
+    <div class="col-md-2">
+      <select id="order" class="form-control">
+        <option value="name">by Name</option>
+        <option value="count">by Frequency</option>
+      </select>
+    </div>
+    <div class="col-md-10" id="data-buttons"></div>
+	</div>
+
+</div>

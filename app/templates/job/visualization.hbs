@@ -17,8 +17,13 @@
             <a href="javascript:history.back()">Back to results</a>
           </div>
           <div class="col-xs-12">
-            {{debugger}}
-            <!-- Render the visualization here -->
+            {{component model.component
+            width="100%"
+            height="600px"
+            _id="uniq-visu"
+            title="Visualization"
+            dataUrl=model.url
+            }}
           </div>
         </div>
       </div>

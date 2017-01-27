@@ -38,6 +38,27 @@
 @import "green.scss";
 /*@import "table.scss";*/
 
+// Gfranciscani Styles
+
+// Variables
+@import 'variables.scss';
+
+// Ui elements
+@import 'ui/ui.loader.scss';
+@import 'ui/ui.bootstrap-slider.scss';
+@import 'ui/ui.mouse-pointers.scss';
+@import 'ui/ui.tooltipster.scss';
+
+// Visualizations
+@import 'visualizations/main.scss';
+@import 'visualizations/bar-chart/main.scss';
+@import 'visualizations/correlation-matrix/main.scss';
+@import 'visualizations/graph-canvas/main.scss';
+@import 'visualizations/wordtree-diagram/main.scss';
+
+// Gfranciscani Styles
+
+
 html,
 body {
   padding: 0;

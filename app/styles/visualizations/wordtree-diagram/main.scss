@@ -1,0 +1,17 @@
+svg.wordtree-chart {
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+  }
+
+  .node text {
+    cursor: pointer;
+  }
+
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1px;
+  }
+}
