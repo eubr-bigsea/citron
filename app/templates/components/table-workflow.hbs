@@ -1,8 +1,8 @@
 <li class="item item-list-header hidden-sm-down">
   <div class="item-row">
     <div class="item-col fixed item-col-check">
-      <label class="item-check" id="select-all-items">
-        <input type="checkbox" class="checkbox">
+      <label class="item-check" {{action 'checked' on='click'}}>
+        <input type="checkbox" id="select-all-items" class="checkbox">
         <span></span>
       </label>
     </div>
@@ -44,7 +44,9 @@
   </div>
 </li>
 {{#each pagedContent as |workflow|}}
-  {{workflows.table-item workflow=workflow}}
+  {{#unless workflow.isDeleted}}
+    {{workflows.table-item workflow=workflow}}
+  {{/unless}}
 {{/each}}
 {{page-numbers content=pagedContent}}
 {{outlet}}

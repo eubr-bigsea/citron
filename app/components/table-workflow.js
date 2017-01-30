@@ -52,6 +52,13 @@ export default Ember.Component.extend({
     search(){
       this.set('filterText', Ember.$('#input').val().toString().toLowerCase());
       this.set('page', 1);
+    },
+    checked(){
+      if(Ember.$('#select-all-items').is(':checked')){
+        Ember.$('.checkbox').prop("checked", false);
+      } else {
+        Ember.$('.checkbox').prop("checked", true);
+      }
     }
   }
 });
