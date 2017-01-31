@@ -40,7 +40,18 @@ gViz.vis.wordtree.setup = function() {
                 links = treeData.descendants().slice(1);
 
             // Get offsets for widths
-            nodes.forEach( d => d.y = d.offset = d.parent == null ? (d.bbox.width + 2 * _var.offset.y) : (d.parent.offset + d.parent.bbox.width + _var.offset.y) );
+            nodes.forEach( d => {
+
+              if(d.parent != null) {
+                let offset = (d.children == null && d._children == null) || d.children != null ? (d.bbox.height /2) : _var.offset.x;
+                d.x = d.parent.acc + (d.bbox._height / 2) - offset;
+                d.acc = d.parent.acc;
+                d.parent.acc += d.bbox._height;
+              }
+
+              d.y = d.offset = d.parent == null ? (d.bbox.width + 2 * _var.offset.y) : (d.parent.offset + d.parent.bbox.width + _var.offset.y)
+
+            });
 
             // ****************** Nodes section ***************************
 
@@ -50,8 +61,8 @@ gViz.vis.wordtree.setup = function() {
 
             // Enter any new modes at the parent's previous position.
             var nodeEnter = node.enter().append('g')
-                .attr('class', 'node')
-                .attr("transform", d => "translate(" + source.y0 + "," + source.x0 + ")")
+              .attr('class', 'node')
+              .attr("transform", d => "translate(" + source.y0 + "," + source.x0 + ")")
               .on('click', click);
 
             //// Add Circle for the nodes
@@ -76,8 +87,8 @@ gViz.vis.wordtree.setup = function() {
             nodeUpdate.transition()
               .duration(duration)
               .attr("transform", d => "translate(" + d.y + "," + d.x + ")")
-              .selectAll("text")
-                .style("font-weight", d => !d.children && d._children && d._children.length > 0 ? "bold" : "normal")
+              //.selectAll("text")
+              //  .style("font-weight", d => !d.children && d._children && d._children.length > 0 ? "bold" : "normal")
 
             //// Update the node attributes and style
             //nodeUpdate.select('circle.node')

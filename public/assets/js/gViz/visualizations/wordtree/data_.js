@@ -37,7 +37,7 @@ gViz.vis.wordtree.data_ = function() {
           // Declare child levels
           _var.i = 0;
           _var.depth = { max: 0, current: 0 };
-          _var.offset = { x: 5, y: 50 };
+          _var.offset = { x: 5, y: 20 };
 
           //// Calculate levels sizes
           //_var.getLevelSizes(_var.root);
@@ -48,8 +48,8 @@ gViz.vis.wordtree.data_ = function() {
           // Update font scale domain
           _var.fontScale.domain([1, d3.max(_var.root.children, d => d._value)]);
 
-          // Collapse after the third level
-          _var.root.children.forEach( c => { if(c.children) { c.children.forEach(_var.collapse) }; });
+          //// Collapse after the third level
+          //_var.root.children.forEach( c => { if(c.children) { c.children.forEach(_var.collapse) }; });
 
           // Reset sizes based on tree
           _var.resetSizes();

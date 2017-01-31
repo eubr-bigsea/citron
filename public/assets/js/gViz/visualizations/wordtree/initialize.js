@@ -51,7 +51,7 @@ gViz.vis.wordtree.initialize = function() {
           _var.width = ((width != null) ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);
 
           // Define font scale
-          _var.fontScale = d3.scaleLinear().range([10, 100]);
+          _var.fontScale = d3.scaleLinear().range([12, 40]);
 
           // Set attribute _id to container
           _var.container.jq.attr('data-vis-id', _var._id);

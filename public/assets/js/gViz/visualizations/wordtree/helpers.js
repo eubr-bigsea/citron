@@ -77,36 +77,40 @@ gViz.vis.wordtree.helpers = function() {
           // Calculate levels sizes
           _var.getFontSizes= (d) => {
 
-            // Recursive iteration
-            if(d.children) { d.children.forEach( c => _var.getFontSizes(c)); }
-
-            // Set font size
+            // Set font size and bbox
             if(d.fonSize == null) { d.fontSize = _var.fontScale(d._value); }
-
-            // Set bbox
             if(d.bbox == null) { d.bbox = gViz.helpers.text.getBBox(_var.g, d.data.name, d.fontSize); }
+            d.acc = 0;
 
-            // Get y
-            let y = d.y == null ? _var.width : d.y;
+            // Recursive iteration
+            if(d.children != null) {
 
-            // Set width levels
-            if(_var.levels.width[d.depth] == null) { _var.levels.width[d.depth] = y + d.bbox.height + _var.offset.y; }
-            else if(_var.levels.width[d.depth] < y + d.bbox.height + _var.offset.y) { _var.levels.width[d.depth] = y + d.bbox.height + _var.offset.y; }
+              let bbox_array = d.children.map( c => _var.getFontSizes(c));
+              let width  = d3.max(bbox_array.map( a => a._width ));
+              let height = d3.sum(bbox_array.map( a => a._height));
 
-            // Set height levels
-            if(_var.levels.height[d.depth] == null) { _var.levels.height[d.depth] = d.bbox.height + _var.offset.x; }
-            else { _var.levels.height[d.depth] += d.bbox.height + _var.offset.x; }
+              d.bbox._width = d.bbox.width > width ? (d.bbox.width + 6 * _var.offset.y) : width;
+              d.bbox._height = d.bbox.height > height ? (d.bbox.height + _var.offset.x) : height;
+
+            } else {
+
+              d.bbox._width  = d.bbox.width + 6 * _var.offset.y;
+              d.bbox._height = d.bbox.height + _var.offset.x;
+
+            }
+
+            return d.bbox;
+
           }
 
           // Reset sizes based on tree
           _var.resetSizes = () => {
 
             // Calculate initial font sizes and levels
-            _var.levels = { width: [], height: [] }
             _var.getFontSizes(_var.root);
 
-            _var.height = d3.sum(_var.levels.height);
-            _var.width = d3.max(_var.levels.width) + _var.margin.left + _var.margin.right + 2 * _var.offset.y;
+            _var.height = _var.root.bbox._height;
+            _var.width = _var.root.bbox._width + _var.margin.left + _var.margin.right + 6 * _var.offset.y;
 
             // Declares a tree layout and assigns the size
             _var.treemap = d3.tree().size([_var.height, _var.width]);
