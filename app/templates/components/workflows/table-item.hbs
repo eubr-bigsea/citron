@@ -36,32 +36,28 @@
       <div class="container">
         <div class="row">
           <div class="icon col-xs-3 col-sm-6 col-xl-3 text-center">
-            {{#link-to 'workflow.params' workflow.id }}<i class="fa fa-sliders fa-lg"></i>{{/link-to}}
+            {{#link-to 'workflow.params' workflow.id }}<i rel="tooltip" title="Create a job for this workflow" class="fa fa-sliders fa-lg"></i>{{/link-to}}
           </div>
           <div class="icon col-xs-3 col-sm-6 col-xl-3">
-            {{#link-to 'workflow.edit' workflow.id }}<i class="fa fa-cog fa-lg"></i>{{/link-to}}
+            {{#link-to 'workflow.edit' workflow.id }}<i rel="tooltip" title="Change workflow's data" class="fa fa-cog fa-lg"></i>{{/link-to}}
           </div>
           <div class="icon col-xs-3 col-sm-6 col-xl-3">
-            {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}<i class="fa fa-pencil fa-lg"></i>{{/link-to}}
+            {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}<i rel="tooltip" title="Draw this workflow" class="fa fa-pencil fa-lg"></i>{{/link-to}}
           </div>
           <div class="icon col-xs-3 col-sm-6 col-xl-3">
-            <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i class="fa fa-trash-o fa-lg"></i></a>
+            <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i rel="tooltip" title="Delete this workflow" class="fa fa-trash-o fa-lg"></i></a>
           </div>
         </div>
       </div>
     </div>
     <div class="item-col item-col-category no-overflow">
       <div class="item-heading">Category</div>
-      <div class="no-overflow">
-        {{#link-to 'group' 0}} UFMG {{/link-to}}
-      </div>
+      <div class="no-overflow"><a>UFMG</a></div>
     </div>
     <div class="item-col item-col-author">
       <div class="item-heading">Author</div>
       <div class="no-overflow">
-        {{#link-to 'user' workflow.user.id}}
-          <h4 class="item-title"> {{workflow.user.name}} </h4>
-        {{/link-to}}
+        <h4 class="item-title"><a> {{workflow.user.name}}</a> </h4>
       </div>
     </div>
     <div class="item-col item-col-date">
