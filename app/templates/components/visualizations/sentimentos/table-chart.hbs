@@ -1,0 +1,45 @@
+<div class="gViz-header">
+	<div class='symbol'>
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-list fa-stack-1x fa-inverse"></i>
+		</span>
+	</div>
+	<span class='title'>{{title}}</span>
+	<!-- <span class='subtitle'>{{subtitle}}</span> -->
+</div>
+
+<div class='gViz-wrapper table-chart' data-id={{_id}} style={{style}}>
+
+  <table class="table table-striped" id={{_id}}>
+    <thead>
+      <tr>
+
+        {{#each _columns as |column index|}}
+
+          <td {{action "sortTable" index}} style="cursor: pointer">{{column}}</td>
+
+        {{/each}}
+
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each _data as |row|}}
+
+        <tr>
+          <td>{{row.name}}</td>
+          <td>{{row.avg}}</td>
+          <td>
+            <div class="progress pull-right" style="height: {{row.progress_bar_height}};">
+              <div class="progress-bar" role="progressbar" 
+                aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                                                     style={{row.style}}></div>
+            </div>
+          </td>
+        </tr>
+
+      {{/each}}
+    </tbody>
+    </table>
+</div>
