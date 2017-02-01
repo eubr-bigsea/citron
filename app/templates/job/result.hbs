@@ -39,6 +39,16 @@
             </a>
           </div>
         </div>
+        <div class="row">
+          <div class="col-xs-2">
+            {{#link-to 'job.visualization' model.id 'part-item'}}
+              {{visualization.card-visualization
+              image='/assets/images/vis_coocorrencia.png'
+              algorithm='Participantes - Items'
+              description='Graph showing relationship between participants and commentables'}}
+            {{/link-to}}
+          </div>
+        </div>
       </div>
     </article>
   </div>
