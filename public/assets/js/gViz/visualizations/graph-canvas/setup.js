@@ -116,7 +116,7 @@ gViz.vis.graph.setup = function() {
               _var.simulation.force("link").links(_var.data.links);
               _var.data.nodes.forEach(function(d, i) {
                 d.radius = _var.scales.size[d.group](d.metric);
-                return d.color = _var.colors.scale(d.community);
+                d.color = d.color == null ? _var.colors.scale(d.group) : d.color;
               });
               _var.data.links.forEach(function(d, i) {
                 var rgb, src, tgt, total;
