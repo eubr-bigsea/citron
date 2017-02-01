@@ -40,9 +40,15 @@ gViz.vis.correlation_matrix.draw = function() {
 									.attr("y", function(d) { return _var.yScale(d.x); })
 									.attr("width",  _var.xScale.bandwidth())
 									.attr("height", _var.yScale.bandwidth())
-									.style("fill-opacity", function(d) { return _var.zScale(d.z); })
+									.style("fill-opacity", function(d) { 
+                    if(d.z < 1)
+                      return _var.zScale(d.z * 3);
+                    else 
+                      return _var.zScale(d.z); 
+                  })
 									.style("fill", function(d) {
-                    return _var.colors.scale(_var.matrix[d.x][d.y].z); 
+                    let n = _var.matrix[d.x][d.y].z * 10;
+                    return _var.colors.scale(n); 
                   })
               }
 
