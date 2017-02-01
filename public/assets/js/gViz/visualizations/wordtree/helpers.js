@@ -28,7 +28,7 @@ gViz.vis.wordtree.helpers = function() {
 
           // Creates a curved (diagonal) path from parent to the child nodes
           _var.diagonal = (s, d)  => {
-            let dy = d.depth == 0 ? d.y : d.y + d.bbox.width + 10;
+            let dy = d.depth == 0 ? d.y : d.y + d.bbox.width + _var.offset.y ;
             let sy = s.y;
             return `M ${sy} ${s.x} C ${(sy + dy) / 2} ${s.x}, ${(sy + dy) / 2} ${d.x}, ${dy} ${d.x}`;
           }

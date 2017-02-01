@@ -49,7 +49,7 @@ gViz.vis.wordtree.setup = function() {
                 d.parent.acc += d.bbox._height;
               }
 
-              d.y = d.offset = d.parent == null ? (d.bbox.width + 2 * _var.offset.y) : (d.parent.offset + d.parent.bbox.width + _var.offset.y)
+              d.y = d.offset = d.parent == null ? (d.bbox.width + 2 * _var.offset.y) : (d.parent.y + d.parent.bbox.width + 2 * _var.offset.y)
 
             });
 
@@ -87,8 +87,8 @@ gViz.vis.wordtree.setup = function() {
             nodeUpdate.transition()
               .duration(duration)
               .attr("transform", d => "translate(" + d.y + "," + d.x + ")")
-              //.selectAll("text")
-              //  .style("font-weight", d => !d.children && d._children && d._children.length > 0 ? "bold" : "normal")
+              .selectAll("text")
+                .style("font-weight", d => d.children != null || d._children != null ? "bold" : "normal")
 
             //// Update the node attributes and style
             //nodeUpdate.select('circle.node')
