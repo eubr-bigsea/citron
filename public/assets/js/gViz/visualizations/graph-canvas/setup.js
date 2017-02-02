@@ -110,7 +110,7 @@ gViz.vis.graph.setup = function() {
               _var.simulation = d3.forceSimulation().force("link", d3.forceLink().id(function(d) {
                 return d.id;
               })).force("charge", d3.forceManyBody().strength(function(d) {
-                return -200;
+                return -20;
               })).force("center", d3.forceCenter(_var.width / 2, _var.height / 2));
               _var.simulation.nodes(_var.data.nodes).on("tick", _var.ticked);
               _var.simulation.force("link").links(_var.data.links);

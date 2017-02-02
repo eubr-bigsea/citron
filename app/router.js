@@ -45,6 +45,7 @@ Router.map(function() {
     this.route('graph-canvas');
     this.route('bar-chart');
     this.route('wordtree-diagram');
+    this.route('topicos-vis');
   });
 });
 

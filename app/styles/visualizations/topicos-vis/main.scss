@@ -1,0 +1,24 @@
+.topicos-vis {
+  table {
+    thead {
+      th {
+        vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 100px;
+        text-transform: uppercase;
+        letter-spacing: .8px;
+      }
+    }
+    tbody {
+      td {
+        vertical-align: middle;
+      }
+    }
+  }
+  .word {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
