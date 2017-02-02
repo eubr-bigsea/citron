@@ -35,7 +35,7 @@ export default Ember.Component.extend({
 
         // Parse data
         let topicos = [];
-        data.forEach( d => {
+        data.filter(d => d.contagem_comentarios > 0 ).forEach( d => {
 
           let scaleTopPalavras = d3.scaleLinear().domain(d3.extent(d.top_palavras, t => t[1])).range([12,25]);
           let scaleFrequenciaEixos = d3.scaleLinear().domain(d3.extent(d.frequencia_eixos, t => t[1])).range([12,30]);
