@@ -10,6 +10,7 @@ export default Ember.Component.extend({
   json: Ember.A(),
   tableData: Ember.A(),
   header: ["Tópicos","Eixos","# Comentários","Termos Mais Descritivos"],
+  colorsEixos:  d3.scaleOrdinal(d3.schemeCategory10),
 
   // Chart var
   _var: null,
@@ -36,8 +37,16 @@ export default Ember.Component.extend({
         let topicos = [];
         data.forEach( d => {
 
-          let scale = d3.scaleLinear().domain(d3.extent(d.top_palavras, t => t[1])).range([12,25]);
-          topicos.push([`${d.nome}`,`<div class='gViz-wrapper' data-id='topico-${d.topico_id}'></div>`, d.contagem_comentarios, d.top_palavras.map( p => `<span class='word' style='font-size: ${scale(p[1])}px;'>${p[0]}</span>`).join(" ")]);
+          console.log(d);
+
+          let scaleTopPalavras = d3.scaleLinear().domain(d3.extent(d.top_palavras, t => t[1])).range([12,25]);
+          let scaleFrequenciaEixos = d3.scaleLinear().domain(d3.extent(d.frequencia_eixos, t => t[1])).range([12,30]);
+          topicos.push([
+            `<a href='http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/topico_id:${d.topico_id}' target='_blank'>${d.nome}</a>`,
+            d.frequencia_eixos.map( f => `<a class='bar' href='http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/commentable_axis:${f[0]}' target='_blank' style='height: ${scaleFrequenciaEixos(f[1])}px; margin-top: ${scaleFrequenciaEixos.domain()[1] - scaleFrequenciaEixos(f[1])}px; background-color: ${component.get('colorsEixos')(f[0])};'></a>`).join(' '),
+            d.contagem_comentarios,
+            d.top_palavras.map( p => `<a href='http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/comment_text.acento:imediata AND topico_id:${d.topico_id}' target='_blank' class='word' style='font-size: ${scaleTopPalavras(p[1])}px;'>${p[0]}</a>`).join(" ")
+          ]);
         });
 
         // Set data
