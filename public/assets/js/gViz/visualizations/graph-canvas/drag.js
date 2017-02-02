@@ -1,12 +1,15 @@
-gViz.vis.graph.drag = function() {
+'use strict';
+
+gViz.vis.graph.drag = function () {
   "use strict";
+
   var _var, action, animation, event, main, node, validate;
   _var = void 0;
   animation = 900;
   action = 'build';
   node = void 0;
   event = void 0;
-  validate = function(step) {
+  validate = function validate(step) {
     switch (step) {
       case 'run':
         return true;
@@ -14,19 +17,19 @@ gViz.vis.graph.drag = function() {
         return false;
     }
   };
-  main = function(step) {
+  main = function main(step) {
     if (validate(step)) {
       switch (step) {
         case 'run':
           switch (action) {
             case 'bind':
-              _var.dragsubject = function(e) {
+              _var.dragsubject = function (e) {
                 var origin;
                 e = this;
                 origin = d3.mouse(e);
                 return _var.simulation.find((origin[0] - _var.transform.x) / _var.transform.k, (origin[1] - _var.transform.y) / _var.transform.k, 10);
               };
-              _var.dragstarted = function() {
+              _var.dragstarted = function () {
                 if (!d3.event.active) {
                   _var.simulation.alphaTarget(0.1).restart();
                 }
@@ -35,7 +38,7 @@ gViz.vis.graph.drag = function() {
                 _var.selection.dragging = true;
                 return _var = gViz.vis.graph.tooltip()._var(_var).action('hide').run();
               };
-              _var.dragged = function() {
+              _var.dragged = function () {
                 var e, origin;
                 e = this;
                 origin = d3.mouse(e);
@@ -43,7 +46,7 @@ gViz.vis.graph.drag = function() {
                 d3.event.subject.fy = (origin[1] - _var.transform.y) / _var.transform.k;
                 return _var = gViz.vis.graph.tooltip()._var(_var).action('hide').run();
               };
-              _var.dragended = function() {
+              _var.dragended = function () {
                 if (!d3.event.active) {
                   _var.simulation.alphaTarget(0);
                 }
@@ -58,15 +61,15 @@ gViz.vis.graph.drag = function() {
     }
     return _var;
   };
-  ['_var', 'action', 'animation', 'node', 'event'].forEach(function(key) {
-    validate[key] = function(_) {
+  ['_var', 'action', 'animation', 'node', 'event'].forEach(function (key) {
+    validate[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
       return validate;
     };
-    return main[key] = function(_) {
+    return main[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
@@ -74,7 +77,7 @@ gViz.vis.graph.drag = function() {
       return main;
     };
   });
-  main.run = function(_) {
+  main.run = function (_) {
     return main('run');
   };
   return main;

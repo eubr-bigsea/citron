@@ -1,11 +1,21 @@
+"use strict";
+
 // Initialize gViz global namespace
-if (!window.gViz) { window.gViz = {}; }
+if (!window.gViz) {
+  window.gViz = {};
+}
 
 // Create visualizations objects
-if (!window.gViz.vis) { window.gViz.vis = {}; }
+if (!window.gViz.vis) {
+  window.gViz.vis = {};
+}
 
 // Create initializers objects
-if (!window.gViz.initializers) { window.gViz.initializers = {}; }
+if (!window.gViz.initializers) {
+  window.gViz.initializers = {};
+}
 
 // Create helpers objects
-if (!window.gViz.helpers) { window.gViz.helpers = {}; }
+if (!window.gViz.helpers) {
+  window.gViz.helpers = {};
+}

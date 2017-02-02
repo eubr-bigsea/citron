@@ -1,22 +1,28 @@
+'use strict';
+
 // Initialize the visualization class
-gViz.vis.wordtree.data_ = function() {
+
+gViz.vis.wordtree.data_ = function () {
   "use strict";
 
   // Get attributes values
-  let _var      = undefined;
-  let duration = 500;
+
+  var _var = undefined;
+  var duration = 500;
 
   // Validate attributes
-  let validate = function(step) {
+  var validate = function validate(step) {
 
     switch (step) {
-      case 'run': return true;
-      default: return false;
+      case 'run':
+        return true;
+      default:
+        return false;
     }
   };
 
   // Main function
-  let main = function(step) {
+  var main = function main(step) {
 
     // Validate attributes if necessary
     if (validate(step)) {
@@ -30,7 +36,9 @@ gViz.vis.wordtree.data_ = function() {
           _var.treemap = d3.tree().size([_var.height, _var.width]);
 
           // Assigns parent, children, height, depth
-          _var.root = d3.hierarchy(_var._data, d => d.children);
+          _var.root = d3.hierarchy(_var._data, function (d) {
+            return d.children;
+          });
           _var.root.x0 = _var.height / 2;
           _var.root.y0 = 0;
 
@@ -46,10 +54,12 @@ gViz.vis.wordtree.data_ = function() {
           _var.getValues(_var.root);
 
           // Update font scale domain
-          _var.fontScale.domain([1, d3.max(_var.root.children, d => d._value)]);
+          _var.fontScale.domain([1, d3.max(_var.root.children, function (d) {
+            return d._value;
+          })]);
 
           //// Collapse after the third level
-          //_var.root.children.forEach( c => { if(c.children) { c.children.forEach(_var.collapse) }; });
+          //_var.root.children.forEach( function(c) { return if(c.children) { c.children.forEach(_var.collapse) }; } );
 
           // Reset sizes based on tree
           _var.resetSizes();
@@ -58,30 +68,35 @@ gViz.vis.wordtree.data_ = function() {
       }
     }
 
-
     return _var;
   };
 
   // Exposicao de variaveis globais
-  ['_var','duration'].forEach(function(key) {
+  ['_var', 'duration'].forEach(function (key) {
 
     // Attach variables to validation function
-    validate[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    validate[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return validate;
     };
 
     // Attach variables to main function
-    return main[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    return main[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return main;
     };
   });
 
   // Executa a funcao chamando o parametro de step
-  main.run = _ => main('run');
+  main.run = function (_) {
+    return main('run');
+  };
 
   return main;
 };

@@ -1,12 +1,15 @@
-gViz.vis.graph.brush = function() {
+'use strict';
+
+gViz.vis.graph.brush = function () {
   "use strict";
+
   var _var, action, animation, event, main, node, validate;
   _var = void 0;
   animation = 900;
   action = 'build';
   node = void 0;
   event = void 0;
-  validate = function(step) {
+  validate = function validate(step) {
     switch (step) {
       case 'run':
         return true;
@@ -14,7 +17,7 @@ gViz.vis.graph.brush = function() {
         return false;
     }
   };
-  main = function(step) {
+  main = function main(step) {
     if (validate(step)) {
       switch (step) {
         case 'run':
@@ -24,19 +27,19 @@ gViz.vis.graph.brush = function() {
               _var.brush = null;
               break;
             case 'bind':
-              _var.extent = function() {
+              _var.extent = function () {
                 var svg;
                 svg = this.ownerSVGElement || this;
                 return [[0, 0], [svg.width.baseVal.value, svg.height.baseVal.value]];
               };
               _var.brush = d3.brush().extent(_var.extent);
-              _var.brushstarted = function() {
+              _var.brushstarted = function () {
                 return _var = gViz.vis.graph.tooltip()._var(_var).action('hide').run();
               };
-              _var.brushed = function() {
+              _var.brushed = function () {
                 return _var = gViz.vis.graph.tooltip()._var(_var).action('hide').run();
               };
-              _var.brushended = function() {
+              _var.brushended = function () {
                 var bounds, dx, dy, m, origin, transform, x, y;
                 if (d3.event.selection != null) {
                   origin = [d3.event.selection[0][0], d3.event.selection[0][1]];
@@ -74,15 +77,15 @@ gViz.vis.graph.brush = function() {
     }
     return _var;
   };
-  ['_var', 'action', 'animation', 'node', 'event'].forEach(function(key) {
-    validate[key] = function(_) {
+  ['_var', 'action', 'animation', 'node', 'event'].forEach(function (key) {
+    validate[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
       return validate;
     };
-    return main[key] = function(_) {
+    return main[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
@@ -90,7 +93,7 @@ gViz.vis.graph.brush = function() {
       return main;
     };
   });
-  main.run = function(_) {
+  main.run = function (_) {
     return main('run');
   };
   return main;

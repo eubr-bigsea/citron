@@ -1,6 +1,9 @@
-gViz.vis.graph = function() {
+"use strict";
+
+gViz.vis.graph = function () {
   "use strict";
-  var _id, _var, action, animation, colors, container, data, height, main, margin, validate, width;
+
+  var _id, _var, action, animation, colors, container, data, height, _main, margin, validate, width;
   _id = "vis-graph-" + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   _var = void 0;
   action = 'build';
@@ -18,10 +21,10 @@ gViz.vis.graph = function() {
     left: 0
   };
   width = void 0;
-  validate = function(step) {
+  validate = function validate(step) {
     switch (step) {
       case 'build':
-        return (container != null) && $(container).length !== 0;
+        return container != null && $(container).length !== 0;
       case 'initialize':
         return true;
       case 'create':
@@ -42,18 +45,18 @@ gViz.vis.graph = function() {
         return false;
     }
   };
-  main = function(step) {
+  _main = function main(step) {
     if (validate(step)) {
       switch (step) {
         case 'build':
-          main('initialize');
-          main('create');
-          main('setup');
-          main('zoom');
-          main('drag');
-          main('brush');
-          main('tooltip');
-          main('bind');
+          _main('initialize');
+          _main('create');
+          _main('setup');
+          _main('zoom');
+          _main('drag');
+          _main('brush');
+          _main('tooltip');
+          _main('bind');
           break;
         case 'initialize':
           _var || (_var = {});
@@ -87,51 +90,51 @@ gViz.vis.graph = function() {
     }
     return _var;
   };
-  ['_id', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function(key) {
-    validate[key] = function(_) {
+  ['_id', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
+    validate[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
       return validate;
     };
-    return main[key] = function(_) {
+    return _main[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
-      return main;
+      return _main;
     };
   });
-  main.build = function(_) {
-    return main("build");
+  _main.build = function (_) {
+    return _main("build");
   };
-  main.initialize = function(_) {
-    return main("initialize");
+  _main.initialize = function (_) {
+    return _main("initialize");
   };
-  main.create = function(_) {
-    return main("create");
+  _main.create = function (_) {
+    return _main("create");
   };
-  main.setup = function(_) {
-    return main("setup");
+  _main.setup = function (_) {
+    return _main("setup");
   };
-  main.zoom = function(_) {
-    return main("zoom");
+  _main.zoom = function (_) {
+    return _main("zoom");
   };
-  main.drag = function(_) {
-    return main("drag");
+  _main.drag = function (_) {
+    return _main("drag");
   };
-  main.brush = function(_) {
-    return main("brush");
+  _main.brush = function (_) {
+    return _main("brush");
   };
-  main.bind = function(_) {
-    return main("bind");
+  _main.bind = function (_) {
+    return _main("bind");
   };
-  main.tooltip = function(_) {
-    return main("tooltip");
+  _main.tooltip = function (_) {
+    return _main("tooltip");
   };
-  main.run = function(_) {
-    return main(_);
+  _main.run = function (_) {
+    return _main(_);
   };
-  return main;
+  return _main;
 };

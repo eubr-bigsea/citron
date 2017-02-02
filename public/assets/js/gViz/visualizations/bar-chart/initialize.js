@@ -1,30 +1,35 @@
+'use strict';
+
 // Initialize the visualization class
-gViz.vis.bar_chart.initialize = function() {
+gViz.vis.bar_chart.initialize = function () {
   "use strict";
 
   // Get attributes values
-  let _id         = `vis-bar_chart-${Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5}`;
-  let _class      = undefined;
-  var _var        = undefined;
-  var colors      = { scale: gViz.helpers.colors.main };
-  var container   = undefined;
-  var animation   = 900;
-  var data        = [];
-  var height      = 100;
-  var margin      = { top: 50, right: 50, bottom: 50, left: 50 };
-  var width       = 100;
+
+  var _id = 'vis-bar_chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _class = undefined;
+  var _var = undefined;
+  var colors = { scale: gViz.helpers.colors.main };
+  var container = undefined;
+  var animation = 900;
+  var data = [];
+  var height = 100;
+  var margin = { top: 50, right: 50, bottom: 50, left: 50 };
+  var width = 100;
 
   // Validate attributes
-  var validate = function(step) {
+  var validate = function validate(step) {
 
     switch (step) {
-      case 'run': return true;
-      default: return false;
+      case 'run':
+        return true;
+      default:
+        return false;
     }
   };
 
   // Main function
-  var main = function(step) {
+  var main = function main(step) {
 
     // Validate attributes if necessary
     if (validate(step)) {
@@ -35,7 +40,9 @@ gViz.vis.bar_chart.initialize = function() {
         case 'run':
 
           // Initialize variables
-          if (!_var) { _var = {}; }
+          if (!_var) {
+            _var = {};
+          }
           _var._id = _id;
           _var._class = _class;
           _var.animation = animation;
@@ -48,8 +55,8 @@ gViz.vis.bar_chart.initialize = function() {
           _var.margin = margin;
 
           // Define height and width
-          _var.height = ((height != null) ? height : _var.container.jq.outerHeight()) - (_var.margin.top + _var.margin.bottom);
-          _var.width = ((width != null) ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);
+          _var.height = (height != null ? height : _var.container.jq.outerHeight()) - (_var.margin.top + _var.margin.bottom);
+          _var.width = (width != null ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);
 
           // Set attribute _id to container
           _var.container.jq.attr('data-vis-id', _var._id);
@@ -62,26 +69,31 @@ gViz.vis.bar_chart.initialize = function() {
   };
 
   // Expose global variables
-  ['_id','_class','_var','animation','colors','container',
-    'data','height','margin', 'width'].forEach(function(key) {
+  ['_id', '_class', '_var', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
 
     // Attach variables to validation function
-    validate[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    validate[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return validate;
     };
 
     // Attach variables to main function
-    return main[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    return main[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return main;
     };
   });
 
   // Execute the specific called function
-  main.run = _ => main('run');
+  main.run = function (_) {
+    return main('run');
+  };
 
   return main;
 };

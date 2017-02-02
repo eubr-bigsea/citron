@@ -1,13 +1,19 @@
-// Começa quando o DOM já estiver carregado
-gViz.initializers.libs = function(container) {
+'use strict';
 
-  if (container == null) { container = ''; }
+// Começa quando o DOM já estiver carregado
+gViz.initializers.libs = function (container) {
+
+  if (container == null) {
+    container = '';
+  }
 
   // Tooltipster
-  gViz.initializers.tooltipster()
+  gViz.initializers.tooltipster();
 
   return;
 };
 
 // Reload de initializer para mudanca de páginas
-$(() => gViz.initializers.libs());
+$(function () {
+  return gViz.initializers.libs();
+});

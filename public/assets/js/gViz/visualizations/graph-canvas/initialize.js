@@ -1,5 +1,8 @@
-gViz.vis.graph.initialize = function() {
+'use strict';
+
+gViz.vis.graph.initialize = function () {
   "use strict";
+
   var _id, _var, animation, colors, container, data, height, main, margin, validate, width;
   _id = void 0;
   _var = void 0;
@@ -17,7 +20,7 @@ gViz.vis.graph.initialize = function() {
     left: 0
   };
   width = 100;
-  validate = function(step) {
+  validate = function validate(step) {
     switch (step) {
       case 'run':
         return true;
@@ -25,7 +28,7 @@ gViz.vis.graph.initialize = function() {
         return false;
     }
   };
-  main = function(step) {
+  main = function main(step) {
     if (validate(step)) {
       switch (step) {
         case 'run':
@@ -64,15 +67,15 @@ gViz.vis.graph.initialize = function() {
     }
     return _var;
   };
-  ['_id', '_var', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function(key) {
-    validate[key] = function(_) {
+  ['_id', '_var', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
+    validate[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
       return validate;
     };
-    return main[key] = function(_) {
+    return main[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
@@ -80,7 +83,7 @@ gViz.vis.graph.initialize = function() {
       return main;
     };
   });
-  main.run = function(_) {
+  main.run = function (_) {
     return main('run');
   };
   return main;

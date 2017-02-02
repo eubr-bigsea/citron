@@ -1,13 +1,15 @@
-// Começa quando o DOM já estiver carregado
-gViz.initializers.tooltipster = function(container) {
+'use strict';
 
-  if (container == null) { container = ''; }
+// Começa quando o DOM já estiver carregado
+gViz.initializers.tooltipster = function (container) {
+
+  if (container == null) {
+    container = '';
+  }
 
   $(container + " [data-toggle='tooltipster']").tooltipster({
     contentAsHTML: true,
     debug: true,
     trigger: 'click'
   });
-
 };
-

@@ -1,10 +1,13 @@
-gViz.vis.graph.zoom = function() {
+'use strict';
+
+gViz.vis.graph.zoom = function () {
   "use strict";
+
   var _var, action, animation, main, validate;
   _var = void 0;
   animation = 900;
   action = 'build';
-  validate = function(step) {
+  validate = function validate(step) {
     switch (step) {
       case 'run':
         return true;
@@ -12,7 +15,7 @@ gViz.vis.graph.zoom = function() {
         return false;
     }
   };
-  main = function(step) {
+  main = function main(step) {
     if (validate(step)) {
       switch (step) {
         case 'run':
@@ -21,14 +24,14 @@ gViz.vis.graph.zoom = function() {
               mode: 'drag'
             };
           }
-          _var.interpolateZoom = function(transform) {
+          _var.interpolateZoom = function (transform) {
             var self;
             self = this;
-            return d3.transition().duration(200).tween("zoom", function() {
+            return d3.transition().duration(200).tween("zoom", function () {
               var iScale, iTranslate;
               iTranslate = d3.interpolate([_var.transform.x, _var.transform.y], [transform.x, transform.y]);
               iScale = d3.interpolate(_var.transform.k, transform.k);
-              return function(t) {
+              return function (t) {
                 _var.transform = {
                   k: iScale(t),
                   x: iTranslate(t)[0],
@@ -39,16 +42,16 @@ gViz.vis.graph.zoom = function() {
               };
             });
           };
-          _var.refresh = function(event) {
+          _var.refresh = function (event) {
             var limits;
             if (event == null) {
               event = d3.event;
             }
-            if ((event != null) && (event.transform != null)) {
+            if (event != null && event.transform != null) {
               limits = {
-                min_y: _var.height - (_var.height * _var.transform.k),
+                min_y: _var.height - _var.height * _var.transform.k,
                 max_y: 0,
-                min_x: _var.width - (_var.width * _var.transform.k),
+                min_x: _var.width - _var.width * _var.transform.k,
                 max_x: 0
               };
               if (_var.zoomOpts.mode === 'zoom') {
@@ -80,15 +83,15 @@ gViz.vis.graph.zoom = function() {
     }
     return _var;
   };
-  ['_var', 'animation'].forEach(function(key) {
-    validate[key] = function(_) {
+  ['_var', 'animation'].forEach(function (key) {
+    validate[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
       return validate;
     };
-    return main[key] = function(_) {
+    return main[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
@@ -96,7 +99,7 @@ gViz.vis.graph.zoom = function() {
       return main;
     };
   });
-  main.run = function(_) {
+  main.run = function (_) {
     return main('run');
   };
   return main;

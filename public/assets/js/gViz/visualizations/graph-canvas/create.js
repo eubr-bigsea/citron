@@ -1,9 +1,12 @@
-gViz.vis.graph.create = function() {
+'use strict';
+
+gViz.vis.graph.create = function () {
   "use strict";
+
   var _var, animation, main, validate;
   _var = void 0;
   animation = 900;
-  validate = function(step) {
+  validate = function validate(step) {
     switch (step) {
       case 'run':
         return true;
@@ -11,11 +14,11 @@ gViz.vis.graph.create = function() {
         return false;
     }
   };
-  main = function(step) {
+  main = function main(step) {
     if (validate(step)) {
       switch (step) {
         case 'run':
-          if (!((_var.container.canvas != null) || (_var.container.rect.canvas != null) || (_var.container.drag.canvas != null))) {
+          if (!(_var.container.canvas != null || _var.container.rect.canvas != null || _var.container.drag.canvas != null)) {
             _var.container.jq.html("<canvas class='canvas-graph'></canvas><svg class='canvas-rect'><g class='brush'></g></svg><canvas class='canvas-drag'></canvas>");
           }
           _var.container.canvas = _var.container.d3.select('canvas.canvas-graph');
@@ -41,15 +44,15 @@ gViz.vis.graph.create = function() {
     }
     return _var;
   };
-  ['_var', 'animation'].forEach(function(key) {
-    validate[key] = function(_) {
+  ['_var', 'animation'].forEach(function (key) {
+    validate[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
       return validate;
     };
-    return main[key] = function(_) {
+    return main[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
@@ -57,7 +60,7 @@ gViz.vis.graph.create = function() {
       return main;
     };
   });
-  main.run = function(_) {
+  main.run = function (_) {
     return main('run');
   };
   return main;

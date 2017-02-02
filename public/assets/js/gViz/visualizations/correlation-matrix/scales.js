@@ -1,22 +1,27 @@
-gViz.vis.correlation_matrix.scales = function() {
+'use strict';
+
+gViz.vis.correlation_matrix.scales = function () {
   "use strict";
 
   // Get attributes values
-  let _var      = undefined;
-  var action    = 'create';
+
+  var _var = undefined;
+  var action = 'create';
   var animation = 900;
 
   // Validate attributes
-  var validate = function(step) {
+  var validate = function validate(step) {
 
     switch (step) {
-      case 'run': return true;
-      default: return false;
+      case 'run':
+        return true;
+      default:
+        return false;
     }
   };
 
   // Main function
-  var main = function(step) {
+  var main = function main(step) {
     // Validate attributes if necessary
     if (validate(step)) {
 
@@ -47,25 +52,31 @@ gViz.vis.correlation_matrix.scales = function() {
   };
 
   // Exposicao de variaveis globais
-  ['_var','action','animation'].forEach(function(key) {
+  ['_var', 'action', 'animation'].forEach(function (key) {
 
     // Attach variables to validation function
-    validate[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    validate[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return validate;
     };
 
     // Attach variables to main function
-    return main[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    return main[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return main;
     };
   });
 
   // Execute the specific called function
-  main.run = _ => main('run');
+  main.run = function (_) {
+    return main('run');
+  };
 
   return main;
-}
+};

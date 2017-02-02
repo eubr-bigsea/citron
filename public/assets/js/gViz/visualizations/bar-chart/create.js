@@ -1,22 +1,27 @@
+'use strict';
+
 // Initialize the visualization class
-gViz.vis.bar_chart.create = function() {
+gViz.vis.bar_chart.create = function () {
   "use strict";
 
   // Get attributes values
-  var _var      = undefined;
+
+  var _var = undefined;
   var animation = 900;
 
   // Validate attributes
-  var validate = function(step) {
+  var validate = function validate(step) {
 
     switch (step) {
-      case 'run': return true;
-      default:    return false;
+      case 'run':
+        return true;
+      default:
+        return false;
     }
   };
 
   // Main function
-  var main = function(step) {
+  var main = function main(step) {
 
     // Validate attributes if necessary
     if (validate(step)) {
@@ -27,14 +32,14 @@ gViz.vis.bar_chart.create = function() {
         case 'run':
 
           // Draw svg
-          _var.wrap = _var.container.d3.selectAll(`svg.chart-${_var._id}`).data(["chart-svg"], d => d);
+          _var.wrap = _var.container.d3.selectAll('svg.chart-' + _var._id).data(["chart-svg"], function (d) {
+            return d;
+          });
           _var.wrap.exit().remove();
-          _var.wrap = _var.wrap.enter().append("svg").attr('class',`${_var._class} chart-${_var._id}`).merge(_var.wrap); // svg
+          _var.wrap = _var.wrap.enter().append("svg").attr('class', _var._class + ' chart-' + _var._id).merge(_var.wrap); // svg
 
           // Update outer dimensions
-          _var.wrap
-            .attr("width",  _var.width +  _var.margin.left + _var.margin.right)
-            .attr("height", _var.height + _var.margin.top +  _var.margin.bottom);
+          _var.wrap.attr("width", _var.width + _var.margin.left + _var.margin.right).attr("height", _var.height + _var.margin.top + _var.margin.bottom);
 
           // Draw g
           _var.g = _var.wrap.selectAll("g.chart-wrap").data(["chart-wrap"]); // svg:g
@@ -42,22 +47,28 @@ gViz.vis.bar_chart.create = function() {
           _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
 
           // Update inner dimensions
-          _var.g.attr("transform", `translate(${_var.margin.left},${_var.margin.top})`);
+          _var.g.attr("transform", 'translate(' + _var.margin.left + ',' + _var.margin.top + ')');
 
-          _var.bars = _var.g.selectAll(`.${_var._class}.bar`).data(["chart-wrap"], d => d);
+          _var.bars = _var.g.selectAll('.' + _var._class + '.bar').data(["chart-wrap"], function (d) {
+            return d;
+          });
           _var.bars.exit().remove();
-          _var.bars = _var.g.enter().append('g').attr("class", `${_var._class} bar`).merge(_var.bars)
+          _var.bars = _var.g.enter().append('g').attr("class", _var._class + ' bar').merge(_var.bars);
 
-          _var.xAxis = _var.g.selectAll(`.${_var._class}.x.axis`).data(["chart-wrap"], d => d);
+          _var.xAxis = _var.g.selectAll('.' + _var._class + '.x.axis').data(["chart-wrap"], function (d) {
+            return d;
+          });
           _var.xAxis.exit().remove();
-          _var.xAxis = _var.g.enter().append('g').attr("class", `${_var._class} x axis`).merge(_var.xAxis)
+          _var.xAxis = _var.g.enter().append('g').attr("class", _var._class + ' x axis').merge(_var.xAxis);
 
-          _var.yAxis = _var.g.selectAll(`.${_var._class}.y.axis`).data(["chart-wrap"], d => d);
+          _var.yAxis = _var.g.selectAll('.' + _var._class + '.y.axis').data(["chart-wrap"], function (d) {
+            return d;
+          });
           _var.yAxis.exit().remove();
-          _var.yAxis = _var.g.enter().append('g').attr("class", `${_var._class} y axis`).merge(_var.yAxis)
+          _var.yAxis = _var.g.enter().append('g').attr("class", _var._class + ' y axis').merge(_var.yAxis);
 
-          _var.xScale = {}
-          _var.yScale = {}
+          _var.xScale = {};
+          _var.yScale = {};
 
           break;
       }
@@ -67,25 +78,31 @@ gViz.vis.bar_chart.create = function() {
   };
 
   // Exposicao de variaveis globais
-  ['_var','animation'].forEach(function(key) {
+  ['_var', 'animation'].forEach(function (key) {
 
     // Attach variables to validation function
-    validate[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    validate[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return validate;
     };
 
     // Attach variables to main function
-    return main[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    return main[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return main;
     };
   });
 
   // Executa a funcao chamando o parametro de step
-  main.run = _ => main('run');
+  main.run = function (_) {
+    return main('run');
+  };
 
   return main;
 };

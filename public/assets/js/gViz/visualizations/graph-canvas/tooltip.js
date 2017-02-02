@@ -1,5 +1,8 @@
-gViz.vis.graph.tooltip = function() {
+'use strict';
+
+gViz.vis.graph.tooltip = function () {
   "use strict";
+
   var _var, action, animation, collection, el, main, node, obj, opacity, validate;
   _var = void 0;
   action = 'create';
@@ -9,7 +12,7 @@ gViz.vis.graph.tooltip = function() {
   node = {};
   obj = void 0;
   opacity = 1;
-  validate = function(step) {
+  validate = function validate(step) {
     switch (step) {
       case 'run':
         return true;
@@ -17,7 +20,7 @@ gViz.vis.graph.tooltip = function() {
         return false;
     }
   };
-  main = function(step) {
+  main = function main(step) {
     var bbox, offset, padding;
     if (validate(step)) {
       switch (step) {
@@ -34,8 +37,8 @@ gViz.vis.graph.tooltip = function() {
             case 'show':
               if (!_var.selection.dragging) {
                 bbox = {
-                  left: _var.container.jq.offset().left + (node.x * _var.transform.k) + _var.transform.x,
-                  top:  _var.container.jq.offset().top + (node.y * _var.transform.k) + _var.transform.y,
+                  left: _var.container.jq.offset().left + node.x * _var.transform.k + _var.transform.x,
+                  top: _var.container.jq.offset().top + node.y * _var.transform.k + _var.transform.y,
                   width: node.group === 'documents' ? 15 : 15
                 };
                 _var.tooltip.content = "<span class='title'>" + (node.attrs.id == null ? node.id : node.attrs.id) + "</span>";
@@ -44,8 +47,8 @@ gViz.vis.graph.tooltip = function() {
                 _var.tooltip.content += "</span>";
                 d3.select('.tooltipster-visualization .tooltipster-content').html(_var.tooltip.content);
                 offset = {
-                  top: bbox.top - (2 * node.radius / _var.transform.k) - ($('.tooltipster-visualization').outerHeight() / 2),
-                  left: bbox.left + bbox.width - ($('.tooltipster-visualization').outerWidth() / 2),
+                  top: bbox.top - 2 * node.radius / _var.transform.k - $('.tooltipster-visualization').outerHeight() / 2,
+                  left: bbox.left + bbox.width - $('.tooltipster-visualization').outerWidth() / 2,
                   arrow: void 0
                 };
                 padding = 8;
@@ -67,15 +70,15 @@ gViz.vis.graph.tooltip = function() {
     }
     return _var;
   };
-  ['_var', 'action', 'animation', 'collection', 'el', 'node', 'obj', 'opacity'].forEach(function(key) {
-    validate[key] = function(_) {
+  ['_var', 'action', 'animation', 'collection', 'el', 'node', 'obj', 'opacity'].forEach(function (key) {
+    validate[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
       return validate;
     };
-    return main[key] = function(_) {
+    return main[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
@@ -83,7 +86,7 @@ gViz.vis.graph.tooltip = function() {
       return main;
     };
   });
-  main.run = function(_) {
+  main.run = function (_) {
     return main('run');
   };
   return main;

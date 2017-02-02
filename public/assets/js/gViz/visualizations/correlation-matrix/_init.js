@@ -1,45 +1,57 @@
+'use strict';
+
 // Initialize the visualization class
-gViz.vis.correlation_matrix = function() {
+gViz.vis.correlation_matrix = function () {
   "use strict";
 
   // Get attributes values
-  let _id         = `vis-correlation_matrix-${Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5}`;
-  let _class      = undefined;
-  let _var        = undefined;
-  let action      = 'build';
-  let animation   = 900;
-  let colors      = { scale: gViz.helpers.colors.d310 };
-  let container   = undefined;
-  let data        = [];
-  let height      = undefined;
-  var margin      = { top: 50, right: 50, bottom: 50, left: 50 };
-  let width       = undefined;
+
+  var _id = 'vis-correlation_matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _class = undefined;
+  var _var = undefined;
+  var action = 'build';
+  var animation = 900;
+  var colors = { scale: gViz.helpers.colors.d310 };
+  var container = undefined;
+  var data = [];
+  var height = undefined;
+  var margin = { top: 50, right: 50, bottom: 50, left: 50 };
+  var width = undefined;
 
   // Validate attributes
-  let validate = function(step) {
+  var validate = function validate(step) {
 
     switch (step) {
-      case 'build':          return (container != null) && $(container).length !== 0;
-      case 'initialize':     return true;
-      case 'create':         return true;
-      case 'scales':         return true;
-      case 'setup':          return true;
-      case 'elements':          return true;
-      case 'draw':           return true;
-      case 'sort':           return true;
-      default: return false;
+      case 'build':
+        return container != null && $(container).length !== 0;
+      case 'initialize':
+        return true;
+      case 'create':
+        return true;
+      case 'scales':
+        return true;
+      case 'setup':
+        return true;
+      case 'elements':
+        return true;
+      case 'draw':
+        return true;
+      case 'sort':
+        return true;
+      default:
+        return false;
     }
   };
 
   // Main function
-  let main = function(step) {
+  var main = function main(step) {
 
     //Validate attributes if necessary
     if (validate(step)) {
 
       switch (step) {
 
-          // Build entire visualizations
+        // Build entire visualizations
         case 'build':
 
           main('initialize');
@@ -51,77 +63,56 @@ gViz.vis.correlation_matrix = function() {
           main('sort');
           break;
 
-          // Initialize visualization variable
+        // Initialize visualization variable
         case 'initialize':
 
           // Initializing
-          if (!_var) { _var = {}; }
-          _var = gViz.vis.correlation_matrix.initialize()
-            ._var(_var)
-            ._id((_var._id != null) ? _var._id : _id)
-            ._class(_class)
-            .animation(animation)
-            .colors(colors)
-            .container(container)
-            .data(data)
-            .height(height)
-            .margin(margin)
-            .width(width)
-            .run();
+          if (!_var) {
+            _var = {};
+          }
+          _var = gViz.vis.correlation_matrix.initialize()._var(_var)._id(_var._id != null ? _var._id : _id)._class(_class).animation(animation).colors(colors).container(container).data(data).height(height).margin(margin).width(width).run();
           break;
 
         // Create initial elements
         case 'create':
 
           // Creating
-          _var = gViz.vis.correlation_matrix.create()
-            ._var(_var)
-            .run();
+          _var = gViz.vis.correlation_matrix.create()._var(_var).run();
           break;
 
         // Setup useful scales
         case 'scales':
-        
+
           // scales
-          _var = gViz.vis.correlation_matrix.scales()
-            ._var(_var)
-            .run();
+          _var = gViz.vis.correlation_matrix.scales()._var(_var).run();
           break;
-        
+
         // Setup initial elements
         case 'setup':
-        
+
           // Setup
-          _var = gViz.vis.correlation_matrix.setup()
-            ._var(_var)
-            .run();
+          _var = gViz.vis.correlation_matrix.setup()._var(_var).run();
           break;
 
         // Setup initial elements
         case 'elements':
-        
+
           // Setup
-          _var = gViz.vis.correlation_matrix.elements()
-            ._var(_var)
-            .run();
+          _var = gViz.vis.correlation_matrix.elements()._var(_var).run();
           break;
 
         // Draw Matrix
         case 'draw':
-        
+
           // Setup
-          _var = gViz.vis.correlation_matrix.draw()
-            ._var(_var)
-            .run();
+          _var = gViz.vis.correlation_matrix.draw()._var(_var).run();
           break;
 
         // Draw Matrix
         case 'sort':
-        
+
           // Setup
-          _var = gViz.vis.correlation_matrix.sort()
-            ._var(_var)
-            .run();
+          _var = gViz.vis.correlation_matrix.sort()._var(_var).run();
           break;
       }
     }
@@ -130,36 +121,57 @@ gViz.vis.correlation_matrix = function() {
   };
 
   //  Expose global variables
-  ['_id', '_class', '_var','action','animation', 'colors', 'container',
-    'data', 'height','margin','width'].forEach(function(key) {
+  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
 
     // Attach variables to validation function
-    validate[key] = function(_) {
-      if(!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    validate[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return validate;
     };
 
-      // Attach variables to main function
-    return main[key] = function(_) {
-      if(!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    // Attach variables to main function
+    return main[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return main;
     };
   });
 
   // Secondary functions
-  main.build          = _ => main("build");
-  main.initialize     = _ => main("initialize");
-  main.create         = _ => main("create");
-  main.scales         = _ => main("scales");
-  main.setup          = _ => main("setup");
-  main.draw           = _ => main("elements");
-  main.draw           = _ => main("draw");
-  main.draw           = _ => main("sort");
+  main.build = function (_) {
+    return main("build");
+  };
+  main.initialize = function (_) {
+    return main("initialize");
+  };
+  main.create = function (_) {
+    return main("create");
+  };
+  main.scales = function (_) {
+    return main("scales");
+  };
+  main.setup = function (_) {
+    return main("setup");
+  };
+  main.draw = function (_) {
+    return main("elements");
+  };
+  main.draw = function (_) {
+    return main("draw");
+  };
+  main.draw = function (_) {
+    return main("sort");
+  };
 
   // Execute the specific called function
-  main.run = _ => main(_);
+  main.run = function (_) {
+    return main(_);
+  };
 
   return main;
-}
+};

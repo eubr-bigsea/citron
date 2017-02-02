@@ -1,22 +1,27 @@
-gViz.vis.bar_chart.draw = function() {
+'use strict';
+
+gViz.vis.bar_chart.draw = function () {
   "use strict";
 
   // Get attributes values
-  let _var      = undefined;
-  var action    = 'draw';
+
+  var _var = undefined;
+  var action = 'draw';
   var animation = 900;
 
   // Validate attributes
-  var validate = function(step) {
+  var validate = function validate(step) {
 
     switch (step) {
-      case 'run': return true;
-      default: return false;
+      case 'run':
+        return true;
+      default:
+        return false;
     }
   };
 
   // Main function
-  var main = function(step) {
+  var main = function main(step) {
     // Validate attributes if necessary
     if (validate(step)) {
 
@@ -29,15 +34,15 @@ gViz.vis.bar_chart.draw = function() {
 
             case 'draw':
 
-              _var.bars = _var.g.selectAll(`.${_var._class}.bar`)
-								.data(_var._data)
-								.enter().append("rect")
-								.attr("class", `${_var._class} bar`)
-								.attr("x", function(d) { return _var.xScale(d["discrete"]); })
-								.attr("width", _var.xScale.bandwidth())
-								.attr("y", function(d) { return _var.yScale(d["continuous"]); })
-								.attr("height", function(d) { return _var.height - _var.yScale(d["continuous"]); })
-                .style("fill", function(d, i) { return _var.colors.scale(i); });
+              _var.bars = _var.g.selectAll('.' + _var._class + '.bar').data(_var._data).enter().append("rect").attr("class", _var._class + ' bar').attr("x", function (d) {
+                return _var.xScale(d["discrete"]);
+              }).attr("width", _var.xScale.bandwidth()).attr("y", function (d) {
+                return _var.yScale(d["continuous"]);
+              }).attr("height", function (d) {
+                return _var.height - _var.yScale(d["continuous"]);
+              }).style("fill", function (d, i) {
+                return _var.colors.scale(i);
+              });
 
               break;
           }
@@ -50,25 +55,31 @@ gViz.vis.bar_chart.draw = function() {
   };
 
   // Exposicao de variaveis globais
-  ['_var','action','animation'].forEach(function(key) {
+  ['_var', 'action', 'animation'].forEach(function (key) {
 
     // Attach variables to validation function
-    validate[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    validate[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return validate;
     };
 
     // Attach variables to main function
-    return main[key] = function(_) {
-      if (!arguments.length) { eval(`return ${key}`); }
-      eval(`${key} = _`);
+    return main[key] = function (_) {
+      if (!arguments.length) {
+        eval('return ' + key);
+      }
+      eval(key + ' = _');
       return main;
     };
   });
 
   // Execute the specific called function
-  main.run = _ => main('run');
+  main.run = function (_) {
+    return main('run');
+  };
 
   return main;
-}
+};
