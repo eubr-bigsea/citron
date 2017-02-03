@@ -21,9 +21,10 @@ export default Ember.Component.extend({
     // Initialize variables
     let component = this;
 
+    let parseDate = d3.timeParse("%d-%b-%y");
     
     let parseData = function(d, xAxis, yAxis) {
-      d["xAxis"]   =  d[xAxis];
+      d["xAxis"]   =  parseDate(d[xAxis]);
       d["yAxis"] = +d[yAxis];
 
       delete(d[xAxis]);

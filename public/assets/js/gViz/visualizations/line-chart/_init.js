@@ -17,7 +17,6 @@ gViz.vis.line_chart = function () {
   var height = undefined;
   var margin = { top: 50, right: 50, bottom: 50, left: 50 };
   var width = undefined;
-  var time_format = undefined;
 
   // Validate attributes
   var validate = function validate(step) {
@@ -55,9 +54,9 @@ gViz.vis.line_chart = function () {
 
           main('initialize');
           main('create');
-          // main('scales');
-          // main('axis');
-          // main('draw');
+          main('scales');
+          main('axis');
+          main('draw');
           break;
 
         // Initialize visualization variable
@@ -67,7 +66,18 @@ gViz.vis.line_chart = function () {
           if (!_var) {
             _var = {};
           }
-          _var = gViz.vis.line_chart.initialize()._var(_var)._id(_var._id != null ? _var._id : _id)._class(_class).animation(animation).colors(colors).container(container).data(data).height(height).margin(margin).width(width).run();
+          _var = gViz.vis.line_chart.initialize()
+            ._var(_var)
+            ._id(_var._id != null ? _var._id : _id)
+            ._class(_class)
+            .animation(animation)
+            .colors(colors)
+            .container(container)
+            .data(data)
+            .height(height)
+            .margin(margin)
+            .width(width)
+            .run();
           break;
 
         // Create initial elements
@@ -110,7 +120,7 @@ gViz.vis.line_chart = function () {
   };
 
   //  Expose global variables
-  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width', 'time_format'].forEach(function (key) {
+  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {

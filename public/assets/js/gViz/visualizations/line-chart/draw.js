@@ -34,15 +34,16 @@ gViz.vis.line_chart.draw = function () {
 
             case 'draw':
 
-              _var.bars = _var.g.selectAll('.' + _var._class + '.bar').data(_var._data).enter().append("rect").attr("class", _var._class + ' bar').attr("x", function (d) {
-                return _var.xScale(d["discrete"]);
-              }).attr("width", _var.xScale.bandwidth()).attr("y", function (d) {
-                return _var.yScale(d["continuous"]);
-              }).attr("height", function (d) {
-                return _var.height - _var.yScale(d["continuous"]);
-              }).style("fill", function (d, i) {
-                return _var.colors.scale(i);
-              });
+              var valueline = d3.line()
+                .x(function(d) { return _var.xScale(d["xAxis"]); })
+                .y(function(d) { return _var.yScale(d["yAxis"]); });
+
+              _var.line = _var.g.selectAll('.line').data([_var._data]);
+              _var.line.exit().remove();
+              _var.line = _var.line.enter().append("path").attr("class", 'line').merge(_var.line);
+
+              _var.line
+      					.attr("d", valueline);
 
               break;
           }
