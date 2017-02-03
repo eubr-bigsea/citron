@@ -1,7 +1,7 @@
 'use strict';
 
 // Initialize the visualization class
-gViz.vis.bar_chart.create = function () {
+gViz.vis.line_chart.create = function () {
   "use strict";
 
   // Get attributes values
@@ -48,6 +48,27 @@ gViz.vis.bar_chart.create = function () {
 
           // Update inner dimensions
           _var.g.attr("transform", 'translate(' + _var.margin.left + ',' + _var.margin.top + ')');
+
+          _var.bars = _var.g.selectAll('.' + _var._class + '.bar').data(["chart-wrap"], function (d) {
+            return d;
+          });
+          _var.bars.exit().remove();
+          _var.bars = _var.g.enter().append('g').attr("class", _var._class + ' bar').merge(_var.bars);
+
+          _var.xAxis = _var.g.selectAll('.' + _var._class + '.x.axis').data(["chart-wrap"], function (d) {
+            return d;
+          });
+          _var.xAxis.exit().remove();
+          _var.xAxis = _var.g.enter().append('g').attr("class", _var._class + ' x axis').merge(_var.xAxis);
+
+          _var.yAxis = _var.g.selectAll('.' + _var._class + '.y.axis').data(["chart-wrap"], function (d) {
+            return d;
+          });
+          _var.yAxis.exit().remove();
+          _var.yAxis = _var.g.enter().append('g').attr("class", _var._class + ' y axis').merge(_var.yAxis);
+
+          _var.xScale = {};
+          _var.yScale = {};
 
           break;
       }

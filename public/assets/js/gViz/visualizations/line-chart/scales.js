@@ -1,12 +1,12 @@
 'use strict';
 
-// Initialize the visualization class
-gViz.vis.bar_chart.create = function () {
+gViz.vis.line_chart.scales = function () {
   "use strict";
 
   // Get attributes values
 
   var _var = undefined;
+  var action = 'create';
   var animation = 900;
 
   // Validate attributes
@@ -22,7 +22,6 @@ gViz.vis.bar_chart.create = function () {
 
   // Main function
   var main = function main(step) {
-
     // Validate attributes if necessary
     if (validate(step)) {
 
@@ -31,23 +30,22 @@ gViz.vis.bar_chart.create = function () {
         // Build entire visualizations
         case 'run':
 
-          // Draw svg
-          _var.wrap = _var.container.d3.selectAll('svg.chart-' + _var._id).data(["chart-svg"], function (d) {
-            return d;
-          });
-          _var.wrap.exit().remove();
-          _var.wrap = _var.wrap.enter().append("svg").attr('class', _var._class + ' chart-' + _var._id).merge(_var.wrap); // svg
+          switch (action) {
 
-          // Update outer dimensions
-          _var.wrap.attr("width", _var.width + _var.margin.left + _var.margin.right).attr("height", _var.height + _var.margin.top + _var.margin.bottom);
+            case 'create':
 
-          // Draw g
-          _var.g = _var.wrap.selectAll("g.chart-wrap").data(["chart-wrap"]); // svg:g
-          _var.g.exit().remove();
-          _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
+              _var.xScale = d3.scaleBand().range([0, _var.width]).padding(0.1);
+              _var.xScale.domain(_var._data.map(function (d) {
+                return d["discrete"];
+              }));
 
-          // Update inner dimensions
-          _var.g.attr("transform", 'translate(' + _var.margin.left + ',' + _var.margin.top + ')');
+              _var.yScale = d3.scaleLinear().range([_var.height, 0]);
+              _var.yScale.domain([0, d3.max(_var._data, function (d) {
+                return d["continuous"];
+              })]);
+
+              break;
+          }
 
           break;
       }
@@ -57,7 +55,7 @@ gViz.vis.bar_chart.create = function () {
   };
 
   // Exposicao de variaveis globais
-  ['_var', 'animation'].forEach(function (key) {
+  ['_var', 'action', 'animation'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {
@@ -78,7 +76,7 @@ gViz.vis.bar_chart.create = function () {
     };
   });
 
-  // Executa a funcao chamando o parametro de step
+  // Execute the specific called function
   main.run = function (_) {
     return main('run');
   };

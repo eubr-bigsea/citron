@@ -34,7 +34,11 @@ gViz.vis.bar_chart.draw = function () {
 
             case 'draw':
 
-              _var.bars = _var.g.selectAll('.' + _var._class + '.bar').data(_var._data).enter().append("rect").attr("class", _var._class + ' bar').attr("x", function (d) {
+              _var.bars = _var.g.selectAll('.bar').data(_var._data);
+              _var.bars.exit().remove();
+              _var.bars = _var.bars.enter().append('rect').attr("class", 'bar').merge(_var.bars);
+
+              _var.bars.attr("x", function (d) {
                 return _var.xScale(d["discrete"]);
               }).attr("width", _var.xScale.bandwidth()).attr("y", function (d) {
                 return _var.yScale(d["continuous"]);

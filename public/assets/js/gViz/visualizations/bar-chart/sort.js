@@ -42,6 +42,7 @@ gViz.vis.bar_chart.sort = function () {
                 });
 
                 var sort = function sort(value) {
+
                   // Updates scales domain
 
                   switch (value) {
@@ -70,11 +71,11 @@ gViz.vis.bar_chart.sort = function () {
                     return i * 50;
                   };
 
-                  t.selectAll('.' + _var._class + '.bar').delay(delay).attr("x", function (d) {
+                  t.selectAll('.bar').delay(delay).attr("x", function (d) {
                     return x0(d["discrete"]);
                   });
 
-                  t.select('.' + _var._class + '.x.axis').call(d3.axisBottom(x0));
+                  t.select('.x.axis').call(d3.axisBottom(x0));
                 };
 
                 break;

@@ -1,0 +1,25 @@
+{{main-sidebar visualizationsActive='active'}}
+<article class="content items-list-page">
+  {{visualizations.button-bar
+    icon="fa-line-chart"
+    title="Line Chart"
+    subtitle="Example Line Chart"
+  }}
+
+  <div class='row'>
+    <div class='col-xs-12 col-md-12'>
+
+      {{!-- Bar Chart --}}
+      {{visualizations/line-chart
+        model=model
+        width="100%"
+        height="300px"
+        _id="trending"
+        title="Example Line Chart"
+      }}
+
+    </div>
+  </div>
+</article>
+
+{{outlet}}
