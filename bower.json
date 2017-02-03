@@ -15,7 +15,9 @@
     "jQuery-QueryBuilder": "^2.4.0",
     "jstree": "^3.3.3",
     "jstree-bootstrap-theme": "^1.0.1",
-    "moment": "^2.17.1"
+    "moment": "^2.17.1",
+    "urijs": "^1.18.5",
+    "socket.io-client": "^1.7.2"
   },
   "resolutions": {
     "jstree": "^3.3.3",

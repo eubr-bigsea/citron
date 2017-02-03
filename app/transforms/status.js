@@ -17,11 +17,7 @@ export default DS.Transform.extend({
 
   deserialize(serialized) {
     if(serialized){
-      var stats = {
-        message: this.capitalize(serialized),
-        icon: this.statusHash[serialized]
-      };
-      return stats;
+      return serialized.toLowerCase();
     } else { return null; }
   },
 

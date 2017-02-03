@@ -20,7 +20,7 @@ export default Ember.Route.extend({
     create(){
       var datasource = this.currentModel;
       ajax({
-        url: `${config.ai_social_rails}/datasources`,
+        url: `${config.stand}/datasources`,
         type: 'POST',
         data: { datasource: datasource }
       });

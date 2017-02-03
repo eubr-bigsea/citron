@@ -134,9 +134,9 @@
     white-space: nowrap;
   }
 
-  /********************************************
-   *          Header
-   *********************************************/
+/********************************************
+ *          Header
+ *********************************************/
 /********************************************
  *          Heading
  *********************************************/
@@ -200,40 +200,70 @@
   -ms-flex-preferred-size: 70px;
   flex-basis: 70px;
 
-  .canceled {
-    color: #FF6C39;
-    margin: auto;
+  &.canceled {
+    span {
+      color:  #FF6C39;
+      margin: auto;
+      @extend .fa-times;
+      @extend .fa-3x
+    }
   }
 
-  .completed {
-    color: #71BA51;
-    margin: auto;
+  &.completed {
+    span {
+      color: #71BA51;
+      margin: auto;
+      @extend .fa-check;
+      @extend .fa-3x;
+    }
   }
 
-  .error {
-    color: #E22211;
-    margin: auto;
+  &.error {
+    span {
+      color: #E22211;
+      margin: auto;
+      @extend .fa-exclamation-triangle;
+      @extend .fa-3x;
+    }
   }
 
-  .interrupted {
-    color: #FF9A43;
-    margin: auto;
+  &.interrupted {
+    span {
+      color: #FF9A43;
+      margin: auto;
+      @extend .fa-exclamation;
+      @extend .fa-3x;
+    }
   }
 
-  .pending {
-    color: #FFBD4B;
-    margin: auto;
+  &.pending {
+    span {
+      color: #FFBD4B;
+      margin: auto;
+      @extend .fa-hourglass-half;
+      @extend .fa-3x;
+    }
   }
 
-  .running {
-    color: #3D8EB9;
-    margin: auto;
+  &.running {
+    span {
+      color: #3D8EB9;
+      @extend .fa-circle-o-notch;
+      @extend .fa-spin;
+      @extend .fa-3x
+    }
+  }
+  &.waiting {
+    span {
+      color: #7F6B4B;
+      margin: auto;
+      @extend .fa-clock-o;
+      @extend .fa-3x
+    }
   }
 
-  .waiting {
-    color: #7F6B4B;
-    margin: auto;
-  }
+
+
 
   &.xs {
     -webkit-flex-basis: 40px;
@@ -586,8 +616,8 @@
       flex-grow: 2;
     }
     &.item-col-type {
-    text-align: center;
-    flex-grow: 2;
+      text-align: center;
+      flex-grow: 2;
     }
 
     &.item-col-date {

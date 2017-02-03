@@ -27,8 +27,14 @@ export default DeviseAuthenticator.extend({
 
       this.makeRequest(data).then(
         (response, status, xhr) => {
+          var user = response.data;
+          user.accessToken = xhr.getResponseHeader('access-token');
+          user.expiry = xhr.getResponseHeader('expiry');
+          user.tokenType = xhr.getResponseHeader('token-type');
+          user.uid = xhr.getResponseHeader('uid');
+          user.client = xhr.getResponseHeader('client');
           var result = {
-            currentUser: response.data,
+            currentUser: user,
             id: response.data.id,
             accessToken: xhr.getResponseHeader('access-token'),
             expiry: xhr.getResponseHeader('expiry'),

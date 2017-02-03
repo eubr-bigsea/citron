@@ -1,5 +1,11 @@
-<button {{action "onDestroy"}} type="button" class="close" data-dismiss="alert" aria-label="Close">
-  <small><span class="fa  fa-trash-o"></span></small>
-</button>
-<p>{{task.operation.name}}</p>
-<span>FIXME: task comment </span>
+{{#if readOnly}}
+  <button {{action "onDestroy"}} type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <small><span class="fa fa-clock-o"></span></small>
+  </button>
+{{else}}
+  <button {{action "onDestroy"}} type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <small><span class="fa fa-trash-o"></span></small>
+  </button>
+{{/if}}
+<p>{{operation.name}}</p>
+<span>{{comment}}</span>

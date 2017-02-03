@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
     return {
       component: `visualizations/${params.which}`,
-      url: `${config.ai_social_rails}/json/${params.id}/${params.which}.json`
+      url: `${config.stand}/json/${params.id}/${params.which}.json`
     };
   }
 });
