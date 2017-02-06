@@ -41,41 +41,30 @@ export default Ember.Component.extend({
     let dataUrl = this.get('dataUrl');
 
     // Get data from API
-    $.ajax({
-      url: dataUrl,
-      type: "GET",
-      beforeSend() { gViz.helpers.loading.show(); },
-      contentType: "application/json",
-      //data: JSON.stringify({}),
-      success(data) {
-
-        data.forEach((d, i) => {
-          $("<button>")
-            .attr("value", i + 1)
-            .attr("class", "btn btn-primary btn-xs")
-            .text(i + 1)
-            .css("margin-left", "0.5em")
-            .appendTo("#data-buttons")
-            .on("click", function() {
-              $("#order").val("name");
-              component.draw(data[i]);
-            });
+    gViz.helpers.loading.show();
+    $.get(dataUrl, function(data, status) {
+      data.forEach((d, i) => {
+        $("<button>")
+        .attr("value", i + 1)
+        .attr("class", "btn btn-primary btn-xs")
+        .text(i + 1)
+        .css("margin-left", "0.5em")
+        .appendTo("#data-buttons")
+        .on("click", function() {
+          $("#order").val("name");
+          component.draw(data[i]);
         });
-
-        component.draw(data[0]);
-      },
-
-      // Hide loading div and render error
-      error() {
-        gViz.helpers.loading.hide();
-        console.log("Error");
-      },
-
-      // Hide loading div and render complete
-      complete() {
-        gViz.helpers.loading.hide();
-        //console.log("complete");
-      }
+      });
+      component.draw(data[0]);
+    }, "json")
+    // Hide loading div and render error
+    .fail(function() {
+      gViz.helpers.loading.hide();
+      console.log("Error");
+    })
+    .done(function() {
+      gViz.helpers.loading.hide();
+      //console.log("complete");
     });
-  }
+  },
 });
