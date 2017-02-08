@@ -170,7 +170,7 @@ export default Ember.Component.extend({
     Ember.$(`#${this.elementId} .categories`).jstree(jstreeJson);
   },
   isFilter(element){
-    return element.operation.name === 'Filter (selection)';
+    return element.operation.name.match(/^Filter/) !== null;
   },
   actions: {
     makeQueryBuilder(){
