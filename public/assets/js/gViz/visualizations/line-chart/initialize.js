@@ -6,7 +6,7 @@ gViz.vis.line_chart.initialize = function () {
 
   // Get attributes values
 
-  var _id = 'vis-line_chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-line-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var colors = { scale: gViz.helpers.colors.main };

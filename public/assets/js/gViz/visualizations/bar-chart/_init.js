@@ -153,7 +153,7 @@ gViz.vis.bar_chart = function () {
   main.scales = function (_) {
     return main("scales");
   };
-  main.scales = function (_) {
+  main.axis = function (_) {
     return main("axis");
   };
   main.setup = function (_) {
@@ -162,7 +162,7 @@ gViz.vis.bar_chart = function () {
   main.draw = function (_) {
     return main("draw");
   };
-  main.draw = function (_) {
+  main.sort = function (_) {
     return main("sort");
   };
 

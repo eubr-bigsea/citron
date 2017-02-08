@@ -6,7 +6,7 @@ gViz.vis.correlation_matrix = function () {
 
   // Get attributes values
 
-  var _id = 'vis-correlation_matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-correlation-matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var action = 'build';
@@ -158,13 +158,13 @@ gViz.vis.correlation_matrix = function () {
   main.setup = function (_) {
     return main("setup");
   };
-  main.draw = function (_) {
+  main.elements = function (_) {
     return main("elements");
   };
   main.draw = function (_) {
     return main("draw");
   };
-  main.draw = function (_) {
+  main.sort = function (_) {
     return main("sort");
   };
 

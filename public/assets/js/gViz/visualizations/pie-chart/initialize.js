@@ -1,12 +1,12 @@
 'use strict';
 
 // Initialize the visualization class
-gViz.vis.bar_chart.initialize = function () {
+gViz.vis.pie_chart.initialize = function () {
   "use strict";
 
   // Get attributes values
 
-  var _id = 'vis-bar-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-pie_chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var colors = { scale: gViz.helpers.colors.main };

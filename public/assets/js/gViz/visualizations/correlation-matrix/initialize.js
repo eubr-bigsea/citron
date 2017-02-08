@@ -6,7 +6,7 @@ gViz.vis.correlation_matrix.initialize = function () {
 
   // Get attributes values
 
-  var _id = 'vis-correlation_matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-correlation-matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var colors = { scale: gViz.helpers.colors.d310 };

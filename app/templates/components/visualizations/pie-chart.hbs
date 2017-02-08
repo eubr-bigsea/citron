@@ -1,0 +1,28 @@
+<div class="gViz-header">
+	<div class='symbol'>
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-pie-chart fa-stack-1x fa-inverse"></i>
+		</span>
+	</div>
+	<span class='title'>{{title}}</span>
+	<!-- <span class='subtitle'>{{subtitle}}</span> -->
+</div>
+
+<div class='gViz-wrapper' data-id={{_id}} style={{style}} >
+
+	<br>
+  <div class="controls col-md-12">
+		<button class="btn btn-primary btn-xs" value="1" data-id={{_id}}>1</button>
+		<button class="btn btn-primary btn-xs" value="2" data-id={{_id}}>2</button>
+		<button class="btn btn-primary btn-xs" value="3" data-id={{_id}}>3</button>
+    <div class="col-md-3">
+    <select id="order" class="form-control">
+      <option value="ascending">Ascending</option>
+      <option value="descending">Descending</option>
+      <option value="alphabetically">Alphabetically</option>
+    </select>
+    </div>
+  </div>
+
+</div>

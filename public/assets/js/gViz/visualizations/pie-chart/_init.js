@@ -1,12 +1,12 @@
 'use strict';
 
 // Initialize the visualization class
-gViz.vis.line_chart = function () {
+gViz.vis.pie_chart = function () {
   "use strict";
 
   // Get attributes values
 
-  var _id = 'vis-line-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-pie-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var action = 'build';
@@ -16,7 +16,7 @@ gViz.vis.line_chart = function () {
   var data = [];
   var height = undefined;
   var margin = { top: 50, right: 50, bottom: 50, left: 50 };
-  var width = undefined;
+  var width  = undefined;
 
   // Validate attributes
   var validate = function validate(step) {
@@ -28,13 +28,11 @@ gViz.vis.line_chart = function () {
         return true;
       case 'create':
         return true;
-      case 'scales':
-        return true;
-      case 'axis':
-        return true;
-      case 'setup':
+      case 'elements':
         return true;
       case 'draw':
+        return true;
+      case 'sort':
         return true;
       default:
         return false;
@@ -54,9 +52,9 @@ gViz.vis.line_chart = function () {
 
           main('initialize');
           main('create');
-          main('scales');
-          main('axis');
+          main('elements');
           main('draw');
+          main('sort');
           break;
 
         // Initialize visualization variable
@@ -66,7 +64,7 @@ gViz.vis.line_chart = function () {
           if (!_var) {
             _var = {};
           }
-          _var = gViz.vis.line_chart.initialize()
+          _var = gViz.vis.pie_chart.initialize()
             ._var(_var)
             ._id(_var._id != null ? _var._id : _id)
             ._class(_class)
@@ -84,34 +82,26 @@ gViz.vis.line_chart = function () {
         case 'create':
 
           // Creating
-          _var = gViz.vis.line_chart.create()._var(_var).run();
-          break;
-
-        // Setup useful scales
-        case 'scales':
-
-          // scales
-          _var = gViz.vis.line_chart.scales()._var(_var).run();
-          break;
-
-        case 'axis':
-
-          // scales
-          _var = gViz.vis.line_chart.axis()._var(_var).run();
+          _var = gViz.vis.pie_chart.create()._var(_var).run();
           break;
 
         // Setup initial elements
-        case 'setup':
+        case 'elements':
 
-          // Setup
-          _var = gViz.vis.line_chart.setup()._var(_var).run();
+          // elements
+          _var = gViz.vis.pie_chart.elements()._var(_var).run();
           break;
 
-        // Draw Matrix
+        // Draw Chart 
         case 'draw':
 
-          // Setup
-          _var = gViz.vis.line_chart.draw()._var(_var).run();
+          _var = gViz.vis.pie_chart.draw()._var(_var).run();
+          break;
+
+        // Draw Chart 
+        case 'sort':
+
+          _var = gViz.vis.pie_chart.sort()._var(_var).run();
           break;
       }
     }
@@ -151,14 +141,8 @@ gViz.vis.line_chart = function () {
   main.create = function (_) {
     return main("create");
   };
-  main.scales = function (_) {
-    return main("scales");
-  };
-  main.axis = function (_) {
-    return main("axis");
-  };
-  main.setup = function (_) {
-    return main("setup");
+  main.elements = function (_) {
+    return main("elements");
   };
   main.draw = function (_) {
     return main("draw");
