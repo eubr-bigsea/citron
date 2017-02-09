@@ -42,7 +42,7 @@ export default Ember.Component.extend({
 
     // Get data from API
     gViz.helpers.loading.show();
-    $.get(dataUrl, function(data, status) {
+    $.get(dataUrl, function(data) {
       data.forEach((d, i) => {
         $("<button>")
         .attr("value", i + 1)

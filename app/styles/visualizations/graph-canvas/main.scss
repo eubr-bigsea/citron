@@ -9,8 +9,8 @@
     left: 5px;
     width: 100%;
 
-    #zoom-reset { display: none; float: right; }
-    #highlight-reset { margin-right: 10px; }
+    #zoom-reset { display: none; float: left; margin-right: 10px;  }
+    #highlight-reset { margin-right: 10px; float: right; }
 
     .btn-dark {
       margin-right: 5px;

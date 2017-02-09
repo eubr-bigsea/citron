@@ -1,0 +1,52 @@
+.gViz-table {
+  margin-top: 10px;
+
+  thead {
+    tr {
+      background-color: #FFF;
+      th {
+      }
+    }
+  }
+
+}
+
+.gViz-legend {
+  hr { margin: 2px 0px; }
+  line-height: 24px;
+  color: $dark-gray;
+  margin-top: 10px;
+
+  .legend {
+    width: 100%;
+    .text-legend {
+      width: calc(100% - 30px);
+      display: block;
+      float: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 2px 0px 2px 5px;
+    }
+
+    .symbol {
+      width: 24px;
+      height: 24px;
+      padding: 0px;
+      float: left;
+      .fa-stack {
+        width: 100%;
+        height: 2em;
+        i.fa-stack-2x {
+          font-size: 24px;
+        }
+        i.fa-stack-1x {
+          font-size: 11px;
+          margin-top: -5px;
+          &[data-name='ask'] { color: $ask1; }
+          &[data-name='bid'] { color: $bid1; }
+        }
+      }
+    }
+  }
+}

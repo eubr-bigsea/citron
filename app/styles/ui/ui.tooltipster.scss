@@ -36,7 +36,7 @@
       font-size: 12px;
 
       .title {
-        margin: 0px 0px 10px 0px;
+        margin: 0px 0px 3px 0px;
         padding: 0px;
         font-size: 12px;
         font-weight: bold;
@@ -49,14 +49,34 @@
           font-style: italic;
         }
       }
+
       .subtitle {
-        margin: 0px;
+        margin: 0px 0px 2px 0px;
+        padding: 0px;
+        display: block;
+        font-size: 10px;
+        font-weight: bold;
+        color: $middle-gray;
+      }
+
+      hr { margin: 2px; }
+
+      .info {
+        margin: 0px 0px 2px 0px;
         padding: 0px;
         display: block;
         font-size: 10px;
         font-weight: normal;
         color: $middle-gray;
+
+        .key {
+        }
+        .value {
+          font-weight: normal;
+        }
       }
+
+
     }
   }
 

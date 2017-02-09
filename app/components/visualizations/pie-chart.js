@@ -25,9 +25,9 @@ export default Ember.Component.extend({
       d["label"]   =  d[label];
       d["value"]   = +d[value];
 
-      if(label != "label") { delete(d[label]); }
+      if(label !== "label") { delete(d[label]); }
 
-      if(value != "value") { delete(d[value]); }
+      if(value !== "value") { delete(d[value]); }
 
       return d;
     };

@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   json: Ember.A(),
   tableData: Ember.A(),
   header: ["Tópicos","Eixos","# Comentários","Termos Mais Descritivos"],
-  colorsEixos:  d3.scaleOrdinal(d3.schemeCategory10),
+  colorsEixos:  d3.scaleOrdinal(d3.schemeCategory20),
 
   // Chart var
   _var: null,
@@ -33,22 +33,31 @@ export default Ember.Component.extend({
         // Set json
         component.set('json', data);
 
-        // Parse data
+        // Initialize variables
         let topicos = [];
-        data.filter(d => d.contagem_comentarios > 0 ).forEach( d => {
+        let legends = {};
 
+        // Parse data
+        data.forEach( d => {
+
+          // Set scales
           let scaleTopPalavras = d3.scaleLinear().domain(d3.extent(d.top_palavras, t => t[1])).range([12,25]);
           let scaleFrequenciaEixos = d3.scaleLinear().domain(d3.extent(d.frequencia_eixos, t => t[1])).range([12,30]);
-          topicos.push([
-            `<a href='http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/topico_id:${d.topico_id}' target='_blank'>${d.nome}</a>`,
-            d.frequencia_eixos.map( f => `<a class='bar' href='http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/commentable_axis:${f[0]}' target='_blank' style='height: ${scaleFrequenciaEixos(f[1])}px; margin-top: ${scaleFrequenciaEixos.domain()[1] - scaleFrequenciaEixos(f[1])}px; background-color: ${component.get('colorsEixos')(f[0])};'></a>`).join(' '),
-            d.contagem_comentarios,
-            d.top_palavras.map( p => `<a href='http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/comment_text.acento:imediata AND topico_id:${d.topico_id}' target='_blank' class='word' style='font-size: ${scaleTopPalavras(p[1])}px;'>${p[0]}</a>`).join(" ")
-          ]);
+
+          // Store legends
+          d.frequencia_eixos.forEach( e => legends[e[0]] = component.get('colorsEixos')(e[0]) )
+
+          // Add topics
+          topicos.push({
+            element: d,
+            eixos: d.frequencia_eixos.map(function(f) { return { id: f[0], height: scaleFrequenciaEixos(f[1]), mTop: scaleFrequenciaEixos.domain()[1] - scaleFrequenciaEixos(f[1]), bg_color: component.get('colorsEixos')(f[0]) }; }),
+            top_palavras: d.top_palavras.map(function(p) { return { id: d.topico_id, name: p[0], value: scaleTopPalavras(p[1]) }; })
+          });
         });
 
         // Set data
         component.set('tableData', topicos);
+        component.set('legends', legends);
 
         //// Draw visualization
         //component._var = gViz.vis.topicos()
@@ -74,6 +83,10 @@ export default Ember.Component.extend({
 
   didInsertElement: function(){
     this.drawTable();
+  },
+
+  actions: {
+
   }
 
 });

@@ -1,30 +1,73 @@
-<div class="gViz-header">
-	<div class='symbol'>
-		<span class="fa-stack fa-lg">
-			<i class="fa fa-circle fa-stack-2x"></i>
-			<i class="fa fa-bar-chart fa-stack-1x fa-inverse"></i>
-		</span>
-	</div>
-	<span class='title'>{{title}}</span>
-</div>
+<div class='row'>
+  <div class='col-xs-10'>
 
-<div class='gViz-wrapper' data-id={{_id}} style={{style}} >
-  <table class="table table-striped table-hover gViz-table">
-    <thead>
-      <tr>
-        {{#each header as |h i|}}
-          <th>{{{h}}}</th>
-        {{/each}}
-      </tr>
-    </thead>
-    <tbody>
-      {{#each tableData as |tr|}}
-        <tr>
-          {{#each tr as |td|}}
-            <td>{{{td}}}</td>
+    <div class="gViz-header">
+    	<div class='symbol'>
+    		<span class="fa-stack fa-lg">
+    			<i class="fa fa-circle fa-stack-2x"></i>
+    			<i class="fa fa-bar-chart fa-stack-1x fa-inverse"></i>
+    		</span>
+    	</div>
+    	<span class='title'>{{title}}</span>
+    </div>
+
+    <div class='gViz-wrapper' data-id={{_id}} style={{style}} >
+      <table class="table table-striped table-hover gViz-table table-bordered">
+        <thead>
+          <tr>
+            {{#each header as |h i|}}
+              <th>{{{h}}}</th>
+            {{/each}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each tableData as |tr|}}
+            <tr>
+              <td><a href="http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/topico_id:{{tr.element.topico_id}}" target='_blank'>{{tr.element.nome}}</a></td>
+              <td>
+                {{#each tr.eixos as |e|}}
+                  <a class='bar' href='http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/commentable_axis:{{e.id}}' target='_blank' style='height: {{e.height}}px; margin-top: {{e.mTop}}px; background-color: {{e.bg_color}};' title='Eixo: {{e.id}}'></a>
+                {{/each}}
+              </td>
+              <td>{{tr.element.contagem_comentarios}}</td>
+              <td>
+                {{#each tr.top_palavras as |p|}}
+                  <a href='http://200.131.6.30/projeto/dadosparciais/dataset/130/calaca/comment_text.acento:imediata AND topico_id:{{tr.element.topico_id}}' target='_blank' class='word' style='font-size:{{p.value}}px;'>{{p.name}}</a>
+                {{/each}}
+              </td>
+            </tr>
           {{/each}}
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class='col-xs-2'>
+
+    <div class="gViz-header">
+    	<div class='symbol'>
+    		<span class="fa-stack fa-lg">
+    			<i class="fa fa-circle fa-stack-2x"></i>
+    			<i class="fa fa-paint-brush fa-stack-1x fa-inverse"></i>
+    		</span>
+    	</div>
+    	<span class='title'>Legenda de Cores</span>
+    </div>
+
+    <div class='gViz-wrapper gViz-legend' data-id={{_id}} style={{style}} >
+      {{#each-in legends as |key value|}}
+        <div class='row legend'>
+          <div class='col-xs-12'>
+            <span class='symbol'>
+              <span class="fa-stack fa-lg" style='color: {{value}}; margin-right: 10px;'>
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-paint-brush fa-stack-1x fa-inverse"></i>
+              </span>
+            </span>
+            <span class='text-legend'>Eixo {{key}}</span>
+          </div>
+        </div>
+      {{/each-in}}
+    </div>
+
+  </div>
 </div>

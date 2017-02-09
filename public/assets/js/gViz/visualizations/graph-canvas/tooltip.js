@@ -41,10 +41,18 @@ gViz.vis.graph.tooltip = function () {
                   top: _var.container.jq.offset().top + node.y * _var.transform.k + _var.transform.y,
                   width: node.group === 'documents' ? 15 : 15
                 };
-                _var.tooltip.content = "<span class='title'>" + (node.attrs.id == null ? node.id : node.attrs.id) + "</span>";
-                //_var.tooltip.content += "<span class='subtitle'>Name: <b>" + (node.attrs.name == null ? node.name : node.attrs.name) + "</b>";
-                //_var.tooltip.content += "<br> Group: <b>" + (node.attrs.group == null ? node.group : node.attrs.group) + "</b>";
-                _var.tooltip.content += "</span>";
+
+                // Set tooltip content title and subtitle
+                _var.tooltip.content = "<span class='title' style='color: " + node.color + " ;'>" + (node.attrs.name == null ? node.name : node.attrs.name) + "</span>";
+                _var.tooltip.content += "<span class='subtitle'># Neighbours: " + Object.keys(node.neighbours).length + "</span>";
+
+                // Set tooltip aditional info
+                if(Object.keys(node.attrs).length > 0) {
+                  _var.tooltip.content += "<hr>";
+                  Object.keys(node.attrs).forEach( key => _var.tooltip.content += "<span class='info'><span class='key'>"+key+"</span><span class='value'>"+node.attrs[key]+"</span></span>");
+                }
+
+
                 d3.select('.tooltipster-visualization .tooltipster-content').html(_var.tooltip.content);
                 offset = {
                   top: bbox.top - 2 * node.radius / _var.transform.k - $('.tooltipster-visualization').outerHeight() / 2,
