@@ -48,6 +48,7 @@ Router.map(function() {
     this.route('topicos-vis');
     this.route('line-chart');
     this.route('pie-chart');
+    this.route('search-tool');
   });
 });
 

@@ -1,0 +1,37 @@
+<div class='gViz-wrapper gViz-search-tool' data-id={{_id}} style='width: 100%; height: {{cHeight}}px;' >
+  <p class='title'>
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-search fa-stack-1x fa-inverse"></i>
+		</span>
+	</p>
+  <p class='title'>Search Tool</p>
+  <p class='subtitle'>Example of search tool based on Calaca.</p>
+
+  <div class="input-group">
+    <input class='search-tool-input form-control' placeholder='Type your search here...' onkeyup={{action 'updateSearch'}}>
+    <span class="input-group-addon" {{action 'submitSearch'}}><i class='fa fa-search'></i></span>
+  </div>
+
+  <div class='search-tool-results' style='max-height: {{cResultsHeight}}px;'>
+    {{#if isEmpty}}
+      <h5 class="no-data" style="padding-top: 20px; text-align: center;">
+        NO RESULTS FOUND
+        <small>There is no match for the desired search. Please update and search again!</small>
+      </h5>
+    {{else}}
+      {{#each filteredData as |d|}}
+        <div class='search-tool-result-card'>
+          <p class='author_name' title='{{d.author_name}}'>{{d.author_name}}</p>
+          <p class='part_name' title='{{d.part_name}}'>{{d.part_name}}</p>
+          <p class='text_' title='{{d.text}}'>{{d.text}}</p>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+  <div class='search-tool-info'>
+    <p>Showing <b>{{filteredData.length}}</b> results.</p>
+  </div>
+
+
+</div>
