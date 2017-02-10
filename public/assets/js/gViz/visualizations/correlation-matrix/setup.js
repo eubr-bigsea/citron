@@ -41,9 +41,6 @@ gViz.vis.correlation_matrix.setup = function () {
                 node.index = i;
                 node.count = 0;
 
-                // Parse Group to Int
-                // node.group = parseInt(node.group);
-
                 // For convention x = line and y = column. Z is the value of
                 // each cell
                 _var.matrix[node.index] = d3.range(_var._data.columns.length).map(function (j) {
@@ -53,16 +50,14 @@ gViz.vis.correlation_matrix.setup = function () {
 
               // Parse Group to Int
               _var._data.columns.forEach(function (node, i) {
-                if ($.type(node.group) === 'string')
-                  // node.group = parseInt(node.group);
-                  node.count = 0;
+                node.count = 0;
                 node.index = i;
               });
 
               // Convert links to matrix; count occurrences.
               _var._data.links.forEach(function (link) {
 
-                // Finds ids on arrays. 
+                // Finds ids on arrays.
                 var row = $.grep(_var._data.rows, function (d) {
                   return d.id == link.row;
                 });

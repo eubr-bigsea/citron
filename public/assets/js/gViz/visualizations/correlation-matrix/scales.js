@@ -39,7 +39,12 @@ gViz.vis.correlation_matrix.scales = function () {
               // Rows
               _var.yScale = d3.scaleBand().range([0, _var.matrix_height]);
               // Colour Intensity
-              _var.zScale = d3.scaleLinear().domain([0, 4]).clamp(true);
+              _var.zScale = d3.scaleLinear().domain([0, 2]).clamp(true);
+
+              // Custom Colour Scale
+              _var.colourScale = d3.scaleLinear().domain(d3.extent(_var._data.links, function(d) { return d["value"]; }));
+              //_var.colourScale = d3.scaleLinear().domain([0, 1]);
+              _var.colourScale.range(["orange", "green"]);
 
               break;
           }

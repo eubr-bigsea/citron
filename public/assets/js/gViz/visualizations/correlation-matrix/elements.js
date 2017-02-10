@@ -55,6 +55,22 @@ gViz.vis.correlation_matrix.elements = function () {
           _var.column.exit().remove();
           _var.column = _var.g.enter().append('g').attr("class", _var._class + ' column').merge(_var.column);
 
+					var minColour = _var.colourScale.domain()[0];
+					var maxColour = _var.colourScale.domain()[1];
+					var colourInterval = (maxColour - minColour)/4;
+
+					// Returns number of decimal places
+					var retr_dec = function(num) {
+						return (num.split('.')[1] || []).length;
+					}
+
+					_var.colourRange = [minColour, minColour + colourInterval,
+						maxColour - colourInterval, maxColour]
+
+          _var.legend = _var.g.selectAll("." + _var._class + ".legend").data(_var.colourRange);
+          _var.legend.exit().remove();
+          _var.legend = _var.legend.enter().append("g").attr("class", _var._class + " legend").merge(_var.legend);
+
           break;
       }
     }
