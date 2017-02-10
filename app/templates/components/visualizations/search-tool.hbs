@@ -9,7 +9,7 @@
   <p class='subtitle'>Example of search tool based on Calaca.</p>
 
   <div class="input-group">
-    <input class='search-tool-input form-control' placeholder='Type your search here...' onkeyup={{action 'updateSearch'}}>
+    <input class='search-tool-input form-control' placeholder='Type your search here...' onkeyup={{action 'updateSearch'}} value='{{search}}'>
     <span class="input-group-addon" {{action 'submitSearch'}}><i class='fa fa-search'></i></span>
   </div>
 

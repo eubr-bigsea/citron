@@ -19,7 +19,7 @@ export default Ember.Component.extend({
   cSortBy: Ember.computed('sortBy', function() { return this.get('sortBy') == null ? [] : ((typeof this.get('sortBy') === 'string' || this.get('sortBy') instanceof String) ? [this.get('sortBy')] : this.get('sortBy')); }),
 
   // Search attrs
-  search: "",
+  cSearch: Ember.computed('search', function() { return this.get('search') == null ? '' : this.get('search'); }),
   searchIndex: 0,
   isEmpty: Ember.computed('filteredData', function() { return this.get('filteredData').length === 0; }),
 
@@ -29,7 +29,7 @@ export default Ember.Component.extend({
     // Initialize variables
     let component = this;
     let data = this.get('data');
-    let search = this.get('search').latinize().toLowerCase();
+    let search = this.get('cSearch').latinize().toLowerCase();
 
     // Filter data
     data = data.filter( a => { return search.length < 1 || (Object.keys(a).filter( key => a[key].toString().latinize().toLowerCase().indexOf(search) >= 0).length > 0);} );
