@@ -137,13 +137,13 @@ export default Ember.Component.extend({
             temp = splitted[i+1];
             i = i+1;
           }  else {
-            operator = 'equal';
+            operator = 'contains';
             temp = splitted[i];
           }
         }  else { temp = temp + " " + splitted[i];  }
         if((splitted[i+1] === 'AND' || splitted[i+1] === 'OR' || splitted[i+1] == null || splitted[i+1] === ')') && temp !== ''){
           json.rules.push({
-            id: 'term',
+            id: 'text',
             field: 'term',
             type: 'string',
             input: 'text',
