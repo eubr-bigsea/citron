@@ -47,11 +47,12 @@ gViz.vis.graph.tooltip = function () {
                 _var.tooltip.content += "<span class='subtitle'># Neighbours: " + Object.keys(node.neighbours).length + "</span>";
 
                 // Set tooltip aditional info
-                if(Object.keys(node.attrs).length > 0) {
+                if (Object.keys(node.attrs).length > 0) {
                   _var.tooltip.content += "<hr>";
-                  Object.keys(node.attrs).forEach( key => _var.tooltip.content += "<span class='info'><span class='key'>"+key+"</span><span class='value'>"+node.attrs[key]+"</span></span>");
+                  Object.keys(node.attrs).forEach(function (key) {
+                    return _var.tooltip.content += "<span class='info'><span class='key'>" + key + "</span><span class='value'>" + node.attrs[key] + "</span></span>";
+                  });
                 }
-
 
                 d3.select('.tooltipster-visualization .tooltipster-content').html(_var.tooltip.content);
                 offset = {

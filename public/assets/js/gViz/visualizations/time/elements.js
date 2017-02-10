@@ -102,7 +102,6 @@ gViz.vis.time.elements = function () {
                 values: data.map(function (d) {
                   return { date: d.date, x: d._epoch, y: d.series[id].value };
                 })
-                //zeros: data.map(d => ({ date: d.date,  x: d._epoch, y: 0 }))
               };
             }).sort(function (a, b) {
               return d3.descending(a.sorted, b.sorted);

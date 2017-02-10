@@ -44,7 +44,7 @@ gViz.vis.time.scale = function () {
                   extent = void 0;
 
               // Update data
-              _var.data = _var._data; //.filter(d => d._epoch >= _var.bounds[0] && d._epoch <= _var.bounds[1])
+              _var.data = _var._data;
 
               // Get bounds and extent
               _var.bounds = d3.extent(_var._data, function (d) {

@@ -45,7 +45,7 @@ export default Ember.Component.extend({
           let scaleFrequenciaEixos = d3.scaleLinear().domain(d3.extent(d.frequencia_eixos, t => t[1])).range([12,30]);
 
           // Store legends
-          d.frequencia_eixos.forEach( e => legends[e[0]] = component.get('colorsEixos')(e[0]) )
+          d.frequencia_eixos.forEach( e => legends[e[0]] = component.get('colorsEixos')(e[0]) );
 
           // Add topics
           topicos.push({

@@ -36,8 +36,9 @@ export default Ember.Component.extend({
 
     // Sort data
     data = data.sort(function(a,b) {
-      let sorted = component.get('cSortBy').map( s => `d3['${component.get('cSortOrder')}'](a['${s}'], b['${s}'])`).join(" || ");
-      return eval(sorted);
+      let flag = false;
+      component.get('cSortBy').forEach( s => flag = flag || d3[component.get('cSortOrder')](a[s], b[s]));
+      return flag;
     });
 
     return data;
