@@ -30,13 +30,19 @@
           </div>
           <div class="col-xs-2">
             {{#link-to 'job.visualization' model.id 'graph-canvas'}}
-              {{visualization.card-visualization image='/assets/images/vis_coocorrencia.png' algorithm='Co-ocorrency' description='Co-ocurrency visualization of words within filtered comments'}}
+              {{visualization.card-visualization
+              image='/assets/images/vis_coocorrencia.png'
+              algorithm='Co-ocorrency'
+              description='Co-ocurrency visualization of words within filtered comments'}}
             {{/link-to}}
           </div>
           <div class="col-xs-2">
-            <a href="#" {{action 'openVisualization' 'search'}}>
-              {{visualization.card-visualization image='/assets/images/vis_search.png' algorithm='Search Tools' description='Exploratory tool which can be used search the filtered comments'}}
-            </a>
+            {{#link-to 'job.visualization' model.id 'search-tool'}}
+              {{visualization.card-visualization
+              image='/assets/images/vis_search.png'
+              algorithm='Search Tools'
+              description='Exploratory tool which can be used search the filtered comments'}}
+            {{/link-to}}
           </div>
         </div>
         <div class="row">
