@@ -36,7 +36,6 @@ gViz.vis.correlation_matrix.draw = function () {
 
               var row = function row(_row) {
 
-
                 // Appends Rectangles to each row
                 var cell = d3.select(this).selectAll('.' + _var._class + '.cell')
                   .data(_row.filter(function (d) {
@@ -57,8 +56,22 @@ gViz.vis.correlation_matrix.draw = function () {
                   .on("click", function(d) {
                     console.log(d);
                   });
-              };
+            };
 
+              // Creates or Updates background
+              var bg_rect = _var.g.selectAll('.' + _var._class + '.background').data(["bg-rect"], function (d) {
+                return d;
+              });
+              bg_rect.exit().remove();
+              bg_rect = bg_rect.enter().insert("rect", ":first-child").attr("class", _var._class + ' background').merge(bg_rect);
+              bg_rect.attr("x", 0).attr("y", 0).attr("width", _var.matrix_width).attr("height", _var.matrix_height);
+
+              // Creates or Update Rows
+              _var.row = _var.g.selectAll('.' + _var._class + '.row').data(["matrix-rows"], function (d) {
+                return d;
+              });
+              _var.row.exit().remove();
+              _var.row = _var.g.enter().append('g').attr("class", _var._class + ' row').merge(_var.row);
 
               // For each row appends the rectangles
               _var.row = _var.g.selectAll('.' + _var._class + '.row')
@@ -88,6 +101,13 @@ gViz.vis.correlation_matrix.draw = function () {
                 .text(function (d, i) {
                   return _var._data.rows[i].name;
                 });
+
+              // Creates or Update Columns
+              _var.column = _var.g.selectAll('.' + _var._class + '.column').data(["matrix-columns"], function (d) {
+                return d;
+              });
+              _var.column.exit().remove();
+              _var.column = _var.g.enter().append('g').attr("class", _var._class + ' column').merge(_var.column);
 
               // Appends columns division lines
               _var.column = _var.g.selectAll('.' + _var._class + '.column')
@@ -125,24 +145,46 @@ gViz.vis.correlation_matrix.draw = function () {
                 + ($(_var.container.el).height() / 2 - _var.matrix_height / 2) + ')');
               }
 
+              // Returns number of decimal places
+              var retr_dec = function(num) {
+                return (num.split('.')[1] || []).length;
+              }
+
               var legendSize = 20;
 
-              _var.legend
-                .append("rect")
+					    var minColour = _var.colourScale.domain()[0];
+					    var maxColour = _var.colourScale.domain()[1];
+					    var colourInterval = (maxColour - minColour)/4;
+
+					    _var.colourRange = [minColour, minColour + colourInterval,
+					    	maxColour - colourInterval, maxColour]
+
+
+              // Creates or Updates Legend
+              _var.legend = _var.g.selectAll("." + _var._class + ".legend").data(["legend"]);
+              _var.legend.exit().remove();
+              _var.legend = _var.legend.enter().insert("g").attr("class", _var._class + " legend").merge(_var.legend);
+              _var.legend.attr("transform", "translate(" + (_var.matrix_width + 100) + ",0)");
+
+              _var.legend_rect = _var.legend.selectAll("." + _var._class + ".legend.rect").data(_var.colourRange);
+              _var.legend_rect.exit().remove();
+              _var.legend_rect = _var.legend_rect.enter().append("rect").attr("class", _var._class + " legend rect").merge(_var.legend_rect);
+
+              _var.legend_text = _var.legend.selectAll("." + _var._class + ".legend.text").data(_var.colourRange);
+              _var.legend_text.exit().remove();
+              _var.legend_text = _var.legend_text.enter().append("text").attr("class", _var._class + " legend text").merge(_var.legend_text);
+
+              _var.legend_rect
                 .attr("width", legendSize)
                 .attr("height", legendSize)
-                .attr("x", _var.matrix_width + 100)
-                .attr("y", function(d, i) { return _var.yScale(_var.orders.y[0]) + 25 * i; })
+                .attr("x", 0)
+                .attr("y", function(d, i) { return 25 * i; })
                 .style("fill-opacity", 0.6)
                 .style("fill", function(d) { return _var.colourScale(d); });
 
-              /*
-              _var.legend
-                .append("text")
-                .attr("x", _var.matrix_width + 130)
-                .attr("y", function(d, i) { return 3*legendSize/4
-                  + _var.height - _var.matrix_height + 25 * i;
-                })
+              _var.legend_text
+                .attr("x", 30)
+                .attr("y", function(d, i) { return 3*legendSize/4 + 25 * i; })
                 .style("fill-opacity", 0.6)
                 .text(function(d, i) {
 
@@ -159,7 +201,6 @@ gViz.vis.correlation_matrix.draw = function () {
                       return _d + " < n < " + d;
                   }
                 });
-                */
 
               break;
           }
