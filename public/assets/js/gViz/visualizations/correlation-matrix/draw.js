@@ -148,7 +148,7 @@ gViz.vis.correlation_matrix.draw = function () {
               // Returns number of decimal places
               var retr_dec = function(num) {
                 return (num.split('.')[1] || []).length;
-              }
+              };
 
               var legendSize = 20;
 
@@ -157,8 +157,7 @@ gViz.vis.correlation_matrix.draw = function () {
 					    var colourInterval = (maxColour - minColour)/4;
 
 					    _var.colourRange = [minColour, minColour + colourInterval,
-					    	maxColour - colourInterval, maxColour]
-
+					    	maxColour - colourInterval, maxColour];
 
               // Creates or Updates Legend
               _var.legend = _var.g.selectAll("." + _var._class + ".legend").data(["legend"]);
