@@ -1,0 +1,56 @@
+.row.card-wrap {
+  max-width: 180px;
+  margin-right: 20px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+  float: left;
+
+  // Visualization Card/Icon
+  .vis-card {
+    width: 180px;
+    height: 140px;
+    background-color: lightgray;
+    border: solid 1px lightgray;
+
+    font-size: 80px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  // Visualization Name/Description
+  .vis-name {
+    border: solid 1px transparent;
+
+    margin-top: -1px;
+    padding-top: 10px;
+    padding-left: 10px;
+    max-width: 180px;
+    min-height: 3.2em;
+
+    // Text Ellipsis
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    // Font Awesome Icon
+    .fa {
+      margin-right: 10px;
+    }
+  }
+
+  &:hover{
+    cursor: pointer;
+
+    .vis-card {
+      border: solid 1px white !important;
+      color: #598629;
+    }
+
+    .vis-name {
+      background-color: #598629;
+      color: white;
+      border: solid 1px white;
+    }
+  }
+}
