@@ -45,6 +45,51 @@ span a {
 .arrow {
   display: inline;
 }
+.modal {
+  .modal-content { border-radius: 0; }
+  .modal-header {
+    background-color:#333333;
+    color: #ffffff;
+  }
+  .modal-footer {
+    .btn { margin-bottom: 0; }
+  }
+}
+
+#confirm-modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.modal-body.modal-tab-container {
+  padding: 0;
+
+  .modal-tabs {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style:none;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+
+    .nav-link {
+      padding:10px 20px;
+      border: none;
+
+      &:hover,
+      &.active
+      {
+        color: #333333;
+        border-bottom: 2px solid #333333;
+      }
+
+      &.active
+      {
+        font-weight: 600;
+      }
+    }
+  }
+}
 
 .pagination {
   text-align: right !important;

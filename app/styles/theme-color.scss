@@ -1,4 +1,10 @@
+@import 'variables.scss';
+
 $main-theme-green: #85CE36;
-$main-theme-hover-green:#78bd2e; 
+$main-theme-hover-green:#78bd2e;
 $main-theme-grey: #2f3840;
 $main-theme-dark-green: #598629;
+$btn-primary-bg: $theme-green;
+$btn-primary-border: $theme-green;
+$btn-primary-bg-hover: $theme-green-hover;
+$btn-primary-border-hover: $theme-green-hover;
