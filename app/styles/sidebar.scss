@@ -3,9 +3,8 @@
 .sidebar {
   margin-top: 40px;
   margin-bottom: 40px;
-  background-color: #454b50;
-  width: 230px;
-  padding-bottom: 60px;
+  background-color: #2f3840;
+  width: 260px;
   position: absolute;
   top: 0;
   left: 60px;
@@ -26,7 +25,7 @@
 }
 
 .sidebar-open .sidebar {
-  left: -170px;
+  left: -180px;
 }
 
 #forms {
@@ -34,12 +33,24 @@
     left:1000px;
   }
 }
+
+#open-menu{
+  float: right;
+  padding-top:400px;
+  padding-right: 6px;
+  font-size: 27px;
+  height: 100%;
+  background: #fff;
+  padding-left: 4px;
+}
+
 .sidebar {
   .sidebar-container {
     position: absolute;
     top: 0;
     bottom: 51px;
-    width: 100%;
+    width: 92%;
+    margin-right:30px;
     left: 0;
     overflow-y: auto;
     overflow-x: hidden;
