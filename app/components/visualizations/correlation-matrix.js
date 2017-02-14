@@ -38,7 +38,7 @@ export default Ember.Component.extend({
   didInsertElement: function(){
 
     let component = this;
-    let dataUrl = this.get('dataUrl');
+    let dataUrl = component.get('dataUrl');
 
     // Get data from API
     gViz.helpers.loading.show();
@@ -52,9 +52,12 @@ export default Ember.Component.extend({
         .appendTo("#data-buttons")
         .on("click", function() {
           $("#order").val("name");
-          component.draw(data[i]);
+          component.set("data", d);
+          component.draw(d);
         });
       });
+
+      component.set("data", data[0]);
       component.draw(data[0]);
     }, "json")
     // Hide loading div and render error
@@ -64,6 +67,11 @@ export default Ember.Component.extend({
     })
     .done(function() {
       gViz.helpers.loading.hide();
+
+      $(window).resize(function() {
+        let data = component.get("data");
+        component.draw(data);
+      });
       //console.log("complete");
     });
   },
