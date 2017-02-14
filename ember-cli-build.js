@@ -42,5 +42,21 @@ module.exports = function(defaults) {
   app.import('bower_components/jstree/dist/themes/default/style.css');
   app.import('bower_components/jstree-bootstrap-theme/dist/themes/proton/style.css');
   app.import('bower_components/jstree/dist/jstree.js');
+
+  // Custom Font Icons
+
+  app.import('vendor/fontello/css/animation.css');
+  app.import("vendor/fontello/css/fontello-codes.css");
+  app.import("vendor/fontello/css/fontello-ie7-codes.css");
+  app.import("vendor/fontello/css/fontello-ie7.css");
+  app.import("vendor/fontello/css/fontello-embedded.css");
+  app.import("vendor/fontello/css/fontello.css");
+
+  app.import("vendor/fontello/font/fontello.eot", {destDir: 'fonts'});
+  app.import("vendor/fontello/font/fontello.svg", {destDir: 'fonts'});
+  app.import("vendor/fontello/font/fontello.ttf", {destDir: 'fonts'});
+  app.import("vendor/fontello/font/fontello.woff", {destDir: 'fonts'});
+  app.import("vendor/fontello/font/fontello.woff2", {destDir: 'fonts'});
+
   return app.toTree();
 };
