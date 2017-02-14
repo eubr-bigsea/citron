@@ -11,29 +11,14 @@ export default Ember.Route.extend({
     });
   },
 
-  bla() {
-    console.log('bla');
-  },
-
   actions: {
     willTransition(transition){
-      var temp = transition.targetName;
-      transition.abort();
-      $('#confirm-modal').addClass('show');
-
-      Ember.$('#proceed').click(function(temp) {
-        console.log(this.temp);
-      });
-
-      Ember.$('#cancel').click(() => {
-        $('#confirm-modal').removeClass('show');
-      });
-
-
-
+      var targetName = this.controller.get('targetName');
+      if(!targetName){
+        this.controller.set('targetName', transition.targetName);
+        transition.abort();
+        $('#confirm-modal').addClass('show');
+      }
     }
-
-
   }
-
 });

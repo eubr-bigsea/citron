@@ -44,21 +44,15 @@ span a {
 
 .arrow {
   display: inline;
+}
 .modal {
-
-  .modal-content {
-    border-radius: 0;
-  }
-
+  .modal-content { border-radius: 0; }
   .modal-header {
     background-color:#333333;
     color: #ffffff;
   }
-
   .modal-footer {
-    .btn {
-      margin-bottom:0;
-    }
+    .btn { margin-bottom: 0; }
   }
 }
 
