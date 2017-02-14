@@ -104,7 +104,7 @@
     }
 
     &.active > a {
-      background-color: $main-theme-hover-green !important;
+      background-color: #70b327 !important;
       color: #ffffff !important;
 
       &:hover {
@@ -209,7 +209,7 @@
 }
 
 .main-menu {
-  background: $main-theme-dark-green;
+  background:#598629;
   position:fixed;
   top:0;
   bottom:0;
@@ -263,6 +263,7 @@
   display:table-cell;
   vertical-align:middle;
   width:190px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .main-menu>ul.logout {
@@ -303,7 +304,7 @@ li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.
 .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page
 nav.dashboard-menu ul li.active a {
   color:#fff;
-  background-color:$main-theme-hover-green;
+  background-color:#70b327;
 }
 
 .area {
@@ -313,11 +314,11 @@ nav.dashboard-menu ul li.active a {
   height: 100%;
 }
 
-//@font-face {
-//  font-family: 'Titillium Web';
-//  font-style: normal;
-//  font-weight: 300;
-//  src: local('Titillium WebLight'), local('TitilliumWeb-Light'),
-//  url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
-//  format('woff');
-//}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'),
+  url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
+  format('woff');
+}

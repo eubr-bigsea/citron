@@ -105,6 +105,7 @@ export default Ember.Component.extend({
 
     Ember.$(el).click(() => {
       Ember.$('#forms').toggle(true);
+      $('#forms').toggle(true);
 
       Ember.$('.ui-selected').removeClass('ui-selected');
       Ember.$(el).addClass('ui-selected');

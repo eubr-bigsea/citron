@@ -136,6 +136,25 @@ padding: 45px 10px 65px 45px; } }
   .app .drawer {
 padding: 45px 10px 65px 45px; } }
 
+.app .drawer{
+  padding: 110px 30px 90px 30px;
+min-height: 100vh; }
+@media (min-width: 1200px) {
+  .app .drawer {
+padding: 45px 20px 0px 45px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .app .drawer {
+padding: 45px 30px 90px 45px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  .app .drawer {
+padding: 45px 20px 75px 45px; } }
+@media (max-width: 767px) {
+  .app .drawer {
+padding: 45px 10px 65px 45px; } }
+@media (max-width: 991px) {
+  .app .drawer {
+padding: 45px 10px 65px 45px; } }
+
 .task {
   font-family: Roboto;
   font-size: 10px;

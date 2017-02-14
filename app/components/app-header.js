@@ -4,13 +4,13 @@ export default Ember.Component.extend({
   didInsertElement(){
     var expanded = true;
     Ember.$('#sidebar-collapse-btn').click(() => {
-      if(!expanded){
+      if(!expanded) {
         Ember.$('#sidebar-collapse-btn span').text("Hide");
         expanded=true;
-      }else{
+      } else {
         Ember.$('#sidebar-collapse-btn span').text("Show");
         expanded=false;
       }
     });
-  }
+  },
 });
