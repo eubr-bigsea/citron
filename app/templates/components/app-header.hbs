@@ -1,15 +1,6 @@
 <header class="header">
-  {{#if draw}}
-    <li class="fa fa-bars" style="color:#fff;margin-left:20px;" id="sidebar-collapse-btn"><span style="margin-left:4px;color:#fff;">Hide</span></li>
-  {{/if}}
   <div class="header-block header-block-nav">
     <ul class="nav-profile">
-      <li>
-        {{#link-to 'home' }}
-          <i class="fa fa-home fa-lg"></i>
-          <span>Home</span>
-        {{/link-to}}
-      </li>
       {{notification-bell}}
       {{profile-dropdown}}
     </ul>
