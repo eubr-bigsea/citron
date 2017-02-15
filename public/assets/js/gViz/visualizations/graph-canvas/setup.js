@@ -67,8 +67,8 @@ gViz.vis.graph.setup = function () {
 
                   // If node is centered
                   if(d.centered) {
-                    d.x = _var.width/2  + 3 * _var.centered.radius * Math.cos(2 * Math.PI * d.center_index / _var.centered.count);
-                    d.y = _var.height/2 + 3 * _var.centered.radius * Math.sin(2 * Math.PI * d.center_index / _var.centered.count);
+                    d.x = _var.width/2  + _var.centered.radius * Math.cos(2 * Math.PI * d.center_index / _var.centered.count);
+                    d.y = _var.height/2 + _var.centered.radius * Math.sin(2 * Math.PI * d.center_index / _var.centered.count);
                   }
 
                   _var.context.beginPath();
@@ -129,7 +129,7 @@ gViz.vis.graph.setup = function () {
                   d.color = d.color == null ? _var.colors.scale(d.group) : d.color;
                   if(d.centered) {
                     d.center_index = _var.centered.count;
-                    if(d.radius > _var.centered.radius) { _var.centered.radius = d.radius; }
+                    _var.centered.radius += d.radius;
                     _var.centered.count += 1;
                   }
                 });
