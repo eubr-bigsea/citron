@@ -45,9 +45,4 @@ export default Ember.Component.extend({
       link:   "visualizations.correlation-matrix",
     },
   ],
-
-
-  init() {
-    this._super(...arguments);
-  },
 });

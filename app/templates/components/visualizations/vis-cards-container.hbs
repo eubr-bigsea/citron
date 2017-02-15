@@ -1,10 +1,7 @@
 <div class="cards-container" id="vis-row">
   {{#each visualizations as |vis|}}
     {{visualizations/vis-card
-      name=vis.name
-      icon=vis.icon
-      image=vis.image
-      link=vis.link
+      vis = vis
     }}
   {{/each}}
 </div>
