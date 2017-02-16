@@ -1,12 +1,12 @@
 'use strict';
 
 // Initialize the visualization class
-gViz.vis.correlation_matrix.initialize = function () {
+gViz.vis.matrix_chart.initialize = function () {
   "use strict";
 
   // Get attributes values
 
-  var _id = 'vis-correlation-matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-matrix-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var colors = { scale: gViz.helpers.colors.d310 };
@@ -76,6 +76,10 @@ gViz.vis.correlation_matrix.initialize = function () {
 
           _var.height = overflow["height"] ? _var.height : _var.height - (_var.margin.top + _var.margin.bottom);
           _var.width = overflow["width"] ? _var.width : _var.width - (_var.margin.left + _var.margin.right);
+
+          var min_width = _var.matrix_width + _var.margin.left + 1.5 * _var.margin.right;
+
+          _var.width = _var.width < min_width? min_width : _var.width;
 
           // Set attribute _id to container
           _var.container.jq.attr('data-vis-id', _var._id);

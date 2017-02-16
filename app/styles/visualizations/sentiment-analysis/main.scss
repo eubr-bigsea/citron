@@ -1,0 +1,30 @@
+svg.sentiment-analysis-chart {
+	.background {
+		fill: #eee;
+	}
+
+	line {
+		stroke: #fff;
+	}
+
+	text.active {
+		fill: red;
+	}
+}
+
+.gViz-wrapper.sentiment-analysis-chart {
+  overflow: auto;
+
+  .table-chart {
+
+    .progress {
+      background-color: lightgray;
+      margin: 0px;
+      max-width: 250px;
+    }
+
+    td {
+      max-width: 180px;
+    }
+  }
+}

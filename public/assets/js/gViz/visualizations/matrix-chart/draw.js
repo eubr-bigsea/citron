@@ -1,6 +1,6 @@
 'use strict';
 
-gViz.vis.correlation_matrix.draw = function () {
+gViz.vis.matrix_chart.draw = function () {
   "use strict";
 
   // Get attributes values
@@ -88,6 +88,19 @@ gViz.vis.correlation_matrix.draw = function () {
                 .attr("x2", _var.matrix_width)
                 .attr("transform", function (d, i) { return "translate(0," + _var.yScale(i) + ")"; });
 
+
+              // Text Overflow Function
+              var wrap = function () {
+								var self = d3.select(this),
+									textLength = self.node().getComputedTextLength(),
+									text = self.text();
+								while (textLength > (_var.margin.left - 15) && text.length > 0) {
+									text = text.slice(0, -1);
+									self.text(text + '...');
+									textLength = self.node().getComputedTextLength();
+								}
+							}
+
               // Rows labels
               _var.row
                 .append("text")
@@ -100,7 +113,8 @@ gViz.vis.correlation_matrix.draw = function () {
                 .attr("text-anchor", "end")
                 .text(function (d, i) {
                   return _var._data.rows[i].name;
-                });
+                })
+                .each(wrap);
 
               // Creates or Update Columns
               _var.column = _var.g.selectAll('.' + _var._class + '.column').data(["matrix-columns"], function (d) {
@@ -137,12 +151,24 @@ gViz.vis.correlation_matrix.draw = function () {
                 .attr("text-anchor", "middle")
                 .text(function (d, i) { return _var._data.columns[i].name; });
 
-              if (_var.matrix_width < $(_var.container.el).width()
-                  && _var.matrix_height < $(_var.container.el).height()) {
+              // If matrix is smaller than the screen, centers it
+              var center_horizontally = _var.matrix_width < $(_var.container.el).width();
+              var center_vertically   = _var.matrix_height < $(_var.container.el).height();
 
+              if (center_vertically && center_horizontally) {
                 _var.g.attr("transform", 'translate('
-                + ($(_var.container.el).width() / 2 - _var.matrix_width / 2) + ', '
-                + ($(_var.container.el).height() / 2 - _var.matrix_height / 2) + ')');
+                + ($(_var.container.el).width() / 2 - _var.matrix_width / 2 + _var.margin.left/2) + ', '
+                + ($(_var.container.el).height() / 2 - _var.matrix_height / 2 + _var.margin.top/2) + ')');
+              }
+              else if (center_horizontally) {
+                _var.g.attr("transform", 'translate('
+                + ($(_var.container.el).width() / 2 - _var.matrix_width / 2 + _var.margin.left/2) + ","
+                + _var.margin.top + ")");
+              }
+              else if (center_vertically) {
+                _var.g.attr("transform", 'translate('
+                + _var.margin.left + ","
+                + ($(_var.container.el).height() / 2 - _var.matrix_height / 2 + _var.margin.top/2) + ')');
               }
 
               // Returns number of decimal places

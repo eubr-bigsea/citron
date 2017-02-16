@@ -10,11 +10,11 @@
     <div class='col-xs-12 col-md-12'>
 
       {{!-- Time chart --}}
-      {{visualizations/correlation-matrix
+      {{visualizations/sentiment-analysis
         model=model
         width="100%"
         height="800px"
-        _id="trending"
+        _id="sentiment-analysis"
         title="Example matrix"
         dataUrl="http://localhost:4200/assets/data/sentimento.json"
       }}
@@ -22,6 +22,7 @@
     </div>
   </div>
 
+  <br>
   <div class='row'>
     <div class='col-xs-6 col-md-6'>
 
@@ -46,10 +47,10 @@
         model=model
         width="100%"
         height="auto"
-        _id="table-1"
+        _id="table-2"
         title="Example Table"
-        type="users"
-        columns='["Participante", "(%)", "Positividade"]'
+        type="papers"
+        columns='["Item Comentável", "(%)", "Positividade"]'
         dataUrl="http://localhost:4200/assets/data/sentimento.json"
       }}
 

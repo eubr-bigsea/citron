@@ -1,12 +1,12 @@
 'use strict';
 
 // Initialize the visualization class
-gViz.vis.correlation_matrix = function () {
+gViz.vis.matrix_chart = function () {
   "use strict";
 
   // Get attributes values
 
-  var _id = 'vis-correlation-matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-matrix-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var action = 'build';
@@ -68,42 +68,42 @@ gViz.vis.correlation_matrix = function () {
           if (!_var) {
             _var = {};
           }
-          _var = gViz.vis.correlation_matrix.initialize()._var(_var)._id(_var._id != null ? _var._id : _id)._class(_class).animation(animation).colors(colors).container(container).data(data).height(height).margin(margin).width(width).run();
+          _var = gViz.vis.matrix_chart.initialize()._var(_var)._id(_var._id != null ? _var._id : _id)._class(_class).animation(animation).colors(colors).container(container).data(data).height(height).margin(margin).width(width).run();
           break;
 
         // Create initial elements
         case 'create':
 
           // Creating
-          _var = gViz.vis.correlation_matrix.create()._var(_var).run();
+          _var = gViz.vis.matrix_chart.create()._var(_var).run();
           break;
 
         // Setup useful scales
         case 'scales':
 
           // scales
-          _var = gViz.vis.correlation_matrix.scales()._var(_var).run();
+          _var = gViz.vis.matrix_chart.scales()._var(_var).run();
           break;
 
         // Setup initial elements
         case 'setup':
 
           // Setup
-          _var = gViz.vis.correlation_matrix.setup()._var(_var).run();
+          _var = gViz.vis.matrix_chart.setup()._var(_var).run();
           break;
 
         // Draw Matrix
         case 'draw':
 
           // Setup
-          _var = gViz.vis.correlation_matrix.draw()._var(_var).run();
+          _var = gViz.vis.matrix_chart.draw()._var(_var).run();
           break;
 
         // Draw Matrix
         case 'sort':
 
           // Setup
-          _var = gViz.vis.correlation_matrix.sort()._var(_var).run();
+          _var = gViz.vis.matrix_chart.sort()._var(_var).run();
           break;
       }
     }
