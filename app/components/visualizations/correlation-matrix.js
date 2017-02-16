@@ -43,19 +43,22 @@ export default Ember.Component.extend({
     // Get data from API
     gViz.helpers.loading.show();
     $.get(dataUrl, function(data) {
-      data.forEach((d, i) => {
-        $("<button>")
-        .attr("value", i + 1)
-        .attr("class", "btn btn-primary btn-xs")
-        .text(i + 1)
-        .css("margin-left", "0.5em")
-        .appendTo("#data-buttons")
-        .on("click", function() {
-          $("#order").val("name");
-          component.set("data", d);
-          component.draw(d);
+
+      if (data.length > 1) {
+        data.forEach((d, i) => {
+          $("<button>")
+          .attr("value", i + 1)
+          .attr("class", "btn btn-primary btn-xs")
+          .text(i + 1)
+          .css("margin-left", "0.5em")
+          .appendTo("#data-buttons")
+          .on("click", function() {
+            $("#order").val("name");
+            component.set("data", d);
+            component.draw(d);
+          });
         });
-      });
+      }
 
       component.set("data", data[0]);
       component.draw(data[0]);
