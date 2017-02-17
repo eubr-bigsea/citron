@@ -1,9 +1,10 @@
 {{#link-to vis.link}}
-  <div class="row card-wrap">
+  <div class="card-wrap">
     <div class="vis-card">
-      <i class="{{vis.image}}"></i>
+      <i class="fa fa-question-circle question-mark pull-right" title="{{vis.tooltip}}" data-toggle="tooltip"></i>
+      <i class="vis-icon {{vis.image}}"></i>
     </div>
-    <div class="vis-name">
+    <div class="vis-name" title="{{vis.name}}">
       <i class="fa {{vis.icon}} fa-lg"></i>
       {{vis.name}}
     </div>
