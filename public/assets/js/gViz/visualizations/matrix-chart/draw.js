@@ -111,10 +111,13 @@ gViz.vis.matrix_chart.draw = function () {
                 })
                 .attr("dy", ".32em")
                 .attr("text-anchor", "end")
+                .style("cursor", "pointer")
                 .text(function (d, i) {
                   return _var._data.rows[i].name;
                 })
-                .each(wrap);
+                .each(wrap)
+                .append("svg:title")
+                .text(function(d, i) { return _var._data.rows[i].name; });
 
               // Creates or Update Columns
               _var.column = _var.g.selectAll('.' + _var._class + '.column').data(["matrix-columns"], function (d) {
@@ -149,7 +152,10 @@ gViz.vis.matrix_chart.draw = function () {
                 })
                 .attr("dy", ".32em")
                 .attr("text-anchor", "middle")
-                .text(function (d, i) { return _var._data.columns[i].name; });
+                .style("cursor", "pointer")
+                .text(function (d, i) { return _var._data.columns[i].name; })
+                .append("svg:title")
+                .text(function(d, i) { return _var._data.columns[i].name; });
 
               // If matrix is smaller than the screen, centers it
               var center_horizontally = _var.matrix_width < $(_var.container.el).width();
@@ -169,6 +175,9 @@ gViz.vis.matrix_chart.draw = function () {
                 _var.g.attr("transform", 'translate('
                 + _var.margin.left + ","
                 + ($(_var.container.el).height() / 2 - _var.matrix_height / 2 + _var.margin.top/2) + ')');
+              }
+              else {
+                _var.g.attr("transform", 'translate(' + _var.margin.left + "," + _var.margin.top + ')');
               }
 
               // Returns number of decimal places

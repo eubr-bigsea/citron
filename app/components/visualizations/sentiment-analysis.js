@@ -12,11 +12,17 @@ export default Ember.Component.extend({
   _id:      function(){ return this.get('_id'); }.property('_id'),
   style:    function(){ return "width:"+this.get('width')+"; height:"+this.get('height')+";"; }.property('style'),
 
+  count: 0,
+
   // Chart var
   _var: null,
 
   // Draw Chart
   draw: function(data){
+
+    //If you uncomment the 2 lines bellow, the matrix is duplicated
+    //let count = this.get("count");
+    //this.set("count", count+1);
 
     // Initialize variables
     let component = this;
@@ -50,13 +56,13 @@ export default Ember.Component.extend({
     })
     .done(function() {
       gViz.helpers.loading.hide();
-
-      $(window).resize(function() {
-        let data = component.get("data");
-        component.draw(data);
-      });
-
       //console.log("complete");
     });
+  },
+
+  didDestroyElement: function() {
+
+    console.log("Deleting component");
+
   },
 });
