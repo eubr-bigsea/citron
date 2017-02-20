@@ -160,10 +160,21 @@ gViz.vis.matrix_chart.legend = function () {
               _var.legend_rect.exit().remove();
               _var.legend_rect = _var.legend_rect.enter().append("rect").attr("class", _var._class + " legend rect").merge(_var.legend_rect);
 
+              // Appends title
+              _var.legend_title = _var.legend.selectAll("." + _var._class + ".legend.title").data(["legend"]);
+              _var.legend_title.exit().remove();
+              _var.legend_title = _var.legend_title.enter().append("text").attr("class", _var._class + " legend title").merge(_var.legend_title);
+
               // Appends legend text
               _var.legend_text = _var.legend.selectAll("." + _var._class + ".legend.text").data(range_text);
               _var.legend_text.exit().remove();
               _var.legend_text = _var.legend_text.enter().append("text").attr("class", _var._class + " legend text").merge(_var.legend_text);
+
+              _var.legend_title
+                .attr("x", width/2)
+                .attr("y", -15)
+                .attr("text-anchor", "middle")
+                .text(title);
 
               _var.legend_rect
                 .attr("width", width)
@@ -172,11 +183,12 @@ gViz.vis.matrix_chart.legend = function () {
                 .style("fill", "url(#linear-gradient)");
 
               _var.legend_text
+                .attr("text-anchor", "middle")
                 .attr("x", function(d, i) {
                   if(one_range || range == 1)
                     return i * width;
                   else
-                    return i * (width - 15)/(ticks - 1);
+                    return i * width/(ticks - 1);
                 })
                 .attr("y", height + 25)
                 .style("fill-opacity", 0.6)
