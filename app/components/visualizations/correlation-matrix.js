@@ -23,11 +23,14 @@ export default Ember.Component.extend({
 
     let margin = {top: 100, left: 150, right: 100, bottom: 10};
 
+    let colors = { scale: gViz.helpers.colors.linear(data.links, "value", ["orange", "green"]) };
+
     component._var = gViz.vis.matrix_chart()
       ._var(component._var)
       ._class("correlation-matrix-chart")
       .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
       .margin(margin)
+      .colors(colors)
       .data(data)
       .build();
   },

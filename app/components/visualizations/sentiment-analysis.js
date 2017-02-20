@@ -20,14 +20,12 @@ export default Ember.Component.extend({
   // Draw Chart
   draw: function(data){
 
-    //If you uncomment the 2 lines bellow, the matrix is duplicated
-    //let count = this.get("count");
-    //this.set("count", count+1);
-
     // Initialize variables
     let component = this;
 
     let margin = {top: 100, left: 200, right: 50, bottom: 10};
+
+    let colors = { scale: gViz.helpers.colors.linear(data.links, "value", ["orange", "green"]) };
 
     component._var = gViz.vis.matrix_chart()
       ._var(component._var)
@@ -35,6 +33,8 @@ export default Ember.Component.extend({
       .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
       .margin(margin)
       .data(data)
+      .colors(colors)
+      .legend_units("continuous")
       .build();
   },
 

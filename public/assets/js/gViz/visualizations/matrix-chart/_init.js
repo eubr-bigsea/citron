@@ -6,17 +6,24 @@ gViz.vis.matrix_chart = function () {
 
   // Get attributes values
 
-  var _id = 'vis-matrix-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var action = 'build';
   var animation = 900;
-  var colors = { scale: gViz.helpers.colors.d310 };
   var container = undefined;
   var data = [];
+  var colors = { scale: gViz.helpers.colors.main };
   var height = undefined;
   var margin = { top: 50, right: 50, bottom: 50, left: 50 };
   var width = undefined;
+
+  // Legend Variables
+  var legend_width  = 170;
+  var legend_height = 20;
+  var legend_ticks  = 3;
+  var legend_units  = "discrete";
+  var legend_title  = "Number of Comments"
 
   // Validate attributes
   var validate = function validate(step) {
@@ -33,6 +40,8 @@ gViz.vis.matrix_chart = function () {
       case 'setup':
         return true;
       case 'draw':
+        return true;
+      case 'legend':
         return true;
       case 'sort':
         return true;
@@ -56,8 +65,8 @@ gViz.vis.matrix_chart = function () {
           main('create');
           main('scales');
           main('setup');
-          main('elements');
           main('draw');
+          main('legend');
           main('sort');
           break;
 
@@ -68,7 +77,20 @@ gViz.vis.matrix_chart = function () {
           if (!_var) {
             _var = {};
           }
-          _var = gViz.vis.matrix_chart.initialize()._var(_var)._id(_var._id != null ? _var._id : _id)._class(_class).animation(animation).colors(colors).container(container).data(data).height(height).margin(margin).width(width).run();
+
+          _var = gViz.vis.matrix_chart.initialize()
+            ._var(_var)
+            ._id(_var._id != null ? _var._id : _id)
+            ._class(_class)
+            .animation(animation)
+            .colors(colors)
+            .container(container)
+            .data(data)
+            .height(height)
+            .margin(margin)
+            .width(width)
+            .run();
+
           break;
 
         // Create initial elements
@@ -99,6 +121,21 @@ gViz.vis.matrix_chart = function () {
           _var = gViz.vis.matrix_chart.draw()._var(_var).run();
           break;
 
+        // Draw Legend
+        case 'legend':
+
+          // Setup
+          _var = gViz.vis.matrix_chart.legend()
+            ._var(_var)
+            .width(legend_width)
+            .height(legend_height)
+            .units(legend_units)
+            .ticks(legend_ticks)
+            .title(legend_title)
+            .run();
+
+          break;
+
         // Draw Matrix
         case 'sort':
 
@@ -112,7 +149,9 @@ gViz.vis.matrix_chart = function () {
   };
 
   //  Expose global variables
-  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
+  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data',
+    'height', 'margin', 'width', 'legend_height','legend_width',
+    'legend_ticks', 'legend_units', 'legend_title'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {
@@ -151,6 +190,9 @@ gViz.vis.matrix_chart = function () {
   };
   main.draw = function (_) {
     return main("draw");
+  };
+  main.legend = function (_) {
+    return main("legend");
   };
   main.sort = function (_) {
     return main("sort");

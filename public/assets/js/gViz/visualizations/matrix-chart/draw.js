@@ -51,7 +51,7 @@ gViz.vis.matrix_chart.draw = function () {
                   .style("fill-opacity", 0.6)
                   .style("fill", function (d) {
                     var n = _var.matrix[d.x][d.y].z;
-                    return _var.colourScale(n);
+                    return _var.colors.scale(n);
                   })
                   .on("click", function(d) {
                     console.log(d);
@@ -67,9 +67,7 @@ gViz.vis.matrix_chart.draw = function () {
               bg_rect.attr("x", 0).attr("y", 0).attr("width", _var.matrix_width).attr("height", _var.matrix_height);
 
               // Creates or Update Rows
-              _var.row = _var.g.selectAll('.' + _var._class + '.row').data(["matrix-rows"], function (d) {
-                return d;
-              });
+              _var.row = _var.g.selectAll('.' + _var._class + '.row').data(["matrix-rows"], function (d) { return d; });
               _var.row.exit().remove();
               _var.row = _var.g.enter().append('g').attr("class", _var._class + ' row').merge(_var.row);
 
@@ -179,62 +177,6 @@ gViz.vis.matrix_chart.draw = function () {
               else {
                 _var.g.attr("transform", 'translate(' + _var.margin.left + "," + _var.margin.top + ')');
               }
-
-              // Returns number of decimal places
-              var retr_dec = function(num) {
-                return (num.split('.')[1] || []).length;
-              };
-
-              var legendSize = 20;
-
-					    var minColour = _var.colourScale.domain()[0];
-					    var maxColour = _var.colourScale.domain()[1];
-					    var colourInterval = (maxColour - minColour)/4;
-
-					    _var.colourRange = [minColour, minColour + colourInterval,
-					    	maxColour - colourInterval, maxColour];
-
-              // Creates or Updates Legend
-              _var.legend = _var.g.selectAll("." + _var._class + ".legend").data(["legend"]);
-              _var.legend.exit().remove();
-              _var.legend = _var.legend.enter().insert("g").attr("class", _var._class + " legend").merge(_var.legend);
-              _var.legend.attr("transform", "translate(" + (_var.matrix_width + 100) + ",0)");
-
-              _var.legend_rect = _var.legend.selectAll("." + _var._class + ".legend.rect").data(_var.colourRange);
-              _var.legend_rect.exit().remove();
-              _var.legend_rect = _var.legend_rect.enter().append("rect").attr("class", _var._class + " legend rect").merge(_var.legend_rect);
-
-              _var.legend_text = _var.legend.selectAll("." + _var._class + ".legend.text").data(_var.colourRange);
-              _var.legend_text.exit().remove();
-              _var.legend_text = _var.legend_text.enter().append("text").attr("class", _var._class + " legend text").merge(_var.legend_text);
-
-              _var.legend_rect
-                .attr("width", legendSize)
-                .attr("height", legendSize)
-                .attr("x", 0)
-                .attr("y", function(d, i) { return 25 * i; })
-                .style("fill-opacity", 0.6)
-                .style("fill", function(d) { return _var.colourScale(d); });
-
-              _var.legend_text
-                .attr("x", 30)
-                .attr("y", function(d, i) { return 3*legendSize/4 + 25 * i; })
-                .style("fill-opacity", 0.6)
-                .text(function(d, i) {
-
-                  if(_var.colourRange[i-1]) { var _d = _var.colourRange[i-1]; }
-
-                  if(retr_dec(d.toString()) > 2) { d = d.toFixed(2); }
-                  if(_d && retr_dec(_d.toString()) > 2) { _d = _d.toFixed(2); }
-
-                  switch(i) {
-                    case 0:
-                      return d;
-                      break;
-                    default:
-                      return _d + " < n < " + d;
-                  }
-                });
 
               break;
           }
