@@ -1,6 +1,6 @@
 'use strict';
 
-gViz.vis.correlation_matrix.scales = function () {
+gViz.vis.matrix_chart.scales = function () {
   "use strict";
 
   // Get attributes values
@@ -42,9 +42,9 @@ gViz.vis.correlation_matrix.scales = function () {
               _var.zScale = d3.scaleLinear().domain([0, 2]).clamp(true);
 
               // Custom Colour Scale
-              _var.colourScale = d3.scaleLinear().domain(d3.extent(_var._data.links, function(d) { return d["value"]; }));
-              //_var.colourScale = d3.scaleLinear().domain([0, 1]);
-              _var.colourScale.range(["orange", "green"]);
+              // _var.colourScale = d3.scaleLinear().domain(d3.extent(_var._data.links, function(d) { return d["value"]; }));
+              // //_var.colourScale = d3.scaleLinear().domain([0, 1]);
+              // _var.colourScale.range(["orange", "green"]);
 
               break;
           }

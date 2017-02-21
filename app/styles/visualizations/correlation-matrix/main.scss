@@ -7,6 +7,10 @@ svg.correlation-matrix-chart {
 		stroke: #fff;
 	}
 
+  .legend.title {
+    font-size: 1em;
+  }
+
 	text.active {
 		fill: red;
 	}
@@ -14,17 +18,4 @@ svg.correlation-matrix-chart {
 
 .gViz-wrapper.correlation-matrix-chart {
   overflow: auto;
-}
-
-.table-chart {
-
-  .progress {
-    background-color: lightgray;
-    margin: 0px;
-    max-width: 250px;
-  }
-
-  td {
-    max-width: 180px;
-  }
 }

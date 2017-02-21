@@ -1,7 +1,7 @@
 'use strict';
 
 // Initialize the visualization class
-gViz.vis.correlation_matrix.create = function () {
+gViz.vis.matrix_chart.create = function () {
   "use strict";
 
   // Get attributes values
@@ -45,6 +45,10 @@ gViz.vis.correlation_matrix.create = function () {
           _var.g = _var.wrap.selectAll("g.chart-wrap").data(["chart-wrap"]); // svg:g
           _var.g.exit().remove();
           _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
+
+          var translate = {};
+          translate["vertical"]   = _var.container.jq.outerHeight() - _var.matrix_height/2;
+          translate["horizontal"] = _var.container.jq.outerWidth() - _var.matrix_width/2;
 
           // Update inner dimensions
           _var.g.attr("transform", 'translate(' + _var.margin.left + ',' + _var.margin.top + ')');
