@@ -18,17 +18,61 @@ svg.sentiment-analysis-chart {
 
 .gViz-wrapper.sentiment-analysis-chart {
   overflow: auto;
+}
 
-  .table-chart {
+.wrap-test {
+  //margin: 2em;
+
+}
+.gViz-wrapper.table-chart {
+
+  .row {
+    margin: 0 !important;
+  }
+
+  .cell {
+    line-height: 3em;
+
+    // Text Ellipsis
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.name {
+      cursor: pointer;
+    }
+
+    &.title {
+      background-color: white;
+      cursor: pointer;
+      min-height: 2em;
+      line-height: 2em;
+    }
 
     .progress {
-      background-color: lightgray;
-      margin: 0px;
-      max-width: 250px;
+      transform: translate(0, 60%);
+      height: 1.3em;
+      background-color: #ccc;
     }
 
-    td {
-      max-width: 180px;
+    .progress-bar {
+      height: 1.3em !important;
     }
+  }
+
+  .alternate-colours{
+
+    &:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+
+    &:nth-child(odd) {
+      background-color: white;
+    }
+
+  }
+
+  &:last-child {
+    margin-bottom: 1.5em;
   }
 }

@@ -9,37 +9,31 @@
 	<!-- <span class='subtitle'>{{subtitle}}</span> -->
 </div>
 
+<br>
+
 <div class='gViz-wrapper table-chart' data-id={{_id}} style={{style}}>
 
-  <table class="table table-striped" id={{_id}}>
-    <thead>
-      <tr>
+  <div class="row">
+    <div class="col-md-5 cell title" title="{{_columns.[0]}}">{{_columns.[0]}}</div>
+    <div class="col-md-2 cell title" title="{{_columns.[1]}}">{{_columns.[1]}}</div>
+    <div class="col-md-5 cell title" title="{{_columns.[2]}}">{{_columns.[2]}}</div>
+  </div>
 
-        {{#each _columns as |column index|}}
 
-          <td {{action "sortTable" index}} style="cursor: pointer">{{column}}</td>
+  {{#each _data as |row|}}
 
-        {{/each}}
+    <div class="row alternate-colours">
+      <div class="col-md-5 cell name" title="{{row.name}}">{{row.name}}</div>
+      <div class="col-md-2 cell">{{row.avg}}</div>
+      <div class="col-md-5 cell">
+        <div class="progress pull-right">
+          <div class="progress-bar" role="progressbar"
+            aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+            style={{row.style}}>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      </tr>
-    </thead>
-
-    <tbody>
-      {{#each _data as |row|}}
-
-        <tr>
-          <td>{{row.name}}</td>
-          <td>{{row.avg}}</td>
-          <td>
-            <div class="progress pull-right" style="height: {{row.progress_bar_height}};">
-              <div class="progress-bar" role="progressbar" 
-                aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
-                                                     style={{row.style}}></div>
-            </div>
-          </td>
-        </tr>
-
-      {{/each}}
-    </tbody>
-    </table>
+  {{/each}}
 </div>

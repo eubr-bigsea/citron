@@ -15,7 +15,7 @@
         width="100%"
         height="800px"
         _id="sentiment-analysis"
-        title="Example matrix"
+        title="Sentiment Matrix"
         dataUrl="http://localhost:4200/assets/data/sentimento.json"
       }}
 
@@ -24,36 +24,38 @@
 
   <br>
   <div class='row'>
-    <div class='col-xs-6 col-md-6'>
+    <div class="col-xs-12 col-md-12">
+      <div class='col-xs-12 col-md-6'>
 
-      {{!-- Time chart --}}
-      {{visualizations/sentimentos/table-chart
+        {{!-- Time chart --}}
+        {{visualizations/sentimentos/table-chart
         model=model
         width="100%"
         height="auto"
         _id="table-1"
-        title="Example Table"
+        title="Score Table"
         type="users"
         columns='["Participante", "(%)", "Positividade"]'
         dataUrl="http://localhost:4200/assets/data/sentimento.json"
-      }}
+        }}
 
-    </div>
+      </div>
 
-    <div class='col-xs-6 col-md-6'>
+      <div class='col-xs-12 col-md-6'>
 
-      {{!-- Time chart --}}
-      {{visualizations/sentimentos/table-chart
+        {{!-- Time chart --}}
+        {{visualizations/sentimentos/table-chart
         model=model
         width="100%"
         height="auto"
         _id="table-2"
-        title="Example Table"
+        title="Score Table"
         type="papers"
         columns='["Item Comentável", "(%)", "Positividade"]'
         dataUrl="http://localhost:4200/assets/data/sentimento.json"
-      }}
+        }}
 
+      </div>
     </div>
   </div>
 </article>

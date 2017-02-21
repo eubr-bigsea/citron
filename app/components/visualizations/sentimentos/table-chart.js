@@ -14,14 +14,6 @@ export default Ember.Component.extend({
   columns:  function(){ return this.get("columns"); }.property('columns'),
   type:     function(){ return this.get("type"); }.property('type'),
 
-  // Positional Parameters
- 	// positionalParams: ['columns'],
-
-	// // Data
-	// columns: Ember.computed('columns', function() {
-	// 	return this.get('columns') == null ? Ember.A() : this.get('columns');
-	// }),
-
   // Chart var
   _var: null,
 
@@ -31,39 +23,6 @@ export default Ember.Component.extend({
 
     sortTable(index) {
 
-			var table, rows, switching, i, x, y, shouldSwitch;
-			table = document.getElementById(this.get("_id"));
-			switching = true;
-
-			/*Make a loop that will continue until
-				no switching has been done:*/
-			while (switching) {
-				switching = false;
-				rows = table.getElementsByTagName("TR");
-
-				for (i = 1; i < (rows.length - 1); i++) {
-					shouldSwitch = false;
-
-					/*Get the two elements you want to compare,
-						one from current row and one from the next:*/
-					x = rows[i].getElementsByTagName("TD")[index];
-					y = rows[i + 1].getElementsByTagName("TD")[index];
-
-					//check if the two rows should switch place:
-					if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-
-						//if so, mark as a switch and break the loop:
-						shouldSwitch= true;
-						break;
-					}
-				}
-				if (shouldSwitch) {
-					/*If a switch has been marked, make the switch
-						and mark that a switch has been done:*/
-					rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-					switching = true;
-				}
-      }
     }
   },
 
@@ -88,17 +47,21 @@ export default Ember.Component.extend({
 
         data = data[0];
 
-        let parse = function(attr) {
+        // color scale
+        let colors = { scale: gViz.helpers.colors.linear(data.links, "value", ["orange", "green"]) };
+
+				let parse = function(attr) {
 
           data[attr].forEach(function(d) {
             d["sum"] = 0;
             d["total_num"] = 0;
           });
 
+          // Calculates avg sentiment score for each paper and user
           data.links.forEach(function(link){
 
-            var element = $.grep(data[attr], function(d) { 
-              return d.id === link[attr.slice(0, -1)]; 
+            var element = $.grep(data[attr], function(d) {
+              return d.id === link[attr.slice(0, -1)];
             });
 
             element = element[0];
@@ -107,15 +70,18 @@ export default Ember.Component.extend({
             element["total_num"] += 1;
           });
 
-          let progress_bar_height = "25px";
-
           data[attr].forEach(function(d) {
+
             d["avg"] = ((d["sum"]/d["total_num"]) * 100).toFixed(2);
-            d["progress_bar_height"] = progress_bar_height;
+
+            var colours = colors.scale(d["avg"]/100);
+            var coloursOnly = colours.substring(colours.indexOf('(') + 1, colours.lastIndexOf(')')).split(",");
+
+            var colourString = `rgba(${coloursOnly[0]},${coloursOnly[1]},${coloursOnly[2]}, 0.6)`;
+
             d["style"] = `
-            width:${d["avg"]}%; 
-            height:${d["progress_bar_height"]}; 
-            background-color:steelblue;
+            width:${d["avg"]}%;
+            background-color:${colourString};
             `;
           });
 
@@ -123,7 +89,7 @@ export default Ember.Component.extend({
         };
 
         switch(type.toLowerCase()) {
-          
+
           case "users":
             parse("rows");
             component.set('_data', data.rows);
