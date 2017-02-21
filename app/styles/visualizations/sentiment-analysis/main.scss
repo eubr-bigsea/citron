@@ -52,7 +52,7 @@ svg.sentiment-analysis-chart {
     .progress {
       transform: translate(0, 60%);
       height: 1.3em;
-      background-color: #ccc;
+      background-color: #ddd;
     }
 
     .progress-bar {
@@ -62,11 +62,11 @@ svg.sentiment-analysis-chart {
 
   .alternate-colours{
 
-    &:nth-child(even) {
+    &:nth-child(odd) {
       background-color: #f5f5f5;
     }
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
       background-color: white;
     }
 
