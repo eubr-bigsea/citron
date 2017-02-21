@@ -14,6 +14,15 @@ gViz.helpers.colors.d310 = d3.scaleOrdinal(d3.schemeCategory10);
 // Initializer gray scale color pallete
 gViz.helpers.colors.gray = d3.scaleOrdinal(["#000", "#333", "#666", "#999", "#bbb", "#ccc", "#ddd", "#eee"]);
 
+// Initialize Linear Colour Scale. Params dependent
+gViz.helpers.colors.linear = function(data, attr, colourRange) {
+	return d3.scaleLinear()
+				  .domain(d3.extent(data, function(d) {
+            return d[attr];
+          }))
+          .range(colourRange);
+}
+
 // Is dark function
 gViz.helpers.colors.isDark = function (c) {
 

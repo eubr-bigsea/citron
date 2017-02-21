@@ -1,0 +1,78 @@
+.card-wrap {
+  max-width: 180px;
+  margin-right: 20px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+  float: left;
+
+  // Visualization Card/Icon
+  .vis-card {
+    color: lightgray;
+    width: 180px;
+    height: 140px;
+    background-color: white;
+    border: solid 1px #eee;
+
+    font-size: 80px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+
+    .vis-icon {
+      //margin-left: 0.32em;
+    }
+
+    .question-mark {
+      font-size: 25px;
+      margin-top: -20px;
+      margin-right: 10px;
+
+      &:hover {
+        color: green;
+      }
+    }
+  }
+
+  // Visualization Name/Description
+  .vis-name {
+    border: solid 1px transparent;
+
+    margin-top: -1px;
+    padding: 10px;
+    max-width: 180px;
+    min-height: 3.2em;
+
+    // Text Ellipsis
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    // Font Awesome Icon
+    .fa {
+      margin-right: 10px;
+      color: #598629;
+    }
+  }
+
+  &:hover{
+    cursor: pointer;
+
+    .vis-card {
+      border: solid 1px white !important;
+    }
+
+    .vis-icon {
+      color: #598629;
+    }
+
+    .vis-name {
+      background-color: #598629;
+      color: white;
+      border: solid 1px white;
+
+      .fa {
+        color: white;
+      }
+    }
+  }
+}

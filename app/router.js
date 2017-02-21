@@ -49,6 +49,7 @@ Router.map(function() {
     this.route('line-chart');
     this.route('pie-chart');
     this.route('search-tool');
+    this.route('sentiment-analysis');
   });
 });
 

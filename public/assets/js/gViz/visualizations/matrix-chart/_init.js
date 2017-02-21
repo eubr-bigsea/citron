@@ -1,22 +1,29 @@
 'use strict';
 
 // Initialize the visualization class
-gViz.vis.correlation_matrix = function () {
+gViz.vis.matrix_chart = function () {
   "use strict";
 
   // Get attributes values
 
-  var _id = 'vis-correlation-matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _id = 'vis-matrix-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
   var _class = undefined;
   var _var = undefined;
   var action = 'build';
   var animation = 900;
-  var colors = { scale: gViz.helpers.colors.d310 };
   var container = undefined;
   var data = [];
+  var colors = { scale: gViz.helpers.colors.main };
   var height = undefined;
   var margin = { top: 50, right: 50, bottom: 50, left: 50 };
   var width = undefined;
+
+  // Legend Variables
+  var legend_width  = 170;
+  var legend_height = 20;
+  var legend_ticks  = 3;
+  var legend_units  = "discrete";
+  var legend_title  = "Number of Comments"
 
   // Validate attributes
   var validate = function validate(step) {
@@ -33,6 +40,8 @@ gViz.vis.correlation_matrix = function () {
       case 'setup':
         return true;
       case 'draw':
+        return true;
+      case 'legend':
         return true;
       case 'sort':
         return true;
@@ -56,8 +65,8 @@ gViz.vis.correlation_matrix = function () {
           main('create');
           main('scales');
           main('setup');
-          main('elements');
           main('draw');
+          main('legend');
           main('sort');
           break;
 
@@ -68,42 +77,70 @@ gViz.vis.correlation_matrix = function () {
           if (!_var) {
             _var = {};
           }
-          _var = gViz.vis.correlation_matrix.initialize()._var(_var)._id(_var._id != null ? _var._id : _id)._class(_class).animation(animation).colors(colors).container(container).data(data).height(height).margin(margin).width(width).run();
+
+          _var = gViz.vis.matrix_chart.initialize()
+            ._var(_var)
+            ._id(_var._id != null ? _var._id : _id)
+            ._class(_class)
+            .animation(animation)
+            .colors(colors)
+            .container(container)
+            .data(data)
+            .height(height)
+            .margin(margin)
+            .width(width)
+            .run();
+
           break;
 
         // Create initial elements
         case 'create':
 
           // Creating
-          _var = gViz.vis.correlation_matrix.create()._var(_var).run();
+          _var = gViz.vis.matrix_chart.create()._var(_var).run();
           break;
 
         // Setup useful scales
         case 'scales':
 
           // scales
-          _var = gViz.vis.correlation_matrix.scales()._var(_var).run();
+          _var = gViz.vis.matrix_chart.scales()._var(_var).run();
           break;
 
         // Setup initial elements
         case 'setup':
 
           // Setup
-          _var = gViz.vis.correlation_matrix.setup()._var(_var).run();
+          _var = gViz.vis.matrix_chart.setup()._var(_var).run();
           break;
 
         // Draw Matrix
         case 'draw':
 
           // Setup
-          _var = gViz.vis.correlation_matrix.draw()._var(_var).run();
+          _var = gViz.vis.matrix_chart.draw()._var(_var).run();
+          break;
+
+        // Draw Legend
+        case 'legend':
+
+          // Setup
+          _var = gViz.vis.matrix_chart.legend()
+            ._var(_var)
+            .width(legend_width)
+            .height(legend_height)
+            .units(legend_units)
+            .ticks(legend_ticks)
+            .title(legend_title)
+            .run();
+
           break;
 
         // Draw Matrix
         case 'sort':
 
           // Setup
-          _var = gViz.vis.correlation_matrix.sort()._var(_var).run();
+          _var = gViz.vis.matrix_chart.sort()._var(_var).run();
           break;
       }
     }
@@ -112,7 +149,9 @@ gViz.vis.correlation_matrix = function () {
   };
 
   //  Expose global variables
-  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
+  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data',
+    'height', 'margin', 'width', 'legend_height','legend_width',
+    'legend_ticks', 'legend_units', 'legend_title'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {
@@ -151,6 +190,9 @@ gViz.vis.correlation_matrix = function () {
   };
   main.draw = function (_) {
     return main("draw");
+  };
+  main.legend = function (_) {
+    return main("legend");
   };
   main.sort = function (_) {
     return main("sort");

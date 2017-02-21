@@ -14,50 +14,11 @@
         model=model
         width="100%"
         height="800px"
-        _id="trending"
+        _id="correlation-chart"
         title="Example correlation matrix"
         dataUrl="http://localhost:4200/assets/data/correlation-matrix.json"
       }}
 
     </div>
   </div>
-
-  {{visualizations.button-bar
-    icon="fa-list"
-    title="Correlation Matrix"
-    subtitle="Correlation metrics comments authors x law articles"
-  }}
-
-  <div class='row'>
-    <div class='col-xs-6 col-md-6'>
-
-      {{visualizations/sentimentos/table-chart
-        model=model
-        width="100%"
-        height="auto"
-        _id="table-1"
-        title="Example Table"
-        type="users"
-        columns='["Participante", "(%)", "Positividade"]'
-        dataUrl="http://localhost:4200/assets/data/sentimento.json"
-      }}
-
-    </div>
-
-    <div class='col-xs-6 col-md-6'>
-      {{visualizations/sentimentos/table-chart
-        model=model
-        width="100%"
-        height="auto"
-        _id="table-2"
-        title="Example Table"
-        type="papers"
-        columns='["Item Comentável", "(%)", "Positividade"]'
-        dataUrl="http://localhost:4200/assets/data/sentimento.json"
-      }}
-
-    </div>
-  </div>
 </article>
-
-{{outlet}}

@@ -1,0 +1,61 @@
+{{main-sidebar visualizationsActive='active'}}
+<article class="content items-list-page">
+  {{visualizations.button-bar
+    icon="fa-list"
+    title="Sentiment Analysis"
+    subtitle="Sentiment Analysis about comments authors x law articles"
+  }}
+
+  <div class='row'>
+    <div class='col-xs-12 col-md-12'>
+
+      {{!-- Time chart --}}
+      {{visualizations/sentiment-analysis
+        model=model
+        width="100%"
+        height="800px"
+        _id="sentiment-analysis"
+        title="Sentiment Matrix"
+        dataUrl="http://localhost:4200/assets/data/sentimento.json"
+      }}
+
+    </div>
+  </div>
+
+  <br>
+  <div class='row'>
+    <div class="col-xs-12 col-md-12">
+      <div class='col-xs-12 col-md-6'>
+
+        {{!-- Time chart --}}
+        {{visualizations/sentimentos/table-chart
+        model=model
+        width="100%"
+        height="auto"
+        _id="table-1"
+        title="Average Score"
+        type="users"
+        columns='["Participante", "(%)", "Positividade"]'
+        dataUrl="http://localhost:4200/assets/data/sentimento.json"
+        }}
+
+      </div>
+
+      <div class='col-xs-12 col-md-6'>
+
+        {{!-- Time chart --}}
+        {{visualizations/sentimentos/table-chart
+        model=model
+        width="100%"
+        height="auto"
+        _id="table-2"
+        title="Average Score"
+        type="papers"
+        columns='["Item Comentável", "(%)", "Positividade"]'
+        dataUrl="http://localhost:4200/assets/data/sentimento.json"
+        }}
+
+      </div>
+    </div>
+  </div>
+</article>

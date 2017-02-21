@@ -1,6 +1,6 @@
 'use strict';
 
-gViz.vis.correlation_matrix.setup = function () {
+gViz.vis.matrix_chart.setup = function () {
   "use strict";
 
   // Get attributes values

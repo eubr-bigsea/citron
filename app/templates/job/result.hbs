@@ -13,71 +13,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-2">
-            {{#link-to 'job.visualization' model.id 'correlation-matrix'}}
-              {{visualization.card-visualization
-              image='/assets/images/vis_correlacoes.png'
-              algorithm='Correlation'
-              description='Correlation metrics comments authors x law articles'}}
-            {{/link-to}}
-          </div>
-          <div class="col-xs-2">
-            {{#link-to 'job.visualization' model.id 'sentiment-analysis'}}
-              {{visualization.card-visualization
-              image='/assets/images/vis_sentimento.png'
-              algorithm='Sentiment Analysis'
-              description='Sentiment Analysis metrics of comments in law articles'}}
-            {{/link-to}}
-          </div>
-          <div class="col-xs-2">
-            {{#link-to 'job.visualization' model.id 'wordtree-diagram'}}
-              {{visualization.card-visualization
-              image='/assets/images/vis_wordvec.png'
-              algorithm='Wordtree Analysis'
-              description='Wordtree Analysis visualization of all of the filtered comments'}}
-            {{/link-to}}
-          </div>
-          <div class="col-xs-2">
-            {{#link-to 'job.visualization' model.id 'graph-canvas'}}
-              {{visualization.card-visualization
-              image='/assets/images/vis_coocorrencia.png'
-              algorithm='Co-ocorrency'
-              description='Co-ocurrency visualization of words within filtered comments'}}
-            {{/link-to}}
-          </div>
-          <div class="col-xs-2">
-            {{#link-to 'job.visualization' model.id 'graph-canvas-full'}}
-              {{visualization.card-visualization
-              image='/assets/images/vis_coocorrencia.png'
-              algorithm='Co-ocorrency - Full Data'
-              description='Co-ocurrency visualization of words within filtered comments'}}
-            {{/link-to}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-2">
-            {{#link-to 'job.visualization' model.id 'search-tool'}}
-              {{visualization.card-visualization
-              image='/assets/images/vis_search.png'
-              algorithm='Search Tools'
-              description='Exploratory tool which can be used search the filtered comments'}}
-            {{/link-to}}
-          </div>
-          <div class="col-xs-2">
-            {{#link-to 'job.visualization' model.id 'part-item'}}
-              {{visualization.card-visualization
-              image='/assets/images/vis_coocorrencia.png'
-              algorithm='Participantes - Items'
-              description='Graph showing relationship between participants and commentables'}}
-            {{/link-to}}
-          </div>
-          <div class="col-xs-2">
-            {{#link-to 'job.visualization' model.id 'topicos-vis'}}
-              {{visualization.card-visualization
-              image='/assets/images/vis_topicos.png'
-              algorithm='Tópicos'
-              description='This visualization shows a table with topics and axis'}}
-            {{/link-to}}
+          <div class="col-xs-12">
+            {{visualizations/vis-cards-container}}
           </div>
         </div>
       </div>
