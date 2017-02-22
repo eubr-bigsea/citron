@@ -96,9 +96,9 @@ export default Ember.Component.extend({
         data = data[0];
 
         // color scale
-        let colors = { scale: gViz.helpers.colors.linear(data.links, "value", ["orange", "green"]) };
+        let colors = { scale: gViz.helpers.colors.linear([0, 1], ["red", "lightgray", "blue"]) };
 
-				let parse = function(attr) {
+        let parse = function(attr) {
 
           data[attr].forEach(function(d) {
             d["sum"] = 0;
