@@ -22,6 +22,7 @@ gViz.vis.matrix_chart = function () {
   var legend_width  = 170;
   var legend_height = 20;
   var legend_ticks  = 3;
+  var legend_domain = undefined;
   var legend_units  = "discrete";
   var legend_title  = "Number of Comments"
 
@@ -132,6 +133,7 @@ gViz.vis.matrix_chart = function () {
             .units(legend_units)
             .ticks(legend_ticks)
             .title(legend_title)
+            .legend_domain(legend_domain)
             .run();
 
           break;
@@ -151,7 +153,7 @@ gViz.vis.matrix_chart = function () {
   //  Expose global variables
   ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data',
     'height', 'margin', 'width', 'legend_height','legend_width',
-    'legend_ticks', 'legend_units', 'legend_title'].forEach(function (key) {
+    'legend_ticks', 'legend_units', 'legend_title', 'legend_domain'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {

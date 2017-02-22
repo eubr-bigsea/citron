@@ -1,19 +1,19 @@
 svg.correlation-matrix-chart {
-	.background {
-		fill: #eee;
-	}
+  .background {
+    fill: #eee;
+  }
 
-	line {
-		stroke: #fff;
-	}
+  line {
+    stroke: #fff;
+  }
 
   .legend.title {
     font-size: 1em;
   }
 
-	text.active {
-		fill: red;
-	}
+  text.active {
+    fill: red;
+  }
 }
 
 .gViz-wrapper.correlation-matrix-chart {

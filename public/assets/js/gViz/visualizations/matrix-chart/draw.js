@@ -52,10 +52,13 @@ gViz.vis.matrix_chart.draw = function () {
                   .style("fill", function (d) {
                     var n = _var.matrix[d.x][d.y].z;
                     return _var.colors.scale(n);
-                  })
-                  .on("click", function(d) {
-                    console.log(d);
                   });
+                  /*.on("click", function(d) {
+                    var n = _var.matrix[d.x][d.y].z;
+                    var c = _var.colors.scale(1);
+                    console.log(d);
+                    console.log(c);
+                  });*/
             };
 
               // Creates or Updates background
@@ -89,15 +92,15 @@ gViz.vis.matrix_chart.draw = function () {
 
               // Text Overflow Function
               var wrap = function () {
-								var self = d3.select(this),
-									textLength = self.node().getComputedTextLength(),
-									text = self.text();
-								while (textLength > (_var.margin.left - 15) && text.length > 0) {
-									text = text.slice(0, -1);
-									self.text(text + '...');
-									textLength = self.node().getComputedTextLength();
-								}
-							}
+                var self = d3.select(this),
+                  textLength = self.node().getComputedTextLength(),
+                  text = self.text();
+                while (textLength > (_var.margin.left - 15) && text.length > 0) {
+                  text = text.slice(0, -1);
+                  self.text(text + '...');
+                  textLength = self.node().getComputedTextLength();
+                }
+              }
 
               // Rows labels
               _var.row
