@@ -14,6 +14,7 @@ gViz.vis.matrix_chart.legend = function () {
   var units   = undefined;
   var ticks   = undefined;
   var title   = undefined;
+  var legend_domain  = undefined;
 
   // Validate attributes
   var validate = function validate(step) {
@@ -40,24 +41,22 @@ gViz.vis.matrix_chart.legend = function () {
 
             case 'draw':
 
-              // Colour Range of the Gradient, from smallest to biggest value
-					    var min_colour = _var.colors.scale.range()[0];
-					    var max_colour = _var.colors.scale.range()[1];
+              var colour_range = _var.colors.scale.range();
 
-              // Min e Max val of the scale domain
-              var min_val = parseFloat(_var.colors.scale.domain()[0].toFixed(2));
-              var max_val = parseFloat(_var.colors.scale.domain()[1].toFixed(2));
+              var domain = legend_domain || d3.extent(_var._data.links, function(d) {
+                return parseFloat(d["value"].toFixed(2));
+              });
 
               // Gets range of scale domain
-              var range = max_val - min_val;
+              var range = domain[1] - domain[0];
 
               // One_Range is true if min value = max value
               var one_range = false;
 
               var range_text = [];
-              range_text.push(min_val);
+              range_text.push(domain[0]);
 
-              var diff = range/ticks;
+              var diff = range/(ticks - 1);
 
               switch(units.toLowerCase()) {
 
@@ -71,7 +70,7 @@ gViz.vis.matrix_chart.legend = function () {
                       range_text.push(range_text[i - 1] + diff);
                     }
 
-                    range_text.push(max_val);
+                    range_text.push(domain[1]);
                     break;
                   }
 
@@ -80,7 +79,7 @@ gViz.vis.matrix_chart.legend = function () {
                   if(range != 1)
                     one_range = true;
 
-                  range_text.push(max_val);
+                  range_text.push(domain[1]);
                   break;
 
                 case "continuous":
@@ -91,7 +90,7 @@ gViz.vis.matrix_chart.legend = function () {
                     range_text.push(parseFloat(next.toFixed(2)));
                   }
 
-                  range_text.push(max_val);
+                  range_text.push(domain[1]);
                   break;
 
                 default:
@@ -111,16 +110,20 @@ gViz.vis.matrix_chart.legend = function () {
 
               // Colours of the gradient. If scale has only one range, the
               // colour does not vary
-              var colour_data = [
-                {
-                  offset: "0%",
-                  colour: min_colour
-                },
-                {
-                  offset:  "100%",
-                  colour: one_range ? min_colour : max_colour
+
+              var colour_offset = 0;
+              var colour_interval = (1/(colour_range.length - 1)) * 100;
+              var colour_data = [];
+
+              colour_range.forEach(function(colour, i) {
+                var stop = {
+                  offset:   String(colour_offset) + "%",
+                  colour:   colour
                 }
-              ]
+
+                colour_data.push(stop);
+                colour_offset += colour_interval;
+              })
 
               // Appends the stop tag on the linear gradient. Updates
               // only if necessary
@@ -134,20 +137,12 @@ gViz.vis.matrix_chart.legend = function () {
                 .attr("x2", "100%")
                 .attr("y2", "0%");
 
-							//Set the color for the start (0%)
-							_var.legend_colour_range
-								.attr("offset", function(d) { return d["offset"]; })
-								.attr("stop-color", function(d, i) {
+              //Set the color for the start (0%)
+              _var.legend_colour_range
+                .attr("offset", function(d) { return d["offset"]; })
+                .attr("stop-color", function(d, i) {
                   return d["colour"];
                 });
-
-
-              // Returns number of decimal places
-              var retr_dec = function(num) {
-                return (num.split('.')[1] || []).length;
-              };
-
-              var legendSize = 20;
 
               // Creates or Updates Legend
               _var.legend = _var.g.selectAll("." + _var._class + ".legend").data(["legend"]);
@@ -180,12 +175,14 @@ gViz.vis.matrix_chart.legend = function () {
                 .attr("width", width)
                 .attr("height", height)
                 .style("fill-opacity", 0.6)
-                .style("fill", "url(#linear-gradient)");
+                .style("fill", function() {
+                  return one_range ? colour_range[0] : "url(#linear-gradient)";
+                });
 
               _var.legend_text
                 .attr("text-anchor", "middle")
                 .attr("x", function(d, i) {
-                  if(one_range || range == 1)
+                  if(one_range || range == 1 && units == "discrete")
                     return i * width;
                   else
                     return i * width/(ticks - 1);
@@ -205,7 +202,8 @@ gViz.vis.matrix_chart.legend = function () {
   };
 
   // Exposicao de variaveis globais
-  ['_var', 'action', 'animation', 'width', 'height', 'units', 'ticks', 'title'].forEach(function (key) {
+  ['_var', 'action', 'animation', 'width', 'height', 'units', 'ticks',
+    'title', 'legend_domain'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {

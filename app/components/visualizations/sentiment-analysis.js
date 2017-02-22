@@ -25,7 +25,7 @@ export default Ember.Component.extend({
 
     let margin = {top: 100, left: 200, right: 50, bottom: 10};
 
-    let colors = { scale: gViz.helpers.colors.linear(data.links, "value", ["orange", "green"]) };
+    let colors = { scale: gViz.helpers.colors.linear([0, 1], ["red", "#FFFF33", "blue"]) };
 
     component._var = gViz.vis.matrix_chart()
       ._var(component._var)
@@ -36,6 +36,7 @@ export default Ember.Component.extend({
       .colors(colors)
       .legend_units("continuous")
       .legend_title("Sentiment Score")
+      .legend_domain([0,1])
       .build();
   },
 

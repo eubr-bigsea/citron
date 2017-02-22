@@ -15,12 +15,31 @@ gViz.helpers.colors.d310 = d3.scaleOrdinal(d3.schemeCategory10);
 gViz.helpers.colors.gray = d3.scaleOrdinal(["#000", "#333", "#666", "#999", "#bbb", "#ccc", "#ddd", "#eee"]);
 
 // Initialize Linear Colour Scale. Params dependent
-gViz.helpers.colors.linear = function(data, attr, colourRange) {
-	return d3.scaleLinear()
-				  .domain(d3.extent(data, function(d) {
-            return d[attr];
-          }))
-          .range(colourRange);
+gViz.helpers.colors.linear = function(data, colour_range, attr) {
+
+  var ticks = colour_range.length - 1;
+
+  var min_max = d3.extent(data, function(d) {
+    if(attr) return d[attr];
+    return d;
+  })
+
+  var interval = (min_max[1] - min_max[0])/ticks;
+  var domain = [];
+  var current = min_max[0];
+
+  domain.push(min_max[0]);
+
+  while(current < min_max[1]) {
+    current += interval;
+    domain.push(current);
+  }
+
+  domain.push(min_max[1]);
+
+  return d3.scaleLinear()
+          .domain(domain)
+          .range(colour_range);
 }
 
 // Is dark function

@@ -23,7 +23,7 @@ export default Ember.Component.extend({
 
     let margin = {top: 100, left: 150, right: 100, bottom: 10};
 
-    let colors = { scale: gViz.helpers.colors.linear(data.links, "value", ["orange", "green"]) };
+    let colors = { scale: gViz.helpers.colors.linear(data.links, ["orange", "green"], "value") };
 
     component._var = gViz.vis.matrix_chart()
       ._var(component._var)
