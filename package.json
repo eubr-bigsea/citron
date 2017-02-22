@@ -44,7 +44,12 @@
     "ember-resolver": "^2.0.3",
     "ember-simple-auth": "1.1.0",
     "ember-truth-helpers": "1.2.0",
+    "ember-websockets": "6.3.0",
     "ember-youtube": "0.8.0-beta.0",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "mock-socket": "6.0.4"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7"
   }
 }

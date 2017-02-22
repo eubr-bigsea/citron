@@ -190,7 +190,7 @@ export default Ember.Component.extend({
       workflow.workflow_id = this.get('workflow').id;
       workflow.name = Ember.$('#jobName').val();
       ajax({
-        url:`${config.ai_social_rails}/jobs`,
+        url:`${config.stand}/jobs`,
         type: 'POST',
         async: false,
         data: { job: JSON.stringify(workflow) }
