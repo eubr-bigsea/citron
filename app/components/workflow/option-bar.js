@@ -31,7 +31,10 @@ export default Ember.Component.extend({
       };
       let component = this;
       let job = this.get('store').createRecord('job', jobHash);
-      job.save().then(function(job){ Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id); } );
+      job.save().then(function(job){
+        component.get('hasChanged')(false);
+        Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id);
+      });
     },
   },
 });

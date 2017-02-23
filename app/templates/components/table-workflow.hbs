@@ -28,11 +28,6 @@
         <span>Options</span>
       </div>
     </div>
-    <div class="item-col item-col-header item-col-category">
-      <div class="no-overflow">
-        <span>Group</span>
-      </div>
-    </div>
     <div class="item-col item-col-header item-col-author">
       <div class="no-overflow">
         <span>Author</span>
@@ -49,7 +44,7 @@
 </li>
 {{#each pagedContent as |workflow|}}
   {{#unless workflow.isDeleted}}
-    {{workflows.table-item workflow=workflow}}
+    {{workflows.table-item workflow=workflow locale=locale}}
   {{/unless}}
 {{/each}}
 {{page-numbers content=pagedContent}}

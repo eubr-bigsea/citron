@@ -1,9 +1,10 @@
 {{main-sidebar workflowsActive='active'}}
-{{workflow.workflow-sidebar operations=model.operations workflow=model.workflow}}
+{{workflow.workflow-sidebar operations=model.operations}}
 <div class="drawer container-fluid">
-  {{workflow.option-bar workflow=model.workflow}}
-  {{workflow.workflow-draw workflow=model.workflow operations=model.operations}}
+  {{workflow.option-bar workflow=model.workflow hasChanged=(action "hasChanged") alert=(action "alert")}}
+  {{workflow.workflow-draw workflow=model.workflow operations=model.operations hasChanged=(action "hasChanged")}}
   {{alert-box id="alert-box"
+    message=message
     confirmedTransition=(action "confirmedTransition")
     canceledTransition=(action "canceledTransition")
   }}

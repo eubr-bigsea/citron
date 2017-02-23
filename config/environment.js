@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    locale: 'en',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -15,6 +16,11 @@ module.exports = function(environment) {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
+    },
+    moment: {
+      includeTimezone: 'all',
+      allowEmpty: true,
+      includeLocales: ['en', 'pt-br']
     },
 
     APP: {

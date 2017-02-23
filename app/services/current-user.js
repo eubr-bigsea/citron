@@ -13,6 +13,7 @@ export default Ember.Service.extend({
     });
     this.set('login', currentUser.email);
     this.set('name', `${currentUser.firstname} ${currentUser.lastname}`);
+    this.set('locale', 'en');
   },
 
   loadCurrentUser(){

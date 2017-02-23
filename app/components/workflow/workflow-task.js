@@ -8,7 +8,6 @@ export default Ember.Component.extend({
   status: null,
   comment: null,
 
-
   init() {
     this._super(...arguments);
     this.set('endpoints', Ember.A());
@@ -30,7 +29,6 @@ export default Ember.Component.extend({
     const el = Ember.$(`#${this.elementId}`);
     const jsplumb = this.get('jsplumb');
     const clickTask = this.get('clickTask');
-
     el.css('top', task.top);
     el.css('left', task.left);
 
@@ -46,12 +44,11 @@ export default Ember.Component.extend({
         el.fields.forEach((field) => {
           if(task.forms.get(field.name) === undefined ||
             task.forms.get(field.name).value === undefined) {
-              task.forms.set(field.name, {value: field.default});
-            }
+            task.forms.set(field.name, {value: field.default});
+          }
         });
       });
       this.set('comment', task.forms.comment.value);
-
       if(!this.get('readOnly')){ el.css('background-color', task.forms.get('color').value);}
 
       let isInput = true;
@@ -116,6 +113,7 @@ export default Ember.Component.extend({
         stop: (ev) => {
           this.get('task').left = ev.pos[0];
           this.get('task').top  = ev.pos[1];
+          this.get('hasChanged')(true);
         }
       });
     }

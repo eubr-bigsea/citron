@@ -2,6 +2,7 @@ import Ember from 'ember';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Ember.Component.extend({
+  currentUser: Ember.inject.service('current-user'),
 
   sortBy: ['name'],
   sortedModel: Ember.computed.sort('filteredResults','sortBy'),
@@ -21,8 +22,11 @@ export default Ember.Component.extend({
   pagedContent: pagedArray('sortedModel', 'page, perPage'),
   totalPages: "pagedContent.totalPages",
 
-  didInsertElement(){
+  didReceiveAttrs(){
+    this.set('locale', this.get('currentUser.locale'));
+  },
 
+  didInsertElement(){
     Ember.$('#submit').click(() =>{
       this.triggerAction({
         action:'search',

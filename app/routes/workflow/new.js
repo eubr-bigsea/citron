@@ -5,7 +5,6 @@ const { inject: { service } } = Ember;
 
 export default Ember.Route.extend({
   currentUser: service('current-user'),
-  session: service('session'),
 
   model() {
     this._super(...arguments);
