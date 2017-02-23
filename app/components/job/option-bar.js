@@ -12,11 +12,11 @@ export default Ember.Component.extend({
 
   didReceiveAttrs(){
     var jobStatus = this.get('job.status');
-    if(jobStatus == 'running'){
+    if(jobStatus === 'running'){
       this.set('isRunning', true);
-    } else if(jobStatus == 'completed'){
+    } else if(jobStatus === 'completed'){
       this.set('hasFinished', true);
-    } else if( jobStatus == 'canceled'){
+    } else if( jobStatus === 'canceled'){
       this.set('hasFailed', true);
     }
   },

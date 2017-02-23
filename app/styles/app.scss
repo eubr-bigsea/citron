@@ -150,41 +150,40 @@ padding: 45px 10px 65px 45px; } }
   .app .drawer {
 padding: 45px 10px 65px 45px; } }
 
-.app .drawer{
-  padding: 110px 30px 90px 30px;
-min-height: 100vh; }
-@media (min-width: 1200px) {
-  .app .drawer {
-padding: 45px 20px 0px 45px; } }
-@media (min-width: 992px) and (max-width: 1199px) {
-  .app .drawer {
-padding: 45px 30px 90px 45px; } }
-@media (min-width: 768px) and (max-width: 991px) {
-  .app .drawer {
-padding: 45px 20px 75px 45px; } }
-@media (max-width: 767px) {
-  .app .drawer {
-padding: 45px 10px 65px 45px; } }
-@media (max-width: 991px) {
-  .app .drawer {
-padding: 45px 10px 65px 45px; } }
-
 #description {
   height: 30vh;
 }
 
-#diagram {
-  background: #d7dde4;
-  background: url('images/grid.png');
-  border: 1px solid #ddd;
+.lemonade-container {
   height: 85vh;
+  position: relative;
+  width: 100%;
   overflow: hidden;
 }
 
+#lemonade-diagram{
+  background: url('images/grid.png');
+}
+
+#lemonade, .lemonade {
+    position: relative;
+    margin-top: 0px;
+    z-index: 0;
+    min-height: calc(690px * (90/150));
+    height: 5000px;
+    width: 5000px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;     /* Chrome/Safari/Opera */
+    -khtml-user-select: none;        /* Konqueror */
+    -moz-user-select: none;            /* Firefox */
+    -ms-user-select: none;             /* Internet Explorer/Edge */
+    user-select: none;
+  }
+
 #forms {
-  left: calc(100% - 230px);
+  left: calc(100% - 265px);
   display: none;
-  margin-top: 97px;
+  margin-top: 92px;
   margin-bottom: 40px;
   background: white;
   border: 1px solid #ddd;
@@ -222,7 +221,7 @@ fieldset p {
   margin: 5px 0 0 0;
 }
 
-#diagram .ui-selected {
+#lemonade-diagram .ui-selected {
   -webkit-box-shadow: 5px 5px 5px 0px #444;
   -moz-box-shadow: 5px 5px 5px 0px #444;
   box-shadow: 5px 5px 5px 0px #444;
