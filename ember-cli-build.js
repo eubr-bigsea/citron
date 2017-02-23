@@ -44,7 +44,6 @@ module.exports = function(defaults) {
   app.import('bower_components/jstree/dist/jstree.js');
 
   // Custom Font Icons
-
   app.import('vendor/fontello/css/animation.css');
   app.import("vendor/fontello/css/fontello-codes.css");
   app.import("vendor/fontello/css/fontello-ie7-codes.css");
@@ -57,6 +56,11 @@ module.exports = function(defaults) {
   app.import("vendor/fontello/font/fontello.ttf", {destDir: 'fonts'});
   app.import("vendor/fontello/font/fontello.woff", {destDir: 'fonts'});
   app.import("vendor/fontello/font/fontello.woff2", {destDir: 'fonts'});
+
+  app.import('bower_components/select2/dist/js/select2.js');
+  app.import('bower_components/select2/dist/css/select2.css');
+
+  app.import('bower_components/jsep/build/jsep.js');
 
   return app.toTree();
 };
