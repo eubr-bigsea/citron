@@ -35,7 +35,7 @@ export default Ember.Component.extend({
       } catch (e) {
         el.addClass("alert-danger");
         el.removeClass("alert-info");
-        el.text(e.message)
+        el.text(e.message);
       }
     }
   }
