@@ -5,8 +5,21 @@ const { inject: { service }, $:{ajax} } = Ember;
 
 export default Ember.Component.extend({
   classNames:['row', 'option-bar'],
-
   currentUser: service('current-user'),
+  hasFinished: null,
+  hasFailed: null,
+  isRunning: null,
+
+  didReceiveAttrs(){
+    var jobStatus = this.get('job.status');
+    if(jobStatus == 'running'){
+      this.set('isRunning', true);
+    } else if(jobStatus == 'completed'){
+      this.set('hasFinished', true);
+    } else if( jobStatus == 'canceled'){
+      this.set('hasFailed', true);
+    }
+  },
 
   actions:{
     stop(){

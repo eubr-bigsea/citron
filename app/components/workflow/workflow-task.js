@@ -4,7 +4,7 @@ import anchorPosition from 'lemonade-ember/utils/anchor-position';
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   classNames: ['task', 'decor'],
-  classNameBindings: ['status'],
+  classNameBindings: ['operation.slug', 'status'],
   status: null,
   comment: null,
 
@@ -49,7 +49,10 @@ export default Ember.Component.extend({
         });
       });
       this.set('comment', task.forms.comment.value);
-      if(!this.get('readOnly')){ el.css('background-color', task.forms.get('color').value);}
+      if(!this.get('readOnly')){
+        el.css('background-color', task.forms.get('color').value.background);
+        el.css('color', task.forms.get('color').value.foreground);
+      }
 
       let isInput = true;
       [input, output].forEach((type) => {

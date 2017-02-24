@@ -10,7 +10,8 @@ export default Ember.Component.extend({
     formChanged(key, value) {
       this.set(`filledForms.${key}.value`, value);
       if(key === 'color') {
-        Ember.$(`#${this.get('task').id}`).css('background-color', value);
+        Ember.$(`#${this.get('task').id}`).css('background-color', value.background);
+         Ember.$(`#${this.get('task').id}`).css('color', value.foreground);
       }
       this.get('hasChanged')(true);
     }
