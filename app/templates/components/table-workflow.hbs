@@ -49,7 +49,7 @@
 </li>
 {{#each pagedContent as |workflow|}}
   {{#unless workflow.isDeleted}}
-    {{workflows.table-item workflow=workflow}}
+    {{workflows/table-item workflow=workflow}}
   {{/unless}}
 {{/each}}
 {{page-numbers content=pagedContent}}

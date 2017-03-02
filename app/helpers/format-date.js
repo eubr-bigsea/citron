@@ -1,4 +1,4 @@
-/*global moment*/
+import moment from 'npm:moment';
 
 import Ember from 'ember';
 

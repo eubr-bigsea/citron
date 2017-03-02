@@ -4,12 +4,12 @@
       <div class="col-md-6">
         <h3 class="title"> <i class="fa fa-flask"></i> Workflows
           {{#link-to 'workflow.new' class="btn btn-primary btn-sm rounded-s"}} Create new {{/link-to}}
-            <div class="action dropdown">
-              <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More actions...</button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <a class="dropdown-item" {{action 'deleteWorkflows'}} href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>Delete</a>
-              </div>
+          <div class="action dropdown">
+            <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More actions...</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <a class="dropdown-item" {{action 'deleteWorkflows'}} href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>Delete</a>
             </div>
+          </div>
         </h3>
         <p class="title-description"> List of all workflows - e.g. owned, shared,  etc... </p>
       </div>
