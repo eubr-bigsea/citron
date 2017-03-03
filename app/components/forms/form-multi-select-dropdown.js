@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import FormComponent from 'lemonade-ember/lib/form-component';
 
-export default Ember.Component.extend({
+export default FormComponent.extend({
   parsedValues: null,
   init() {
     this._super(...arguments);

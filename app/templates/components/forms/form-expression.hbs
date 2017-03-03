@@ -1,56 +1,43 @@
 <button {{action 'showModal'}} class="btn btn-primary">Open Editor</button>
 
-<div class="modal fade">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4>Expression</h4>
-        <em>Construct an expression to transform data</em>
-      </div>
-      <div class="modal-body">
-        <div class="body">
-          <h4>Function reference</h4>
-          <ul class="nav nav-tabs" role="tablist">
-            {{#each parsedValues as |value i|}}
-              <li class="nav-item">
-                <a class="nav-link {{unless i 'active'}}" data-toggle="tab" href="#{{value.category}}" role="tab">
-                  {{value.category}}
-                </a>
-              </li>
-            {{/each}}
-          </ul>
-          <div class="tab-content">
-            {{#each parsedValues as |value i|}}
-              <div class="tab-pane {{unless i 'active'}}" id="{{value.category}}">
-                <table class="table-striped table-bordered table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Description</th>
-                      <th>Syntax</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#each value.functions as |function|}}
-                      <tr>
-                        <td>{{function.name}}</td>
-                        <td>{{function.help}}</td>
-                        <td>{{function.syntax}}</td>
-                      </tr>
-                    {{/each}}
-                  </tbody>
-                </table>
-              </div>
-            {{/each}}
-          </div>
-          {{input type="textarea" key-up='parseExpression' type="text" class="form-control typeExpression"}}
-          <div id="resultExpression" class="alert" />
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">OK</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>
+{{#if modalVisible}}
+  {{#bs-modal onHide=(action 'hideModal') fade=false as |modal|}}
+    {{#modal.header}}
+      <h4>Expression</h4>
+      <em>Construct an expression to transform data</em>
+    {{/modal.header}}
+    {{#modal.body}}
+      <h4>Function reference</h4>
+      {{#bs-tab as |tab|}}
+        {{#each parsedValues as |value i|}}
+          {{#tab.pane fade=false title=value.category as |tab|}}
+            <table class="table-striped table-bordered table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Syntax</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each value.functions as |function|}}
+                  <tr>
+                    <td>{{function.name}}</td>
+                    <td>{{function.help}}</td>
+                    <td>{{function.syntax}}</td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          {{/tab.pane}}
+        {{/each}}
+      {{/bs-tab}}
+      {{input id="typeExpression" value=currentValue type="textarea" key-up='parseExpression' type="text" class="form-control"}}
+      <div id="resultExpression" class="alert" />
+    {{/modal.body}}
+    {{#modal.footer}}
+      {{#bs-button id="cancelButton" onClick=(action modal.close) type="secondary"}}Cancel{{/bs-button}}
+      {{#bs-button id="okButton" onClick=(action 'valueChanged') type="success"}}OK{{/bs-button}}
+    {{/modal.footer}}
+  {{/bs-modal}}
+{{/if}}

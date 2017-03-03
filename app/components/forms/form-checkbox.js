@@ -1,10 +1,8 @@
-import Ember from 'ember';
+import FormComponent from 'lemonade-ember/lib/form-component';
 
-export default Ember.Component.extend({
-  actions: {
-    valueUpdated(newValue) {
-      this.set('value', newValue);
-      this.get('onChange')(this.get('field.name'), this.get('value'));
-    }
+export default FormComponent.extend({
+  init() {
+    this._super(...arguments);
+    this.set('currentValue', this.get('currentValue') === true);
   }
 });

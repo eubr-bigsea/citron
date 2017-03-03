@@ -3,7 +3,13 @@
     <legend>{{form/name}}</legend>
     {{#each form.fields as |field|}}
       {{forms/form-label field=field}}
-      {{component (concat 'forms.form-' field.suggested_widget) value=(get (get filledForms field.name) 'value') field=field onChange=(action 'formChanged')}}
+      {{component
+      (concat 'forms/form-' field.suggested_widget)
+      currentValue=(get (get filledForms field.name) 'value')
+      name=field.name
+      field=field
+      onValueChanged=(action 'formChanged')}}
+      {{!-- Verificar se precisamos mesmo do field=field --}}
     {{/each}}
   </fieldset>
 {{/each}}
