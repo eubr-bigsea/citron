@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
-/* global NProgress */
+import NProgress from 'npm:nprogress';
 const { inject: { service } } = Ember;
 
 

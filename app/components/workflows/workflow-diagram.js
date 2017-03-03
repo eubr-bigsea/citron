@@ -1,5 +1,5 @@
 /* global jsPlumb */
-/* global Ps */
+import Ps from 'npm:perfect-scrollbar';
 
 import Ember from 'ember';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';

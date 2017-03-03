@@ -1,9 +1,9 @@
 <article class="content dashboard-page">
   <div class="container-fluid">
-    {{job.option-bar job=model.job}}
+    {{jobs/option-bar job=model.job}}
     <div class="row">
       <div class="col-xs-12">
-        {{job.job-draw id="diagram" workflow=model.job.workflow jobId=model.job.id jobStatus=model.job.status steps=model.job.steps job=model.job}}
+        {{jobs/job-draw id="diagram" workflow=model.job.workflow jobId=model.job.id jobStatus=model.job.status steps=model.job.steps job=model.job}}
       </div>
     </div>
   </div>

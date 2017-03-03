@@ -1,9 +1,5 @@
-@import "../../bower_components/font-awesome/scss/variables";
-
-$fa-font-path: "../../bower_components/font-awesome/scss/font-awesome";
-@import "../../bower_components/font-awesome/scss/font-awesome";
-
-
+@import "ember-bootstrap/bootstrap";
+@import "font-awesome";
 
 /*@import "alert.scss";*/
 @import "auth.scss";
@@ -15,7 +11,7 @@ $fa-font-path: "../../bower_components/font-awesome/scss/font-awesome";
 @import "btn-warning.scss";
 @import "btn-danger.scss";
 @import "btn-outline.scss";*/
-/*@import "card.scss";*/
+@import "card.scss";
 @import "card-header.scss";
 @import "card-misc.scss";
 @import "card-release-notes";
@@ -249,6 +245,3 @@ fieldset p {
 .sidebar-active span{
   color: white;
 }
-
-
-

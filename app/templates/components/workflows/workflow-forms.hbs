@@ -1,8 +1,8 @@
 {{#each forms as |form|}}
   <fieldset>
-    <legend>{{form.name}}</legend>
+    <legend>{{form/name}}</legend>
     {{#each form.fields as |field|}}
-      {{forms.form-label field=field}}
+      {{forms/form-label field=field}}
       {{component (concat 'forms.form-' field.suggested_widget) value=(get (get filledForms field.name) 'value') field=field onChange=(action 'formChanged')}}
     {{/each}}
   </fieldset>

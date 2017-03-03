@@ -1,11 +1,11 @@
 {{main-sidebar jobsActive='active'}}
 <article class="content items-list-page">
-  {{jobs.button-bar}}
+  {{jobs/button-bar}}
   <div class="card items">
     <ul class="item-list striped">
-      {{jobs.table-header}}
+      {{jobs/table-header}}
       {{#each model as |job|}}
-        {{jobs.table-item job=job}}
+        {{jobs/table-item job=job}}
       {{/each}}
     </ul>
   </div>

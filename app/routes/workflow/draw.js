@@ -17,7 +17,7 @@ export default Ember.Route.extend({
       if(!targetName && (transition.targetName !== 'job.show')){
         this.controller.set('targetName', transition.targetName);
         transition.abort();
-        $('#confirm-modal').addClass('show');
+        Ember.$('#confirm-modal').addClass('show');
       }
     }
   }
