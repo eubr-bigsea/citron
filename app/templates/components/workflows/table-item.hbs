@@ -27,16 +27,18 @@
 </td>
 <td>
   <div class="row">
+  <!--
     <div class="icon col-xs-3 col-sm-6 col-xl-3 text-center">
       {{#link-to 'workflow.params' workflow.id }}<i rel="tooltip" title="Create a job for this workflow" class="fa fa-sliders fa-lg"></i>{{/link-to}}
-    </div>
-    <div class="icon col-xs-3 col-sm-6 col-xl-3">
+      </div>
+  -->
+    <div class="icon col-xs-4 ">
       {{#link-to 'workflow.edit' workflow.id }}<i rel="tooltip" title="Change workflow's data" class="fa fa-cog fa-lg"></i>{{/link-to}}
     </div>
-    <div class="icon col-xs-3 col-sm-6 col-xl-3">
+    <div class="icon col-xs-4">
       {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}<i rel="tooltip" title="Draw this workflow" class="fa fa-pencil fa-lg"></i>{{/link-to}}
     </div>
-    <div class="icon col-xs-3 col-sm-6 col-xl-3">
+    <div class="icon col-xs-4">
       <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i rel="tooltip" title="Delete this workflow" class="fa fa-trash-o fa-lg"></i></a>
     </div>
   </div>
