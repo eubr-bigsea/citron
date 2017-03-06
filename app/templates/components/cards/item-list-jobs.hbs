@@ -1,7 +1,6 @@
 <td>{{#link-to 'job.show' job.id class="job"}}{{job.id}}{{/link-to}}</td>
-  <td>{{#link-to 'job.show' job.id class="job"}}{{job.name}}{{/link-to}}</td>
-<td> - </td>
-<td><i class={{job.status.icon}}></i></td>
+<td>{{#link-to 'job.show' job.id class="job"}}{{job.workflow.name}}{{/link-to}}</td>
+<td><i class="fa fa-sliders fa-lg" style="font-size: 30px;color:red; margin-left:14px;"></i></td>
 <td>
   {{#if job.hasCompleted}}
     {{#link-to 'job.result' job.id}}

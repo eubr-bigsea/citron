@@ -1,0 +1,13 @@
+<div class="card items">
+  <table class="table table-striped">
+    <thead>
+      {{jobs/table-header}}
+    </thead>
+    <tbody>
+      {{#each pagedContent as |job|}}
+        {{jobs/table-item job=job}}
+      {{/each}}
+    </tbody>
+  </table>
+  {{page-numbers content=pagedContent}}
+</div>
