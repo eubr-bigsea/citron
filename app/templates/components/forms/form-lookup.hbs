@@ -1,7 +1,7 @@
 <select class="form-control" onchange={{action 'valueChanged' value='target.value'}}>
   <option></option>
   {{#each parsedValues as |option|}}
-    <option selected={{eq value option.key}} value={{option.key}}>
+    <option selected={{eq currentValue option.key}} value={{option.key}}>
     {{option.value}}
     </option>
   {{/each}}
