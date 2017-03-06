@@ -1,1 +1,9 @@
-<input type="number" maxlenght="10" step="0.01" class="form-control" value={{value}} onchange={{action 'valueUpdated' value='target.value'}} pattern="\\d*\\.\\d{2}" />
+<input
+type="number"
+maxlenght="10"
+step="0.01"
+class="form-control"
+value={{value}}
+onchange={{action 'valueChanged' value='target.value'}}
+pattern="\\d*\\.\\d{2}"
+/>
