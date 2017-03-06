@@ -1,4 +1,5 @@
 import jsep from 'npm:jsep';
+import Ember from 'ember';
 import FormComponent from 'lemonade-ember/lib/form-component';
 
 export default FormComponent.extend({

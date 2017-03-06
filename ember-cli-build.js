@@ -21,5 +21,8 @@ module.exports = function(defaults) {
   app.import('vendor/jquery-ui/jquery-ui.css');
   app.import('vendor/jquery-ui/jquery-ui.js');
 
+  app.import('vendor/select2/select2.full.js');
+  app.import('vendor/select2/select2.css');
+
   return app.toTree();
 };
