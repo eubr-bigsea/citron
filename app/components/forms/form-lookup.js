@@ -8,7 +8,7 @@ export default FormComponent.extend({
     if (this.get('field.values_url')) {
       Ember.$.get(this.get('field.values_url')).then((response) => {
         this.set('parsedValues', response.map((v) => {
-          return { "key": v.id, "value": v.name };
+          return { "key": String(v.id), "value": v.name };
         }));
       });
     }

@@ -22,9 +22,8 @@ export default Ember.Component.extend({
     hasCompleted() {
       this.get('poller').stopPolling();
     },
-    checked(jobId){ this.get('wasChecked')(jobId, event.currentTarget.checked); },
-    hasCompleted() {
-      this.get('poller').stopPolling();
+    checked(jobId){
+      this.get('wasChecked')(jobId, event.currentTarget.checked);
     },
     deleteWorkflow(workflow){
       var confirmText = `Delete workflow ${workflow.get('name')} ?`;

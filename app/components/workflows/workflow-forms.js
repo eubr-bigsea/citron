@@ -8,8 +8,12 @@ export default Ember.Component.extend({
   actions: {
     formChanged(key, value) {
       this.set(`filledForms.${key}.value`, value);
+      let el = Ember.$('#' + this.get('task').id);
       if(key === 'color') {
-        Ember.$('#' + this.get('task').id).css('background-color', value);
+        el.css('background-color', value);
+      }
+      if(key === 'comment') {
+        el.children('span').text(value);
       }
     }
   }
