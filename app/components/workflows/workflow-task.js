@@ -58,6 +58,12 @@ export default Ember.Component.extend({
       [input, output].forEach((type) => {
         type.forEach((port, i) => {
           let uuid = `${this.get('elementId')}/${port.id}`;
+          let coordinates;
+          if (isInput) {
+            coordinates = [0, -2];
+          } else{
+            coordinates = [0, 3];
+          }
           let opts = {
             isSource: !isInput,
             isTarget: isInput,
@@ -70,6 +76,15 @@ export default Ember.Component.extend({
                 height: 10
               }
             ],
+            overlays: [
+              [
+                "Label", {
+                  label:port.name,
+                  id: "id",
+                  location:coordinates,
+                }
+              ]
+            ],
             connector: 'Flowchart',
             connectorOverlays: [
               [
@@ -78,7 +93,7 @@ export default Ember.Component.extend({
                   length: 15,
                   foldback: 0.8
                 }
-              ]
+              ],
             ],
             maxConnections: -1,
             beforeDetach: (params) => {

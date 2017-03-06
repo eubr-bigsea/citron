@@ -178,7 +178,7 @@ padding: 45px 10px 65px 45px; } }
 }
 
 #forms {
-  left: calc(100% - 230px);
+  left: calc(100% - 320px);
   display: none;
   margin-top: 97px;
   margin-bottom: 40px;
@@ -189,6 +189,7 @@ padding: 45px 10px 65px 45px; } }
   font-size: 10px;
   overflow: hidden;
   padding: 5px;
+  width: 320px;
 }
 @media (max-width: 991px) {
   #forms {

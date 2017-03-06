@@ -1,68 +1,52 @@
-<li class="item">
-  <div class="item-row">
-    <div class="item-col fixed item-col-check">
-      <label class="item-check">
-        <input id={{workflow.id}} type="checkbox" class="checkbox">
-        <span></span>
-      </label>
+<td>
+  <div class="item-col fixed item-col-check">
+    <label class="item-check">
+      <input id={{workflow.id}} type="checkbox" class="checkbox">
+      <span></span>
+    </label>
+  </div>
+</td>
+<td>
+  {{#link-to 'workflow.params' workflow.id class='workflow'}}
+    {{#if workflow.image}}
+      <img src="/assets/images/{{workflow.image}}" style="height:60px; width:60px;">
+    {{else}}
+      <img src="/assets/images/img0.png" style="height:60px; width:60px;">
+    {{/if}}
+  {{/link-to}}
+</td>
+<td>
+  {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) class='workflow'}}
+    {{workflow.id}}
+  {{/link-to}}
+</td>
+<td>
+  {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}
+    <h4 class="item-title">  {{workflow.name}} </h4>
+  {{/link-to}}
+</td>
+<td>
+  <div class="row">
+    <div class="icon col-xs-3 col-sm-6 col-xl-3 text-center">
+      {{#link-to 'workflow.params' workflow.id }}<i rel="tooltip" title="Create a job for this workflow" class="fa fa-sliders fa-lg"></i>{{/link-to}}
     </div>
-    <div class="item-col fixed item-col-img md">
-      {{#link-to 'workflow.params' workflow.id class='workflow'}}
-        {{#if workflow.image}}
-          <img src="/assets/images/{{workflow.image}}" style="height:60px; width:60px;">
-        {{else}}
-          <img src="/assets/images/img0.png" style="height:60px; width:60px;">
-        {{/if}}
-      {{/link-to}}
+    <div class="icon col-xs-3 col-sm-6 col-xl-3">
+      {{#link-to 'workflow.edit' workflow.id }}<i rel="tooltip" title="Change workflow's data" class="fa fa-cog fa-lg"></i>{{/link-to}}
     </div>
-    <div class="item-col item-col-id no-overflow">
-      <div class="item-heading">ID</div>
-      <div class="no-overflow">
-        {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) class='workflow'}}
-          {{workflow.id}}
-        {{/link-to}}
-      </div>
+    <div class="icon col-xs-3 col-sm-6 col-xl-3">
+      {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}<i rel="tooltip" title="Draw this workflow" class="fa fa-pencil fa-lg"></i>{{/link-to}}
     </div>
-    <div class="item-col fixed pull-left item-col-title">
-      <div class="item-heading">Name</div>
-      <div>
-        {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}
-          <h4 class="item-title">  {{workflow.name}} </h4>
-        {{/link-to}}
-      </div>
-    </div>
-    <div class="item-col item-col-options">
-      <div class="item-heading">Options</div>
-      <div class="container">
-        <div class="row">
-          <div class="icon col-xs-3 col-sm-6 col-xl-3 text-center">
-            {{#link-to 'workflow.params' workflow.id }}<i rel="tooltip" title="Create a job for this workflow" class="fa fa-sliders fa-lg"></i>{{/link-to}}
-          </div>
-          <div class="icon col-xs-3 col-sm-6 col-xl-3">
-            {{#link-to 'workflow.edit' workflow.id }}<i rel="tooltip" title="Change workflow's data" class="fa fa-cog fa-lg"></i>{{/link-to}}
-          </div>
-          <div class="icon col-xs-3 col-sm-6 col-xl-3">
-            {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}<i rel="tooltip" title="Draw this workflow" class="fa fa-pencil fa-lg"></i>{{/link-to}}
-          </div>
-          <div class="icon col-xs-3 col-sm-6 col-xl-3">
-            <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i rel="tooltip" title="Delete this workflow" class="fa fa-trash-o fa-lg"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item-col item-col-category no-overflow">
-      <div class="item-heading">Category</div>
-      <div class="no-overflow"><a>UFMG</a></div>
-    </div>
-    <div class="item-col item-col-author">
-      <div class="item-heading">Author</div>
-      <div class="no-overflow">
-        <h4 class="item-title"><a> {{workflow.user.name}}</a> </h4>
-      </div>
-    </div>
-    <div class="item-col item-col-date">
-      <div class="item-heading">Created</div>
-      <div class="no-overflow"> {{format-date workflow.updated}} </div>
+    <div class="icon col-xs-3 col-sm-6 col-xl-3">
+      <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i rel="tooltip" title="Delete this workflow" class="fa fa-trash-o fa-lg"></i></a>
     </div>
   </div>
-</li>
+</td>
+<td>
+  <a>UFMG</a>
+</td>
+<td>
+  <a> {{workflow.user.name}}</a>
+</td>
+<td>
+  {{format-date workflow.updated}}
+</td>

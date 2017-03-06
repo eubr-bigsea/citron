@@ -1,8 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames:['item'],
-  tagName: 'li',
+  tagName: 'tr',
 
   didInsertElement(){
     if(Ember.$("[rel=tooltip]").is(':focus')){
