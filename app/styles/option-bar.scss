@@ -4,12 +4,13 @@
   margin-right: 0px;
 }
 
+
 .execute-bar.execute-btn {
-   padding-left: 5px;
+  padding-left: 5px;
   padding-right: 5px;
   margin: auto;
-  display: block;
- i{
+
+  i{
     color: white;
   }
 
@@ -25,7 +26,7 @@
   &.play {
     background-color: #6DD66E;
     border-color: #6DD66E;
-
+    color: white;
     &:hover {
       background-color: #179318;
     }
@@ -34,7 +35,7 @@
   &.pause {
     background-color: #74BFAD;
     border-color: #74BFAD;
-
+    color: white;
     &:hover {
       background-color: #0b6c54;
     }
@@ -43,7 +44,7 @@
   &.stop {
     background-color: #C91808;
     border-color: #C91808;
-
+    color:white;
     &:hover {
       background-color: #9f190d;
     }
@@ -51,6 +52,7 @@
 }
 
 .row.option-bar {
+  margin-left: 200px;
   padding: 2px;
 }
 
@@ -60,6 +62,20 @@
   margin: auto;
   display: block;
   overflow: hidden;
+
+  .name-editor {
+    .form-control.underlined {
+      padding: 9px;
+      width: 85%;
+      background-color: #fff;
+      display: inline;
+    }
+
+    i {
+      position: relative;
+      left: 5px;
+    }
+  }
 
   .opt-btn {
     padding-left: 1px;
@@ -75,19 +91,5 @@
     i {
       color: #3a4651;
     }
-  }
-}
-
-.name-editor {
-  .form-control.underlined {
-    padding: 9px;
-    width: 85%;
-    background-color: #fff;
-    display: inline;
-  }
-
-  i {
-    position: relative;
-    left: 5px;
   }
 }

@@ -1,5 +1,6 @@
 @import "ember-bootstrap/bootstrap";
 @import "font-awesome";
+@import "perfect-scrollbar";
 
 /*@import "alert.scss";*/
 @import "auth.scss";
@@ -80,14 +81,16 @@ body {
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
   color: #4f5f6f;
-overflow-x: hidden; }
+  overflow-x: hidden;
+}
 
 .main-wrapper {
   width: 100%;
   position: absolute;
   height: 100%;
   overflow-y: auto;
-overflow-x: hidden; }
+  overflow-x: hidden;
+}
 
 .app {
   position: relative;
@@ -100,87 +103,143 @@ overflow-x: hidden; }
   box-shadow: 0 0 3px #ccc;
   -webkit-transition: left 0.3s ease, padding-left 0.3s ease;
   transition: left 0.3s ease, padding-left 0.3s ease;
-overflow: hidden; }
+  overflow: hidden;
+}
 
 .app .content {
   padding: 110px 30px 90px 30px;
-min-height: 100vh; }
+  min-height: 100vh;
+}
+
 @media (min-width: 1200px) {
   .app .content {
-padding: 45px 20px 0px 20px; } }
+    padding: 45px 20px 0px 20px;
+  }
+}
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .app .content {
-padding: 45px 30px 90px 30px; } }
+    padding: 45px 30px 90px 30px;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .app .content {
-padding: 45px 20px 75px 70px; } }
+    padding: 45px 20px 75px 70px;
+  }
+}
 @media (max-width: 767px) {
   .app .content {
-padding: 45px 10px 65px 10px; } }
+    padding: 45px 10px 65px 10px;
+  }
+}
 @media (max-width: 991px) {
   .app {
-padding-left: 0; } }
+    padding-left: 0;
+  }
+}
 @media (max-width: 991px) {
   .app.sidebar-open {
-left: 0; } }
+    left: 0;
+  }
+}
 .app.blank {
-background-color: #667380; }
+  background-color: #667380;
+}
 .app .drawer{
   background-color: #fff;
   padding: 110px 30px 90px 30px;
-min-height: 100vh; }
+  min-height: 100vh;
+}
 @media (min-width: 1200px) {
   .app .drawer {
-padding: 45px 20px 0px 45px; } }
+    padding: 45px 20px 0px 45px;
+  }
+}
 @media (min-width: 992px) and (max-width: 1199px) {
   .app .drawer {
-padding: 45px 30px 90px 45px; } }
+    padding: 45px 30px 90px 45px;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .app .drawer {
-padding: 45px 20px 75px 45px; } }
+    padding: 45px 20px 75px 45px;
+  }
+}
 @media (max-width: 767px) {
   .app .drawer {
-padding: 45px 10px 65px 45px; } }
+    padding: 45px 10px 65px 45px;
+  }
+}
 @media (max-width: 991px) {
   .app .drawer {
-padding: 45px 10px 65px 45px; } }
+    padding: 45px 10px 65px 45px;
+  }
+}
 
 .app .drawer{
   padding: 110px 30px 90px 30px;
-min-height: 100vh; }
+  min-height: 100vh;
+}
 @media (min-width: 1200px) {
   .app .drawer {
-padding: 45px 20px 0px 45px; } }
+    padding: 45px 20px 0px 45px;
+  }
+}
 @media (min-width: 992px) and (max-width: 1199px) {
   .app .drawer {
-padding: 45px 30px 90px 45px; } }
+    padding: 45px 30px 90px 45px;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .app .drawer {
-padding: 45px 20px 75px 45px; } }
+    padding: 45px 20px 75px 45px;
+  }
+}
 @media (max-width: 767px) {
   .app .drawer {
-padding: 45px 10px 65px 45px; } }
+    padding: 45px 10px 65px 45px;
+  }
+}
 @media (max-width: 991px) {
   .app .drawer {
-padding: 45px 10px 65px 45px; } }
+    padding: 45px 10px 65px 45px;
+  }
+}
 
 #description {
   height: 30vh;
 }
 
-#diagram {
-  background: #d7dde4;
-  background: url('images/grid.png');
-  border: 1px solid #ddd;
+.lemonade-container {
   height: 85vh;
+  position: relative;
+  width: 100%;
   overflow: hidden;
 }
 
+#lemonade-diagram{
+  background: url('images/grid.png');
+}
+
+#lemonade, .lemonade {
+    position: relative;
+    margin-top: 0px;
+    z-index: 0;
+    min-height: calc(690px * (90/150));
+    height: 5000px;
+    width: 5000px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;     /* Chrome/Safari/Opera */
+    -khtml-user-select: none;        /* Konqueror */
+    -moz-user-select: none;            /* Firefox */
+    -ms-user-select: none;             /* Internet Explorer/Edge */
+    user-select: none;
+  }
+
 #forms {
-  left: calc(100% - 320px);
+  left: calc(100% - 265px);
   display: none;
-  margin-top: 97px;
+  margin-top: 92px;
   margin-bottom: 40px;
   background: white;
   border: 1px solid #ddd;
@@ -189,11 +248,11 @@ padding: 45px 10px 65px 45px; } }
   font-size: 10px;
   overflow: hidden;
   padding: 5px;
-  width: 320px;
 }
+
 @media (max-width: 991px) {
   #forms {
-  margin-top: 140px;} }
+margin-top: 140px;} }
 
 #forms fieldset {
   zoom: 75%;
