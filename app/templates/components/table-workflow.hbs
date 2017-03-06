@@ -1,56 +1,52 @@
 <li class="item item-list-header hidden-sm-down">
   <div class="item-row">
-    <div class="item-col fixed item-col-check">
-      <label class="item-check" {{action 'checked' on='click'}}>
-        <input type="checkbox" id="select-all-items" class="checkbox">
-        <span></span>
-      </label>
-    </div>
-    <div class="item-col item-col-header fixed item-col-img md">
-      <div>
-        <span>Logo</span>
-      </div>
-    </div>
-    <div class="item-col item-col-header item-col-id">
-      <div>
-        <span>ID</span>
-        <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'changeSorter' 'id'}}></em></a>
-      </div>
-    </div>
-    <div class="item-col item-col-header item-col-title">
-      <div>
-        <span>Name</span>
-        <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'changeSorter' 'name'}}></em></a>
-      </div>
-    </div>
-    <div class="item-col item-col-header item-col-options">
-      <div class="no-overflow">
-        <span>Options</span>
-      </div>
-    </div>
-    <div class="item-col item-col-header item-col-category">
-      <div class="no-overflow">
-        <span>Group</span>
-      </div>
-    </div>
-    <div class="item-col item-col-header item-col-author">
-      <div class="no-overflow">
-        <span>Author</span>
-        <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'changeSorter' 'user.name'}}></em></a>
-      </div>
-    </div>
-    <div class="item-col item-col-header item-col-date">
-      <div>
-        <span>Updated at</span>
-        <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'changeSorter' 'updated'}}></em></a>
-      </div>
-    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            <div class="item-col fixed item-col-check">
+              <label class="item-check" {{action 'checked' on='click'}}>
+                <input type="checkbox" id="select-all-items" class="checkbox">
+                <span></span>
+              </label>
+            </div>
+          </th>
+          <th>
+            <span>Logo</span>
+          </th>
+          <th>
+            <span>ID</span>
+            <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'changeSorter' 'id'}}></em></a>
+          </th>
+          <th>
+            <span>Name</span>
+            <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'changeSorter' 'name'}}></em></a>
+          </th>
+          <th>
+            <span>Options</span>
+          </th>
+          <th>
+            <span>Group</span>
+          </th>
+          <th>
+            <span>Author</span>
+            <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'changeSorter' 'user.name'}}></em></a>
+          </th>
+          <th>
+            <span>Updated at</span>
+            <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'changeSorter' 'updated'}}></em></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each pagedContent as |workflow|}}
+          {{#unless workflow.isDeleted}}
+            {{workflows/table-item workflow=workflow}}
+          {{/unless}}
+        {{/each}}
+      </tbody>
+    </table>
   </div>
 </li>
-{{#each pagedContent as |workflow|}}
-  {{#unless workflow.isDeleted}}
-    {{workflows/table-item workflow=workflow}}
-  {{/unless}}
-{{/each}}
 {{page-numbers content=pagedContent}}
 {{outlet}}

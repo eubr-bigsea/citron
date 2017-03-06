@@ -1,84 +1,12 @@
-<li class="item">
-  <div class="item-row">
-    <div class="item-col fixed item-col-check">
-      <label class="item-check" id="select-all-items">
-        <input type="checkbox" class="checkbox">
-        <span></span>
-      </label>
-    </div>
-    <div class="item-col fixed item-col-img md {{job.status}}">
-      <span class="fa fa-clock-o" ></span>
-    </div>
-    <div class="item-col item-col-id no-overflow">
-      <div class="item-heading">ID</div>
-      <div class="no-overflow">
-        {{#link-to 'job.show' job.id class='job'}} {{job.id}} {{/link-to}}
-      </div>
-    </div>
-    <div class="item-col fixed pull-left item-col-title no-overflow">
-      <div class="item-heading">Job</div>
-      <div class="no-overflow">
-        {{#link-to 'job.show' job.id}}
-          <h4 class="item-title">{{job.name}}</h4>
-        {{/link-to}}
-      </div>
-    </div>
-    <div class="item-col fixed pull-left item-col-title no-overflow">
-      <div class="item-heading">Workflow</div>
-      <div class="no-overflow">
-        {{#link-to 'workflow.draw' job.workflow_id}} <h4 class="item-title">{{job.workflow_id.name}}</h4> {{/link-to}}
-      </div>
-    </div>
-    <div class="item-col item-col-stats no-overflow">
-      <div class="item-heading">Status</div>
-      <div class="no-overflow">
-        {{#link-to 'job.show' job.id class=job.status}} {{job.status.message}} {{/link-to}}
-      </div>
-    </div>
-    <div class="item-col item-col-author">
-      <div class="item-heading">Visualization</div>
-      <div class="no-overflow" style="text_align: center;">
-        {{#if job.hasCompleted}}
-          {{#link-to 'job.result' job.id}}
-            Go to results
-          {{/link-to}}
-        {{else}}
-          -
-        {{/if}}
-      </div>
-    </div>
-    <!--<div class="item-col item-col-author">
-      <div class="item-heading">Visualization</div>
-      <div class="no-overflow">
-      {{#link-to 'user' job.user_id}}
-        <h4 class="item-title"> {{job.user_id.name}} </h4>
-      {{/link-to}}
-      </div>
-      </div>
-      <div class="item-col item-col-category">
-      <div class="item-heading">Option</div>
-      <div class="row execute-bar">
-      <div class="col-xs-12 col-xl-4 execute-bar execute-btn inline">
-      {{option-bar/exec-btn class='breakline pause' icon='pause'}}
-      </div>
-      <div class="col-xs-12 col-xl-4  execute-bar execute-btn inline">
-      {{option-bar/exec-btn class='breakline stop' icon='stop'}}
-      </div>
-      </div>
-      </div> -->
-      <div class="item-col item-col-date">
-        <div class="item-heading">Started</div>
-        <div class="no-overflow"> {{job.started}} </div>
-      </div>
-      <div class="item-col item-col-date">
-        <div class="item-heading">Completed</div>
-        <div class="no-overflow" style="text_align: center;">
-          {{#if job.hasCompleted}}
-            {{job.finished}}
-          {{else}}
-            -
-          {{/if}}
-        </div>
-      </div>
-  </div>
-</li>
+<td>{{job.id}}</td>
+<td>{{job.workflow.name}}</td>
+<td><i class="fa fa-sliders fa-lg" style="font-size: 30px;color:red;
+    margin-left:14px;"></i></td>
+<td>{{format-date job.created}}</td>
+<td>
+  {{#if job.hasCompleted}}
+    {{format-date job.finished}}
+  {{else}}
+    -
+  {{/if}}
+</td>
