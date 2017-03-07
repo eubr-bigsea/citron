@@ -8,7 +8,6 @@ export default Ember.Component.extend({
   status: null,
   comment: null,
 
-
   init() {
     this._super(...arguments);
     this.set('endpoints', Ember.A());
@@ -17,6 +16,55 @@ export default Ember.Component.extend({
     let operations = this.get('operations');
 
     this.set('operation', operations.find(el => String(el.id) === opId));
+
+    this.get('jsplumb').bind('connection', (info, originalEvent) => {
+      if(originalEvent === undefined) return;
+
+      let [id1, id2] = info.connection.getUuids().map((el) => el.split('/'));
+
+      this.get('addFlow')({
+        source_id: id1[0],
+        source_port: Number(id1[1]),
+        target_id: id2[0],
+        target_port: Number(id2[1])
+      }, true);
+
+      return false;
+    });
+
+    this.get('jsplumb').bind('connectionMoved', (info, originalEvent) => {
+      if(originalEvent === undefined) return;
+
+      let originalSource = info.originalSourceEndpoint.getUuid().split('/');
+      let originalTarget = info.originalTargetEndpoint.getUuid().split('/');
+
+      let newSource = info.newSourceEndpoint.getUuid().split('/');
+      let newTarget = info.newTargetEndpoint.getUuid().split('/');
+
+      this.get('removeFlow')({
+        source_id: originalSource[0],
+        source_port: Number(originalSource[1]),
+        target_id: originalTarget[0],
+        target_port: Number(originalTarget[1])
+      });
+
+      return false;
+    });
+
+    this.get('jsplumb').bind('connectionDetached', (info, originalEvent) => {
+      if(originalEvent === undefined) return;
+
+      let [id1, id2] = info.connection.getUuids().map((el) => el.split('/'));
+
+      this.get('removeFlow')({
+        source_id: id1[0],
+        source_port: Number(id1[1]),
+        target_id: id2[0],
+        target_port: Number(id2[1])
+      });
+
+      return false;
+    });
   },
 
   didInsertElement() {
@@ -90,28 +138,6 @@ export default Ember.Component.extend({
             ],
           ],
           maxConnections: -1,
-          beforeDetach: (params) => {
-            let id1 = params.endpoints[0].getUuid().split('/');
-            let id2 = params.endpoints[1].getUuid().split('/');
-
-            this.get('removeFlow')({
-              source_id: id1[0],
-              source_port: Number(id1[1]),
-              target_id: id2[0],
-              target_port: Number(id2[1])
-            });
-            return true;
-          },
-          beforeDrop: (params) => {
-            let id1 = params.connection.getUuids()[0].split('/');
-            let id2 = uuid.split('/');
-            this.get('addFlow')({
-              source_id: id1[0],
-              source_port: Number(id1[1]),
-              target_id: id2[0],
-              target_port: Number(id2[1])
-            }, true);
-          }
         };
         this.get('endpoints').addObject(jsplumb.addEndpoint(el, opts));
       });
