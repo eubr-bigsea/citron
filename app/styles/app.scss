@@ -218,7 +218,7 @@ body {
 }
 
 #lemonade-diagram{
-  background: url('images/grid.png');
+  background: url('images/grid1.png');
 }
 
 #lemonade, .lemonade {
@@ -237,7 +237,7 @@ body {
   }
 
 #forms {
-  left: calc(100% - 265px);
+  left: calc(100% - 400px);
   display: none;
   margin-top: 92px;
   margin-bottom: 40px;
@@ -248,6 +248,7 @@ body {
   font-size: 10px;
   overflow: hidden;
   padding: 5px;
+  width: 400px;
 }
 
 @media (max-width: 991px) {
