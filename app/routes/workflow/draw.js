@@ -7,7 +7,8 @@ export default Ember.Route.extend({
     this._super(...arguments);
     return RSVP.hash({
       workflow: this.get('store').findRecord('workflow', params.id),
-      operations: groupBy(this.store.query('operation',{platform: params.platform}), 'categories')
+      operations: this.store.query('operation',{platform: params.platform}),
+      groupedOperations: groupBy(this.store.query('operation',{platform: params.platform}), 'categories'),
     });
   },
 

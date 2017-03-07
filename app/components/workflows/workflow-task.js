@@ -12,16 +12,11 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     this.set('endpoints', Ember.A());
-  },
 
-  didReceiveAttrs() {
-    Ember.run(() => {
-      var op_id = this.get('task').operation.id;
-      var opts = {backgroundReload: false};
-      this.get('store').findRecord('operation', op_id, opts).then(op => {
-        this.set('operation', op);
-      });
-    });
+    let opId = String(this.get("task").operation.id);
+    let operations = this.get('operations');
+
+    this.set('operation', operations.find(el => String(el.id) === opId));
   },
 
   didInsertElement() {
@@ -34,95 +29,93 @@ export default Ember.Component.extend({
     el.css('top', task.top);
     el.css('left', task.left);
 
-    Ember.run(() => {
-      let fn = function(a, b) { return a.order > b.order; };
-      let input = op.get('ports').filter(p => p.type === 'INPUT').sort(fn);
-      let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
+    let fn = function(a, b) { return a.order > b.order; };
+    let input = op.get('ports').filter(p => p.type === 'INPUT').sort(fn);
+    let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
 
-      this.set('forms', op.get('forms'));
+    this.set('forms', op.get('forms'));
 
-      task.forms = Ember.Object.create(task.forms);
-      op.get('forms').forEach((el) => {
-        el.fields.forEach((field) => {
-          if(task.forms.get(field.name) === undefined ||
-            task.forms.get(field.name).value === undefined) {
-              task.forms.set(field.name, {value: field.default});
-            }
-        });
+    task.forms = Ember.Object.create(task.forms);
+    op.get('forms').forEach((el) => {
+      el.fields.forEach((field) => {
+        if(task.forms.get(field.name) === undefined ||
+          task.forms.get(field.name).value === undefined) {
+          task.forms.set(field.name, {value: field.default});
+        }
       });
-      this.set('comment', task.forms.comment.value);
+    });
+    this.set('comment', task.forms.comment.value);
 
-      if(!this.get('readOnly')){ el.css('background-color', task.forms.get('color').value);}
+    if(!this.get('readOnly')){ el.css('background-color', task.forms.get('color').value);}
 
-      let isInput = true;
-      [input, output].forEach((type) => {
-        type.forEach((port, i) => {
-          let uuid = `${this.get('elementId')}/${port.id}`;
-          let coordinates;
-          if (isInput) {
-            coordinates = [0, -2];
-          } else{
-            coordinates = [0, 3];
-          }
-          let opts = {
-            isSource: !isInput,
-            isTarget: isInput,
-            anchors: anchorPosition(isInput, type.length, i),
-            uuid: uuid,
-            endpoint: [
-              isInput ? "Dot" : "Rectangle", {
-                radius: 5,
-                width: 10,
-                height: 10
+    let isInput = true;
+    [input, output].forEach((type) => {
+      type.forEach((port, i) => {
+        let uuid = `${this.get('elementId')}/${port.id}`;
+        let coordinates;
+        if (isInput) {
+          coordinates = [0, -2];
+        } else{
+          coordinates = [0, 3];
+        }
+        let opts = {
+          isSource: !isInput,
+          isTarget: isInput,
+          anchors: anchorPosition(isInput, type.length, i),
+          uuid: uuid,
+          endpoint: [
+            isInput ? "Dot" : "Rectangle", {
+              radius: 5,
+              width: 10,
+              height: 10
+            }
+          ],
+          overlays: [
+            [
+              "Label", {
+                label:port.name,
+                id: "id",
+                location:coordinates,
+              }
+            ]
+          ],
+          connector: 'Flowchart',
+          connectorOverlays: [
+            [
+              "Arrow", {
+                location: 0.75,
+                length: 15,
+                foldback: 0.8
               }
             ],
-            overlays: [
-              [
-                "Label", {
-                  label:port.name,
-                  id: "id",
-                  location:coordinates,
-                }
-              ]
-            ],
-            connector: 'Flowchart',
-            connectorOverlays: [
-              [
-                "Arrow", {
-                  location: 0.75,
-                  length: 15,
-                  foldback: 0.8
-                }
-              ],
-            ],
-            maxConnections: -1,
-            beforeDetach: (params) => {
-              let id1 = params.endpoints[0].getUuid().split('/');
-              let id2 = params.endpoints[1].getUuid().split('/');
+          ],
+          maxConnections: -1,
+          beforeDetach: (params) => {
+            let id1 = params.endpoints[0].getUuid().split('/');
+            let id2 = params.endpoints[1].getUuid().split('/');
 
-              this.get('removeFlow')({
-                source_id: id1[0],
-                source_port: Number(id1[1]),
-                target_id: id2[0],
-                target_port: Number(id2[1])
-              });
-              return true;
-            },
-            beforeDrop: (params) => {
-              let id1 = params.connection.getUuids()[0].split('/');
-              let id2 = uuid.split('/');
-              this.get('addFlow')({
-                source_id: id1[0],
-                source_port: Number(id1[1]),
-                target_id: id2[0],
-                target_port: Number(id2[1])
-              }, true);
-            }
-          };
-          this.get('endpoints').addObject(jsplumb.addEndpoint(el, opts));
-        });
-        isInput = false;
+            this.get('removeFlow')({
+              source_id: id1[0],
+              source_port: Number(id1[1]),
+              target_id: id2[0],
+              target_port: Number(id2[1])
+            });
+            return true;
+          },
+          beforeDrop: (params) => {
+            let id1 = params.connection.getUuids()[0].split('/');
+            let id2 = uuid.split('/');
+            this.get('addFlow')({
+              source_id: id1[0],
+              source_port: Number(id1[1]),
+              target_id: id2[0],
+              target_port: Number(id2[1])
+            }, true);
+          }
+        };
+        this.get('endpoints').addObject(jsplumb.addEndpoint(el, opts));
       });
+      isInput = false;
     });
 
     if(!this.get('readOnly')) {
