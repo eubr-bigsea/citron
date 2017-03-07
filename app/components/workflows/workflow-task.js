@@ -18,7 +18,9 @@ export default Ember.Component.extend({
     this.set('operation', operations.find(el => String(el.id) === opId));
 
     this.get('jsplumb').bind('connection', (info, originalEvent) => {
-      if(originalEvent === undefined) return;
+      if(originalEvent === undefined) {
+        return;
+      }
 
       let [id1, id2] = info.connection.getUuids().map((el) => el.split('/'));
 
@@ -33,13 +35,12 @@ export default Ember.Component.extend({
     });
 
     this.get('jsplumb').bind('connectionMoved', (info, originalEvent) => {
-      if(originalEvent === undefined) return;
+      if(originalEvent === undefined) {
+        return;
+      }
 
       let originalSource = info.originalSourceEndpoint.getUuid().split('/');
       let originalTarget = info.originalTargetEndpoint.getUuid().split('/');
-
-      let newSource = info.newSourceEndpoint.getUuid().split('/');
-      let newTarget = info.newTargetEndpoint.getUuid().split('/');
 
       this.get('removeFlow')({
         source_id: originalSource[0],
@@ -52,7 +53,9 @@ export default Ember.Component.extend({
     });
 
     this.get('jsplumb').bind('connectionDetached', (info, originalEvent) => {
-      if(originalEvent === undefined) return;
+      if(originalEvent === undefined) {
+        return;
+      }
 
       let [id1, id2] = info.connection.getUuids().map((el) => el.split('/'));
 
