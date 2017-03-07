@@ -76,15 +76,16 @@ export default Ember.Component.extend({
       this.get('flows').removeObjects(toRemove);
     },
     addFlow(flow, save = false) {
-      this.get('jsplumb').connect({
-        uuids: [
-          `${flow.source_id}/${flow.source_port}`,
-          `${flow.target_id}/${flow.target_port}`
-        ]
-      });
       if(save) {
         this.get('workflow').get('flows').addObject(flow);
         this.get('flows').addObject(flow);
+      } else {
+        this.get('jsplumb').connect({
+          uuids: [
+            `${flow.source_id}/${flow.source_port}`,
+            `${flow.target_id}/${flow.target_port}`
+          ]
+        });
       }
     },
     removeFlow(flow) {
