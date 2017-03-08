@@ -2,9 +2,9 @@
   <div class="drawer container-fluid">
     {{jobs/option-bar job=model.job}}
     <div class="row">
-      <div class="col-xs-12">
-        {{jobs/job-draw id="diagram" workflow=model.job.workflow jobId=model.job.id jobStatus=model.job.status steps=model.job.steps job=model.job}}
-      </div>
+      {{jobs/job-container workflow=model.job.workflow jobId=model.job.id jobStatus=model.job.status steps=model.job.steps job=model.job operations=model.operations logTasks=logTasks}}
     </div>
+  </div>
+  <div class="logger container">
   </div>
 </article>

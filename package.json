@@ -57,5 +57,7 @@
     "nprogress": "^0.2.0",
     "perfect-scrollbar": "^0.6.16"
   },
-  "dependencies": {}
+  "dependencies": {
+    "socket.io-client": "^1.7.3"
+  }
 }

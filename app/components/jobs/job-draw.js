@@ -1,59 +1,20 @@
 /* global jsPlumb */
-/* global Ps */
-
 import Ember from 'ember';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
 import config from '../../config/environment';
+import io from 'npm:socket.io-client';
 
 const { inject:{ service } } = Ember;
 
 export default Ember.Component.extend({
-  classNames: ['diagram'],
-  classNameBindings: ['status'],
   statusClasses: ['completed', 'error', 'canceled', 'interruped', 'pending', 'running', 'waiting'],
-  status: null,
 
-	store: service('store'),
-	socketIOService: service('socket-io'),
-
-  //socket-io config
-	namespace: '/stand',
-  path: { path: '/stand/socket.io' },
-
-  onConnect() {
-    const socket = this.get('socketIOService').socketFor(config.stand, this.get('path'));
-    socket.emit('join', {room: this.get('jobId')});
-  },
-  onDisconnect(){
-    console.debug('disconnected');
-  },
-  onConnectError(){
-    console.debug('Web socket server offline');
-  },
-  onUpdateTask(message){
-    var stepTemplate = $(`#${message.id}`);
-    stepTemplate.removeClass(this.get('statusClasses').join(' '));
-    var className = message.status.toLowerCase();
-    stepTemplate.addClass(className);
-  },
-  onUpdateJob(message){
-    var router = Ember.getOwner(this).lookup('router:main');
-    this.set('status', message.status.toLowerCase());
-    if( message.status === 'COMPLETED'){
-      console.debug(message);
-      router.transitionTo('job.result', this.get('jobId'));
-    } else {
-      console.debug(message);
-    }
-  },
-
-
-
+  store: service('store'),
 
   init() {
     this._super(...arguments);
-    this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
 
+    this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
 
     this.set('tasks', Ember.A());
     this.set('flows', Ember.A());
@@ -65,24 +26,46 @@ export default Ember.Component.extend({
     this.get('workflow').flows.forEach((flow) => {
       this.get('flows').addObject(flow);
     });
-    this.set('status', this.get('jobStatus').toLowerCase());
+
+    this.set('socket', io(config.webSocketIO.url + config.webSocketIO.namespace, { path:config.webSocketIO.path }, {upgrade: true}));
+    this.set('jobId', this.get('job.id'));
+  },
+
+  didReceiveAttrs(){
+    //Socket-io client
+    var socket = this.get('socket');
+    var component = this;
+
+    socket.on('connect', () => {
+      socket.emit('join', {room: this.get('jobId')});
+    });
+    socket.on('connect_error', () => {
+      console.debug('Web socket server offline');
+    });
+    socket.on('disconnect', () => {
+      console.debug('disconnect');
+    });
+    socket.on('update task', function(frame) {
+      var step = component.get('steps').findBy('task.id', frame.id);
+      step.status = frame.status;
+      var stepTemplate = $(`#${step.task.id}`);
+      stepTemplate.removeClass(component.get('statusClasses').join(' '));
+      var className = step.status.toLowerCase();
+      stepTemplate.addClass(className);
+    });
+
+    socket.on('update job', function(frame) {
+      console.debug('update job');
+      component.set('job.status', frame.status.toLowerCase());
+      component.get('logTasks').addObject(frame);
+
+    });
   },
 
   didInsertElement() {
     this._super(...arguments);
 
-    var path = this.get('path');
-    const socket = this.get('socketIOService').socketFor(config.stand, path);
-
-    socket.on('connect', this.onConnect, this);
-    socket.on('disconnect', this.onDisconnect, this);
-    socket.on('connect_error', this.onConnectError, this);
-    socket.on('update task', this.onUpdateTask, this);
-    socket.on('update job', this.onUpdateJob, this);
-
     let el = this;
-
-    Ps.initialize(document.getElementById(this.elementId));
 
     Ember.$(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
@@ -120,16 +103,22 @@ export default Ember.Component.extend({
 
   didRender(){
     var steps = this.get('steps');
+    var component = this;
+
     steps.forEach(function(step){
-      var taskTemplate = $(`#${step.task.id}`);
+      var stepTemplate = $(`#${step.task.id}`);
+      stepTemplate.removeClass(component.get('statusClasses').join(' '));
       var className = step.status.toLowerCase();
-      taskTemplate.addClass(className);
+      stepTemplate.addClass(className);
     });
   },
 
   willDestroyElement() {
     this._super(...arguments);
-    this.get('socketIOService').closeSocketFor(config.stand, this.get('path'));
+    var socket = this.get('socket');
+    socket.emit('leave', { room: this.get('jobId') });
+    socket.emit('disconnect');
+    socket.close();
   },
 
   actions: {

@@ -1,13 +1,29 @@
-<section class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-5 name-editor">
-  {{option-bar/name-editor workflow=job.workflow}}
+<section class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-5">
+  {{!--  {{option-bar/name-editor workflow=job.workflow}} --}}
+    <span class="form-control underlined"> {{job.workflow.name}} </span>
 </section>
 <section class="col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 option-bar">
-  {{option-bar/option-buttons workflow=job.workflow}}
+  <div class="job {{job.status}}" id="job-status">
+      <span class="fa fa-clock-o"></span><h3>{{job.status}}</h3>
+  </div>
 </section>
 <section class="col-xs-12  col-sm-12 col-md-6 col-lg-3 col-xl-3 execute-bar">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 execute-bar execute-btn">
-    <a onclick={{action 'stop'}} class="stop btn btn-md rounded-s execute-bar execute-btn">
-      <i class="fa fa-stop"></i>
-    </a>
-  </div>
+    {{#if hasFinished}}
+      {{#link-to 'job.result' job.id class="pause btn btn-md rounded-s execute-bar execute-btn" style="display: inline;"}}
+          <i class="fa fa-eye"></i> Results
+      {{/link-to}}
+      {{#link-to 'workflow.draw' job.workflow.id class="play btn btn-md rounded-s execute-bar execute-btn"}}
+            <i class="fa fa-flask"></i> Workflow
+        {{/link-to}}
+    {{else if hasFailed}}
+      {{#link-to 'workflow.draw' job.workflow.id}}
+        <a  class="play btn btn-md rounded-s execute-bar execute-btn">
+          <i class="fa fa-flask"></i> Workflow
+        </a>
+      {{/link-to}}
+    {{else}}
+      <a onclick={{action 'stop'}} class="stop btn btn-md rounded-s execute-bar execute-btn">
+        <i class="fa fa-stop"></i> Stop
+      </a>
+    {{/if}}
 </section>
