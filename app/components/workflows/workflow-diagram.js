@@ -1,5 +1,4 @@
 /* global jsPlumb */
-import Ps from 'npm:perfect-scrollbar';
 
 import Ember from 'ember';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
@@ -23,8 +22,6 @@ export default Ember.Component.extend({
   },
   didInsertElement() {
     let el = this;
-
-    Ps.initialize(document.getElementById(this.elementId));
 
     Ember.$(`#${this.elementId}`).droppable({
       drop: (event, ui) => {

@@ -11,7 +11,20 @@ export default Ember.Component.extend({
 
   actions: {
     saveWorkflow() {
-      this.get('workflow').save();
+      var component = this;
+      this.get('workflow').save().then(function(){
+        component.get('hasChanged')(false);
+        component.get('alert')({
+          type: 'Success',
+          content:'All modifications has been saved.'
+        });
+      });
+    },
+    deleteWorkflow(){
+        this.get('alert')({
+          type: 'Delete',
+          content:'Do you want to delete this workflow?',
+        });
     }
   }
 });

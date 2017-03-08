@@ -15,10 +15,12 @@ export default Ember.Route.extend({
   actions: {
     willTransition(transition){
       var targetName = this.controller.get('targetName');
-      if(!targetName && (transition.targetName !== 'job.show')){
+      var hasChanged = this.controller.get('hasChanged');
+      if(!targetName && (transition.targetName !== 'job.show') && hasChanged){
         this.controller.set('targetName', transition.targetName);
         transition.abort();
-        Ember.$('#confirm-modal').addClass('show');
+        this.controller.set('message', { type:'Warning', content: 'All unsaved modifications will be lost.'});
+        $('#confirm-modal').addClass('show');
       }
     }
   }

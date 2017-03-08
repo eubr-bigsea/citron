@@ -35,8 +35,12 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     // ENV.thorn = 'http://localhost:3000';
     ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
-    //ENV.stand = 'http://localhost:8000'
     ENV.stand = 'http://beta.ctweb.inweb.org.br/stand';
+    ENV.webSocketIO = {
+      url: 'http://beta.ctweb.inweb.org.br',
+      namespace: '/stand',
+      path: '/stand/socket.io'
+    };
   }
 
   if (environment === 'test') {
@@ -52,8 +56,13 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
-    ENV.stand = 'http://citron.ctweb.inweb.org.br:8000';
+    ENV.stand = 'http://beta.ctweb.inweb.org.br/stand';
+    ENV.webSocketIO = {
+      url: 'http://beta.ctweb.inweb.org.br',
+      namespace: '/stand',
+      path: '/stand/socket.io'
+    };
   }
 
-  return ENV;
-};
+    return ENV;
+  };

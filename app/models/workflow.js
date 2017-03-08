@@ -11,4 +11,5 @@ export default DS.Model.extend({
   platform: attr(),
   updated: attr('dates'),
   description: attr('string'),
+  enabled: attr('boolean'),
 });
