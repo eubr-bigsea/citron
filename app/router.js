@@ -20,8 +20,8 @@ Router.map(function() {
   });
   this.route('job', function() {
     this.route('show', {path: ':id/show'});
-    this.route('result', {path: ':id/result'});
-    this.route('visualization', {path: ':id/visualization/:which'});
+    this.route('results', {path: ':id/results'});
+    this.route('result', {path: ':jobId/result/:taskId/:visu'});
   });
   this.route('login');
   this.route('signup');

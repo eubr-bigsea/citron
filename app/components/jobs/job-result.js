@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  url: 'http://beta.ctweb.inweb.org.br/caipirinha/dashboard',
   myResults: Ember.A([
     {
       "type": "VISUALIZATION",
@@ -26,14 +25,15 @@ export default Ember.Component.extend({
 
     this.get('myResults').forEach((el) => {
       let operation = this.get('operations').find(op => Number(op.id) === el.operation.id);
-      let jobId = this.get('job.id');
 
       results.addObject({
+        jobId: this.get('job.id'),
+        taskId: el.task.id,
         name: operation.get('name'),
         icon: operation.get('icon'),
+        image: operation.get('icon'),
         tooltip: operation.get('description'),
         component: operation.get('slug'),
-        url: [this.get('url'), this.get('job.id'), el.task.id].join('/'),
       });
     });
 
