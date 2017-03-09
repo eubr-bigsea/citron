@@ -7,7 +7,8 @@ export default Ember.Component.extend({
     this.set('url', [
       'http://beta.ctweb.inweb.org.br/caipirinha/dashboard',
       this.get('params.jobId'),
-      this.get('params.taskId')
+      this.get('params.taskId'),
+      '.json'
     ].join('/'));
 
     this.set('visu', "visualizations/" + this.get('params.visu'));
