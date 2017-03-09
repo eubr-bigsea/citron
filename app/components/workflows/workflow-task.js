@@ -132,6 +132,7 @@ export default Ember.Component.extend({
                 label:port.name,
                 id: "id",
                 location:coordinates,
+                cssClass: "jsPlumbText",
               }
             ]
           ],

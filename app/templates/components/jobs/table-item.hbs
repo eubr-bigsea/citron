@@ -1,12 +1,12 @@
-<td>{{job.id}}</td>
-<td>{{job.workflow.name}}</td>
+<td>{{#link-to 'job.show' job.id class="job"}}{{job.id}}{{/link-to}}</td>
+<td>{{#link-to 'job.show' job.id class="job"}}{{job.workflow.name}}{{/link-to}}</td>
 <td><i class="fa fa-sliders fa-lg" style="font-size: 30px;color:red;
     margin-left:14px;"></i></td>
 <td>{{format-date job.created}}</td>
 <td>
-  {{#if job.hasCompleted}}
+  {{#if job.finished}}
     {{format-date job.finished}}
   {{else}}
-    -
+    Cancelled
   {{/if}}
 </td>

@@ -1,5 +1,17 @@
-<th>ID</th>
-<th>Workflow</th>
+<th>
+  ID
+  <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'sortJob' 'id'}}></em></a>
+</th>
+<th>
+  Workflow
+  <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'sortJob' 'workflow.name'}}></em></a>
+</th>
 <th>Status</th>
-<th>Started</th>
-<th>Results</th>
+<th>
+  Started
+  <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'sortJob' 'created'}}></em></a>
+</th>
+<th>
+  Results
+  <a href="#" style="margin-left:5px; display:inline;"><em class="fa fa-unsorted" {{action 'sortJob' 'finished'}}></em></a>
+</th>

@@ -20,17 +20,6 @@
       </form>
     </div>
   </div>
-  <div class="card items">
-    <table class="table table- striped">
-      <thead>
-        {{jobs/table-header}}
-      </thead>
-      <tbody>
-      {{#each model as |job|}}
-        {{jobs/table-item job=job}}
-      {{/each}}
-      </tbody>
-    </table>
-  </div>
+  {{jobs/table-jobs model=model}}
 </article>
 {{outlet}}
