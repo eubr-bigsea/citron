@@ -5,6 +5,7 @@ export default Ember.Route.extend({
   currentUser: Ember.inject.service('current-user'),
 
   model(params) {
+    this.controllerFor('job.show').set('stepsLogs', Ember.A());
     return RSVP.hash({
       job: this.store.findRecord('job', params.id),
       operations: this.store.query('operation', {})

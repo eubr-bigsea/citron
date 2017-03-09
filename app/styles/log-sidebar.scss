@@ -31,7 +31,7 @@
     height: 100%;
     margin-right: -350px;
     overflow-y: auto;
-    background: #2f3840;
+    background: rgba(89,134,41,0.70);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -72,7 +72,7 @@
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #ffffff;
 }
 
 .sidebar-nav li a:hover {
@@ -93,7 +93,8 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+  font-size: 1.3em;
+    color: #ffffff;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
@@ -130,21 +131,28 @@
 		.step-log {
 			margin: 15px;
 			border-bottom-style: solid;
-			border-bottom-color: #f0f3f6;
+			color: rgba(89,134,41,0.45);
 			border-bottom: dotted;
 			p {
-				display: block;
-				color: white;
-				margin-bottom: 5px;
-			}
-			.WARNING {
-				color: rgba(255,170,0, 0.73);
-			}
-			.ERROR {
-				color: rgba(255,0,0, 0.73);
-			}
-			.INFO {
-				color: rgba(0,202,255, 0.73);
-			}
-		}
-	}
+        display: block;
+        color: white;
+        margin-bottom: 1em;
+        font-size: 1.2em;
+      }
+      span {
+        color: white;
+        display: block;
+        text-indent: 5px;
+        margin-bottom: 0.6em;
+      }
+      .WARNING {
+        color: rgba(255,170,0, 0.73);
+      }
+      .ERROR {
+        color: rgba(255,0,0, 0.73);
+      }
+      .INFO {
+        color: rgba(0,202,255, 0.73);
+      }
+    }
+  }

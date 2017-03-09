@@ -5,14 +5,14 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12 no-padding">
-            {{jobs/option-bar job=model.job}}
-            {{jobs/job-container workflow=model.job.workflow steps=model.job.steps job=model.job operations=model.operations }}
+            {{jobs/option-bar job=model.job stepsLogs=stepsLogs}}
+            {{jobs/job-container workflow=model.job.workflow stepsLogs=stepsLogs steps=model.job.steps job=model.job operations=model.operations }}
           </div><!-- col -->
         </div><!-- row -->
       </div><!-- container -->
     </div><!-- diagram-wraper -->
     <div id="sidebar-wrapper" class="logger">
-      {{jobs/job-logger steps=model.job.steps operations=model.operations class="sidebar-nav"}}
+      {{jobs/job-logger job=model.job stepsLogs=stepsLogs operations=model.operations class="sidebar-nav"}}
     </div><!-- sidebar -->
   </div><!-- wrapper -->
 </article>

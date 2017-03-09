@@ -15,12 +15,14 @@ export default Ember.Component.extend({
     this.set('isRunning', (jobStatus === 'running'));
     this.set('hasFinished', (jobStatus === 'completed'));
     this.set('hasFailed', (jobStatus === 'canceled'));
+    this.set('hasFailed', (jobStatus === 'error'));
   },
   didUpdate(){
     var jobStatus = this.get('job.status');
     this.set('isRunning', (jobStatus === 'running'));
     this.set('hasFinished', (jobStatus === 'completed'));
     this.set('hasFailed', (jobStatus === 'canceled'));
+    this.set('hasFailed', (jobStatus === 'error'));
   },
 
   actions:{

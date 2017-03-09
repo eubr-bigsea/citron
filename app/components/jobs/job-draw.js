@@ -47,11 +47,11 @@ export default Ember.Component.extend({
     });
     socket.on('update task', function(frame) {
       var step = component.get('steps').findBy('task.id', frame.id);
-      step.status = frame.status;
-      step.logs.push(frame);
+      var logStep = component.get('stepsLogs').findBy('task.id', frame.id);
+      logStep.logs.pushObject(frame);
       var stepTemplate = $(`#${step.task.id}`);
       stepTemplate.removeClass(component.get('statusClasses').join(' '));
-      var className = step.status.toLowerCase();
+      var className = frame.status.toLowerCase();
       stepTemplate.addClass(className);
     });
 
