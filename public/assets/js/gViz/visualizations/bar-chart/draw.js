@@ -75,6 +75,13 @@ gViz.vis.bar_chart.draw = function () {
               bgRect = bgRect.enter().insert('rect', ':first-child').attr("class", 'bg-rect').merge(bgRect);
               bgRect.attr('x', 0).attr('y', 0 ).attr('width', _var.width).attr('height', _var.height )
 
+              // Create bg-rect-stroke
+              var bgRectStroke = _var.g.selectAll('rect.bg-rect-stroke').data(["bg-rect"]);
+              bgRectStroke.exit().remove();
+              bgRectStroke = bgRectStroke.enter().insert('rect', ':first-child').attr("class", 'bg-rect-stroke').merge(bgRectStroke);
+              bgRectStroke.attr('x', 0).attr('y', 0 ).attr('width', _var.width).attr('height', _var.height )
+
+
 
               break;
           }
