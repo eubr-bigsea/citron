@@ -13,8 +13,12 @@
           <i class="fa fa-eye"></i> Results
       {{/link-to}}
       {{#link-to 'workflow.draw' job.workflow.id class="play btn btn-md rounded-s execute-bar execute-btn"}}
-            <i class="fa fa-flask"></i> Workflow
-        {{/link-to}}
+        <i class="fa fa-flask"></i> Workflow
+      {{/link-to}}
+      <a href="#" onclick={{action 'showLog'}} class="logger-button  btn btn-md rounded-s execute-bar execute-btn">
+        <i class="fa fa-eye"></i> Log
+      </a>
+
     {{else if hasFailed}}
       {{#link-to 'workflow.draw' job.workflow.id}}
         <a  class="play btn btn-md rounded-s execute-bar execute-btn">

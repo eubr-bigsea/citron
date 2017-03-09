@@ -24,6 +24,9 @@ export default Ember.Component.extend({
   },
 
   actions:{
+    showLog(){
+      Ember.$("#wrapper").toggleClass("toggled");
+    },
     stop(){
       let jobId = this.get('job.id');
       let workflowId = this.get('job.workflow.id');
