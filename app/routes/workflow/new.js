@@ -17,7 +17,8 @@ export default Ember.Route.extend({
       user: currentUser,
       image: "img0.png",
       name: "My new Workflow",
-      description: "My workflow..."
+      description: "My workflow...",
+      enabled: true
     };
     return RSVP.hash({
       workflow: this.get('store').createRecord('workflow', defaultWorkflow),
