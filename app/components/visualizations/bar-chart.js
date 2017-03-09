@@ -39,6 +39,9 @@ export default Ember.Component.extend({
 
       if(err) { console.log(err); }
 
+      // Set title
+      component.set('title', json.title);
+
       // Get data
       var data = json.data;
       data.map(function(d) { parseData(d, discrete, continuous); });
@@ -54,16 +57,6 @@ export default Ember.Component.extend({
   },
 
   didInsertElement: function(){
-
-    let component = this;
-    var data_index = 0;
-
-    d3.selectAll(`.btn[data-id=${component.get('_id')}`)
-      .on("click", function() {
-        var data_index = this.value - 1;
-        component.draw(data_index);
-      });
-
-    this.draw(data_index);
+    this.draw();
   }
 });

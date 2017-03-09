@@ -39,6 +39,9 @@ export default Ember.Component.extend({
 
       if(err) { console.log(err); }
 
+      // Set title
+      component.set('title', json.title);
+
       // Get data
       var data = json.data;
       data.map(function(d) { parseData(d, label, value); });
