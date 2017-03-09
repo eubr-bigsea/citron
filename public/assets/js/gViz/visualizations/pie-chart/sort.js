@@ -35,15 +35,15 @@ gViz.vis.pie_chart.sort = function () {
 
               case 'sort':
 
-							  var arcTween = function (d) {
+                var arcTween = function (d) {
 
-							  	var i = d3.interpolate(this._current, d);
+                  var i = d3.interpolate(this._current, d);
 
-							  	this._current = i(0);
+                  this._current = i(0);
 
-							  	return function(t) {
-							  		return _var.arc(i(t))
-							  	}
+                  return function(t) {
+                    return _var.arc(i(t))
+                  }
                 }
 
 
@@ -74,9 +74,7 @@ gViz.vis.pie_chart.sort = function () {
                   // Updates Path
                   _var.path = _var.path
                     .data(_var.pie(_var._data))
-                    .style("fill", function(d) {
-                      return _var.colours_hash[d["data"]["label"]];
-                  });
+                    .style("fill", function(d) { return _var.colours_hash[d["data"]["label"]]; });
 
                   // Transitions to new path
                   _var.path

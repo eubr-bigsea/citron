@@ -16,7 +16,6 @@ export default Ember.Component.extend({
 
   // Draw Chart
   draw: function(){
-    var dataURL, discrete, continuous;
 
     // Initialize variables
     let component = this;
@@ -31,26 +30,12 @@ export default Ember.Component.extend({
       return d;
     };
 
-    //switch(data_index) {
-    //  case 0:
-    //    dataURL     = "/assets/data/letters.csv";
-    //    discrete    = "letter";
-    //    continuous  = "frequency";
-    //    break;
-
-    //  default:
-    //    dataURL     = "/assets/data/sales.csv";
-    //    discrete    = "salesperson";
-    //    continuous  = "sales";
-    //}
-
-
     // Walter json
-    dataURL = "http://beta.ctweb.inweb.org.br/caipirinha/visualizations/280/0aa52039-0534-4a0b-9d9f-f8629b3d0679?token=123456";
-    discrete = "name";
-    continuous = "value";
+    // var dataURL = "http://beta.ctweb.inweb.org.br/caipirinha/visualizations/280/0aa52039-0534-4a0b-9d9f-f8629b3d0679?token=123456";
+    var discrete = "name";
+    var continuous = "value";
 
-    d3.json(dataURL, (err, json) => {
+    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
 
       if(err) { console.log(err); }
 

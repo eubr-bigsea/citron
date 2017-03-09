@@ -47,7 +47,7 @@ gViz.vis.pie_chart.create = function () {
           _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
 
           // Update inner dimensions
-          _var.g.attr("transform", "translate(" + _var.width / 2 + "," + _var.height / 2 + ")");
+          _var.g.attr("transform", "translate(" + (_var.margin.left + _var.width / 2) + "," + (_var.margin.top + _var.height / 2) + ")");
 
           break;
       }

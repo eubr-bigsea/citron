@@ -34,24 +34,21 @@ gViz.vis.pie_chart.draw = function () {
 
             case 'draw':
 
-              _var.path = _var.g.selectAll("." + _var._class + ".arc").data(_var.pie(_var._data));
-              _var.path.exit().remove();
-              _var.path = _var.path.enter().append("path").attr("class", _var._class + ' arc').merge(_var.path);
-
               // Precompute colours
               _var.colours_hash = {};
-
               _var._data.forEach(function(d) {
                 _var.colours_hash[d["label"]] = _var.colors.scale(d["value"]);
               });
 
+              // Create path
+              _var.path = _var.g.selectAll("." + _var._class + ".arc").data(_var.pie(_var._data));
+              _var.path.exit().remove();
+              _var.path = _var.path.enter().append("path").attr("class", _var._class + ' arc').merge(_var.path);
               _var.path
-								.attr("d", _var.arc)
-								.style("fill", function(d, i) { return _var.colours_hash[d["data"]["label"]]; })
+                .attr("d", _var.arc)
+                .style("fill", function(d, i) { return _var.colours_hash[d["data"]["label"]]; })
                 .each(function(d) { this._current = d; })
-                .on("click", function(d) {
-                   console.log(d["data"]);
-                });
+                .on("click", function(d) { console.log(d["data"]); });
 
               break;
           }
