@@ -49,6 +49,15 @@
       background-color: #9f190d;
     }
   }
+
+  &.logger-button {
+    background-color: #e6ac00;
+    border-color: #e6ac00;
+    color: white;
+    &:hover {
+      background-color: #ffbf00;
+    }
+  }
 }
 
 .row.option-bar {

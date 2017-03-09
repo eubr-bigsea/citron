@@ -265,3 +265,68 @@ span {
     }
   }
 }
+
+.job-table-item {
+
+  h4 {
+    display: inline;
+    padding: 10px;
+  }
+
+  &.canceled {
+    color: #FF6C39;
+    span{
+      @extend .fa-2x;
+      @extend .fa-times;
+    }
+  }
+
+  &.completed {
+    color: #71BA51;
+    span {
+      @extend .fa-2x;
+      @extend .fa-check;
+    }
+  }
+
+  &.error {
+    color: #E22211;
+    span {
+      @extend .fa-2x;
+      @extend .fa-exclamation-triangle;
+    }
+  }
+
+  &.interrupted {
+    color: #FF9A43;
+    span {
+      @extend .fa-2x;
+      @extend .fa-exclamation;
+    }
+  }
+
+  &.pending {
+    color: #FFBD4B;
+    span {
+      @extend .fa-2x;
+      @extend .fa-hourglass-half;
+    }
+  }
+
+  &.running {
+    color: #3D8EB9;
+    span {
+      @extend .fa-2x;
+      @extend .fa-circle-o-notch;
+      @extend .fa-spin;
+    }
+  }
+
+  &.waiting {
+    color: #7F6B4B;
+    span {
+      @extend .fa-2x;
+      @extend .fa-clock-o;
+    }
+  }
+}

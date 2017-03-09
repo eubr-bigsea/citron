@@ -5,7 +5,7 @@
   background-color: $btn-primary-bg;
   border-color: $btn-primary-border;
 
-  &:not(.play):not(.pause):not(.stop):hover, &:focus, &.focus {
+  &:not(.logger-button):not(.play):not(.pause):not(.stop):hover, &:focus, &.focus {
     color: #ffffff;
     background-color: $btn-primary-bg-hover;
     border-color: $btn-primary-border-hover;

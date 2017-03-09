@@ -2,6 +2,7 @@
 @import "font-awesome";
 @import "perfect-scrollbar";
 
+
 /*@import "alert.scss";*/
 @import "auth.scss";
 @import "btn.scss";
@@ -72,6 +73,7 @@
 
 // Gfranciscani Styles
 
+@import 'log-sidebar.scss';
 
 html,
 body {
@@ -92,10 +94,15 @@ body {
   overflow-x: hidden;
 }
 
+.no-padding {
+  padding: 0px;
+
+}
+
 .app {
   position: relative;
   width: 100%;
-  padding-left: 50px;
+  padding-left: 60px;
   min-height: 100vh;
   margin: 0 auto;
   left: 0;
@@ -113,23 +120,23 @@ body {
 
 @media (min-width: 1200px) {
   .app .content {
-    padding: 45px 20px 0px 20px;
+    padding: 40px 0px 0px 0px;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .app .content {
-    padding: 45px 30px 90px 30px;
+    padding: 40px 0px 90px 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .app .content {
-    padding: 45px 20px 75px 70px;
+    padding: 40px 0px 75px 0px;
   }
 }
 @media (max-width: 767px) {
   .app .content {
-    padding: 45px 10px 65px 10px;
+    padding: 40px 0px 65px 0px;
   }
 }
 @media (max-width: 991px) {
