@@ -73,7 +73,7 @@ gViz.vis.bar_chart.sort = function () {
 
                   t.selectAll('.bar-group').delay(delay).attr("transform", function (d) { return "translate(" + x0(d["discrete"]) + ",0)"; });
 
-                  t.select('.x.axis').call(d3.axisBottom(x0));
+                  t.select('.x.axis').call(d3.axisBottom(x0).tickSize(-_var.height).tickPadding(10));
                 };
 
                 break;
