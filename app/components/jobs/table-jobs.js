@@ -15,10 +15,13 @@ export default Ember.Component.extend({
   actions: {
     changeSorter(sortProp){
       var sortOrder;
-      if(this.get('sortBy')[0] === [`${sortProp}:asc`]){ sortOrder = 'desc'; }
-      else { sortOrder = 'asc'; }
+      if(this.get('sortBy')[0] === `${sortProp}:asc`){
+        sortOrder = 'desc';
+      }
+      else {
+        sortOrder = 'asc';
+      }
       this.set('sortBy',[`${sortProp}:${sortOrder}`]);
-      this.set('slicedModel', this.get('sortedModel').slice(0,5));
     },
   }
 });

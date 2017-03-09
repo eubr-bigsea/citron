@@ -4,9 +4,9 @@
     margin-left:14px;"></i></td>
 <td>{{format-date job.created}}</td>
 <td>
-  {{#if job.hasCompleted}}
+  {{#if job.finished}}
     {{format-date job.finished}}
   {{else}}
-    -
+    Cancelled
   {{/if}}
 </td>

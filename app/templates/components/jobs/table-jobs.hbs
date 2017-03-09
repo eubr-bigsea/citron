@@ -1,7 +1,7 @@
 <div class="card items">
   <table class="table table-striped">
     <thead>
-      {{jobs/table-header}}
+      {{jobs/table-header changeSorter=(action "changeSorter")}}
     </thead>
     <tbody>
       {{#each pagedContent as |job|}}
