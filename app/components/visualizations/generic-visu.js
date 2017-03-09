@@ -5,10 +5,9 @@ export default Ember.Component.extend({
     this._super(...arguments);
 
     this.set('url', [
-      'http://beta.ctweb.inweb.org.br/caipirinha/dashboard',
+      'http://beta.ctweb.inweb.org.br/caipirinha/visualizations',
       this.get('params.jobId'),
-      this.get('params.taskId'),
-      '.json'
+      this.get('params.taskId')
     ].join('/'));
 
     this.set('visu', "visualizations/" + this.get('params.visu'));

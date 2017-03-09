@@ -23,7 +23,7 @@ export default Ember.Component.extend({
 
     let results = Ember.A();
 
-    this.get('myResults').forEach((el) => {
+    this.get('job.results').forEach((el) => {
       let operation = this.get('operations').find(op => Number(op.id) === el.operation.id);
 
       results.addObject({
