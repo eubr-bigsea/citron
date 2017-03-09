@@ -16,7 +16,6 @@ export default Ember.Component.extend({
 
   // Draw Chart
   draw: function(data_index){
-    var dataURL, label, value;
 
     // Initialize variables
     let component = this;
@@ -32,29 +31,16 @@ export default Ember.Component.extend({
       return d;
     };
 
-    switch(data_index) {
-      case 0:
-        dataURL     = "../assets/data/pie-chart-example-1.csv";
-        label       = "region";
-        value       = "count";
-        break;
+    // Walter json
+    var label = "name";
+    var value = "value";
 
-      case 1:
-        dataURL     = "../assets/data/pie-chart-example-3.csv";
-        label       = "region";
-        value       = "count";
-        break;
-
-      default:
-        dataURL     = "../assets/data/pie-chart-example-2.csv";
-        label       = "name";
-        value       = "value";
-    }
-
-    d3.csv(dataURL, (err, data) => {
+    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
 
       if(err) { console.log(err); }
 
+      // Get data
+      var data = json.data;
       data.map(function(d) { parseData(d, label, value); });
 
       component._var = gViz.vis.pie_chart()
