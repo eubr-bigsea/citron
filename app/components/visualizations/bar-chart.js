@@ -31,23 +31,31 @@ export default Ember.Component.extend({
       return d;
     };
 
-    switch(data_index) {
-      case 0:
-        dataURL     = "../assets/data/letters.csv";
-        discrete    = "letter";
-        continuous  = "frequency";
-        break;
+    //switch(data_index) {
+    //  case 0:
+    //    dataURL     = "/assets/data/letters.csv";
+    //    discrete    = "letter";
+    //    continuous  = "frequency";
+    //    break;
 
-      default:
-        dataURL     = "../assets/data/sales.csv";
-        discrete    = "salesperson";
-        continuous  = "sales";
-    }
+    //  default:
+    //    dataURL     = "/assets/data/sales.csv";
+    //    discrete    = "salesperson";
+    //    continuous  = "sales";
+    //}
 
-    d3.csv(dataURL, (err, data) => {
+
+    // Walter json
+    dataURL = "http://beta.ctweb.inweb.org.br/caipirinha/visualizations/280/0aa52039-0534-4a0b-9d9f-f8629b3d0679?token=123456";
+    discrete = "name";
+    continuous = "value";
+
+    d3.json(dataURL, (err, json) => {
 
       if(err) { console.log(err); }
 
+      // Get data
+      var data = json.data;
       data.map(function(d) { parseData(d, discrete, continuous); });
 
       component._var = gViz.vis.bar_chart()

@@ -34,19 +34,47 @@ gViz.vis.bar_chart.draw = function () {
 
             case 'draw':
 
-              _var.bars = _var.g.selectAll('.bar').data(_var._data);
-              _var.bars.exit().remove();
-              _var.bars = _var.bars.enter().append('rect').attr("class", 'bar').merge(_var.bars);
+              // Create bar groups
+              var barsGroup = _var.g.selectAll('g.bar-group').data(_var._data);
+              barsGroup.exit().remove();
+              barsGroup = barsGroup.enter().append('g').attr("class", 'bar-group').merge(barsGroup);
+              barsGroup
+                .attr("transform", function(d) { return "translate(" + _var.xScale(d.discrete) + ",0)"; })
+                .each(function(g) {
 
-              _var.bars.attr("x", function (d) {
-                return _var.xScale(d["discrete"]);
-              }).attr("width", _var.xScale.bandwidth()).attr("y", function (d) {
-                return _var.yScale(d["continuous"]);
-              }).attr("height", function (d) {
-                return _var.height - _var.yScale(d["continuous"]);
-              }).style("fill", function (d, i) {
-                return _var.colors.scale(i);
-              });
+                  // Create bar rects
+                  var bars = d3.select(this).selectAll('rect.bar').data([g]);
+                  bars.exit().remove();
+                  bars = bars.enter().append('rect').attr("class", 'bar').merge(bars);
+                  bars
+                    .attr("x", 0)
+                    .attr("width", _var.xScale.bandwidth())
+                    .attr("y", function (d) { return _var.yScale(d.continuous); })
+                    .attr("height", function (d) { return _var.height - _var.yScale(d.continuous); })
+                    .style("fill", function (d) { return _var.colors.scale(d.discrete); });
+
+                  // Create bar labels
+                  var text = d3.select(this).selectAll('text.bar').data([g]);
+                  text.exit().remove();
+                  text = text.enter().append('text').attr("class", 'bar').merge(text);
+                  text
+                    .attr("x", _var.xScale.bandwidth()/2)
+                    .attr("y", function (d) { return _var.yScale(d.continuous) - 5; })
+                    .style("font-size", "10px")
+                    .style("font-weight", "bold")
+                    .style("fill", "#333")
+                    .style("text-anchor", "middle")
+                    .style("stroke", "none")
+                    .text(function(d) { return d.continuous; })
+
+                });
+
+              // Create bg-rect
+              var bgRect = _var.g.selectAll('rect.bg-rect').data(["bg-rect"]);
+              bgRect.exit().remove();
+              bgRect = bgRect.enter().insert('rect', ':first-child').attr("class", 'bg-rect').merge(bgRect);
+              bgRect.attr('x', 0).attr('y', 0 ).attr('width', _var.width).attr('height', _var.height )
+
 
               break;
           }

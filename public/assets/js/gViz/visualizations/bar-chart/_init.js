@@ -15,7 +15,7 @@ gViz.vis.bar_chart = function () {
   var container = undefined;
   var data = [];
   var height = undefined;
-  var margin = { top: 50, right: 50, bottom: 50, left: 50 };
+  var margin = { top: 50, right: 50, bottom: 20, left: 50 };
   var width = undefined;
 
   // Validate attributes
