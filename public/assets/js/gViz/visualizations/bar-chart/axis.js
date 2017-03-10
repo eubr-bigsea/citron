@@ -38,12 +38,12 @@ gViz.vis.bar_chart.axis = function () {
               _var.xAxis = _var.g.selectAll('.x.axis').data(["x-axis"]);
               _var.xAxis.exit().remove();
               _var.xAxis = _var.xAxis.enter().append('g').attr("class", 'x axis').merge(_var.xAxis);
-              _var.xAxis.attr("transform", "translate(0," + _var.height + ")").call(d3.axisBottom(_var.xScale));
+              _var.xAxis.attr("transform", "translate(0," + _var.height + ")").call(d3.axisBottom(_var.xScale).tickSize(-_var.height).tickPadding(10));
 
               _var.yAxis = _var.g.selectAll('.y.axis').data(["y-axis"]);
               _var.yAxis.exit().remove();
               _var.yAxis = _var.yAxis.enter().append('g').attr("class", 'y axis').merge(_var.yAxis);
-              _var.yAxis.call(d3.axisLeft(_var.yScale));
+              _var.yAxis.call(d3.axisLeft(_var.yScale).tickSize(-_var.width).tickPadding(10));
 
               break;
           }

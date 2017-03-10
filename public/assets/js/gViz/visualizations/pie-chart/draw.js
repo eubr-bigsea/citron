@@ -34,24 +34,32 @@ gViz.vis.pie_chart.draw = function () {
 
             case 'draw':
 
-              _var.path = _var.g.selectAll("." + _var._class + ".arc").data(_var.pie(_var._data));
-              _var.path.exit().remove();
-              _var.path = _var.path.enter().append("path").attr("class", _var._class + ' arc').merge(_var.path);
-
               // Precompute colours
               _var.colours_hash = {};
-
               _var._data.forEach(function(d) {
                 _var.colours_hash[d["label"]] = _var.colors.scale(d["value"]);
               });
 
-              _var.path
-								.attr("d", _var.arc)
-								.style("fill", function(d, i) { return _var.colours_hash[d["data"]["label"]]; })
+              // Create path
+              _var.path = _var.g.selectAll("." + _var._class + ".arc").data(_var.pie(_var._data));
+              _var.path.exit().remove();
+              _var.path = _var.path.enter().append("g").attr("class", _var._class + ' arc').merge(_var.path);
+
+              _var.path.append("path")
+                .attr("d", _var.arc)
+                .style("fill", function(d, i) { return _var.colours_hash[d["data"]["label"]]; })
                 .each(function(d) { this._current = d; })
-                .on("click", function(d) {
-                   console.log(d["data"]);
-                });
+                .on("click", function(d) { console.log(d["data"]); });
+
+              _var.path.append("text")
+                .attr("transform", function(d) { return "translate(" + _var.label_arc.centroid(d) + ")"; })
+                .attr("dy", ".30em")
+                .attr("text-anchor", "middle")
+                .style("font-size", "11px")
+                .style("font-weight", "bold")
+                .style("fill", "white")
+                .style("text-shadow", "1px 1px 0px #333")
+                .text(function(d) { return d["data"]["label"] + ": " + d["data"]["value"]; })
 
               break;
           }

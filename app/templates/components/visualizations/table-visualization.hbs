@@ -1,0 +1,46 @@
+<div class='gViz-wrapper gViz-table-wrapper' data-id={{_id}} style='{{myStyle}}'>
+  <div class="row gViz-title-fixed">
+    <div class="col-xs-6">
+      <div class="gViz-header">
+        <span class='title'>
+          <span class='{{titleSubClass}}'>{{title}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="input-group input-group-search">
+        <input type="text" class="form-control" data-action='search' onkeyup={{action 'updateSearch'}} placeholder="Search..." />
+        <span class="input-group-addon" {{action 'submitSearch'}}><i class='fa fa-search'></i></span>
+      </div>
+    </div>
+  </div>
+  <div class='gViz-table-wrapper-scroll' style='{{myTableStyle}}' >
+    <table class="table table-bordered table-hover gViz-table">
+      <thead>
+        <tr>
+          {{#each header as |h i|}}
+            <td {{action 'sortTable' i}} data-sort='{{i}}'><span>{{h}}</span><i class='fa fa-sort pull-right'></i></td>
+          {{/each}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each filteredData as |tr|}}
+          <tr>
+            {{#each tr as |td|}}
+              <td>{{td}}</td>
+            {{/each}}
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    {{#if isEmpty}}
+
+      <h5 class="no-data" style="padding-top: {{paddingTop}}px; text-align: center;">
+        NO DATA AVAILABLE
+      </h5>
+
+    {{/if}}
+
+  </div>
+</div>

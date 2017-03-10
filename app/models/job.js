@@ -12,4 +12,5 @@ export default DS.Model.extend({
   finished: attr('dates'),
   status: attr('status'),
   steps: attr(),
+  results: attr(),
 });

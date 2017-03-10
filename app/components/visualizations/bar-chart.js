@@ -15,8 +15,7 @@ export default Ember.Component.extend({
   _var: null,
 
   // Draw Chart
-  draw: function(data_index){
-    var dataURL, discrete, continuous;
+  draw: function(){
 
     // Initialize variables
     let component = this;
@@ -31,23 +30,17 @@ export default Ember.Component.extend({
       return d;
     };
 
-    switch(data_index) {
-      case 0:
-        dataURL     = "../assets/data/letters.csv";
-        discrete    = "letter";
-        continuous  = "frequency";
-        break;
+    // Walter json
+    // var dataURL = "http://beta.ctweb.inweb.org.br/caipirinha/visualizations/280/0aa52039-0534-4a0b-9d9f-f8629b3d0679?token=123456";
+    var discrete = "name";
+    var continuous = "value";
 
-      default:
-        dataURL     = "../assets/data/sales.csv";
-        discrete    = "salesperson";
-        continuous  = "sales";
-    }
-
-    d3.csv(dataURL, (err, data) => {
+    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
 
       if(err) { console.log(err); }
 
+      // Get data
+      var data = json.data;
       data.map(function(d) { parseData(d, discrete, continuous); });
 
       component._var = gViz.vis.bar_chart()

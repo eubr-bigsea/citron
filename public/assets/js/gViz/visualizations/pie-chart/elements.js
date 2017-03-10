@@ -33,13 +33,18 @@ gViz.vis.pie_chart.elements= function () {
 
           var radius = Math.min(_var.width, _var.height) / 2;
 
-					_var.arc = d3.arc()
-						.outerRadius(radius - 10)
-						.innerRadius(0);
+          _var.arc = d3.arc()
+            .outerRadius(radius - 10)
+            .innerRadius(0);
 
-					_var.pie = d3.pie()
-						.sort(null)
-						.value(function(d) { return d["value"]; });
+          _var.label_arc = d3.arc()
+            .outerRadius(radius - 40)
+            .innerRadius(radius - 90);
+
+          // Default is ascending order
+          _var.pie = d3.pie()
+            .sort(null)
+            .value(function(d) { return d["value"]; });
 
           break;
       }
