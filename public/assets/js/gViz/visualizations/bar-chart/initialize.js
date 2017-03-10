@@ -58,8 +58,6 @@ gViz.vis.bar_chart.initialize = function () {
           _var.height = (height != null ? height : _var.container.jq.outerHeight()) - (_var.margin.top + _var.margin.bottom);
           _var.width = (width != null ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);
 
-          $(".title").html("height: " + height + "; width: " + width + ";");
-
           // Set attribute _id to container
           _var.container.jq.attr('data-vis-id', _var._id);
 
