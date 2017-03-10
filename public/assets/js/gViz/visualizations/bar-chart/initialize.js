@@ -55,6 +55,8 @@ gViz.vis.bar_chart.initialize = function () {
           _var.margin = margin;
 
           // Define height and width
+          alert(height);
+          alert(width);
           _var.height = (height != null ? height : _var.container.jq.outerHeight()) - (_var.margin.top + _var.margin.bottom);
           _var.width = (width != null ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);
 
