@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   _var: null,
 
   // Draw Chart
-  draw: function(data_index){
+  draw: function(){
 
     // Initialize variables
     let component = this;
