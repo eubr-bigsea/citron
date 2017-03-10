@@ -5,9 +5,15 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-12">
-            <div class="title-block">
+            <div class="title-block" style='padding-bottom: 5px;'>
               <h3 class="title">Results from job {{model.jobId}}
                 <span class="sparkline bar" data-type="bar"></span>
+                {{#link-to 'job.results' model.jobId }}
+                    <small style='font-size: 12px; margin-top: 5px;width: 100%;' class='pull-right'>
+                      <i class="fa fa-arrow-left"></i>
+                      &nbsp; Back to results
+                    </small>
+                {{/link-to}}
               </h3>
             </div>
           </div>
