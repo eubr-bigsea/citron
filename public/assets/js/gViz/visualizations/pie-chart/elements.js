@@ -37,6 +37,11 @@ gViz.vis.pie_chart.elements= function () {
             .outerRadius(radius - 10)
             .innerRadius(0);
 
+          _var.label_arc = d3.arc()
+            .outerRadius(radius - 40)
+            .innerRadius(radius - 90);
+
+          // Default is ascending order
           _var.pie = d3.pie()
             .sort(null)
             .value(function(d) { return d["value"]; });

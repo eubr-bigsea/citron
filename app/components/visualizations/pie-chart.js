@@ -49,6 +49,13 @@ export default Ember.Component.extend({
         .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
         .data(data)
         .build();
+
+      component._var = gViz.vis.pie_chart()
+        ._var(component._var)
+        ._class("pie-chart")
+        .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
+        .data(data)
+        .build();
     });
 
   },
