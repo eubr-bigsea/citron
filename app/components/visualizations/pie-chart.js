@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   _var: null,
 
   // Draw Chart
-  draw: function(data_index){
+  draw: function(){
 
     // Initialize variables
     let component = this;
@@ -50,27 +50,11 @@ export default Ember.Component.extend({
         .data(data)
         .build();
 
-      component._var = gViz.vis.pie_chart()
-        ._var(component._var)
-        ._class("pie-chart")
-        .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-        .data(data)
-        .build();
     });
 
   },
 
   didInsertElement: function(){
-
-    let component = this;
-    var data_index = 0;
-
-    d3.selectAll(`.btn[data-id=${component.get('_id')}`)
-      .on("click", function() {
-        var data_index = this.value - 1;
-        component.draw(data_index);
-      });
-
-    this.draw(data_index);
+    this.draw();
   }
 });
