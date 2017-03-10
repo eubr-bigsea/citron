@@ -1,10 +1,18 @@
 <article class="content dashboard-page">
-  <div class="drawer container-fluid">
-    {{jobs/option-bar job=model.job}}
-    <div class="row">
-      {{jobs/job-container workflow=model.job.workflow jobId=model.job.id jobStatus=model.job.status steps=model.job.steps job=model.job operations=model.operations logTasks=logTasks}}
-    </div>
-  </div>
-  <div class="logger container">
-  </div>
+  <div id="wrapper" class="toggled">
+
+    <div id="page-content-wrapper" >
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 no-padding">
+            {{jobs/option-bar job=model.job stepsLogs=stepsLogs}}
+            {{jobs/job-container workflow=model.job.workflow stepsLogs=stepsLogs steps=model.job.steps job=model.job operations=model.operations }}
+          </div><!-- col -->
+        </div><!-- row -->
+      </div><!-- container -->
+    </div><!-- diagram-wraper -->
+    <div id="sidebar-wrapper" class="logger">
+      {{jobs/job-logger job=model.job stepsLogs=stepsLogs operations=model.operations class="sidebar-nav"}}
+    </div><!-- sidebar -->
+  </div><!-- wrapper -->
 </article>

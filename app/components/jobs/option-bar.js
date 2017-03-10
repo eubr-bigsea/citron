@@ -15,15 +15,20 @@ export default Ember.Component.extend({
     this.set('isRunning', (jobStatus === 'running'));
     this.set('hasFinished', (jobStatus === 'completed'));
     this.set('hasFailed', (jobStatus === 'canceled'));
+    this.set('hasFailed', (jobStatus === 'error'));
   },
   didUpdate(){
     var jobStatus = this.get('job.status');
     this.set('isRunning', (jobStatus === 'running'));
     this.set('hasFinished', (jobStatus === 'completed'));
     this.set('hasFailed', (jobStatus === 'canceled'));
+    this.set('hasFailed', (jobStatus === 'error'));
   },
 
   actions:{
+    showLog(){
+      Ember.$("#wrapper").toggleClass("toggled");
+    },
     stop(){
       let jobId = this.get('job.id');
       let workflowId = this.get('job.workflow.id');

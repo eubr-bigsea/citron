@@ -5,7 +5,7 @@
   border: 2px solid #888;
   padding: 0px 2px;
   width: 180px;
-  height: 60px;
+  height: 45px;
   position: absolute;
   background: #FFF;
   cursor: move;
@@ -17,6 +17,7 @@
   }
   p {
     border-bottom: 1px solid #888;
+    line-height: 20px;
     font-size: 9pt;
     font-weight: bold;
     margin-bottom: 0;
@@ -27,7 +28,8 @@
     display: block;
     padding: 0px 2px;
     overflow: hidden;
-    height: 28px;
+    height: 16px;
+    width: 170px;
     text-overflow: ellipsis;
     margin: 1px 0px 0px 0px;
   }
@@ -90,8 +92,67 @@
       }
     }
   }
+
+  &.canceled {
+    background-color: #FF6C39;
+    button { span{
+        @extend .fa-times;
+      }
+    }
+  }
+
+  &.completed {
+    background-color: #71BA51;
+    button { span {
+        @extend .fa-check;
+      }
+    }
+  }
+
+  &.error {
+    background-color: #E22211;
+    button { span {
+        @extend .fa-exclamation-triangle;
+      }
+    }
+  }
+
+  &.interrupted {
+    background-color: #FF9A43;
+    button {
+      span {
+        @extend .fa-exclamation
+      }
+    }
+  }
+
+  &.pending {
+    background-color: #FFBD4B;
+    button {
+      span {
+        @extend .fa-hourglass-half;
+      }
+    }
+  }
+
+  &.running {
+    background-color: #3D8EB9;
+    button { span {
+        @extend .fa-circle-o-notch;
+        @extend .fa-spin;
+      }
+    }
+  }
+
+  &.waiting {
+    background-color: #7F6B4B;
+    button { span {
+        @extend .fa-clock-o;
+      }
+    }
+  }
   &.comment {
-		background-color: #ffffa5;
+    background-color: #ffffa5;
     span {
       background-color: #ffffa5;
       height: 55px;
@@ -200,6 +261,71 @@
     color: #7F6B4B;
     span {
       @extend .fa-3x;
+      @extend .fa-clock-o;
+    }
+  }
+}
+
+.job-table-item {
+
+  h4 {
+    display: inline;
+    padding: 10px;
+  }
+
+  &.canceled {
+    color: #FF6C39;
+    span{
+      @extend .fa-2x;
+      @extend .fa-times;
+    }
+  }
+
+  &.completed {
+    color: #71BA51;
+    span {
+      @extend .fa-2x;
+      @extend .fa-check;
+    }
+  }
+
+  &.error {
+    color: #E22211;
+    span {
+      @extend .fa-2x;
+      @extend .fa-exclamation-triangle;
+    }
+  }
+
+  &.interrupted {
+    color: #FF9A43;
+    span {
+      @extend .fa-2x;
+      @extend .fa-exclamation;
+    }
+  }
+
+  &.pending {
+    color: #FFBD4B;
+    span {
+      @extend .fa-2x;
+      @extend .fa-hourglass-half;
+    }
+  }
+
+  &.running {
+    color: #3D8EB9;
+    span {
+      @extend .fa-2x;
+      @extend .fa-circle-o-notch;
+      @extend .fa-spin;
+    }
+  }
+
+  &.waiting {
+    color: #7F6B4B;
+    span {
+      @extend .fa-2x;
       @extend .fa-clock-o;
     }
   }

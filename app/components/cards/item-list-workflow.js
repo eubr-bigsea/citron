@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	  classNames:['item'],
+  classNames:['item'],
   tagName: 'tr',
 
   actions: {
@@ -10,5 +10,4 @@ export default Ember.Component.extend({
       if(confirm( confirmText)){ workflow.destroyRecord(); }
     },
   },
-
 });

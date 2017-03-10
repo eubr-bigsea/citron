@@ -340,6 +340,14 @@ span a {
       background-color: #CC2614;
     }
   }
+  &.logger-button {
+    background-color: #e6ac00;
+    border-color: #e6ac00;
+
+    &:hover {
+      background-color: #ffbf00;
+    }
+  }
 }
 
 .jqstooltip {
