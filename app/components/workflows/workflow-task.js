@@ -16,8 +16,10 @@ export default Ember.Component.extend({
     let opId = String(this.get("task").operation.id);
     let operations = this.get('operations');
 
-    this.set('operation', operations.find(el => String(el.id) === opId));
-
+    if(this.get('readOnly') ){
+      this.set('task.operation', operations.find(el => String(el.id) === opId));
+    }
+    this.set('operation', operations.find(el => String(el.id) === opId))
     this.get('jsplumb').bind('connection', (info, originalEvent) => {
       if(originalEvent === undefined) {
         return;

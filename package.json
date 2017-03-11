@@ -58,6 +58,8 @@
     "perfect-scrollbar": "^0.6.16"
   },
   "dependencies": {
-    "socket.io-client": "^1.7.3"
+    "ember-tether": "0.4.1",
+    "socket.io-client": "^1.7.3",
+    "tether": "^1.4.0"
   }
 }
