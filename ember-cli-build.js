@@ -10,6 +10,9 @@ module.exports = function(defaults) {
     'ember-font-awesome': {
       useScss: true,
       useLess: false
+    },
+    fingerprint: {
+      exclude: ['assets/images'],
     }
   });
 
