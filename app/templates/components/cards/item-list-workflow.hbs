@@ -1,19 +1,16 @@
-<td> {{#link-to 'workflow.draw' workflow.id class='workflow'}} {{workflow.id}} {{/link-to}}</td>
-<td>  {{#link-to 'workflow.draw' workflow.id}} <a>  {{workflow.name}} </a> {{/link-to}}</td>
+<td>{{#link-to 'workflow.draw' workflow.id}}{{workflow.id}}{{/link-to}}</td>
+<td>{{#link-to 'workflow.draw' workflow.id}}{{workflow.name}}{{/link-to}}</td>
 <td>
   <div class="row">
-    <div class="icon col-xs-3 col-sm-6 col-xl-3 text-center">
-      {{#link-to 'workflow.params' workflow.id }}<i class="fa fa-sliders fa-lg"></i>{{/link-to}}
+    <div class="icon col-xs-3">
+      {{#link-to 'workflow.edit' workflow.id}}{{fa-icon "cog" size="lg"}}{{/link-to}}
     </div>
-    <div class="icon col-xs-3 col-sm-6 col-xl-3">
-      {{#link-to 'workflow.edit' workflow.id }}<i class="fa fa-cog fa-lg"></i>{{/link-to}}
+    <div class="icon col-xs-3">
+      {{#link-to 'workflow.draw' workflow.id}}{{fa-icon "pencil" size="lg"}}{{/link-to}}
     </div>
-    <div class="icon col-xs-3 col-sm-6 col-xl-3">
-      {{#link-to 'workflow.draw' workflow.id }}<i class="fa fa-pencil fa-lg"></i>{{/link-to}}
-    </div>
-    <div class="icon col-xs-3 col-sm-6 col-xl-3">
-      <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" > <i class="fa fa-trash-o fa-lg"></i></a>
+    <div class="icon col-xs-3">
+      <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" >{{fa-icon "trash" size="lg"}}</a>
     </div>
   </div>
 </td>
-<td> {{format-date workflow.updated}}</td>
+<td>{{format-date workflow.updated}}</td>
