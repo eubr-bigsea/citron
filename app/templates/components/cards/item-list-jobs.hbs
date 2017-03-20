@@ -1,12 +1,4 @@
-<td>{{#link-to 'job.show' job.id class="job"}}{{job.id}}{{/link-to}}</td>
-<td>{{#link-to 'job.show' job.id class="job"}}{{job.workflow.name}}{{/link-to}}</td>
-<td><i class="fa fa-sliders fa-lg" style="font-size: 30px;color:red; margin-left:14px;"></i></td>
-<td>
-  {{#if job.hasCompleted}}
-    {{#link-to 'job.result' job.id}}
-      {{option-bar.exec-btn class='play' icon='eye'}}
-    {{/link-to}}
-  {{else}}
-    {{option-bar.exec-btn class='empty' icon='eye-slash'}}
-  {{/if}}
-</td>
+<td>{{#link-to 'job.show' job.id}}{{job.id}}{{/link-to}}</td>
+<td>{{#link-to 'job.show' job.id}}{{job.workflow.name}}{{/link-to}}</td>
+<td>{{fa-icon "sliders" size="lg"}}</td>
+<td></td>
