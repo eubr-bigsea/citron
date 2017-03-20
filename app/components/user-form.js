@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 
   actions: {
     save(){
-      this.transitionTo('home.workflows');
+      this.transitionTo('workflows');
     },
   }
 });

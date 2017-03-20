@@ -1,13 +1,22 @@
-{{main-sidebar workflowsActive='active'}}
-{{workflows/workflow-sidebar operations=model.groupedOperations}}
-<div class="drawer container-fluid">
-  {{workflows/option-bar workflow=model.workflow hasChanged=(action "hasChanged") alert=(action "alert")}}
-  {{workflows/workflow-draw workflow=model.workflow operations=model.operations hasChanged=(action "hasChanged")}}
+<div id="workflow-draw-wrapper" class="workflow draw toggled">
+  <div id="workflow sidebar-wrapper" class="operations-sidebar">
+    {{workflows/workflow-sidebar operations=model.groupedOperations}}
+  </div>
+  <div id="page-content-wrapper" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 no-padding">
+          {{workflows/option-bar workflow=model.workflow hasChanged=(action "hasChanged") alert=(action "alert")}}
+          {{workflows/workflow-draw workflow=model.workflow operations=model.operations hasChanged=(action "hasChanged")}}
+        </div><!-- class=col -->
+      </div><!-- class=row -->
+    </div> <!-- class=container-->
+  </div><!-- id=page-content-wrapper -->
   {{alert-box id="alert-box"
-    message=message
-    confirmedTransition=(action "confirmedTransition")
-    canceledTransition=(action "canceledTransition")
-    deleteWorkflow=(action "deleteWorkflow")
+  message=message
+  confirmedTransition=(action "confirmedTransition")
+  canceledTransition=(action "canceledTransition")
+  deleteWorkflow=(action "deleteWorkflow")
   }}
 </div>
-{{outlet}}
+{{outilet}}

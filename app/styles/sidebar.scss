@@ -214,7 +214,8 @@
 }
 
 .main-menu:hover,nav.main-menu.expanded {
-  width:250px;
+  width: 250px;
+  padding-right: 250px;
   overflow:visible;
 }
 
@@ -295,13 +296,6 @@ a:hover,a:focus {
   text-decoration:none;
 }
 
-nav {
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  -o-user-select:none;
-  user-select:none;
-}
 
 nav ul,nav li {
   outline:0;

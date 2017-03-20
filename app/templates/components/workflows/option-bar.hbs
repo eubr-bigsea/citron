@@ -1,5 +1,6 @@
 <section class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 name-editor">
-  {{option-bar/name-editor workflow=workflow }}
+  {{input value=workflow.name class="form-control underlined option-bar"}}
+  <a><i class="fa fa-pencil fa-lg " ></i></a>
 </section>
 <section class="col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xl-2 option-bar">
   {{option-bar/option-buttons workflow=workflow hasChanged=hasChanged alert=alert}}

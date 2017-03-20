@@ -1,0 +1,20 @@
+#main-content-wrapper {
+    width: 100%;
+    position: absolute;
+}
+
+#main-wrapper.toggled #main-content-wrapper {
+    position: absolute;
+    margin-right: -200px;
+}
+
+@media(min-width:768px) {
+   #main-content-wrapper {
+        position: relative;
+    }
+
+    #main-wrapper.toggled #main-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

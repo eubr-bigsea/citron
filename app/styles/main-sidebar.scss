@@ -1,0 +1,185 @@
+@import "theme-color.scss";
+
+#main-sidebar-wrapper {
+  margin: 0px;
+  z-index: 1000;
+  position: fixed;
+  left: 75px;
+  width: 75px;
+  height: 100%;
+  margin-left: -75px;
+  overflow-y: auto;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background: $color-light;
+
+  &::-webkit-scrollbar-track-piece  {
+    background-color: $color-base;
+  }
+  &::-webkit-scrollbar-thumb:vertical {
+    background-color: $color-lighter;
+  }
+
+  .logotype {
+    position: relative;
+    height: 75px;
+    padding: 17px;
+    background-color: $color-darker;
+
+    img {
+      width: 35px;
+      height: 35px;
+      position: relative;
+      margin-top: 5px;
+    }
+
+    span {
+      margin-left: -200px;
+      color: $color-text-light;
+      font-size: 1.4em;
+      position: relative;
+      top: 10px;
+      -webkit-text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.72);
+      -moz-text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+      text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .sidebar-nav {
+    position: relative;
+    width: 75px;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+
+    li {
+      position: relative;
+      display: block;
+      width: 200px;
+      height: 60px;
+
+      a {
+        position: relative;
+        display: table;
+        padding: 17px 25px 17px 25px;
+        width: 100%;
+        height: 100%;
+        font-size: 1.2em;
+        color: $color-text-light;
+        -webkit-text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.2);
+        -moz-text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.2);
+        text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.2);
+
+        i {
+          font-size: 1.4em;
+        }
+
+        span {
+          display: none;
+        }
+
+        &.active {
+          background: $color-dark;
+          color: $color-darker;
+        }
+      }
+    }
+  }
+}
+
+#main-wrapper.toggled #main-sidebar-wrapper {
+  margin: 0px;
+  z-index: 1000;
+  position: fixed;
+  left: 200px;
+  width: 200px;
+  height: 100%;
+  margin-left: -200px;
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background: $color-light;
+
+  &::-webkit-scrollbar-track-piece  {
+    background-color: $color-base;
+  }
+  &::-webkit-scrollbar-thumb:vertical {
+    background-color: $color-lighter;
+  }
+
+  .logotype {
+    position: relative;
+    height: 75px;
+    padding: 17px;
+    background-color: $color-darker;
+
+    img {
+      width: 35px;
+      height: 35px;
+      position: relative;
+      margin-top: 5px;
+    }
+
+    span {
+      -webkit-transition: all 0.5s ease;
+      margin: 0px;
+      color: $color-text-light;
+      font-size: 1.4em;
+      position: relative;
+      top: 10px;
+      -webkit-text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.72);
+      -moz-text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+      text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .sidebar-nav {
+    position: relative;
+    width: 200px;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+
+    li {
+      position: relative;
+      display: block;
+      width: 200px;
+      height: 60px;
+
+      a {
+        position: relative;
+        display: table;
+        padding: 17px 25px 17px 25px;
+        width: 100%;
+        height: 100%;
+        font-size: 1.2em;
+        color: $color-text-light;
+        -webkit-text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.2);
+        -moz-text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.2);
+        text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.2);
+
+        i {
+          font-size: 1.4em;
+          margin-right: 10px;
+        }
+        span {
+          display: inline;
+        }
+
+        &.active {
+          background: $color-dark;
+          color: $color-darker;
+        }
+      }
+    }
+  }
+}
+
+
+
+

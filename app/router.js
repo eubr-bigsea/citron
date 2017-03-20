@@ -31,7 +31,6 @@ Router.map(function() {
     this.route('edit');
   });
   this.route('home', function() {
-    this.route('workflows');
     this.route('datasources');
     this.route('configurations');
     this.route('jobs');
@@ -51,6 +50,8 @@ Router.map(function() {
     this.route('search-tool');
     this.route('sentiment-analysis');
   });
+  this.route('workflows');
+  this.route('jobs');
 });
 
 export default Router;

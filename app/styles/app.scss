@@ -27,10 +27,11 @@
 @import "header.scss";
 @import "images.scss";
 @import "item.scss";
+@import 'logger-sidebar.scss';
 @import "misc.scss";
 @import "nav.scss";
 @import "option-bar.scss";
-@import "sidebar.scss";
+/*@import "sidebar.scss";*/
 @import "engage.scss";
 @import "engage-btn.scss";
 @import "engage-nav-bar.scss";
@@ -72,7 +73,10 @@
 
 // Gfranciscani Styles
 
-@import 'log-sidebar.scss';
+@import 'main-sidebar.scss';
+@import 'main-wrapper.scss';
+@import 'main-content-wrapper.scss';
+
 
 html,
 body {
