@@ -1,7 +1,24 @@
 <header class="header">
   <div class="header-block header-block-nav">
     <ul class="nav-profile">
-      {{profile-dropdown}}
+      <li class="profile dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" >
+          <div class="img" style="background-image: url('/assets/images/tux.jpeg')"></div>
+          <span class="name">{{currentUser.firstname}} {{currentUser.lastname}}</span>
+        </a>
+        <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
+          <div class="dropdown-divider"></div>
+          {{#link-to 'user' currentUser.id class="dropdown-item" href="#"}}
+            <i class="fa fa-user icon"></i> Profile
+          {{/link-to}}
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" {{action 'invalidateSession'}}>
+            <i class="fa fa-power-off icon"></i>
+            Logout
+          </a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
     </ul>
   </div>
 </header>
