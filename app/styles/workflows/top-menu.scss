@@ -1,0 +1,29 @@
+@import "../theme-color.scss";
+
+.top-menu {
+  margin: 40px 0px 5px 0px;
+
+  .buttons-menu {
+    display: inline;
+    padding-top: 5px;
+
+    .create-new {
+      display: inline-block;
+      background: $color-base;
+      color: $color-text-light;
+      border: solid $color-base;
+      border-radius: 5px;
+    }
+
+    .dropdown {
+      display: inline-block;
+
+      .dropdown-toggle {
+        background: $color-lighter;
+        color: $color-text-light;
+        border: solid $color-lighter;
+        border-radius: 5px;
+      }
+    }
+  }
+}

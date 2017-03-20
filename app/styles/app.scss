@@ -40,6 +40,7 @@
 @import "engage-team.scss";
 @import "engage-footer.scss";
 @import "theme-color.scss";
+@import "dimensions.scss";
 @import "green.scss";
 /*@import "table.scss";*/
 
@@ -72,10 +73,14 @@
 
 // Gfranciscani Styles
 
+//Global
 @import 'main-sidebar.scss';
 @import 'main-wrapper.scss';
 @import 'main-content-wrapper.scss';
+@import 'page-content-wrapper.scss';
 
+//Workflows
+@import 'workflows/top-menu.scss';
 
 html,
 body {

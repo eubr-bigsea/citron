@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   store: Ember.inject.service('store'),
+  classNames: ['top-menu', 'container-fluid'],
+
   actions: {
     deleteWorkflows(){
       var confirmText = 'Delete checked workflows?';

@@ -1,20 +1,12 @@
+@import 'dimensions.scss';
+
 #main-content-wrapper {
-    width: 100%;
-    position: absolute;
+    position: relative;
+    margin-left: $main-sidebar;
 }
 
 #main-wrapper.toggled #main-content-wrapper {
-    position: absolute;
-    margin-right: -200px;
+    position: relative;
+    margin-left: 0px;
 }
 
-@media(min-width:768px) {
-   #main-content-wrapper {
-        position: relative;
-    }
-
-    #main-wrapper.toggled #main-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
-}

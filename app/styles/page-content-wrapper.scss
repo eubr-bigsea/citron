@@ -1,0 +1,8 @@
+@import 'theme-color.scss';
+@import 'dimensions.scss';
+
+#page-content-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: $app-header;
+}
