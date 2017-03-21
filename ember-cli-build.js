@@ -28,15 +28,15 @@ module.exports = function(defaults) {
   app.import('vendor/select2/select2.css');
 
   // Visualizations Required Libraries
-  app.import('vendor/gViz/libs/js/bootstrap-slider.js');
-  app.import('vendor/gViz/libs/css/bootstrap-slider.css');
+  app.import('vendor/gViz/libs/bootstrap-slider/bootstrap-slider.js');
+  app.import('vendor/gViz/libs/bootstrap-slider/bootstrap-slider.css');
 
-  app.import('vendor/gViz/libs/js/tooltipster.bundle.min.js');
-  app.import('vendor/gViz/libs/css/tooltipster.bundle.min.css');
+  app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.js');
+  app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.css');
 
-  app.import('vendor/gViz/libs/js/d3.v4.min.js');
-  app.import('vendor/gViz/libs/js/d3.position.js');
-  app.import('vendor/gViz/libs/js/latinise_compact.js');
+  app.import('vendor/gViz/libs/d3.v4/d3.v4.min.js');
+  app.import('vendor/gViz/libs/d3.position/d3.position.js');
+  app.import('vendor/gViz/libs/latinise/latinise_compact.js');
 
   return app.toTree();
 };
