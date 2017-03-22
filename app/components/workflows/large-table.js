@@ -22,6 +22,10 @@ export default Ember.Component.extend({
   totalPages: "pagedContent.totalPages",
 
   didInsertElement(){
+     if(Ember.$("[rel=tooltip]").is(':focus')){
+      Ember.$("[rel=tooltip]").tooltip({ placement: 'right'});
+    }
+
 
     Ember.$('#submit').click(() =>{
       this.triggerAction({
@@ -39,6 +43,11 @@ export default Ember.Component.extend({
   },
 
   actions: {
+     deleteWorkflow(workflow){
+      var confirmText = `Delete workflow ${workflow.get('name')} ?`;
+      if(confirm( confirmText)){ workflow.destroyRecord(); }
+    },
+
     changeSorter(sortProp){
       var sortOrder;
       var sortAtual = [sortProp + ":asc"];
@@ -55,9 +64,9 @@ export default Ember.Component.extend({
     },
     checked(){
       if(Ember.$('#select-all-items').is(':checked')){
-        Ember.$('.checkbox').prop("checked", false);
+        Ember.$('.input-checkbox').prop("checked", false);
       } else {
-        Ember.$('.checkbox').prop("checked", true);
+        Ember.$('.input-checkbox').prop("checked", true);
       }
     }
   }

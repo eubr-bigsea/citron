@@ -66,11 +66,11 @@
       display: inline-block;
       margin-right: 9px;
       font-weight: bold;
-      color: $color-text-light;
+      color: $color-text-lighter;
     }
 
     a {
-      color: $color-text-light;
+      color: $color-text-lighter;
     }
   }
 
@@ -108,10 +108,10 @@
 
     .dropdown-item:hover {
       background-color: $color-base;
-      color: $color-text-light;
+      color: $color-text-lighter;
 
       i{
-        color: $color-text-light;
+        color: $color-text-lighter;
       }
     }
 

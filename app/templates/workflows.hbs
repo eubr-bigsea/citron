@@ -1,15 +1,11 @@
 <div id="main-wrapper" class="main wrapper">
-    {{main-sidebar }}
+  {{main-sidebar }}
   <div id="main-content-wrapper" class="main content wrapper">
     {{app-header}}
     <div id="page-content-wrapper" class="container-fluid page content wrapper">
-    {{workflows/top-menu}}
-    <div class="card items">
-      <ul class="item-list striped">
-        {{table-workflow workflows=model}}
-      </ul>
-    </div>
-    {{outlet}}
+      {{workflows/top-menu}}
+      {{workflows/large-table workflows=model}}
+      {{outlet}}
     </div>
   </div><!--main-content-wrapper-->
 </div><!--main-wrapper-->

@@ -1,20 +1,5 @@
 @import "theme-color.scss";
 
-a {
-  color: $main-theme-green;
-
-  &.titulo {
-    color: #3a4651;
-
-    &:hover {
-      color: #526b84;
-    }
-  }
-
-  &:hover {
-    color: #526b84;
-  }
-}
 
 .section-title::before, .small-title::before {
   border-color: $main-theme-green;

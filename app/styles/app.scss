@@ -22,12 +22,12 @@
 /*@import "errors.scss";*/
 @import "filter.scss";
 @import "footer.scss";
-@import "form.scss";
+/*@import "form.scss";*/
 @import "header.scss";
 @import "images.scss";
-@import "item.scss";
+/*@import "item.scss";*/
 @import 'logger-sidebar.scss';
-@import "misc.scss";
+/*@import "misc.scss";*/
 @import "nav.scss";
 @import "option-bar.scss";
 /*@import "sidebar.scss";*/
@@ -78,9 +78,12 @@
 @import 'main-wrapper.scss';
 @import 'main-content-wrapper.scss';
 @import 'page-content-wrapper.scss';
+@import 'table-paginate.scss';
 
 //Workflows
 @import 'workflows/top-menu.scss';
+@import 'workflows/large-table.scss';
+
 
 html,
 body {
@@ -89,7 +92,6 @@ body {
   height: 100%;
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
-  color: #4f5f6f;
   overflow-x: hidden;
 }
 

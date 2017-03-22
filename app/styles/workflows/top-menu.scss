@@ -10,7 +10,7 @@
     .create-new {
       display: inline-block;
       background: $color-base;
-      color: $color-text-light;
+      color: $color-text-lighter;
       border: solid $color-base;
       border-radius: 5px;
     }
@@ -20,7 +20,7 @@
 
       .dropdown-toggle {
         background: $color-lighter;
-        color: $color-text-light;
+        color: $color-text-lighter;
         border: solid $color-lighter;
         border-radius: 5px;
       }

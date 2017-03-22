@@ -4,6 +4,8 @@ import PageItems from 'ember-cli-pagination/lib/page-items';
 import Validate from 'ember-cli-pagination/validate';
 
 export default Ember.Component.extend({
+  classNames: ['table-paginate'],
+
   currentPage: Ember.computed.alias("content.page"),
   totalPages: Ember.computed.alias("content.totalPages"),
 

@@ -3,48 +3,7 @@
   min-height: 400px;
   margin-top: 74px;
 }
-body {
-  font-family: 'Open Sans', sans-serif;
-  background: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-font-smoothing: subpixel-antialiased;
-  color: #666;
-  line-height: 25px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
 
-h1, h2, h3, h4 {
-  font-family: 'Muli', sans-serif;
-  font-weight: 400;
-}
-
-p {
-  font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-}
-
-a {
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-
-  &:hover {
-    color: #a22f30;
-    text-decoration: none;
-  }
-
-  &:focus {
-    outline: none;
-    text-decoration: none;
-  }
-}
 
 .section-title {
   text-align: center;
