@@ -14,29 +14,17 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](http://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
 
-```
-# npm install -g bower
-# npm install -g ember-cli
-$ npm install phantomjs-prebuilt
-```
-
 ## Installation
 
-```
-$ git clone https://github.com/eubr-bigsea/ember-citron.git
-$ cd ember-citron
-$ npm install
-$ bower install
-```
+* git clone https://github.com/eubr-bigsea/ember-citron.git
+* `cd lemonade-ember`
+* `npm install`
+* `bower install`
 
 ## Running / Development
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-
-If an error such as `Error: Unknown system error -121: Unknown system error
--121, chown '$HOME/.config/configstore/ember-cli.json.2476383093'` is thrown,
-set the npm configstore directory using the variable `XDG_CONFIG_HOME`.
 
 ### Running with docker
 ```
@@ -82,4 +70,3 @@ EOF
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-

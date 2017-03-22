@@ -116,8 +116,7 @@ export default Ember.Component.extend({
     var splitted = fixedQuery.split(" ");
 
     for(i = 0; i < splitted.length; i++) {
-      if(splitted[i] == null){}
-      else if(splitted[i] === "AND"){  json.condition = 'AND';  }
+      if(splitted[i] === "AND"){ json.condition = 'AND'; }
       else if(splitted[i] === "OR"){ json.condition = 'OR';  }
       else if(splitted[i] === "("){
         tail = splitted.slice(i+1).join(" ");

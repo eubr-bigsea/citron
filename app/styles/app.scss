@@ -2,7 +2,6 @@
 @import "font-awesome";
 @import "perfect-scrollbar";
 
-
 /*@import "alert.scss";*/
 @import "auth.scss";
 @import "btn.scss";
@@ -230,19 +229,19 @@ body {
 }
 
 #lemonade, .lemonade {
-    position: relative;
-    margin-top: 0px;
-    z-index: 0;
-    min-height: calc(690px * (90/150));
-    height: 5000px;
-    width: 5000px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;     /* Chrome/Safari/Opera */
-    -khtml-user-select: none;        /* Konqueror */
-    -moz-user-select: none;            /* Firefox */
-    -ms-user-select: none;             /* Internet Explorer/Edge */
-    user-select: none;
-  }
+  position: relative;
+  margin-top: 0px;
+  z-index: 0;
+  min-height: calc(690px * (90/150));
+  height: 5000px;
+  width: 5000px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;
+}
 
 #forms {
   left: calc(100% - 400px);
@@ -261,7 +260,9 @@ body {
 
 @media (max-width: 991px) {
   #forms {
-margin-top: 140px;} }
+    margin-top: 140px;
+  }
+}
 
 #forms fieldset {
   zoom: 75%;
