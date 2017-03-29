@@ -1,27 +1,25 @@
-<div id="main-sidebar-wrapper" class="main sidebar wrapper" onmouseover={{action 'show'}} onmouseout={{action 'hide'}}>
-  <div class="logotype" id="lemonade-logo">
-    <img class="logo" src="/assets/images/minilogo.png" />
-    <span>Lemonade</span>
-  </div>
-  <ul class='sidebar-nav' id='main-sidebar'>
-    <li></li>
-    <li class={{indexActive}}>
-      {{#link-to 'home'}}
-        <i class="fa fa-home" ></i>
-        <span>Home</span>
-      {{/link-to}}
-    </li>
-    <li class={{workflowsActive}}>
-      {{#link-to 'workflows' }}
-        <i class="fa fa-flask"></i>
-        <span>Workflows</span>
-      {{/link-to}}
-    </li>
-    <li class={{jobsActive}}>
-      {{#link-to 'jobs' }}
-        <i class="fa fa-tasks" ></i>
-        <span>Jobs</span>
-      {{/link-to}}
-    </li>
-  </ul>
+<div class="logotype" id="lemonade-logo">
+  <img class="logo" src="/assets/images/minilogo.png" />
+  <span>Lemonade</span>
 </div>
+<ul class='sidebar-nav' id='main-sidebar'>
+  <li></li>
+  <li>
+    {{#link-to 'home' class=activeHome}}
+      <i class="fa fa-home" ></i>
+      <span>Home</span>
+    {{/link-to}}
+  </li>
+  <li>
+    {{#link-to 'workflows' class=activeWorkflows}}
+      <i class="fa fa-flask"></i>
+      <span>Workflows</span>
+    {{/link-to}}
+  </li>
+  <li>
+    {{#link-to 'jobs' class=activeJobs}}
+      <i class="fa fa-tasks" ></i>
+      <span>Jobs</span>
+    {{/link-to}}
+  </li>
+</ul>

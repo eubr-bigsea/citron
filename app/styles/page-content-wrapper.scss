@@ -2,7 +2,15 @@
 @import 'dimensions.scss';
 
 #page-content-wrapper {
-  position: relative;
   width: 100%;
-  padding-top: $app-header;
+  height: -webkit-calc(100% - #{$app-header});
+  height: -moz-calc(100% - #{$app-header});
+  height: calc(100% - #{$app-header});
+  z-index: 300;
+  overflow: auto;
+
+
+}
+
+#page-content-wrapper.toggled {
 }

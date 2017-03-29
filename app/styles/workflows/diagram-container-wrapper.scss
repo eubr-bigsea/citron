@@ -1,0 +1,22 @@
+@import '../theme-color.scss';
+@import '../dimensions.scss';
+
+#diagram-container-wrapper {
+  margin-left: $size-operations-sidebar;
+  width: 100%;
+  width: -webkit-calc(100% - #{$size-operations-sidebar});
+  width: -moz-calc(100% - #{$size-operations-sidebar});
+  width: calc(100% - #{$size-operations-sidebar});
+  height: 100%;
+  overflow-y: overlay;
+  overflow-x: overlay;
+
+}
+
+#page-content-wrapper.toggled #diagram-container-wrapper {
+  margin-left: $size-operations-sidebar-toggled;
+  width: -webkit-calc(100% - #{$size-operations-sidebar-toggled});
+  width: -moz-calc(100% - #{$size-operations-sidebar-toggled});
+  width: calc(100% - #{$size-operations-sidebar-toggled});
+}
+

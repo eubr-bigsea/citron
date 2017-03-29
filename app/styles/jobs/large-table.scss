@@ -1,0 +1,139 @@
+@import '../theme-color.scss';
+
+#large-table-jobs {
+  margin: 5px 0 0 0;
+
+  .table-hover {
+    tbody tr:hover {
+      background-color: rgba($color-lighter, 0.5);
+    }
+  }
+
+  .table-header {
+
+    .arrow-sorter {
+      margin-left: 5px;
+      display: inline;
+      color: $color-base;
+    }
+
+    .id {
+      text-align: center;
+    }
+
+    .date {
+      text-align: right;
+      width: 200px;
+      vertical-align: middle;
+    }
+  }
+
+  .table-item {
+
+    .id {
+      text-align: center;
+      vertical-align: middle;
+
+      a {
+        text-decoration: none;
+        color: $color-text-dark;
+        &:hover {
+          color: $color-light;
+        }
+      }
+    }
+
+    .name {
+      vertical-align: middle;
+      a {
+        text-decoration: none;
+        color: $color-text-dark;
+        &:hover {
+          color: $color-light;
+        }
+      }
+    }
+
+    .date {
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .status {
+
+      a {
+
+        text-decoration: none;
+        display: flex;
+
+        h4 {
+          margin: 3px 10px 3px 10px;
+        }
+
+        &.canceled {
+          color: $color-canceled;
+          .status-icon {
+            @extend .fa;
+            @extend .fa-2x;
+            @extend .fa-times;
+          }
+        }
+
+        &.completed {
+          color: $color-completed;
+          .status-icon {
+            @extend .fa;
+            @extend .fa-2x;
+            @extend .fa-check;
+          }
+        }
+
+        &.error {
+          color: $color-error;
+          .status-icon {
+            @extend .fa;
+            @extend .fa-2x;
+            @extend .fa-exclamation-triangle;
+          }
+        }
+
+        &.interrupted {
+          color: $color-interrupted;
+          .status-icon {
+            @extend .fa;
+            @extend .fa-2x;
+            @extend .fa-exclamation;
+          }
+        }
+
+        &.pending {
+          color: $color-pending;
+          .status-icon {
+            @extend .fa;
+            @extend .fa-2x;
+            @extend .fa-hourglass-half;
+          }
+        }
+
+        &.running {
+          color: $color-running;
+          .status-icon {
+            @extend .fa;
+            @extend .fa-2x;
+            @extend .fa-circle-o-notch;
+            @extend .fa-spin;
+          }
+        }
+
+        &.waiting {
+          color: $color-waiting;
+          .status-icon {
+            @extend .fa;
+            @extend .fa-2x;
+            @extend .fa-clock-o;
+          }
+        }
+      }
+    }
+  }
+}

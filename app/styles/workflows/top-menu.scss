@@ -1,7 +1,8 @@
 @import "../theme-color.scss";
 
 .top-menu {
-  margin: 40px 0px 5px 0px;
+  overflow: auto;
+  margin: 35px 0 0 0;
 
   .buttons-menu {
     display: inline;

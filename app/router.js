@@ -52,6 +52,7 @@ Router.map(function() {
   });
   this.route('workflows');
   this.route('jobs');
+  this.route('teste');
 });
 
 export default Router;

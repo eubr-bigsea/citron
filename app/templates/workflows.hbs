@@ -1,12 +1,12 @@
 <div id="main-wrapper" class="main wrapper">
-  {{main-sidebar }}
+  {{main-sidebar id="main-sidebar-wrapper" class="main sidebar wrapper" }}
   <div id="main-content-wrapper" class="main content wrapper">
-    {{app-header}}
+    {{app-header tagName="header" class="header"}}
     <div id="page-content-wrapper" class="container-fluid page content wrapper">
-      {{workflows/top-menu}}
-      {{workflows/large-table workflows=model}}
+      {{workflows/top-menu class="top-menu container-fluid"}}
+      {{workflows/large-table id="large-table-workflows" class="container-fluid" workflows=model}}
       {{outlet}}
-    </div>
+    </div><!-- page-content-wrapper -->
   </div><!--main-content-wrapper-->
 </div><!--main-wrapper-->
 

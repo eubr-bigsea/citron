@@ -1,8 +1,10 @@
 <div id="main-wrapper" class="main wrapper">
-    {{main-sidebar }}
+  {{main-sidebar id="main-sidebar-wrapper" class="main sidebar wrapper" activeWorkflows="active"}}
   <div id="main-content-wrapper" class="main content wrapper">
-    {{app-header}}
-    {{outlet}}
-      </div><!--main-content-wrapper-->
+    {{app-header tagName="header" class="header"}}
+    <div id="page-content-wrapper" class="page content wrapper toggled">
+      {{outlet}}
+    </div><!-- page-content-wrapper -->
+  </div><!--main-content-wrapper-->
 </div><!--main-wrapper-->
 

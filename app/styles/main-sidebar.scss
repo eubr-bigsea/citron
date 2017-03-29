@@ -2,18 +2,10 @@
 @import "dimensions.scss";
 
 #main-sidebar-wrapper {
-  margin: 0px;
-  z-index: 1000;
-  position: fixed;
-  left: $main-sidebar;
   width: $main-sidebar;
   height: 100%;
-  margin-left: -$main-sidebar;
-  overflow-y: auto;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  float: left;
+  z-index: 1000;
   background: $color-light;
 
   &::-webkit-scrollbar-track-piece  {
@@ -56,14 +48,14 @@
     li {
       position: relative;
       display: block;
-      width: $main-sidebar-toggled;
+      width: $main-sidebar;
       height: 60px;
 
       a {
         text-decoration: none;
         position: relative;
         display: table;
-        padding: 17px 25px 17px 25px;
+        padding: 17px 23px 17px 23px;
         width: 100%;
         height: 100%;
         font-size: 1.2em;
@@ -84,26 +76,17 @@
           background: $color-dark;
           color: $color-darker;
         }
+        &:hover {
+          background: $color-lighter;
+        }
       }
     }
   }
 }
 
 #main-wrapper.toggled #main-sidebar-wrapper {
-  margin: 0px;
-  z-index: 1000;
-  position: fixed;
-  left: $main-sidebar-toggled;
   width: $main-sidebar-toggled;
-  height: 100%;
-  margin-left: -$main-sidebar-toggled;
-  overflow-y: auto;
-  background: #000;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  background: $color-light;
+
 
   &::-webkit-scrollbar-track-piece  {
     background-color: $color-base;
@@ -126,7 +109,6 @@
     }
 
     span {
-      -webkit-transition: all 0.5s ease;
       margin: 0px;
       color: $color-text-lighter;
       font-size: 1.4em;

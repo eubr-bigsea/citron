@@ -1,0 +1,36 @@
+<div class="operations-list" id="operations-list">
+<ul class="metismenu" id="categories-list">
+  {{#each-in operations as |category operations|}}
+    <li>
+      <a href="#">
+        <i class="fa fa-th-large"></i>
+        <span>{{category}}</span>
+      </a>
+      <ul>
+        {{#each operations as |operation|}}
+          {{operation-element operation=operation}}
+        {{/each}}
+      </ul>
+    </li>
+  {{/each-in}}
+</ul>
+</div>
+<div class="btn btn-primary" id= "open-operations-list" onclick={{action "toggleSidebar"}}>
+  <i href="#" id="open-menu" class="fa fa-angle-left arrow"></i>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,185 +1,192 @@
 @import '../theme-color.scss';
 
+#large-table-workflows {
+  margin: 5px 0 0 0;
 
-.table-hover {
-  tbody tr:hover {
-    background-color: rgba($color-lighter, 0.5);
-  }
-}
-
-.table-header {
-
-  .arrow-sorter {
-    margin-left: 5px;
-    display: inline;
-    color: $color-base;
-  }
-
-  .checkbox {
-    width: 60px;
-    height: 60px;
-    padding: 12px;
-    text-align: center;
-
-    .input-checkbox {
-      display: none;
-    }
-
-    .label-checkbox {
-      width: 20px;
-      height: 20px;
-      margin-bottom: 0px;
-    }
-
-    .input-checkbox + span:before {
-      font-family: FontAwesome;
-      font-size: 1.4em;
-      color: $color-lighter;
-    }
-
-    .input-checkbox:checked + span:before {
-      color: $color-dark;
-    }
-
-    .input-checkbox {
-
-      &:checked {
-
-        + span:before {
-          content: "\f14a";
-        }
-      }
-
-      + span:before {
-        content: "\f0c8";
-      }
+  .table-hover {
+    tbody tr:hover {
+      background-color: rgba($color-lighter, 0.5);
     }
   }
 
-  .logo {
-    width: 80px;
-    text-align: center;
-  }
+  .table-header {
 
-  .id {
-    text-align: center;
-  }
-
-  .options {
-    width: 150px;
-    text-align: center;
-  }
-
-  .author {
-    padding-left: 25px;
-  }
-
-  .date {
-    text-align: right;
-    width: 200px;
-  }
-}
-
-.table-item {
-
-  .checkbox {
-    width: 60px;
-    height: 60px;
-    padding: 12px;
-    text-align: center;
-    vertical-align: middle;
-
-    .input-checkbox {
-      display: none;
+    .arrow-sorter {
+      margin-left: 5px;
+      display: inline;
+      color: $color-base;
     }
 
-    .label-checkbox {
-      width: 20px;
-      height: 20px;
-      margin-bottom: 0px;
-    }
-
-    .input-checkbox + span:before {
-      font-family: FontAwesome;
-      font-size: 1.4em;
-      color: $color-lighter;
-    }
-
-    .input-checkbox:checked + span:before {
-      color: $color-dark;
-    }
-
-    .input-checkbox {
-
-      &:checked {
-
-        + span:before {
-          content: "\f14a";
-        }
-      }
-
-      + span:before {
-        content: "\f0c8";
-      }
-    }
-  }
-
-  .logo {
-
-    .image {
+    .checkbox {
       width: 60px;
       height: 60px;
-      box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.1);
-    }
-  }
+      padding: 12px;
+      text-align: center;
 
-  .id {
-    text-align: center;
-    vertical-align: middle;
+      .input-checkbox {
+        display: none;
+      }
 
-    a {
-      text-decoration: none;
-      color: $color-text-dark;
-      &:hover {
-        color: $color-light;
+      .label-checkbox {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 0px;
+      }
+
+      .input-checkbox + span:before {
+        font-family: FontAwesome;
+        font-size: 1.4em;
+        color: $color-lighter;
+      }
+
+      .input-checkbox:checked + span:before {
+        color: $color-dark;
+      }
+
+      .input-checkbox {
+
+        &:checked {
+
+          + span:before {
+            content: "\f14a";
+          }
+        }
+
+        + span:before {
+          content: "\f0c8";
+        }
       }
     }
-  }
 
-  .name {
-    vertical-align: middle;
-    a {
-      text-decoration: none;
-      color: $color-text-dark;
-      &:hover {
-        color: $color-light;
-      }
+    .logo {
+      width: 80px;
+      text-align: center;
+    }
+
+    .id {
+      text-align: center;
+    }
+
+    .options {
+      width: 150px;
+      text-align: center;
+    }
+
+    .author {
+      padding-left: 25px;
+      vertical-align: middle;
+    }
+
+    .date {
+      text-align: right;
+      width: 200px;
+      vertical-align: middle;
     }
   }
 
-  .options {
-    text-align: center;
-    vertical-align: middle;
+  .table-item {
 
-    a {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      margin: 0px 8px 0px 8px;
-      text-decoration: none;
-      color: $color-text-dark;
+    .checkbox {
+      width: 60px;
+      height: 60px;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
 
-      &:hover {
-        color: $color-light;
+      .input-checkbox {
+        display: none;
+      }
+
+      .label-checkbox {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 0px;
+      }
+
+      .input-checkbox + span:before {
+        font-family: FontAwesome;
+        font-size: 1.4em;
+        color: $color-lighter;
+      }
+
+      .input-checkbox:checked + span:before {
+        color: $color-dark;
+      }
+
+      .input-checkbox {
+
+        &:checked {
+
+          + span:before {
+            content: "\f14a";
+          }
+        }
+
+        + span:before {
+          content: "\f0c8";
+        }
       }
     }
-  }
 
-  .author {
-    padding-left: 25px;
-  }
+    .logo {
 
-  .date {
-    text-align: right;
+      .image {
+        width: 60px;
+        height: 60px;
+        box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .id {
+      text-align: center;
+      vertical-align: middle;
+
+      a {
+        text-decoration: none;
+        color: $color-text-dark;
+        &:hover {
+          color: $color-light;
+        }
+      }
+    }
+
+    .name {
+      vertical-align: middle;
+      a {
+        text-decoration: none;
+        color: $color-text-dark;
+        &:hover {
+          color: $color-light;
+        }
+      }
+    }
+
+    .options {
+      text-align: center;
+      vertical-align: middle;
+
+      a {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin: 0px 8px 0px 8px;
+        text-decoration: none;
+        color: $color-text-dark;
+
+        &:hover {
+          color: $color-light;
+        }
+      }
+    }
+
+    .author {
+      padding-left: 25px;
+      vertical-align: middle;
+    }
+
+    .date {
+      text-align: right;
+      vertical-align: middle;
+    }
   }
 }

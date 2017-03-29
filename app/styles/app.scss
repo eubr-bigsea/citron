@@ -4,7 +4,7 @@
 
 /*@import "alert.scss";*/
 @import "auth.scss";
-@import "btn.scss";
+/*@import "btn.scss";
 @import "btn-primary.scss";
 @import "btn-secondary.scss";
 /*@import "btn-success.scss";
@@ -29,7 +29,7 @@
 @import 'logger-sidebar.scss';
 /*@import "misc.scss";*/
 @import "nav.scss";
-@import "option-bar.scss";
+/*@import "option-bar.scss";*/
 /*@import "sidebar.scss";*/
 @import "engage.scss";
 @import "engage-btn.scss";
@@ -80,9 +80,61 @@
 @import 'page-content-wrapper.scss';
 @import 'table-paginate.scss';
 
+//Animations
+@import 'animations.scss';
+
 //Workflows
 @import 'workflows/top-menu.scss';
 @import 'workflows/large-table.scss';
+@import 'workflows/operations-sidebar.scss';
+@import 'workflows/diagram-container-wrapper.scss';
+@import 'workflows/option-bar.scss';
+@import 'workflows/draw.scss';
+
+//Jobs
+@import 'jobs/large-table.scss';
+@import 'jobs/job-diagram-container-wrapper.scss';
+@import 'jobs/option-bar.scss';
+
+.teste-wrapper {
+  background: yellow;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+ -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+  .teste-sidebar {
+    width: 50px;
+    height: 100%;
+    background: red;
+    float: left;
+  }
+
+  .teste-content {
+    background: green;
+    height: 100%;
+    margin-left: 50px;
+  }
+}
+
+.teste-wrapper.toggled {
+
+  .teste-sidebar {
+    width: 300px;
+    height: 100%;
+    background: red;
+    float: left;
+  }
+
+  .teste-content {
+    background: green;
+    height: 100%;
+    margin-left: 300px;
+  }
+}
 
 
 html,
@@ -227,46 +279,6 @@ body {
   height: 30vh;
 }
 
-.lemonade-container {
-  height: 90vh;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-#lemonade-diagram{
-  background: url('images/grid1.png');
-}
-
-#lemonade, .lemonade {
-  position: relative;
-  margin-top: 0px;
-  z-index: 0;
-  min-height: calc(690px * (90/150));
-  height: 5000px;
-  width: 5000px;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;
-}
-
-#forms {
-  left: calc(100% - 400px);
-  display: none;
-  margin-top: 92px;
-  margin-bottom: 40px;
-  background: white;
-  border: 1px solid #ddd;
-  height: 85vh;
-  font-family: Verdana;
-  font-size: 10px;
-  overflow: hidden;
-  padding: 5px;
-  width: 400px;
-}
 
 @media (max-width: 991px) {
   #forms {

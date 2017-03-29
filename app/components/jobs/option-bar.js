@@ -4,30 +4,24 @@ import config from '../../config/environment';
 const { inject: { service }, $:{ajax} } = Ember;
 
 export default Ember.Component.extend({
-  classNames:['row', 'option-bar'],
   currentUser: service('current-user'),
   hasFinished: null,
-  hasFailed: null,
   isRunning: null,
 
   didReceiveAttrs(){
     var jobStatus = this.get('job.status');
     this.set('isRunning', (jobStatus === 'running'));
     this.set('hasFinished', (jobStatus === 'completed'));
-    this.set('hasFailed', (jobStatus === 'canceled'));
-    this.set('hasFailed', (jobStatus === 'error'));
   },
   didUpdate(){
     var jobStatus = this.get('job.status');
     this.set('isRunning', (jobStatus === 'running'));
     this.set('hasFinished', (jobStatus === 'completed'));
-    this.set('hasFailed', (jobStatus === 'canceled'));
-    this.set('hasFailed', (jobStatus === 'error'));
   },
 
   actions:{
     showLog(){
-      Ember.$("#wrapper").toggleClass("toggled");
+      Ember.$("#job-diagram-container-wrapper").toggleClass("toggled");
     },
     stop(){
       let jobId = this.get('job.id');

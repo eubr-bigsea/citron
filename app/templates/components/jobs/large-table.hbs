@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-header">
+          <th class="id">
+            <span>ID</span>
+            <a class="arrow-sorter" href="#">
+              <em class="fa fa-unsorted" {{action 'sortJob' 'id'}}></em>
+            </a>
+          </th>
+          <th class="name">
+            <span>Workflow</span>
+            <a class="arrow-sorter"href="#">
+              <em class="fa fa-unsorted" {{action 'sortJob' 'workflow.name'}}></em>
+            </a>
+          </th>
+          <th class="status">
+            <span>Status</span>
+          </th>
+          <th class="date">
+            <span>Started at</span>
+            <a class="arrow-sorter" href="#">
+              <em class="fa fa-unsorted" {{action 'sortJob' 'created'}}></em>
+            </a>
+          </th>
+          <th class="date">
+            <span>Finished at</span>
+            <a class="arrow-sorter" href="#">
+              <em class="fa fa-unsorted" {{action 'sortJob' 'finished'}}></em>
+            </a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each pagedContent as |job|}}
+          <tr class="table-item">
+            <td class="id">
+              {{#link-to 'job.show' job.id}}
+                <span>{{job.id}}</span>
+              {{/link-to}}
+            </td>
+            <td class="name">
+              {{#link-to 'job.show' job.id}}
+                <span>  {{job.workflow.name}} </span>
+              {{/link-to}}
+            </td>
+            <td class="status">
+              {{#link-to 'job.show' job.id class="job" class=job.status}}
+                <span class="status-icon"></span><h4>{{job.status}}</h4>
+              {{/link-to}}
+            </td>
+            <td class="date">
+              <span>{{format-date job.created}}</span>
+            </td>
+            <td class="date">
+              <span>{{format-date job.finished}}</span>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{table-paginate content=pagedContent}}
+    {{outlet}}
+  </div> <!-- col-xs-12 -->
+</div> <!-- row -->
+
+
+
+
