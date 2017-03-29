@@ -2,16 +2,7 @@
 @import "font-awesome";
 @import "perfect-scrollbar";
 
-/*@import "alert.scss";*/
 @import "auth.scss";
-/*@import "btn.scss";
-@import "btn-primary.scss";
-@import "btn-secondary.scss";
-/*@import "btn-success.scss";
-@import "btn-info.scss";
-@import "btn-warning.scss";
-@import "btn-danger.scss";
-@import "btn-outline.scss";*/
 @import "card.scss";
 @import "card-header.scss";
 @import "card-misc.scss";
@@ -19,18 +10,9 @@
 @import "card-video-tutorial";
 @import "dashboard.scss";
 @import "decor.scss";
-/*@import "errors.scss";*/
 @import "filter.scss";
-@import "footer.scss";
-/*@import "form.scss";*/
 @import "header.scss";
 @import "images.scss";
-/*@import "item.scss";*/
-@import 'logger-sidebar.scss';
-/*@import "misc.scss";*/
-@import "nav.scss";
-/*@import "option-bar.scss";*/
-/*@import "sidebar.scss";*/
 @import "engage.scss";
 @import "engage-btn.scss";
 @import "engage-nav-bar.scss";
@@ -42,7 +24,6 @@
 @import "theme-color.scss";
 @import "dimensions.scss";
 @import "green.scss";
-/*@import "table.scss";*/
 
 // Gfranciscani Styles
 
@@ -96,46 +77,6 @@
 @import 'jobs/job-diagram-container-wrapper.scss';
 @import 'jobs/option-bar.scss';
 @import 'jobs/logger.scss';
-
-.teste-wrapper {
-  background: yellow;
-  width: 100%;
-  height: 100%;
-  position: absolute;
- -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-
-  .teste-sidebar {
-    width: 50px;
-    height: 100%;
-    background: red;
-    float: left;
-  }
-
-  .teste-content {
-    background: green;
-    height: 100%;
-    margin-left: 50px;
-  }
-}
-
-.teste-wrapper.toggled {
-
-  .teste-sidebar {
-    width: 300px;
-    height: 100%;
-    background: red;
-    float: left;
-  }
-
-  .teste-content {
-    background: green;
-    height: 100%;
-    margin-left: 300px;
-  }
-}
 
 
 html,
