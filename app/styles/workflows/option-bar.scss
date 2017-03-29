@@ -1,9 +1,11 @@
 @import '../theme-color.scss';
 
 .workflow-option-bar {
-  height: 50px;
+  height: 60px;
+  padding: 5px 0;
 
   .name-editor {
+    margin: 6px 0;
 
     .form-control.underlined {
       padding-left: 0;
@@ -25,6 +27,7 @@
   }
 
   .buttons {
+    margin: 4px 0;
 
     .btn {
       background: none;
