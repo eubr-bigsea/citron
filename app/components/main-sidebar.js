@@ -6,13 +6,7 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    show(){
-      console.log('sho');
-      $("#main-wrapper").addClass("toggled");
-    },
-    hide(){
-      console.log('hide');
-      $("#main-wrapper").removeClass("toggled");
-    },
+    show(){ $("#main-wrapper").addClass("toggled"); },
+    hide(){ $("#main-wrapper").removeClass("toggled"); },
   },
 });
