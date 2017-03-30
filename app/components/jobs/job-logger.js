@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'ul',
+  tagName: 'nav',
 
   didReceiveAttrs(){
     var steps = this.get('job.steps');
@@ -15,4 +15,8 @@ export default Ember.Component.extend({
       component.get('stepsLogs').addObject(step);
     });
   },
+
+  didInsertElement(){
+    this.$('#tasks-list').metisMenu();
+  }
 });

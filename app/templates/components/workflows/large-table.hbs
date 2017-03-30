@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-header">
+          <th class="checkbox">
+            <label class="label-checkbox" {{action 'checked' on='click'}}>
+              <input type="checkbox" id="select-all-items" class="input-checkbox">
+              <span></span>
+            </label>
+          </th>
+          <th class="logo">
+            <span>Logo</span>
+          </th>
+          <th class="id">
+            <span>ID</span>
+            <a class="arrow-sorter" href="#">
+              <em class="fa fa-unsorted" {{action 'changeSorter' 'numericID'}}></em>
+            </a>
+          </th>
+          <th class="name">
+            <span>Name</span>
+            <a class="arrow-sorter"href="#">
+              <em class="fa fa-unsorted" {{action 'changeSorter' 'name'}}></em>
+            </a>
+          </th>
+          <th class="options">
+            <span>Options</span>
+          </th>
+          <th class="author">
+            <span>Author</span>
+            <a class="arrow-sorter" href="#">
+              <em class="fa fa-unsorted" {{action 'changeSorter' 'user.name'}}></em>
+            </a>
+          </th>
+          <th class="date">
+            <span>Updated at</span>
+            <a class="arrow-sorter" href="#">
+              <em class="fa fa-unsorted" {{action 'changeSorter' 'updated'}}></em>
+            </a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each pagedContent as |workflow|}}
+          {{#unless workflow.isDeleted}}
+            <tr class="table-item">
+              <td class="checkbox">
+                <label class="label-checkbox">
+                  <input id={{workflow.id}} type="checkbox" class="input-checkbox">
+                  <span></span>
+                </label>
+              </td>
+              <td class="logo">
+                {{#link-to 'workflow.draw' workflow.id}}
+                  <img class="image" src="/assets/images/{{workflow.image}}">
+                {{/link-to}}
+              </td>
+              <td class="id">
+                {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}
+                  <span>{{workflow.id}}</span>
+                {{/link-to}}
+              </td>
+              <td class="name">
+                {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}
+                  <span>  {{workflow.name}} </span>
+                {{/link-to}}
+              </td>
+              <td class="options">
+                {{!--
+                {{#link-to 'workflow.params' workflow.id }}
+                  <i rel="tooltip" title="Create a job for this workflow" class="fa fa-sliders fa-lg"></i>
+                {{/link-to}}
+                --}}
+                {{#link-to 'workflow.edit' workflow.id }}
+                  <i rel="tooltip" title="Change workflow's data" class="fa fa-cog fa-lg"></i>
+                {{/link-to}}
+                {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}
+                  <i rel="tooltip" title="Draw this workflow" class="fa fa-pencil fa-lg"></i>
+                {{/link-to}}
+                <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" >
+                  <i rel="tooltip" title="Delete this workflow" class="fa fa-trash-o fa-lg"></i>
+                </a>
+              </td>
+              <td class="author">
+                <span> {{workflow.user.name}}</span>
+              </td>
+              <td class="date">
+                <span>{{format-date workflow.updated}}</span>
+              </td>
+            </tr>
+          {{/unless}}
+        {{/each}}
+      </tbody>
+    </table>
+    {{table-paginate content=pagedContent}}
+    {{outlet}}
+  </div> <!-- col-xs-12 -->
+</div> <!-- row -->

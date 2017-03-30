@@ -2,16 +2,7 @@
 @import "font-awesome";
 @import "perfect-scrollbar";
 
-/*@import "alert.scss";*/
 @import "auth.scss";
-@import "btn.scss";
-@import "btn-primary.scss";
-@import "btn-secondary.scss";
-/*@import "btn-success.scss";
-@import "btn-info.scss";
-@import "btn-warning.scss";
-@import "btn-danger.scss";
-@import "btn-outline.scss";*/
 @import "card.scss";
 @import "card-header.scss";
 @import "card-misc.scss";
@@ -19,18 +10,9 @@
 @import "card-video-tutorial";
 @import "dashboard.scss";
 @import "decor.scss";
-@import "dropdownmenu.scss";
-/*@import "errors.scss";*/
 @import "filter.scss";
-@import "footer.scss";
-@import "form.scss";
 @import "header.scss";
 @import "images.scss";
-@import "item.scss";
-@import "misc.scss";
-@import "nav.scss";
-@import "option-bar.scss";
-@import "sidebar.scss";
 @import "engage.scss";
 @import "engage-btn.scss";
 @import "engage-nav-bar.scss";
@@ -40,8 +22,8 @@
 @import "engage-team.scss";
 @import "engage-footer.scss";
 @import "theme-color.scss";
+@import "dimensions.scss";
 @import "green.scss";
-/*@import "table.scss";*/
 
 // Gfranciscani Styles
 
@@ -72,7 +54,30 @@
 
 // Gfranciscani Styles
 
-@import 'log-sidebar.scss';
+//Global
+@import 'main-sidebar.scss';
+@import 'main-wrapper.scss';
+@import 'main-content-wrapper.scss';
+@import 'page-content-wrapper.scss';
+@import 'table-paginate.scss';
+
+//Animations
+@import 'animations.scss';
+
+//Workflows
+@import 'workflows/top-menu.scss';
+@import 'workflows/large-table.scss';
+@import 'workflows/operations-sidebar.scss';
+@import 'workflows/diagram-container-wrapper.scss';
+@import 'workflows/option-bar.scss';
+@import 'workflows/draw.scss';
+
+//Jobs
+@import 'jobs/large-table.scss';
+@import 'jobs/job-diagram-container-wrapper.scss';
+@import 'jobs/option-bar.scss';
+@import 'jobs/logger.scss';
+
 
 html,
 body {
@@ -81,7 +86,6 @@ body {
   height: 100%;
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
-  color: #4f5f6f;
   overflow-x: hidden;
 }
 
@@ -217,46 +221,6 @@ body {
   height: 30vh;
 }
 
-.lemonade-container {
-  height: 90vh;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-#lemonade-diagram{
-  background: url('images/grid1.png');
-}
-
-#lemonade, .lemonade {
-  position: relative;
-  margin-top: 0px;
-  z-index: 0;
-  min-height: calc(690px * (90/150));
-  height: 5000px;
-  width: 5000px;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;
-}
-
-#forms {
-  left: calc(100% - 400px);
-  display: none;
-  margin-top: 92px;
-  margin-bottom: 40px;
-  background: white;
-  border: 1px solid #ddd;
-  height: 85vh;
-  font-family: Verdana;
-  font-size: 10px;
-  overflow: hidden;
-  padding: 5px;
-  width: 400px;
-}
 
 @media (max-width: 991px) {
   #forms {

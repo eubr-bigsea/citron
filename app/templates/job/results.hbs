@@ -1,21 +1,18 @@
-{{main-sidebar jobsActive='active'}}
-<article class="content dashboard-page">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="title-block">
-          <h3 class="title">Results from job {{job.id}}
-            <span class="sparkline bar" data-type="bar"></span>
-          </h3>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="cards-container" id="vis-row">
-          {{jobs/job-result job=model.job operations=model.operations}}
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="title-block">
+        <h3 class="title">Results from job {{job.id}}
+          <span class="sparkline bar" data-type="bar"></span>
+        </h3>
       </div>
     </div>
   </div>
-</article>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="cards-container" id="vis-row">
+        {{jobs/job-result job=model.job operations=model.operations}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,38 +1,25 @@
-<section class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-5">
-  {{!--  {{option-bar/name-editor workflow=job.workflow}} --}}
-    <span class="form-control underlined"> {{job.workflow.name}} </span>
-</section>
-<section class="col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 option-bar">
-  <div class="job {{job.status}}" id="job-status">
-      <span class="fa fa-clock-o"></span><h3>{{job.status}}</h3>
-  </div>
-</section>
-<section class="col-xs-12  col-sm-12 col-md-6 col-lg-3 col-xl-3 execute-bar">
-    {{#if hasFinished}}
-      {{#link-to 'job.results' job.id class="pause btn btn-md rounded-s execute-bar execute-btn" style="display: inline;"}}
-          <i class="fa fa-eye"></i> Results
-      {{/link-to}}
-      {{#link-to 'workflow.draw' job.workflow.id class="play btn btn-md rounded-s execute-bar execute-btn"}}
-        <i class="fa fa-flask"></i> Workflow
-      {{/link-to}}
-      <a href="#" onclick={{action 'showLog'}} class="logger-button  btn btn-md rounded-s execute-bar execute-btn">
-        <i class="fa fa-eye"></i> Log
-      </a>
-    {{else if hasFailed}}
-      {{#link-to 'workflow.draw' job.workflow.id}}
-        <a  class="play btn btn-md rounded-s execute-bar execute-btn">
-          <i class="fa fa-flask"></i> Workflow
-        </a>
-      {{/link-to}}
-      <a href="#" onclick={{action 'showLog'}} class="logger-button  btn btn-md rounded-s execute-bar execute-btn">
-        <i class="fa fa-eye"></i> Log
-      </a>
-    {{else}}
-      <a onclick={{action 'stop'}} class="stop btn btn-md rounded-s execute-bar execute-btn">
-        <i class="fa fa-stop"></i> Stop
-      </a>
-      <a href="#" onclick={{action 'showLog'}} class="logger-button  btn btn-md rounded-s execute-bar execute-btn">
-        <i class="fa fa-eye"></i> Log
-      </a>
-    {{/if}}
-</section>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 name-editor">
+  <span class="form-control underlined"> {{job.workflow.name}} </span>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-2 status {{job.status}}" id="job-status">
+  <span class="status-icon"></span><span class="text">{{job.status}}</span>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 buttons">
+  {{#link-to 'workflow.draw' job.workflow.id  class="workflow btn btn-primary btn-md"}}
+    <i class="fa fa-flask fa-lg"></i><span>Workflow</span>
+  {{/link-to}}
+
+  {{#if hasFinished}}
+    {{#link-to 'job.results' job.id class="results btn btn-primary btn-md
+      flash-button"}}
+      <i class="fa fa-eye fa-lg"></i><span>Results</span>
+    {{/link-to}}
+  {{else if isRunning}}
+    <a onclick={{action 'stop'}} class="stop btn btn-primary btn-md">
+      <i class="fa fa-stop"></i><span>Stop</span>
+    </a>
+  {{/if}}
+  <a href="#" onclick={{action 'showLog'}} class="log btn btn-primary btn-md">
+    <i class="fa fa-list-ul"></i><span>Log</span>
+  </a>
+</div>

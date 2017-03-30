@@ -1,0 +1,33 @@
+<div id="main-wrapper" class="main wrapper">
+  {{main-sidebar id="main-sidebar-wrapper" class="main sidebar wrapper" }}
+  <div id="main-content-wrapper" class="main content wrapper">
+    {{app-header tagName="header" class="header"}}
+    <div id="page-content-wrapper" class="container-fluid page content wrapper">
+      {{workflows/top-menu class="top-menu container-fluid"}}
+      {{workflows/large-table id="large-table-workflows" class="container-fluid" workflows=model}}
+      {{outlet}}
+    </div><!-- page-content-wrapper -->
+  </div><!--main-content-wrapper-->
+</div><!--main-wrapper-->
+
+<!-- Tooltipster markup -->
+<div class='tooltipster-visualization tooltipster-base tooltipster-sidetip tooltipster-top tooltipster-fade tooltipster-show'>
+  <div class='tooltipster-box'>
+    <div class='tooltipster-content'></div>
+  </div>
+  <div class='tooltipster-arrow'>
+    <div class='tooltipster-arrow-uncropped'>
+      <div class='tooltipster-arrow-border'></div>
+      <div class='tooltipster-arrow-background'></div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading markup -->
+<div class="loading-div">
+  <div class="loading-div-inner">
+    <div class="loader">
+      <i class='fa fa-spinner fa-pulse fa-3x'></i>
+    </div>
+  </div>
+</div>

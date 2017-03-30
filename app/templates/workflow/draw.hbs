@@ -1,13 +1,13 @@
-{{main-sidebar workflowsActive='active'}}
-{{workflows/workflow-sidebar operations=model.groupedOperations}}
-<div class="drawer container-fluid">
-  {{workflows/option-bar workflow=model.workflow hasChanged=(action "hasChanged") alert=(action "alert")}}
-  {{workflows/workflow-draw workflow=model.workflow operations=model.operations hasChanged=(action "hasChanged")}}
-  {{alert-box id="alert-box"
-    message=message
-    confirmedTransition=(action "confirmedTransition")
-    canceledTransition=(action "canceledTransition")
-    deleteWorkflow=(action "deleteWorkflow")
-  }}
-</div>
+{{workflows/operations-sidebar id="operations-sidebar-wrapper" operations=model.groupedOperations}}
+<div id="diagram-container-wrapper" class="container-fluid">
+  {{workflows/option-bar class="workflow-option-bar row" workflow=model.workflow hasChanged=(action "hasChanged") alert=(action "alert")}}
+  {{workflows/workflow-draw id="workflow-draw" class="draw row" workflow=model.workflow operations=model.operations hasChanged=(action "hasChanged")}}
+</div> <!-- class=container-->
+{{alert-box id="alert-box"
+message=message
+confirmedTransition=(action "confirmedTransition")
+canceledTransition=(action "canceledTransition")
+deleteWorkflow=(action "deleteWorkflow")
+}}
+
 {{outlet}}

@@ -1,7 +1,20 @@
-<li class="sidebar-brand">
-  <a> Job Log </a>
-</li>
-{{#each stepsLogs as |step|}}
-  {{jobs/job-step-log step=step}}
-{{/each}}
-
+<div class='log'>
+  <i class="fa fa-list-ul"></i><span>Job's Log</span>
+</div>
+<ul class="tasks-list metismenu" id="tasks-list">
+  {{#each stepsLogs as |step|}}
+    <li class="step-log">
+      <a href="#">
+        <i class="fa fa-lg {{step.operation.icon}}"></i>
+        <span>{{step.operation.name}}</span>
+      </a>
+      <ul>
+        {{#each step.logs as |log|}}
+          <li>
+            <span class="">{{log.message}}</span>
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>

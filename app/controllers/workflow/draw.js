@@ -34,7 +34,7 @@ export default Ember.Controller.extend({
         var params = {
           type: 'Success',
           content:'Workflow has been deleted.',
-          func: "Ember.getOwner(component).lookup('router:main').transitionTo('home.workflows');"
+          func: "Ember.getOwner(component).lookup('router:main').transitionTo('workflows');"
         };
         controller.set('message', params);
       $('#confirm-modal').addClass('show');

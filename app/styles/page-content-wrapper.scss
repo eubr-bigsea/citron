@@ -1,0 +1,16 @@
+@import 'theme-color.scss';
+@import 'dimensions.scss';
+
+#page-content-wrapper {
+  width: 100%;
+  height: -webkit-calc(100% - #{$app-header});
+  height: -moz-calc(100% - #{$app-header});
+  height: calc(100% - #{$app-header});
+  z-index: 300;
+  overflow: auto;
+
+
+}
+
+#page-content-wrapper.toggled {
+}

@@ -1,47 +1,25 @@
-<nav class="main-menu" id="main">
-  <li style="margin-top: 20px">
-    <img src="/assets/images/minilogo.png" style="width:40px; height:40px; margin-left:12px;" />
-    <span style="margin-left:20px; color: #fff; font-size:18px;">Lemonade</span>
+<div class="logotype" id="lemonade-logo">
+  <img class="logo" src="/assets/images/minilogo.png" />
+  <span>Lemonade</span>
+</div>
+<ul class='sidebar-nav' id='main-sidebar'>
+  <li></li>
+  <li>
+    {{#link-to 'home' class=activeHome}}
+      <i class="fa fa-home" ></i>
+      <span>Home</span>
+    {{/link-to}}
   </li>
-  <ul class="nav metismenu" id="sidebar-menu">
-    <li><p></p></li>
-    <li class={{indexActive}}>
-      {{#link-to 'home'}}
-        <i class="fa fa-home" ></i>
-        <span class="nav-text">Home</span>
-      {{/link-to}}
-    </li>
-    <li class={{workflowsActive}}>
-      {{#link-to 'home.workflows' }}
-        <i class="fa fa-flask"></i>
-        <span class="nav-text">Workflows</span>
-      {{/link-to}}
-    </li>
-    <li class={{jobsActive}}>
-      {{#link-to 'home.jobs' }}
-        <i class="fa fa-tasks" ></i>
-        <span class="nav-text">Jobs</span>
-      {{/link-to}}
-    </li>
-    {{!--
-      <li class={{datasourcesActive}}>
-      {{#link-to 'home.datasources' }}
-        <i class="fa fa-database"></i>
-        <span class="nav-text">Datasources</span>
-      {{/link-to}}
-    </li>
-    <li class={{configurationsActive}}>
-      {{#link-to 'home.configurations' }}
-        <i class="fa fa-cog" ></i>
-        <span class="nav-text">Settings</span>
-      {{/link-to}}
-    </li>
-    <li class={{visualizationsActive}}>
-      {{#link-to 'home.visualizations' }}
-        <i class="fa fa-bar-chart"></i>
-        <span class="nav-text">Visualizations</span>
-      {{/link-to}}
-    </li>
-    --}}
-  </ul>
-</nav>
+  <li>
+    {{#link-to 'workflows' class=activeWorkflows}}
+      <i class="fa fa-flask"></i>
+      <span>Workflows</span>
+    {{/link-to}}
+  </li>
+  <li>
+    {{#link-to 'jobs' class=activeJobs}}
+      <i class="fa fa-tasks" ></i>
+      <span>Jobs</span>
+    {{/link-to}}
+  </li>
+</ul>

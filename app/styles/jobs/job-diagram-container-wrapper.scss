@@ -1,0 +1,16 @@
+@import '../theme-color.scss';
+@import '../dimensions.scss';
+
+#job-diagram-container-wrapper {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  overflow-y: overlay;
+  overflow-x: overlay;
+}
+
+#job-diagram-container-wrapper.toggled #lemonade-container {
+  width: -webkit-calc(100% - #{$size-logger-sidebar});
+  width: -moz-calc(100% - #{$size-logger-sidebar});
+  width: calc(100% - #{$size-logger-sidebar});
+}

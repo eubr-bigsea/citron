@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-3 title-block">
+    <h3 class="title"> <i class="fa fa-flask"></i> Workflows
+    </h3>
+    <p class="title-description"> List of all workflows - e.g. owned, shared,  etc... </p>
+  </div>
+  <div class="col-xs-4 buttons-menu">
+    {{#link-to 'workflow.new' class="create-new btn"}} Create new {{/link-to}}
+    <div class="action dropdown ">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" >More actions...</a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <a class="dropdown-item" {{action 'deleteWorkflows'}} href="#"><i class="fa fa-trash-o icon"></i>Delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-5 search-bar">
+    <div class="pull-right items-search">
+      <form onsubmit="return false" class="form-inline">
+        <div class="input-group">
+          <input id="input" type="text" class="form-control boxed " placeholder="Search for...">
+          <span class="input-group-btn">
+            <button id="submit" class="btn btn-secondary" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div><!-- row -->

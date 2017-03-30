@@ -12,6 +12,13 @@ export default Ember.Route.extend({
     });
   },
 
+  setupController(controller, model) {
+    this._super(controller, model);
+    if(!this.get('currentModel.workflow.image')) {
+      this.set('currentModel.workflow.image', 'img1.png');
+    }
+  },
+
   actions: {
     willTransition(transition){
       var targetName = this.controller.get('targetName');
