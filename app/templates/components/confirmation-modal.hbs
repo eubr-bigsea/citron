@@ -1,0 +1,19 @@
+{{#bs-modal open=modal3 size=size fade=fade backdrop=false workflow=workflow backdropClose=true onSubmit=(action "submit") onHidden=(action (mut modal3) false) as |modal|}}
+  {{#modal.header}}
+    <h4 class="modal-title">
+      {{name}}
+    </h4>
+  {{/modal.header}}
+  {{#modal.body}}
+    {{message}}
+  {{/modal.body}}
+  {{#modal.footer}}
+    {{#if deleting}}
+    {{#bs-button type="success" onClick=(action 'deletar' toDelete)}}Delete{{/bs-button}}
+    {{/if}}
+    {{#if leaving}}
+    {{#bs-button type="success" onClick=(action 'submit' toDelete)}}Yes, leave{{/bs-button}}
+    {{/if}}
+    {{#bs-button onClick=(action 'cancel')}}Cancel{{/bs-button}}
+  {{/modal.footer}}
+{{/bs-modal}}

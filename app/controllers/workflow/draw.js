@@ -24,7 +24,6 @@ export default Ember.Controller.extend({
     },
     canceledTransition(){
       this.set('targetName', null);
-      $('#confirm-modal').removeClass('show');
     },
     deleteWorkflow(){
       $('#confirm-modal').removeClass('show');

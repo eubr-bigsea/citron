@@ -54,7 +54,11 @@
               <span>{{format-date job.created}}</span>
             </td>
             <td class="date">
-              <span>{{format-date job.finished}}</span>
+              {{#if job.finished}}
+                <span>{{format-date job.finished}}</span>
+              {{else}}
+                <span>{{job.status}}</span>
+              {{/if}}
             </td>
           </tr>
         {{/each}}

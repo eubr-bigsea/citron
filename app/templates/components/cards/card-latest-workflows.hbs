@@ -4,19 +4,21 @@
       <h3 class="title">Latest edited workflow</h3>
     </div>
   </div>
-  <div class="card-block">
-    <table class="table table-striped">
+  <div class="card-block" id="large-table-workflows">
+    <table class="table table-hover" style="table-layout: fixed; word-wrap: break-word;">
       <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Options</th>
-          <th>Created</th>
+        <tr class="table-header">
+          <th class="logo">ID</th>
+          <th class="name" style="width:100%;">Name</th>
+          <th class="options">Options</th>
+          <th class="date">Last changed</th>
         </tr>
       </thead>
       <tbody>
         {{#each slicedModel as |workflow|}}
-          {{cards/item-list-workflow workflow=workflow}}
+          {{#unless workflow.isDeleted}}
+            {{cards/item-list-workflow workflow=workflow}}
+          {{/unless}}
         {{/each}}
       </tbody>
     </table>
