@@ -14,6 +14,7 @@ export default Ember.Component.extend({
       $("#flash span").text("The workflow was deleted.").show().parent().fadeIn().delay(2000).fadeOut('slow', function() { $("#flash span").text('') });
     },
     deleteWorkflow(workflow){
+      this.set('name', "Deleting workflow " + workflow.get('name'));
       this.set('toDelete', workflow.get('id'));
       this.set('modal3', true);
     },

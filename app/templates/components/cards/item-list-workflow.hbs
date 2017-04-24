@@ -14,19 +14,10 @@
   </div>
 </td>
 <td class="date">{{format-date workflow.updated}}</td>
-{{#bs-modal open=modal3 size=size fade=fade backdrop=false workflow=workflow backdropClose=true onSubmit=(action "submit") onHidden=(action (mut modal3) false) as |modal|}}
-  {{#modal.header}}
-    <h4 class="modal-title">
-      Deleting workflow {{name}}
-    </h4>
-  {{/modal.header}}
-  {{#modal.body}}
-    Are you sure, you want to delete this workflow?
-  {{/modal.body}}
-  {{#modal.footer}}
-    {{#bs-button type="success" onClick=(action 'submit' toDelete)}}Delete{{/bs-button}}
-    {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
-  {{/modal.footer}}
-{{/bs-modal}}
-
-
+{{confirmation-modal 
+workflow=workflow 
+name=name 
+modal3=modal3 
+toDelete=toDelete
+deleting=true
+message="Are you sure, that you want to delete this workflow?"}}

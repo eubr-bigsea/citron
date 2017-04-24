@@ -8,11 +8,14 @@
     {{message}}
   {{/modal.body}}
   {{#modal.footer}}
+    {{#if multipleDeleting}}
+      {{#bs-button type="success" onClick=(action 'deletarVarios' checked)}}Delete workflows{{/bs-button}}
+    {{/if}}
     {{#if deleting}}
-    {{#bs-button type="success" onClick=(action 'deletar' toDelete)}}Delete{{/bs-button}}
+      {{#bs-button type="success" onClick=(action 'deletar' toDelete)}}Delete{{/bs-button}}
     {{/if}}
     {{#if leaving}}
-    {{#bs-button type="success" onClick=(action 'submit' toDelete)}}Yes, leave{{/bs-button}}
+      {{#bs-button type="success" onClick=(action 'submit' toDelete)}}Yes, leave{{/bs-button}}
     {{/if}}
     {{#bs-button onClick=(action 'cancel')}}Cancel{{/bs-button}}
   {{/modal.footer}}

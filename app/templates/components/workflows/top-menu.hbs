@@ -2,20 +2,14 @@
   <span></span>
 </div>
 
-{{#bs-modal open=modal3 size=size fade=fade backdrop=false workflow=workflow backdropClose=true onSubmit=(action "submit") onHidden=(action (mut modal3) false) as |modal|}}
-  {{#modal.header}}
-    <h4 class="modal-title">
-      Deleting marked workflows
-    </h4>
-  {{/modal.header}}
-  {{#modal.body}}
-    Are you sure, that you want to delete these workflows?
-  {{/modal.body}}
-  {{#modal.footer}}
-    {{#bs-button type="success" onClick=(action 'submit' toDelete)}}Delete{{/bs-button}}
-    {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
-  {{/modal.footer}}
-{{/bs-modal}}
+{{confirmation-modal 
+workflow=workflow 
+name="Deleting workflows"
+modal3=modal3
+checked=checked
+multipleDeleting=true
+message="Are you sure, that you want to delete these workflow?"}}
+
 <div class="row">
   <div class="col-xs-3 title-block">
     <h3 class="title"> <i class="fa fa-flask"></i> Workflows

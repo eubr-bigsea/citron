@@ -26,7 +26,6 @@ export default Ember.Controller.extend({
       this.set('targetName', null);
     },
     deleteWorkflow(){
-      $('#confirm-modal').removeClass('show');
       var controller = this;
       this.get('model.workflow').destroyRecord().then(function(){
         controller.set('hasChanged', false);
@@ -36,7 +35,6 @@ export default Ember.Controller.extend({
           func: "Ember.getOwner(component).lookup('router:main').transitionTo('workflows');"
         };
         controller.set('message', params);
-      $('#confirm-modal').addClass('show');
       });
     },
   },

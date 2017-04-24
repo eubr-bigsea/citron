@@ -165,9 +165,12 @@ export default Ember.Component.extend({
       });
     }
 
-    Ember.$(el).click(() => {
-      Ember.$('#forms').toggle(true);
-
+    Ember.$(el).click((e) => {
+      if(e.target.id != 'testDelete'){
+				Ember.$('#forms').toggle(true);
+			}else{
+				Ember.$('#forms').toggle(false);
+			}
       Ember.$('.ui-selected').removeClass('ui-selected');
       Ember.$(el).addClass('ui-selected');
       clickTask(this.get('forms'), task.forms, task);
