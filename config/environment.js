@@ -36,6 +36,7 @@ module.exports = function(environment) {
     // ENV.thorn = 'http://localhost:3000';
     ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
     ENV.stand = 'http://beta.ctweb.inweb.org.br/stand';
+    ENV.tahiti = 'http://beta.ctweb.inweb.org.br/tahiti';
     ENV.webSocketIO = {
       url: 'http://beta.ctweb.inweb.org.br',
       namespace: '/stand',
@@ -57,6 +58,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
     ENV.stand = 'http://beta.ctweb.inweb.org.br/stand';
+    ENV.tahiti = 'http://beta.ctweb.inweb.org.br/tahiti';
     ENV.webSocketIO = {
       url: 'http://beta.ctweb.inweb.org.br',
       namespace: '/stand',
