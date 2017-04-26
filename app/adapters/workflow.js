@@ -1,8 +1,9 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default DS.JSONAPIAdapter.extend({
-  host: 'http://beta.ctweb.inweb.org.br/tahiti',
+  host: config.tahiti,
   session: Ember.inject.service('session'),
   headers: Ember.computed('session.data.authenticated', function() {
     var authenticated = this.get('session.data.authenticated');
