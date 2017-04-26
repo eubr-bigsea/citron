@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  sortBy: ['updated_at:desc'],
+  sortBy: ['updated:desc'],
   sortedModel: Ember.computed.sort('workflows', 'sortBy'),
   willRender(){
     this.set('slicedModel', this.get('sortedModel').slice(0,5));

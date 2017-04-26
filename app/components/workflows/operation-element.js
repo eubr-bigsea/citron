@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     let slug = this.get('operation.slug');
     Ember.$(`#${this.elementId}`).draggable({
       zIndex: 10000,
-      appendTo: '#diagram',
+      appendTo: '#lemonade-diagram',
       opacity: 0.3,
       helper: () => Ember.$(
         `<div class='task' data-slug='${slug}' data-name='${name}' data-opid='${id}'>${name}</div>`

@@ -26,8 +26,7 @@ export default Ember.Route.extend({
       if(!targetName && (transition.targetName !== 'job.show') && hasChanged){
         this.controller.set('targetName', transition.targetName);
         transition.abort();
-        this.controller.set('message', { type:'Warning', content: 'All unsaved modifications will be lost.'});
-        $('#confirm-modal').addClass('show');
+        this.controller.set('modal3', true);
       }
     }
   }

@@ -7,8 +7,13 @@ export default Ember.Component.extend({
   store: service('store'),
   currentJob: null,
 
+  didInsertElement: function(){
+    this.$('#flash').hide();
+  },
+
   actions: {
     saveWorkflow() {
+      $("#flash span").text("The workflow was saved.").show().parent().fadeIn().delay(2000).fadeOut('slow', function() { $("#flash span").text('') });
       var component = this;
       this.get('workflow').save().then(function(){
         component.get('hasChanged')(false);

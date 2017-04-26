@@ -40,6 +40,7 @@ export default Ember.Component.extend({
         };
         this.get('workflow').get('tasks').addObject(task);
         this.get('tasks').addObject(task);
+        this.get('hasChanged')(true);
       }
     }).selectable({
       selected() {
@@ -71,6 +72,7 @@ export default Ember.Component.extend({
       this.get('workflow').get('flows').removeObjects(toRemove);
       this.get('tasks').removeObject(task);
       this.get('flows').removeObjects(toRemove);
+      this.get('hasChanged')(true);
     },
     addFlow(flow, save = false) {
       if(save) {

@@ -24,10 +24,8 @@ export default Ember.Controller.extend({
     },
     canceledTransition(){
       this.set('targetName', null);
-      $('#confirm-modal').removeClass('show');
     },
     deleteWorkflow(){
-      $('#confirm-modal').removeClass('show');
       var controller = this;
       this.get('model.workflow').destroyRecord().then(function(){
         controller.set('hasChanged', false);
@@ -37,7 +35,6 @@ export default Ember.Controller.extend({
           func: "Ember.getOwner(component).lookup('router:main').transitionTo('workflows');"
         };
         controller.set('message', params);
-      $('#confirm-modal').addClass('show');
       });
     },
   },

@@ -78,6 +78,29 @@
 @import 'jobs/option-bar.scss';
 @import 'jobs/logger.scss';
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background: $color-dark;
+
+  &:window-inactive {
+    background: $color-dark;
+  }
+}
+
+
 
 html,
 body {
@@ -219,13 +242,6 @@ body {
 
 #description {
   height: 30vh;
-}
-
-
-@media (max-width: 991px) {
-  #forms {
-    margin-top: 140px;
-  }
 }
 
 #forms fieldset {

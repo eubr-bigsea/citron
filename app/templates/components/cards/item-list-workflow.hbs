@@ -1,6 +1,6 @@
-<td>{{#link-to 'workflow.draw' workflow.id}}{{workflow.id}}{{/link-to}}</td>
-<td>{{#link-to 'workflow.draw' workflow.id}}{{workflow.name}}{{/link-to}}</td>
-<td>
+<td class="id">{{#link-to 'workflow.draw' workflow.id}}{{workflow.id}}{{/link-to}}</td>
+<td class="name">{{#link-to 'workflow.draw' workflow.id}}{{workflow.name}}{{/link-to}}</td>
+<td class="options">
   <div class="row">
     <div class="icon col-xs-3">
       {{#link-to 'workflow.edit' workflow.id}}{{fa-icon "cog" size="lg"}}{{/link-to}}
@@ -13,4 +13,11 @@
     </div>
   </div>
 </td>
-<td>{{format-date workflow.updated}}</td>
+<td class="date">{{format-date workflow.updated}}</td>
+{{confirmation-modal 
+workflow=workflow 
+name=name 
+modal3=modal3 
+toDelete=toDelete
+deleting=true
+message="Are you sure, that you want to delete this workflow?"}}

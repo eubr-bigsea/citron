@@ -2,6 +2,7 @@
 @import 'dimensions.scss';
 
 #page-content-wrapper {
+  
   width: 100%;
   height: -webkit-calc(100% - #{$app-header});
   height: -moz-calc(100% - #{$app-header});
@@ -13,4 +14,9 @@
 }
 
 #page-content-wrapper.toggled {
+}
+
+.content-title{
+  margin-top: 15px;
+  margin-left: 15px;
 }

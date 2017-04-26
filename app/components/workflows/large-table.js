@@ -3,9 +3,15 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Ember.Component.extend({
 
+  name: '',
+  toDelete: '',
+  store: Ember.inject.service('store'),
+
+
   sortBy: ['name'],
   sortedModel: Ember.computed.sort('filteredResults','sortBy'),
   filterText: '',
+  show: false,
 
   filteredResults: function() {
     var filter = this.get('filterText').toString().toLowerCase();
@@ -22,10 +28,9 @@ export default Ember.Component.extend({
   totalPages: "pagedContent.totalPages",
 
   didInsertElement(){
-     if(Ember.$("[rel=tooltip]").is(':focus')){
+    if(Ember.$("[rel=tooltip]").is(':focus')){
       Ember.$("[rel=tooltip]").tooltip({ placement: 'right'});
     }
-
 
     Ember.$('#submit').click(() =>{
       this.triggerAction({
@@ -43,9 +48,15 @@ export default Ember.Component.extend({
   },
 
   actions: {
-     deleteWorkflow(workflow){
-      var confirmText = `Delete workflow ${workflow.get('name')} ?`;
-      if(confirm( confirmText)){ workflow.destroyRecord(); }
+    submit(){
+      this.get('store').findRecord('workflow', this.get('toDelete')).then(function(model){model.destroyRecord(); });
+      this.set('modal3', false);
+      $("#flash span").text("The workflow was deleted.").show().parent().fadeIn().delay(2000).fadeOut('slow', function() { $("#flash span").text('') });
+    },
+    deleteWorkflow(workflow){
+      this.set('toDelete', workflow.get('id'));
+      this.set('name', "Deleting workflow " + workflow.get('name'));
+      this.set('modal3', true);
     },
 
     changeSorter(sortProp){
