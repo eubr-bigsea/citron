@@ -4,7 +4,7 @@
       <thead>
         <tr class="table-header">
           <th class="id">
-            <span>ID</span>
+            <span>{{t 'id'}}</span>
             <a class="arrow-sorter" href="#">
               <em class="fa fa-unsorted" {{action 'sortJob' 'id'}}></em>
             </a>
@@ -16,16 +16,16 @@
             </a>
           </th>
           <th class="status">
-            <span>Status</span>
+            <span>{{t 'status'}}</span>
           </th>
           <th class="date">
-            <span>Started at</span>
+            <span>{{t 'startedAt'}}</span>
             <a class="arrow-sorter" href="#">
               <em class="fa fa-unsorted" {{action 'sortJob' 'created'}}></em>
             </a>
           </th>
           <th class="date">
-            <span>Finished at</span>
+            <span>{{t 'finishedAt'}}</span>
             <a class="arrow-sorter" href="#">
               <em class="fa fa-unsorted" {{action 'sortJob' 'finished'}}></em>
             </a>
@@ -47,7 +47,7 @@
             </td>
             <td class="status">
               {{#link-to 'job.show' job.id class="job" class=job.status}}
-                <span class="status-icon"></span><h4>{{job.status}}</h4>
+                <span class="status-icon"></span><h4>{{t job.status}}</h4>
               {{/link-to}}
             </td>
             <td class="date">
