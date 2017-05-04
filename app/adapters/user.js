@@ -10,7 +10,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   headers: Ember.computed('session.data.authenticated', function() {
     var authenticated = this.get('session.data.authenticated');
     return {
-      'user_id': authenticated.id,
+      'X-User-Id': authenticated.id,
       'access-token': authenticated.accessToken,
       'client': authenticated.client,
       'expiry': authenticated.expiry,

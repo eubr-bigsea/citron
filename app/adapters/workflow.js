@@ -9,7 +9,7 @@ export default DS.JSONAPIAdapter.extend({
     var authenticated = this.get('session.data.authenticated');
     return {
       'X-Auth-Token': '123456',
-      'user_id': authenticated.id,
+      'X-User-Id': authenticated.id,
       'access-token': authenticated.accessToken,
       'client': authenticated.client,
       'expiry': authenticated.expiry,
