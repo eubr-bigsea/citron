@@ -10,7 +10,7 @@ export default Ember.Component.extend({
 
   didReceiveAttrs(){
     var jobStatus = this.get('job.status');
-    this.set('isRunning', (jobStatus === 'running'));
+    this.set('isRunning', (jobStatus === 'running' || jobStatus === 'waiting'));
     this.set('hasFinished', (jobStatus === 'completed'));
   },
   didUpdate(){
