@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2.7
 """
 Updates index.html if there is a env.json file present.
 Used to allow changing ember environment variables when it is

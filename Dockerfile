@@ -4,29 +4,26 @@ FROM nginx
 MAINTAINER "Walter dos Santos Filho" <walter AT dcc.ufmg.br>
 
 ENV CITRON_HOME=/usr/local/citron
-
-RUN mkdir $CITRON_HOME
-ADD app $CITRON_HOME/app
-ADD config $CITRON_HOME/config
-ADD ember-cli-build.js $CITRON_HOME/ember-cli-build.js
-ADD package.json $CITRON_HOME/package.json
-ADD public $CITRON_HOME/public
-ADD vendor $CITRON_HOME/vendor
-ADD extras/entrypoint.sh $CITRON_HOME
-ADD extras/update_env.py /tmp
-# Add configuration for nginx
-ADD extras/nginx.conf.sample /etc/nginx/conf.d/default.conf
 WORKDIR $CITRON_HOME
 
+COPY . $CITRON_HOME
+COPY extras/entrypoint.sh $CITRON_HOME
+COPY extras/update_env.py /usr/local/bin
+# Add configuration for nginx
+COPY extras/nginx.conf.sample /etc/nginx/conf.d/default.conf
+
 # Install Nodejs
-RUN apt-get update -y && \
-	apt-get install curl git -y && \
-	curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
-	apt-get install -y nodejs && \
-	npm install -g ember-cli && \
-	npm config set registry http://registry.npmjs.org/ && \
-	npm install && ember build --prod && \
-	chmod 755 entrypoint.sh
+RUN apt-get update && apt-get install -y \
+      python2.7 \
+      curl \
+      gnupg2 \
+  && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+  && apt-get update && apt-get install -y nodejs \
+  && rm -rf /var/lib/apt/lists/* \
+	&& npm install -g ember-cli \
+	&& npm config set registry http://registry.npmjs.org/ \
+	&& npm install \
+  && ember build --prod
 
 EXPOSE 8080
 ENTRYPOINT ["./entrypoint.sh"]
