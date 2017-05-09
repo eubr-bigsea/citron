@@ -1,23 +1,23 @@
 <div class="card" id='release-notes'>
   <div class="card-header">
     <div class="header-block">
-      <h3 class="title">{{t 'latestEditedWorkflows'}}</h3>
+      <h3 class="title">{{t 'cards.latestEditedWorkflows.title'}}</h3>
     </div>
   </div>
   <div class="card-block" id="large-table-workflows">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>{{t 'id'}}</th>
-          <th>{{t 'name'}}</th>
-          <th>{{t 'options'}}</th>
-          <th style="text-align: right;">{{t 'created'}}</th>
+          <th>{{t 'tables.id'}}</th>
+          <th>{{t 'tables.name'}}</th>
+          <th>{{t 'tables.options'}}</th>
+          <th style="text-align: right;">{{t 'tables.created'}}</th>
         </tr>
       </thead>
       <tbody>
         {{#each workflows as |workflow|}}
           {{#unless workflow.isDeleted}}
-            {{cards/item-list-workflow workflow=workflow}}
+            {{cards/item-list-workflow workflow=workflow locale=locale}}
           {{/unless}}
         {{/each}}
       </tbody>

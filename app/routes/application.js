@@ -4,11 +4,22 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 const { inject: { service } } = Ember;
 
 export default Ember.Route.extend(ApplicationRouteMixin,{
-  session: service('session'),
-  sessionAccount: service('session-account'),
+  i18n: service(),
+  session: service(),
+  sessionAccount: service(),
 
   beforeModel() {
     return this._loadCurrentUser();
+  },
+
+  model(params) {
+    if(params && params.lang){
+      this.set('i18n.locale', params.lang);
+      this.set('locale', params.lang);
+    } else if (this.get('session.data.locale')){
+      this.set('i18n.locale', this.get('session.data.locale'));
+      this.set('locale', this.get('session.data.locale'));
+    }
   },
 
   setupController(controller, model) {
