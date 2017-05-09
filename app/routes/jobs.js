@@ -2,7 +2,11 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
+const { inject: { service } } = Ember;
+
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
+  sessionAccount: service(),
+
   currentUser: Ember.inject.service('current-user'),
   perPage: 20,
   queryParams: {
@@ -11,7 +15,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   },
 
   model(params) {
-    params.user_id = this.get('currentUser.id');
+    params.user_id = this.get('sessionAccount.userId');
+    params.enabled = true;
     params.paramMapping = { total_pages: 'pages' }
 
     return this.findPaged('job', params);

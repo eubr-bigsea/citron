@@ -1,20 +1,7 @@
-import DS from 'ember-data';
-import Ember from 'ember';
 import config from '../config/environment';
+import ApplicationAdapter from './application';
 
-export default DS.JSONAPIAdapter.extend({
+export default ApplicationAdapter.extend({
   host: config.tahiti,
-  session: Ember.inject.service('session'),
-  headers: Ember.computed('session.data.authenticated', function() {
-    var authenticated = this.get('session.data.authenticated');
-    return {
-      'X-Auth-Token': '123456',
-      'X-User-Id': authenticated.id,
-      'access-token': authenticated.accessToken,
-      'client': authenticated.client,
-      'expiry': authenticated.expiry,
-      'uid': authenticated.uid
-    };
-  })
 });
 

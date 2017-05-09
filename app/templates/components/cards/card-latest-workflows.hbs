@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        {{#each slicedModel as |workflow|}}
+        {{#each workflows as |workflow|}}
           {{#unless workflow.isDeleted}}
             {{cards/item-list-workflow workflow=workflow}}
           {{/unless}}

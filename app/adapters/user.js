@@ -1,20 +1,20 @@
-import DS from 'ember-data';
-import Ember from 'ember';
-import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import ApplicationAdapter from './application';
 import config from '../config/environment';
+import Ember from 'ember';
 
-export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+export default ApplicationAdapter.extend({
+  namespace: 'api',
   host: `${config.thorn}`,
-  session: Ember.inject.service('session'),
-  authorizer: 'authorizer:devise',
-  headers: Ember.computed('session.data.authenticated', function() {
-    var authenticated = this.get('session.data.authenticated');
-    return {
-      'X-User-Id': authenticated.id,
-      'access-token': authenticated.accessToken,
-      'client': authenticated.client,
-      'expiry': authenticated.expiry,
-      'uid': authenticated.uid
-    };
-  })
+  // allows the multiword paths in urls to be underscored
+  pathForType: function(type) {
+    var underscored = Ember.String.underscore(type);
+    return Ember.String.pluralize(underscored);
+  },
+  shouldReloadAll() {
+    return true;
+  },
+  shouldBackgroundReloadRecord() {
+    return true;
+  },
+
 });
