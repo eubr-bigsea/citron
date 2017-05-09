@@ -2,12 +2,14 @@
   {{#unless (or (eq currentPath "landing-page") (eq currentPath "login"))}}
     {{main-sidebar id="main-sidebar-wrapper" class="main sidebar wrapper" }}
   {{/unless}}
-  {{#unless (or (eq currentPath "landing-page") (eq currentPath "login"))}}
+  {{#if (or (eq currentPath "landing-page") (eq currentPath "login"))}}
+    {{outlet}}
+  {{else}}
     <div id="main-content-wrapper" class="main content wrapper">
       {{app-header tagName="header" class="header"}}
+      {{outlet}}
     </div>
-  {{/unless}}
-  {{outlet}}
+  {{/if}}
 </div>
 
 <!-- Tooltipster markup -->
