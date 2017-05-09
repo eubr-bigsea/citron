@@ -24,11 +24,12 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    'ember-simple-auth': {
-      authorizer: 'authorizer:devise',
-      routeAfterAuthentication: '/home/workflows'
-    },
   };
+
+    ENV['ember-simple-auth'] = {
+      authorizer: 'authorizer:devise',
+      routeAfterAuthentication: '/home'
+    };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
