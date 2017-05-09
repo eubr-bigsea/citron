@@ -3,7 +3,7 @@ import Ember from 'ember';
 const { inject: { service } } = Ember;
 
 export default Ember.Component.extend({
-  currentUser: service('current-user'),
+  sessionAccount: service(),
   store: service('store'),
   currentJob: null,
 
@@ -31,6 +31,7 @@ export default Ember.Component.extend({
     },
 
     play(){
+      var component = this;
       //FIX THIS
       let workflow = {};
       workflow.id = this.get('workflow.id');
@@ -42,16 +43,18 @@ export default Ember.Component.extend({
       workflow.platform = this.get('workflow.platform');
       workflow.updated = this.get('workflow.updated');
       workflow.description = this.get('workflow.description');
-      let user = this.get('currentUser');
+      var user = this.get('sessionAccount.user');
+console.log(user.get('id'));
       let jobHash = {
         name: 'teste',
-        user: user,
+        //user: { id: user.get('id'), login: user.get('email'), name: user.get('name')},
         workflow: workflow,
         cluster: { id: 1}
       };
-      let component = this;
       let job = this.get('store').createRecord('job', jobHash);
-      job.save().then(function(job){ Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id); } );
+      job.save().then(function(job){
+        Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id);
+      } ).catch(function(error){});
     },
   },
 });

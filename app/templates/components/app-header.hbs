@@ -3,11 +3,11 @@
     <li style="display: inline;" class="profile dropdown">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" >
         <div class="img" style="background-image: url('/assets/images/tux.jpeg')"></div>
-        <span class="name">{{currentUser.firstname}} {{currentUser.lastname}}</span>
+        <span class="name">{{sessionAccount.user.firstName}} {{sessionAccount.user.lastName}}</span>
       </a>
       <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
         <div class="dropdown-divider"></div>
-        {{#link-to 'user' currentUser.id class="dropdown-item" href="#"}}
+        {{#link-to 'user' sessionAccount.user.id class="dropdown-item" href="#"}}
           <i class="fa fa-user icon"></i> {{t 'profile'}}
         {{/link-to}}
         <div class="dropdown-divider"></div>
@@ -20,7 +20,7 @@
     </li>
     <li style="display: inline;" class="dropdown">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color: #fff">
-        <img src="/assets/images/{{i18n.locale}}.png" style="height:20px">
+        <img src="/assets/images/{{sessionAccount.user.locale}}.png" style="height:20px">
       </a>
       <div class="dropdown-menu profile-dropdown-menu" style="min-width: 50px;">
         {{#each locales as |loc|}}

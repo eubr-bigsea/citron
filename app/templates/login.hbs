@@ -1,44 +1,39 @@
 <div class="auth">
-  <div class="auth-container">
-    <div class="card">
-      <header class="auth-header">
-        <h1 class="auth-title">
-          <!--TODO-->
-          <div class="logo"></div>
-          Lemonade
-        </h1>
-      </header>
-      <div class="auth-content">
-        <p class="text-xs-center">LOGIN TO CONTINUE</p>
-        <form id="login-form" {{action 'authenticate' on='submit'}}>
-          <div class={{emailFormGroup}} >
-            <label for="email">Email</label>
-            {{input type='email' class='form-control underlined' name='email' id='email' placeholder="Your email address" value=email}}
-            {{#if invalidEmailErrorMessage}}<span id="email-error" class="has-error">{{invalidEmailErrorMessage}}</span>{{/if}}
-          </div>
-          <div class={{passwordFormGroup}}>
-            <label for="password">Password</label>
-            {{input type='password' class='form-control underlined' name='password' id='password' placeholder='Your password' value=password}}
-            {{#if invalidPasswordErrorMessage}}<span id="email-error" class="has-error">{{invalidPasswordErrorMessage}}</span>{{/if}}
-          </div>
-          <div class="form-group">
-            <!-- TODO -->
-            <label for="remember">
-              {{input class="checkbox" id="remember" type="checkbox" checked=remember}}
-              <span>Remember me</span>
-            </label>
-            <a class="forgot-btn pull-right" >{{#link-to "password.request"}} Forgot password? {{/link-to}}</a>
-          </div>
-          <div class="form-group">
-            <button id="login" type="submit" class="btn btn-block btn-primary">Login</button>
-          </div>
-          <div class="form-group">
-            <p class="text-muted text-xs-center">Do not have an account?
-            <a>{{#link-to "signup"}}Sign Up!{{/link-to}}</a>
-            </p>
-          </div>
-        </form>
-      </div>
+  <div class="auth-container col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+    <header class="auth-header">
+      {{#link-to 'landing-page'}}<img src="assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
+    </header>
+    <div class="auth-content">
+      <p class="text-xs-center">LOGIN TO CONTINUE</p>
+      <form id="login-form" {{action 'authenticate' on='submit'}}>
+        <div class="form-group" id="email">
+          <label for="email">Email</label>
+          {{input type='email' class='form-control underlined' name='email' id='email' placeholder="Your email address" value=identification}}
+        </div>
+        <div class="form-group" id="password">
+          <label for="password">Password</label>
+          {{input type='password' class='form-control underlined' name='password' id='password' placeholder='Your password' value=password}}
+        </div>
+        <div class="form-group" id="error-message">
+          {{#if errorMessage}} <span class="has-error">{{errorMessage}}</span> {{/if}}
+        </div>
+        <div class="form-group">
+          <!-- TODO -->
+          <label for="remember">
+            {{input class="checkbox" id="remember" type="checkbox" checked=remember}}
+            <span class="checkbox-text">Remember me</span>
+          </label>
+          {{#link-to "password.request" class="forgot-btn pull-right text-align-bottom"}} Forgot password? {{/link-to}}
+        </div>
+        <div class="form-group">
+          <button id="login" type="submit" class="btn btn-block btn-primary login">Login</button>
+        </div>
+        <div class="form-group">
+          <p class="text-muted text-xs-center">Do not have an account?
+          {{#link-to "signup"}}Sign Up!{{/link-to}}
+          </p>
+        </div>
+      </form>
     </div>
   </div>
 </div>

@@ -4,17 +4,15 @@ import RSVP from 'rsvp';
 const { inject: { service } } = Ember;
 
 export default Ember.Route.extend({
-  currentUser: service('current-user'),
+  sessionAccount: service(),
   session: service('session'),
 
   model() {
     this._super(...arguments);
-    var currentUser = this.get('currentUser');
     var defaultWorkflow = {
       tasks: [],
       flows: [],
       platform: {id: '1'},
-      user: currentUser,
       image: "img0.png",
       name: "My new Workflow",
       description: "My workflow...",
@@ -43,7 +41,10 @@ export default Ember.Route.extend({
     create(){
       var workflow = this.currentModel.workflow;
       var platform_id = Ember.$("#platform").val();
+      var user = this.get('sessionAccount.user');
+
       workflow.set('platform.id', platform_id);
+      workflow.set('user', { id: user.get('id'), login: user.get('email'), name: user.get('name')});
       workflow.save().then(() => {
         this.transitionTo('workflow.draw', workflow.get('id'), { queryParams: {platform: platform_id}} );
       });
