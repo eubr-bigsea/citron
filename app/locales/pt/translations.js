@@ -1,4 +1,6 @@
 export default {
+  'en': 'English',
+  'pt': 'Português',
   'createNew': 'Criar novo',
   'delete': 'Deletar',
   'searchFor': 'Procurar..',
