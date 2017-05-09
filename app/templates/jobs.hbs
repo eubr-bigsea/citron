@@ -1,12 +1,4 @@
-<div id="main-wrapper" class="main wrapper">
-  {{main-sidebar id="main-sidebar-wrapper" class="main sidebar wrapper" }}
-  <div id="main-content-wrapper" class="main content wrapper">
-    {{app-header tagName="header" class="header"}}
-    <div id="page-content-wrapper" class="container-fluid page content wrapper">
-      {{jobs/top-menu class="top-menu container-fluid"}}
-      {{jobs/large-table model=model id="large-table-jobs" class="container-fluid"}}
-      {{!--       {{workflows/large-table id="large-table" class="container-fluid" workflows=model}} --}}
-      {{outlet}}
-    </div><!-- page-content-wrapper -->
-  </div><!--main-content-wrapper-->
-</div><!--main-wrapper-->
+<div id="page-content-wrapper" class="container-fluid page content wrapper">
+  {{jobs/top-menu class="top-menu container-fluid"}}
+  {{jobs/large-table model=model id="large-table-jobs" class="container-fluid"}}
+</div>
