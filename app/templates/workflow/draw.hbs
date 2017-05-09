@@ -1,4 +1,4 @@
-{{confirmation-modal 
+{{confirmation-modal
 modal3=modal3
 leaving=true
 confirmedTransition='confirmedTransition'
@@ -10,6 +10,6 @@ message="All non-saved changes will be lost, are you sure about this?"}}
 <div id="diagram-container-wrapper" class="container-fluid">
   {{workflows/option-bar class="workflow-option-bar row" workflow=model.workflow hasChanged=(action "hasChanged") alert=(action "alert")}}
   {{workflows/workflow-draw id="workflow-draw" class="draw row" workflow=model.workflow operations=model.operations hasChanged=(action "hasChanged")}}
-</div> <!-- class=container-->
+</div>
 
 {{outlet}}
