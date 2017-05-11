@@ -1,11 +1,13 @@
 import Ember from 'ember';
+import config from '../../config/environment';
 
 export default Ember.Component.extend({
   init() {
     this._super(...arguments);
 
     this.set('url', [
-      'http://beta.ctweb.inweb.org.br/caipirinha/visualizations',
+      config["caipirinha"],
+      "visualizations",
       this.get('params.jobId'),
       this.get('params.taskId')
     ].join('/'));

@@ -42,6 +42,7 @@ module.exports = function(environment) {
     ENV.stand = 'http://beta.ctweb.inweb.org.br/stand';
     ENV.tahiti = 'http://beta.ctweb.inweb.org.br/tahiti';
     ENV.limonero = 'http://beta.ctweb.inweb.org.br/limonero';
+    ENV.capirinha = 'http://beta.ctweb.inweb.org.br/caipirinha';
     ENV.webSocketIO = {
       url: 'http://beta.ctweb.inweb.org.br',
       namespace: '/stand',
