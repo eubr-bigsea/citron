@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../../config/environment';
 
 export default Ember.Component.extend({
   init() {
@@ -32,6 +33,7 @@ export default Ember.Component.extend({
 
     // Walter json
     // var dataURL = "http://beta.ctweb.inweb.org.br/caipirinha/visualizations/280/0aa52039-0534-4a0b-9d9f-f8629b3d0679?token=123456";
+    // var dataURL = `config["caipirinha"]/visualizations/280/0aa52039-0534-4a0b-9d9f-f8629b3d0679?token=123456";
     var discrete = "name";
     var continuous = "value";
 
