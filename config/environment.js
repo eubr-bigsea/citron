@@ -28,7 +28,8 @@ module.exports = function(environment) {
 
     ENV['ember-simple-auth'] = {
       authorizer: 'authorizer:devise',
-      routeAfterAuthentication: '/home'
+      routeAfterAuthentication: '/home',
+      routeIfAlreadyAuthenticated: '/home'
     };
 
   if (environment === 'development') {
