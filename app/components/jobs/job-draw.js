@@ -45,7 +45,7 @@ export default Ember.Component.extend({
     socket.on('disconnect', () => {
       console.debug('disconnect');
     });
-    socket.on('update task', function(frame) {
+    socket.on('update task', function(frame, server_callback) {
       var step = component.get('steps').findBy('task.id', frame.id);
       var logStep = component.get('stepsLogs').findBy('task.id', frame.id);
       logStep.logs.pushObject(frame);
@@ -53,11 +53,17 @@ export default Ember.Component.extend({
       stepTemplate.removeClass(component.get('statusClasses').join(' '));
       var className = frame.status.toLowerCase();
       stepTemplate.addClass(className);
+      if (server_callback){
+        server_callback();
+      }
     });
 
-    socket.on('update job', function(frame) {
+    socket.on('update job', function(frame, server_callback) {
       console.debug('update job');
       component.set('job.status', frame.status.toLowerCase());
+      if (server_callback){
+        server_callback();
+      }
     });
   },
 
