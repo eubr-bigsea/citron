@@ -17,9 +17,9 @@ module.exports = function(defaults) {
     },
     minifyJS: {
       options: {
-        exclude: ["assets/js/gVis/**", 
-                  "assets/js/gVis", 
-                  "public/assets/js/gVis/**"]
+        exclude: ["assets/js/gViz/**", 
+                  "assets/js/gViz", 
+                  "public/assets/js/gViz/**"]
       }
     }
   });
