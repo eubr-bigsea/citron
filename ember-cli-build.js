@@ -15,13 +15,14 @@ module.exports = function(defaults) {
     fingerprint: {
       exclude: ['assets/images'],
     },
+/*
     minifyJS: {
       options: {
         exclude: ["assets/js/gViz/**", 
                   "assets/js/gViz", 
                   "public/assets/js/gViz/**"]
       }
-    }
+    }*/
   });
 
   app.import('vendor/metisMenu/metisMenu.js');
