@@ -23,7 +23,7 @@ gViz.vis.pie_chart = function () {
 
     switch (step) {
       case 'build':
-        return container != null && $(container).length !== 0;
+        return true ; //container != null && $(container).length !== 0;
       case 'initialize':
         return true;
       case 'create':
