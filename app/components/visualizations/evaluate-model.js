@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   _var: null,
 
   // Draw Chart
-  draw: function(){
+  draw(){
 
     // Initialize variables
     let component = this;
@@ -44,17 +44,17 @@ export default Ember.Component.extend({
 
   },
 
-  didInsertElement: function(){
+  didInsertElement(){
 
     let component = this;
     var data_index = 0;
 
-    d3.selectAll(`.btn[data-id=${component.get('_id')}`)
+    d3.selectAll(`.btn[data-id=${component.get('_id')}]`)
       .on("click", function() {
         var data_index = this.value - 1;
         component.draw(data_index);
       });
 
     this.draw(data_index);
-  }
+  },
 });
