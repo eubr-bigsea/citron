@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  session: Ember.inject.service(),
+  currentUser: Ember.inject.service('current-user'),
+
   init() {
     this._super(...arguments);
   },
@@ -45,24 +48,35 @@ export default Ember.Component.extend({
 
   draw: function() {
 
-    // Initialize variables
-    let component = this;
+    let self = this;
+    let currentUser = this.get('currentUser');
 
-    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
-
-      if(err) { console.log(err); }
-
-      // Set title
-      component.set('title', json.title);
-
-      // Set header
-      component.set('header', json.labels);
-
-      // Set data
-      component.set('data', json.data);
+    Ember.$.ajax({
+      url: self.get('dataUrl'),
+      type: "GET",
+      data: {},
+      beforeSend: (request) => {
+        gViz.helpers.loading.show();
+        request.setRequestHeader('X-Auth-Token', '123456');
+        request.setRequestHeader('access-token', currentUser.accessToken);
+        request.setRequestHeader('client', currentUser.client);
+        request.setRequestHeader('expire', currentUser.expire);
+        request.setRequestHeader('uid', currentUser.uid);
+        request.setRequestHeader('token-type', currentUser.tokenType);
+      },
+      success: (data) => {
+        self.set('title', data.title);
+        self.set('header', data.labels);
+        self.set('data', data.data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        gViz.helpers.loading.hide();
+      },
 
     });
-
   },
 
   didInsertElement: function(){
