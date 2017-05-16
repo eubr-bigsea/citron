@@ -47,7 +47,6 @@ export default Ember.Component.extend({
       success: (data) => {
         let body = data["data"].replace("\n", "");
         self.set("body", body);
-
         if(body.length === 0) { self.set("isEmpty", true); }
       },
       error: (err) => {
