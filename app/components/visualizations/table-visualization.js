@@ -48,15 +48,16 @@ export default Ember.Component.extend({
 
   draw: function() {
 
-    let self = this;
+    let component = this;
     let currentUser = this.get('currentUser');
 
     Ember.$.ajax({
-      url: self.get('dataUrl'),
+      url: component.get('dataUrl'),
       type: "GET",
       data: {},
       beforeSend: (request) => {
         gViz.helpers.loading.show();
+
         request.setRequestHeader('X-Auth-Token', '123456');
         request.setRequestHeader('access-token', currentUser.accessToken);
         request.setRequestHeader('client', currentUser.client);
@@ -65,9 +66,9 @@ export default Ember.Component.extend({
         request.setRequestHeader('token-type', currentUser.tokenType);
       },
       success: (data) => {
-        self.set('title', data.title);
-        self.set('header', data.labels);
-        self.set('data', data.data);
+        component.set('title', data.title);
+        component.set('header', data.labels);
+        component.set('data', data.data);
       },
       error: (err) => {
         console.log(err);

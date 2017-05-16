@@ -27,11 +27,11 @@ export default Ember.Component.extend({
   }),
 
   didReceiveAttrs() {
-    let self = this;
-    let currentUser = self.get("currentUser");
+    let component = this;
+    let currentUser = component.get("currentUser");
 
     Ember.$.ajax({
-      url: self.get('dataUrl'),
+      url: component.get('dataUrl'),
       type: "GET",
       data: {},
       beforeSend: (request) => {
@@ -46,8 +46,8 @@ export default Ember.Component.extend({
       },
       success: (data) => {
         let body = data["data"].replace("\n", "");
-        self.set("body", body);
-        if(body.length === 0) { self.set("isEmpty", true); }
+        component.set("body", body);
+        if(body.length === 0) { component.set("isEmpty", true); }
       },
       error: (err) => {
         console.log(err);
