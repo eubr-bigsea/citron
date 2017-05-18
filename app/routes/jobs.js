@@ -7,7 +7,6 @@ const { inject: { service } } = Ember;
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   sessionAccount: service(),
 
-  currentUser: Ember.inject.service('current-user'),
   perPage: 20,
   queryParams: {
     sort: { refreshModel: true },
