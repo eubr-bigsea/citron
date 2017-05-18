@@ -1,1 +1,6 @@
-{{yield}}
+<select multiple="multiple" class="form-control">
+  <option></option>
+  {{#each parsedValues as |option|}}
+    <option value={{option.key}}>{{option.value}}</option>
+  {{/each}}
+</select>
