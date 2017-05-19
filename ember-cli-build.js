@@ -14,6 +14,13 @@ module.exports = function(defaults) {
     },
     fingerprint: {
       exclude: ['assets/images'],
+    },
+    minifyJS: {
+      options: {
+        exclude: [
+          "assets/js/gViz/**",
+        ]
+      }
     }
   });
 
