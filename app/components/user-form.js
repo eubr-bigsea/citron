@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { inject: { service } } = Ember;
+
 export default Ember.Component.extend({
   i18n: service(),
   locales: Ember.computed.alias('i18n.locales'),

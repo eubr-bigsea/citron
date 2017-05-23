@@ -1,4 +1,52 @@
 export default {
+  //Forms
+  'forms': {
+    'email': {
+      'label': 'Email',
+      'placeholder': 'exemplo@email.com'
+    },
+    'password': {
+      'label': 'Senha',
+      'placeholder': 'Mínimo de 6 caracteres.'
+    },
+    'passwordConfirmation': {
+      'label': 'Confirme a senha',
+      'placeholder': 'Deve ser igual a senha.'
+    },
+    'remember': {
+      'label': 'Lembrar-se de mim'
+    },
+    'name': {
+      'label': 'Nome',
+      'placeholder': 'Seu nome'
+    },
+    'firstName': {
+      'label': 'Nome',
+      'placeholder': 'Primeiro nome'
+    },
+    'lastName': {
+      'label': 'Sobrenome',
+      'placeholder': 'Último nome'
+    },
+    'agree': {
+      'label': 'Concordo com os termos e'
+    },
+    'locale': {
+      'label': 'Língua'
+    },
+    'save': 'Salvar',
+    'changePassword': 'Trocar senha',
+    'cancel': 'Cancelar',
+    'policy': 'política',
+    'alreadyAccount': 'Já tem uma conta',
+    'forgotPassword': 'Esqueceu a senha',
+    'noAccount': 'Ainda não possui conta',
+    'signUp': 'Inscreva-se',
+    'login': 'Entrar',
+    'yourProfile': 'Seu perfil',
+
+  },
+
   'en': 'English',
   'pt': 'Português',
   'createNew': 'Criar novo',

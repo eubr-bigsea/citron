@@ -5,11 +5,17 @@ const { inject: { service } } = Ember;
 
 
 export default Ember.Route.extend(ApplicationRouteMixin,{
-  session: service('session'),
-  sessionAccount: service('session-account'),
+  i18n: service(),
+  session: service(),
+  sessionAccount: service(),
 
   beforeModel() {
+    this.set('i18n.locale', this.get('session.data.authenticated.locale'));
     return this._loadCurrentUser();
+  },
+
+  model(params) {
+    this.set('i18n.locale', params.lang);
   },
 
   setupController(controller, model) {

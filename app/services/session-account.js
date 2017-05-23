@@ -5,6 +5,7 @@ const { inject: { service }, RSVP } = Ember;
 export default Ember.Service.extend ({
   session: service('session'),
   store: service(),
+  i18n: service(),
   serverValidationComplete: false,
   server422: false,
 
@@ -21,9 +22,12 @@ export default Ember.Service.extend ({
         return new RSVP.Promise((resolve, reject) => {
           const userId = this.get('session.data.authenticated.userId');
           this.set('userId', this.get('session.data.authenticated.userId'));
+
             // Get User to Session-Account Block
             if(this.get('serverValidationComplete') === true) {
               return this.get('store').find('user', userId).then((user) => {
+                this.set('i18n.locale', user.get('locale'));
+                this.set('currentLocale', user.get('locale'));
                 this.set('user', user);
                 resolve();
               }).catch((reason) => {
@@ -61,13 +65,12 @@ export default Ember.Service.extend ({
     return new RSVP.Promise((resolve) => {
       var tokenAuthentication = this.get('store').peekRecord('token', this.get('session.data.authenticated.userId'));
       if( !tokenAuthentication){
-      var tokenAuthentication = this.get('store').createRecord('token', {
+      tokenAuthentication = this.get('store').createRecord('token', {
         id: this.get('session.data.authenticated.userId'),
         email: this.get('session.data.authenticated.email'),
         authenticity_token: this.get('session.data.authenticated.token')
       });
 
-      console.log('creu')
       tokenAuthentication.save().then(() => {
         this.set('serverValidationComplete',true);
         console.log('Server Validation complete with 200');
