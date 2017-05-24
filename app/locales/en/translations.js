@@ -1,4 +1,51 @@
 export default {
+  //forms
+  'forms': {
+    'email': {
+      'label': 'Email',
+      'placeholder': 'example@email.com'
+    },
+    'password': {
+      'label': 'Password',
+      'placeholder': 'Minimum of 6 characters.'
+    },
+    'passwordConfirmation': {
+      'label': 'Confirm password',
+      'placeholder': 'Confirm your password.'
+    },
+    'remember': {
+      'label': 'Remember me'
+    },
+    'name': {
+      'label': 'Name',
+      'placeholder': 'Your name'
+    },
+    'firstName': {
+      'label': 'First name',
+      'placeholder': 'First name'
+    },
+    'lastName': {
+      'label': 'Last name',
+      'placeholder': 'Last name'
+    },
+    'agree': {
+      'label': 'I agree with the policy terms'
+    },
+    'locale': {
+      'label': 'Language'
+    },
+    'save': 'Save',
+    'changePassword': 'Change password',
+    'cancel': 'Cancel',
+    'policy': 'Policy',
+    'alreadyAccount': 'Already have an account?',
+    'forgotPassword': 'Forgot your password?',
+    'noAccount': 'Still dont have an account?',
+    'signUp': 'Sign up',
+    'login': 'Sign in',
+    'yourProfile': 'Your profile',
+  },
+  
   'en': 'English',
   'pt': 'Português',
   'createNew': 'Create new',
