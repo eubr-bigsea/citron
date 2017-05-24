@@ -5,8 +5,8 @@ const { inject: { service }, Component } = Ember;
 export default Component.extend({
   i18n: service(),
   classNames: ['language-select'],
-  session: service('session'),
-  currentUser: service('current-user'),
+  session: service(),
+  sessionAccount: service(),
 
   locales: Ember.computed('i18n.locale', 'i18n.locales', function() {
     const i18n = this.get('i18n');

@@ -1,14 +1,12 @@
 <div id="main-wrapper" class="main wrapper">
-  {{#unless (or (eq currentPath "landing-page") (eq currentPath "login"))}}
+  {{#if isAuthenticated}}
     {{main-sidebar id="main-sidebar-wrapper" class="main sidebar wrapper" }}
-  {{/unless}}
-  {{#if (or (eq currentPath "landing-page") (eq currentPath "login"))}}
-    {{outlet}}
-  {{else}}
     <div id="main-content-wrapper" class="main content wrapper">
       {{app-header tagName="header" class="header"}}
       {{outlet}}
     </div>
+  {{else}}
+    {{outlet}}
   {{/if}}
 </div>
 

@@ -1,6 +1,8 @@
-import config from '../config/environment';
 import ApplicationAdapter from './application';
+import config from '../config/environment';
 
 export default ApplicationAdapter.extend({
-  host: config.stand,
+  namespace: 'api',
+  host: `${config.thorn}`,
 });
+

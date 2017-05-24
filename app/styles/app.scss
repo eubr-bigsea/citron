@@ -2,28 +2,6 @@
 @import "font-awesome";
 @import "perfect-scrollbar";
 
-@import "auth.scss";
-@import "card.scss";
-@import "card-header.scss";
-@import "card-misc.scss";
-@import "card-release-notes";
-@import "card-video-tutorial";
-@import "dashboard.scss";
-@import "decor.scss";
-@import "filter.scss";
-@import "header.scss";
-@import "images.scss";
-@import "engage.scss";
-@import "engage-btn.scss";
-@import "engage-nav-bar.scss";
-@import "engage-main-menu.scss";
-@import "engage-slick-menu-responsive.scss";
-@import "engage-service.scss";
-@import "engage-team.scss";
-@import "engage-footer.scss";
-@import "theme-color.scss";
-@import "dimensions.scss";
-@import "green.scss";
 
 // Gfranciscani Styles
 
@@ -60,6 +38,7 @@
 @import 'main-content-wrapper.scss';
 @import 'page-content-wrapper.scss';
 @import 'table-paginate.scss';
+@import 'form.scss';
 
 //Animations
 @import 'animations.scss';
@@ -77,6 +56,38 @@
 @import 'jobs/job-diagram-container-wrapper.scss';
 @import 'jobs/option-bar.scss';
 @import 'jobs/logger.scss';
+
+
+
+
+
+@import "auth.scss";
+@import "card.scss";
+@import "card-header.scss";
+@import "card-misc.scss";
+@import "card-release-notes";
+@import "card-video-tutorial";
+@import "dashboard.scss";
+@import "decor.scss";
+@import "filter.scss";
+@import "header.scss";
+@import "images.scss";
+@import "engage.scss";
+@import "engage-btn.scss";
+@import "engage-nav-bar.scss";
+@import "engage-main-menu.scss";
+@import "engage-slick-menu-responsive.scss";
+@import "engage-service.scss";
+@import "engage-team.scss";
+@import "engage-footer.scss";
+@import "theme-color.scss";
+@import "dimensions.scss";
+@import "green.scss";
+
+
+
+
+
 
 ::-webkit-scrollbar {
   width: 7px;

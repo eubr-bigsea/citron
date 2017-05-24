@@ -2,20 +2,25 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import RSVP from 'rsvp';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  currentUser: Ember.inject.service('current-user'),
-  model(){
-    var userId = this.get('currentUser').id;
-    var params = {
-      user_id: this.get('currentUser').id,
-      enabled: true,
-      platform: 'spark'
-    };
+const { inject: { service} } = Ember;
 
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  sessionAccount: service(),
+
+  model(){
+    var userId = this.get('sessionAccount.userId')
+    var params = {
+      user_id: userId,
+      enabled: true,
+      page: '1',
+      size: '5',
+      sort: 'updated_at',
+      asc: false
+    };
 
     return RSVP.hash({
       workflows: this.store.query('workflow', params),
-      jobs: this.store.query('job', {user_id: userId }),
+      jobs: this.store.query('job', params),
       releaseNotes: {
         message: "This is the version 2.0 of application Lemonade! With new operations, faster and simple to use this version brings the power of Apache Spark to execute data minning as easy as build a flow." ,
         version: "2.0",

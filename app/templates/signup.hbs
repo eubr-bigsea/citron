@@ -1,57 +1,72 @@
-<div class="auth">
-  <div class="auth-container">
-    <div class="card">
+<div class="auth container-fluid">
+  <div class="row">
+    <div class="auth-container col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
       <header class="auth-header">
-        <h1 class="auth-title">
-          <div class="logo">
-          </div>        Lemonade
-        </h1> </header>
+        {{#link-to 'landing-page'}}<img src="assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
+      </header>
         <div class="auth-content">
           <p class="text-xs-center">SIGNUP TO GET INSTANT ACCESS</p>
           <form id="signup-form" {{action 'signup' on='submit'}}>
-            <div class="form-group"> <label for="firstname">Name</label>
+            <div class="form-group">
+              <label for="firstname">Name</label>
               <div class="row">
-                <div class="col-sm-6">
-                  {{input type="text" class="form-control underlined" name="firstname" id="firstname" placeholder="Enter firstname" value=firstname}} </div>
-                <div class="col-sm-6">
-                  {{input type="text" class="form-control underlined" name="lastname" id="lastname" placeholder="Enter lastname"  value=lastname}} </div>
-              </div>
-            </div>
-            <div class={{emailFormGroup}}> <label for="email">Email</label>
-              {{input type="email" class="form-control underlined" name="email" id="email" placeholder="Enter email address"  value=email}}
-              {{#if invalidEmailErrorMessage}} <span id="email-error" class="has-error">{{invalidEmailErrorMessage}}</span>{{/if}}
-            </div>
-            <div class={{passwordFormGroup}}> <label for="password">Password</label>
-              <div class="row">
-                <div class="col-sm-6">
-                  {{input type="password" class="form-control underlined" name="password" id="password" placeholder="Enter password"  value=password}}
+                <div class="col-sm-6 form-group" id="first_name">
+                  {{input type="text" class="form-control underlined" name="firstname" id="firstname" placeholder="Enter firstname" value=model.firstName}}
+                  {{#each model.errors.first_name as |error|}}
+                    <span class="has-error">{{error.message}}</span>
+                  {{/each}}
                 </div>
-                <div class="col-sm-6">
-                  {{input type="password" class="form-control underlined" name="password_confirmation" id="password_confirmation" placeholder="Re-type password" value=password_confirmation}}
+                <div class="col-sm-6 form-group" id="last_name">
+                  {{input type="text" class="form-control underlined" name="lastname" id="lastname" placeholder="Enter lastname"  value=model.lastName}}
+                  {{#each model.errors.last_name as |error|}}
+                    <span class="has-error">{{error.message}}</span>
+                  {{/each}}
                 </div>
               </div>
-              {{#if invalidPasswordErrorMessage}} <span id="password-error" class="has-error">{{invalidPasswordErrorMessage}}</span>{{/if}}
-
+            </div>
+            <div class="form-group" id="email">
+              <label for="email">Email</label>
+              {{input type="email" class="form-control underlined" name="email" id="email" placeholder="Enter email address"  value=model.email}}
+              {{#each model.errors.email as |error|}}
+                <span id="email" class="has-error">{{error.message}}</span>
+              {{/each}}
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="row">
+                <div class="col-sm-6 form-group" id="password">
+                  {{input type="password" class="form-control underlined" name="password" id="password" placeholder="Enter password"  value=model.password}}
+                  {{#each model.errors.password as |error|}}
+                    <span class="has-error">{{error.message}}</span>
+                  {{/each}}
+                </div>
+                <div class="col-sm-6 form-group" id="password_confirmation">
+                  {{input type="password" class="form-control underlined" name="password_confirmation" id="password_confirmation" placeholder="Re-type password" value=model.passwordConfirmation}}
+                  {{#each model.errors.password_confirmation as |error|}}
+                    <span class="has-error">{{error.message}}</span>
+                  {{/each}}
+                </div>
+              </div>
             </div>
             <!-- TO DO -->
             <div class="form-group">
               <label for="agree">
                 {{input class='checkbox' name='agree' id='agree' type='checkbox' checked=agreed}}
-                <span>Agree the terms and {{#link-to "policy"}}policy{{/link-to}}</span>
+                <span class="checkbox-text">Agree the terms and {{#link-to "policy"}}policy{{/link-to}}</span>
               </label>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-block btn-primary">Sign Up</button>
+              <button type="submit" class="btn btn-block btn-primary sign-up">Sign Up</button>
             </div>
             <div class="form-group">
               <p class="text-muted text-xs-center">Already have an account?
-              <a> {{#link-to "login"}}Login!{{/link-to}}</a>
+              {{#link-to "login"}}Login!{{/link-to}}
               </p>
             </div>
           </form>
 
         </div>
-    </div>
-  </div>
-</div>
+    </div><!-- .auth-container col -->
+  </div><!-- .row -->
+</div><!-- .auth conteiner-fluid -->
 {{outlet}}
