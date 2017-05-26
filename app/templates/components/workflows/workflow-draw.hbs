@@ -1,4 +1,15 @@
 <div class="lemonade-container" id="lemonade-container">
-  {{workflows/workflow-diagram id="lemonade-diagram" class="lemonade col-xs-12" task=task workflow=workflow operations=operations forms=forms filledForms=filledForms hasChanged=hasChanged}}
+  {{workflows/workflow-diagram
+  workflow=workflow
+  operations=operations
+  forms=forms
+  task=task
+  filledForms=filledForms
+  hasChanged=hasChanged}}
 </div>
-{{workflows/workflow-forms id="forms" class="sidebar sidebar-container" task=task workflow=workflow forms=forms filledForms=filledForms hasChanged=hasChanged}}
+{{workflows/workflow-forms
+task=task
+workflow=workflow
+forms=forms
+filledForms=filledForms
+hasChanged=hasChanged}}

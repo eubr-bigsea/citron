@@ -166,13 +166,21 @@ export default Ember.Component.extend({
     }
 
     Ember.$(el).click((e) => {
-      if(e.target.id != 'testDelete'){
-				Ember.$('#forms').toggle(true);
-			}else{
-				Ember.$('#forms').toggle(false);
-			}
+      Ember.$('#forms').toggle(e.target.id != 'testDelete');
       Ember.$('.ui-selected').removeClass('ui-selected');
       Ember.$(el).addClass('ui-selected');
+
+      let exec = this.get('forms').filter(el => el.category === 'execution')[0];
+
+      let attr = exec ? exec.fields.filter((el) => {
+        return el.suggested_widget === "attribute-selector"
+      }) : [];
+
+      attr.forEach((el) => {
+        //TODO add attribute suggestions
+        el.values = JSON.stringify(["field1", "field2", "field3"]);
+      });
+
       clickTask(this.get('forms'), task.forms, task);
     });
   },
@@ -180,8 +188,6 @@ export default Ember.Component.extend({
     onDestroy() {
       this.get('endpoints').forEach(e => this.get('jsplumb').deleteEndpoint(e));
       this.get('removeTask')();
-    },
-    onDebug(){
     }
   }
 });
