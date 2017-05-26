@@ -1,60 +1,54 @@
 import Ember from 'ember';
-import config from '../../config/environment';
 
 export default Ember.Component.extend({
-  // Attributes bindings
-  width:  function(){ return this.get('width'); }.property('width'),
-  height: function(){ return this.get('height'); }.property('height'),
-  _id:    function(){ return this.get('_id'); }.property('_id'),
-  style:  function(){ return "width:"+this.get('width')+"; height:"+this.get('height')+";"; }.property('style'),
+  session: Ember.inject.service(),
 
-  // Chart var
-  _var: null,
-
-  // Draw Chart
-  draw: function(){
-
-    // Initialize variables
-    let component = this;
-
-    let parseData = function(d, discrete, continuous) {
-      d["discrete"]   =  d[discrete];
-      d["continuous"] = +d[continuous];
-
-      delete(d[discrete]);
-      delete(d[continuous]);
-
-      return d;
-    };
-
-    var discrete = "name";
-    var continuous = "value";
-
-    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
-
-      if(err) { console.log(err); }
-
-      // Set title
-      component.set('title', json.title);
-
-      // Get data
-      var data = json.data;
-      component.set('html', data)
-    });
-
+  init() {
+    this._super(...arguments);
   },
 
-  didInsertElement: function(){
+  // Set my style for component
+  myStyle: Ember.computed('cHeight', function() {
+    return Ember.String.htmlSafe(`height: ${this.get('cHeight')}px;`);
+  }),
 
+  myTableStyle: Ember.computed('cHeight', function() {
+    return Ember.String.htmlSafe(`max-height: ${this.get('cHeight') - 40}px;`);
+  }),
+
+  cHeight: Ember.computed('offsetTop','height', function() {
+    if(this.get('height') === 0) {
+      return ($(window).outerHeight() - this.get('offsetTop')) * 0.4926;
+    }
+
+    else { return this.get('height'); }
+  }),
+
+  didReceiveAttrs() {
     let component = this;
-    var data_index = 0;
+    let currentUser = component.get("currentUser");
 
-    d3.selectAll(`.btn[data-id=${component.get('_id')}`)
-      .on("click", function() {
-        var data_index = this.value - 1;
-        component.draw(data_index);
-      });
+    Ember.$.ajax({
+      url: component.get('dataUrl'),
+      type: "GET",
+      data: {},
+      beforeSend: (request) => {
+        gViz.helpers.loading.show();
 
-    this.draw(data_index);
-  }
+        request.setRequestHeader('X-Auth-Token', '123456');
+        request.setRequestHeader('Authorization', `Token token=${component.get('session.data.authenticated.token')} email=${component.get('session.data.authenticated.email')}`);
+      },
+      success: (data) => {
+        let body = data["data"].replace("\n", "");
+        component.set("body", body);
+        if(body.length === 0) { component.set("isEmpty", true); }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        gViz.helpers.loading.hide();
+      },
+    });
+  },
 });

@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
+const { inject: { service } } = Ember;
+
 export default Ember.Component.extend({
+  session: service(),
+
   init() {
     this._super(...arguments);
   },
@@ -16,43 +20,58 @@ export default Ember.Component.extend({
 
   // Draw Chart
   draw: function(){
-
-    // Initialize variables
     let component = this;
+    let currentUser = this.get('currentUser');
 
-    let parseData = function(d, label, value) {
-      d["label"]   =  d[label];
-      d["value"]   = +d[value];
+    Ember.$.ajax({
+      url: component.get('dataUrl'),
+      type: "GET",
+      data: {},
+      beforeSend: (request) => {
+        gViz.helpers.loading.show();
 
-      if(label !== "label") { delete(d[label]); }
+        request.setRequestHeader('X-Auth-Token', '123456');
+        request.setRequestHeader('Authorization', `Token token=${component.get('session.data.authenticated.token')} email=${component.get('session.data.authenticated.email')}`);
+      },
+      success: (data) => {
 
-      if(value !== "value") { delete(d[value]); }
+        // Set title
+        component.set('title', data.title);
 
-      return d;
-    };
+        let parseData = function(d, label, value) {
+          d["label"]   =  d[label];
+          d["value"]   = +d[value];
 
-    // Walter json
-    var label = "name";
-    var value = "value";
+          if(label !== "label") { delete(d[label]); }
 
-    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
+          if(value !== "value") { delete(d[value]); }
 
-      if(err) { console.log(err); }
+          return d;
+        };
 
-      // Set title
-      component.set('title', json.title);
+        // Walter data
+        var label = "name";
+        var value = "value";
 
-      // Get data
-      var data = json.data;
-      data.map(function(d) { parseData(d, label, value); });
 
-      component._var = gViz.vis.pie_chart()
-        ._var(component._var)
-        ._class("pie-chart")
-        .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-        .data(data)
-        .build();
+        // Get data
+        var data = data.data;
+        data.map(function(d) { parseData(d, label, value); });
 
+        component._var = gViz.vis.pie_chart()
+          ._var(component._var)
+          ._class("pie-chart")
+          .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
+          .data(data)
+          .build();
+
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        gViz.helpers.loading.hide();
+      },
     });
 
   },

@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
+const { inject: { service } } = Ember;
+
 export default Ember.Component.extend({
+  session: service(),
+
   init() {
     this._super(...arguments);
   },
@@ -45,24 +49,32 @@ export default Ember.Component.extend({
 
   draw: function() {
 
-    // Initialize variables
     let component = this;
+    let currentUser = this.get('currentUser');
 
-    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
+    Ember.$.ajax({
+      url: component.get('dataUrl'),
+      type: "GET",
+      data: {},
+      beforeSend: (request) => {
+        gViz.helpers.loading.show();
 
-      if(err) { console.log(err); }
-
-      // Set title
-      component.set('title', json.title);
-
-      // Set header
-      component.set('header', json.labels);
-
-      // Set data
-      component.set('data', json.data);
+        request.setRequestHeader('Authorization', `Token token=${component.get('session.data.authenticated.token')} email=${component.get('session.data.authenticated.email')}`);
+        request.setRequestHeader('X-Auth-Token', '123456');
+      },
+      success: (data) => {
+        component.set('title', data.title);
+        component.set('header', data.labels);
+        component.set('data', data.data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        gViz.helpers.loading.hide();
+      },
 
     });
-
   },
 
   didInsertElement: function(){

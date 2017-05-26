@@ -4,9 +4,8 @@ import config from '../../config/environment';
 export default Ember.Component.extend({
   init() {
     this._super(...arguments);
-
     this.set('url', [
-      config["caipirinha"],
+      config.caipirinha,
       "visualizations",
       this.get('params.jobId'),
       this.get('params.taskId')

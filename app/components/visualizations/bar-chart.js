@@ -1,7 +1,10 @@
 import Ember from 'ember';
-import config from '../../config/environment';
+
+const { inject: { service } } = Ember;
 
 export default Ember.Component.extend({
+  session: service(),
+
   init() {
     this._super(...arguments);
   },
@@ -16,46 +19,57 @@ export default Ember.Component.extend({
   _var: null,
 
   // Draw Chart
-  draw: function(){
+  draw: function() {
 
-    // Initialize variables
     let component = this;
+    let currentUser = this.get('currentUser');
 
-    let parseData = function(d, discrete, continuous) {
-      d["discrete"]   =  d[discrete];
-      d["continuous"] = +d[continuous];
+    Ember.$.ajax({
+      url: component.get('dataUrl'),
+      type: "GET",
+      data: {},
+      beforeSend: (request) => {
+        gViz.helpers.loading.show();
 
-      delete(d[discrete]);
-      delete(d[continuous]);
+        request.setRequestHeader('X-Auth-Token', '123456');
+        request.setRequestHeader('Authorization', `Token token=${component.get('session.data.authenticated.token')} email=${component.get('session.data.authenticated.email')}`);
+      },
+      success: (data) => {
+        let parseData = function(d, discrete, continuous) {
+          d["discrete"]   =  d[discrete];
+          d["continuous"] = +d[continuous];
 
-      return d;
-    };
+          delete(d[discrete]);
+          delete(d[continuous]);
 
-    // Walter json
-    // var dataURL = "http://beta.ctweb.inweb.org.br/caipirinha/visualizations/280/0aa52039-0534-4a0b-9d9f-f8629b3d0679?token=123456";
-    // var dataURL = `config["caipirinha"]/visualizations/280/0aa52039-0534-4a0b-9d9f-f8629b3d0679?token=123456";
-    var discrete = "name";
-    var continuous = "value";
+          return d;
+        };
 
-    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
+        var discrete = "name";
+        var continuous = "value";
 
-      if(err) { console.log(err); }
+        // Set title
+        component.set('title', data.title);
 
-      // Set title
-      component.set('title', json.title);
+        // Get data
+        var data = data.data;
+        data.map(function(d) { parseData(d, discrete, continuous); });
 
-      // Get data
-      var data = json.data;
-      data.map(function(d) { parseData(d, discrete, continuous); });
+        component._var = gViz.vis.bar_chart()
+          ._var(component._var)
+          ._class("bar-chart")
+          .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
+          .data(data)
+          .build();
 
-      component._var = gViz.vis.bar_chart()
-        ._var(component._var)
-        ._class("bar-chart")
-        .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-        .data(data)
-        .build();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        gViz.helpers.loading.hide();
+      },
     });
-
   },
 
   didInsertElement: function(){
@@ -63,7 +77,7 @@ export default Ember.Component.extend({
     let component = this;
     var data_index = 0;
 
-    d3.selectAll(`.btn[data-id=${component.get('_id')}`)
+    d3.selectAll(`.btn[data-id=${component.get('_id')}]`)
       .on("click", function() {
         var data_index = this.value - 1;
         component.draw(data_index);
