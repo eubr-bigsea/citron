@@ -1,9 +1,7 @@
 import Ember from 'ember';
-import config from '../../config/environment';
 
 export default Ember.Component.extend({
   session: Ember.inject.service(),
-  currentUser: Ember.inject.service("current-user"),
 
   init() {
     this._super(...arguments);
@@ -38,11 +36,7 @@ export default Ember.Component.extend({
         gViz.helpers.loading.show();
 
         request.setRequestHeader('X-Auth-Token', '123456');
-        request.setRequestHeader('access-token', currentUser.accessToken);
-        request.setRequestHeader('client', currentUser.client);
-        request.setRequestHeader('expire', currentUser.expire);
-        request.setRequestHeader('uid', currentUser.uid);
-        request.setRequestHeader('token-type', currentUser.tokenType);
+        request.setRequestHeader('Authorization', `Token token=${component.get('session.data.authenticated.token')} email=${component.get('session.data.authenticated.email')}`);
       },
       success: (data) => {
         let body = data["data"].replace("\n", "");

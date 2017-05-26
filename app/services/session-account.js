@@ -61,13 +61,12 @@ export default Ember.Service.extend ({
     return new RSVP.Promise((resolve) => {
       var tokenAuthentication = this.get('store').peekRecord('token', this.get('session.data.authenticated.userId'));
       if( !tokenAuthentication){
-      var tokenAuthentication = this.get('store').createRecord('token', {
+      tokenAuthentication = this.get('store').createRecord('token', {
         id: this.get('session.data.authenticated.userId'),
         email: this.get('session.data.authenticated.email'),
         authenticity_token: this.get('session.data.authenticated.token')
       });
 
-      console.log('creu')
       tokenAuthentication.save().then(() => {
         this.set('serverValidationComplete',true);
         console.log('Server Validation complete with 200');
