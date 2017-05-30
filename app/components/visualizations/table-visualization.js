@@ -50,7 +50,6 @@ export default Ember.Component.extend({
   draw: function() {
 
     let component = this;
-    let currentUser = this.get('currentUser');
 
     Ember.$.ajax({
       url: component.get('dataUrl'),

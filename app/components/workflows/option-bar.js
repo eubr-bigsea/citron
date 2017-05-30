@@ -44,7 +44,7 @@ export default Ember.Component.extend({
       workflow.updated = this.get('workflow.updated');
       workflow.description = this.get('workflow.description');
       var user = this.get('sessionAccount.user');
-console.log(user.get('id'));
+      console.log(user.get('id'));
       let jobHash = {
         name: 'teste',
         //user: { id: user.get('id'), login: user.get('email'), name: user.get('name')},
@@ -54,7 +54,7 @@ console.log(user.get('id'));
       let job = this.get('store').createRecord('job', jobHash);
       job.save().then(function(job){
         Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id);
-      } ).catch(function(error){});
+      } ).catch(function(error){ console.log(error) });
     },
   },
 });
