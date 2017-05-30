@@ -5,6 +5,8 @@ import generateUUID from 'lemonade-ember/utils/generate-uuid';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  elementId: "lemonade-diagram",
+  classNames: ["lemonade", "col-xs-12"],
   init() {
     this._super(...arguments);
     this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));

@@ -1,6 +1,6 @@
-<select multiple="multiple" class="form-control">
+<select onchange={{action 'valueChanged'}} multiple="true" class="form-control">
   <option></option>
-  {{#each parsedValues as |option|}}
-    <option value={{option.key}}>{{option.value}}</option>
+  {{#each parsedValues as |val|}}
+    <option selected={{val.selected}} value={{val.val}}>{{val.val}}</option>
   {{/each}}
 </select>

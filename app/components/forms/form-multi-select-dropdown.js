@@ -10,7 +10,8 @@ export default FormComponent.extend({
   },
   didInsertElement() {
     Ember.$(`#${this.elementId} select`).select2({
-      tags: true
+      tags: true,
+      dropdownParent: this.$()
     });
   }
 });

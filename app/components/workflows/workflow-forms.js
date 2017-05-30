@@ -2,6 +2,8 @@ import Ember from 'ember';
 import Ps from 'npm:perfect-scrollbar';
 
 export default Ember.Component.extend({
+  elementId: 'forms',
+  classNames: ['sidebar', 'sidebar-container'],
   didInsertElement() {
     Ps.initialize(document.getElementById(this.elementId));
   },
