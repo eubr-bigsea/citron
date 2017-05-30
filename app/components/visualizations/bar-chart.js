@@ -22,7 +22,6 @@ export default Ember.Component.extend({
   draw: function() {
 
     let component = this;
-    let currentUser = this.get('currentUser');
 
     Ember.$.ajax({
       url: component.get('dataUrl'),
@@ -52,14 +51,14 @@ export default Ember.Component.extend({
         component.set('title', data.title);
 
         // Get data
-        var data = data.data;
-        data.map(function(d) { parseData(d, discrete, continuous); });
+        var data2 = data.data;
+        data2.map(function(d) { parseData(d, discrete, continuous); });
 
         component._var = gViz.vis.bar_chart()
           ._var(component._var)
           ._class("bar-chart")
           .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-          .data(data)
+          .data(data2)
           .build();
 
       },

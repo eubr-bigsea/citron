@@ -36,9 +36,6 @@ module.exports = function(defaults) {
   app.import('vendor/select2/select2.css');
 
   // Visualizations Required Libraries
-  app.import('vendor/gViz/libs/bootstrap-slider/bootstrap-slider.js');
-  app.import('vendor/gViz/libs/bootstrap-slider/bootstrap-slider.css');
-
   app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.js');
   app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.css');
 

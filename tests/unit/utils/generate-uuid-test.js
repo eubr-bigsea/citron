@@ -3,8 +3,12 @@ import { module, test } from 'qunit';
 
 module('Unit | Utility | generateUUID');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
+test('it generates', function(assert) {
   let result = generateUUID();
-  assert.ok(result);
+
+  assert.ok(result[8] === '-');
+  assert.ok(result[13] === '-');
+  assert.ok(result[14] === '4');
+  assert.ok(result[18] === '-');
+  assert.ok(result[23] === '-');
 });

@@ -21,7 +21,6 @@ export default Ember.Component.extend({
   // Draw Chart
   draw: function(){
     let component = this;
-    let currentUser = this.get('currentUser');
 
     Ember.$.ajax({
       url: component.get('dataUrl'),
@@ -55,14 +54,14 @@ export default Ember.Component.extend({
 
 
         // Get data
-        var data = data.data;
-        data.map(function(d) { parseData(d, label, value); });
+        var data2 = data.data;
+        data2.map(function(d) { parseData(d, label, value); });
 
         component._var = gViz.vis.pie_chart()
           ._var(component._var)
           ._class("pie-chart")
           .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-          .data(data)
+          .data(data2)
           .build();
 
       },

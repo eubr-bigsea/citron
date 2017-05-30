@@ -26,7 +26,6 @@ export default Ember.Component.extend({
 
   didReceiveAttrs() {
     let component = this;
-    let currentUser = component.get("currentUser");
 
     Ember.$.ajax({
       url: component.get('dataUrl'),
