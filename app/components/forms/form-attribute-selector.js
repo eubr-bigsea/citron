@@ -1,4 +1,5 @@
 import FormComponent from 'lemonade-ember/lib/form-component';
+import Ember from 'ember';
 
 export default FormComponent.extend({
   init() {
@@ -23,7 +24,7 @@ export default FormComponent.extend({
             val: el,
             selected: false
           });
-        };
+        }
       });
     }
   },

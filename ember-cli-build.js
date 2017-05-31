@@ -35,6 +35,9 @@ module.exports = function(defaults) {
   app.import('vendor/select2/select2.full.js');
   app.import('vendor/select2/select2.css');
 
+  app.import('vendor/nprogress/nprogress.css');
+  app.import('vendor/nprogress/nprogress.js');
+
   // Visualizations Required Libraries
   app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.js');
   app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.css');
