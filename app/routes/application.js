@@ -1,8 +1,7 @@
+/* global NProgress */
 import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
-import NProgress from 'npm:nprogress';
 const { inject: { service } } = Ember;
-
 
 export default Ember.Route.extend(ApplicationRouteMixin,{
   session: service('session'),
@@ -37,7 +36,6 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
     },
 
     loading(transition) {
-      NProgress.configure({ easing: 'ease', speed: 1000 });
       NProgress.start();
 
       transition.promise.finally(function() {
