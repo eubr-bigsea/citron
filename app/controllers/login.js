@@ -10,8 +10,8 @@ export default Ember.Controller.extend({
       var self = this;
       let { identification, password } = this.getProperties('identification', 'password');
       this.get('session').authenticate('authenticator:devise', identification, password).catch(
-        function(reason){
-          self.set('errorMessage', reason.message);
+        function(){
+          self.set('errorMessage', 'Error with your email or password');
           Ember.$('#email').addClass('has-error');
           Ember.$('#password').addClass('has-error');
           Ember.$('#error-message').addClass('has-error');

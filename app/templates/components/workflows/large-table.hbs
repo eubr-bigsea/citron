@@ -60,7 +60,7 @@ message="Are you sure, that you want to delete this workflow?"}}
               </td>
               <td class="logo">
                 {{#link-to 'workflow.draw' workflow.id}}
-                  <img class="image" src="/assets/images/{{workflow.image}}">
+                  <img class="image" src="/assets/images/{{if workflow.image workflow.image "img1.png"}}">
                 {{/link-to}}
               </td>
               <td class="id">

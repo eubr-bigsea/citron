@@ -23,7 +23,6 @@ Router.map(function() {
   });
   this.route('login');
   this.route('signup');
-  this.route('policy');
   this.route('password', {path:'users/password'}, function() {
     this.route('request');
     this.route('edit');
