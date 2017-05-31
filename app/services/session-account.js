@@ -69,7 +69,6 @@ export default Ember.Service.extend ({
 
       tokenAuthentication.save().then(() => {
         this.set('serverValidationComplete',true);
-        console.log('Server Validation complete with 200');
         resolve();
       }).catch((reason) => {
         console.log('error');
