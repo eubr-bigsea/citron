@@ -1,10 +1,10 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 name-editor">
   <span class="form-control underlined"> {{job.workflow.name}} </span>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-2 status {{job.status}}" id="job-status">
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-2 status {{job.status}}" id="job-status">
   <span class="status-icon"></span><span class="text">{{job.status}}</span>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 buttons">
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 buttons">
   {{#link-to 'workflow.draw' job.workflow.id  class="workflow btn btn-primary btn-md"}}
     <i class="fa fa-flask fa-lg"></i><span>Workflow</span>
   {{/link-to}}
