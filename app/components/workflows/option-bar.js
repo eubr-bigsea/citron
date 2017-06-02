@@ -47,7 +47,7 @@ export default Ember.Component.extend({
       console.log(user.get('id'));
       let jobHash = {
         name: 'teste',
-        //user: { id: user.get('id'), login: user.get('email'), name: user.get('name')},
+        user: { id: user.get('id'), login: user.get('email'), name: user.get('name')},
         workflow: workflow,
         cluster: { id: 1}
       };
