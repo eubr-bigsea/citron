@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
       for(var i=0, len=errors.length; i<len; i++){
         Ember.$(`#${errors[i].attribute}`).addClass('has-error');
       }
-    });
+    }).then(() => {controller.transitionToRoute('home')});
   },
 
   actions:{
