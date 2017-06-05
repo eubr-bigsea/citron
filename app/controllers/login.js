@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
           Ember.$('#email').addClass('has-error');
           Ember.$('#password').addClass('has-error');
           Ember.$('#error-message').addClass('has-error');
-        });
+        }).then(() => {self.transitionToRoute('home')});
     },
   },
 });
