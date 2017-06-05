@@ -34,6 +34,7 @@ Router.map(function() {
   });
   this.route('user', {path: 'user/:id'});
   this.route('group', {path: 'group/:id'});
+  this.route('visualization');
 });
 
 export default Router;
