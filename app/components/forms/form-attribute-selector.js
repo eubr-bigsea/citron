@@ -9,13 +9,16 @@ export default FormComponent.extend({
 
     let parsed = this.get('parsedValues');
     let values = JSON.parse(this.get('field.values'));
+    let currentValue = this.get('currentValue');
 
-    this.get('currentValue').forEach((el) => {
-      parsed.addObject({
-        val: el,
-        selected: true
+    if(currentValue) {
+      currentValue.forEach((el) => {
+        parsed.addObject({
+          val: el,
+          selected: true
+        });
       });
-    });
+    }
 
     if(values) {
       values.forEach((el) => {
