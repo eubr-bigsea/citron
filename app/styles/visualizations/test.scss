@@ -26,7 +26,8 @@
   .gViz-outer-wrapper {
     width: 100%;
     height: calc(100% - 75px);
-    background-color: #333;
+    background-color: #FFF;
+    //border: 1px solid #CCC;
 
     &.tiny   { width: 300px;  height: 200px; }
     &.small  { width: 500px;  height: 335px; }

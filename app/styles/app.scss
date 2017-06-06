@@ -36,9 +36,12 @@
 @import 'ui/ui.mouse-pointers.scss';
 @import 'ui/ui.tooltipster.scss';
 
-// Visualizations
+// Visualizations Main
 @import 'visualizations/main.scss';
+@import 'visualizations/list-view.scss';
 @import 'visualizations/test.scss';
+
+// Visualizations
 @import 'visualizations/bar-chart/main.scss';
 @import 'visualizations/line-chart/main.scss';
 @import 'visualizations/correlation-matrix/main.scss';

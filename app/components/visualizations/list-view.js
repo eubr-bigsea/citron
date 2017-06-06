@@ -11,5 +11,7 @@ export default Ember.Component.extend({
   tagName: "div",
   classNames: ["gViz-wrapper"],
 
+  visualizations: Object.keys(ENV.APP.visualizations).filter(k => k !== 'list').map(k => ENV.APP.visualizations[k]),
+
 
 });
