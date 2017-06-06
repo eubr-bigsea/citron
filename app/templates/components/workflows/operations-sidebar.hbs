@@ -1,17 +1,41 @@
 <div class="operations-list" id="operations-list">
   <ul class="metismenu" id="categories-list">
-    {{#each-in operations as |category operations|}}
-      <li>
-        <a href="#">
-          <i class="fa fa-th-large"></i>
-          <span>{{category}}</span>
-        </a>
-        <ul>
-          {{#each operations as |operation|}}
-            {{workflows/operation-element operation=operation}}
-          {{/each}}
-        </ul>
-      </li>
+    {{#each-in operations as |group subgroup|}}
+      {{#if (eq group "_data")}}
+        {{#each subgroup as |operation|}}
+          {{workflows/operation-element  operation=operation}}
+        {{/each}}
+      {{else}}
+        <li>
+          <a href="#">
+            <i class="fa fa-th-large"></i>
+            <span>{{group}}</span>
+          </a>
+          <ul>
+            {{#each-in subgroup as |op elements|}}
+              {{#if (eq op "_data")}}
+                {{#each elements as |element|}}
+                  {{workflows/operation-element operation=element}}
+                {{/each}}
+              {{else}}
+                <li>
+                  <a href="#">
+                    <i class="fa fa-th-large"></i>
+                    <span>{{op}}</span>
+                  </a>
+                  <ul>
+                    {{#each-in elements as |sub element|}}
+                      {{#each element as |el|}}
+                        {{workflows/operation-element operation=el}}
+                      {{/each}}
+                    {{/each-in}}
+                  </ul>
+                </li>
+              {{/if}}
+            {{/each-in}}
+          </ul>
+        </li>
+      {{/if}}
     {{/each-in}}
   </ul>
 </div>
