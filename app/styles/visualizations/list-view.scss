@@ -1,0 +1,38 @@
+.vis-list-view {
+
+  .vis-list-item {
+    width: 140px;
+    float: left;
+    cursor: pointer;
+    border: 1px solid $theme-green-hover;
+    margin-left: 15px;
+    &:first-child { margin-left: 0px; }
+
+    .initials {
+      background-color: $theme-green;
+      width: 100%;
+      height: 140px;
+      font-size: 40px;
+      line-height: 140px;
+      text-align: center;
+      color: $full-white;
+    }
+
+    .text {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12px;
+      color: darken($theme-green, 10%);
+      padding: 5px 10px 3px;
+      white-space: nowrap;
+      i { margin-right: 7px; }
+    }
+
+    &:hover {
+      .initials {
+        background-color: darken($theme-green, 10%);
+      }
+    }
+  }
+}
