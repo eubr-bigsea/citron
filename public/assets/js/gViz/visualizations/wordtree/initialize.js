@@ -1,36 +1,24 @@
-"use strict";
-
-// Initialize the visualization class
-
 gViz.vis.wordtree.initialize = function () {
   "use strict";
 
   // Get attributes values
-
-  var _id = "vis-wordtree-" + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
-  var _var = undefined;
+  var _id       = 'vis-wordtree-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _var      = null;
+  var action    = 'build';
   var animation = 900;
-  var click = { selector: 'svg', fn: function fn(d) {
-      if (d == null) {
-        d = "Clicked";
-      }return console.log(d);
-    }
-  };
-  var colors = { scale: gViz.helpers.colors.main };
-  var container = undefined;
-  var data = [];
-  var height = 100;
-  var margin = { top: 10, right: 10, bottom: 10, left: 10 };
-  var width = 100;
+  var click     = { selector: 'svg', fn: function fn(d) { if (d == null) { d = "Clicked"; } return console.log(d); } };
+  var colors    = { scale: gViz.helpers.colors.main };
+  var container = null;
+  var data      = [];
+  var height    = 100;
+  var margin    = { top: 10, right: 10, bottom: 10, left: 10 };
+  var width     = 100;
 
   // Validate attributes
   var validate = function validate(step) {
-
     switch (step) {
-      case 'run':
-        return true;
-      default:
-        return false;
+      case 'run': return true;
+      default: return false;
     }
   };
 
