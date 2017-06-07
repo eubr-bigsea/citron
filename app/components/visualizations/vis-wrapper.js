@@ -34,7 +34,6 @@ export default Ember.Component.extend({
       contentType: "application/json",
       success(json) {
 
-        // Update data
         self.set('data', json);
 
       },
