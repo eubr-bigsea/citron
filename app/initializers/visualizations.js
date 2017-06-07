@@ -92,6 +92,16 @@ export function initialize(/* application */) {
         values that they represent. `,
        url: "visualization?name=barchart",
        dataUrl: "/assets/data/visualizations/bar-chart.json"
+     },
+     histogram: {
+       initials: "Hist",
+       component: "visualizations/histogram-chart",
+       icon: "fa-bar-chart",
+       title: "Histogram",
+       subtitle: "Distribution",
+       description: "Histogram visualises the distribution of data over a continuous interval or certain time period. Each bar in a histogram represents the tabulated frequency at each interval/bin. The total area of the histogram is equal to the number of data.",
+       url: "visualization?name=histogram",
+       dataUrl: "/assets/data/visualizations/histogram.json"
      }
    };
 }
