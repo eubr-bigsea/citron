@@ -1,8 +1,16 @@
 .gViz-outer-wrapper {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 .gViz-wrapper {
-  //margin-bottom: 50px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .gViz-wrapper-inner {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .gViz-header {

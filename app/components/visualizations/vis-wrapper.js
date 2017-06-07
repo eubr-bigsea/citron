@@ -12,6 +12,7 @@ export default Ember.Component.extend({
 
   // Initialize data
   data: null,
+  style: Ember.computed('height', function() { return "600px"; }),
 
   // Initialize data
   didInsertElement() {
