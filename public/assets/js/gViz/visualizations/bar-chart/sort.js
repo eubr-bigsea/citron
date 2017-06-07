@@ -50,18 +50,18 @@ gViz.vis.bar_chart.sort = function () {
                     case "alphabetically":
 
                       var x0 = _var.xScale.domain(_var._data.sort(function (a, b) {
-                        return d3.ascending(a["discrete"], b["discrete"]);
+                        return d3.ascending(a["label"], b["label"]);
                       }).map(function (d) {
-                        return d["discrete"];
+                        return d["label"];
                       })).copy();
 
                       break;
 
                     default:
                       var x0 = _var.xScale.domain(_var._data.sort(function (a, b) {
-                        return d3[value](a["continuous"], b["continuous"]);
+                        return d3[value](a["value"], b["value"]);
                       }).map(function (d) {
-                        return d["discrete"];
+                        return d["label"];
                       })).copy();
 
                   }
@@ -71,7 +71,7 @@ gViz.vis.bar_chart.sort = function () {
                     return i * 50;
                   };
 
-                  t.selectAll('.bar-group').delay(delay).attr("transform", function (d) { return "translate(" + x0(d["discrete"]) + ",0)"; });
+                  t.selectAll('.bar-group').delay(delay).attr("transform", function (d) { return "translate(" + x0(d["label"]) + ",0)"; });
 
                   t.select('.x.axis').call(d3.axisBottom(x0).tickSize(-_var.height).tickPadding(10));
                 };

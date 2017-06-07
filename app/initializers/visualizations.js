@@ -80,13 +80,19 @@ export function initialize(/* application */) {
        description: "Scatterplots use a collection of points placed using Cartesian Coordinates to display values from two variables. By displaying a variable in each axis, you can detect if a relationship or correlation between the two variables exists.",
        url: "visualization?name=scatter",
        dataUrl: "/assets/data/visualizations/scatter-plot.json"
+     },
+     barchart: {
+       initials: "Bar Chart",
+       component: "visualizations/bar-chart",
+       icon: "fa-bar-chart",
+       title: "Bar Chart",
+       subtitle: "Distribution",
+       description: `A bar chart or bar graph is a chart or graph that presents
+        grouped data with rectangular bars with lengths proportional to the
+        values that they represent. `,
+       url: "visualization?name=barchart",
+       dataUrl: "/assets/data/visualizations/bar-chart.json"
      }
-
-
-
-
-
-
    };
 }
 
