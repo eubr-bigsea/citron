@@ -50,7 +50,31 @@ export function initialize(/* application */) {
        description: "A Wordtree Diagram is a way of visually representing hierarchy in a tree-like structure. Typically the structure of a Tree Diagram consists of elements such as a root node, a member that has no superior/parent. Then there are the nodes, which are linked together with line connections called branches that represent the relationships and connections between the members. Finally, the leaf nodes (or end-nodes) are members who have no children or child nodes.",
        url: "visualization?name=wordtree",
        dataUrl: "/assets/data/visualizations/wordtree.json"
+     },
+     line: {
+       initials: "Line",
+       component: "visualizations/line-chart",
+       icon: "fa-line-chart",
+       title: "Line Chart",
+       subtitle: "Time Series",
+       description: "",
+       url: "visualization?name=line",
+       dataUrl: "/assets/data/visualizations/line-chart.csv"
+     },
+     area: {
+       initials: "Area",
+       component: "visualizations/area-chart",
+       icon: "fa-area-chart",
+       title: "Area Chart",
+       subtitle: "Time Series",
+       description: "Area Graphs are Line Graphs but with the area below the line filled in with a certain colour or texture. Area Graphs are drawn by first plotting data points on a Cartesian coordinate grid, joining a line between the points and finally filling in the space below the completed line.",
+       url: "visualization?name=area",
+       dataUrl: "/assets/data/visualizations/area-chart.json" // change area-chart-date.json for date 'x'
      }
+
+
+
+
 
    };
 }
