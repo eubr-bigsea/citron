@@ -1,0 +1,158 @@
+{
+  "nodes": [
+    {
+      "id": "IRA",
+      "name": "IRA",
+      "attrs": {},
+      "metric": "2378.105263",
+      "group": "IRA",
+      "community": 0,
+      "neighbours": {
+        "Roth IRA": true,
+        "Trading": true,
+        "Bond": true,
+        "Mutual Funds": true,
+        "Bond Funds": true,
+        "ETF": true,
+        "Structured Products": true,
+        "Re-Financing": true,
+        "Asset Backed LOC": true,
+      }
+    },
+    {
+      "id": "Roth IRA",
+      "name": "Roth IRA",
+      "attrs": {},
+      "metric": "",
+      "group": "Roth IRA",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+    {
+      "id": "Trading",
+      "name": "Trading",
+      "attrs": {},
+      "metric": "",
+      "group": "Trading",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+    {
+      "id": "Bond",
+      "name": "Bond",
+      "attrs": {},
+      "metric": "",
+      "group": "Bond",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+    {
+      "id": "Mutual Funds",
+      "name": "Mutual Funds",
+      "attrs": {},
+      "metric": "",
+      "group": "Mutual Funds",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+    {
+      "id": "Bond Funds",
+      "name": "Bond Funds",
+      "attrs": {},
+      "metric": "",
+      "group": "Bond Funds",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+    {
+      "id": "ETF",
+      "name": "ETF",
+      "attrs": {},
+      "metric": "",
+      "group": "ETF",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+    {
+      "id": "Structured Products",
+      "name": "Structured Products",
+      "attrs": {},
+      "metric": "",
+      "group": "Structured Products",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+
+    {
+      "id": "Re-Financing",
+      "name": "Re-Financing",
+      "attrs": {},
+      "metric": "",
+      "group": "Re-Financing",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+
+    {
+      "id": "",
+      "name": "",
+      "attrs": {},
+      "metric": "",
+      "group": "",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+    {
+      "id": "Asset Backed LOC",
+      "name": "Asset Backed LOC",
+      "attrs": {},
+      "metric": "",
+      "group": "Asset Backed LOC",
+      "community": 0,
+      "neighbours": {
+        "": true
+      }
+    },
+
+  ],
+  "links": [
+    { "source": "IRA", "target": "Roth IRA", "value": "2122", "weight": "2122" },
+    { "source": "IRA", "target": "Trading", "value": "2344", "weight": "2344" },
+    { "source": "IRA", "target": "Bond", "value": "2877", "weight": "2877" },
+    { "source": "IRA", "target": "Mutual Funds", "value": "2354", "weight": "" },
+    { "source": "IRA", "target": "Bond Funds", "value": "", "weight": "" },
+    { "source": "IRA", "target": "ETF", "value": "", "weight": "" },
+    { "source": "IRA", "target": "Structured Products", "value": "", "weight": "" },
+    { "source": "IRA", "target": "Re-Financing", "value": "", "weight": "" },
+    { "source": "IRA", "target": "Asset Backed LOC", "value": "", "weight": "" },
+    }
+  ]
+}
+
+Roth IRA
+Trading
+Bond
+Mutual Funds
+Bond Funds
+ETF
+Structured Products
+Re-Financing
+Asset Backed LOC
