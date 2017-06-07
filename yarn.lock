@@ -2946,6 +2946,27 @@ ember-inflector@^2.0.0:
   dependencies:
     ember-cli-babel "^6.0.0"
 
+ember-invoke-action@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/ember-invoke-action/-/ember-invoke-action-1.4.0.tgz#2899854bd755f9331ca86c902bf6d4dbf8bdfcb3"
+  dependencies:
+    ember-cli-babel "^5.1.6"
+
+ember-leaflet@^3.0.11:
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/ember-leaflet/-/ember-leaflet-3.0.11.tgz#cf231f6a6aa1fff40a5424a151d05a452613b9cb"
+  dependencies:
+    broccoli-funnel "^1.1.0"
+    broccoli-merge-trees "^1.0.0"
+    ember-cli-babel "^5.1.7"
+    ember-cli-htmlbars "^1.1.1"
+    ember-cli-version-checker "^1.2.0"
+    ember-composability-tools "0.0.8"
+    ember-get-config "0.2.1"
+    ember-invoke-action "1.4.0"
+    ember-wormhole "0.5.1"
+    fastboot-filter-initializers "0.0.2"
+
 ember-load-initializers@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-load-initializers/-/ember-load-initializers-1.0.0.tgz#4919eaf06f6dfeca7e134633d8c05a6c9921e6e7"
@@ -3524,6 +3545,12 @@ fast-sourcemap-concat@^1.0.1:
     rsvp "^3.0.14"
     source-map "^0.4.2"
     source-map-url "^0.3.0"
+
+fastboot-filter-initializers@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/fastboot-filter-initializers/-/fastboot-filter-initializers-0.0.2.tgz#67aa9e8b22ca4b0e6a244f2450fd1cc6befa45e7"
+  dependencies:
+    broccoli-funnel "^1.0.1"
 
 faye-websocket@~0.10.0:
   version "0.10.0"
@@ -4605,6 +4632,10 @@ lcid@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
+
+leaflet@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.0.3.tgz#1f401b98b45c8192134c6c8d69686253805007c8"
 
 leek@0.0.24:
   version "0.0.24"
