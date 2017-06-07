@@ -10,12 +10,9 @@ gViz.vis.map = function () {
   var _class = undefined;
   var _var = undefined;
   var action = 'build';
-  var animation = 900;
-  var colors = { scale: gViz.helpers.colors.main };
   var container = undefined;
-  var data = [];
+  var data = undefined;
   var height = undefined;
-  var margin = { top: 50, right: 50, bottom: 20, left: 50 };
   var width = undefined;
   var tile  = "default";
   var startPoint = [-19.9245, -43.9352];
@@ -33,9 +30,7 @@ gViz.vis.map = function () {
         return true;
       case 'create':
         return true;
-      case 'setup':
-        return true;
-      case 'draw':
+      case 'addMarkers':
         return true;
       default:
         return false;
@@ -56,6 +51,7 @@ gViz.vis.map = function () {
           main('initialize');
           main('tiles');
           main('create');
+          main('addMarkers');
           break;
 
         // Initialize visualization variable
@@ -70,12 +66,9 @@ gViz.vis.map = function () {
             ._var(_var)
             ._id(_var._id != null ? _var._id : _id)
             ._class(_class)
-            .animation(animation)
-            .colors(colors)
             .container(container)
             .data(data)
             .height(height)
-            .margin(margin)
             .width(width)
             .tile(tile)
             .startPoint(startPoint)
@@ -104,16 +97,16 @@ gViz.vis.map = function () {
 
           break;
 
+        // Create initial elements
+        case 'addMarkers':
 
-        // Draw Matrix
-        case 'draw':
-
-          // Setup
-          _var = gViz.vis.maps.draw()
+          // Creating
+          _var = gViz.vis.map.addMarkers()
             ._var(_var)
             .run();
 
           break;
+
       }
     }
 
@@ -121,7 +114,7 @@ gViz.vis.map = function () {
   };
 
   //  Expose global variables
-  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width', 'tile', 'startPoint', 'mapZoom'].forEach(function (key) {
+  ['_id', '_class', '_var', 'action', 'container', 'data', 'height', 'width', 'tile', 'startPoint', 'mapZoom'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {

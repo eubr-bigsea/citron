@@ -75,10 +75,8 @@ gViz.vis.map.initialize = function () {
           _var.startPoint = startPoint;
           _var.mapZoom = mapZoom;
 
-          // Initializes services obj. This will hold
-          // information such as points, and to which
-          // services these points belong to
-          _var.services = {};
+          // Groups of layers to hold markers
+          _var.markers = {};
 
           break;
       }

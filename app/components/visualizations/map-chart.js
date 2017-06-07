@@ -25,7 +25,9 @@ export default Ember.Component.extend({
         ._var(this.get('_var'))
         .container(`.gViz-wrapper-inner[data-id='${this.get('_id')}']`)
         .tile(`carto-light`)
-        .startPoint([-23.5275671, -46.5590158])
+        //.startPoint([-14.647, -52.515])
+        .startPoint([-14.647, -52.515])
+        .mapZoom(3)
         .data(this.get('data'))
         .build()
     );
