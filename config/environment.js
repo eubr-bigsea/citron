@@ -33,19 +33,14 @@ module.exports = function(environment) {
     };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
     // ENV.thorn = 'http://localhost:3000';
-    ENV.thorn = 'http://localhost:3000';
-    ENV.stand = 'http://beta.ctweb.inweb.org.br/stand';
-    ENV.tahiti = 'http://beta.ctweb.inweb.org.br/tahiti';
-    ENV.limonero = 'http://beta.ctweb.inweb.org.br/limonero';
-    ENV.caipirinha = 'http://beta.ctweb.inweb.org.br/caipirinha';
+    ENV.thorn = 'http://teste.ctweb.inweb.org.br/thorn';
+    ENV.stand = 'http://teste.ctweb.inweb.org.br/stand';
+    ENV.tahiti = 'http://teste.ctweb.inweb.org.br/tahiti';
+    ENV.limonero = 'http://teste.ctweb.inweb.org.br/limonero';
+    ENV.caipirinha = 'http://teste.ctweb.inweb.org.br/caipirinha';
     ENV.webSocketIO = {
-      url: 'http://beta.ctweb.inweb.org.br',
+      url: 'http://teste.ctweb.inweb.org.br',
       namespace: '/stand',
       path: '/stand/socket.io'
     };
@@ -60,15 +55,26 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.thorn = 'http://teste.ctweb.inweb.org.br/thorn';
+    ENV.stand = 'http://teste.ctweb.inweb.org.br/stand';
+    ENV.tahiti = 'http://teste.ctweb.inweb.org.br/tahiti';
+    ENV.limonero = 'http://teste.ctweb.inweb.org.br/limonero';
+    ENV.caipirinha = 'http://teste.ctweb.inweb.org.br/caipirinha';
+    ENV.webSocketIO = {
+      url: 'http://teste.ctweb.inweb.org.br',
+      namespace: '/stand',
+      path: '/stand/socket.io'
+    };
   }
 
   if (environment === 'production') {
-    ENV.thorn = 'http://citron.ctweb.inweb.org.br:3000';
-    ENV.stand = 'http://beta.ctweb.inweb.org.br/stand';
-    ENV.tahiti = 'http://beta.ctweb.inweb.org.br/tahiti';
-    ENV.limonero = 'http://beta.ctweb.inweb.org.br/limonero';
+    ENV.thorn = 'http://demo.ctweb.inweb.org.br/thorn';
+    ENV.stand = 'http://demo.ctweb.inweb.org.br/stand';
+    ENV.tahiti = 'http://demo.ctweb.inweb.org.br/tahiti';
+    ENV.limonero = 'http://demo.ctweb.inweb.org.br/limonero';
+    ENV.caipirinha = 'http://demo.ctweb.inweb.org.br/caipirinha';
     ENV.webSocketIO = {
-      url: 'http://beta.ctweb.inweb.org.br',
+      url: 'http://demo.ctweb.inweb.org.br',
       namespace: '/stand',
       path: '/stand/socket.io'
     };
