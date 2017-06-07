@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 
     // Draw visualization
     this.set('_var',
-      gViz.vis.lineChart()
+      gViz.vis.scatterPlot()
         ._var(this.get('_var'))
         .container(`.gViz-wrapper-inner[data-id='${this.get('elementId')}']`)
         .data(this.get('data'))

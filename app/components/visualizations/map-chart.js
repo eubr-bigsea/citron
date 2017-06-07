@@ -2,15 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  init() {
-    this._super(...arguments);
-  },
-
   // Set html elements
-  tagName: "div",
   classNames: ["gViz-wrapper"],
-
-  _id: `visualization-${Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5}`,
 
   // Main var
   _var: null,
@@ -23,7 +16,7 @@ export default Ember.Component.extend({
       gViz.vis.map()
         ._class("map")
         ._var(this.get('_var'))
-        .container(`.gViz-wrapper-inner[data-id='${this.get('_id')}']`)
+        .container(`.gViz-wrapper-inner[data-id='${this.get('elementId')}']`)
         .tile(`carto-light`)
         //.startPoint([-14.647, -52.515])
         .startPoint([-14.647, -52.515])

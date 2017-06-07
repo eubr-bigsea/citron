@@ -1,0 +1,50 @@
+{
+  "title": "Here is an example title",
+  "subtitle": "Here is an example subtitle",
+  "x": {
+    "title": "Revenue $",
+    "tooltip": "Revenue",
+    "prefix": "",
+    "sufix": "$",
+    "format": ""
+  },
+  "y": {
+    "title": "Contribution to sell Mix",
+    "tooltip": "% Change in Sales",
+    "prefix": "",
+    "sufix": "%",
+    "format": ""
+  },
+  "z": {
+    "title": "Sales quantity",
+    "tooltip": "Sales",
+    "prefix": "$",
+    "sufix": "",
+    "format": ""
+  },
+  "data": [{
+      "id": "Red Clutches",
+      "name": "Red Clutches",
+      "color": "#FF420A",
+      "x":  100,
+      "y": 65,
+      "z": 15
+    }, {
+      "id": "Blue Carryall",
+      "name": "Blue Carryall",
+      "img": "",
+      "color": "#00B3DA",
+      "x":  200,
+      "y": 95,
+      "z": 5
+    }, {
+      "id": "Green Cross-Body",
+      "name": "Green Cross-Body",
+      "img": "",
+      "color": "#00AA9E",
+      "x":  400,
+      "y": 15,
+      "z": 25
+    }
+  ]
+}

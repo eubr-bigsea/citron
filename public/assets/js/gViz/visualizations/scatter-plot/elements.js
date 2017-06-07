@@ -1,4 +1,4 @@
-gViz.vis.lineChart.elements = function () {
+gViz.vis.scatterPlot.elements = function () {
   "use strict";
 
   // Get attributes values
@@ -37,17 +37,22 @@ gViz.vis.lineChart.elements = function () {
 
           // For each element in group
           groups
-            .each(function (e, i) {
+            .transition().duration(200)
+              .attr("transform", function (d) { return `translate(${_var.x(+d._x)},${_var.y(+d._y)})`; })
+              .each(function (e, i) {
 
-              // Draw Background rect
-              var line = d3.select(this).selectAll(".line").data([e]);
-              line.exit().remove();
-              line = line.enter().append('path').attr("class", "line").merge(line);
-              line
-                .style('stroke', function(d) { return d.color; })
-                .attr('d', function(d) { return _var.lineConstructor(d.values); })
+                // Draw Background rect
+                var circle = d3.select(this).selectAll("circle.node-circle").data([e]);
+                circle.exit().remove();
+                circle = circle.enter().append('circle').attr("class", "node-circle").merge(circle);
+                circle
+                  .style('fill', function(d) { return d.color; })
+                  .attr("x", 0)
+                  .attr('y', 0)
+                  .transition().duration(200)
+                    .attr('r', function(d) { return _var.z(+d.z); });
 
-            });
+              });
 
           // Draw Background rect
           var bgRectStroke = _var.g.selectAll("rect.bg-rect-stroke").data(["bg-rect-stroke"]);

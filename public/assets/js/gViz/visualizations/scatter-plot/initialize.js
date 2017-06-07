@@ -1,4 +1,4 @@
-gViz.vis.lineChart.initialize = function () {
+gViz.vis.scatterPlot.initialize = function () {
   "use strict";
 
   // Get attributes values
@@ -50,15 +50,18 @@ gViz.vis.lineChart.initialize = function () {
             el: (typeof container === 'string' || container instanceof String) ? container : d3.select(container).node()
           };
 
+          // Set z domain
+          var zDomain = [null, null];
+          var extent = d3.extent(_var.data.data, function(d) { return +d.z; });
+          if(zDomain[0] == null || zDomain[0] >= extent[0]) { zDomain[0] = extent[0]; }
+          if(zDomain[1] == null || zDomain[1] >= extent[1]) { zDomain[1] = extent[1]; }
+
+          // Define z scale
+          _var.z = d3.scaleLinear().range([5, 20]).domain(zDomain);
+
           // Define height and width
           _var.height = ((height != null) ? height : _var.container.d3.node().getBoundingClientRect().height) - 4 - (_var.margin.top + _var.margin.bottom);
           _var.width = ((width != null) ? width : _var.container.d3.node().getBoundingClientRect().width) - 4 - (_var.margin.left + _var.margin.right);
-
-          // Initialize line constructor
-          _var.lineConstructor = d3.line()
-            .x(function (d) { return _var.x(d._x); })
-            .y(function (d) { return _var.y(d._y); })
-            .curve(d3.curveMonotoneX);
 
           // Set attribute _id to container
           _var.container.d3.attr('data-vis-id', _var._id);
