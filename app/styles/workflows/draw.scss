@@ -1,15 +1,23 @@
 .draw {
   height: -webkit-calc(100% - 60px);
   height: -moz-calc(100% - 60px);
-  height: calc(100% - 60px);
+  height: calc(100% - 80px);
   display: flex;
   width: 100%;
-
+  @media (max-width: 993px){
+  height: calc(100% - 130px);
+  }
+  @media (max-width: 800px){
+  height: calc(100% - 130px);
+  }
+  @media (max-width: 763px){
+  height: calc(100% - 180px);
+  }
   .lemonade-container {
     height: 100%;
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
   }
 
   #lemonade-diagram{
@@ -43,5 +51,11 @@
 
   &.jtk-hover {
     display: block;
+  }
+}
+
+.jobs-screen{
+  @media (max-width: 1200px){
+    height: calc(100% - 130px);
   }
 }
