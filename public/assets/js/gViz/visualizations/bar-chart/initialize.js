@@ -50,7 +50,7 @@ gViz.vis.bar_chart.initialize = function () {
           _var.container = { selector: container, jq: $(container), d3: d3.select(container), el: d3.select(container).node() };
 
           // Get data
-          _var._data = data;
+          _var._data = data.data;
 
           _var.margin = margin;
 

@@ -36,12 +36,12 @@ gViz.vis.bar_chart.scales = function () {
 
               _var.xScale = d3.scaleBand().range([0, _var.width]).padding(0.1);
               _var.xScale.domain(_var._data.map(function (d) {
-                return d["discrete"];
+                return d["label"];
               }));
 
               _var.yScale = d3.scaleLinear().range([_var.height, 0]);
               _var.yScale.domain([0, d3.max(_var._data, function (d) {
-                return d["continuous"];
+                return d["value"];
               })]);
 
               break;
