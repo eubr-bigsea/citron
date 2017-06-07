@@ -92,7 +92,7 @@ export function initialize(/* application */) {
         values that they represent. `,
        url: "visualization?name=barchart",
        dataUrl: "/assets/data/visualizations/bar-chart.json"
-     }
+     },
      histogram: {
        initials: "Hist",
        component: "visualizations/histogram-chart",
