@@ -5,59 +5,26 @@ export default Ember.Component.extend({
     this._super(...arguments);
   },
 
-  // Attributes bingins
-  width:  function(){ return this.get('width'); }.property('width'),
-  height: function(){ return this.get('height'); }.property('height'),
-  _id:    function(){ return this.get('_id'); }.property('_id'),
-  style:  function(){ return "width:"+this.get('width')+"; height:"+this.get('height')+";"; }.property('style'),
+  // Set html elements
+  tagName: "div",
+  classNames: ["gViz-wrapper"],
+
+  // Set unique _id
+  _id: `visualization-${Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5}`,
 
   // Chart var
   _var: null,
 
   // Draw Chart
-  draw: function(){
+  didRender: function(){
 
-    // Initialize variables
-    let component = this;
-
-    let parseData = function(d, label, value) {
-      d["label"]   =  d[label];
-      d["value"]   = +d[value];
-
-      if(label !== "label") { delete(d[label]); }
-
-      if(value !== "value") { delete(d[value]); }
-
-      return d;
-    };
-
-    // Walter json
-    var label = "name";
-    var value = "value";
-
-    d3.json(`${component.get('dataUrl')}?token=123456`, (err, json) => {
-
-      if(err) { console.log(err); }
-
-      // Set title
-      component.set('title', json.title);
-
-      // Get data
-      var data = json.data;
-      data.map(function(d) { parseData(d, label, value); });
-
-      component._var = gViz.vis.pie_chart()
-        ._var(component._var)
+    this.set('_var',
+      gViz.vis.pie_chart()
+        ._var(this.get('_var'))
         ._class("pie-chart")
-        .container(".gViz-wrapper[data-id='"+component.get('_id')+"']")
-        .data(data)
-        .build();
-
-    });
-
+        .container(`.gViz-wrapper-inner[data-id='${this.get('_id')}']`)
+        .data(this.get('data'))
+        .build()
+      );
   },
-
-  didInsertElement: function(){
-    this.draw();
-  }
 });
