@@ -39,7 +39,7 @@ gViz.vis.bar_chart.draw = function () {
               barsGroup.exit().remove();
               barsGroup = barsGroup.enter().append('g').attr("class", 'bar-group').merge(barsGroup);
               barsGroup
-                .attr("transform", function(d) { return "translate(" + _var.xScale(d.discrete) + ",0)"; })
+                .attr("transform", function(d) { return "translate(" + _var.xScale(d.label) + ",0)"; })
                 .each(function(g) {
 
                   // Create bar rects
@@ -49,9 +49,9 @@ gViz.vis.bar_chart.draw = function () {
                   bars
                     .attr("x", 0)
                     .attr("width", _var.xScale.bandwidth())
-                    .attr("y", function (d) { return _var.yScale(d.continuous); })
-                    .attr("height", function (d) { return _var.height - _var.yScale(d.continuous); })
-                    .style("fill", function (d) { return _var.colors.scale(d.discrete); });
+                    .attr("y", function (d) { return _var.yScale(d.value); })
+                    .attr("height", function (d) { return _var.height - _var.yScale(d.value); })
+                    .style("fill", function (d) { return _var.colors.scale(d.label); });
 
                   // Create bar labels
                   var text = d3.select(this).selectAll('text.bar').data([g]);
@@ -59,13 +59,13 @@ gViz.vis.bar_chart.draw = function () {
                   text = text.enter().append('text').attr("class", 'bar').merge(text);
                   text
                     .attr("x", _var.xScale.bandwidth()/2)
-                    .attr("y", function (d) { return _var.yScale(d.continuous) - 5; })
+                    .attr("y", function (d) { return _var.yScale(d.value) - 5; })
                     .style("font-size", "10px")
                     .style("font-weight", "bold")
                     .style("fill", "#333")
                     .style("text-anchor", "middle")
                     .style("stroke", "none")
-                    .text(function(d) { return d.continuous; })
+                    .text(function(d) { return d.value; })
 
                 });
 
