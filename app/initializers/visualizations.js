@@ -47,7 +47,7 @@ export function initialize(/* application */) {
        icon: "fa-sitemap",
        title: "Wordtree",
        subtitle: "Word Occurence Hierarchy",
-       description: "A Wordtree Diagram is a way of visually representing hierarchy in a tree-like structure. Typically the structure of a Tree Diagram consists of elements such as a root node, a member that has no superior/parent. Then there are the nodes, which are linked together with line connections called branches that represent the relationships and connections between the members. Finally, the leaf nodes (or end-nodes) are members who have no children or child nodes.",
+       description: "A Wordtree Diagram is a way of visually representing hierarchy in a tree-like structure.",
        url: "visualization?name=wordtree",
        dataUrl: "/assets/data/visualizations/wordtree.json"
      },
@@ -57,7 +57,7 @@ export function initialize(/* application */) {
        icon: "fa-line-chart",
        title: "Line Chart",
        subtitle: "Time Series",
-       description: "",
+       description: "Line Graphs are used to display quantitative value over a continuous interval or time span. It is most frequently used to show trends and relationships (when grouped with other lines).",
        url: "visualization?name=line",
        dataUrl: "/assets/data/visualizations/line-chart-date.json" // change line-chart-date.json for date 'x'
      },
@@ -77,7 +77,7 @@ export function initialize(/* application */) {
        icon: "fa-dot-circle-o",
        title: "Scatter Plot",
        subtitle: "Distribution",
-       description: "",
+       description: "Scatterplots use a collection of points placed using Cartesian Coordinates to display values from two variables. By displaying a variable in each axis, you can detect if a relationship or correlation between the two variables exists.",
        url: "visualization?name=scatter",
        dataUrl: "/assets/data/visualizations/scatter-plot.json"
      }

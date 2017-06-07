@@ -49,58 +49,6 @@ gViz.vis.lineChart.elements = function () {
 
             });
 
-          //  // Event bindings
-          //  groups.on('mouseover', function(e) {
-
-          //    // Set hovered node
-          //    _var.hovered = e;
-
-          //    // Mouseover event
-          //    components.events()
-          //      ._var(_var)
-          //      .action("mouseover")
-          //      .components(components)
-          //      .node(e)
-          //      .run();
-
-          //  }).on('mouseout', function(e) {
-
-          //    // Reset hovered node
-          //    _var.hovered = null;
-
-          //    // Mouseout event
-          //    components.events()
-          //      ._var(_var)
-          //      .action("mouseout")
-          //      .components(components)
-          //      .run();
-
-          //  }).on('click', function(e) {
-
-          //    if(_var.clicked == null || _var.clicked.id !== e.id) {
-
-          //      // Set clicked node
-          //      _var.clicked = e;
-
-          //      // Insert track components
-          //      components.track()
-          //        ._var(_var)
-          //        .components(components)
-          //        .node(e)
-          //        .run();
-
-          //    } else if(e.id === _var.clicked.id) {
-
-          //      // Set clicked node
-          //      _var.clicked = null;
-
-          //      // Remove track circles
-          //      _var.g.selectAll(".chart-track-elements").selectAll(".track-circle, .track-path").remove();
-
-          //    }
-
-          //  });
-
           // Draw Background rect
           var bgRectStroke = _var.g.selectAll("rect.bg-rect-stroke").data(["bg-rect-stroke"]);
           bgRectStroke.exit().remove();

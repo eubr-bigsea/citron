@@ -54,14 +54,6 @@ gViz.vis.areaChart.initialize = function () {
           _var.height = ((height != null) ? height : _var.container.d3.node().getBoundingClientRect().height) - 4 - (_var.margin.top + _var.margin.bottom);
           _var.width = ((width != null) ? width : _var.container.d3.node().getBoundingClientRect().width) - 4 - (_var.margin.left + _var.margin.right);
 
-          // Scales
-          _var.x = d3.scaleTime().range([0, _var.width]);
-          _var.y = d3.scaleLinear().range([_var.height, 0]);
-
-          // Axis
-          _var.xAxis = d3.axisBottom(_var.x).tickPadding(15).tickSize(-_var.height);
-          _var.yAxis = d3.axisLeft(_var.y).tickPadding(10).tickSize(-_var.width);
-
           // Initialize area constructor
           _var.areaConstructor = d3.area()
             .x(function (d) { return _var.x(d._x); })
