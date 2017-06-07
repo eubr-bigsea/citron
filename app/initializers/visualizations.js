@@ -19,7 +19,7 @@ export function initialize(/* application */) {
        subtitle: "Part to whole",
        description: "A pie chart (or a circle chart) is a circular statistical graphic which is divided into slices to illustrate numerical proportion. In a pie chart, the arc length of each slice (and consequently its central angle and area), is proportional to the quantity it represents.",
        url: "visualization?name=pie",
-       dataUrl: "/assets/data/visualizations/pie-chart.csv"
+       dataUrl: "/assets/data/visualizations/pie-chart.json"
      },
      map: {
        initials: "Map",
