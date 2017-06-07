@@ -5,6 +5,18 @@ if (!gViz.helpers.text) {
   gViz.helpers.text = {};
 }
 
+// Get size
+gViz.helpers.text.getSize = function (text) {
+  var t = d3.select('body').append('span')
+    .style('font-size', '12px')
+    .style('font-weight', 'bold')
+    .style('white-space', 'nowrap')
+    .html(text);
+  var width = t.node().getBoundingClientRect().width;
+  t.remove();
+  return width + 10;
+}
+
 // Get string width
 gViz.helpers.text.getBBox = function (container) {
   var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "bla";
