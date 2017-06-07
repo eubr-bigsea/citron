@@ -70,7 +70,18 @@ export function initialize(/* application */) {
        description: "Area Graphs are Line Graphs but with the area below the line filled in with a certain colour or texture. Area Graphs are drawn by first plotting data points on a Cartesian coordinate grid, joining a line between the points and finally filling in the space below the completed line.",
        url: "visualization?name=area",
        dataUrl: "/assets/data/visualizations/area-chart.json" // change area-chart-date.json for date 'x'
+     },
+     scatter: {
+       initials: "Scatter",
+       component: "visualizations/scatter-plot",
+       icon: "fa-dot-circle-o",
+       title: "Scatter Plot",
+       subtitle: "Distribution",
+       description: "",
+       url: "visualization?name=scatter",
+       dataUrl: "/assets/data/visualizations/scatter-plot.json"
      }
+
 
 
 
