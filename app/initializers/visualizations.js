@@ -59,7 +59,7 @@ export function initialize(/* application */) {
        subtitle: "Time Series",
        description: "",
        url: "visualization?name=line",
-       dataUrl: "/assets/data/visualizations/line-chart.json"
+       dataUrl: "/assets/data/visualizations/line-chart-date.json" // change line-chart-date.json for date 'x'
      },
      area: {
        initials: "Area",
