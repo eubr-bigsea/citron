@@ -20,6 +20,12 @@ export default Ember.Component.extend({
       this.set('task.operation', operations.find(el => String(el.id) === opId));
     }
     this.set('operation', operations.find(el => String(el.id) === opId))
+
+    /* Avoid self connections */
+    this.get('jsplumb').bind('beforeDrop', (info) => {
+      return info.sourceId !== info.targetId;
+    });
+
     this.get('jsplumb').bind('connection', (info, originalEvent) => {
       if(originalEvent === undefined) {
         return;
@@ -109,18 +115,12 @@ export default Ember.Component.extend({
     let isInput = true;
     [input, output].forEach((type) => {
       type.forEach((port, i) => {
-        let uuid = `${this.get('elementId')}/${port.id}`;
-        let coordinates;
-        if (isInput) {
-          coordinates = [0, -2];
-        } else{
-          coordinates = [0, 3];
-        }
         let opts = {
           isSource: !isInput,
           isTarget: isInput,
+          scope: port.interfaces.map(el => el.name).join(" "),
           anchors: anchorPosition(isInput, type.length, i),
-          uuid: uuid,
+          uuid: `${this.get('elementId')}/${port.id}`,
           endpoint: [
             isInput ? "Dot" : "Rectangle", {
               radius: 5,
@@ -131,10 +131,10 @@ export default Ember.Component.extend({
           overlays: [
             [
               "Label", {
-                label:port.name,
+                label: port.name,
                 id: "id",
-                location:coordinates,
-                cssClass: "jsPlumbText",
+                location: isInput ? [0, -2] : [0, 3],
+                cssClass: "label-overlay",
               }
             ]
           ],
@@ -148,7 +148,10 @@ export default Ember.Component.extend({
               }
             ],
           ],
-          maxConnections: -1,
+          maxConnections: port.multiplicity === "ONE" ? 1 : -1,
+          dropOptions : {
+            activeClass: isInput ? 'drag-input' : 'drag-output',
+          },
         };
         this.get('endpoints').addObject(jsplumb.addEndpoint(el, opts));
       });

@@ -32,4 +32,16 @@
   }
 }
 
+.drag-input svg *{
+  fill: lime;
+  stroke: black;
+}
 
+.label-overlay {
+  display: none;
+  color: #598629;
+
+  &.jtk-hover {
+    display: block;
+  }
+}
