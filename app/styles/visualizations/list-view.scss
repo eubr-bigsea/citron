@@ -1,12 +1,15 @@
 .vis-list-view {
 
   .vis-list-item {
+    text-decoration: none;
+    position: relative;
     width: 140px;
     float: left;
     cursor: pointer;
     border: 1px solid $theme-green-hover;
-    margin-left: 15px;
+    margin-left: 20px;
     &:first-child { margin-left: 0px; }
+    font-size: 12px;
 
     .initials {
       background-color: $theme-green;
@@ -22,16 +25,36 @@
       width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 12px;
       color: darken($theme-green, 10%);
       padding: 5px 10px 3px;
       white-space: nowrap;
       i { margin-right: 7px; }
     }
 
+    .description {
+      padding: 5px 10px 3px;
+      width: 300px;
+      height: 168px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: absolute;
+      top: -1px;
+      left: 140px;
+      z-index: 1000;
+      background-color: $full-white;
+      border: 1px solid $theme-green;
+      display: none;
+      color: $dark-gray;
+    }
+
+    * { transition: all .2s ease-in-out; }
+
     &:hover {
       .initials {
         background-color: darken($theme-green, 10%);
+      }
+      .description {
+        display: block;
       }
     }
   }

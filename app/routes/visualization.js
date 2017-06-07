@@ -11,6 +11,7 @@ export default Ember.Route.extend({
       subtitle: viz.subtitle != null ? viz.subtitle : "",
       description: viz.description != null ? viz.description : "",
       component: viz.component != null ? viz.component : "",
+      url: viz.component != null ? viz.url : "",
       dataUrl: viz.component != null ? viz.dataUrl : ""
     });
   }

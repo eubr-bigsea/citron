@@ -1,0 +1,10 @@
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
+.pull-right { float: right; }
+.pull-left  { float: left; }
+.full-title { width: 100%; }
