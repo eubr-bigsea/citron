@@ -1,7 +1,10 @@
 
-{{!-- Visualization component --}}
-{{component viz.component
-  viz=viz
-  data=data
-}}
+{{#if hasData}}
 
+  {{!-- Visualization component --}}
+  {{component viz.component
+    viz=viz
+    data=data
+  }}
+
+{{/if}}
