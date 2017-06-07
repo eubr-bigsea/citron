@@ -1,13 +1,11 @@
 'use strict';
 
-// Initialize the visualization class
-gViz.vis.map.create = function () {
+gViz.vis.map.addMarkers = function () {
   "use strict";
 
   // Get attributes values
 
   var _var = undefined;
-  var animation = 900;
 
   // Validate attributes
   var validate = function validate(step) {
@@ -15,6 +13,7 @@ gViz.vis.map.create = function () {
     switch (step) {
       case 'run':
         return true;
+
       default:
         return false;
     }
@@ -22,7 +21,6 @@ gViz.vis.map.create = function () {
 
   // Main function
   var main = function main(step) {
-
     // Validate attributes if necessary
     if (validate(step)) {
 
@@ -31,15 +29,22 @@ gViz.vis.map.create = function () {
         // Build entire visualizations
         case 'run':
 
-          // Create map element
-          _var.map = L.map(_var.container.el, { minZoom: 2 })
-            .setView(_var.startPoint, _var.mapZoom);
+          _var.markers["cities"] = L.layerGroup().addTo(_var.map);
 
-          // Set control zoom position
-          _var.map.zoomControl.setPosition('bottomright');
+          Object.keys(_var._data).forEach(function(key) {
+            var city = _var._data[key];
 
-          _var.currentTheme = _var.tiles[_var.tile];
-          _var.currentTheme.addTo(_var.map);
+            var coords = L.latLng(city["lat"], city["lon"]);
+
+            var marker = L.marker(coords, {
+              icon: gViz.helpers.map_markers["blue"]
+            });
+
+            marker.bindPopup(city["city"]);
+
+            _var.markers["cities"].addLayer(marker);
+
+          });
 
           break;
       }
@@ -49,7 +54,7 @@ gViz.vis.map.create = function () {
   };
 
   // Exposicao de variaveis globais
-  ['_var', 'animation'].forEach(function (key) {
+ ['_var'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {
@@ -70,7 +75,7 @@ gViz.vis.map.create = function () {
     };
   });
 
-  // Executa a funcao chamando o parametro de step
+  // Execute the specific called function
   main.run = function (_) {
     return main('run');
   };
