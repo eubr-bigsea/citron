@@ -1,27 +1,21 @@
-'use strict';
-
-gViz.vis.line_chart.scales = function () {
+gViz.vis.lineChart.parse = function () {
   "use strict";
 
   // Get attributes values
-
-  var _var = undefined;
-  var action = 'create';
-  var animation = 900;
+  var _var = null;
 
   // Validate attributes
-  var validate = function validate(step) {
+  var validate = function (step) {
 
     switch (step) {
-      case 'run':
-        return true;
-      default:
-        return false;
+      case 'run': return true;
+      default: return false;
     }
   };
 
   // Main function
-  var main = function main(step) {
+  var main = function (step) {
+
     // Validate attributes if necessary
     if (validate(step)) {
 
@@ -30,22 +24,22 @@ gViz.vis.line_chart.scales = function () {
         // Build entire visualizations
         case 'run':
 
-          switch (action) {
+          // Iterate over data
+          _var.data.data.forEach(function(d) {
 
-            case 'create':
+            // Iterate over values
+            d.values.forEach(function(v) {
 
-              _var.xScale = d3.scaleTime().range([0, _var.width]);
-              _var.xScale.domain(d3.extent(_var._data, function(d) {
-                return d["xAxis"];
-              }));
+              // Parse values
+              v._x = _var.data.x.type === 'time' ? d3.timeParse(_var.data.x.parseFormat)(v.x).getTime() : +v.x;
+              v._y = +v.y;
 
-              _var.yScale = d3.scaleLinear().range([_var.height, 0]);
-              _var.yScale.domain([0, d3.max(_var._data, function (d) {
-                return d["yAxis"];
-              })]);
+            });
 
-              break;
-          }
+            // Sort values
+            d.values = d.values.sort(function(a,b) { return d3.ascending(a._x, b._x); });
+
+          });
 
           break;
       }
@@ -55,7 +49,7 @@ gViz.vis.line_chart.scales = function () {
   };
 
   // Exposicao de variaveis globais
-  ['_var', 'action', 'animation'].forEach(function (key) {
+  ['_var'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {
@@ -76,7 +70,7 @@ gViz.vis.line_chart.scales = function () {
     };
   });
 
-  // Execute the specific called function
+  // Executa a funcao chamando o parametro de step
   main.run = function (_) {
     return main('run');
   };
