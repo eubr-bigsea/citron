@@ -29,7 +29,7 @@ export function initialize(/* application */) {
        subtitle: "Geographic",
        description: "A representation, usually on a flat surface, as of the features of an area of the earth or a portion of the heavens, showing them in their respective forms, sizes, and relationships according to some.",
        url: "visualization?name=map",
-       dataUrl: "/assets/data/visualizations/pie-chart.json"
+       dataUrl: "/assets/data/visualizations/map-chart.json"
      },
      graph: {
        initials: "Graph",
