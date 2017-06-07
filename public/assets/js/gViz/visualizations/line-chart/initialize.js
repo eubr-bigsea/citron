@@ -1,35 +1,28 @@
-'use strict';
-
-// Initialize the visualization class
-gViz.vis.line_chart.initialize = function () {
+gViz.vis.lineChart.initialize = function () {
   "use strict";
 
   // Get attributes values
-
-  var _id = 'vis-line-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
-  var _class = undefined;
-  var _var = undefined;
-  var colors = { scale: gViz.helpers.colors.main };
-  var container = undefined;
+  var _id       = null;
+  var _var      = null;
   var animation = 900;
-  var data = [];
-  var height = 100;
-  var margin = { top: 50, right: 50, bottom: 50, left: 50 };
-  var width = 100;
+  var chartType = null;
+  var container = null;
+  var colors    = { main: gViz.helpers.colors.main };
+  var data      = [];
+  var height    = null;
+  var margin    = { top: 10, right: 10, bottom: 10, left: 10 };
+  var width     = null;
 
   // Validate attributes
-  var validate = function validate(step) {
-
+  var validate = function (step) {
     switch (step) {
-      case 'run':
-        return true;
-      default:
-        return false;
+      case 'run': return true;
+      default: return false;
     }
   };
 
   // Main function
-  var main = function main(step) {
+  var main = function (step) {
 
     // Validate attributes if necessary
     if (validate(step)) {
@@ -40,26 +33,43 @@ gViz.vis.line_chart.initialize = function () {
         case 'run':
 
           // Initialize variables
-          if (!_var) {
-            _var = {};
-          }
+          if (!_var) { _var = {}; }
           _var._id = _id;
-          _var._class = _class;
           _var.animation = animation;
           _var.colors = colors;
-          _var.container = { selector: container, jq: $(container), d3: d3.select(container), el: d3.select(container).node() };
-
-          // Get data
-          _var._data = data;
-
+          _var.data = data;
           _var.margin = margin;
 
+          // Map data and get labels
+          _var.data = _var._data = data;
+
+          // Get container
+          _var.container = {
+            selector: container,
+            d3: d3.select(container),
+            el: (typeof container === 'string' || container instanceof String) ? container : d3.select(container).node()
+          };
+
           // Define height and width
-          _var.height = (height != null ? height : _var.container.jq.outerHeight()) - (_var.margin.top + _var.margin.bottom);
-          _var.width = (width != null ? width : _var.container.jq.outerWidth()) - (_var.margin.left + _var.margin.right);
+          _var.height = ((height != null) ? height : _var.container.d3.node().getBoundingClientRect().height) - 4 - (_var.margin.top + _var.margin.bottom);
+          _var.width = ((width != null) ? width : _var.container.d3.node().getBoundingClientRect().width) - 4 - (_var.margin.left + _var.margin.right);
+
+          // Scales
+          _var.x = d3.scaleTime().range([0, _var.width]);
+          _var.y = d3.scaleLinear().range([_var.height, 0]);
+
+          // Axis
+          _var.xAxis = d3.axisBottom(_var.x).tickPadding(15).tickSize(-_var.height);
+          _var.yAxis = d3.axisLeft(_var.y).tickPadding(10).tickSize(-_var.width);
+
+          // Initialize line constructor
+          _var.lineConstructor = d3.line()
+            .x(function (d) { return _var.x(d._x); })
+            .y(function (d) { return _var.y(d._y); })
+            .curve(d3.curveMonotoneX);
 
           // Set attribute _id to container
-          _var.container.jq.attr('data-vis-id', _var._id);
+          _var.container.d3.attr('data-vis-id', _var._id);
 
           break;
       }
@@ -69,31 +79,25 @@ gViz.vis.line_chart.initialize = function () {
   };
 
   // Expose global variables
-  ['_id', '_class', '_var', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
+  ['_id', '_var', 'animation', 'chartType', 'container', 'colors', 'data', 'height', 'margin', 'width'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {
-      if (!arguments.length) {
-        eval('return ' + key);
-      }
-      eval(key + ' = _');
+      if (!arguments.length) { eval(`return ${key}`); }
+      eval(`${key} = _`);
       return validate;
     };
 
     // Attach variables to main function
     return main[key] = function (_) {
-      if (!arguments.length) {
-        eval('return ' + key);
-      }
-      eval(key + ' = _');
+      if (!arguments.length) { eval(`return ${key}`); }
+      eval(`${key} = _`);
       return main;
     };
   });
 
   // Execute the specific called function
-  main.run = function (_) {
-    return main('run');
-  };
+  main.run = _ => main('run');
 
   return main;
 };
