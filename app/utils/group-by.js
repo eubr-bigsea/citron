@@ -54,7 +54,6 @@ export default function groupBy(data, group) {
         }
       });
     });
-debugger;
     return groups;
   });
 }
