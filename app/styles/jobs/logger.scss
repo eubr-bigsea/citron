@@ -1,6 +1,3 @@
-@import '../dimensions.scss';
-@import '../theme-color.scss';
-
 #job-logger {
   display: none;
 }
@@ -9,6 +6,7 @@
   height: 100%;
   width: $size-logger-sidebar;
   background: $color-light;
+  overflow: scroll;
 
   .log {
     display: block;

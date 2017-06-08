@@ -1,12 +1,14 @@
 @import "ember-bootstrap/bootstrap";
 @import "font-awesome";
-@import "perfect-scrollbar";
+
 
 
 // Gfranciscani Styles
 
 // Variables
 @import 'variables.scss';
+@import "theme-color.scss";
+@import "dimensions.scss";
 
 // Ui elements
 @import 'ui/ui.loader.scss';
@@ -39,6 +41,7 @@
 @import 'page-content-wrapper.scss';
 @import 'table-paginate.scss';
 @import 'form.scss';
+@import "perfect-scrollbar.scss";
 
 //Animations
 @import 'animations.scss';
@@ -80,7 +83,6 @@
 @import "engage-service.scss";
 @import "engage-team.scss";
 @import "engage-footer.scss";
-@import "theme-color.scss";
 @import "dimensions.scss";
 @import "green.scss";
 

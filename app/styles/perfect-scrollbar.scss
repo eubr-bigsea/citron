@@ -1,0 +1,19 @@
+.ps__scrollbar-y-rail {
+  background-color: $color-base !important;
+  width: 10px !important;
+  .ps__scrollbar-y {
+    background-color: $color-dark !important;
+    border-radius: 0 !important;
+    width: 6px !important;
+  }
+}
+
+.ps__scrollbar-x-rail {
+  background-color: $color-base !important;
+  height: 10px !important;
+  .ps__scrollbar-x {
+    background-color: $color-dark !important;
+    border-radius: 0 !important;
+    height: 6px !important;
+  }
+}
