@@ -1,13 +1,11 @@
 export default {
-  // "some.translation.key": "Text for some.translation.key",
-  //
-  // "a": {
-  //   "nested": {
-  //     "key": "Text for a.nested.key"
-  //   }
-  // },
-  //
-  // "key.with.interpolation": "Text with {{anInterpolation}}"
+  'job': {
+    'notFound': {
+      'sorry': 'Sorry',
+      'message': 'The job that you are looking for is not available',
+      'goBack': 'Go back to jobs'
+    },
+  },
   'createNew': 'Create new',
   'delete': 'Delete',
   'searchFor': 'Search for..',

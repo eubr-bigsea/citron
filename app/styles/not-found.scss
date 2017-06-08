@@ -1,0 +1,25 @@
+.not-found {
+  margin: 30px;
+  .title {
+    color: $color-text-darker;
+    font-size: 10vw;
+    font-weight: bold;
+  }
+
+  .message {
+    color: $color-text-dark;
+    font-size: 1.2em;
+  }
+
+  .btn {
+    background-color: $color-base;
+    border: $color-base;
+    color: $color-text-lighter;
+  }
+
+  img{
+    opacity: 0.9;
+    width:100%;
+    height: 100%;
+  }
+}

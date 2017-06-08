@@ -20,6 +20,7 @@ Router.map(function() {
     this.route('show', {path: ':id/show'});
     this.route('results', {path: ':id/results'});
     this.route('result', {path: ':jobId/result/:taskId/:visu'});
+    this.route('not-found');
   });
   this.route('login');
   this.route('signup');
