@@ -4,7 +4,6 @@
   height: 100%;
   float: left;
   background: $color-darker;
-  overflow-y: overlay;
 
   .operations-list {
     display: none;
@@ -42,8 +41,11 @@
 #page-content-wrapper.toggled #operations-sidebar-wrapper {
 
   width: $size-operations-sidebar-toggled;
-
+  height: 100%;
   .operations-list {
+    position: fixed;
+    overflow: hidden;
+    height: 100%;
     display: inline-block;
 
     ul {
