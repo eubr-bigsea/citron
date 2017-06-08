@@ -24,6 +24,8 @@ module.exports = function(defaults) {
     }
   });
 
+  app.import('vendor/perfect-scrollbar/perfect-scrollbar.min.css');
+
   app.import('vendor/metisMenu/metisMenu.js');
   app.import('vendor/metisMenu/metisMenu.css');
 
