@@ -1,10 +1,8 @@
 export default {
-  'job': {
-    'notFound': {
-      'sorry': 'Sorry',
-      'message': 'The job that you are looking for is not available',
-      'goBack': 'Go back to jobs'
-    },
+  'notFound': {
+    'the': 'The',
+    'message': 'that you are looking for is not available',
+    'goBack': 'Go back to'
   },
   'createNew': 'Create new',
   'delete': 'Delete',

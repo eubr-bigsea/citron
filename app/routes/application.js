@@ -28,6 +28,16 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
   },
 
   actions: {
+    error(error, transition) {
+      if( error.isAdapterError){
+        if( error.message !== "The adapter operation was aborted") {
+          var resource = transition.targetName.split('.')[0]
+          return this.transitionTo(`/notFound?resource=${resource}`);
+        }
+      }
+      return this.transitionTo('/notFound');
+    },
+
     didTransition(){
       if(this.get('session.isAuthenticated')){
         this._loadCurrentUser();
