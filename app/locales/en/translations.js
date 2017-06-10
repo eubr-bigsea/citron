@@ -1,13 +1,9 @@
 export default {
-  // "some.translation.key": "Text for some.translation.key",
-  //
-  // "a": {
-  //   "nested": {
-  //     "key": "Text for a.nested.key"
-  //   }
-  // },
-  //
-  // "key.with.interpolation": "Text with {{anInterpolation}}"
+  'notFound': {
+    'the': 'The',
+    'message': 'that you are looking for is not available',
+    'goBack': 'Go back to'
+  },
   'createNew': 'Create new',
   'delete': 'Delete',
   'searchFor': 'Search for..',
