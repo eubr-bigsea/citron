@@ -21,9 +21,11 @@ export default Ember.Service.extend ({
         return new RSVP.Promise((resolve, reject) => {
           const userId = this.get('session.data.authenticated.userId');
           this.set('userId', this.get('session.data.authenticated.userId'));
+
             // Get User to Session-Account Block
             if(this.get('serverValidationComplete') === true) {
               return this.get('store').find('user', userId).then((user) => {
+                this.get('session').set('data.locale', user.get('locale'));
                 this.set('user', user);
                 resolve();
               }).catch((reason) => {

@@ -5,4 +5,8 @@
     <span class="status-icon"></span><h4>{{job.status}}</h4>
   {{/link-to}}
 </td>
-<td></td>
+<td id='result-btn'>
+  {{#link-to 'job.show' job.id class="results btn btn-primary btn-md flash-button"}}
+    <i class="fa fa-eye fa-lg"i></i>
+    {{/link-to}}
+</td>

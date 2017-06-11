@@ -28,6 +28,17 @@
 
   .table-item {
 
+    #result-btn {
+      text-align: center;
+    }
+    .results.btn {
+
+      background-color: $color-base;
+      color: $color-text-lighter;
+      border-color: $color-base;
+    }
+
+
     .id {
       text-align: center;
       vertical-align: middle;

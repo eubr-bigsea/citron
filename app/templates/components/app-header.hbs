@@ -18,20 +18,5 @@
         <div class="dropdown-divider"></div>
       </div>
     </li>
-    <li style="display: inline;" class="dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color: #fff">
-        <img src="/assets/images/{{sessionAccount.user.locale}}.png" style="height:20px">
-      </a>
-      <div class="dropdown-menu profile-dropdown-menu" style="min-width: 50px;">
-        {{#each locales as |loc|}}
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" {{action 'setLocale' loc.id}}>
-          <img src="/assets/images/{{loc.id}}.png" style="height:20px">
-            {{loc.id}}
-          </a>
-        {{/each}}
-        <div class="dropdown-divider"></div>
-      </div>
-    </li>
   </ul>
 </div>

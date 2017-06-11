@@ -226,4 +226,25 @@ label, .control-label {
     border-color: $color-light;
     color: $color-text-lighter;
   }
+
+  .btn.confirm {
+    background-color: $color-base;
+    border-color: $color-base;
+    color: $color-text-lighter;
+  }
+
+  .btn.info {
+    background-color: $color-light;
+    border-color: $color-light;
+    color: $color-text-lighter;
+  }
+
+}
+
+.title-block {
+  margin: 15px 0 0 0;
+}
+
+.card-block {
+  margin: 0 !important;
 }

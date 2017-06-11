@@ -1,6 +1,6 @@
-<td class="id">{{#link-to 'workflow.draw' workflow.id}}{{workflow.id}}{{/link-to}}</td>
-<td class="name">{{#link-to 'workflow.draw' workflow.id}}{{workflow.name}}{{/link-to}}</td>
-<td class="options">
+<td>{{#link-to 'workflow.draw' workflow.id}}{{workflow.id}}{{/link-to}}</td>
+<td>{{#link-to 'workflow.draw' workflow.id}}{{workflow.name}}{{/link-to}}</td>
+<td>
   <div class="row">
     <div class="icon col-xs-3">
       {{#link-to 'workflow.edit' workflow.id}}{{fa-icon "cog" size="lg"}}{{/link-to}}
@@ -13,7 +13,7 @@
     </div>
   </div>
 </td>
-<td class="date">{{format-date workflow.updated}}</td>
+<td>{{format-date workflow.updated locale=locale}}</td>
 {{confirmation-modal
 workflow=workflow
 name=name
