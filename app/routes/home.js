@@ -22,9 +22,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       workflows: this.store.query('workflow', params),
       jobs: this.store.query('job', params),
       releaseNotes: {
-        message: "This is the version 2.0 of application Lemonade! With new operations, faster and simple to use this version brings the power of Apache Spark to execute data minning as easy as build a flow." ,
-        version: "2.0",
-        date: "01/01/2017"},
+        message: "This is the version 0.1.0 of application Lemonade! With new operations, faster and simple to use this version brings the power of Apache Spark to execute data minning as easy as build a flow." ,
+        version: "0.1.0",
+        date: "11/06/2017"},
       videoTutorial: {
         title: "Basic Tutorial",
         youtubeID: "5_sHXJC9ocA"
