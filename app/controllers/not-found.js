@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { String: { pluralize, underscore } } = Ember;
+const { String: { pluralize } } = Ember;
 
 export default Ember.Controller.extend({
   queryParams: ['resource'],
