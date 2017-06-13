@@ -13,4 +13,5 @@ export default DS.Model.extend({
   status: attr('status'),
   steps: attr(),
   results: attr(),
+  status_text: attr(),
 });

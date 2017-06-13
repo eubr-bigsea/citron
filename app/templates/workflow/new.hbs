@@ -1,27 +1,27 @@
 <article class="content item-editor-page">
   <div class="title-block content-title">
-    <h3 class="title"> Creating new workflow:
+    <h3 class="title"> {{t 'workflow.new.title'}}
       <span class="sparkline bar" data-type="bar"></span>
     </h3>
   </div>
   <form name="item" id="edit-workflow" {{action 'create' on='submit'}}>
     <div class="card card-block">
       <div class="form-group row">
-        <label class="col-sm-2 form-control-label text-xs-right"> Name: </label>
+        <label class="col-sm-2 form-control-label text-xs-right">{{t 'forms.name.label'}}: </label>
         <div class="col-sm-10">
-          {{input type="text" class="form-control boxed" placeholder=model.workflow.name value=model.workflow.name}}
+          {{input type="text" class="form-control boxed" placeholder=(t 'workflow.new.name.placeholder') value=model.workflow.name required=true}}
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 form-control-label text-xs-right"> Description: </label>
+        <label class="col-sm-2 form-control-label text-xs-right">{{t 'forms.description.label'}}: </label>
         <div class="col-sm-10">
           <div class="form-group">
-            {{textarea class="form-control" id="description" rows="5"  maxlength="1600" height="30vh" value=model.workflow.description }}
+            {{textarea class="form-control" id="description" rows="5"  maxlength="1600" height="30vh" placeholder=(t 'workflow.new.description.placeholder') value=model.workflow.description }}
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 form-control-label text-xs-right"> Plataform: </label>
+        <label class="col-sm-2 form-control-label text-xs-right">{{t 'forms.platform.label'}}: </label>
         <div class="col-sm-10">
           <select class="c-select from-control boxed platform" id="platform" >
             {{#each model.platforms as |platform|}}
@@ -31,9 +31,7 @@
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 form-control-label text-xs-right">
-          Images:
-        </label>
+        <label class="col-sm-2 form-control-label text-xs-right">{{t 'forms.images.label'}}: </label>
         <div class="col-sm-10">
           <div class="images-container">
             {{#each model.images as |image|}}
@@ -46,9 +44,9 @@
       </div>
       <div class="form-group row">
         <div class="col-sm-10 col-sm-offset-2">
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="submit" class="btn btn-primary">{{t 'forms.create'}}</button>
           {{#link-to 'workflows'}}
-            <button class="btn btn-danger">Cancel</button>
+            <button class="btn btn-danger">{{t 'forms.cancel'}}</button>
           {{/link-to}}
         </div>
       </div>

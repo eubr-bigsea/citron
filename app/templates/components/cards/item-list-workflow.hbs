@@ -14,10 +14,4 @@
   </div>
 </td>
 <td>{{format-date workflow.updated locale=locale}}</td>
-{{confirmation-modal
-workflow=workflow
-name=name
-modal3=modal3
-toDelete=toDelete
-deleting=true
-message="Are you sure, that you want to delete this workflow?"}}
+{{confirmation-modal modal=modal content=modalContent resource=workflow onSubmit=(action 'submit')}}

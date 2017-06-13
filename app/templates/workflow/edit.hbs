@@ -1,19 +1,19 @@
 <article class="content item-editor-page">
   <div class="title-block">
-    <h3 class="title"> {{t 'editingWorkflow'}} <strong>{{model.workflow.name}}</strong>
+    <h3 class="title"> {{t 'workflow.edit.title'}} <strong>{{model.workflow.name}}</strong>
       <span class="sparkline bar" data-type="bar"></span>
     </h3>
   </div>
   <form name="item" id="edit-workflow" {{action 'save' on='submit'}}>
     <div class="card card-block">
       <div class="form-group row">
-        <label class="col-sm-2 form-control-label text-xs-right"> {{t 'name'}}: </label>
+        <label class="col-sm-2 form-control-label text-xs-right"> {{t 'forms.name.label'}}: </label>
         <div class="col-sm-10">
-          {{input type="text" class="form-control boxed" placeholder=model.name value=model.workflow.name}}
+          {{input type="text" class="form-control boxed" value=model.workflow.name}}
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 form-control-label text-xs-right"> {{t 'description'}}: </label>
+        <label class="col-sm-2 form-control-label text-xs-right"> {{t 'forms.description.label'}}: </label>
         <div class="col-sm-10">
           <div class="form-group">
             {{textarea class="form-control" id="description" rows="5"  maxlength="1600" height="30vh" value=model.workflow.description }}
@@ -22,7 +22,7 @@
       </div>
       <div class="form-group row">
         <label class="col-sm-2 form-control-label text-xs-right">
-          {{t 'images'}}:
+          {{t 'forms.images.label'}}:
         </label>
         <div class="col-sm-10">
           <div class="images-container">
@@ -36,9 +36,9 @@
       </div>
       <div class="form-group row">
         <div class="col-sm-10 col-sm-offset-2">
-          <button type="submit" class="btn btn-primary">{{t 'save'}}</button>
+          <button type="submit" class="btn btn-primary">{{t 'forms.save'}}</button>
           {{#link-to 'workflows'}}
-            <button class="btn btn-danger">{{t 'cancel'}}</button>
+            <button class="btn btn-danger">{{t 'forms.cancel'}}</button>
           {{/link-to}}
         </div>
       </div>
