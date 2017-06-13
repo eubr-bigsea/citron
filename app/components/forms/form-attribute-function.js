@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import FormComponent from 'lemonade-ember/lib/form-component';
 
 export default FormComponent.extend({
@@ -6,6 +7,10 @@ export default FormComponent.extend({
 
     this.set('modalVisible', false);
     this.set('parsedValues', JSON.parse(this.get('field.values')));
+
+    if(this.get('currentValue') === null)
+      this.set('currentValue', Ember.A());
+
   },
   actions: {
     addRow() {
