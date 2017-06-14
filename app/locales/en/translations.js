@@ -1,7 +1,6 @@
 export default {
   'notFound': {
-    'the': 'The',
-    'message': 'that you are looking for is not available',
+    'message': 'The {{resource}} that you are looking for is not available',
     'goBack': 'Go back to'
   },
   //Forms
@@ -43,7 +42,7 @@ export default {
       'label': 'Description',
     },
     'images': {
-      'label': 'images'
+      'label': 'Images'
     },
     'platform': {
       'label': 'Platform',
@@ -62,13 +61,15 @@ export default {
   },
   'tables': {
     'id': 'ID',
+    'logo': 'Logo',
     'name': 'Name',
+    'author': 'Author',
+    'updated': 'Updated At',
     'status': 'Status',
     'result': 'Result',
     'options': 'Options',
     'created': 'Created at'
   },
-
   'cards': {
     'latestEditedWorkflows': {
       'title': 'Latest edited workflows',
@@ -196,40 +197,12 @@ export default {
   },
   'en': 'English',
   'pt': 'Português',
-  'createNew': 'Create new',
-  'delete': 'Delete',
-  'searchFor': 'Search for..',
-  'moreActions': 'More Actions...',
-  'descriptionWorkflows': 'List of all workflows - e.g. owned, shared, etc..',
-  'logo': 'Logo',
-  'id': 'ID',
   'error': 'Error',
   'interrupted': 'Interrupted',
   'pending': 'Pending',
   'running': 'Running',
-  'name': 'Name',
-  'options': 'Options',
-  'author': 'Author',
-  'updatedAt': 'Updated at',
-  'description': 'Description',
-  'images': 'Images',
-  'save': 'Save',
-  'cancel': 'Cancel',
-  'created': 'Created',
-  'editingWorkflow': 'Editing workflow:',
   'status': 'Status',
-  'startedAt': 'Started at',
-  'finishedAt': 'Finished at',
-  'descriptionJobs': 'List of all Jobs - e.g. Running, finished,  etc...',
-  'basicTutorial': 'Basic Tutorial',
-  'releaseText': 'This is the version 2.0 of application Lemonade! With new operations, faster and simple to use this version brings the power of Apache Spark to execute data minning as easy as build a flow. Released at 01/01/2017',
   'waiting': 'Waiting',
-  'visualize':'Visualize',
-  'execute': 'Execute',
   'canceled': 'Canceled',
   'completed': 'Completed',
-  'profile': 'Profile',
-  'logout': 'Logout',
-  'results': 'Results',
-  'stop': 'Stop'
 };

@@ -1,7 +1,6 @@
 export default {
   'notFound': {
-    'the': 'O',
-    'message': 'que você está procurando não está disponível',
+    'message': 'O {{resource}} que você está procurando não está disponível',
     'goBack': 'Voltar para'
   },
   //Forms
@@ -39,6 +38,16 @@ export default {
     'locale': {
       'label': 'Língua'
     },
+    'description': {
+      'label': 'Descrição',
+    },
+    'images': {
+      'label': 'Imagens'
+    },
+    'platform': {
+      'label': 'Plataforma',
+    },
+    'create': 'Criar',
     'save': 'Salvar',
     'cancel': 'Cancelar',
     'changePassword': 'Trocar senha',
@@ -52,7 +61,10 @@ export default {
   },
   'tables': {
     'id': 'ID',
+    'logo': 'Logo',
     'name': 'Nome',
+    'author': 'Autor',
+    'updated': 'Atualizado em',
     'status': 'Status',
     'result': 'Resultado',
     'options': 'Opções',
@@ -70,46 +82,128 @@ export default {
     'latestUpdatedJobs': {
       'title': 'Últimos jobs atualizados',
     },
+    'videoTutorial': {
+      'title': 'Basic Tutorial',
+    },
   },
-
-  'workflow': 'Workflow',
-  'workflows': 'Workflows',
+  'alert': {
+    'delete': {
+      'workflow': {
+        'success': 'O workflow foi apagado.',
+        'error': 'Houve um erro, o workflow não foi apagado.'
+      },
+      'workflows': {
+        'success': {
+          'one':'O workflow foi apagado.',
+          'other': 'Todos os {{count}} foram apagados.',
+        },
+        'error': {
+          'one': 'Desculpe, o workflow não pode ser apagado.',
+          'other': 'Desculpe, os workflows {{errors}} não puderam ser apagados.'
+        },
+      }
+    },
+    'save': {
+      'workflow': {
+        'success': 'O workflow foi salvo.',
+        'error': 'Houve um erro, o workflow não foi salvo.'
+      }
+    },
+  },
+  'modal': {
+    'delete': {
+      'workflow': {
+        'title': 'Apagando o workflow:',
+        'message': 'Você quer apagar permanentemente o workflow {{resource.name}}?',
+        'submitButton': 'Apagar',
+      },
+      'workflows': {
+        'title': {
+          'zero': 'Nenhum workflow foi selecionado',
+          'one': 'Apagando workflow',
+          'other': 'Apagando workflows'
+        },
+        'message': {
+          'zero': 'Você precisa de selecionar um workflow antes de apagar.',
+          'one': 'Você quer apagar permanentemente o workflow selecionado?',
+          'other': 'Você quer apagar permanentemente todos os {{count}} workflows selecionados?',
+        },
+        'submitButton': {
+          'zero': 'Ok',
+          'one':'Apagar',
+          'other': 'Apagar Todos',
+        },
+      }
+    },
+    'leave': {
+      'workflow': {
+        'title': 'Saindo da área de edição',
+        'message': 'Todas as mudanças não salvas serão perdidas. Deseja continuar?',
+        'submitButton': 'Sim, sair',
+        'cancelButton': 'Ficar',
+      }
+    },
+    'default': {
+      'title': 'Aviso',
+      'message': 'Você tem certeza disso?',
+      'cancelButton': 'Cancelar',
+      'submitButton': 'Ok',
+    },
+  },
+  'workflow': {
+    'self': 'workflow',
+    'edit': {
+      'title': 'Editando o workflow:',
+    },
+    'new': {
+      'title': 'Criando novo workflow:',
+      'name': {
+        'placeholder': 'Meu workflow',
+      },
+      'description': {
+        'placeholder': 'Este é meu workflow...',
+      },
+    },
+    'draw': {
+      'save': 'Salvar',
+      'delete': 'Apagar este workflow',
+      'play': 'Executar'
+    }
+  },
+  'workflows': {
+    'self':'workflows',
+    'title': 'Workflows',
+    'description': 'Lista de todos os workflows - e.g. próprios, compartilhados, etc..',
+    'newBtn': 'Criar novo',
+    'moreActionsBtn': 'Mais ações',
+    'deleteBtn': 'Apagar todos',
+    'searchFor': 'Pesquisar',
+  },
+  'job': {
+    'self': 'job',
+    'show': {
+      'results': 'Resultados',
+      'log': 'Log',
+      'stop': 'Parar',
+      'workflow': 'Workflow',
+      'logger': {
+        'title': "Log da execução",
+      },
+    },
+    'results': {
+      'title': 'Resultados da execução',
+      'backBtn': 'Voltar para resultados',
+      'visualization': 'Visualização',
+    }
+  },
   'en': 'English',
   'pt': 'Português',
-  'createNew': 'Criar novo',
-  'delete': 'Deletar',
-  'searchFor': 'Procurar..',
-  'moreActions': 'Maus ações...',
-  'descriptionWorkflows': 'Lista de todos os seus workflows, públicos ou privados.',
-  'logo': 'Logo',
-  'id': 'ID',
   'error': 'Erro',
   'interrupted': 'Interrompido',
   'pending': 'Pendente',
   'running': 'Executando',
-  'name': 'Nome',
-  'options': 'Opções',
-  'author': 'Autor',
-  'updatedAt': 'Atualizado em',
-  'description': 'Descrição',
-  'images': 'Imagens',
-  'save': 'Salvar',
-  'cancel': 'Cancelar',
-  'created': 'Criado em',
-  'editingWorkflow': 'Editando workflow:',
-  'status': 'Status',
-  'startedAt': 'Começou em',
-  'finishedAt': 'Terminou em',
-  'descriptionJobs': 'Lista de todos os jobs, terminados, rodando..',
-  'basicTutorial': 'Tutorial básico',
-  'releaseText': 'Esta é a versão 2.0 da aplicação Lemonade! Com novas operações, mais rápido e simples de usar, esta versão traz o poder do Apache Spark para executar mineração de dados tão facilmente quando construir um fluxo. Lançado em 01/01/2017',
   'waiting': 'Esperando',
   'visualize':'Visualizar',
-  'execute': 'Executar',
   'canceled': 'Cancelado',
   'completed': 'Completo',
-  'profile': 'Perfil',
-  'logout': 'Logout',
-  'results': 'Resultados',
-  'stop': 'Parar'
 };
