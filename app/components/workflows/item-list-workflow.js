@@ -6,7 +6,6 @@ export default Ember.Component.extend({
   store: service('store'),
   classNames:['table-item'],
   tagName: 'tr',
-  toDelete: null,
 
   actions: {
     submit(){

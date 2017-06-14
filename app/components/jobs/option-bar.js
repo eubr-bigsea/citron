@@ -18,7 +18,11 @@ export default Ember.Component.extend({
     this.set('isRunning', (jobStatus === 'running'));
     this.set('hasFinished', (jobStatus === 'completed'));
   },
-
+  didRender(){
+    if(this.get('job.status') === 'error'){
+      $("#flashError").show();
+    }
+  },
   actions:{
     showLog(){
       Ember.$("#job-diagram-container-wrapper").toggleClass("toggled");

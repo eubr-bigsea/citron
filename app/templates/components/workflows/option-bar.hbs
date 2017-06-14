@@ -1,20 +1,23 @@
-<div id="flash" class="alert alert-success" style="margin-left:10px; margin-right:20px;">
-  <span></span>
+<div id="flashSuccess" class="alert alert-success" style="display:none">
+  <span>{{t 'alert.save.workflow.success'}}</span>
 </div>
-
+<div id="flashError" class="alert alert-danger" style="display:none">
+  <span>{{t 'alert.save.workflow.error'}}</span>
+</div>
+{{confirmation-modal modal=modal content=modalContent resource=workflow onSubmit=(action 'submit') goTo=goTo}}
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 name-editor">
   {{input value=workflow.name class="form-control underlined"}}
 </div>
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 buttons">
-  <a rel="tooltip" title="Save" class="btn btn-primary btn-md" href="#" {{action 'saveWorkflow'}}>
-     <i class="fa fa-floppy-o fa-lg"></i>
+  <a rel="tooltip" title={{t 'workflow.draw.save'}} class="btn btn-primary btn-md" href="#" {{action 'saveWorkflow'}}>
+    <i class="fa fa-floppy-o fa-lg"></i>
   </a>
-  <a rel="tooltip" title="Delete this workflow" class="btn btn-primary btn-md " href="#" {{action 'deleteWorkflow'}}>
+  <a rel="tooltip" title={{t 'workflow.draw.delete'}} class="btn btn-primary btn-md " href="#" {{action 'deleteWorkflow'}}>
     <i class="fa fa-trash-o fa-lg"></i>
   </a>
 </div>
 <div class="col-xs-12  col-sm-12 col-md-6 col-lg-2 col-xl-2 execute">
   <a onclick={{action 'play'}} class="play btn btn-md">
-    <i class="fa fa-play"></i> {{t 'execute'}}
+    <i class="fa fa-play"></i> {{t 'workflow.draw.play'}}
   </a>
 </div>

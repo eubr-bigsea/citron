@@ -61,6 +61,9 @@ export default Ember.Component.extend({
     socket.on('update job', function(frame, server_callback) {
       console.debug('update job');
       component.set('job.status', frame.status.toLowerCase());
+      if(frame.status.toLowerCase() === 'error'){
+        $("#flashError").text(frame.message).show()
+      }
       if (server_callback){
         server_callback();
       }
