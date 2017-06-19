@@ -5,6 +5,7 @@ import RSVP from 'rsvp';
 const { inject: { service} } = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  session: service(),
   sessionAccount: service(),
 
   model(){
@@ -31,4 +32,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       }
     });
   },
+  setupController(controller, model){
+    controller.set('locale', this.get('session.data.locale'));
+    return this._super(controller, model);
+  }
+
 });

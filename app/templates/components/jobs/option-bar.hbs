@@ -6,20 +6,20 @@
 </div>
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 buttons">
   {{#link-to 'workflow.draw' job.workflow.id  class="workflow btn btn-primary btn-md"}}
-    <i class="fa fa-flask fa-lg"></i><span>Workflow</span>
+    <i class="fa fa-flask fa-lg"></i><span>{{t 'job.show.workflow'}}</span>
   {{/link-to}}
 
   {{#if hasFinished}}
     {{#link-to 'job.results' job.id class="results btn btn-primary btn-md
       flash-button"}}
-      <i class="fa fa-eye fa-lg"></i><span>{{t 'results'}}</span>
+      <i class="fa fa-eye fa-lg"></i><span>{{t 'job.show.results'}}</span>
     {{/link-to}}
   {{else if isRunning}}
     <a onclick={{action 'stop'}} class="stop btn btn-primary btn-md">
-      <i class="fa fa-stop"></i><span>Stop</span>
+      <i class="fa fa-stop"></i><span>{{t 'job.show.stop'}}</span>
     </a>
   {{/if}}
   <a href="#" onclick={{action 'showLog'}} class="log btn btn-primary btn-md">
-    <i class="fa fa-list-ul"></i><span>Log</span>
+    <i class="fa fa-list-ul"></i><span>{{t 'job.show.log'}}</span>
   </a>
 </div>

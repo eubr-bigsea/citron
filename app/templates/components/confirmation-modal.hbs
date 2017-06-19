@@ -1,22 +1,30 @@
-{{#bs-modal open=modal3 size=size fade=fade backdrop=false workflow=workflow backdropClose=true onSubmit=(action "submit") onHidden=(action (mut modal3) false) as |modal|}}
+{{#bs-modal open=modal fade=fade onHidden=(action (mut modal) false) as |modal|}}
   {{#modal.header}}
     <h4 class="modal-title">
-      {{name}}
+      {{#if content.title}}
+        {{t content.title count=count}}
+      {{else}}
+        {{t 'modal.default.title'}}
+      {{/if}}
     </h4>
   {{/modal.header}}
   {{#modal.body}}
-    {{message}}
+    {{#if content.message}}
+      {{t content.message resource=resource count=count}}
+    {{else}}
+      {{t 'modal.default.message'}}
+    {{/if}}
   {{/modal.body}}
   {{#modal.footer}}
-    {{#if multipleDeleting}}
-      {{#bs-button type="success" onClick=(action 'deletarVarios' checked)}}Delete workflows{{/bs-button}}
+    {{#if content.submitButton}}
+      {{#bs-button type="success" onClick=onSubmit}}{{t content.submitButton count=count}}{{/bs-button}}
+    {{else}}
+      {{#bs-button type="success" onClick=(action 'submit')}}{{t 'modal.default.submitButton'}}{{/bs-button}}
     {{/if}}
-    {{#if deleting}}
-      {{#bs-button type="success" onClick=(action 'deletar' toDelete)}}Delete{{/bs-button}}
+    {{#if content.cancelButton}}
+      {{#bs-button onClick=onCancel}}{{t content.cancelButton}}{{/bs-button}}
+    {{else}}
+      {{#bs-button onClick=(action 'cancel')}}{{t 'modal.default.cancelButton' count=count}}{{/bs-button}}
     {{/if}}
-    {{#if leaving}}
-      {{#bs-button type="success" onClick=(action 'submit' toDelete)}}Yes, leave{{/bs-button}}
-    {{/if}}
-    {{#bs-button onClick=(action 'cancel')}}Cancel{{/bs-button}}
   {{/modal.footer}}
 {{/bs-modal}}

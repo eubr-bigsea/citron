@@ -1,27 +1,17 @@
-<div id="flash" class="alert alert-info" style="margin-left:10px; margin-right:20px;">
-  <span></span>
-</div>
-
-{{confirmation-modal
-workflow=workflow
-name="Deleting workflows"
-modal3=modal3
-checked=checked
-multipleDeleting=true
-message="Are you sure, that you want to delete these workflow?"}}
-
+{{confirmation-modal modal=modal content=modalContent onSubmit=(action 'submit') count=selectedWorkflows}}
 <div class="row">
   <div class="col-xs-3 title-block">
-    <h3 class="title"> <i class="fa fa-flask"></i> Workflows
+    <h3 class="title"> <i class="fa fa-flask"></i> {{t 'workflows.title'}}
     </h3>
-    <p class="title-description"> {{t 'descriptionWorkflows'}} </p>
+    <p class="title-description"> {{t 'workflows.description'}} </p>
   </div>
   <div class="col-xs-4 buttons-menu">
-    {{#link-to 'workflow.new' class="create-new btn"}}{{t 'createNew'}} {{/link-to}}
+    {{#link-to 'workflow.new' class="create-new btn"}}{{t 'workflows.newBtn'}} {{/link-to}}
     <div class="action dropdown ">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" >{{t 'moreActions'}}</a>
+      <a class="btn dropdown-toggle" data-toggle="dropdown" >{{t 'workflows.moreActionsBtn'}}</a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <a class="dropdown-item" {{action 'deleteWorkflows'}} href="#"><i class="fa fa-trash-o icon"></i>{{t 'delete'}}</a>
+        <a class="dropdown-item" {{action 'deleteWorkflows'}} href="#">
+        <i class="fa fa-trash-o icon"></i> {{t 'workflows.deleteBtn'}}</a>
       </div>
     </div>
   </div>
@@ -29,7 +19,7 @@ message="Are you sure, that you want to delete these workflow?"}}
     <div class="pull-right items-search">
       <form onsubmit="return false" class="form-inline">
         <div class="input-group">
-          <input id="input" type="text" class="form-control boxed " placeholder="{{t 'searchFor'}}">
+          <input id="input" type="text" class="form-control boxed " placeholder="{{t 'workflows.searchFor'}}">
           <span class="input-group-btn">
             <button id="submit" class="btn btn-secondary" type="button">
               <i class="fa fa-search"></i>
@@ -40,3 +30,9 @@ message="Are you sure, that you want to delete these workflow?"}}
     </div>
   </div>
 </div><!-- row -->
+<div id="flashSuccess" class="alert alert-success" style="display:none">
+   <span>{{t 'alert.delete.workflow.success' count=selectedWorkflows}}</span>
+ </div>
+ <div id="flashError" class="alert alert-danger" style="display:none">
+   <span>{{t 'alert.delete.workflow.error' errors=erros}}</span>
+ </div>
