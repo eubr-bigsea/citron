@@ -5,29 +5,34 @@ const { inject: { service } } = Ember;
 export default Ember.Component.extend({
   sessionAccount: service(),
   store: service('store'),
-  currentJob: null,
-
-  didInsertElement: function(){
-    this.$('#flash').hide();
-  },
 
   actions: {
     saveWorkflow() {
-      $("#flash span").text("The workflow was saved.").show().parent().fadeIn().delay(2000).fadeOut('slow', function() { $("#flash span").text('') });
-      var component = this;
-      this.get('workflow').save().then(function(){
-        component.get('hasChanged')(false);
-        component.get('alert')({
-          type: 'Success',
-          content:'All modifications has been saved.'
-        });
-      });
+      this.get('workflow').save().then(
+        () => {
+          $("#flashSuccess").show().fadeIn().delay(2000).fadeOut('slow');
+          this.get('hasChanged')(false);
+        },
+        () => { $("#flashError").show().fadeIn().delay(2000).fadeOut('slow'); }
+      );
     },
+
+    submit(){
+      this.get('workflow').destroyRecord().then(
+        () => { this.get('goTo')('workflows'); },
+        () => { $("#flashError").show().fadeIn().delay(2000).fadeOut('slow'); }
+      )
+    },
+
     deleteWorkflow(){
-      this.get('alert')({
-        type: 'Delete',
-        content:'Do you want to delete this workflow?',
-      });
+      var modal = {
+        title: 'modal.delete.workflow.title',
+        message: 'modal.delete.workflow.message',
+        submitButton: 'modal.delete.workflow.submitButton',
+      };
+
+      this.set('modalContent', modal);
+      this.set('modal', true);
     },
 
     play(){

@@ -1,4 +1,7 @@
 <div id="job-diagram-container-wrapper" class="container-fluid toggled">
   {{jobs/option-bar class="job-option-bar row" job=model.job}}
+  <div id="flashError" class="alert alert-danger" style="display:none">
+    <span>{{model.job.status_text}}</span>
+  </div>
   {{jobs/job-container-diagram class="draw jobs-screen" id="job-container-diagram" workflow=model.job.workflow stepsLogs=stepsLogs steps=model.job.steps job=model.job operations=model.operations}}
 </div>

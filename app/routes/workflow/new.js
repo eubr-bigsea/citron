@@ -14,8 +14,8 @@ export default Ember.Route.extend({
       flows: [],
       platform: {id: '1'},
       image: "img0.png",
-      name: "My new Workflow",
-      description: "My workflow...",
+      name: "",
+      description: "",
       enabled: true
     };
     return RSVP.hash({

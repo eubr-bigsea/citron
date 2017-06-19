@@ -36,7 +36,14 @@ export default Ember.Route.extend({
       if(!targetName && (transition.targetName !== 'job.show') && hasChanged){
         this.controller.set('targetName', transition.targetName);
         transition.abort();
-        this.controller.set('modal3', true);
+        var modal = {
+          title: 'modal.leave.workflow.title',
+          message: 'modal.leave.workflow.message',
+          submitButton: 'modal.leave.workflow.submitButton',
+          cancelButton: 'modal.leave.workflow.cancelButton'
+        };
+        this.controller.set('modalContent', modal);
+        this.controller.set('modal', true);
       }
     }
   }
