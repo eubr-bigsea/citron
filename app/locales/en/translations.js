@@ -179,7 +179,7 @@ export default {
     'searchFor': 'Search',
   },
   'job': {
-    'self': 'job',
+    'self': 'Job',
     'show': {
       'results': 'Results',
       'log': 'Log',
@@ -190,10 +190,33 @@ export default {
       },
     },
     'results': {
-      'title': 'Results of job',
+      'title': 'The {{resource}} result of this job',
       'backBtn': 'Back to results',
       'visualization': 'Visualization',
     }
+  },
+  'visualizations': {
+    'evaluate-model': {
+      'self': 'evaluate model'
+    },
+    'table-visualization': {
+      'self': 'table visualization'
+    },
+    'bar-chart': {
+      'self': 'bar chart'
+    },
+    'pie-chart': {
+      'self': 'pie chart'
+    },
+    'line-chart': {
+      'self': 'line chart'
+    },
+    'area-chart': {
+      'self': 'area chart'
+    },
+    'summary-statistics': {
+      'self': 'summary statistics'
+    },
   },
   'en': 'English',
   'pt': 'Português',
@@ -205,4 +228,6 @@ export default {
   'waiting': 'Waiting',
   'canceled': 'Canceled',
   'completed': 'Completed',
+  'profile': 'Profile',
+  'logout': 'Logout',
 };
