@@ -1,7 +1,9 @@
 .btn-lndg-pg, button {
+  text-decoration: none !important;
+  background: #3a4651 none repeat scroll 0 0;
+  color: $color-light ;
   padding: 7px 30px;
   font-weight: 400;
-  color: #fff;
   font-size: 13px;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
@@ -13,7 +15,8 @@
 }
 
 .btn-lndg-pg:hover, button:hover {
-  color: #fff;
+  color: $color-text-lighter;
+  font-weight: 500;
 }
 
 .section {
@@ -21,13 +24,12 @@
 }
 
 .btn-common {
-  color: #FFF;
-  background: #ff5959;
   position: relative;
   border: transparent;
   z-index: 1;
 
   &:before {
+    background: $color-lighter none repeat scroll 0 0;
     content: '';
     position: absolute;
     top: 0;
@@ -42,6 +44,7 @@
   }
 
   &:hover:before {
+    color: $color-darker !important;
     width: 100%;
   }
 }

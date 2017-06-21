@@ -25,17 +25,6 @@ i.icon-round {
   background-color: $main-theme-green;
 }
 
-.btn-common {
-  background: #3a4651 none repeat scroll 0 0;
-
-  /*9C3*/
-
-  &::before {
-    background: #526b84 none repeat scroll 0 0;
-
-    /*7aa427*/
-  }
-}
 
 #other-services .nav-tabs li a {
   &:hover i, &:focus, &.active i {
