@@ -180,7 +180,7 @@ export default {
     'searchFor': 'Pesquisar',
   },
   'job': {
-    'self': 'job',
+    'self': 'Job',
     'show': {
       'results': 'Resultados',
       'log': 'Log',
@@ -191,10 +191,33 @@ export default {
       },
     },
     'results': {
-      'title': 'Resultados da execução',
+      'title': '{{resource}} resultante do job',
       'backBtn': 'Voltar para resultados',
       'visualization': 'Visualização',
     }
+  },
+  'visualizations': {
+    'evaluate-model': {
+      'self': 'Avaliação do modelo'
+    },
+    'table-visualization': {
+      'self': 'Visualização em tabela'
+    },
+    'bar-chart': {
+      'self': 'Gráfico de barras'
+    },
+    'pie-chart': {
+      'self': 'Gráfico de pizza'
+    },
+    'line-chart': {
+      'self': 'Gráfico de linhas'
+    },
+    'area-chart': {
+      'self': 'Gráfico de área'
+    },
+    'summary-statistics': {
+      'self': 'Estatísticas sumárias'
+    },
   },
   'en': 'English',
   'pt': 'Português',
@@ -206,4 +229,6 @@ export default {
   'visualize':'Visualizar',
   'canceled': 'Cancelado',
   'completed': 'Completo',
+  'profile': 'Perfil',
+  'logout': 'Sair',
 };
