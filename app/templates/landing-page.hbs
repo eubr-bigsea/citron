@@ -1,36 +1,36 @@
 <header id="header-wrap">
-<section id="header">
-  <nav class="navbar navbar-light navbar-fixed-top" data-spy="affix" data-offset-top="50">
-    <div class="container">
-      <button class='navbar-toggler hidden-md-up pull-xs-right' data-target='#main-menu' data-toggle='collapse' type='button'>
+  <section id="header">
+    <nav class="navbar navbar-light navbar-fixed-top" data-spy="affix" data-offset-top="50">
+      <div class="container">
+        <button class='navbar-toggler hidden-md-up pull-xs-right' data-target='#main-menu' data-toggle='collapse' type='button'>
 
-      </button>
-      <a class="navbar-brand">
-        {{#link-to 'landing-page'}}<img src="assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
-      </a>
-      <div class="collapse navbar-toggleable-sm pull-xs-left pull-md-right" id="main-menu">
-        <ul class="nav nav-inline">
-          <li class="nav-item">
-            <a class="page-scroll nav-link" href="#header" >Home</a>
+        </button>
+        <a class="navbar-brand">
+          {{#link-to 'landing-page'}}<img src="assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
+        </a>
+        <div class="collapse navbar-toggleable-sm pull-xs-left pull-md-right" id="main-menu">
+          <ul class="nav nav-inline">
+            <li class="nav-item">
+              <a class="page-scroll nav-link" href="#header" >Home</a>
 
-          </li>
-          <li class="nav-item">
-            <a class="page-scroll nav-link" href="#about-us">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="page-scroll nav-link" href="#our-services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="page-scroll nav-link" href="#meet-us">Meet Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="page-scroll nav-link" href="#footer">Contact Us</a>
-          </li>
-        </ul>
+            </li>
+            <li class="nav-item">
+              <a class="page-scroll nav-link" href="#about-us">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="page-scroll nav-link" href="#our-services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="page-scroll nav-link" href="#meet-us">Meet Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="page-scroll nav-link" href="#footer">Contact Us</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-</section>
+    </nav>
+  </section>
 </header>
 <div class="bgimg">
   <div id="free-promo" style="text-align: center;">
@@ -38,8 +38,8 @@
       <div class="row text-center" style="padding-top:14%;">
         <div class="error-page">
           <h2><a class="titulo">Welcome to Lemonade!</a></h2>
-          {{#link-to 'login'}}<a  class="btn-lndg-pg btn-common btn-lg">Login</a>{{/link-to}}
-          {{#link-to 'signup'}}<a  class="btn-lndg-pg btn-common btn-lg">Sign Up</a>{{/link-to}}
+          {{link-to 'Login' 'login' class="btn-lndg-pg btn-common btn-lg"}}
+          {{link-to 'Sign Up' 'signup' class="btn-lndg-pg btn-common btn-lg"}}
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
             <i class="icon-cup pulse-shrink"></i>
           </div>
           <h2>
-           Data Visualization
+            Data Visualization
           </h2>
           <p>
           At the end of the process, you have features avaiable for a better visualization of the data, abstracting its schematic
