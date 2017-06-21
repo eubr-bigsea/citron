@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   queryParams:['platform'],
   platform: null,
-  targetName: null,
   hasChanged: false,
   modalContent: null,
 
@@ -13,15 +12,18 @@ export default Ember.Controller.extend({
     },
 
     confirmedTransition(){
-      this.transitionToRoute(this.get('targetName'));
       this.set('modal', false);
-      this.set('targetName', null);
       this.set('hasChanged', false);
+      let previousTransition = this.get('previousTransition');
+      if (previousTransition) {
+        this.set('previousTransition', null);
+        previousTransition.retry();
+      }
     },
 
     canceledTransition(){
       this.set('modal', false);
-      this.set('targetName', null);
+      this.set('previousTransition', null);
     },
 
     goTo(routeName){

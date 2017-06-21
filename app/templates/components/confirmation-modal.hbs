@@ -1,4 +1,4 @@
-{{#bs-modal open=modal fade=fade onHidden=(action (mut modal) false) as |modal|}}
+{{#bs-modal open=modal backdrop=false backdropClose=true fade=fade onHidden=(action (mut modal) false) as |modal| }}
   {{#modal.header}}
     <h4 class="modal-title">
       {{#if content.title}}
