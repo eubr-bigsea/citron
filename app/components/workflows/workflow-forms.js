@@ -15,11 +15,9 @@ export default Ember.Component.extend({
         el.css('color', value.foreground);
       }
       if(key === 'comment') {
-        el.find('.comment-task span.ui-selectee').text(value);
-        this.set(`filledForms.comment`, value);
-      } else {
-        this.set(`filledForms.${key}.value`, value);
+        el.find('.comment-text span').text(value);
       }
+      this.set(`filledForms.${key}.value`, value);
     }
   }
 });
