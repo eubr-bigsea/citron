@@ -31,17 +31,18 @@ export default Ember.Route.extend({
 
   actions: {
     willTransition(transition){
-      var targetName = this.controller.get('targetName');
+      var previousTransition = this.controller.get('previousTransition');
       var hasChanged = this.controller.get('hasChanged');
-      if(!targetName && (transition.targetName !== 'job.show') && hasChanged){
-        this.controller.set('targetName', transition.targetName);
+      if(!previousTransition && (transition.targetName !== 'job.show') && hasChanged){
+        this.controller.set('previousTransition', transition);
         transition.abort();
         var modal = {
           title: 'modal.leave.workflow.title',
           message: 'modal.leave.workflow.message',
           submitButton: 'modal.leave.workflow.submitButton',
           cancelButton: 'modal.leave.workflow.cancelButton'
-        };
+        }
+
         this.controller.set('modalContent', modal);
         this.controller.set('modal', true);
       }
