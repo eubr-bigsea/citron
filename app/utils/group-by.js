@@ -2,13 +2,13 @@ export default function groupBy(data, group) {
   return data.then(function(rawData) {
     let el = {};
     let types = { subgroup: 2, group: 1 };
-    let others = ["technology", "model", "service", "data source", "algorithm"];
+    let elems = ["group", "subgroup"];
 
     var groups = []
 
     rawData.forEach(function(o) {
       let myEl = el;
-      o.get(group).filter((a) => others.indexOf(a.type) === -1 )
+      o.get(group).filter((a) => elems.indexOf(a.type) !== -1 )
         .sort((a, b) => types[a.type] - types[b.type])
         .forEach((e) => {
           if(!myEl[e.name]) {

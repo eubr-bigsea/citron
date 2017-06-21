@@ -103,7 +103,7 @@
       }
     }
 
-    .dropdown-item:hover {
+    .dropdown-item:hover, .active {
       background-color: $color-base;
       color: $color-text-lighter;
 
