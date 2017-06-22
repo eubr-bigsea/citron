@@ -47,6 +47,9 @@ export default {
     'platform': {
       'label': 'Plataforma',
     },
+    'cluster': {
+      'label': 'Clusters',
+    },
     'create': 'Criar',
     'save': 'Salvar',
     'cancel': 'Cancelar',

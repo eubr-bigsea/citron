@@ -53,12 +53,13 @@ export default Ember.Component.extend({
         name: 'teste',
         user: { id: user.get('id'), login: user.get('email'), name: user.get('name')},
         workflow: workflow,
-        cluster: { id: 1}
+        cluster: { id: this.get('cluster')}
       };
       this.get('workflow').save();
       let job = this.get('store').createRecord('job', jobHash);
       job.save().then(function(job){
-        Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id);
+        component.get('goTo')('job.show', job.id);
+//        Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id);
       } ).catch(function(error){ console.log(error) });
     },
   },
