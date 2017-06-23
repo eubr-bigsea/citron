@@ -33,8 +33,8 @@ module.exports = function(environment) {
     };
 
   if (environment === 'development') {
-    // ENV.thorn = 'http://localhost:3000';
-    ENV.thorn = 'http://teste.ctweb.inweb.org.br/thorn';
+    ENV.thorn = 'http://localhost:3000';
+    //ENV.thorn = 'http://teste.ctweb.inweb.org.br/thorn';
     ENV.stand = 'http://teste.ctweb.inweb.org.br/stand';
     ENV.tahiti = 'http://teste.ctweb.inweb.org.br/tahiti';
     ENV.limonero = 'http://teste.ctweb.inweb.org.br/limonero';
@@ -55,7 +55,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-    ENV.thorn = 'http://teste.ctweb.inweb.org.br/thorn';
+    ENV.thorn = 'http://localhost:3000/thorn';
     ENV.stand = 'http://teste.ctweb.inweb.org.br/stand';
     ENV.tahiti = 'http://teste.ctweb.inweb.org.br/tahiti';
     ENV.limonero = 'http://teste.ctweb.inweb.org.br/limonero';
@@ -68,7 +68,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.thorn = 'http://demo.ctweb.inweb.org.br/thorn';
+    ENV.thorn = 'http://localhost:3000/thorn';
     ENV.stand = 'http://demo.ctweb.inweb.org.br/stand';
     ENV.tahiti = 'http://demo.ctweb.inweb.org.br/tahiti';
     ENV.limonero = 'http://demo.ctweb.inweb.org.br/limonero';
