@@ -70,6 +70,8 @@ export default {
     'updated': 'Updated At',
     'status': 'Status',
     'result': 'Result',
+    'size': 'Size',
+    'format': 'Format',
     'options': 'Options',
     'created': 'Created at',
     'started': 'Started at',
@@ -105,7 +107,11 @@ export default {
           'one': 'Sorry, the workflow could not be deleted.',
           'other': 'Sorry, the workflows {{errors}} could not be deleted.'
         },
-      }
+      },
+      'datasource': {
+        'success': 'The datasource was delete.',
+        'error': 'There was a error, the datasource was not deleted.'
+      },
     },
     'save': {
       'workflow': {
@@ -142,7 +148,12 @@ export default {
           'one':'Delete',
           'other': 'Delete All',
         },
-      }
+      },
+      'datasource': {
+        'title': 'Deleting datasource:',
+        'message': 'Do you want to permanently delete the datasource {{resource.name}}?',
+        'submitButton': 'Delete',
+      },
     },
     'leave': {
       'workflow': {
@@ -208,6 +219,11 @@ export default {
   'jobs': {
     'self': 'Jobs',
     'description': 'List of all jobs - e.g. waiting, running, completed, etc..',
+    'searchFor': 'Search',
+  },
+  'datasources': {
+    'self': 'Datasources',
+    'description': 'List of all datasources - e.g. owned, shared, etc..',
     'searchFor': 'Search',
   },
   'visualizations': {

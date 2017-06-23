@@ -70,6 +70,8 @@ export default {
     'updated': 'Atualizado em',
     'status': 'Status',
     'result': 'Resultado',
+    'size': 'Tamanho',
+    'format': 'Formato',
     'options': 'Opções',
     'created': 'Criado em',
     'started': 'Começou em',
@@ -106,7 +108,11 @@ export default {
           'one': 'Desculpe, o workflow não pode ser apagado.',
           'other': 'Desculpe, os workflows {{errors}} não puderam ser apagados.'
         },
-      }
+      },
+      'datasource': {
+        'success': 'A datasource foi apagada.',
+        'error': 'Houve um erro, a datasource não foi apagada.'
+      },
     },
     'save': {
       'workflow': {
@@ -138,7 +144,12 @@ export default {
           'one':'Apagar',
           'other': 'Apagar Todos',
         },
-      }
+      },
+      'datasource': {
+        'title': 'Apagando a datasource:',
+        'message': 'Você quer apagar permanentemente a datasource {{resource.name}}?',
+        'submitButton': 'Apagar',
+      },
     },
     'leave': {
       'workflow': {
@@ -204,8 +215,14 @@ export default {
   'jobs': {
     'self': 'Jobs',
     'description': 'Lista de todos os jobs - e.g. em espera, rodando, completos, etc..',
-    'searchFor': 'Search',
+    'searchFor': 'Pesquisar',
   },
+  'datasources': {
+    'self': 'Datasources',
+    'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
+    'searchFor': 'Pesquisar',
+  },
+
   'visualizations': {
     'evaluate-model': {
       'self': 'Avaliação do modelo'
