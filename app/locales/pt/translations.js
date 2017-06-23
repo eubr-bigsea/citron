@@ -71,7 +71,9 @@ export default {
     'status': 'Status',
     'result': 'Resultado',
     'options': 'Opções',
-    'created': 'Criado em'
+    'created': 'Criado em',
+    'started': 'Começou em',
+    'finished': 'Terminou em',
   },
 
   'cards': {
@@ -154,7 +156,7 @@ export default {
     },
   },
   'workflow': {
-    'self': 'workflow',
+    'self': 'Workflow',
     'edit': {
       'title': 'Editando o workflow:',
     },
@@ -198,6 +200,11 @@ export default {
       'backBtn': 'Voltar para resultados',
       'visualization': 'Visualização',
     }
+  },
+  'jobs': {
+    'self': 'Jobs',
+    'description': 'Lista de todos os jobs - e.g. em espera, rodando, completos, etc..',
+    'searchFor': 'Search',
   },
   'visualizations': {
     'evaluate-model': {

@@ -71,7 +71,9 @@ export default {
     'status': 'Status',
     'result': 'Result',
     'options': 'Options',
-    'created': 'Created at'
+    'created': 'Created at',
+    'started': 'Started at',
+    'finished': 'Finished at',
   },
   'cards': {
     'latestEditedWorkflows': {
@@ -158,7 +160,7 @@ export default {
     },
   },
   'workflow': {
-    'self': 'workflow',
+    'self': 'Workflow',
     'edit': {
       'title': 'Editing workflow:',
     },
@@ -202,6 +204,11 @@ export default {
       'backBtn': 'Back to results',
       'visualization': 'Visualization',
     }
+  },
+  'jobs': {
+    'self': 'Jobs',
+    'description': 'List of all jobs - e.g. waiting, running, completed, etc..',
+    'searchFor': 'Search',
   },
   'visualizations': {
     'evaluate-model': {
