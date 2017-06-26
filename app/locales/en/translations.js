@@ -50,6 +50,9 @@ export default {
     'cluster': {
       'label': 'Clusters',
     },
+    'format': {
+      'label': 'Format',
+    },
     'create': 'Create',
     'save': 'Save',
     'cancel': 'Cancel',
