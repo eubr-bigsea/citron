@@ -1,6 +1,6 @@
 {{#each forms as |form|}}
   <fieldset>
-    <legend>{{form/name}}</legend>
+    <legend>{{form.name}}</legend>
     {{#each form.fields as |field|}}
       {{forms/form-label field=field}}
       {{component
