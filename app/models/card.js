@@ -6,8 +6,9 @@ const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
   user: belongsTo('user'),
+
+  category: attr('string'),
   title: attr('string'),
-  tipo: attr('number'),
   link: attr('string'),
   content: attr('string'),
   updated_at: attr('dates'),

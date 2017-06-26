@@ -1,0 +1,16 @@
+<div class="card" id='release-notes'>
+  <div class="card-header">
+    <div class="header-block">
+      <h3 class="title">{{t 'releaseNotes'}} {{releaseNotes.version}}</h3>
+    </div>
+  </div>
+  <div class="card-block">
+    <p>{{card.content}}</p>
+    {{#if card.created_at}}
+      <div id="date">
+        <span> Released at {{format-date card.created_at}} </span>
+      </div>
+    {{/if}}
+  </div>
+</div>
+

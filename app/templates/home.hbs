@@ -2,8 +2,7 @@
   <article class="content dashboard-page">
     <section class="section">
       <div class="row sameheight-container">
-        {{cards-list workflows=model.workflows jobs=model.jobs
-          releaseNotes=model.releaseNotes}}
+        {{cards-list cards=model.user.cards workflows=model.workflows jobs=model.jobs}}
       </div>
     </section>
   </article>

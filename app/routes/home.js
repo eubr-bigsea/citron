@@ -10,14 +10,19 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model(){
     var userId = this.get('sessionAccount.userId');
-    this.store.findRecord('user', userId).then(
-      (user) => {
-      }
-    );
-  },
-  setupController(controller, model){
-     controller.set('locale', this.get('session.data.locale'));
-     return this._super(controller, model);
-   }
+    var params = {
+      user_id: userId,
+      enabled: true,
+      page: '1',
+      size: '5',
+      sort: 'updated_at',
+      asc: false
+    };
+    return RSVP.hash({
+      user: this.store.findRecord('user', userId),
+      workflows: this.store.query('workflow', params),
+      jobs: this.store.query('job', params),
+    });
 
+  },
 });

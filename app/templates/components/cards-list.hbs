@@ -1,24 +1,11 @@
-{{sessionAccount.user.relationships.cards}}
-{{#each releaseNotes as |cards|}}
-  {{#if (eq cards.tipo 0)}}
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6 col-xl-6">
-  {{cards/card-video-tutorial videoTutorial=cards}}
-</div>
-  {{/if}}
-  {{#if (eq cards.tipo 1)}}
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6 col-xl-6">
-      {{cards/card-release-notes releaseNotes=cards}}
-    </div>
-
-  {{/if}}
-  {{#if (eq cards.tipo 2)}}
+{{#each cards as |card|}}
+  {{#if card.title}}
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
-      {{cards/card-latest-workflows workflows=workflows}}
-    </div>
-  {{/if}}
-  {{#if (eq cards.tipo 3)}}
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
-      {{cards/card-latest-jobs workflows=workflows jobs=jobs}}
-    </div>
+    {{component (concat 'cards/card-' card.category)
+      card=card
+      workflows=workflows
+      jobs=jobs
+    }}
+  </div>
   {{/if}}
 {{/each}}
