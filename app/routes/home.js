@@ -9,30 +9,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   sessionAccount: service(),
 
   model(){
-    var userId = this.get('sessionAccount.userId')
-    var params = {
-      user_id: userId,
-      enabled: true,
-      page: '1',
-      size: '5',
-      sort: 'updated_at',
-      asc: false
-    };
-
-    return RSVP.hash({
-      workflows: this.store.query('workflow', params),
-      jobs: this.store.query('job', params),
-      /*
-      releaseNotes: {
-        message: "This is the version 2.0 of application Lemonade! With new operations, faster and simple to use this version brings the power of Apache Spark to execute data minning as easy as build a flow." ,
-        version: "2.0",
-        date: "01/01/2017"},*/
-      releaseNotes: this.store.query('card', params),
-      videoTutorial: {
-        title: "Basic Tutorial",
-        youtubeID: "5_sHXJC9ocA"
+    var userId = this.get('sessionAccount.userId');
+    this.store.findRecord('user', userId).then(
+      (user) => {
       }
-    });
+    );
   },
   setupController(controller, model){
      controller.set('locale', this.get('session.data.locale'));

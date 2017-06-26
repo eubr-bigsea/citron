@@ -30,6 +30,7 @@ export default Ember.Service.extend ({
                 resolve();
               }).catch((reason) => {
                 console.log(reason.errors);
+                debugger;
                 var possible404 = reason.errors.filterBy('status','404');
                 var possible500 = reason.errors.filterBy('status','500');
                 // User has tampered the Local Storage.
