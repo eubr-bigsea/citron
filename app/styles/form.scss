@@ -56,6 +56,9 @@ input, textarea {
 
 label, .control-label {
   font-weight: 600;
+  .label-append {
+    font-size: 0.9rem;
+  }
 }
 
 .form-control.underlined {

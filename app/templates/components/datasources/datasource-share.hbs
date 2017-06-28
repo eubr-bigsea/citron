@@ -1,0 +1,46 @@
+<table class="table table-hover table-fixed">
+  <thead>
+    <tr>
+      <th class="col-xs-5">{{t 'tables.name'}} </th>
+      <th class="col-xs-4">{{t 'tables.email'}}</th>
+      <th class="col-xs-2">{{t 'tables.permission'}}</th>
+      <th class="col-xs-1"></th>
+    </tr>
+  </thead>
+  <tbody class="permissons">
+    {{#each permissions as |item|}}
+      <tr>
+        <td class="col-xs-5">{{item.user_name}}{{item.user.first_name}} {{item.user.last_name}}</td>
+        <td class="col-xs-4">{{item.user_login}}{{item.user.email}}</td>
+        <td class="col-xs-2">
+          <select class="custom-select" onchange={{action (mut item.permission) value="target.value"}}>
+            <option value="READ" selected={{eq item.permission "READ"}}>read</option>
+            <option value="WRITE" selected={{eq item.permission "WRITe"}}>write</option>
+            <option value="MANAGE" selected={{eq item.permission "MANAGE"}}>manage</option>
+          </select>
+        </td>
+        <th class="col-xs-1"><i class="fa fa-times fa-lg" onclick={{action 'removePermission' item}}></i></th>
+      </tr>
+    {{/each}}
+  </tbody>
+  <form onsubmit="return false" class="form-inline">
+    <div class="input-group">
+      {{input type="search"  class="form-control boxed" placeholder=(t 'forms.share.searchFor') value=filterText}}
+      <span class="input-group-btn">
+        <button id="submit" class="btn btn-secondary" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
+  </form>
+  <tbody class="filtered-users">
+    {{#each filterUsers as |item|}}
+      <tr>
+        <td class="col-xs-5">{{item.user_name}}{{item.user.first_name}} {{item.user.last_name}}</td>
+        <td class="col-xs-4">{{user.user_login}}{{item.user.email}}</td>
+        <td class="col-xs-2"></td>
+        <td class="col-xs-1"><i class="fa fa-plus fa-lg" onclick={{action 'addPermission' item}}></i></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

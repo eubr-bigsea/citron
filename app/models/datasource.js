@@ -12,7 +12,6 @@ export default DS.Model.extend({
   expiration: attr(),
   format: attr(),
   name: attr(),
-  permissions: attr(),
   privacy_aware: attr(),
   provenience: attr(),
   read_only: attr(),
@@ -26,4 +25,6 @@ export default DS.Model.extend({
   user_login: attr(),
   user_name: attr(),
   workflow_id: attr(),
+
+  permissions: attr(),
 });

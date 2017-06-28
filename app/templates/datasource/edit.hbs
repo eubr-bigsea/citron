@@ -1,6 +1,6 @@
 <article class="content item-editor-page">
   <div class="title-block">
-    <h3 class="title"> {{t 'datasource.edit.title'}} <strong>{{model.name}}</strong>
+    <h3 class="title"> {{t 'datasource.edit.title'}} <strong>{{model.datasource.name}}</strong>
       <span class="sparkline bar" data-type="bar"></span>
     </h3>
   </div>
@@ -9,21 +9,35 @@
       <div class="form-group row">
         <label class="col-sm-2 form-control-label text-xs-right"> {{t 'forms.name.label'}}: </label>
         <div class="col-sm-10">
-          {{input type="text" class="form-control boxed" value=model.name}}
+          {{input type="text" class="form-control boxed" value=model.datasource.name}}
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-2 form-control-label text-xs-right"> {{t 'forms.description.label'}}: </label>
         <div class="col-sm-10">
           <div class="form-group">
-            {{textarea class="form-control" id="description" rows="5"  maxlength="1600" height="30vh" value=model.description }}
+            {{textarea class="form-control" id="description" rows="5"  maxlength="1600" height="30vh" value=model.datasource.description }}
           </div>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-2 form-control-label text-xs-right"> {{t 'forms.format.label'}}: </label>
         <div class="col-sm-10">
-          {{input type="text" class="form-control boxed" value=model.format}}
+          <select class="custom-select" onchange={{action (mut model.datasource.format) value="target.value"}}>
+            {{#each formats as |format|}}
+              <option value={{format.value}} selected={{eq format.value model.datasource.format}}>{{format.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 form-control-label text-xs-right"> {{t 'forms.share.label'}}:
+          <h5 class='label-append'> {{t 'forms.share.label-append' resource=(t 'datasource.self')}}</h5>
+        </label>
+        <div class="col-sm-10">
+          <div class="form-group">
+            {{datasources/datasource-share allUsers=model.users permissions=model.datasource.permissions class="datasource-share-table"}}
+          </div>
         </div>
       </div>
       <div class="form-group row">

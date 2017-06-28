@@ -53,6 +53,11 @@ export default {
     'format': {
       'label': 'Format',
     },
+    'share': {
+      'label': 'Share',
+      'label-append': 'Share this {{resource}} with others users',
+      'searchFor': 'Search users to share'
+    },
     'create': 'Create',
     'save': 'Save',
     'cancel': 'Cancel',
@@ -79,6 +84,8 @@ export default {
     'created': 'Created at',
     'started': 'Started at',
     'finished': 'Finished at',
+    'email': 'Email',
+    'permission': 'Permisson',
   },
   'cards': {
     'latestEditedWorkflows': {
@@ -228,6 +235,12 @@ export default {
     'self': 'Datasources',
     'description': 'List of all datasources - e.g. owned, shared, etc..',
     'searchFor': 'Search',
+  },
+  'datasource': {
+    'self': 'Datasource',
+    'edit': {
+      'title': 'Editing datasource:',
+    },
   },
   'visualizations': {
     'evaluate-model': {

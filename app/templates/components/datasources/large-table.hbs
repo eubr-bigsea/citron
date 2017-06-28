@@ -48,12 +48,10 @@
         {{#each datasources as |datasource|}}
           <tr class="table-item">
             <td class="id">
-              {{#link-to 'datasource.show' datasource.id}}
-                <span>{{datasource.id}}</span>
-              {{/link-to}}
+              <span class="">{{datasource.id}}</span>
             </td>
             <td class="name">
-              {{#link-to 'datasource.show' datasource.id}}
+              {{#link-to 'datasource.edit' datasource.id}}
                 <span>  {{datasource.name}} </span>
               {{/link-to}}
             </td>

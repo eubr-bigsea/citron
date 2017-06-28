@@ -53,6 +53,11 @@ export default {
     'format': {
       'label': 'Formato',
     },
+    'share': {
+      'label': 'Compartilhar',
+      'label-append': 'Compartilhe essa {{resource}} com outros usuários',
+      'searchFor': 'Busque outros usuários para compartilhar'
+    },
     'create': 'Criar',
     'save': 'Salvar',
     'cancel': 'Cancelar',
@@ -79,6 +84,8 @@ export default {
     'created': 'Criado em',
     'started': 'Começou em',
     'finished': 'Terminou em',
+    'email': 'Email',
+    'permission': 'Permissão',
   },
 
   'cards': {
@@ -225,7 +232,12 @@ export default {
     'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
     'searchFor': 'Pesquisar',
   },
-
+  'datasource': {
+    'self': 'Datasource',
+    'edit': {
+      'title': 'Editing datasource:',
+    },
+  },
   'visualizations': {
     'evaluate-model': {
       'self': 'Avaliação do modelo'
