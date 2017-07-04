@@ -36,6 +36,9 @@ Router.map(function() {
   this.route('group', {path: 'group/:id'});
   this.route('policy');
   this.route('notFound', {path: '/*path'});
+  this.route('card', function() {
+    this.route('new');
+  });
 });
 
 export default Router;
