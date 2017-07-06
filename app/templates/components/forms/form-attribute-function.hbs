@@ -3,9 +3,8 @@
 {{#if modalVisible}}
   {{#bs-modal onHide=(action 'hideModal') fade=false as |modal|}}
     {{#modal.header}}
-      <h4>Aggregate operation</h4>
-      <em>Add one of more lines with attribute to be used, function and alias to
-        compute aggregate function over groups.</em>
+      <h4>{{title}}</h4>
+      <em>{{subtitle}}</em>
     {{/modal.header}}
     {{#modal.body}}
       {{#bs-tab as |tab|}}
@@ -14,7 +13,9 @@
             <thead>
               <th>Attribute</th>
               <th>Function</th>
-              <th>Alias</th>
+              {{#unless isSort}}
+                <th>{{column}}</th>
+              {{/unless}}
               <th style="width: 25%"></th>
             </thead>
             <tbody>
@@ -24,14 +25,16 @@
                   <td>
                     <select class="form-control" onchange={{action (mut row.f) value='target.value'}}>
                       <option></option>
-                      {{#each parsedValues.functions as |function|}}
+                      {{#each parsedValues as |function|}}
                         <option value={{function.key}} selected={{eq row.f function.key}}>
-                        {{function.value}}
+                          {{function.value}}
                         </option>
                       {{/each}}
                     </select>
                   </td>
-                  <td>{{input class="form-control" value=row.alias}}</td>
+                  {{#unless isSort}}
+                    <td>{{input class="form-control" value=row.alias}}</td>
+                  {{/unless}}
                   <td>
                     <span {{action 'removeRow' i}} class="fa fa-2x fa-minus-circle"></span>
                     <span {{action 'moveRow' i -1}} class="fa fa-2x fa-chevron-circle-up"></span>
@@ -52,7 +55,7 @@
               </tr>
             </thead>
             <tbody>
-              {{#each parsedValues.functions as |function|}}
+              {{#each parsedValues as |function|}}
                 <tr>
                   <td>{{function.value}}</td>
                   <td>{{function.help}}</td>
