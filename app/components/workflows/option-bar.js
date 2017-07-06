@@ -55,6 +55,7 @@ export default Ember.Component.extend({
         workflow: workflow,
         cluster: { id: 1}
       };
+      this.get('workflow').save();
       let job = this.get('store').createRecord('job', jobHash);
       job.save().then(function(job){
         Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id);
