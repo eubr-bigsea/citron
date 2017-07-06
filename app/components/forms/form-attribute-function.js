@@ -6,11 +6,31 @@ export default FormComponent.extend({
     this._super(...arguments);
 
     this.set('modalVisible', false);
-    this.set('parsedValues', JSON.parse(this.get('field.values')));
+    this.set('parsedValues', JSON.parse(this.get('field.values')).functions);
+    this.set('options', JSON.parse(this.get('field.values')).options);
+
+    this.set('isAgg', this.get('options.show_alias'));
+    this.set('isFilter', !this.get('isAgg') && this.get('options.show_value'));
+    this.set('isSort', !this.get('isAgg') && !this.get('isFilter'));
 
     if(this.get('currentValue') === null)
       this.set('currentValue', Ember.A());
 
+    if(this.get('isAgg')) {
+      this.set('title', 'Aggregate operation');
+      this.set('subtitle', '');
+      this.set('column', 'Alias')
+    } else {
+      if(this.get('isFilter')) {
+        this.set('title', 'Filter');
+        this.set('subtitle', '');
+        this.set('column', 'Value')
+      } else {
+        this.set('title', 'Sort');
+        this.set('subtitle', '');
+        this.set('column', '')
+      }
+    }
   },
   actions: {
     addRow() {
