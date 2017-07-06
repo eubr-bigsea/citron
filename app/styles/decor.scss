@@ -11,6 +11,11 @@
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
+  &.ui-selected {
+    -webkit-box-shadow: 5px 5px 5px 0px #444;
+    -moz-box-shadow: 5px 5px 5px 0px #444;
+    box-shadow: 5px 5px 5px 0px #444;
+  }
 
   .col-xs-11 {
     padding: 0;
