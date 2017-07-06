@@ -1,10 +1,12 @@
-<article class="content item-editor-page">
-  <div class="title-block">
-    <h3 class="title"> Uploading a new datasource:
-      <span class="sparkline bar" data-type="bar"></span>
-    </h3>
+<div id="page-content-wrapper" class="container-fluid page content wrapper">
+  <div class="top-menu container-fluid">
+    <div class="row">
+      <div class="col-xs-9 title-block">
+        <h3 class="title"> <i class="fa fa-database"></i> {{t 'datasource.new.title'}}
+        </h3>
+        <p class="title-description">{{t 'datasource.new.description'}}</p>
+      </div>
+    </div>
   </div>
-  <form name="item" id="edit-workflow" {{action 'create' on='submit'}}>
-    {{datasource.datasource-form datasource=model buttonText='Upload' }}
-  </form>
-</article>
+  {{datasources/file-upload}}
+</div>

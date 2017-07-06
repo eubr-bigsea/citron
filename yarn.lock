@@ -48,9 +48,15 @@
   dependencies:
     "@glimmer/util" "^0.22.3"
 
+<<<<<<< HEAD
 "@glimmer/resolver@^0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@glimmer/resolver/-/resolver-0.4.1.tgz#cd9644572c556e7e799de1cf8eff2b999cf5b878"
+=======
+"@glimmer/resolver@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@glimmer/resolver/-/resolver-0.4.0.tgz#7fe8709342064f144c14c06088d6dc4070ad7d1d"
+>>>>>>> adding upload
   dependencies:
     "@glimmer/di" "^0.2.0"
 
@@ -115,8 +121,13 @@ acorn@^4.0.3:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
 acorn@^5.0.1, acorn@^5.0.3:
+<<<<<<< HEAD
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.1.1.tgz#53fe161111f912ab999ee887a90a0bc52822fd75"
+=======
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.1.0.tgz#e468bf609b0672700e02f878ae2f1b360fe24b4f"
+>>>>>>> adding upload
 
 after@0.8.1:
   version "0.8.1"
@@ -627,9 +638,15 @@ babel-plugin-dead-code-elimination@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-dead-code-elimination/-/babel-plugin-dead-code-elimination-1.0.2.tgz#5f7c451274dcd7cccdbfbb3e0b85dd28121f0f65"
 
+<<<<<<< HEAD
 babel-plugin-debug-macros@^0.1.10, babel-plugin-debug-macros@^0.1.11:
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/babel-plugin-debug-macros/-/babel-plugin-debug-macros-0.1.11.tgz#6c562bf561fccd406ce14ab04f42c218cf956605"
+=======
+babel-plugin-debug-macros@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/babel-plugin-debug-macros/-/babel-plugin-debug-macros-0.1.10.tgz#dd077ad6e1cc0a8f9bbc6405c561392ebfc9a01c"
+>>>>>>> adding upload
   dependencies:
     semver "^5.3.0"
 
@@ -1666,11 +1683,19 @@ browserify@^13.0.0:
     xtend "^4.0.0"
 
 browserslist@^2.1.2:
+<<<<<<< HEAD
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-2.2.0.tgz#5e35ec993e467c6464b8cb708447386891de9f50"
   dependencies:
     caniuse-lite "^1.0.30000701"
     electron-to-chromium "^1.3.15"
+=======
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-2.1.5.tgz#e882550df3d1cd6d481c1a3e0038f2baf13a4711"
+  dependencies:
+    caniuse-lite "^1.0.30000684"
+    electron-to-chromium "^1.3.14"
+>>>>>>> adding upload
 
 bser@^2.0.0:
   version "2.0.0"
@@ -1759,9 +1784,15 @@ can-symlink@^1.0.0:
   dependencies:
     tmp "0.0.28"
 
+<<<<<<< HEAD
 caniuse-lite@^1.0.30000701:
   version "1.0.30000702"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000702.tgz#bd66e40345528fe0c001917d1d3f55454df634f1"
+=======
+caniuse-lite@^1.0.30000684:
+  version "1.0.30000697"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000697.tgz#125fb00604b63fbb188db96a667ce2922dcd6cdd"
+>>>>>>> adding upload
 
 capture-exit@^1.1.0:
   version "1.2.0"
@@ -1860,8 +1891,13 @@ clean-css-promise@^0.1.0:
     pinkie-promise "^2.0.0"
 
 clean-css@^3.4.5:
+<<<<<<< HEAD
   version "3.4.28"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-3.4.28.tgz#bf1945e82fc808f55695e6ddeaec01400efd03ff"
+=======
+  version "3.4.27"
+  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-3.4.27.tgz#adef75b31c160ffa5d72f4de67966e2660c1a255"
+>>>>>>> adding upload
   dependencies:
     commander "2.8.x"
     source-map "0.4.x"
@@ -2134,7 +2170,11 @@ core-object@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/core-object/-/core-object-1.1.0.tgz#86d63918733cf9da1a5aae729e62c0a88e66ad0a"
 
+<<<<<<< HEAD
 core-object@^3.1.3:
+=======
+core-object@^3.0.0:
+>>>>>>> adding upload
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/core-object/-/core-object-3.1.3.tgz#df399b3311bdb0c909e8aae8929fc3c1c4b25880"
   dependencies:
@@ -2247,7 +2287,11 @@ debug@2.2.0:
   dependencies:
     ms "0.7.1"
 
+<<<<<<< HEAD
 debug@2.3.3:
+=======
+debug@2.3.3, debug@^2.1.1, debug@^2.2.0:
+>>>>>>> adding upload
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.3.3.tgz#40c453e67e6e13c901ddec317af8986cda9eff8c"
   dependencies:
@@ -2259,7 +2303,11 @@ debug@2.6.7:
   dependencies:
     ms "2.0.0"
 
+<<<<<<< HEAD
 debug@2.6.8, debug@^2.1.0, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0, debug@^2.4.0, debug@^2.6.8, debug@~2.6.4, debug@~2.6.7:
+=======
+debug@2.6.8, debug@^2.1.0, debug@^2.1.3, debug@^2.4.0, debug@~2.6.7:
+>>>>>>> adding upload
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
@@ -2426,9 +2474,15 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
+<<<<<<< HEAD
 electron-to-chromium@^1.3.15:
   version "1.3.16"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.16.tgz#d0e026735754770901ae301a21664cba45d92f7d"
+=======
+electron-to-chromium@^1.3.14:
+  version "1.3.15"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.15.tgz#08397934891cbcfaebbd18b82a95b5a481138369"
+>>>>>>> adding upload
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -2474,9 +2528,15 @@ ember-bootstrap@^1.0.0-alpha.12:
     rsvp "^3.3.3"
     silent-error "^1.0.1"
 
+<<<<<<< HEAD
 ember-browserify@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ember-browserify/-/ember-browserify-1.2.0.tgz#c774896dc44ab2c5c608226f31628994348a3fd5"
+=======
+ember-browserify@^1.1.13:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/ember-browserify/-/ember-browserify-1.1.14.tgz#30bae6fe73adf539d40cb80aa996c160614e643a"
+>>>>>>> adding upload
   dependencies:
     acorn "^5.0.3"
     broccoli-caching-writer "^3.0.3"
@@ -2520,12 +2580,20 @@ ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
     resolve "^1.1.2"
 
 ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.3.0, ember-cli-babel@^6.4.1:
+<<<<<<< HEAD
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.6.0.tgz#a8362bc44841bfdf89b389f3197f104d7ba526da"
   dependencies:
     amd-name-resolver "0.0.6"
     babel-plugin-debug-macros "^0.1.11"
     babel-plugin-ember-modules-api-polyfill "^1.4.1"
+=======
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.5.1.tgz#37eaab592523938f8d52fc9d30bd0f56fc1c6599"
+  dependencies:
+    amd-name-resolver "0.0.6"
+    babel-plugin-debug-macros "^0.1.10"
+>>>>>>> adding upload
     babel-plugin-transform-es2015-modules-amd "^6.24.0"
     babel-polyfill "^6.16.0"
     babel-preset-env "^1.5.1"
@@ -2605,9 +2673,15 @@ ember-cli-htmlbars@^2.0.2:
     json-stable-stringify "^1.0.0"
     strip-bom "^3.0.0"
 
+<<<<<<< HEAD
 ember-cli-inject-live-reload@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/ember-cli-inject-live-reload/-/ember-cli-inject-live-reload-1.7.0.tgz#af94336e015336127dfb98080ad442bb233e37ed"
+=======
+ember-cli-inject-live-reload@^1.4.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-inject-live-reload/-/ember-cli-inject-live-reload-1.6.1.tgz#82b8f5be454815a75e7f6d42c9ce0bc883a914a3"
+>>>>>>> adding upload
 
 ember-cli-is-package-missing@^1.0.0:
   version "1.0.0"
@@ -2656,9 +2730,15 @@ ember-cli-normalize-entity-name@^1.0.0:
   dependencies:
     silent-error "^1.0.0"
 
+<<<<<<< HEAD
 ember-cli-pagination@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/ember-cli-pagination/-/ember-cli-pagination-3.0.2.tgz#9d51f2b6ad80b0b98729f0b18de8a2d02e4fc26b"
+=======
+ember-cli-pagination@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-pagination/-/ember-cli-pagination-3.0.1.tgz#8fbdec4184bee887df32d6b0de9a7216d86deec0"
+>>>>>>> adding upload
   dependencies:
     ember-cli-babel "^5.1.6"
     ember-cli-htmlbars "^1.1.1"
@@ -2857,9 +2937,15 @@ ember-cookies@^0.0.13:
     ember-cli-babel "^5.1.7"
     ember-getowner-polyfill "^1.2.2"
 
+<<<<<<< HEAD
 ember-data@^2.14.5:
   version "2.14.5"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-2.14.5.tgz#6f09b117b92aa33f5d72e8cdb9bebd56a2aec4db"
+=======
+ember-data@^2.13.0:
+  version "2.14.3"
+  resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-2.14.3.tgz#f4f7a51d84a551215895d58be67cf991c4fe3cc5"
+>>>>>>> adding upload
   dependencies:
     amd-name-resolver "0.0.5"
     babel-plugin-feature-flags "^0.3.1"
@@ -2958,21 +3044,32 @@ ember-qunit@^2.1.3:
   dependencies:
     ember-test-helpers "^0.6.3"
 
+<<<<<<< HEAD
 ember-resolver@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-4.3.0.tgz#aaf0e43646be2e7da14399a0c2e9574c2130ce69"
   dependencies:
     "@glimmer/resolver" "^0.4.1"
+=======
+ember-resolver@^4.0.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-4.2.1.tgz#d8aa7de8444ec9b688aa97a5ddbb58c3b949194b"
+  dependencies:
+    "@glimmer/resolver" "0.4.0"
+>>>>>>> adding upload
     babel-plugin-debug-macros "^0.1.10"
     broccoli-funnel "^1.1.0"
     broccoli-merge-trees "^2.0.0"
     ember-cli-babel "^6.3.0"
     ember-cli-version-checker "1.3.1"
     resolve "^1.3.3"
+<<<<<<< HEAD
 
 ember-rfc176-data@^0.2.0:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/ember-rfc176-data/-/ember-rfc176-data-0.2.5.tgz#b26f62d9c03d3b02485153cf31137e089299839a"
+=======
+>>>>>>> adding upload
 
 ember-router-generator@^1.0.0:
   version "1.2.3"
@@ -2999,17 +3096,31 @@ ember-simple-auth@1.3.0:
     ember-getowner-polyfill "^1.1.0"
     silent-error "^1.0.0"
 
+<<<<<<< HEAD
 ember-source@~2.14.1:
   version "2.14.1"
   resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-2.14.1.tgz#4abf0b4c916f2da8bf317349df4750905df7e628"
   dependencies:
     "@glimmer/compiler" "^0.22.3"
+=======
+ember-source@~2.13.0:
+  version "2.13.4"
+  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-2.13.4.tgz#97022069febfb5651ddc26a83f1987370cc404c8"
+  dependencies:
+    "@glimmer/compiler" "^0.22.3"
+    "@glimmer/di" "^0.1.8"
+>>>>>>> adding upload
     "@glimmer/node" "^0.22.3"
     "@glimmer/reference" "^0.22.3"
     "@glimmer/runtime" "^0.22.3"
     "@glimmer/util" "^0.22.3"
+<<<<<<< HEAD
     broccoli-funnel "^1.2.0"
     broccoli-merge-trees "^2.0.0"
+=======
+    broccoli-funnel "^1.0.6"
+    broccoli-merge-trees "^1.1.4"
+>>>>>>> adding upload
     ember-cli-get-component-path-option "^1.0.0"
     ember-cli-normalize-entity-name "^1.0.0"
     ember-cli-path-utils "^1.0.0"
@@ -3051,9 +3162,15 @@ ember-try-config@^2.0.1:
     rsvp "^3.2.1"
     semver "^5.1.0"
 
+<<<<<<< HEAD
 ember-try@^0.2.15:
   version "0.2.16"
   resolved "https://registry.yarnpkg.com/ember-try/-/ember-try-0.2.16.tgz#cf7092d8a8fea9701d7faa73cbdbff37a8ada330"
+=======
+ember-try@^0.2.14:
+  version "0.2.15"
+  resolved "https://registry.yarnpkg.com/ember-try/-/ember-try-0.2.15.tgz#559c756058717595babe70068e541625bd5e210a"
+>>>>>>> adding upload
   dependencies:
     chalk "^1.0.0"
     cli-table2 "^0.2.0"
@@ -3180,8 +3297,13 @@ error@^7.0.0:
     xtend "~4.0.0"
 
 es5-ext@^0.10.14, es5-ext@^0.10.9, es5-ext@~0.10.14:
+<<<<<<< HEAD
   version "0.10.24"
   resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.24.tgz#a55877c9924bc0c8d9bd3c2cbe17495ac1709b14"
+=======
+  version "0.10.23"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.23.tgz#7578b51be974207a5487821b56538c224e4e7b38"
+>>>>>>> adding upload
   dependencies:
     es6-iterator "2"
     es6-symbol "~3.1"
@@ -3319,6 +3441,10 @@ esprima@~3.0.0:
 esprima@~3.1.0:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-3.1.3.tgz#fdca51cee6133895e3c88d535ce49dbff62a4633"
+
+esprima@~4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.0.tgz#4499eddcd1110e0b218bacf2fa7f7f59f55ca804"
 
 esquery@^1.0.0:
   version "1.0.0"
@@ -3707,6 +3833,7 @@ fs-extra@^1.0.0:
     jsonfile "^2.1.0"
     klaw "^1.0.0"
 
+<<<<<<< HEAD
 fs-extra@^2.0.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-2.1.2.tgz#046c70163cef9aad46b0e4a7fa467fb22d71de35"
@@ -3714,6 +3841,8 @@ fs-extra@^2.0.0:
     graceful-fs "^4.1.2"
     jsonfile "^2.1.0"
 
+=======
+>>>>>>> adding upload
 fs-extra@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-3.0.1.tgz#3794f378c58b342ea7dbbb23095109c4b3b62291"
@@ -3890,7 +4019,11 @@ globals@^6.4.0:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/globals/-/globals-6.4.1.tgz#8498032b3b6d1cc81eebc5f79690d8fe29fabf4f"
 
+<<<<<<< HEAD
 globals@^9.0.0, globals@^9.17.0:
+=======
+globals@^9.0.0, globals@^9.14.0:
+>>>>>>> adding upload
   version "9.18.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
 
@@ -4123,7 +4256,11 @@ https-browserify@~0.0.0:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
+<<<<<<< HEAD
 iconv-lite@^0.4.17, iconv-lite@^0.4.5, iconv-lite@~0.4.13:
+=======
+iconv-lite@^0.4.5, iconv-lite@~0.4.13:
+>>>>>>> adding upload
   version "0.4.18"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.18.tgz#23d8656b16aae6742ac29732ea8f0336a4789cf2"
 
@@ -4335,6 +4472,18 @@ is-integer@^1.0.4:
   dependencies:
     is-finite "^1.0.0"
 
+<<<<<<< HEAD
+=======
+is-my-json-valid@^2.10.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/is-my-json-valid/-/is-my-json-valid-2.16.0.tgz#f079dd9bfdae65ee2038aae8acbc86ab109e3693"
+  dependencies:
+    generate-function "^2.0.0"
+    generate-object-property "^1.1.0"
+    jsonpointer "^4.0.0"
+    xtend "^4.0.0"
+
+>>>>>>> adding upload
 is-number@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-2.1.0.tgz#01fcbbb393463a548f2f466cce16dece49db908f"
@@ -4445,7 +4594,11 @@ istextorbinary@2.1.0:
     editions "^1.1.1"
     textextensions "1 || 2"
 
+<<<<<<< HEAD
 "jquery@1.9.1 - 3", jquery@^3.2.1:
+=======
+"jquery@1.9.1 - 3", jquery@^3.1.1:
+>>>>>>> adding upload
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -4836,7 +4989,11 @@ lodash@^3.10.0, lodash@^3.10.1, lodash@^3.9.3:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
+<<<<<<< HEAD
 lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.1, lodash@^4.6.1, lodash@~4.17.4:
+=======
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.1, lodash@^4.6.1, lodash@~4.17.4:
+>>>>>>> adding upload
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -5300,6 +5457,13 @@ object-assign@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-2.1.1.tgz#43c36e5d569ff8e4816c4efa8be02d26967c18aa"
 
+<<<<<<< HEAD
+=======
+object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+
+>>>>>>> adding upload
 object-component@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/object-component/-/object-component-0.0.3.tgz#f0c69aa50efc95b866c186f400a33769cb2f1291"
@@ -5676,8 +5840,13 @@ qunit-notifications@^0.1.1:
   resolved "https://registry.yarnpkg.com/qunit-notifications/-/qunit-notifications-0.1.1.tgz#3001afc6a6a77dfbd962ccbcddde12dec5286c09"
 
 qunitjs@^2.0.1:
+<<<<<<< HEAD
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/qunitjs/-/qunitjs-2.4.0.tgz#58f3a81e846687f2e7f637c5bedc9c267f887261"
+=======
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/qunitjs/-/qunitjs-2.3.3.tgz#456696bdd61a2c8b5bc8f053f00e20d75a73d539"
+>>>>>>> adding upload
   dependencies:
     chokidar "1.6.1"
     commander "2.9.0"
@@ -5741,7 +5910,11 @@ read-pkg@^1.0.0:
     normalize-package-data "^2.3.2"
     path-type "^1.0.0"
 
+<<<<<<< HEAD
 readable-stream@^2, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.2.6:
+=======
+readable-stream@^2, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.6:
+>>>>>>> adding upload
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.3.tgz#368f2512d79f9d46fdfc71349ae7878bbc1eb95c"
   dependencies:
@@ -5989,12 +6162,22 @@ restore-cursor@^1.0.1:
     exit-hook "^1.0.0"
     onetime "^1.0.0"
 
+<<<<<<< HEAD
 restore-cursor@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/restore-cursor/-/restore-cursor-2.0.0.tgz#9f7ee287f82fd326d4fd162923d62129eee0dfaf"
   dependencies:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
+=======
+resumable@^0.0.1-1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/resumable/-/resumable-0.0.1.tgz#489592b3955e15a388ac8f9c36d15ee43ba3ae92"
+
+resumablejs@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/resumablejs/-/resumablejs-1.0.2.tgz#0456ff05e52455e410d8c0102b836cdfce5943bd"
+>>>>>>> adding upload
 
 right-align@^0.1.1:
   version "0.1.3"
@@ -6025,9 +6208,15 @@ rollup@^0.41.4:
   dependencies:
     source-map-support "^0.4.0"
 
+<<<<<<< HEAD
 rsvp@^3.0.14, rsvp@^3.0.16, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.0.6, rsvp@^3.1.0, rsvp@^3.2.1, rsvp@^3.3.3, rsvp@^3.5.0:
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.6.2.tgz#2e96491599a96cde1b515d5674a8f7a91452926a"
+=======
+rsvp@^3.0.14, rsvp@^3.0.16, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.0.6, rsvp@^3.1.0, rsvp@^3.2.1, rsvp@^3.3.3, rsvp@^3.4.0, rsvp@^3.5.0:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.6.1.tgz#34f4a7ac2859f7bacc8f49789c5604f1e26ae702"
+>>>>>>> adding upload
 
 rsvp@~3.0.6:
   version "3.0.21"
@@ -6057,6 +6246,7 @@ rx@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
 
+<<<<<<< HEAD
 safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
@@ -6064,6 +6254,11 @@ safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@~5.1.0, s
 safe-buffer@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
+=======
+safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+>>>>>>> adding upload
 
 safe-json-parse@~1.0.1:
   version "1.0.1"
@@ -6172,6 +6367,17 @@ shell-quote@^1.6.1:
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
 
+<<<<<<< HEAD
+=======
+shelljs@^0.7.5:
+  version "0.7.8"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.8.tgz#decbcf874b0d1e5fb72e14b164a9683048e9acb3"
+  dependencies:
+    glob "^7.0.0"
+    interpret "^1.0.0"
+    rechoir "^0.6.2"
+
+>>>>>>> adding upload
 shellwords@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.0.tgz#66afd47b6a12932d9071cbfd98a52e785cd0ba14"
@@ -6445,9 +6651,15 @@ string-width@^1.0.1, string-width@^1.0.2:
     is-fullwidth-code-point "^1.0.0"
     strip-ansi "^3.0.0"
 
+<<<<<<< HEAD
 string-width@^2.0.0, string-width@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
+=======
+string-width@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-2.1.0.tgz#030664561fc146c9423ec7d978fe2457437fe6d0"
+>>>>>>> adding upload
   dependencies:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
@@ -7018,10 +7230,17 @@ wordwrap@~1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
 
 workerpool@^2.2.1:
+<<<<<<< HEAD
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-2.2.2.tgz#1cf53bacafd98ca5d808ff54cc72f3fecb5e1d56"
   dependencies:
     object-assign "4.1.1"
+=======
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-2.2.1.tgz#41ebff11d5859da948fdb2c850b57da69240988a"
+  dependencies:
+    object-assign "^4.1.1"
+>>>>>>> adding upload
 
 wrap-ansi@^2.0.0:
   version "2.1.0"

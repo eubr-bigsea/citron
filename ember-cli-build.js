@@ -40,6 +40,8 @@ module.exports = function(defaults) {
   app.import('vendor/nprogress/nprogress.css');
   app.import('vendor/nprogress/nprogress.js');
 
+  app.import('vendor/resumable.js/resumable.js');
+
   // Visualizations Required Libraries
   app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.js');
   app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.css');
@@ -47,6 +49,8 @@ module.exports = function(defaults) {
   app.import('vendor/gViz/libs/d3.v4/d3.v4.min.js');
   app.import('vendor/gViz/libs/d3.position/d3.position.js');
   app.import('vendor/gViz/libs/latinise/latinise_compact.js');
+
+
 
   return app.toTree();
 };

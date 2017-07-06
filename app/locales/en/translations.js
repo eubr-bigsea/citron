@@ -233,6 +233,7 @@ export default {
   },
   'datasources': {
     'self': 'Datasources',
+    'upload': 'Upload database',
     'description': 'List of all datasources - e.g. owned, shared, etc..',
     'searchFor': 'Search',
   },
@@ -240,6 +241,10 @@ export default {
     'self': 'Datasource',
     'edit': {
       'title': 'Editing datasource:',
+    },
+    'new': {
+      'title': 'Upload your database',
+      'description': 'Send files in json, csv, xml, netCDF4, HDF5, Shapefile, text, pickle ou a custom format.',
     },
   },
   'visualizations': {
