@@ -110,6 +110,11 @@ export default {
     },
   },
   'modal': {
+    'edit':{
+      'title': 'Editing cards list',
+      'message': '',
+      'submitButton':'Save',
+    },
     'delete': {
       'workflow': {
         'title': 'Deleting workflow:',

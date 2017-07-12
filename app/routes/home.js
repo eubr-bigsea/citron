@@ -22,7 +22,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       user: this.store.findRecord('user', userId),
       workflows: this.store.query('workflow', params),
       jobs: this.store.query('job', params),
+      cards: this.store.query('card', params),
     });
 
   },
+
 });

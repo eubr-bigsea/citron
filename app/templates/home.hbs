@@ -4,6 +4,15 @@
       <div class="row sameheight-container">
         {{cards-list cards=model.user.cards workflows=model.workflows jobs=model.jobs}}
       </div>
+      <div id="container-floating">
+        <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" {{action 'editCards' workflow}}  >
+          <p class="plus">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </p>
+          <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
+        </div>
+      </div>
     </section>
   </article>
 </div>
+{{confirmation-modal modal=modal content=modalContent resource=model.user.cards cards=model.cards onSubmit=(action 'submit')}}
