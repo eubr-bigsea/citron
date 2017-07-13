@@ -1,0 +1,65 @@
+.file-upload-wrapper {
+  position: relative;
+}
+.file-upload {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .content {
+    margin-right: 7px;
+    border-radius: 10px 0 0 0;
+    background: $color-text-lighter;
+  }
+  .dropzone {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid $color-text-lighter;
+    border-radius: 10px;
+    text-align: center;
+    border:2px dashed #ccc;
+    height: auto;
+    .icon {
+      display: block;
+      color: $color-text-base;
+    }
+    .btn {
+      background: $color-base;
+      border: $color-base;
+    }
+  }
+  .progress {
+    display: inline-block;
+    height: 24px;
+    margin-bottom: 1.1rem;
+  }
+  .progress > svg {
+    height: 100%;
+    display: block;
+  }
+  .progressbar-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 0px;
+    margin: 0px;
+    transform: translate(-50%, -50%);
+    color: $color-text-dark;
+
+  }
+  .options button {
+    padding: 5px 15px;
+    margin: 0;
+    background: none;
+    border: none;
+    color: $color-dark;
+    &.fa-play {
+      color: $color-light;
+    }
+    &.fa-pause {
+    }
+    &.fa-times {
+      font-size: 1.15em;
+      color: #D60015;
+    }
+  }
+}

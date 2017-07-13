@@ -1,16 +1,37 @@
 import Ember from 'ember';
+import ProgressBar from 'npm:progressbar.js';
 import config from '../../config/environment';
 
+const { inject: { service} } = Ember;
+
 export default Ember.Component.extend({
+  session: service(),
+  isUploading: false,
+  progress: { value: 0, rounded: '0%'},
+  isPaused: false,
+
+  init(){
+    this._super(...arguments);
+    this.addObserver('isVisible', this, 'visibleChange');
+  },
+
+  visibleChange(){
+    this.set('isUploading', false);
+    console.log(this.get('isVisible'));
+  },
+
+
   didInsertElement(){
     this._super(...arguments);
-    console.log(config.limonero);
     var authToken = '123456';
+    var token = this.get('session.data.authenticated.token');
+    var email = this.get('session.data.authenticated.email');
     let selfComponent = this;
     let resumable = new Resumable({
-      target: `${config.limonero}/datasources/upload?token=${authToken}`,
-      query: {token: authToken},
-      chunkSize: 1*1024*1024,
+      headers: { 'Authorization': `Token token=${token}, email=${email}` },
+      target: `${config.limonero}/datasources/upload`,
+      query: {token: authToken, storage_id: 1},
+      chunkSize: 1*1*10,
       simultaneousUploads: 1,
       testChunks: true,
       throttleProgressCallbacks: 1,
@@ -18,100 +39,82 @@ export default Ember.Component.extend({
       permanentErrors:[400, 401, 404, 415, 500, 501],
       chunkRetryInterval: 5000,
     });
+
     var results = $('#results'),
-      draggable = $('#dragHere'),
+      draggable = $('#dropzone'),
       uploadFile = $('#uploadFiles'),
-      browseButton = $('#browseButton'),
-      nothingToUpload = $('[data-nothingToUpload]');
-    selfComponent.resumable = resumable;
-    selfComponent.supported = resumable.support;
-    if (selfComponent.supported) {
+      browseButton = $('#browseButton')
+
+    if (resumable.support) {
       resumable.assignDrop(draggable);
       resumable.assignBrowse(browseButton);
     }
 
-    let getFileRef = (file) => {
-      return selfComponent.resumableList.filter(
-        (f) => f.file.uniqueIdentifier === file.uniqueIdentifier)[0];
-    };
-    uploadFile.on('click', function () {
-      if (results.children().length > 0) {
-        resumable.upload();
-      } else {
-        nothingToUpload.fadeIn();
-        setTimeout(function () {
-          nothingToUpload.fadeOut();
-        }, 3000);
-      }
-    });
+    resumable.on('catchAll',(event) => {
+      console.log(event)
+    })
+
     // Handle file add event
     resumable.on('fileAdded', (file) =>{
-      debugger;
-      var template =
-        '<div data-uniqueid="' + file.uniqueIdentifier + '">' +
-        '<div class="fileName">' + file.fileName + ' (' + file.file.type + ')' + '</div>' +
-        '<div class="large-6 right deleteFile">X</div>' +
-        '<div class="progress large-6">' +
-        '<span class="meter" style="width:0%;"></span>' +
-        '</div>' +
-        '</div>';
-
-      results.append(template);
-      // Show progress pabr
-      selfComponent.showProgress = true;
-      // Show pause, hide resume
-      selfComponent.showPause = true;
-      selfComponent.showResume = false;
-      // Add the file to the list
-      selfComponent.resumableList.splice(0, 0,
-        {file, done: false, progress: '0', message: ''});
-      // Actually start the upload
       resumable.upload();
     });
-    resumable.on('pause', () =>{
-      // Show resume, hide pause
-      selfComponent.showResume = true;
-      selfComponent.showPause = false;
+    resumable.on('uploadStart', (file) => {
+      this.set('isUploading', true);
     });
-    resumable.on('complete', () =>{
+    resumable.on('fileProgress', (file) => {
+      let progress = file.progress();
+      this.set('progress.value', progress);
+      this.set('progress.rounded', String(Math.round(progress*100)) + '%')
+    });
+    resumable.on('pause', () =>{
+
+      // Show resume, hide pause
+
+    });
+    resumable.on('complete', (file) => {
       // Hide pause/resume when the upload has completed
-      selfComponent.showPause = false;
-      selfComponent.showResume = false;
-      selfComponent.showProgress = false;
+      console.log(file, ' !!complete');
     });
     resumable.on('fileSuccess', (file,message) =>{
+      this.set('isVisible', false);
       // Reflect that the file upload has completed
-      let fileRef = getFileRef(file);
-      fileRef.done = true;
+      console.log('success', file, message);
     });
     resumable.on('error', (message, file) =>{
-      let fileRef = getFileRef(file);
-      fileRef.message = JSON.parse(message);
-      selfComponent.showPause = false;
-      selfComponent.showProgress = false;
+      console.log(message, file);
     });
     resumable.on('fileError', (file, message) =>{
-      let fileRef = getFileRef(file);
-      fileRef.message = JSON.parse(message);
-      selfComponent.showPause = false;
-      selfComponent.showProgress = false;
-    });
-    resumable.on('fileProgress', (file) =>{
-      // Handle progress for both the file and the overall upload
-      let fileRef = getFileRef(file);
-      fileRef.progress = Math.floor(file.progress()*100) + '%';
-      selfComponent.showProgress = true;
-      if (selfComponent.$refs.progress){
-        selfComponent.$refs.progress.style.width = Math.floor(resumable.progress()*100) + '%';
-      }
+      console.log(message, file);
     });
 
+    this.set('resumable', resumable);
 
 
 
 
 
-
-
+  },
+  actions: {
+    retry(){
+      this.get('resumable').upload();
+      this.toggleProperty('isPaused');
+    },
+    pause(){
+      this.get('resumable').pause();
+      this.toggleProperty('isPaused');
+    },
+    cancel(){
+      let r = this.get('resumable');
+      r.upload();
+      r.removeFile(r.files[0]);
+      r.assignBrowse($('#browseButton'));
+      this.set('isUploading', false);
+      this.set('progress', { value: 0, rounded: '0%'});
+    },
+    close(){
+      this.set('isVisible', false);
+      this.set('isUploading', false);
+      this.set('progress', { value: 0, rounded: '0%'});
+    }
   },
 });

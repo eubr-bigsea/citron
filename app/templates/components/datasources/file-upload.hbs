@@ -1,11 +1,28 @@
-<div class="row">
-  <div class="large-12 columns">
-    <p class="lead">Select files to upload</p>
-    <button class="inverse small" id="browseButton">+ Add Files</button>
-    <button class="danger small" id="uploadFiles">Start Upload</button>
-    <div class="alert-box alert" data-nothingToUpload>Error Nothing To Upload, Please Add Some Files</div>
-    <div id="dragHere" class="panel drop-zone">Drag &amp; Drop Here</div>
-    <div id="results" class="panel"></div>Status:
-    <div class="alert-box secondary"></div>
+<div class="row file-upload">
+  <div class="col-xs-6 pull-right content">
+    {{#if isUploading}}
+      <div>
+        Uploading file:<strong> {{file.fileName}}</strong>
+        <div class='options pull-right'>
+          {{#if isPaused}}
+            <button class='fa fa-play' {{action 'retry'}}> </button>
+          {{else}}
+            <button class='fa fa-pause' {{action 'pause'}}> </button>
+          {{/if}}
+          <button class='fa fa-times' {{action 'cancel'}}> </button>
+        </div>
+        {{ember-progress-bar progress=progress.value class=(concat 'progress' status) options=(hash color='#48BF84')}}
+        <div class="progressbar-text" >{{progress.rounded}}</div>
+      </div>
+    {{else}}
+      <button class='fa fa-close pull-left close' {{action 'close'}}></button>
+      <div id="dropzone" class="dropzone">
+        <i class="fa fa-cloud-upload fa-4x icon"></i>
+        <button id="browseButton" class='btn btn-primary'>
+          <i class="fa fa-plus"></i> Choose your file
+        </button>
+        <p> Or drag and drop the file here</p>
+      </div>
+    {{/if}}
   </div>
 </div>

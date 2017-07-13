@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   filterText: '',
+  uploadTab: true,
 
   init() {
     this._super(...arguments);
@@ -17,4 +18,3 @@ export default Ember.Controller.extend({
     this.set('datasources', datasources);
   },
 });
-

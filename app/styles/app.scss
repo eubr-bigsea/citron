@@ -64,6 +64,7 @@
 //Datasources
 @import 'datasources/large-table.scss';
 @import 'datasources/datasource-share-table.scss';
+@import 'datasources/file-upload.scss';
 
 
 
@@ -305,53 +306,4 @@ fieldset p {
 }
 .sidebar-active span{
   color: white;
-}
-
-
-
-
-.drop-zone {
-  text-align:center;
-  border:2px dashed #ccc;
-}
-.danger, .danger:hover {
-  background-color: #e74c3c;
-}
-.inverse, .inverse:hover {
-  background-color: #34495e;
-}
-input[type="file"] {
-  height:32px;
-}
-div[data-nothingToUpload] {
-  display:none;
-}
-.deleteFile {
-  padding: 3px 7px;
-  color: #bf0000;
-  font-weight: bold;
-  cursor:pointer;
-}
-button {
-  border: none;
-  cursor: pointer;
-  background: #bdc3c7;
-  color: #ffffff;
-  padding: 9px 12px 10px;
-  line-height:1.333;
-  text-decoration: none;
-  text-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  -o-transition: 0.25s;
-  transition: 0.25s;
-  -webkit-backface-visibility: hidden;
-}
-.meter {
-  color:#fff;
-  line-height:18px;
-  font-size:12px;
 }
