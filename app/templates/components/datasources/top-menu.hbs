@@ -5,8 +5,7 @@
     <p class="title-description">{{t 'datasources.description'}}</p>
   </div>
   <div class="col-xs-4 buttons-menu">
-    <button class="create-new btn ember-view" {{action 'toggleModal'}}>{{t 'datasources.upload'}}</button>
-    {{link-to (t 'datasources.upload') 'datasource.new' class="create-new btn ember-view"}}
+    <a class="create-new btn" {{action 'toggleUpload'}}><i class='fa fa-cloud-upload'></i> {{t 'datasources.upload.uploadDatabase'}}</a>
   </div>
   <div class="col-xs-5 search-bar">
     <div class="pull-right items-search">

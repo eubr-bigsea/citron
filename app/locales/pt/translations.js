@@ -231,6 +231,14 @@ export default {
     'self': 'Datasources',
     'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
     'searchFor': 'Pesquisar',
+    'upload': {
+      'uploadDatabase': 'Carregar base',
+      'chooseButton': 'Escolha o arquivo',
+      'dropzone': 'Ou arraste e solte o arquivo aqui',
+      'uploading': 'Carregando o arquivo: <strong>{{resource}}</strong>',
+      'successMessage': 'O arquivo <strong>{{resource}}</strong> foi carregado com sucesso.',
+      'errorMessage': 'Um erro ocorreu ao carregar o arquivo <strong>{{resource}}</strong>. A mensagem de erro foi: {{message}}',
+    }
   },
   'datasource': {
     'self': 'Datasource',

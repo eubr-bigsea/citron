@@ -1,28 +1,19 @@
 <div class="row file-upload">
+  {{#if serverMessage}}
+    <div class="col-xs-6 pull-right server-message {{serverMessage.status}}" onclick={{action 'dismissMessage'}}>
+      {{#if serverMessage.fileSuccess}}
+        <p>{{t 'datasources.upload.successMessage' resource=serverMessage.fileName}}</p>
+      {{/if}}
+      {{#if serverMessage.fileError}}
+        <p>{{t 'datasources.upload.errorMessage' resource=serverMessage.fileName message=serverMessage.fileError}}</p>
+      {{/if}}
+    </div>
+  {{/if}}
   <div class="col-xs-6 pull-right content">
-    {{#if isUploading}}
-      <div>
-        Uploading file:<strong> {{file.fileName}}</strong>
-        <div class='options pull-right'>
-          {{#if isPaused}}
-            <button class='fa fa-play' {{action 'retry'}}> </button>
-          {{else}}
-            <button class='fa fa-pause' {{action 'pause'}}> </button>
-          {{/if}}
-          <button class='fa fa-times' {{action 'cancel'}}> </button>
-        </div>
-        {{ember-progress-bar progress=progress.value class=(concat 'progress' status) options=(hash color='#48BF84')}}
-        <div class="progressbar-text" >{{progress.rounded}}</div>
-      </div>
-    {{else}}
-      <button class='fa fa-close pull-left close' {{action 'close'}}></button>
-      <div id="dropzone" class="dropzone">
-        <i class="fa fa-cloud-upload fa-4x icon"></i>
-        <button id="browseButton" class='btn btn-primary'>
-          <i class="fa fa-plus"></i> Choose your file
-        </button>
-        <p> Or drag and drop the file here</p>
-      </div>
-    {{/if}}
+    <div class='minimize'>
+      <button class='fa fa-minus pull-left close' {{action 'minimize'}}></button>
+    </div>
+    {{datasources/upload-progressbar isVisible=isUploading resumable=resumable file=file progress=progress isUploading=isUploading}}
+    {{datasources/load-zone isVisible=(not isUploading)}}
   </div>
 </div>

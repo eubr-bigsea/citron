@@ -1,0 +1,13 @@
+<div>
+  {{t 'datasources.upload.uploading' resource=file.fileName}}
+  <div class='options pull-right'>
+    {{#if isPaused}}
+      <button class='fa fa-play' {{action 'retry'}}> </button>
+    {{else}}
+      <button class='fa fa-pause' {{action 'pause'}}> </button>
+    {{/if}}
+    <button class='fa fa-times' {{action 'cancel'}}> </button>
+  </div>
+  {{ember-progress-bar progress=progress.value class='progress'}}
+  <div class="progressbar-text" >{{progress.rounded}}</div>
+</div>

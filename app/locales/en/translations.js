@@ -236,6 +236,14 @@ export default {
     'upload': 'Upload database',
     'description': 'List of all datasources - e.g. owned, shared, etc..',
     'searchFor': 'Search',
+    'upload': {
+      'uploadDatabase': 'Upload database',
+      'chooseButton': 'Choose your file',
+      'dropzone': 'Or drag and drop the file here',
+      'uploading': 'Uploading file: <strong>{{resource}}</strong>',
+      'successMessage': 'The file <strong>{{resource}}</strong> was successfully uploaded.',
+      'errorMessage': 'An error occurried to the upload of file <strong>{{resource}}</strong>. The server message error is: {{message}}',
+    }
   },
   'datasource': {
     'self': 'Datasource',

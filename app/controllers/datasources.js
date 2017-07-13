@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   filterText: '',
-  uploadTab: true,
+  uploadTab: false,
 
   init() {
     this._super(...arguments);

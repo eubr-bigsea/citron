@@ -9,17 +9,7 @@ export default Ember.Component.extend({
   isUploading: false,
   progress: { value: 0, rounded: '0%'},
   isPaused: false,
-
-  init(){
-    this._super(...arguments);
-    this.addObserver('isVisible', this, 'visibleChange');
-  },
-
-  visibleChange(){
-    this.set('isUploading', false);
-    console.log(this.get('isVisible'));
-  },
-
+  serverMessage: {},
 
   didInsertElement(){
     this._super(...arguments);
@@ -40,81 +30,53 @@ export default Ember.Component.extend({
       chunkRetryInterval: 5000,
     });
 
-    var results = $('#results'),
-      draggable = $('#dropzone'),
-      uploadFile = $('#uploadFiles'),
-      browseButton = $('#browseButton')
-
     if (resumable.support) {
-      resumable.assignDrop(draggable);
-      resumable.assignBrowse(browseButton);
+      resumable.assignDrop($('#dropzone'));
+      resumable.assignBrowse($('#browseButton'));
     }
 
-    resumable.on('catchAll',(event) => {
-      console.log(event)
-    })
-
-    // Handle file add event
     resumable.on('fileAdded', (file) =>{
+      this.set('file', file);
       resumable.upload();
     });
+
     resumable.on('uploadStart', (file) => {
       this.set('isUploading', true);
     });
+
     resumable.on('fileProgress', (file) => {
       let progress = file.progress();
       this.set('progress.value', progress);
       this.set('progress.rounded', String(Math.round(progress*100)) + '%')
     });
-    resumable.on('pause', () =>{
 
-      // Show resume, hide pause
-
-    });
-    resumable.on('complete', (file) => {
-      // Hide pause/resume when the upload has completed
-      console.log(file, ' !!complete');
-    });
     resumable.on('fileSuccess', (file,message) =>{
-      this.set('isVisible', false);
-      // Reflect that the file upload has completed
-      console.log('success', file, message);
+      this.get('resumable').removeFile(file);
+      this.set('isUploading', false);
+      this.set('serverMessage.status', 'success');
+      this.set('serverMessage.fileSuccess', message);
+      this.set('serverMessage.fileName', file.fileName);
     });
-    resumable.on('error', (message, file) =>{
-      console.log(message, file);
-    });
+
     resumable.on('fileError', (file, message) =>{
-      console.log(message, file);
+      var msg = JSON.parse(message);
+      this.get('resumable').removeFile(file);
+      this.set('isUploading', false);
+      this.set('serverMessage.status', 'error');
+      this.set('serverMessage.fileError', msg.message);
+      this.set('serverMessage.fileName', file.fileName);
     });
 
     this.set('resumable', resumable);
-
-
-
-
-
   },
+
   actions: {
-    retry(){
-      this.get('resumable').upload();
-      this.toggleProperty('isPaused');
-    },
-    pause(){
-      this.get('resumable').pause();
-      this.toggleProperty('isPaused');
-    },
-    cancel(){
-      let r = this.get('resumable');
-      r.upload();
-      r.removeFile(r.files[0]);
-      r.assignBrowse($('#browseButton'));
-      this.set('isUploading', false);
-      this.set('progress', { value: 0, rounded: '0%'});
-    },
-    close(){
+    minimize(){
       this.set('isVisible', false);
-      this.set('isUploading', false);
-      this.set('progress', { value: 0, rounded: '0%'});
+      this.set('serverMessage', {});
+    },
+    dismissMessage(){
+      this.set('serverMessage',{});
     }
   },
 });
