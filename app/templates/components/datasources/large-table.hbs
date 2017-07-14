@@ -56,11 +56,9 @@
               {{/link-to}}
             </td>
             <td class="options">
-              {{!--
-              {{#link-to 'datasource.show' datasource.id }}
-                <i rel="tooltip" title="" class="fa fa-eye fa-lg"></i>
-              {{/link-to}}
-              --}}
+              <a href='#' {{action 'share' datasource}}>
+                <i rel="tooltip" title="" class="fa fa-users fa-lg"></i>
+              </a>
               {{#link-to 'datasource.edit' datasource.id  }}
                 <i rel="tooltip" title="" class="fa fa-pencil fa-lg"></i>
               {{/link-to}}
@@ -89,3 +87,4 @@
   </div> <!-- col-xs-12 -->
 </div> <!-- row -->
 {{confirmation-modal modal=modal content=modalContent resource=toDelete onSubmit=(action 'submit')}}
+{{datasources/datasource-share allUsers=users permissions=share.permissions class="datasource-share-table"}}

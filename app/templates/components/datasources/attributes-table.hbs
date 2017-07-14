@@ -1,0 +1,17 @@
+<table class="table table-sm attributes-table">
+  <thead>
+    <tr>
+      <th>{{t 'tables.name'}}</th>
+      <th class='center'>{{t 'tables.type'}}</th>
+      <th class='center'>{{t 'tables.size'}}</th>
+      <th class='center'>{{t 'tables.precision'}}</th>
+      <th class='center'>{{t 'tables.scale'}}</th>
+      <th class='center'>{{t 'tables.nullable'}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each attributes as |attr|}}
+      {{datasources/attribute-item attr=attr}}
+    {{/each}}
+  </tbody>
+</table>

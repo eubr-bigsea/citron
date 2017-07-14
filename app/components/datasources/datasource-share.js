@@ -20,6 +20,7 @@ export default Ember.Component.extend({
 
 
   didInsertElement(){
+    debugger;
     var users =  this.get('users');
     this.get('allUsers').forEach((user) => {
       var shared = false;

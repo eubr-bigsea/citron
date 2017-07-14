@@ -58,6 +58,10 @@ export default {
       'label-append': 'Compartilhe essa {{resource}} com outros usuários',
       'searchFor': 'Busque outros usuários para compartilhar'
     },
+    'attributes': {
+      'label': 'Atributos',
+      'label-append': 'Edite os atributos desta datasource'
+    },
     'create': 'Criar',
     'save': 'Salvar',
     'cancel': 'Cancelar',
@@ -86,6 +90,10 @@ export default {
     'finished': 'Terminou em',
     'email': 'Email',
     'permission': 'Permissão',
+    'type': 'Tipo',
+    'precision': 'Precisão',
+    'scale': 'Escala',
+    'nullable': 'Permite nulo'
   },
 
   'cards': {

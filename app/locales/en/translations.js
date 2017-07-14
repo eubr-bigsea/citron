@@ -58,6 +58,10 @@ export default {
       'label-append': 'Share this {{resource}} with others users',
       'searchFor': 'Search users to share'
     },
+    'attributes': {
+      'label': 'Attributes',
+      'label-append': 'Edit attributes of datasource'
+    },
     'create': 'Create',
     'save': 'Save',
     'cancel': 'Cancel',
@@ -86,6 +90,10 @@ export default {
     'finished': 'Finished at',
     'email': 'Email',
     'permission': 'Permisson',
+    'type': 'Type',
+    'precision': 'Precision',
+    'scale': 'Scale',
+    'nullable': 'Allow null',
   },
   'cards': {
     'latestEditedWorkflows': {
