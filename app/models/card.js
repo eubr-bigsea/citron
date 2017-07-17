@@ -5,7 +5,7 @@ const { attr, belongsTo } = DS;
 
 
 export default DS.Model.extend({
-  user: belongsTo('user'),
+  user: DS.hasMany('user'),
 
   category: attr('string'),
   title: attr('string'),

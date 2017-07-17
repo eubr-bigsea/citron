@@ -9,15 +9,7 @@
     </h4>
   {{/modal.header}}
   {{#modal.body}}
-    {{#if (eq content.message "edit")}}
-      {{#each cards as |card|}}
-        <div>
-        <a> {{card.title}}</a>
-          <input style="float: right;" id={{card.id}} type="checkbox" class="input-checkbox">
-          <span></span>
-        </div>
-      {{/each}}
-    {{else if content.message}}
+    {{#if content.message}}
       {{t content.message resource=resource count=count}}
     {{else}}
       {{t 'modal.default.message'}}

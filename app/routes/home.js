@@ -24,7 +24,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       jobs: this.store.query('job', params),
       cards: this.store.query('card', params),
     });
-
   },
-
 });

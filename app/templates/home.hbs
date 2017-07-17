@@ -5,7 +5,19 @@
         {{cards-list cards=model.user.cards workflows=model.workflows jobs=model.jobs}}
       </div>
       <div id="container-floating">
-        <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" {{action 'editCards' workflow}}  >
+        <div class="nd1 nds" data-toggle="" data-placement="left"><img class="reminder">
+          <p class="letter popup-title">Your cards</p>
+          {{#each model.cards as |card|}}
+            <p class="letter">
+            <b><a> {{card.title}}</a></b>
+            <label class="switch">
+              <input style="float: right;" id={{card.id}} type="checkbox" checked={{helper-check-cards model.user.cards card.id}}  onclick={{action "editCards" value="target.id"}} class="input-checkbox">
+              <div class="slider round"></div>
+            </label>
+            </p>
+          {{/each}}
+        </div>
+        <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create">
           <p class="plus">
             <i class="fa fa-cog" aria-hidden="true"></i>
           </p>
@@ -15,4 +27,3 @@
     </section>
   </article>
 </div>
-{{confirmation-modal modal=modal content=modalContent resource=model.user.cards cards=model.cards onSubmit=(action 'submit')}}
