@@ -5,17 +5,13 @@ const { inject: { service } } = Ember;
 export default Ember.Component.extend({
   store: service(),
   toDelete: null,
-  share: null,
+  shareDatasource: null,
   shareModal: false,
-
-  didReceiveAttrs(){
-    this.set('share', this.get('datasources').get('firstObject'));
-  },
 
   actions: {
     share(datasource){
       this.toggleProperty('shareModal');
-      console.log(this.get('shareModal'));
+      this.set('shareDatasource', datasource);
     },
     submit(){
       this.get('toDelete').destroyRecord().then(

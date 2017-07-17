@@ -241,7 +241,6 @@ export default {
   },
   'datasources': {
     'self': 'Datasources',
-    'upload': 'Upload database',
     'description': 'List of all datasources - e.g. owned, shared, etc..',
     'searchFor': 'Search',
     'upload': {

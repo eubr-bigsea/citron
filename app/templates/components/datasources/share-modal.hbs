@@ -1,0 +1,41 @@
+{{#bs-modal open=shareModal class='share-modal' backdrop=false backdropClose=true fade=fade onHidden=(action (mut shareModal) false) as |modal| }}
+  {{#modal.header}}
+    <h4 class="modal-title">
+      Share
+    </h4>
+  {{/modal.header}}
+  {{#modal.body}}
+    <ul class="list-group selected-users">
+      {{#each permissions as |permission|}}
+        <li class="list-group-item">{{permission.user.first_name}} {{permission.user.last_name}}
+          <select class="custom-select" onchange={{action (mut permission.permission) value="target.value"}}>
+            <option value="READ" selected={{eq permission.permission "READ"}}>read</option>
+            <option value="WRITE" selected={{eq permission.permission "WRITE"}}>write</option>
+            <option value="MANAGE" selected={{eq permission.permission "MANAGE"}}>manage</option>
+          </select>
+        </li>
+      {{/each}}
+    </ul>
+    <div class='permissions-buttons'>
+      <button class='btn btn-primary fa fa-arrow-left' {{action 'addPermission' userSelected}}></button>
+      <button class='btn btn-primary fa fa-arrow-right' {{action 'removePermission' userSelected}}></button>
+    </div>
+    <div class='all-users'>
+      <li class="list-group-item input-group search">
+        {{input class='form-control share-input'}}
+        <span class="input-group-btn">
+          <button id="submit" type="button" class="btn btn-secondary">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </li>
+      <ul class="list-group all-users-list">
+        {{#each allUsers as |user|}}
+          <li href='#' class="list-group-item" id={{concat 'user-' user.id}} {{action 'selectUser' user}}>{{user.name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/modal.body}}
+  {{#modal.footer}}
+  {{/modal.footer}}
+{{/bs-modal}}

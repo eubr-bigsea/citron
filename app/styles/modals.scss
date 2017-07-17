@@ -1,0 +1,54 @@
+.share-modal {
+  .modal-dialog {
+    max-width: 75vw;
+  }
+  .modal-header {
+    padding: 5px 15px;
+    button {
+      margin-top: 3px;
+    }
+  }
+  .modal-title {
+    display: inline;
+  }
+  .modal-body {
+    overflow: auto;
+  }
+  .selected-users {
+    float: left;
+    max-width: 55%;
+    width: 52%;
+    max-height: 80vh;
+    overflow: auto;
+
+  }
+
+  .permissions-buttons {
+    display: inline;
+  }
+
+  .all-users {
+    float: right;
+    max-width: 50%;
+    width: 35%;
+    max-height: 80vh;
+    .search {
+      padding: 5px;
+      .share-input {
+        width: calc(100% - 32px);
+      }
+      .btn {
+        padding: 8px;
+        margin-bottom: 0;
+      }
+
+    }
+    .all-users-list {
+      max-height: calc(80vh - 50px);
+      overflow: auto;
+
+    }
+
+  }
+
+}

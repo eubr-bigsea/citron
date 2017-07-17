@@ -83,8 +83,7 @@
       </tbody>
     </table>
     {{table-paginate content=datasources}}
-    {{outlet}}
   </div> <!-- col-xs-12 -->
 </div> <!-- row -->
+{{datasources/share-modal shareModal=shareModal datasource=shareDatasource users=users}}
 {{confirmation-modal modal=modal content=modalContent resource=toDelete onSubmit=(action 'submit')}}
-{{datasources/datasource-share allUsers=users permissions=share.permissions class="datasource-share-table"}}
