@@ -6,6 +6,9 @@ export default FormComponent.extend({
   init() {
     this._super(...arguments);
 
+    this.set('currentValue', JSON.parse(this.get('currentValue')));
+    this.set('expression', this.get('currentValue.expression'));
+    this.set('tree', JSON.stringify(this.get('currentValue.tree')));
     this.set('modalVisible', false);
     this.set('parsedValues', JSON.parse(this.get('field.values')));
   },
@@ -37,7 +40,9 @@ export default FormComponent.extend({
       }
     },
     valueChanged() {
-      this._super(Ember.$('#typeExpression').val());
+      let expr = Ember.$('#typeExpression').val();
+      this.set('currentValue', { expression: expr, tree: jsep(expr) });
+      this._super(JSON.stringify(this.get('currentValue')));
       this.set('modalVisible', false);
     }
   }

@@ -32,8 +32,10 @@
           {{/tab.pane}}
         {{/each}}
       {{/bs-tab}}
-      {{input id="typeExpression" value=currentValue type="textarea" key-up='parseExpression' type="text" class="form-control"}}
-      <div id="resultExpression" class="alert" />
+      {{input id="typeExpression" value=expression type="textarea" key-up='parseExpression' type="text" class="form-control"}}
+      <div id="resultExpression" class="alert alert-info">
+        {{tree}}
+      </div>
     {{/modal.body}}
     {{#modal.footer}}
       {{#bs-button id="cancelButton" onClick=(action modal.close) type="secondary"}}Cancel{{/bs-button}}
