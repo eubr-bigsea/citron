@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import ProgressBar from 'npm:progressbar.js';
 import config from '../../config/environment';
 
 const { inject: { service} } = Ember;
@@ -16,7 +15,6 @@ export default Ember.Component.extend({
     var authToken = '123456';
     var token = this.get('session.data.authenticated.token');
     var email = this.get('session.data.authenticated.email');
-    let selfComponent = this;
     let resumable = new Resumable({
       headers: { 'Authorization': `Token token=${token}, email=${email}` },
       target: `${config.limonero}/datasources/upload`,
@@ -40,7 +38,7 @@ export default Ember.Component.extend({
       resumable.upload();
     });
 
-    resumable.on('uploadStart', (file) => {
+    resumable.on('uploadStart', () => {
       this.set('isUploading', true);
     });
 
