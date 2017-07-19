@@ -1,24 +1,22 @@
 import Ember from 'ember';
 
+const { inject: { service } } = Ember;
+
 export default Ember.Component.extend({
+  store: service(),
   filterText: null,
   allUsers: Ember.A(),
-  userSelected: null,
+  itemSelected: null,
 
-  permissions:  [{"user":{"id":"4","email":"souzagonc@gmail.com","first_name":"Matheus","last_name":"Gonçalves"},"permission":"READ"},{"user":{"id":"1","email":"waltersf@gmail.com","first_name":"Walter","last_name":"Santos"},"permission":"MANAGE"},{"user":{"id":"2","email":"guimalufb@gmail.com","first_name":"guimaluf","last_name":"balzana"},"permission":"WRITE"}],
 
   init(){
     this._super(...arguments);
-    //    this.addObserver('filterText', this, 'filterDidChange');
-    this.addObserver('userSelected', this, 'usersDidChange');
-  },
-  userDidChange(){
-    console.log(this.get('userSelected'));
+    this.addObserver('filterText', this, 'filterDidChange');
   },
   filterDidChange(){
     var filter = this.get('filterText').toString().toLowerCase();
-    var filterUsers = this.get('users').filter(function(item){
-      return item.user.first_name.toString().toLowerCase().indexOf(filter) !== -1 || item.user.last_name.toString().toLowerCase().indexOf(filter) !== -1 || item.user.email.toString().toLowerCase().indexOf(filter) !== -1
+    var filterUsers = this.get('allUsers').filter(function(user){
+      return user.get('name').toString().toLowerCase().indexOf(filter) !== -1
     })
     this.set('filterUsers', filterUsers);
   },
@@ -29,25 +27,53 @@ export default Ember.Component.extend({
     let allUsers = this.get('allUsers');
     let permissions = this.get('permissions');
     users.forEach((user) => {
-      allUsers.pushObject(user);
+      allUsers.addObject(user);
     })
-    permissions.forEach(function(item){
-      allUsers.removeObject(allUsers.findBy('id', item.user.id))
-    });
+    if(permissions){
+      permissions.forEach(function(item){
+        allUsers.removeObject(allUsers.findBy('id', item.user.id))
+      });
+    }
+    this.set('filterUsers', allUsers);
   },
 
+  actions: {
+    selectUser(userId){
+      $('.list-group-item').removeClass('active');
+      if(this.get('userSelectedId') !== userId){
+        this.set('userSelectedId', userId);
+        let user = this.get('store').findRecord('user', userId);
+        this.set('userSelected', user);
+        $(`#user-${userId}`).toggleClass('active');
+      } else {
+        this.set(this.set('userSelectedId', ''));
+      }
+    },
+    removePermission(){
+      let userId = this.get('userSelectedId');
+      if(userId){
+        let user = this.get('userSelected');
+        let allUsers = this.get('allUsers');
+        let permissions = this.get('permissions');
+        let filterUsers = this.get('filterUsers');
+        filterUsers.addObject(user);
+        allUsers.addObject(user);
+        permissions.removeObject(permissions.findBy('user.id', userId));
+        this.set('userSelectedId', '');
+        this.set('userSelected', '');
+      }
 
-  didInsertElementi(){
-    var users =  this.get('users');
-    this.get('allUsers').forEach((user) => {
-      var shared = false;
-      this.get('permissions').forEach(function(perm) {
-        if( user.get('id') === String(perm.user_id) ){
-          shared = true;
-        }
-      });
-      if (!shared){
-        var elem = Ember.Object.create({
+    },
+    addPermission(){
+      let userId = this.get('userSelectedId');
+      let permissions = this.get('permissions');
+      if(userId && !permissions.findBy('user.id', userId)){
+        let user = this.get('userSelected');
+        let allUsers = this.get('allUsers');
+        let filterUsers = this.get('filterUsers');
+        filterUsers.removeObject(filterUsers.findBy('id',userId));
+        allUsers.removeObject(allUsers.findBy('id',userId));
+        var permission = Ember.Object.create({
           user: {
             id: user.get('id'),
             email: user.get('email'),
@@ -56,33 +82,17 @@ export default Ember.Component.extend({
           },
           permission: 'READ',
         });
-        users.pushObject(elem);
+        permissions.addObject(permission);
+        this.set('userSelectedId', '');
+        this.set('userSelected', '');
       }
-    });
-    this.set('filterUsers', users);
-  },
-
-  actions: {
-    selectUser(user){
-      this.set('permissions',  [{"user":{"id":"1","email":"waltersf@gmail.com","first_name":"Walter","last_name":"Santos"},"permission":"MANAGE"},{"user":{"id":"2","email":"guimalufb@gmail.com","first_name":"guimaluf","last_name":"balzana"},"permission":"WRITE"}])
-      var ma = this.get('users').findBy('id', '4');
-      this.get('allUsers').pushObject(ma)
-
-      this.set('selectedUser', user);
-      $('.list-group-item').removeClass('active');
-      $(`#user-${user.id}`).toggleClass('active');
     },
-    removePermission(item){
-      this.get('users').addObject(item);
-      this.get('filterUsers').addObject(item);
-      this.get('permissions').removeObject(item);
-      this.get('filterDidChange')();
+    hideModal(){
+      this.get('datasource').save();
+      this.set('shareModal', false);
     },
-    addPermission(item){
-      this.get('permissions').addObject(item)
-      this.get('users').removeObject(item);
-      this.get('filterUsers').removeObject(item);
-      this.get('filterDidChange')();
+    save(){
+      this.get('datasource').save();
     },
   },
 });

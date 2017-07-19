@@ -12,28 +12,89 @@
     display: inline;
   }
   .modal-body {
-    overflow: auto;
-  }
-  .selected-users {
-    float: left;
-    max-width: 55%;
-    width: 52%;
     max-height: 80vh;
     overflow: auto;
-
   }
-
+  .list-group-item {
+    height: 50px;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .has-permissions {
+    float: left;
+    width: 52%;
+    max-height: calc(80vh - 30px);
+    i {
+      margin-right: 5px;
+    }
+    .permission-value {
+      float: right;
+      height: 26px;
+      padding: 0 1.7rem 0rem 0.75rem;
+    }
+    .selected-users {
+      float: left;
+      width: 100%;
+      max-height: calc(80vh - 74px);
+      overflow: auto;
+    }
+  }
+  li {
+    &:hover{
+      color: $color-text-lighter;
+      background-color: $color-light;
+      border-color: $color-light;
+    }
+  }
+  .active {
+    color: $color-text-lighter;
+    background-color: $color-light;
+    border-color: $color-light;
+    &:hover{
+      color: $color-text-lighter;
+      background-color: $color-dark;
+      border-color: $color-dark;
+    }
+  }
+  .empty-permissions{
+    float: left;
+    width: 52%;
+    height: 80vh;
+    overflow: auto;
+    text-align: center;
+    vertical-align: middle;
+    max-height: calc(80vh - 30px);
+    span {
+      font-size: 1.2rem;
+      position:relative;
+      top: calc(50% - 15px);
+      left: -5px;
+      i {
+        font-size: 2.5rem;
+        margin-right: 5px;
+      }
+    }
+  }
   .permissions-buttons {
     display: inline;
   }
-
   .all-users {
     float: right;
     max-width: 50%;
     width: 35%;
-    max-height: 80vh;
+    max-height: calc(80vh - 30px);
+    overflow: hidden;
+    i {
+      margin-right: 5px;
+    }
     .search {
-      padding: 5px;
+      padding: 0px;
+      border: none;
+      background: none;
+      i {
+        margin-right: 0px;
+      }
       .share-input {
         width: calc(100% - 32px);
       }
@@ -41,14 +102,34 @@
         padding: 8px;
         margin-bottom: 0;
       }
-
     }
     .all-users-list {
-      max-height: calc(80vh - 50px);
+      max-height: calc(80vh - 124px);
       overflow: auto;
-
     }
-
   }
 
+  .permissions-buttons {
+    height: 80vh;
+    width: 13%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: calc(40vh - 65px) 0;
+    max-height: calc(80vh - 30px);
+    a {
+      height: 50px;
+      display: block;
+      padding: 15px 0;
+      i {
+        font-size: 1.3rem;
+      }
+    }
+    .add:hover {
+      color: $color-base;
+    }
+    .remove:hover {
+      color: $color-error;
+    }
+  }
 }

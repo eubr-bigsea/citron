@@ -57,7 +57,7 @@
             </td>
             <td class="options">
               <a href='#' {{action 'share' datasource}}>
-                <i rel="tooltip" title="" class="fa fa-users fa-lg"></i>
+                <i rel="tooltip" title="" class="fa fa-share-alt fa-lg"></i>
               </a>
               {{#link-to 'datasource.edit' datasource.id  }}
                 <i rel="tooltip" title="" class="fa fa-pencil fa-lg"></i>
@@ -85,5 +85,5 @@
     {{table-paginate content=datasources}}
   </div> <!-- col-xs-12 -->
 </div> <!-- row -->
-{{datasources/share-modal shareModal=shareModal datasource=shareDatasource users=users}}
+{{datasources/share-modal shareModal=shareModal datasource=shareDatasource users=users permissions=shareDatasource.permissions}}
 {{confirmation-modal modal=modal content=modalContent resource=toDelete onSubmit=(action 'submit')}}
