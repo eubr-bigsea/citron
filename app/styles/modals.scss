@@ -10,6 +10,9 @@
   }
   .modal-title {
     display: inline;
+    i {
+      margin-right: 5px;
+    }
   }
   .modal-body {
     max-height: 80vh;

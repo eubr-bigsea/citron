@@ -251,7 +251,7 @@ export default {
   'datasource': {
     'self': 'Datasource',
     'edit': {
-      'title': 'Editing datasource:',
+      'title': 'Editando datasource:',
     },
   },
   'visualizations': {
@@ -276,6 +276,12 @@ export default {
     'summary-statistics': {
       'self': 'Estatísticas sumárias'
     },
+  },
+  'share': {
+    'title': 'Compartilhar',
+    'emptyPermissions': 'Compartilhe com outros usuários',
+    'sharedUsers': 'Compartilhado com estes usuários',
+    'allUsers': 'Todos os usuários',
   },
   'en': 'English',
   'pt': 'Português',

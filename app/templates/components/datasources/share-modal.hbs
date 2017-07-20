@@ -1,13 +1,13 @@
 {{#bs-modal open=shareModal class='share-modal' backdrop=false backdropClose=true fade=fade onHidden=(action 'hideModal') as |modal| }}
   {{#modal.header}}
     <h4 class="modal-title">
-      <i class='fa fa-share-alt'></i>Share
+      <i class='fa fa-share-alt'></i>{{t 'share.title'}}
     </h4>
   {{/modal.header}}
   {{#modal.body}}
     {{#if permissions}}
       <div class='has-permissions'>
-        <p class='title'><i class='fa fa-lg fa-users'></i>Shared users</p>
+        <p class='title'><i class='fa fa-lg fa-users'></i>{{t 'share.sharedUsers'}}</p>
         <ul class="list-group selected-users">
           {{#each permissions as |permission|}}
             <li class="list-group-item" id={{concat 'user-' permission.user.id}} {{action 'selectUser' permission.user.id}}>
@@ -24,7 +24,7 @@
     {{else}}
       <div class='empty-permissions'>
         <span>
-          <i class="fa fa-lg fa-users"></i>Share this datasource
+          <i class="fa fa-lg fa-users"></i>{{t 'share.emptyPermissions'}}
         </span>
       </div>
     {{/if}}
@@ -33,7 +33,7 @@
       <a class='remove' {{action 'removePermission'}}><i class='fa fa-arrow-right'></i></a>
     </div>
     <div class='all-users'>
-      <p class='title'><i class='fa fa-lg fa-share'></i>All Users</p>
+      <p class='title'><i class='fa fa-lg fa-share'></i>{{t 'share.allUsers'}}</p>
       <li class="list-group-item input-group search">
         {{input class='form-control share-input' value=filterText}}
         <span class="input-group-btn">

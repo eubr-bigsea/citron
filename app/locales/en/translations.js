@@ -285,6 +285,12 @@ export default {
       'self': 'summary statistics'
     },
   },
+  'share': {
+    'title': 'Share',
+    'emptyPermissions': 'Share with others users',
+    'sharedUsers': 'Shared with those users',
+    'allUsers': 'All users',
+  },
   'en': 'English',
   'pt': 'Português',
   'error': 'Error',
