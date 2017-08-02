@@ -2,13 +2,26 @@
   <article class="content dashboard-page">
     <section class="section">
       <div class="row sameheight-container">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6 col-xl-6">
-          {{cards/card-video-tutorial videoTutorial=model.videoTutorial}}
-          {{cards/card-release-notes releaseNotes=model.releaseNotes}}
+        {{cards-list cards=model.user.cards workflows=model.workflows jobs=model.jobs}}
+      </div>
+      <div id="container-floating">
+        <div class="nd1 nds" data-toggle="" data-placement="left"><img class="reminder">
+          <p class="letter popup-title">Your cards</p>
+          {{#each model.cards as |card|}}
+            <p class="letter">
+            <b><a> {{card.title}}</a></b>
+            <label class="switch">
+              <input style="float: right;" id={{card.id}} type="checkbox" checked={{helper-check-cards model.user.cards card.id}}  onclick={{action "editCards" value="target.id"}} class="input-checkbox">
+              <div class="slider round"></div>
+            </label>
+            </p>
+          {{/each}}
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
-          {{cards/card-latest-workflows workflows=model.workflows locale=locale}}
-          {{cards/card-latest-jobs workflows=model.workflows jobs=model.jobs}}
+        <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create">
+          <p class="plus">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </p>
+          <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
         </div>
       </div>
     </section>

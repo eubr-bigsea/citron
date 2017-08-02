@@ -1,13 +1,13 @@
 <div class="card" id='release-notes'>
   <div class="card-header">
     <div class="header-block">
-      <h3 class="title">{{t 'cards.releaseNotes.title'}} {{releaseNotes.version}}</h3>
+      <h3 class="title">{{card.title}}</h3>
     </div>
   </div>
   <div class="card-block">
-    <p>{{releaseNotes.content}}</p>
+    <p>{{card.content}}</p>
     <div id="date">
-      <span> Released at {{releaseNotes.created_at}} </span>
+      <span> Released at {{format-date card.created_at}} </span>
     </div>
   </div>
 </div>
