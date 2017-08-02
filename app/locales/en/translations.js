@@ -58,6 +58,14 @@ export default {
       'label-append': 'Share this {{resource}} with others users',
       'searchFor': 'Search users to share'
     },
+    'inferSchema': {
+      'label': 'Infer Schema',
+      'label-append': 'Define options for infer schema of datasource',
+      'delimiter': 'Delimiter:',
+      'quote-char': 'Quote:',
+      'header': 'Header?',
+      'infer': 'Infer Schema',
+    },
     'attributes': {
       'label': 'Attributes',
       'label-append': 'Edit attributes of datasource'
@@ -256,6 +264,7 @@ export default {
     'self': 'Datasource',
     'edit': {
       'title': 'Editing datasource:',
+      'addAttrButton': 'New Attribute',
     },
     'new': {
       'title': 'Upload your database',

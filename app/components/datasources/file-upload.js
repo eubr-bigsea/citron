@@ -20,7 +20,7 @@ export default Ember.Component.extend({
       headers: { 'Authorization': `Token token=${token}, email=${email}` },
       target: `${config.limonero}/datasources/upload`,
       query: {token: authToken, storage_id: 1},
-      chunkSize: 1*1*10,
+      chunkSize: 1*1024*1024,
       simultaneousUploads: 1,
       testChunks: true,
       throttleProgressCallbacks: 1,

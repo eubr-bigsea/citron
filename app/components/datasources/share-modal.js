@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../../config/environment';
 
 const { inject: { service } } = Ember;
 
@@ -7,6 +8,7 @@ export default Ember.Component.extend({
   filterText: null,
   allUsers: Ember.A(),
   itemSelected: null,
+  userID: null,
 
 
   init(){
@@ -16,7 +18,7 @@ export default Ember.Component.extend({
   filterDidChange(){
     var filter = this.get('filterText').toString().toLowerCase();
     var filterUsers = this.get('allUsers').filter(function(user){
-      return user.get('name').toString().toLowerCase().indexOf(filter) !== -1
+      return user.get('name').toLowerCase().substring(0, filter.length) === filter
     })
     this.set('filterUsers', filterUsers);
   },
@@ -31,13 +33,28 @@ export default Ember.Component.extend({
     })
     if(permissions){
       permissions.forEach(function(item){
-        allUsers.removeObject(allUsers.findBy('id', item.user.id))
+        allUsers.removeObject(allUsers.findBy('id', String(item.user_id)));
       });
     }
     this.set('filterUsers', allUsers);
   },
 
+
   actions: {
+    changePermission(permission, newPermission){
+      let datasourceId = this.get('datasource.id');
+      $.ajax({
+        type: 'POST',
+        url:`${config.limonero}/datasources/${datasourceId}/permission/${permission.user_id}`,
+        contentType:"application/json",
+        dataType: 'json',
+        data: JSON.stringify({
+          permission: newPermission,
+          user_name: permission.user_name,
+          user_login: permission.user_login
+        })
+      });
+    },
     selectUser(userId){
       $('.list-group-item').removeClass('active');
       if(this.get('userSelectedId') !== userId){
@@ -56,9 +73,16 @@ export default Ember.Component.extend({
         let allUsers = this.get('allUsers');
         let permissions = this.get('permissions');
         let filterUsers = this.get('filterUsers');
-        filterUsers.addObject(user);
-        allUsers.addObject(user);
-        permissions.removeObject(permissions.findBy('user.id', userId));
+        let datasourceId = this.get('datasource.id');
+        $.ajax({
+          url:`${config.limonero}/datasources/${datasourceId}/permission/${userId}`,
+          type: 'DELETE',
+          success: function(){
+            filterUsers.addObject(user);
+            allUsers.addObject(user);
+            permissions.removeObject(permissions.findBy('user_id', userId));
+          }
+        });
         this.set('userSelectedId', '');
         this.set('userSelected', '');
       }
@@ -66,33 +90,36 @@ export default Ember.Component.extend({
     },
     addPermission(){
       let userId = this.get('userSelectedId');
+      let datasourceId = this.get('datasource.id');
       let permissions = this.get('permissions');
-      if(userId && !permissions.findBy('user.id', userId)){
+      if(userId && !permissions.findBy('user_id', userId)){
         let user = this.get('userSelected');
         let allUsers = this.get('allUsers');
         let filterUsers = this.get('filterUsers');
         filterUsers.removeObject(filterUsers.findBy('id',userId));
         allUsers.removeObject(allUsers.findBy('id',userId));
-        var permission = Ember.Object.create({
-          user: {
-            id: user.get('id'),
-            email: user.get('email'),
-            first_name: user.get('firstName'),
-            last_name: user.get('lastName'),
-          },
+        var permission = {
           permission: 'READ',
+          user_name: user.get('name'),
+          user_login: user.get('email'),
+          user_id: userId
+        };
+        $.ajax({
+          type: 'POST',
+          url:`${config.limonero}/datasources/${datasourceId}/permission/${userId}`,
+          contentType:"application/json",
+          dataType: 'json',
+          data: JSON.stringify(permission),
+          success: function(){
+            permissions.addObject(permission);
+          }
         });
-        permissions.addObject(permission);
         this.set('userSelectedId', '');
         this.set('userSelected', '');
       }
     },
     hideModal(){
-      this.get('datasource').save();
       this.set('shareModal', false);
-    },
-    save(){
-      this.get('datasource').save();
     },
   },
 });

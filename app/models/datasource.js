@@ -3,6 +3,7 @@ import DS from 'ember-data';
 const { attr } = DS;
 
 export default DS.Model.extend({
+  attribute_delimiter: attr(),
   attributes: attr(),
   created: attr('dates'),
   description: attr(),
@@ -20,6 +21,7 @@ export default DS.Model.extend({
   tags: attr(),
   task_id: attr(),
   temporary: attr(),
+  text_delimiter: attr(),
   url: attr(),
   user_id: attr(),
   user_login: attr(),

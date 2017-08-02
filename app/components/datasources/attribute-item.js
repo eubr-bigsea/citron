@@ -39,4 +39,10 @@ export default Ember.Component.extend({
       this.set('isNotChar', false);
     }
   },
+
+  actions: {
+    removeAttr(){
+      this.get('removeAttr')(this.get('attr'));
+    },
+  },
 });

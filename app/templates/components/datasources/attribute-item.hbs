@@ -1,3 +1,4 @@
+<td class='remove-attr'><a class='fa fa-times fa-lg' {{action 'removeAttr'}}></a></td>
 <td class='name'>{{input class="form-control" value=attr.name}}</td>
 <td class='center types'>
   <select class="custom-select" onchange={{action (mut attr.type) value="target.value"}}>

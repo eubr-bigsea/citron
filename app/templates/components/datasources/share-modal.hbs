@@ -10,9 +10,10 @@
         <p class='title'><i class='fa fa-lg fa-users'></i>{{t 'share.sharedUsers'}}</p>
         <ul class="list-group selected-users">
           {{#each permissions as |permission|}}
-            <li class="list-group-item" id={{concat 'user-' permission.user.id}} {{action 'selectUser' permission.user.id}}>
-              <i class='fa fa-lg fa-user'></i>{{permission.user.first_name}} {{permission.user.last_name}}
-              <select class="custom-select permission-value" onchange={{action (mut permission.permission) value="target.value"}}>
+            <li class="list-group-item" id={{concat 'user-' permission.user_id}} {{action 'selectUser' permission.user_id}}>
+              <i class='fa fa-lg fa-user'></i>{{permission.user_name}}
+              <select class="custom-select permission-value"
+                      onchange={{action (action 'changePermission' permission) value='target.value'}}>
                 <option value="READ" selected={{eq permission.permission "READ"}}>read</option>
                 <option value="WRITE" selected={{eq permission.permission "WRITE"}}>write</option>
                 <option value="MANAGE" selected={{eq permission.permission "MANAGE"}}>manage</option>
