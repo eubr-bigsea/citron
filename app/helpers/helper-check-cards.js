@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
-const { inject: { service }, Component } = Ember;
-
-export function helperCheckCards(params, hash) {
+export function helperCheckCards(params) {
   var cards = params[0];
   var result = cards.findBy('id', params[1].toString());
   if(result === undefined){
@@ -10,7 +8,5 @@ export function helperCheckCards(params, hash) {
   }else{
     return true;
   }
-  return params;
 }
-
 export default Ember.Helper.helper(helperCheckCards);

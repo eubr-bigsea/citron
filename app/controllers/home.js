@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { inject: { service }, Component } = Ember;
+const { inject: { service } } = Ember;
 
 export default Ember.Controller.extend({
 
@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
   sessionAccount: service(),
 
   actions: {
-    editCards(id, checked){
+    editCards(id){
       var isChecked = $('#'+ id).is(":checked");
       var user = this.get('model.user');
 
@@ -17,17 +17,13 @@ export default Ember.Controller.extend({
           function(card){
             user.get('cards').pushObject(card);
             user.save();
-          },
-          function(){ errors.push(checked[i].id); }
-        );
-      } else{
+          });
+      } else {
         this.get('store').findRecord('card',id).then(
           function(card){
             user.get('cards').removeObject(card);
             user.save();
-          },
-          function(){ errors.push(checked[i].id); }
-        );
+          });
       }
     },
   }

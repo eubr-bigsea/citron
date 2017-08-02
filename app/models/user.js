@@ -5,10 +5,10 @@ const { attr, hasMany } = DS;
 
 export default DS.Model.extend({
   //Relationships
-  datasources: DS.hasMany('datasource', { async: true }),
-  workflows: DS.hasMany('workflow', { async: true }),
-  jobs: DS.hasMany('job', { async: true }),
-  cards: DS.hasMany('card'),
+  datasources: hasMany('datasource', { async: true }),
+  workflows: hasMany('workflow', { async: true }),
+  jobs: hasMany('job', { async: true }),
+  cards: hasMany('card'),
 
   //Profile info
   firstName: attr(''),

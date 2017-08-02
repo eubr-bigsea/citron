@@ -1,11 +1,10 @@
-import Ember from 'ember';
 import DS from 'ember-data';
 
-const { attr, belongsTo } = DS;
+const { attr, hasMany } = DS;
 
 
 export default DS.Model.extend({
-  user: DS.hasMany('user'),
+  user: hasMany('user'),
 
   category: attr('string'),
   title: attr('string'),
