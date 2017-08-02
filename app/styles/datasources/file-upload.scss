@@ -1,0 +1,98 @@
+.file-upload-wrapper {
+  position: relative;
+}
+.file-upload {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .minimize {
+    display: flex;
+  }
+  .content {
+    margin-right: 7px;
+    border-radius: 10px 0 0 0;
+    background: $color-text-lighter;
+  }
+  .dropzone {
+    margin-bottom: 10px;
+    border: 1px solid $color-text-lighter;
+    border-radius: 10px;
+    text-align: center;
+    border:2px dashed #ccc;
+    height: auto;
+    .icon {
+      display: block;
+      color: $color-text-base;
+    }
+    .btn {
+      background: $color-base;
+      border: $color-base;
+    }
+  }
+  .progress {
+    display: inline-block;
+    height: 24px;
+    margin-bottom: 1.2rem;
+  }
+  .progress > svg {
+    height: 100%;
+    display: block;
+  }
+
+  .uploading .progress > svg > path {
+    stroke: $color-base;
+  }
+
+  .paused .progress > svg > path {
+    stroke: $color-pending;
+  }
+  .progressbar-text{
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    padding: 0px;
+    margin: 0px;
+    transform: translate(-50%, -50%);
+    color: $color-text-dark;
+  }
+  .options button {
+    padding: 5px 15px;
+    margin: 0;
+    background: none;
+    border: none;
+    color: $color-dark;
+    &.fa-play {
+      color: $color-light;
+    }
+    &.fa-pause {
+    }
+    &.fa-times {
+      font-size: 1.15em;
+      color: #D60015;
+    }
+  }
+  .server-message {
+    padding: 15px;
+    margin: 2px;
+    position: absolute;
+    margin-left: -7px;
+    top: 40%;
+    text-align: center;
+    left: 50%;
+    z-index: 1000;
+    font-size: 1.1em;
+    p {
+      margin:0;
+    }
+    &.success {
+      background-color: rgba($color-completed, 0.7);
+
+      color: $color-text-dark;
+    }
+    &.error {
+
+      color: $color-text-lighter;
+      background-color: rgba($color-error, 0.8);
+    }
+  }
+}

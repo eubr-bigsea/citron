@@ -33,11 +33,13 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    //ENV.thorn = 'http://localhost:3000';
+    // ENV.thorn = 'http://localhost:3000';
     ENV.thorn = 'http://teste.ctweb.inweb.org.br/thorn';
     ENV.stand = 'http://teste.ctweb.inweb.org.br/stand';
-    ENV.tahiti = 'http://teste.ctweb.inweb.org.br/tahiti';
-    ENV.limonero = 'http://teste.ctweb.inweb.org.br/limonero';
+    ENV.tahiti = 'http://dev.ctweb.inweb.org.br/tahiti';
+    ENV.limonero = 'http://dev.ctweb.inweb.org.br/limonero';
+    //ENV.limonero = 'http://beta.ctweb.inweb.org.br/limonero';
+    //ENV.limonero = 'http://teste.ctweb.inweb.org.br/limonero';
     ENV.caipirinha = 'http://teste.ctweb.inweb.org.br/caipirinha';
     ENV.webSocketIO = {
       url: 'http://teste.ctweb.inweb.org.br',

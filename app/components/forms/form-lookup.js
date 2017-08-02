@@ -1,4 +1,5 @@
 import FormComponent from 'lemonade-ember/lib/form-component';
+import config from '../../config/environment';
 import Ember from 'ember';
 
 export default FormComponent.extend({
@@ -6,7 +7,9 @@ export default FormComponent.extend({
     this._super(...arguments);
 
     if (this.get('field.values_url')) {
-      Ember.$.get(this.get('field.values_url')).then((response) => {
+      var LIMONERO_URL = config.limonero; //don't delete this var, needed in next eval
+      LIMONERO_URL;
+      Ember.$.get(eval(this.get('field.values_url'))).then((response) => {
         this.set('parsedValues', response.map((v) => {
           return { "key": String(v.id), "value": v.name };
         }));

@@ -1,0 +1,20 @@
+<td class='remove-attr'><a class='fa fa-times fa-lg' {{action 'removeAttr'}}></a></td>
+<td class='name'>{{input class="form-control" value=attr.name}}</td>
+<td class='center types'>
+  <select class="custom-select" onchange={{action (mut attr.type) value="target.value"}}>
+    <option value=""></option>
+    {{#each types as |type|}}
+      <option value={{type}} selected={{eq type attr.type}}>{{type}}</option>
+    {{/each}}
+  </select>
+</td>
+<td class='center num'>{{input disabled=isNotChar value=attr.size}}</td>
+<td class='center num'>{{input disabled=isNotNum value=attr.precision}}</td>
+<td class='center num'>{{input disabled=isNotNum value=attr.scale}}</td>
+<td class='center checkbox'>
+  <label class="label-checkbox">
+    {{input type="checkbox" class='input-checkbox' checked=attr.nullable}}
+    <span></span>
+  </label>
+</td>
+

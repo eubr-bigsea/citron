@@ -41,8 +41,9 @@
 @import 'page-content-wrapper.scss';
 @import 'table-paginate.scss';
 @import 'form.scss';
-@import "perfect-scrollbar.scss";
+@import 'perfect-scrollbar.scss';
 @import 'not-found.scss';
+@import 'modals.scss';
 
 //Animations
 @import 'animations.scss';
@@ -61,7 +62,11 @@
 @import 'jobs/option-bar.scss';
 @import 'jobs/logger.scss';
 
-
+//Datasources
+@import 'datasources/large-table.scss';
+@import 'datasources/datasource-share-table.scss';
+@import 'datasources/file-upload.scss';
+@import 'datasources/attributes-table.scss';
 
 
 

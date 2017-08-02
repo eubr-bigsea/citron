@@ -1,0 +1,55 @@
+{{#bs-modal open=shareModal class='share-modal' backdrop=false backdropClose=true fade=fade onHidden=(action 'hideModal') as |modal| }}
+  {{#modal.header}}
+    <h4 class="modal-title">
+      <i class='fa fa-share-alt'></i>{{t 'share.title'}}
+    </h4>
+  {{/modal.header}}
+  {{#modal.body}}
+    {{#if permissions}}
+      <div class='has-permissions'>
+        <p class='title'><i class='fa fa-lg fa-users'></i>{{t 'share.sharedUsers'}}</p>
+        <ul class="list-group selected-users">
+          {{#each permissions as |permission|}}
+            <li class="list-group-item" id={{concat 'user-' permission.user_id}} {{action 'selectUser' permission.user_id}}>
+              <i class='fa fa-lg fa-user'></i>{{permission.user_name}}
+              <select class="custom-select permission-value"
+                      onchange={{action (action 'changePermission' permission) value='target.value'}}>
+                <option value="READ" selected={{eq permission.permission "READ"}}>read</option>
+                <option value="WRITE" selected={{eq permission.permission "WRITE"}}>write</option>
+                <option value="MANAGE" selected={{eq permission.permission "MANAGE"}}>manage</option>
+              </select>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{else}}
+      <div class='empty-permissions'>
+        <span>
+          <i class="fa fa-lg fa-users"></i>{{t 'share.emptyPermissions'}}
+        </span>
+      </div>
+    {{/if}}
+    <div class='permissions-buttons'>
+      <a class='add' {{action 'addPermission' }}><i class='fa fa-arrow-left'></i></a>
+      <a class='remove' {{action 'removePermission'}}><i class='fa fa-arrow-right'></i></a>
+    </div>
+    <div class='all-users'>
+      <p class='title'><i class='fa fa-lg fa-share'></i>{{t 'share.allUsers'}}</p>
+      <li class="list-group-item input-group search">
+        {{input class='form-control share-input' value=filterText}}
+        <span class="input-group-btn">
+          <button id="submit" type="button" class="btn btn-secondary">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </li>
+      <ul class="list-group all-users-list">
+        {{#each filterUsers as |user|}}
+          <li href='#' class="list-group-item" id={{concat 'user-' user.id}} {{action 'selectUser' user.id}}>
+            <i class='fa fa-user-plus'></i>{{user.name}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/modal.body}}
+{{/bs-modal}}

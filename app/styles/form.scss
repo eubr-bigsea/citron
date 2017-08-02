@@ -1,3 +1,14 @@
+form {
+  .btn-primary {
+    color: $color-text-lighter !important;
+    background-color: $color-base !important;
+    border-color: $color-base !important;
+    &:hover {
+      background-color: $color-dark !important;
+      border-color: $color-dark !important;
+    }
+  }
+}
 input, textarea {
   outline: none;
 }
@@ -56,6 +67,9 @@ input, textarea {
 
 label, .control-label {
   font-weight: 600;
+  .label-append {
+    font-size: 0.9rem;
+  }
 }
 
 .form-control.underlined {
@@ -247,4 +261,67 @@ label, .control-label {
 
 .card-block {
   margin: 0 !important;
+}
+
+.same-line {
+  label {
+  }
+  .boxed {
+    height: 2rem;
+    width: 2rem;
+    display: inline;
+    text-align: center;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .label {
+    display: inline-block;
+    height: 2rem;
+    width: auto;
+    margin: 0 5px;
+  }
+  .btn {
+    color: $color-text-lighter !important;
+    background-color: $color-light;
+    border-color: $color-light;
+    &:hover {
+      background-color: $color-base !important;
+      border-color: $color-base !important;
+    }
+  }
+
+  .checkbox-header {
+    width: auto;
+    height: 2rem;
+
+    .input-checkbox {
+      display: none;
+    }
+    .label-checkbox {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 0px;
+    }
+    .input-checkbox + span:before {
+      font-family: FontAwesome;
+      font-size: 1.4em;
+      color: $color-lighter;
+    }
+    .input-checkbox:checked + span:before {
+      color: $color-dark;
+    }
+    .input-checkbox {
+      &:checked {
+        + span:before {
+          content: "\f14a";
+        }
+      }
+      + span:before {
+        content: "\f0c8";
+      }
+    }
+  }
+
+
+
 }

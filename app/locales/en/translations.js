@@ -47,6 +47,29 @@ export default {
     'platform': {
       'label': 'Platform',
     },
+    'cluster': {
+      'label': 'Clusters',
+    },
+    'format': {
+      'label': 'Format',
+    },
+    'share': {
+      'label': 'Share',
+      'label-append': 'Share this {{resource}} with others users',
+      'searchFor': 'Search users to share'
+    },
+    'inferSchema': {
+      'label': 'Infer Schema',
+      'label-append': 'Define options for infer schema of datasource',
+      'delimiter': 'Delimiter:',
+      'quote-char': 'Quote:',
+      'header': 'Header?',
+      'infer': 'Infer Schema',
+    },
+    'attributes': {
+      'label': 'Attributes',
+      'label-append': 'Edit attributes of datasource'
+    },
     'create': 'Create',
     'save': 'Save',
     'cancel': 'Cancel',
@@ -67,8 +90,18 @@ export default {
     'updated': 'Updated At',
     'status': 'Status',
     'result': 'Result',
+    'size': 'Size',
+    'format': 'Format',
     'options': 'Options',
-    'created': 'Created at'
+    'created': 'Created at',
+    'started': 'Started at',
+    'finished': 'Finished at',
+    'email': 'Email',
+    'permission': 'Permisson',
+    'type': 'Type',
+    'precision': 'Precision',
+    'scale': 'Scale',
+    'nullable': 'Allow null',
   },
   'cards': {
     'latestEditedWorkflows': {
@@ -100,7 +133,11 @@ export default {
           'one': 'Sorry, the workflow could not be deleted.',
           'other': 'Sorry, the workflows {{errors}} could not be deleted.'
         },
-      }
+      },
+      'datasource': {
+        'success': 'The datasource was delete.',
+        'error': 'There was a error, the datasource was not deleted.'
+      },
     },
     'save': {
       'workflow': {
@@ -137,7 +174,12 @@ export default {
           'one':'Delete',
           'other': 'Delete All',
         },
-      }
+      },
+      'datasource': {
+        'title': 'Deleting datasource:',
+        'message': 'Do you want to permanently delete the datasource {{resource.name}}?',
+        'submitButton': 'Delete',
+      },
     },
     'leave': {
       'workflow': {
@@ -155,7 +197,7 @@ export default {
     },
   },
   'workflow': {
-    'self': 'workflow',
+    'self': 'Workflow',
     'edit': {
       'title': 'Editing workflow:',
     },
@@ -200,6 +242,35 @@ export default {
       'visualization': 'Visualization',
     }
   },
+  'jobs': {
+    'self': 'Jobs',
+    'description': 'List of all jobs - e.g. waiting, running, completed, etc..',
+    'searchFor': 'Search',
+  },
+  'datasources': {
+    'self': 'Datasources',
+    'description': 'List of all datasources - e.g. owned, shared, etc..',
+    'searchFor': 'Search',
+    'upload': {
+      'uploadDatabase': 'Upload database',
+      'chooseButton': 'Choose your file',
+      'dropzone': 'Or drag and drop the file here',
+      'uploading': 'Uploading file: <strong>{{resource}}</strong>',
+      'successMessage': 'The file <strong>{{resource}}</strong> was successfully uploaded.',
+      'errorMessage': 'An error occurried to the upload of file <strong>{{resource}}</strong>. The server message error is: {{message}}',
+    }
+  },
+  'datasource': {
+    'self': 'Datasource',
+    'edit': {
+      'title': 'Editing datasource:',
+      'addAttrButton': 'New Attribute',
+    },
+    'new': {
+      'title': 'Upload your database',
+      'description': 'Send files in json, csv, xml, netCDF4, HDF5, Shapefile, text, pickle ou a custom format.',
+    },
+  },
   'visualizations': {
     'evaluate-model': {
       'self': 'evaluate model'
@@ -222,6 +293,12 @@ export default {
     'summary-statistics': {
       'self': 'summary statistics'
     },
+  },
+  'share': {
+    'title': 'Share',
+    'emptyPermissions': 'Share with others users',
+    'sharedUsers': 'Shared with those users',
+    'allUsers': 'All users',
   },
   'en': 'English',
   'pt': 'Português',

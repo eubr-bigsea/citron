@@ -1,0 +1,19 @@
+<div class="row file-upload">
+  {{#if serverMessage}}
+    <div class="col-xs-6 pull-right server-message {{serverMessage.status}}" onclick={{action 'dismissMessage'}}>
+      {{#if serverMessage.fileSuccess}}
+        <p>{{t 'datasources.upload.successMessage' resource=serverMessage.fileName}}</p>
+      {{/if}}
+      {{#if serverMessage.fileError}}
+        <p>{{t 'datasources.upload.errorMessage' resource=serverMessage.fileName message=serverMessage.fileError}}</p>
+      {{/if}}
+    </div>
+  {{/if}}
+  <div class="col-xs-6 pull-right content">
+    <div class='minimize'>
+      <button class='fa fa-minus pull-left close' {{action 'minimize'}}></button>
+    </div>
+    {{datasources/upload-progressbar isVisible=isUploading resumable=resumable file=file progress=progress isUploading=isUploading}}
+    {{datasources/load-zone isVisible=(not isUploading)}}
+  </div>
+</div>
