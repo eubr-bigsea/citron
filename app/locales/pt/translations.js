@@ -58,6 +58,14 @@ export default {
       'label-append': 'Compartilhe essa {{resource}} com outros usuários',
       'searchFor': 'Busque outros usuários para compartilhar'
     },
+    'inferSchema': {
+      'label': 'Inferir Atributos',
+      'label-append': 'Defina opções para inferir campos da datasource',
+      'delimiter': 'Delimitador:',
+      'quote-char': 'Enclosure:',
+      'header': 'Cabeçalho ?',
+      'infer': 'Inferir Atributos',
+    },
     'attributes': {
       'label': 'Atributos',
       'label-append': 'Edite os atributos desta datasource'
@@ -252,6 +260,7 @@ export default {
     'self': 'Datasource',
     'edit': {
       'title': 'Editando datasource:',
+      'addAttrButton': 'Novo Atributo',
     },
   },
   'visualizations': {
