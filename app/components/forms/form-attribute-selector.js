@@ -2,9 +2,13 @@ import FormComponent from 'lemonade-ember/lib/form-component';
 import Ember from 'ember';
 
 export default FormComponent.extend({
-  init() {
-    this._super(...arguments);
-
+  didInsertElement() {
+    this.$('select').select2({
+      tags: true,
+      dropdownParent: this.$()
+    });
+  },
+  didReceiveAttrs(){
     this.set('parsedValues', Ember.A());
 
     let parsed = this.get('parsedValues');
@@ -31,12 +35,7 @@ export default FormComponent.extend({
       });
     }
   },
-  didInsertElement() {
-    this.$('select').select2({
-      tags: true,
-      dropdownParent: this.$()
-    });
-  },
+
   actions: {
     valueChanged() {
       this._super(this.$('select').val());

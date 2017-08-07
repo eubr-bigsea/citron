@@ -62,7 +62,7 @@ export default {
       'label': 'Infer Schema',
       'label-append': 'Define options for infer schema of datasource',
       'delimiter': 'Delimiter:',
-      'quote-char': 'Quote:',
+      'quote-char': 'Enclosure:',
       'header': 'Header?',
       'infer': 'Infer Schema',
     },
