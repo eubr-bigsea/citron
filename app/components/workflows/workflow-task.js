@@ -188,9 +188,13 @@ export default Ember.Component.extend({
       }) : [];
       var callback = function(result){
         task.uiPorts = result[task.id].uiPorts;
+        var aux = [];
         if( attr.length && task.uiPorts && task.uiPorts.inputs){
           for( var i=0; i < task.uiPorts.inputs.length; i++ ){
-            attr[i].values = JSON.stringify(task.uiPorts.inputs[i].attributes);
+            aux = aux.concat(task.uiPorts.inputs[i].attributes)
+          }
+          for( i=0; i < attr.length; i++ ){
+            attr[i].values = JSON.stringify([...new Set(aux)] );
           }
         }
         clickTask(component.get('forms'), task.forms, task);

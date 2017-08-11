@@ -28,4 +28,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     controller.set('users', model.users);
     controller.set('datasources', model.datasources);
   },
+  actions: {
+    refreshModel(){
+      this.refresh();
+    }
+  }
 });
