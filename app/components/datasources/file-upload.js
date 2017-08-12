@@ -55,6 +55,7 @@ export default Ember.Component.extend({
       this.set('serverMessage.status', 'success');
       this.set('serverMessage.fileSuccess', message);
       this.set('serverMessage.fileName', file.fileName);
+      this.get('refresh')();
     });
 
     resumable.on('fileError', (file, message) =>{

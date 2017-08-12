@@ -34,9 +34,12 @@ export default Ember.Component.extend({
     if(isNum.includes(type)){
       this.set('isNotNum', false);
       this.set('isNotChar', true);
+      this.set('attr.size', null);
     } else if (isChar.includes(type)){
       this.set('isNotNum', true);
       this.set('isNotChar', false);
+      this.set('attr.precision', null);
+      this.set('attr.scale', null);
     }
   },
 
