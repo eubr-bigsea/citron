@@ -15,6 +15,14 @@
   <a rel="tooltip" title={{t 'workflow.draw.delete'}} class="btn btn-primary btn-md " href="#" {{action 'deleteWorkflow'}}>
     <i class="fa fa-trash-o fa-lg"></i>
   </a>
+  <div class="cluster">
+    <label> {{t 'forms.cluster.label'}}</label>
+    <select class="custom-select" onchange={{action (mut cluster) value="target.value"}}>
+      {{#each clusters as |cl|}}
+        <option value={{cl.id}} selected={{eq cluster cl.id}}>{{cl.name}}</option>
+      {{/each}}
+    </select>
+  </div>
 </div>
 <div class="col-xs-12  col-sm-12 col-md-6 col-lg-2 col-xl-2 execute">
   <a onclick={{action 'play'}} class="play btn btn-md">

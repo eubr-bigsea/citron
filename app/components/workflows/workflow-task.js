@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
+import config from '../../config/environment';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
@@ -8,6 +9,16 @@ export default Ember.Component.extend({
   status: null,
   comment: null,
   isComment: false,
+  dataSourceLoader(id, callback) {
+    $.ajax({
+      url: config.limonero + '/datasources/' + id,
+      data: { attributes_name: true },
+      success: function(response){
+        callback(response.attributes.map(function(attr) {return attr.name}));
+      }
+    })
+  },
+
 
   init() {
     this._super(...arguments);
@@ -167,24 +178,35 @@ export default Ember.Component.extend({
         }
       });
     }
-
     Ember.$(el).click((e) => {
+      var component = this;
+      var workflow = component.get('workflow').toJSON({ includeId: true });
+      var dataSourceLoader = component.get('dataSourceLoader');
+      var exec = component.get('forms').filter(el => el.category === 'execution')[0];
+      var attr = exec ? exec.fields.filter((el) => {
+        return el.suggested_widget === "attribute-selector"
+      }) : [];
+      var callback = function(result){
+        task.uiPorts = result[task.id].uiPorts;
+        var aux = [];
+        if( attr.length && task.uiPorts && task.uiPorts.inputs){
+          for( var i=0; i < task.uiPorts.inputs.length; i++ ){
+            aux = aux.concat(task.uiPorts.inputs[i].attributes)
+          }
+          for( i=0; i < attr.length; i++ ){
+            attr[i].values = JSON.stringify([...new Set(aux)] );
+          }
+        }
+        clickTask(component.get('forms'), task.forms, task);
+      };
+      TahitiAttributeSuggester.compute(workflow, dataSourceLoader, callback);
+
       Ember.$('#forms').toggle(e.target.id != 'testDelete');
       Ember.$('.ui-selected').removeClass('ui-selected');
       Ember.$(el).addClass('ui-selected');
 
-      let exec = this.get('forms').filter(el => el.category === 'execution')[0];
 
-      let attr = exec ? exec.fields.filter((el) => {
-        return el.suggested_widget === "attribute-selector"
-      }) : [];
 
-      attr.forEach((el) => {
-        //TODO add attribute suggestions
-        el.values = JSON.stringify(["field1", "field2", "field3"]);
-      });
-
-      clickTask(this.get('forms'), task.forms, task);
     });
   },
   actions: {

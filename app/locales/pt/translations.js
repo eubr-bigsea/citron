@@ -47,6 +47,29 @@ export default {
     'platform': {
       'label': 'Plataforma',
     },
+    'cluster': {
+      'label': 'Clusters',
+    },
+    'format': {
+      'label': 'Formato',
+    },
+    'share': {
+      'label': 'Compartilhar',
+      'label-append': 'Compartilhe essa {{resource}} com outros usuários',
+      'searchFor': 'Busque outros usuários para compartilhar'
+    },
+    'inferSchema': {
+      'label': 'Inferir Atributos',
+      'label-append': 'Defina opções para inferir campos da datasource',
+      'delimiter': 'Delimitador:',
+      'quote-char': 'Enclosure:',
+      'header': 'Cabeçalho ?',
+      'infer': 'Inferir Atributos',
+    },
+    'attributes': {
+      'label': 'Atributos',
+      'label-append': 'Edite os atributos desta datasource'
+    },
     'create': 'Criar',
     'save': 'Salvar',
     'cancel': 'Cancelar',
@@ -67,8 +90,18 @@ export default {
     'updated': 'Atualizado em',
     'status': 'Status',
     'result': 'Resultado',
+    'size': 'Tamanho',
+    'format': 'Formato',
     'options': 'Opções',
-    'created': 'Criado em'
+    'created': 'Criado em',
+    'started': 'Começou em',
+    'finished': 'Terminou em',
+    'email': 'Email',
+    'permission': 'Permissão',
+    'type': 'Tipo',
+    'precision': 'Precisão',
+    'scale': 'Escala',
+    'nullable': 'Permite nulo'
   },
 
   'cards': {
@@ -101,7 +134,11 @@ export default {
           'one': 'Desculpe, o workflow não pode ser apagado.',
           'other': 'Desculpe, os workflows {{errors}} não puderam ser apagados.'
         },
-      }
+      },
+      'datasource': {
+        'success': 'A datasource foi apagada.',
+        'error': 'Houve um erro, a datasource não foi apagada.'
+      },
     },
     'save': {
       'workflow': {
@@ -133,7 +170,12 @@ export default {
           'one':'Apagar',
           'other': 'Apagar Todos',
         },
-      }
+      },
+      'datasource': {
+        'title': 'Apagando a datasource:',
+        'message': 'Você quer apagar permanentemente a datasource {{resource.name}}?',
+        'submitButton': 'Apagar',
+      },
     },
     'leave': {
       'workflow': {
@@ -151,7 +193,7 @@ export default {
     },
   },
   'workflow': {
-    'self': 'workflow',
+    'self': 'Workflow',
     'edit': {
       'title': 'Editando o workflow:',
     },
@@ -196,6 +238,31 @@ export default {
       'visualization': 'Visualização',
     }
   },
+  'jobs': {
+    'self': 'Jobs',
+    'description': 'Lista de todos os jobs - e.g. em espera, rodando, completos, etc..',
+    'searchFor': 'Pesquisar',
+  },
+  'datasources': {
+    'self': 'Datasources',
+    'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
+    'searchFor': 'Pesquisar',
+    'upload': {
+      'uploadDatabase': 'Carregar base',
+      'chooseButton': 'Escolha o arquivo',
+      'dropzone': 'Ou arraste e solte o arquivo aqui',
+      'uploading': 'Carregando o arquivo: <strong>{{resource}}</strong>',
+      'successMessage': 'O arquivo <strong>{{resource}}</strong> foi carregado com sucesso.',
+      'errorMessage': 'Um erro ocorreu ao carregar o arquivo <strong>{{resource}}</strong>. A mensagem de erro foi: {{message}}',
+    }
+  },
+  'datasource': {
+    'self': 'Datasource',
+    'edit': {
+      'title': 'Editando datasource:',
+      'addAttrButton': 'Novo Atributo',
+    },
+  },
   'visualizations': {
     'evaluate-model': {
       'self': 'Avaliação do modelo'
@@ -218,6 +285,12 @@ export default {
     'summary-statistics': {
       'self': 'Estatísticas sumárias'
     },
+  },
+  'share': {
+    'title': 'Compartilhar',
+    'emptyPermissions': 'Compartilhe com outros usuários',
+    'sharedUsers': 'Compartilhado com estes usuários',
+    'allUsers': 'Todos os usuários',
   },
   'en': 'English',
   'pt': 'Português',

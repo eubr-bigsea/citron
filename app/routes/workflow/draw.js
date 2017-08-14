@@ -16,6 +16,7 @@ export default Ember.Route.extend({
     }
 
     return RSVP.hash({
+      clusters: this.get('store').findAll('cluster'),
       workflow: this.get('store').findRecord('workflow', params.id),
       operations: this.store.query('operation', queryParams),
       groupedOperations: groupBy(this.store.query('operation', queryParams), 'categories'),
@@ -27,6 +28,7 @@ export default Ember.Route.extend({
     if(!this.get('currentModel.workflow.image')) {
       this.set('currentModel.workflow.image', 'img1.png');
     }
+    controller.set('cluster', model.clusters.get('firstObject.id'));
   },
 
   actions: {

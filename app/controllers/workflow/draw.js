@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   platform: null,
   hasChanged: false,
   modalContent: null,
+  cluster: null,
 
   actions: {
     hasChanged(param){
@@ -26,9 +27,13 @@ export default Ember.Controller.extend({
       this.set('previousTransition', null);
     },
 
-    goTo(routeName){
+    goTo(routeName, params){
       this.set('hasChanged', false);
-      this.transitionToRoute(routeName);
+      if(params){
+        this.transitionToRoute(routeName, params);
+      } else {
+        this.transitionToRoute(routeName);
+      }
     },
   },
 });

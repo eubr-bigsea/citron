@@ -38,27 +38,18 @@ export default Ember.Component.extend({
     play(){
       var component = this;
       //FIX THIS
-      let workflow = {};
-      workflow.id = this.get('workflow.id');
-      workflow.image = this.get('workflow.image');
-      workflow.name = this.get('workflow.name');
-      workflow.user = this.get('workflow.user');
-      workflow.tasks = this.get('workflow.tasks');
-      workflow.flows = this.get('workflow.flows');
-      workflow.platform = this.get('workflow.platform');
-      workflow.updated = this.get('workflow.updated');
-      workflow.description = this.get('workflow.description');
+      let workflow = this.get('workflow').toJSON({ includeId: true });
       var user = this.get('sessionAccount.user');
       let jobHash = {
         name: 'teste',
         user: { id: user.get('id'), login: user.get('email'), name: user.get('name')},
         workflow: workflow,
-        cluster: { id: 1}
+        cluster: { id: this.get('cluster')}
       };
       this.get('workflow').save();
       let job = this.get('store').createRecord('job', jobHash);
       job.save().then(function(job){
-        Ember.getOwner(component).lookup('router:main').transitionTo('job.show', job.id);
+        component.get('goTo')('job.show', job.id);
       } ).catch(function(error){ console.log(error) });
     },
   },

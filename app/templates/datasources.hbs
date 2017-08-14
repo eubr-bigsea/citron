@@ -1,0 +1,5 @@
+<div id="page-content-wrapper" class="container-fluid page content wrapper">
+  {{datasources/top-menu class="top-menu container-fluid" filterText=filterText uploadTab=uploadTab}}
+  {{datasources/large-table datasources=datasources users=model.users id="large-table-datasources" class="container-fluid"}}
+</div>
+{{datasources/file-upload class='container-fluid file-upload-wrapper' isVisible=uploadTab refresh=(route-action 'refreshModel')}}

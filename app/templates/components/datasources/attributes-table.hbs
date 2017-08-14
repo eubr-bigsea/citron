@@ -1,0 +1,23 @@
+<table class="table table-sm attributes-table">
+  <thead>
+    <tr>
+      <th class='center remove-attr'></th>
+      <th>{{t 'tables.name'}}</th>
+      <th class='center'>{{t 'tables.type'}}</th>
+      <th class='center'>{{t 'tables.size'}}</th>
+      <th class='center'>{{t 'tables.precision'}}</th>
+      <th class='center'>{{t 'tables.scale'}}</th>
+      <th class='center'>{{t 'tables.nullable'}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each attributes as |attr|}}
+      {{datasources/attribute-item attr=attr removeAttr=(action 'removeAttr')}}
+    {{/each}}
+  </tbody>
+</table>
+<div>
+  <a class='btn btn-primary add-attr' {{action 'addAttr'}}>
+    <i class='fa fa-plus'></i> {{t 'datasource.edit.addAttrButton'}}
+  </a>
+</div>

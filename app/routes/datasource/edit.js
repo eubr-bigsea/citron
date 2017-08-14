@@ -1,25 +1,54 @@
 import Ember from 'ember';
 import config from '../../config/environment';
 
-const {$: { ajax }} = Ember;
-
 export default Ember.Route.extend({
-  model(params) {
+  model(params){
     this._super(...arguments);
-    var requestOptions = {
-      url: `${config.stand}/datasources/${params.id}`,
-      type: 'GET'
-    };
-    return ajax(requestOptions);
+    return this.store.findRecord('datasource', params.id);
+  },
+  setupController(controller){
+    var formats = [
+      { name: 'XML', value: 'XML_FILE' },
+      { name: 'NetCDF4', value: 'NETCDF4' },
+      { name: 'HDF5', value: 'HDF5' },
+      { name: 'Shapefile', value: 'SHAPEFILE' },
+      { name: 'Text', value: 'TEXT' },
+      { name: 'Custom', value: 'CUSTOM' },
+      { name: 'JSON', value: 'JSON' },
+      { name: 'CSV', value: 'CSV' },
+      { name: 'Pickle', value: 'PICKLE' },
+    ];
+    controller.set('formats', formats);
+    controller.set('delimiter',',');
+    controller.set('quote_char', '"');
+    controller.set('use_header', false);
+
+    return this._super(...arguments);
   },
   actions:{
-    save(){
-      var datasource = this.currentModel;
-      ajax({
-        url: `${config.stand}/datasources/${datasource.id}`,
-        type: 'PATCH',
-        data: {datasource: datasource}
+    inferSchema(){
+      let controller = this.get('controller');
+      let component = this;
+      $.ajax({
+        type: "POST",
+        url:`${config.limonero}/datasources/infer-schema/${controller.model.id}`,
+        contentType:"application/json",
+        dataType:"json",
+        data: JSON.stringify({
+          delimiter: controller.delimiter,
+          quote_char: controller.quote_char,
+          use_header: controller.use_header
+        })
+      }).then(function(response) {
+        if(response.status === "OK"){ component.refresh(); }
       });
     },
-  }
+    save(){
+      var datasource = this.currentModel;
+      datasource.save().then(
+        () => { this.transitionTo('datasources') },
+        () => { $("#flashError").show().fadeIn().delay(2000).fadeOut('slow'); }
+      );
+    },
+  },
 });
