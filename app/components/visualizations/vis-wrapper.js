@@ -1,26 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
-  init() {
-    this._super(...arguments);
-  },
-
   // Set html elements
   tagName: "div",
   classNames: ["gViz-outer-wrapper"],
 
   // Initialize data
   data: null,
-  hasData: false,
-  dataObsever: Ember.observer('data', function() { return this.set('hasData', this.get('data') != null); }),
+  isEmpty: Ember.computed.empty('data'),
 
   // Initialize data
   didInsertElement() {
 
     // Update data function
     this.get('updateData')(this);
-
   },
 
   // Update data function
@@ -39,13 +32,11 @@ export default Ember.Component.extend({
       },
 
       // Hide loading div and render error
-      error() { gViz.helpers.loading.hide(); console.log("Error"); },
+      error() { gViz.helpers.loading.hide(); console.error("Error"); },
 
       // Hide loading div and render complete
       complete() { gViz.helpers.loading.hide(); }
 
     });
-
   }
-
 });
