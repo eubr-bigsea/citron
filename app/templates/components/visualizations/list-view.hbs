@@ -1,0 +1,9 @@
+<div class='vis-list-view'>
+  {{#each visualizations as |vis|}}
+    <a class='vis-list-item' href='{{vis.url}}'>
+      <div class='initials'>{{vis.initials}}</div>
+      <div class='text'><i class='fa {{vis.icon}}'></i>{{vis.title}}</div>
+      <div class='description'>{{vis.description}}</div>
+    </a>
+  {{/each}}
+</div>

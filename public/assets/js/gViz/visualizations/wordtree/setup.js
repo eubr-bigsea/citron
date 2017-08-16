@@ -76,12 +76,10 @@ gViz.vis.wordtree.setup = function () {
             }).attr("x", function (d) {
               return d.depth === 0 ? -d.bbox.width : 5;
             }).attr("text-anchor", "start").style("font-size", function (d) {
-              return d.fontSize.toString() + 'px';
+              return (d.parent == null ? (d.fontSize - 2) : d.fontSize) + 'px';
             })
             //.style("display", "none")
-            .text(function (d) {
-              return d.data.name;
-            });
+            .text(function (d) { return d.data.name; });
 
             // UPDATE
             var nodeUpdate = nodeEnter.merge(node);

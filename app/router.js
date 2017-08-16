@@ -36,6 +36,7 @@ Router.map(function() {
   this.route('policy');
   this.route('notFound', {path: '/*path'});
   this.route('datasources');
+  this.route('visualization');
 });
 
 export default Router;

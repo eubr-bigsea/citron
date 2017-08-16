@@ -1,0 +1,24 @@
+svg.histogram {
+
+  .area { stroke-width: 0px; fill-opacity: .8; }
+  .line { fill: none !important; stroke-width: 5px; }
+  .bg-rect { fill: $middle-white; fill-opacity: 1; }
+
+  font-family: Helvetica, Arial, Sans-Serif;
+
+  .node, .x.axis, .y.axis {
+    text {
+      font-size: 12px; font-weight: normal; letter-spacing: 1px;  fill: $middle-gray;
+      tspan {
+        &.day   { font-size: 10px; }
+        &.month { font-size: 13px; }
+        &.year  { font-size: 9px; }
+      }
+    }
+    line { stroke: $light-gray; fill: none;}
+    path { fill: none; stroke: none; }
+  }
+  .bg-rect-stroke { fill: transparent; stroke: $light-gray; stroke-width: 1; }
+  .node { text { fill: #FFF; } }
+
+}

@@ -54,9 +54,7 @@ gViz.vis.wordtree.data_ = function () {
           _var.getValues(_var.root);
 
           // Update font scale domain
-          _var.fontScale.domain([1, d3.max(_var.root.children, function (d) {
-            return d._value;
-          })]);
+          _var.fontScale.domain([1, d3.max(_var.root.children, function (d) { return d._value; })]);
 
           //// Collapse after the third level
           //_var.root.children.forEach( function(c) { return if(c.children) { c.children.forEach(_var.collapse) }; } );

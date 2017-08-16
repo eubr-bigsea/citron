@@ -1,96 +1,156 @@
-"use strict";
-
 gViz.vis.graph = function () {
+
   "use strict";
 
-  var _id, _var, action, animation, colors, container, data, height, _main, margin, validate, width;
-  _id = "vis-graph-" + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
-  _var = void 0;
-  action = 'build';
-  animation = 900;
-  colors = {
-    scale: gViz.helpers.colors.d310
-  };
-  container = void 0;
-  data = [];
-  height = void 0;
-  margin = {
-    top: 0,
-    right: 0,
-    bottom: 50,
-    left: 0
-  };
-  width = void 0;
-  validate = function validate(step) {
+  // Initialize variables
+  var _id       = "vis-graph-" + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _var      = null;
+  var action    = 'build';
+  var animation = 900;
+  var colors    = { scale: gViz.helpers.colors.d310 };
+  var container = null;
+  var data      = [];
+  var height    = null;
+  var margin    = { top: 0, right: 0, bottom: 50, left: 0 };
+  var width      = null;
+
+  // Validate function
+  var validate = function (step) {
     switch (step) {
-      case 'build':
-        return container != null && $(container).length !== 0;
-      case 'initialize':
-        return true;
-      case 'create':
-        return true;
-      case 'setup':
-        return true;
-      case 'zoom':
-        return true;
-      case 'drag':
-        return true;
-      case 'brush':
-        return true;
-      case 'bind':
-        return true;
-      case 'tooltip':
-        return true;
-      default:
-        return false;
+      case 'build':      return container != null && $(container).length !== 0;
+      case 'initialize': return true;
+      case 'create':     return true;
+      case 'setup':      return true;
+      case 'zoom':       return true;
+      case 'drag':       return true;
+      case 'brush':      return true;
+      case 'bind':       return true;
+      case 'tooltip':    return true;
+      case 'search':     return true;
+      case 'label':      return true;
+      default:           return false;
     }
   };
-  _main = function main(step) {
+
+  // Main function
+  var main = function (step) {
+
+    // Validate step first
     if (validate(step)) {
+
+      // Each step
       switch (step) {
+
+        // Build visualization
         case 'build':
-          _main('initialize');
-          _main('create');
-          _main('setup');
-          _main('zoom');
-          _main('drag');
-          _main('brush');
-          _main('tooltip');
-          _main('bind');
+
+          main('initialize');
+          main('create');
+          main('setup');
+          main('zoom');
+          main('drag');
+          main('brush');
+          main('tooltip');
+          main('bind');
+          main('search');
+          main('label');
           break;
+
+        // Initialize variables
         case 'initialize':
+
           _var || (_var = {});
-          _var = gViz.vis.graph.initialize()._var(_var)._id(_var._id != null ? _var._id : _id).animation(animation).colors(colors).container(container).data(data).height(height).margin(margin).width(width).run();
+          _var = gViz.vis.graph.initialize()
+            ._var(_var)
+            ._id(_var._id != null ? _var._id : _id)
+            .animation(animation)
+            .colors(colors)
+            .container(container)
+            .data(data)
+            .height(height)
+            .margin(margin)
+            .width(width)
+            .run();
+
           break;
+
+        // Create wrappers
         case 'create':
-          _var = gViz.vis.graph.create()._var(_var).run();
+
+          _var = gViz.vis.graph.create()
+            ._var(_var)
+            .run();
           break;
+
+        // Setup skeleton
         case 'setup':
-          _var = gViz.vis.graph.setup()._var(_var).run();
+
+          _var = gViz.vis.graph.setup()
+            ._var(_var)
+            .run();
           break;
+
+        // Zoom function
         case 'zoom':
-          _var = gViz.vis.graph.zoom()._var(_var).run();
+          _var = gViz.vis.graph.zoom()
+            ._var(_var)
+            .run();
           break;
+
+        // Drag function
         case 'drag':
-          _var = gViz.vis.graph.drag()._var(_var).action('bind').run();
+          _var = gViz.vis.graph.drag()
+            ._var(_var)
+            .action('bind')
+            .run();
           break;
+
+        // Set brush
         case 'brush':
           _var = gViz.vis.graph.brush()._var(_var).action('reset').run();
           _var = gViz.vis.graph.brush()._var(_var).action('bind').run();
           break;
+
+        // Create tooltips
         case 'tooltip':
-          _var = gViz.vis.graph.tooltip()._var(_var).action('create').run();
+          _var = gViz.vis.graph.tooltip()
+            ._var(_var)
+            .action('create')
+            .run();
           break;
+
+        // Bind events
         case 'bind':
           _var = gViz.vis.graph.bind()._var(_var).action('mouse').run();
           _var = gViz.vis.graph.bind()._var(_var).action('buttons').run();
           _var = gViz.vis.graph.bind()._var(_var).action('list-items').run();
           _var = gViz.vis.graph.bind()._var(_var).action('resize').run();
+          break;
+
+        // Bind search field
+        case 'search':
+          _var = gViz.vis.graph.search()
+            ._var(_var)
+            .run();
+          break;
+
+        // Create labels
+        case 'label':
+          _var = gViz.vis.graph.label()
+            ._var(_var)
+            .run();
+          break;
+
       }
     }
+
     return _var;
   };
+
+  // Public variables
   ['_id', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
+
+    // Validate function
     validate[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
@@ -98,43 +158,20 @@ gViz.vis.graph = function () {
       eval(key + " = _");
       return validate;
     };
-    return _main[key] = function (_) {
+
+    // Main function
+    return main[key] = function (_) {
       if (!arguments.length) {
         eval("return " + key);
       }
       eval(key + " = _");
-      return _main;
+      return main;
     };
+
   });
-  _main.build = function (_) {
-    return _main("build");
-  };
-  _main.initialize = function (_) {
-    return _main("initialize");
-  };
-  _main.create = function (_) {
-    return _main("create");
-  };
-  _main.setup = function (_) {
-    return _main("setup");
-  };
-  _main.zoom = function (_) {
-    return _main("zoom");
-  };
-  _main.drag = function (_) {
-    return _main("drag");
-  };
-  _main.brush = function (_) {
-    return _main("brush");
-  };
-  _main.bind = function (_) {
-    return _main("bind");
-  };
-  _main.tooltip = function (_) {
-    return _main("tooltip");
-  };
-  _main.run = function (_) {
-    return _main(_);
-  };
-  return _main;
+
+  // Set build function
+  main.build = function (_) { return main("build"); };
+
+  return main;
 };
