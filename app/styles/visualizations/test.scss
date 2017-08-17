@@ -1,0 +1,39 @@
+.vis-test {
+  padding: 20px 30px;
+  .page-header {
+    margin-bottom: 20px;
+    .page-title {
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-right: 10px;
+      i { float: right; }
+    }
+    .page-subtitle {
+      color: #999;
+      font-size: 12px;
+      font-weight: 300;
+    }
+    .page-description {
+      color: #434343;
+      font-size: 12px;
+      font-weight: 300;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .gViz-outer-wrapper {
+    width: 100%;
+    height: calc(100% - 90px);
+    background-color: #FFF;
+    //border: 1px solid #CCC;
+
+    &.tiny   { width: 300px;  height: 200px; }
+    &.small  { width: 500px;  height: 335px; }
+    &.medium { width: 700px;  height: 470px; }
+    &.big    { width: 1000px; height: 670px; }
+
+  }
+}
+

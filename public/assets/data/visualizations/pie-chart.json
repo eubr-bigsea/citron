@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "label": "East",
+      "value": 53245
+    },
+    {
+      "label": "West",
+      "value": 28479
+    },
+    {
+      "label": "South",
+      "value": 19697
+    },
+    {
+      "label": "North",
+      "value": 24037
+    },
+    {
+      "label": "Central",
+      "value": 40245
+    }
+  ]
+}

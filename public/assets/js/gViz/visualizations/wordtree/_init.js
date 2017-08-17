@@ -1,47 +1,29 @@
-'use strict';
-
-// Initialize the visualization class
-
 gViz.vis.wordtree = function () {
   "use strict";
 
   // Get attributes values
-
-  var _id = 'vis-wordtree-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
-  var _var = undefined;
-  var action = 'build';
+  var _id       = 'vis-wordtree-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
+  var _var      = null;
+  var action    = 'build';
   var animation = 900;
-  var click = { selector: 'svg', fn: function fn(d) {
-      if (d == null) {
-        d = "Clicked";
-      }return console.log(d);
-    }
-  };
-  var colors = { scale: gViz.helpers.colors.main };
-  var container = undefined;
-  var data = [];
-  var height = undefined;
-  var margin = { top: 10, right: 10, bottom: 10, left: 10 };
-  var width = undefined;
+  var click     = { selector: 'svg', fn: function fn(d) { if (d == null) { d = "Clicked"; } return console.log(d); } };
+  var colors    = { scale: gViz.helpers.colors.main };
+  var container = null;
+  var data      = [];
+  var height    = null;
+  var margin    = { top: 10, right: 10, bottom: 10, left: 10 };
+  var width     = null;
 
   // Validate attributes
   var validate = function validate(step) {
-
     switch (step) {
-      case 'build':
-        return container != null && $(container).length !== 0;
-      case 'initialize':
-        return true;
-      case 'helpers':
-        return true;
-      case 'create':
-        return data.length !== 0;
-      case 'data_':
-        return data.length !== 0;
-      case 'setup':
-        return data.length !== 0;
-      default:
-        return false;
+      case 'build':      return container != null && $(container).length !== 0;
+      case 'initialize': return true;
+      case 'helpers':    return true;
+      case 'create':     return data.length !== 0;
+      case 'data_':      return data.length !== 0;
+      case 'setup':      return data.length !== 0;
+      default:           return false;
     }
   };
 
@@ -71,35 +53,54 @@ gViz.vis.wordtree = function () {
           if (!_var) {
             _var = {};
           }
-          _var = gViz.vis.wordtree.initialize()._var(_var)._id(_var._id != null ? _var._id : _id).animation(animation).click(click).colors(colors).container(container).data(data).height(height).margin(margin).width(width).run();
+          _var = gViz.vis.wordtree.initialize()
+            ._var(_var)
+            ._id(_var._id != null ? _var._id : _id)
+            .animation(animation)
+            .click(click)
+            .colors(colors)
+            .container(container)
+            .data(data)
+            .height(height)
+            .margin(margin)
+            .width(width)
+            .run();
           break;
 
         // Initialize helpers functions
         case 'helpers':
 
           // Initialize helpers functions
-          _var = gViz.vis.wordtree.helpers()._var(_var).run();
+          _var = gViz.vis.wordtree.helpers()
+            ._var(_var)
+            .run();
           break;
 
         // Parse data
         case 'data_':
 
           // Creating
-          _var = gViz.vis.wordtree.data_()._var(_var).run();
+          _var = gViz.vis.wordtree.data_()
+            ._var(_var)
+            .run();
           break;
 
         // Create initial elements
         case 'create':
 
           // Creating
-          _var = gViz.vis.wordtree.create()._var(_var).run();
+          _var = gViz.vis.wordtree.create()
+            ._var(_var)
+            .run();
           break;
 
         // Setup elements
         case 'setup':
 
           // Creating
-          _var = gViz.vis.wordtree.setup()._var(_var).run();
+          _var = gViz.vis.wordtree.setup()
+            ._var(_var)
+            .run();
           break;
 
       }

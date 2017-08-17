@@ -37,9 +37,10 @@ gViz.vis.graph.tooltip = function () {
             case 'show':
               if (!_var.selection.dragging) {
                 bbox = {
-                  left: _var.container.jq.offset().left + node.x * _var.transform.k + _var.transform.x,
-                  top: _var.container.jq.offset().top + node.y * _var.transform.k + _var.transform.y,
-                  width: node.group === 'documents' ? 15 : 15
+                  left: _var.container.jq.offset().left + _var.transform.x + (node.x * _var.transform.k) - 0.5,
+                  top:  _var.container.jq.offset().top  + _var.transform.y + (node.y * _var.transform.k) - node.radius + 11,
+                  width: 14,
+                  height: (node.centered != null && node.centered ? (15 - node.radius ) : (15 - (node.radius / _var.transform.k))) - 2 - (node.radius * .2)
                 };
 
                 // Set tooltip content title and subtitle
@@ -54,10 +55,15 @@ gViz.vis.graph.tooltip = function () {
                   });
                 }
 
+                // If its centered, warn user
+                if(node.centered != null && node.centered) {
+                  _var.tooltip.content += "<hr><span class='info'>This node was <b>filtered</b> or is <b>part of the query</b>.</span>";
+                }
+
                 d3.select('.tooltipster-visualization .tooltipster-content').html(_var.tooltip.content);
                 offset = {
-                  top: bbox.top - 2 * node.radius / _var.transform.k - $('.tooltipster-visualization').outerHeight() / 2,
-                  left: bbox.left + bbox.width - $('.tooltipster-visualization').outerWidth() / 2,
+                  top: bbox.top - $('.tooltipster-visualization').outerHeight() / 2,
+                  left: bbox.left - $('.tooltipster-visualization').outerWidth() / 2,
                   arrow: void 0
                 };
                 padding = 8;

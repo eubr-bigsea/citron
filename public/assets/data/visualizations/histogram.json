@@ -1,0 +1,41 @@
+{
+  "title": "Here is an example title",
+  "subtitle": "Here is an example subtitle",
+  "x": {
+    "title": "Revenue $",
+    "tooltip": "Revenue",
+    "prefix": "",
+    "sufix": "$",
+    "format": "",
+    "color": "#FF420A"
+  },
+  "data": [
+    {
+      "id": "Red Clutches",
+      "name": "Red Clutches",
+      "x":  10
+    }, {
+      "id": "Blue Carryall",
+      "name": "Blue Carryall",
+      "x":  20
+    }, {
+      "id": "Green Cross-Body",
+      "name": "Green Cross-Body",
+      "x":  40
+    },
+    {
+      "id": "Red Clutches2",
+      "name": "Red Clutches",
+      "x":  10
+    }, {
+      "id": "Blue Carryall2",
+      "name": "Blue Carryall",
+      "x":  10
+    }, {
+      "id": "Green Cross-Body2",
+      "name": "Green Cross-Body",
+      "x":  10
+    }
+
+  ]
+}
