@@ -4,6 +4,10 @@
 <div id="flashError" class="alert alert-danger" style="display:none">
   <span>{{t 'alert.save.workflow.error'}}</span>
 </div>
+<div id="flashNoDatasource" class="alert alert-danger" style="display:none">
+  <span>There was an error loading the datasources, seems like some of them no
+  longer exist. Please check the data reader operations.</span>
+</div>
 {{confirmation-modal modal=modal content=modalContent resource=workflow onSubmit=(action 'submit') goTo=goTo}}
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 name-editor">
   {{input value=workflow.name class="form-control underlined"}}
