@@ -15,7 +15,7 @@ if (!window.gViz.initializers) {
   window.gViz.initializers = {};
 }
 
-// Create helpers objects
-if (!window.gViz.helpers) {
-  window.gViz.helpers = {};
+// Create shared objects
+if (!window.gViz.shared) {
+  window.gViz.shared = {};
 }

@@ -1,12 +1,15 @@
-"use strict";
-
-// Create date helper main object
-
-if (!gViz.helpers.colors) {
-  gViz.helpers.colors = {};
+//Function to convert hex format to a rgb color
+function rgb2hex(rgb){
+  rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+  return (rgb && rgb.length === 4) ? "#" +
+    ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+    ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+    ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-gViz.helpers.colors = {
+// Module declaration
+gViz.shared.helpers.colors = {
+
   // Initializer main color pallete
   main: d3.scaleOrdinal(["#ea5c84","#ac73dc"]),
   aux: d3.scaleOrdinal(["#FFFFFF","#ac73dc"]),
@@ -19,6 +22,7 @@ gViz.helpers.colors = {
 
   // Is dark function
   isDark: function(c) {
+
     if(d3.color(c) != null) {
 
       c = rgb2hex(d3.color(c).toString());
@@ -50,4 +54,5 @@ gViz.helpers.colors = {
     else if(+d >= 90) { return "#d97055"; }
     else { return "#FFF"; }
   }
-}
+
+};

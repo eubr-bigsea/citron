@@ -1,35 +1,35 @@
-'use strict';
+// Imports
+var d3 = require("d3");
+var L = require("leaflet");
+var shared = require("../../shared/_init.js");
 
-// Initialize the visualization class
-gViz.vis.map = function () {
+// Module declaration
+module.exports = function () {
   "use strict";
 
   // Auxiliar Functions
   var components = {
-    initialize:  gViz.vis.map.initialize,
-    barScale:    gViz.vis.map.barScale,
-    create:      gViz.vis.map.create,
-    elements:    gViz.vis.map.elements,
-    events:      gViz.vis.map.events,
-    heatScale:   gViz.vis.map.heatScale,
-    heatLayer:   gViz.vis.map.heatLayer,
-    legend:      gViz.vis.map.legend,
-    renderMap:   gViz.vis.map.renderMap,
-    tiles:       gViz.vis.map.tiles,
-    style:       gViz.vis.map.style,
-    zoom:        gViz.vis.map.zoom,
+    initialize: require('./initialize.js'),
+    barScale: require('./bar-scale.js'),
+    create: require('./create.js'),
+    elements: require('./elements.js'),
+    events: require('./events.js'),
+    heatScale: require('./heat-scale.js'),
+    heatLayer: require('./heat-layer.js'),
+    legend: require('./legend.js'),
+    map: require('./map.js'),
+    style: require('./style.js'),
+    tiles: require('./tiles.js'),
+    zoom: require('./zoom.js')
   };
 
   // Get attributes values
-
-  // Get attributes values
-  var _id         = `vis-map-chart-${Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5}`;
+  var _id         = `vis-map-leaflet-heat-${Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5}`;
   var _var        = null;
   var action      = 'build';
   var animation   = 900;
   var container   = null;
-  // var colors      = { main: shared.helpers.colors.main, d3: d3.scaleOrdinal(d3.schemeCategory10) };
-  var colors      = null;
+  var colors      = { main: shared.helpers.colors.main, d3: d3.scaleOrdinal(d3.schemeCategory10) };
   var data        = [];
   var height      = null;
   var margin      = { top: 0, right: 0, bottom: 0, left: 0};
@@ -49,7 +49,7 @@ gViz.vis.map = function () {
       case 'elements':   return data != null && data.data != null;
       case 'heatScale':  return data != null && data.data != null;
       case 'heatLayer':  return data != null && data.data != null;
-      case 'renderMap':  return data != null && data.data != null;
+      case 'map':        return data != null && data.data != null;
       case 'legend':     return data != null && data.data != null;
       case 'style':      return true;
       case 'tiles':      return data != null && data.data != null;
@@ -59,9 +59,9 @@ gViz.vis.map = function () {
   };
 
   // Main function
-  var main = function main(step) {
+  var main = function (step) {
 
-    //Validate attributes if necessary
+    // Validate attributes if necessary
     if (validate(step)) {
 
       switch (step) {
@@ -72,7 +72,7 @@ gViz.vis.map = function () {
           main('initialize');
           main('style');
           main('tiles');
-          main('renderMap');
+          main('map');
           main('barScale');
           main('heatScale');
           main('heatLayer');
@@ -82,13 +82,11 @@ gViz.vis.map = function () {
           main('legend');
           break;
 
-
         // Initialize visualization variable
         case 'initialize':
 
+          // Initializing
           if (!_var) { _var = {};  }
-
-          //_var = gViz.vis.map.initialize()
           _var = components.initialize()
             ._var(_var)
             ._id((_var._id != null) ? _var._id : _id)
@@ -104,7 +102,6 @@ gViz.vis.map = function () {
             .startPoint(startPoint)
             .zoom(zoom)
             .run();
-
           break;
 
         // Initialize tiles
@@ -118,10 +115,10 @@ gViz.vis.map = function () {
           break;
 
         // Create initial elements
-        case 'renderMap':
+        case 'map':
 
           // Creating wrappers
-          _var = components.renderMap()
+          _var = components.map()
             ._var(_var)
             .run();
           break;
@@ -211,44 +208,22 @@ gViz.vis.map = function () {
 
     // Attach variables to validation function
     validate[key] = function (_) {
-      if (!arguments.length) {
-        eval('return ' + key);
-      }
-      eval(key + ' = _');
+      if (!arguments.length) { eval(`return ${key}`); }
+      eval(`${key} = _`);
       return validate;
     };
 
     // Attach variables to main function
     return main[key] = function (_) {
-      if (!arguments.length) {
-        eval('return ' + key);
-      }
-      eval(key + ' = _');
+      if (!arguments.length) { eval(`return ${key}`); }
+      eval(`${key} = _`);
       return main;
     };
   });
 
   // Secondary functions
-  main.build = function (_) {
-    return main("build");
-  };
-  main.initialize = function (_) {
-    return main("initialize");
-  };
-  main.create = function (_) {
-    return main("create");
-  };
-  main.setup = function (_) {
-    return main("setup");
-  };
-  main.draw = function (_) {
-    return main("draw");
-  };
-
-  // Execute the specific called function
-  main.run = function (_) {
-    return main(_);
-  };
+  main.run = _ => main("build");
 
   return main;
-};
+
+}

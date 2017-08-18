@@ -1,5 +1,5 @@
 // Initialize the visualization class
-gViz.vis.map.create = function() {
+gViz.vis.map.legend = function() {
   "use strict";
 
   // Get attributes values
@@ -26,35 +26,18 @@ gViz.vis.map.create = function() {
         // Build entire visualizations
         case 'run':
 
-          // Draw svg
-          L.svg().addTo(_var.map);
+          // Get outer wrapper
+          var outerWrapper = _var.container.d3.closest('.gViz-outer-wrapper');
 
-          _var.wrap = d3.select(_var.map.getPanes().overlayPane).select("svg")
-            .attr("pointer-events", "all")
-            .attr('class', `map-heat-bars chart-${_var._id}`);
+          // Set margin left and display style
+          outerWrapper.select('.legend-wrapper, .legend-wrapper-full').style('display', 'block')
 
-          // Draw g
-          _var.g = _var.wrap.selectAll("g.chart-wrap").data(["chart-wrap"]); // svg:g
-          _var.g.exit().remove();
-          _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
-
-          // Draw background grid
-          shared.visualComponents.backgroundGrid()
-            .id(_var._id)
-            .height(_var.height + _var.margin.top + _var.margin.bottom)
-            .width(_var.width + _var.margin.left + _var.margin.right)
-            .left(_var.margin.left)
-            .top(_var.margin.top)
-            .wrap(_var.container.d3)
-            .run();
-
-          // Draw shadow
-          shared.visualComponents.shadow()
-            ._var(_var)
-            .wrap(_var.wrap)
-            .id(_var.shadowId)
-            .run();
-
+          // Set margin left and display style
+          outerWrapper.select('.legend-wrapper, .legend-wrapper-full')
+            .select('.scale-wrapper')
+              .style('display', _var.mode.heat === true ? 'block' : 'none')
+              .select('.scale-rect')
+                .style('background', "linear-gradient(to right, "+_var.heatColors.join(',')+")")
 
           break;
       }

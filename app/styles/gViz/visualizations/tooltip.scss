@@ -1,0 +1,101 @@
+.gViz-tooltip {
+
+  font-family: 'Yantramanav', sans-serif;
+
+  position: absolute;
+  top:  10px;
+  left: 10px;
+  width: auto;
+  height: auto;
+  z-index: 99999999;
+
+  .content {
+    min-width: 80px;
+    min-height: 30px;
+    width: auto;
+    height: auto;
+    background-color: #FFF;
+    border: 1px solid #434343;
+    -webkit-box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.4);
+    box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.4);
+
+    .title {
+      padding: 10px 15px;
+      font-size: 12px;
+      font-weight: normal;
+      display: block;
+      width: 100%;
+
+      &.with-image {
+        padding: 0px;
+        height: 35px;
+        background-color: #FFF;
+
+        .title-img {
+          padding: 2px 8px;
+          img { height: 30px; }
+          font-weight: normal;
+          height: 35px;
+          display: block;
+          float: left;
+        }
+        .title-text {
+          height: 35px;
+          line-height: 35px;
+          padding: 0px 15px;
+          width: auto;
+          font-weight: normal;
+          display: block;
+          float: left;
+        }
+      }
+
+      span.metric { font-weight: normal; margin-right: 20px;  }
+      span.number { float: right; font-weight: bold; font-family: 'Bebas'; }
+    }
+
+    .text {
+      padding: 10px 15px;
+      font-size: 12px;
+      font-weight: normal;
+      display: block;
+      width: 100%;
+      span.metric { font-weight: normal; margin-right: 20px;  }
+      span.number { float: right; font-weight: bold; font-family: 'Bebas'; }
+    }
+  }
+
+  .arrow {
+    margin-top: -1px;
+    margin-left: calc(50% - 6px);
+    color: #434343;
+    font-size: 12px;
+    text-shadow: -3px 5px 5px rgba(0,0,0,0.4);
+    position: relative;
+    width: 100%;
+    height: 12px;
+    span {
+      -webkit-transform: scaleX(1.9); /* Safari and Chrome */
+      -moz-transform: scaleX(1.9);   /* Firefox */
+      -ms-transform: scaleX(1.9);   /* IE 9 */
+      -o-transform: scaleX(1.9);   /* Opera */
+      transform: scaleX(1.9);
+      width: 12px;
+      height: 12px;
+      display: block;
+      position: absolute;
+      z-index: 1002;
+      top: 0px;
+    }
+
+    &.no-body span {
+      top: -2px;
+      &.arrow-bg {
+        z-index: 1001;
+        top: 0px;
+      }
+    }
+  }
+
+}

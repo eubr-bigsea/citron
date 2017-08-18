@@ -1,6 +1,6 @@
+{{!--
 <div id="page-content-wrapper" class="container-fluid page content wrapper vis-test">
 
-  {{!-- Page header --}}
   <div class='page-header'>
     <span class='page-title'><i class='fa {{model.icon}}'></i>{{model.title}}</span>
     <span class='page-subtitle'>{{model.subtitle}}</span>
@@ -8,6 +8,9 @@
   </div>
 
   {{!-- Visualization wrapper component --}}
-  {{ visualizations/vis-wrapper viz=model dataUrl=model.dataUrl }}
 
+<div data-id='gViz-test-outer-wrapper'>
+  <div data-id='gViz-test-inner-wrapper' class='medium'>
+    {{ visualizations/vis-wrapper viz=model dataUrl=model.dataUrl }}
+  </div>
 </div>

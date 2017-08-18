@@ -1,2 +1,27 @@
-<div class='gViz-wrapper-inner map-chart' data-id={{elementId}}></div>
+<div class="gViz-outer-wrapper is-one-whole is-one-whole-tall is-absolute has-pd-hori-medium-lg has-pd-vert-medium-lg">
+  {{#if _title}}
+    <p class='header has-mg-bottom-normal'>
+      <span class='title has-c-shade-17 '>{{_title}}</span>
+    </p>
+  {{/if}}
 
+  <div class='legend-wrapper' >
+    <div class='legend'>
+      <div class='scale-wrapper'>
+        <span class='low-name'>Low</span>
+        <span class='scale-rect'></span>
+        <span class='high-name'>High</span>
+      </div>
+    </div>
+  </div>
+
+  <div class='gViz-inner-wrapper gViz-relative' data-id={{elementId}}></div>
+  <div class='gViz-map-table-tooltip'></div>
+  <div class='gViz-map-actions'>
+    <span data-action='reset' title='Reset Pan/Zoom'>
+      <i class="fa fa-refresh" aria-hidden="true"></i>
+    </span>
+    <span data-action='zoom-in'  title='Zoom in'>+</span>
+    <span data-action='zoom-out' title='Zoom out'>-</span>
+  </div>
+</div>

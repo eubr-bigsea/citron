@@ -23,7 +23,7 @@ export default Ember.Component.extend({
     $.ajax({
       url: self.get('dataUrl'),
       type: "GET",
-      beforeSend() { gViz.helpers.loading.show(); },
+      beforeSend() { gViz.shared.helpers.loading.show(); },
       contentType: "application/json",
       success(json) {
 
@@ -32,10 +32,10 @@ export default Ember.Component.extend({
       },
 
       // Hide loading div and render error
-      error() { gViz.helpers.loading.hide(); console.error("Error"); },
+      error() { gViz.shared.helpers.loading.hide(); console.error("Error"); },
 
       // Hide loading div and render complete
-      complete() { gViz.helpers.loading.hide(); }
+      complete() { gViz.shared.helpers.loading.hide(); }
 
     });
   }
