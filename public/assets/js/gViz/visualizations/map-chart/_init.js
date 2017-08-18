@@ -32,6 +32,8 @@ gViz.vis.map = function () {
         return true;
       case 'addMarkers':
         return true;
+      case 'heatLayer':
+        return true;
       default:
         return false;
     }
@@ -51,7 +53,8 @@ gViz.vis.map = function () {
           main('initialize');
           main('tiles');
           main('create');
-          main('addMarkers');
+          // main('addMarkers');
+          main('heatLayer');
           break;
 
         // Initialize visualization variable
@@ -102,6 +105,16 @@ gViz.vis.map = function () {
 
           // Creating
           _var = gViz.vis.map.addMarkers()
+            ._var(_var)
+            .run();
+
+          break;
+
+        // Create initial elements
+        case 'heatLayer':
+
+          // Creating
+          _var = gViz.vis.map.heatLayer()
             ._var(_var)
             .run();
 
