@@ -1,11 +1,13 @@
 <!-- Rounded switch -->
-<span class="toggle-left"> {{ textLeft }}</span>
-
 <div class="toggle-wrapper">
-  <label class="toggle-switch">
-    <input class="checked" type="checkbox" onclick={{action 'toggle'}}>
-    <span class={{concat "toggle-slider " shape}}></span>
-  </label>
-</div>
+  <span class="toggle-left"> {{ textLeft }}</span>
 
-<span class="toggle-right"> {{ textRight }}</span>
+  <div class="toggle-button">
+    <label class="toggle-switch">
+      <input id="toggle" type="checkbox" onclick={{action 'toggle'}}>
+      <span class={{concat "toggle-slider " shape}}></span>
+    </label>
+  </div>
+
+  <span class="toggle-right"> {{ textRight }}</span>
+</div>
