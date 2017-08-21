@@ -27,7 +27,7 @@ gViz.vis.map.zoom = function () {
 
           // Reset visualization zoom
           _var.container.d3.closest('.gViz-outer-wrapper').select("[data-action='reset']").on('click', function(d) {
-            _var.map.setView(_var.startPoint, _var.zoom);
+            _var.map.setView(_var.firstPoint, _var.firstZoom);
           });
 
           // Bind zoom in

@@ -72,6 +72,9 @@ gViz.vis.map.renderMap = function () {
             // Updates zoom value
             _var.zoom = _var.zoom ? _var.zoom : _var.map.getZoom();
 
+            _var.firstPoint = _var.map.getCenter();
+            _var.firstZoom = _var.map.getZoom();
+
             stash();
 
           }
