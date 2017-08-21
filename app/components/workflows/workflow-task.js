@@ -15,6 +15,10 @@ export default Ember.Component.extend({
       data: { attributes_name: true },
       success: function(response){
         callback(response.attributes.map(function(attr) {return attr.name}));
+      },
+      error: function(response) {
+        callback(null);
+        $("#flashNoDatasource").show().fadeIn().delay(2000).fadeOut('slow');
       }
     })
   },
