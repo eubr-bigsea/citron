@@ -5,14 +5,14 @@
     "title": "Revenue $",
     "tooltip": "Revenue",
     "prefix": "",
-    "sufix": "",
+    "suffix": "",
     "format": ""
   },
   "y": {
     "title": "Contribution to sell Mix",
     "tooltip": "% Change in Sales",
     "prefix": "",
-    "sufix": "%",
+    "suffix": "%",
     "format": ""
   },
   "data": [{

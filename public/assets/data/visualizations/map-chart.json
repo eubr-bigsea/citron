@@ -24,7 +24,7 @@
     "bottomBarColor": "#596A6D",
     "barColor": "#428DA1",
     "prefix": "$",
-    "sufix": "",
+    "suffix": "",
     "format": "",
     "type": "number"
   },
@@ -36,7 +36,7 @@
     ],
     "shapeId": "abbr",
     "prefix": "",
-    "sufix": "%",
+    "suffix": "%",
     "format": "locale",
     "type": "number"
   },
