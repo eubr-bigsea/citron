@@ -48,7 +48,7 @@ gViz.vis.donut_chart.elements = function () {
             arc = arc.enter().append('path').attr("class", "node-arc").merge(arc);
             arc
               .style('fill', function(d) { return d.data._color; })
-              .style('stroke', "#FFF")
+              .style('stroke', function(d) { return d.data._color; })
               .transition()
                 .attr("d", _var.arc)
 

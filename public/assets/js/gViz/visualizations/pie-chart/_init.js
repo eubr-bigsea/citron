@@ -1,48 +1,37 @@
-'use strict';
-
 // Initialize the visualization class
 gViz.vis.pie_chart = function () {
   "use strict";
 
-  // Get attributes values
-
-  var _id = 'vis-pie-chart-' + (Math.floor(Math.random() * (1000000000 - 5 + 1)) + 5);
-  var _class = undefined;
-  var _var = undefined;
+  // Auxiliar Functions
+  var _id = 'vis-pie-chart-' + (Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5).toString();
+  var _var = null;
   var action = 'build';
   var animation = 900;
-  var colors = { scale: gViz.shared.helpers.colors.main };
-  var container = undefined;
+  var container = null;
+  var colors = { main: gViz.shared.helpers.colors.main, d3: d3.scaleOrdinal(d3.schemeCategory10) };
   var data = [];
-  var height = undefined;
-  var margin = { top: 50, right: 50, bottom: 50, left: 50 };
-  var width  = undefined;
+  var height = null;
+  var margin = { top: 10, right: 10, bottom: 10, left: 10};
+  var metric = "x";
+  var width = null;
 
   // Validate attributes
-  var validate = function validate(step) {
-
+  var validate = function (step) {
     switch (step) {
-      case 'build':
-        return container != null && $(container).length !== 0;
-      case 'initialize':
-        return true;
-      case 'create':
-        return true;
-      case 'elements':
-        return true;
-      case 'draw':
-        return true;
-      case 'sort':
-        return true;
-      default:
-        return false;
+      case 'build':      return (container != null) && (d3.selectAll(container).size() !== 0 || d3.select(container).size() !== 0);
+      case 'initialize': return true;
+      case 'create':     return data != null && data.data != null && data.data.length > 0;
+      case 'elements':   return data != null && data.data != null && data.data.length > 0;
+      case 'legend':     return data != null && data.data != null && data.data.length > 0;
+      case 'parse':      return data != null && data.data != null && data.data.length > 0;
+      default: return false;
     }
   };
 
   // Main function
-  var main = function main(step) {
+  var main = function (step) {
 
-    //Validate attributes if necessary
+    // Validate attributes if necessary
     if (validate(step)) {
 
       switch (step) {
@@ -51,110 +40,101 @@ gViz.vis.pie_chart = function () {
         case 'build':
 
           main('initialize');
+          main('parse');
           main('create');
           main('elements');
-          main('draw');
-          main('sort');
+          main('legend');
           break;
 
         // Initialize visualization variable
         case 'initialize':
 
           // Initializing
-          if (!_var) {
-            _var = {};
-          }
+          if (!_var) { _var = {};  }
           _var = gViz.vis.pie_chart.initialize()
             ._var(_var)
-            ._id(_var._id != null ? _var._id : _id)
-            ._class(_class)
+            ._id((_var._id != null) ? _var._id : _id)
             .animation(animation)
-            .colors(colors)
             .container(container)
+            .colors(colors)
             .data(data)
             .height(height)
             .margin(margin)
+            .metric(metric)
             .width(width)
             .run();
           break;
 
+        // Parse data
+        case 'parse':
+
+          // Creating wrappers
+          _var = gViz.vis.pie_chart.parse()
+            ._var(_var)
+            .run();
+          break;
+
+
         // Create initial elements
         case 'create':
 
-          // Creating
-          _var = gViz.vis.pie_chart.create()._var(_var).run();
+          // Creating wrappers
+          _var = gViz.vis.pie_chart.create()
+            ._var(_var)
+            .run();
           break;
 
-        // Setup initial elements
+        // Setup elements
         case 'elements':
 
-          // elements
-          _var = gViz.vis.pie_chart.elements()._var(_var).run();
+          // Creating wrappers
+          _var = gViz.vis.pie_chart.elements()
+            ._var(_var)
+            .components(gViz.vis.pie_chart)
+            .data(_var.data.data)
+            .run();
           break;
 
-        // Draw Chart 
-        case 'draw':
+        // Show legend
+        case 'legend':
 
-          _var = gViz.vis.pie_chart.draw()._var(_var).run();
+          // Running
+          _var = gViz.vis.pie_chart.legend()
+            ._var(_var)
+            .components(gViz.vis.pie_chart)
+            .run();
           break;
 
-        // Draw Chart 
-        case 'sort':
-
-          _var = gViz.vis.pie_chart.sort()._var(_var).run();
-          break;
       }
     }
 
     return _var;
   };
 
-  //  Expose global variables
-  ['_id', '_class', '_var', 'action', 'animation', 'colors', 'container', 'data', 'height', 'margin', 'width'].forEach(function (key) {
+  // Expose global variables
+  ['_id', '_var', 'action', 'animation','container', 'colors', 'data', 'height', 'margin', 'metric', 'width'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {
-      if (!arguments.length) {
-        eval('return ' + key);
-      }
-      eval(key + ' = _');
+      if (!arguments.length) { eval(`return ${key}`); }
+      eval(`${key} = _`);
       return validate;
     };
 
     // Attach variables to main function
     return main[key] = function (_) {
-      if (!arguments.length) {
-        eval('return ' + key);
-      }
-      eval(key + ' = _');
+      if (!arguments.length) { eval(`return ${key}`); }
+      eval(`${key} = _`);
       return main;
     };
   });
 
   // Secondary functions
-  main.build = function (_) {
-    return main("build");
-  };
-  main.initialize = function (_) {
-    return main("initialize");
-  };
-  main.create = function (_) {
-    return main("create");
-  };
-  main.elements = function (_) {
-    return main("elements");
-  };
-  main.draw = function (_) {
-    return main("draw");
-  };
-  main.sort = function (_) {
-    return main("sort");
-  };
+  main.build = function (_) { return main("build"); };
 
   // Execute the specific called function
-  main.run = function (_) {
-    return main(_);
-  };
+  main.run = function (_) { return main(_); };
 
   return main;
-};
+
+}

@@ -48,6 +48,7 @@ gViz.vis.donut_chart.events = function () {
               arcs.transition()
                 .attr("d", function(g) { return g.data.id === node.data.id ? bigArc(g) : _var.arc(g); })
                 .style('fill', function(g) { return g.data.id === node.data.id ? g.data.color : g.data._color; })
+                .style('stroke', function(g) { return g.data.id === node.data.id ? g.data.color : "#FFF"; })
                 .style('opacity', function(g) { return g.data.id === node.data.id  ? 1 : 0.3; })
                 .style("filter", function(g) { return g.data.id === node.data.id ? "url(#"+_var.shadowId+")" : ""; })
 
@@ -119,6 +120,7 @@ gViz.vis.donut_chart.events = function () {
               // Reset arcs and links opacity
               arcs.transition()
                 .style('fill', function(g) { return g.data._color; })
+                .style('stroke', function(g) { return g.data._color; })
                 .style('opacity', 1)
                 .style('filter', '')
                 .attr("d", _var.arc)
