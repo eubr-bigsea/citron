@@ -1,9 +1,5 @@
-// Imports
-var d3 = require("d3");
-var helpers = require("../helpers/_init.js");
-
 // Initialize the visualization class
-module.exports = function() {
+gViz.shared.visualComponents.gradient = function() {
   "use strict";
 
   // Get attributes values

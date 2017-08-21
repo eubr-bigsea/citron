@@ -1,9 +1,5 @@
-// Imports
-var d3 = require("d3");
-var helpers = require("../helpers/_init.js");
-
 // Module declaration
-module.exports = function () {
+gViz.shared.visualComponents.shadow = function () {
   "use strict";
 
   // Get attributes values

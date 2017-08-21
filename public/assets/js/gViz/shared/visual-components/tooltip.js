@@ -1,9 +1,5 @@
-// Imports
-var d3 = require("d3");
-var helpers = require("../helpers/_init.js");
-
 // Initialize the visualization class
-module.exports = function() {
+gViz.shared.visualComponents.tooltip = function() {
   "use strict";
 
   // Get attributes values
@@ -63,12 +59,12 @@ module.exports = function() {
                 if(i === 0 && hasImg === true && obj.img != null && obj.img !== "") {
 
                   t = "<span class='title with-image' style='color: #666; background-color: #FFF; "+( i !== 0 ? 'border-top: 1px solid {{color}}' : '')+"'><span class='title-img' style='border-right: 1px solid {{color}}'><img src='{{img}}'/></span><span class='title-text'>"+t+"</span></span>";
-                  //t = "<span class='title with-image' style='color: {{color}}; background-color: " + (helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + "; "+( i !== 0 ? 'border-top: 1px solid {{color}}' : '')+"'><span class='title-img' style='border-right: 1px solid {{color}}'><img src='{{img}}'/></span><span class='title-text'>"+t+"</span></span>";
+                  //t = "<span class='title with-image' style='color: {{color}}; background-color: " + (gViz.shared.helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + "; "+( i !== 0 ? 'border-top: 1px solid {{color}}' : '')+"'><span class='title-img' style='border-right: 1px solid {{color}}'><img src='{{img}}'/></span><span class='title-text'>"+t+"</span></span>";
 
                 } else {
 
                   t = "<span class='title' style='color: #666; background-color: #FFF; "+( i !== 0 ? 'border-top: 1px solid {{color}}' : '')+"'>" + t + "</span>";
-                  //t = "<span class='title' style='color: {{color}}; background-color: " + (helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + "; "+( i !== 0 ? 'border-top: 1px solid {{color}}' : '')+"'>" + t + "</span>";
+                  //t = "<span class='title' style='color: {{color}}; background-color: " + (gViz.shared.helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + "; "+( i !== 0 ? 'border-top: 1px solid {{color}}' : '')+"'>" + t + "</span>";
 
                 }
 
@@ -77,10 +73,10 @@ module.exports = function() {
 
               // Set body content
               body = body == null || body.constructor !== Array ? [] : body;
-              body = body.map(function(d) { return "<span class='text' style='background-color: {{color}}; color: " + (helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + ";'>" + d + "</span>"; }).join('');
+              body = body.map(function(d) { return "<span class='text' style='background-color: {{color}}; color: " + (gViz.shared.helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + ";'>" + d + "</span>"; }).join('');
 
               // Join content
-              content = helpers.text.replaceVariables(title, obj) + helpers.text.replaceVariables(body, obj);
+              content = gViz.shared.helpers.text.replaceVariables(title, obj) + gViz.shared.helpers.text.replaceVariables(body, obj);
 
               // Update tooltip content
               var tooltip = d3.selectAll('.gViz-tooltip').data(["gViz-tooltip"]);
@@ -103,7 +99,7 @@ module.exports = function() {
                   arrow = arrow.enter().append("div").attr("class", 'arrow ' + (body === '' ? 'no-body' : '')).merge(arrow);
                   arrow
                     .style("color", borderColor)
-                    .html("<span style= 'color:" + (body === '' ? (helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") : '') + ";'>▼</span><span class='arrow-bg'>▼</span>");
+                    .html("<span style= 'color:" + (body === '' ? (gViz.shared.helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") : '') + ";'>▼</span><span class='arrow-bg'>▼</span>");
 
                 });
 

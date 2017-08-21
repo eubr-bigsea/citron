@@ -1,9 +1,5 @@
-// Imports
-var d3 = require("d3");
-var helpers = require("../helpers/_init.js");
-
 // Initialize the visualization class
-module.exports = function() {
+gViz.shared.visualComponents.tooltipTable = function() {
   "use strict";
 
   // Get attributes values
@@ -53,16 +49,16 @@ module.exports = function() {
               title = title == null || title.constructor !== Array ? [] : title;
               title = title.map(function(t, i) {
 
-                return "<div class='node-header' style='color: {{color}}; background-color: " + (helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + "; "+( i !== 0 ? 'border-top: 1px solid {{color}}' : '')+"'>" + t + "</div>";
+                return "<div class='node-header' style='color: {{color}}; background-color: " + (gViz.shared.helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + "; "+( i !== 0 ? 'border-top: 1px solid {{color}}' : '')+"'>" + t + "</div>";
 
               }).join('');
 
               // Set body content
               body = body == null || body.constructor !== Array ? [] : body;
-              body = body.map(function(d) { return "<div class='node-edge' style='background-color: {{color}}; color: " + (helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + ";'>" + d + "</div>"; }).join('');
+              body = body.map(function(d) { return "<div class='node-edge' style='background-color: {{color}}; color: " + (gViz.shared.helpers.colors.isDark(obj.color) ? "#FFF" : "#434343") + ";'>" + d + "</div>"; }).join('');
 
               // Join content
-              content = helpers.text.replaceVariables(title, obj) + helpers.text.replaceVariables(body, obj);
+              content = gViz.shared.helpers.text.replaceVariables(title, obj) + gViz.shared.helpers.text.replaceVariables(body, obj);
 
               // Update tooltip content
               target
