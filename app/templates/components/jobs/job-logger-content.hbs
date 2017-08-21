@@ -1,0 +1,9 @@
+<li style="padding-bottom: 1px ;padding-top: 2px;padding-right: 5px;">
+  {{#if (eq log.type "TEXT")}}
+    <span class="">{{log.message}}</span>
+  {{else if (eq log.type "HTML")}}
+    <div id="log" style="font-size: 10px" class="table-sm table-compensate">
+      {{{log.message}}}
+    </div>
+  {{/if}}
+</li>

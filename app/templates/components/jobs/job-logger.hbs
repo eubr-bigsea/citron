@@ -10,9 +10,7 @@
       </a>
       <ul>
         {{#each step.logs as |log|}}
-          <li>
-            <span class="">{{log.message}}</span>
-          </li>
+          {{jobs/job-logger-content log=log}}
         {{/each}}
       </ul>
     </li>
