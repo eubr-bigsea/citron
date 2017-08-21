@@ -25,19 +25,23 @@ svg.map-chart {
       span.high-name  { float: left; margin-left: 10px;  }
       span.scale-rect { float: left; width: 15px; height: 10px; }
     }
-    // .toggle-wrapper {
-    //   float: right;
-    //   width: auto;
-    //   span.bar-name  { float: left; margin-right: 10px;  }
-    //   span.heat-name { float: left; margin-left: 10px;  }
-    //   .toggle-ctn    {
-    //     background: #eee;
-    //     float: left;
-    //     .toggle {
-    //       background-color: rgb(204, 204, 204);
-    //     }
-    //   }
-    // }
+
+    .toggle-wrapper {
+      float: right;
+      width: auto;
+      span.bar-name  { float: left; margin-right: 10px;  }
+      span.heat-name { float: left; margin-left: 10px;  }
+      .toggle-ctn    {
+        background: #eee;
+        float: left;
+        .toggle {
+          background-color: rgb(204, 204, 204);
+        }
+      }
+    }
+
+    padding: 0px !important;
+    width: 10% !important;
 
   }
 }
