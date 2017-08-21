@@ -86,7 +86,7 @@ gViz.vis.map.heatScale = function () {
           _var.heatScale.domain(_var.heatBounds);
 
           // Set format
-          _var.heatFormat = shared.helpers.number.parseFormat(_var.data == null ? null : _var.data.heat);
+          _var.heatFormat = gViz.shared.helpers.number.parseFormat(_var.data == null ? null : _var.data.heat);
 
           break;
       }

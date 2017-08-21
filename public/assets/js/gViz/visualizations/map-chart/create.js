@@ -39,7 +39,7 @@ gViz.vis.map.create = function() {
           _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
 
           // Draw background grid
-          shared.visualComponents.backgroundGrid()
+          gViz.shared.visualComponents.backgroundGrid()
             .id(_var._id)
             .height(_var.height + _var.margin.top + _var.margin.bottom)
             .width(_var.width + _var.margin.left + _var.margin.right)
@@ -49,7 +49,7 @@ gViz.vis.map.create = function() {
             .run();
 
           // Draw shadow
-          shared.visualComponents.shadow()
+          gViz.shared.visualComponents.shadow()
             ._var(_var)
             .wrap(_var.wrap)
             .id(_var.shadowId)

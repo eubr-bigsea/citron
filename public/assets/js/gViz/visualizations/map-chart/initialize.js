@@ -52,7 +52,8 @@ gViz.vis.map.initialize = function() {
           _var.container = {
             selector: container,
             d3: d3.select(container),
-            el: ((typeof container === 'string' || container instanceof String) ? container : d3.select(container).node()),
+            // el: ((typeof container === 'string' || container instanceof String) ? container : d3.select(container).node()),
+            el: d3.select(container).node(),
             clientRect: d3.select(container).node().getBoundingClientRect()
           };
 

@@ -12,6 +12,14 @@
         <span class='scale-rect'></span>
         <span class='high-name'>High</span>
       </div>
+      {{#if _toggleVisible}}
+        {{toggle-switch
+          textLeft = toggleLeft
+          textRight = toggleRight
+          shape = "round"
+          toggleAction=(action 'toggleChange')
+        }}
+      {{/if}}
     </div>
   </div>
 

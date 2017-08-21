@@ -1,5 +1,8 @@
 {
   "title": "Map Leaflet Heat",
+  "mode": {
+    "bars": true
+  },
   "tooltip": {
     "title": [
       "{{name}}"
@@ -7,6 +10,9 @@
     "body": [
       "<span class='metric'># Accounts</span><span class='number'>{{value}}</span>"
     ]
+  },
+  "toggle": {
+    "isVisible": true
   },
   "bars": {
     "mapColor": "#8BC3D2",

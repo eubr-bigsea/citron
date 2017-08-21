@@ -56,7 +56,7 @@ gViz.vis.map.barScale = function () {
           _var.barScale.domain(_var.barBounds);
 
           // Set format
-          _var.barFormat = shared.helpers.number.parseFormat(_var.data == null ? null : _var.data.bars);
+          _var.barFormat = gViz.shared.helpers.number.parseFormat(_var.data == null ? null : _var.data.bars);
 
           break;
       }

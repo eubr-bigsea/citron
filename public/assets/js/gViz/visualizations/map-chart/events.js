@@ -64,7 +64,7 @@ gViz.vis.map.events = function () {
 
                 // Set bars component
                 var tooltip = _var.data.tooltip;
-                shared.visualComponents.tooltipTable()
+                gViz.shared.visualComponents.tooltipTable()
                   ._var(_var)
                   .body(tooltip != null && tooltip.body != null ? tooltip.body : "")
                   .borderColor(_var.barColor(node))
@@ -87,7 +87,7 @@ gViz.vis.map.events = function () {
               bars.transition().style('opacity', 1).style("filter", "")
 
               // Set bars component
-              shared.visualComponents.tooltipTable()
+              gViz.shared.visualComponents.tooltipTable()
                 ._var(_var)
                 .action("hide")
                 .target(_var.container.d3.closest('.gViz-outer-wrapper').select('.gViz-map-table-tooltip'))

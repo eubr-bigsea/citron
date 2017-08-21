@@ -8,10 +8,7 @@ export default Ember.Component.extend({
   // Main var
   _var: null,
 
-  _mode: {
-    "bars": false,
-    "heat": false
-  },
+  _mode: {},
 
   didReceiveAttrs: function() {
     var self = this;
@@ -22,8 +19,13 @@ export default Ember.Component.extend({
     else { self.set("_title", null); }
 
     // Set mode from fill
-    if(data.mode != null && data.mode.bars === true) { self.set("_mode.bars", true); }
-    else if(data.mode != null && data.mode.heat === true) { self.set("_mode.heat", true); }
+    if(data.mode != null && data.mode.bars === true) { self.set("_mode", { "bars": true }); }
+    else if(data.mode != null && data.mode.heat === true) { self.set("_mode", { "heat": true }); }
+
+    if(data.toggle.isVisible) { self.set("_toggleVisible", true); }
+
+    self.set("toggleLeft", "heat");
+    self.set("toggleRight", "bars");
   },
 
   didRender: function(){
@@ -35,6 +37,10 @@ export default Ember.Component.extend({
   actions: {
     resize() {
       console.log("olar");
+    },
+
+    toggleChange() {
+
     },
   },
 
