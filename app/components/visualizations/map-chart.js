@@ -44,13 +44,10 @@ export default Ember.Component.extend({
     toggleChange() {
       var self = this;
 
-      var mode = self.get("_mode");
-      console.log(mode === { 'heat': true });
+      var mode = JSON.stringify(self.get("_mode"));
 
-      self.set("_mode", mode === { 'heat': true } ? { 'bars': true } : { 'heat': true });
+      self.set("_mode", mode === '{"heat":true}' ? { 'bars': true } : { 'heat': true });
       self.get("draw")(self);
-
-      console.log(self.get("_mode"));
     },
   },
 
