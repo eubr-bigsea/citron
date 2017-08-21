@@ -1,0 +1,44 @@
+
+// Main svg
+svg.donut-with-toggle {
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+  stroke-width: 0px;
+  z-index: 10;
+  //font-family: 'Yantramanav', sans-serif;
+
+  .center-title {
+    font-size: 11px;
+  }
+
+  .center-value {
+    font-size: 22px;
+    //font-family: 'Bebas';
+  }
+
+  .center-percentage {
+    font-size: 18px;
+    //font-family: 'Bebas';
+    fill: #666;
+  }
+
+}
+
+.gViz-donut-with-toggle-center-toggle {
+  position: absolute;
+  z-index: 12;
+  top: calc(25%);
+  left: calc(50% - 12px);
+  .toggle-ctn { background-color: #EDEDED; }
+  .toggle { background-color: #666 !important; }
+
+  &.gViz-donut-with-toggle-center-toggle-with-title {
+    top: calc(25% + 35px);
+  }
+  &.gViz-donut-with-toggle-center-toggle-with-title-legend {
+    top: calc(25% + 65px);
+  }
+}

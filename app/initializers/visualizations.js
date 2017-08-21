@@ -21,6 +21,16 @@ export function initialize(/* application */) {
        url: "visualization?name=pie",
        dataUrl: "/assets/data/visualizations/pie-chart.json"
      },
+     donut: {
+       initials: "Donut",
+       component: "visualizations/donut-chart",
+       icon: "fa-pie-chart",
+       title: "Donut Chart",
+       subtitle: "Part to whole",
+       description: "A donut chart (or a circle chart) is a circular statistical graphic which is divided into slices to illustrate numerical proportion. In a pie chart, the arc length of each slice (and consequently its central angle and area), is proportional to the quantity it represents.",
+       url: "visualization?name=donut",
+       dataUrl: "/assets/data/visualizations/donut-chart.json"
+     },
      map: {
        initials: "Map",
        component: "visualizations/map-chart",

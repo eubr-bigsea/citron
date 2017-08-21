@@ -64,7 +64,7 @@ gViz.vis.scatterPlot.xScale = function () {
           if(_var.data.x.type === 'time') {
             _var.xFormat = function(d) { return prefix + d3.timeFormat(_var.data.x.format)(d) + sufix; };
           } else {
-            var format = _var.data.x.format == null || _var.data.x.format === '' ? gViz.helpers.number.locale : d3.format(_var.data.x.format);
+            var format = _var.data.x.format == null || _var.data.x.format === '' ? gViz.shared.helpers.number.locale : d3.format(_var.data.x.format);
             _var.xFormat = function(d) { return prefix + format(+d) + sufix; };
           }
 

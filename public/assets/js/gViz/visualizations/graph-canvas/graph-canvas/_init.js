@@ -9,7 +9,7 @@ gViz.vis.graph = function () {
   action = 'build';
   animation = 900;
   colors = {
-    scale: gViz.helpers.colors.d310
+    scale: gViz.shared.helpers.colors.d310
   };
   container = void 0;
   data = [];

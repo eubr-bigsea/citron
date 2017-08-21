@@ -62,7 +62,7 @@ gViz.vis.lineChart.yScale = function () {
           // Get axis format with prefix and sufix
           var prefix   = _var.data.y != null && _var.data.y.prefix != null ? _var.data.y.prefix : "";
           var sufix    = _var.data.y != null && _var.data.y.sufix != null ? _var.data.y.sufix : "";
-          _var.yFormat = function(d) { return prefix + gViz.helpers.number.locale(d) + sufix; };
+          _var.yFormat = function(d) { return prefix + gViz.shared.helpers.number.locale(d) + sufix; };
 
           // Get y axis ticks
           var bins = d3.max([3, parseInt(_var.height / 60, 10)]);
@@ -79,7 +79,7 @@ gViz.vis.lineChart.yScale = function () {
 
           // Update margin left and width
           _var.width += _var.margin.left;
-          _var.margin.left = 5 + d3.max(_var.yAxis.scale().ticks().map(function(d) { return gViz.helpers.text.getSize(_var.yFormat(d)); }));
+          _var.margin.left = 5 + d3.max(_var.yAxis.scale().ticks().map(function(d) { return gViz.shared.helpers.text.getSize(_var.yFormat(d)); }));
           _var.width -= _var.margin.left;
 
           break;
