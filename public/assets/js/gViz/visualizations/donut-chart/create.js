@@ -29,7 +29,7 @@ gViz.vis.donut_chart.create = function () {
           // Draw svg
           _var.wrap = _var.container.d3.selectAll(`svg.chart-${_var._id}`).data(["chart-svg"]);
           _var.wrap.exit().remove();
-          _var.wrap = _var.wrap.enter().append("svg").attr('class', `donut-with-toggle chart-${_var._id}`).merge(_var.wrap); // svg
+          _var.wrap = _var.wrap.enter().append("svg").attr('class', `donut-chart chart-${_var._id}`).merge(_var.wrap); // svg
 
           // Update outer dimensions
           _var.wrap

@@ -67,8 +67,8 @@ gViz.vis.pie_chart.initialize = function () {
           _var.width  = ((width != null) ? width : _var.container.clientRect.width) - (_var.margin.left + _var.margin.right);
 
           // Update height based on title
-          if(_var.data.title == null || _var.data.title === "") { _var.height += 35; }
-          if(_var.data.legend == null || _var.data.legend.isVisible == null || _var.data.legend.isVisible !== true) { _var.height += 30; }
+          if(_var.data.title != null && _var.data.title !== "") { _var.height -= 35; }
+          if(_var.data.legend != null && _var.data.legend.isVisible != null && _var.data.legend.isVisible === true) { _var.height -= 30; }
 
           // Set donut size
           _var.size   = d3.min([_var.width, _var.height]) / 2;

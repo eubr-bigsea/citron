@@ -14,6 +14,35 @@
       z-index: 11;
       position: absolute;
     }
+
+    span {
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    // Legend rectangle
+    span.rect, span.circle, span.rect-long {
+      display:inline-block;
+      width:  8px;
+      height: 8px;
+      margin-right: 5px;
+    }
+    span.circle { border-radius: 4px; }
+    span.rect-long { width: 16px; }
+
+    // Legend rectangle text
+    span.name {
+      margin-right: 15px;
+      display:inline;
+      font-weight: 300;
+    }
+
+    // Legend axis title, if exists
+    span.axis-title {
+      display: inline;
+      font-weight: 300;
+      margin-right: 15px;
+    }
   }
 }
 

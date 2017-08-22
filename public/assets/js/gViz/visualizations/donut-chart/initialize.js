@@ -67,16 +67,14 @@ gViz.vis.donut_chart.initialize = function () {
           _var.width  = ((width != null) ? width : _var.container.clientRect.width) - (_var.margin.left + _var.margin.right);
 
           // Update height based on title
-          if(_var.data.title == null || _var.data.title === "") { _var.height += 35; }
-          if(_var.data.legend == null || _var.data.legend.isVisible == null || _var.data.legend.isVisible !== true) { _var.height += 30; }
+          if(_var.data.title != null && _var.data.title !== "") { _var.height -= 35; }
+          if(_var.data.legend != null && _var.data.legend.isVisible != null && _var.data.legend.isVisible === true) { _var.height -= 30; }
 
           // Set donut size
-          _var.size   = d3.min([_var.width, _var.height]) / 2;
+          _var.size = d3.min([_var.width, _var.height]) / 2;
 
           // Set attribute _id to container and update container
-          _var.container.d3
-            //.style('height', (_var.height + _var.margin.top + _var.margin.bottom) + 'px')
-            .attr('data-vis-id', _var._id);
+          _var.container.d3.attr('data-vis-id', _var._id);
 
           // NO DATA AVAILABLE
           if (_var.data == null || _var.data.data == null || _var.data.data.length === 0) {

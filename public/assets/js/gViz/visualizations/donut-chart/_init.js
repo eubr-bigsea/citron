@@ -3,7 +3,7 @@ gViz.vis.donut_chart = function () {
   "use strict";
 
   // Auxiliar Functions
-  var _id = 'vis-donut-with-toggle-' + (Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5).toString();
+  var _id = 'vis-donut-chart-' + (Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5).toString();
   var _var = null;
   var action = 'build';
   var animation = 900;
@@ -22,7 +22,7 @@ gViz.vis.donut_chart = function () {
       case 'initialize': return true;
       case 'create':     return data != null && data.data != null && data.data.length > 0;
       case 'elements':   return data != null && data.data != null && data.data.length > 0;
-      case 'legend':     return data != null && data.data != null && data.data.length > 0;
+      case 'misc':       return data != null && data.data != null && data.data.length > 0;
       case 'parse':      return data != null && data.data != null && data.data.length > 0;
       default: return false;
     }
@@ -43,7 +43,7 @@ gViz.vis.donut_chart = function () {
           main('parse');
           main('create');
           main('elements');
-          main('legend');
+          main('misc');
           break;
 
         // Initialize visualization variable
@@ -95,11 +95,11 @@ gViz.vis.donut_chart = function () {
             .run();
           break;
 
-        // Show legend
-        case 'legend':
+        // Show misc elements
+        case 'misc':
 
           // Running
-          _var = gViz.vis.donut_chart.legend()
+          _var = gViz.vis.donut_chart.misc()
             ._var(_var)
             .components(gViz.vis.donut_chart)
             .run();

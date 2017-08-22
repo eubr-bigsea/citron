@@ -22,7 +22,7 @@ gViz.vis.pie_chart = function () {
       case 'initialize': return true;
       case 'create':     return data != null && data.data != null && data.data.length > 0;
       case 'elements':   return data != null && data.data != null && data.data.length > 0;
-      case 'legend':     return data != null && data.data != null && data.data.length > 0;
+      case 'misc':       return data != null && data.data != null && data.data.length > 0;
       case 'parse':      return data != null && data.data != null && data.data.length > 0;
       default: return false;
     }
@@ -43,7 +43,7 @@ gViz.vis.pie_chart = function () {
           main('parse');
           main('create');
           main('elements');
-          main('legend');
+          main('misc');
           break;
 
         // Initialize visualization variable
@@ -95,11 +95,11 @@ gViz.vis.pie_chart = function () {
             .run();
           break;
 
-        // Show legend
-        case 'legend':
+        // Show misc elements
+        case 'misc':
 
           // Running
-          _var = gViz.vis.pie_chart.legend()
+          _var = gViz.vis.pie_chart.misc()
             ._var(_var)
             .components(gViz.vis.pie_chart)
             .run();
