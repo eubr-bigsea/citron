@@ -2,12 +2,13 @@ import Ember from 'ember';
 import FormComponent from 'lemonade-ember/lib/form-component';
 
 export default FormComponent.extend({
-  init() {
+  didReceiveAttrs() {
     this._super(...arguments);
 
     this.set('modalVisible', false);
     this.set('parsedValues', JSON.parse(this.get('field.values')).functions);
     this.set('options', JSON.parse(this.get('field.values')).options);
+    this.set('suggestedAttrs', Ember.A());
 
     this.set('isAgg', this.get('options.show_alias'));
     this.set('isFilter', !this.get('isAgg') && this.get('options.show_value'));
@@ -31,6 +32,38 @@ export default FormComponent.extend({
         this.set('column', '')
       }
     }
+    let currentValue = this.get('currentValue');
+
+    let suggested =  this.get('suggestedAttrs');
+
+    if(currentValue) {
+      currentValue.forEach((el) => {
+        suggested.addObject({
+          val: el.attribute,
+          selected: true
+        });
+      });
+    }
+
+
+
+    if(this.get('field.suggestedAttrs')) {
+      this.get('field.suggestedAttrs').forEach((el) => {
+        if(suggested.findBy('val', el) === undefined) {
+          suggested.addObject({
+            val: el,
+            selected: false
+          });
+        }
+      });
+    }
+
+
+  },
+  didRender(){
+    $('select.attr').select2({
+      tags: true,
+    });
   },
   actions: {
     addRow() {

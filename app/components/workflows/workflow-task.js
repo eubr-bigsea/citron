@@ -1,3 +1,4 @@
+/* global Set TahitiAttributeSuggester*/
 import Ember from 'ember';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 import config from '../../config/environment';
@@ -16,7 +17,7 @@ export default Ember.Component.extend({
       success: function(response){
         callback(response.attributes.map(function(attr) {return attr.name}));
       },
-      error: function(response) {
+      error: function() {
         callback(null);
         $("#flashNoDatasource").show().fadeIn().delay(2000).fadeOut('slow');
       }
@@ -188,7 +189,7 @@ export default Ember.Component.extend({
       var dataSourceLoader = component.get('dataSourceLoader');
       var exec = component.get('forms').filter(el => el.category === 'execution')[0];
       var attr = exec ? exec.fields.filter((el) => {
-        return el.suggested_widget === "attribute-selector"
+        return el.suggested_widget === "attribute-selector" || el.suggested_widget === "attribute-function"
       }) : [];
       var callback = function(result){
         task.uiPorts = result[task.id].uiPorts;
@@ -198,7 +199,7 @@ export default Ember.Component.extend({
             aux = aux.concat(task.uiPorts.inputs[i].attributes)
           }
           for( i=0; i < attr.length; i++ ){
-            attr[i].values = JSON.stringify([...new Set(aux)] );
+            attr[i].suggestedAttrs = [...new Set(aux)];
           }
         }
         clickTask(component.get('forms'), task.forms, task);
