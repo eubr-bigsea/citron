@@ -176,6 +176,7 @@ export default Ember.Component.extend({
 
     if(!this.get('readOnly')) {
       jsplumb.draggable(el, {
+        grid:[10,10],
         containment: true,
         stop: (ev) => {
           this.get('task').left = ev.pos[0];
