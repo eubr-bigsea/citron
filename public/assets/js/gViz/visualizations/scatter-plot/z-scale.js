@@ -1,5 +1,5 @@
 // Initialize the visualization class
-gViz.vis.scatterPlot.yScale = function () {
+gViz.vis.scatterPlot.zScale = function () {
   "use strict";
 
   // Get attributes values
@@ -26,8 +26,8 @@ gViz.vis.scatterPlot.yScale = function () {
         // Build entire visualizations
         case 'run':
 
-          // Initialize scale
-          _var.y = d3.scaleLinear().range([_var.height, 0]);
+          // Define z scale
+          _var.z = d3.scaleLinear().range([5, 20]);
 
           // Define aux variables
           var min = null,
@@ -37,17 +37,10 @@ gViz.vis.scatterPlot.yScale = function () {
           // Get bounds
           data.forEach(function(d) {
             d.values.forEach(function(v) {
-              if(min == null || min > +v.y) { min = +v.y; }
-              if(max == null || max < +v.y) { max = +v.y; }
+              if(min == null || min > +v.z) { min = +v.z; }
+              if(max == null || max < +v.z) { max = +v.z; }
             });
           });
-
-          // Get axis target
-          if(_var.data.y != null && _var.data.y.target != null && !isNaN(+_var.data.y.target)) {
-            _var.yTarget = +_var.data.y.target;
-            if(min == null || min > +_var.data.y.target) { min = +_var.data.y.target; }
-            if(max == null || max < +_var.data.y.target) { max = +_var.data.y.target; }
-          }
 
           // Check for default values
           if(isNaN(min)) { min = 0; }
@@ -56,30 +49,12 @@ gViz.vis.scatterPlot.yScale = function () {
           // Get diff
           var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : Math.abs(max - min) * 0.05;
 
-          // Add dot fix offset
-          var dotFix = 20 * Math.abs((max + diff) - (min == 0 ? min : min - diff)) / _var.height;
-          min = min - dotFix;
-          max = max + dotFix;
-
-          // Set x domain
-          _var.yBounds = [min, max]; //(min == 0 ? min : min - diff), max + diff];
-          _var.y.domain(_var.yBounds).nice();
+          // Set z domain
+          _var.zBounds = [min, max]; //(min == 0 ? min : min - diff), max + diff];
+          _var.z.domain(_var.zBounds);
 
           // Set format
-          _var.yFormat = gViz.shared.helpers.number.parseFormat(_var.data == null ? null : _var.data.y);
-
-          // Get x axis ticks
-          var bins = d3.max([3, parseInt(_var.height / 25, 10)]);
-
-          // Define y axis
-          _var.yAxis = d3.axisLeft(_var.y).ticks(bins).tickPadding(10).tickFormat(_var.yFormat);
-
-          // Update margin left and width
-          if(data.length > 0) {
-            _var.width += _var.margin.left;
-            _var.margin.left = 5 + d3.max(_var.yAxis.scale().ticks().map(function(d) { return gViz.shared.helpers.text.getSize(_var.yFormat(d)); }));
-            _var.width -= _var.margin.left;
-          }
+          _var.zFormat = gViz.shared.helpers.number.parseFormat(_var.data == null ? null : _var.data.z);
 
           break;
       }
