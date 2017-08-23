@@ -12,15 +12,17 @@ export default FormComponent.extend({
     this.set('parsedValues', Ember.A());
 
     let parsed = this.get('parsedValues');
-    let values = JSON.parse(this.get('field.values'));
+    let values = this.get('field.suggestedAttrs');
     let currentValue = this.get('currentValue');
 
     if(currentValue) {
       currentValue.forEach((el) => {
-        parsed.addObject({
-          val: el,
-          selected: true
-        });
+        if(currentValue.indexOf(el) === -1) {
+          parsed.addObject({
+            val: el,
+            selected: true
+          });
+        }
       });
     }
 

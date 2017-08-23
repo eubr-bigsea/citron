@@ -4,11 +4,12 @@
     {{#each form.fields as |field|}}
       {{forms/form-label field=field}}
       {{component
-      (concat 'forms/form-' field.suggested_widget)
-      currentValue=(get (get filledForms field.name) 'value')
-      name=field.name
-      field=field
-      onValueChanged=(action 'formChanged')}}
+        (concat 'forms/form-' field.suggested_widget)
+        currentValue=(get (get filledForms field.name) 'value')
+        suggestedAttrs=(get (get filledForms field.name) 'suggestedAttrs')
+        name=field.name
+        field=field
+        onValueChanged=(action 'formChanged')}}
       {{!-- Verificar se precisamos mesmo do field=field --}}
     {{/each}}
   </fieldset>
