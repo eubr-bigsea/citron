@@ -19,6 +19,12 @@
   <a rel="tooltip" title={{t 'workflow.draw.delete'}} class="btn btn-primary btn-md " href="#" {{action 'deleteWorkflow'}}>
     <i class="fa fa-trash-o fa-lg"></i>
   </a>
+  <a rel="tooltip" class="btn btn-primary btn-md" href="#" id="zoomIn">
+    <i class="fa fa-search-plus fa-lg"></i>
+  </a>
+  <a rel="tooltip" class="btn btn-primary btn-md" href="#" id="zoomOut">
+    <i class="fa fa-search-minus fa-lg"></i>
+  </a>
   <div class="cluster">
     <label> {{t 'forms.cluster.label'}}</label>
     <select class="custom-select" onchange={{action (mut cluster) value="target.value"}}>
