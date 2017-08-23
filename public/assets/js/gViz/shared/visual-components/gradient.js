@@ -57,7 +57,7 @@ gViz.shared.visualComponents.gradient = function() {
                   }
 
                   // Remove special chars from id
-                  id = helpers.text.removeSpecial(id);
+                  id = gViz.shared.helpers.text.removeSpecial(id);
 
                   // Update gradients
                   var grad = wrap.selectAll(`#${id}.grad`).data([id]);

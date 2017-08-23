@@ -91,17 +91,17 @@ export function initialize(/* application */) {
        url: "visualization?name=scatter",
        dataUrl: "/assets/data/visualizations/scatter-plot.json"
      },
-     barchart: {
-       initials: "Bar Chart",
-       component: "visualizations/bar-chart",
+     verticalbarchart: {
+       initials: "Bar Chart Vertical",
+       component: "visualizations/vertical-bar-chart",
        icon: "fa-bar-chart",
-       title: "Bar Chart",
+       title: "Vertical Bar Chart",
        subtitle: "Distribution",
-       description: `A bar chart or bar graph is a chart or graph that presents
+       description: `A vertical bar chart or bar graph is a chart or graph that presents
         grouped data with rectangular bars with lengths proportional to the
         values that they represent. `,
-       url: "visualization?name=barchart",
-       dataUrl: "/assets/data/visualizations/bar-chart.json"
+       url: "visualization?name=verticalbarchart",
+       dataUrl: "/assets/data/visualizations/vertical-bar-chart.json"
      },
      histogram: {
        initials: "Hist",
