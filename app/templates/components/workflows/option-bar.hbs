@@ -1,41 +1,48 @@
-<div id="flashSuccess" class="alert alert-success" style="display:none">
-  <span>{{t 'alert.save.workflow.success'}}</span>
-</div>
-<div id="flashError" class="alert alert-danger" style="display:none">
-  <span>{{t 'alert.save.workflow.error'}}</span>
-</div>
-<div id="flashNoDatasource" class="alert alert-danger" style="display:none">
-  <span>There was an error loading the datasources, seems like some of them no
-  longer exist. Please check the data reader operations.</span>
-</div>
-{{confirmation-modal modal=modal content=modalContent resource=workflow onSubmit=(action 'submit') goTo=goTo}}
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 name-editor">
-  {{input value=workflow.name class="form-control underlined"}}
-</div>
-<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 buttons">
-  <a rel="tooltip" title={{t 'workflow.draw.save'}} class="btn btn-primary btn-md" href="#" {{action 'saveWorkflow'}}>
-    <i class="fa fa-floppy-o fa-lg"></i>
-  </a>
-  <a rel="tooltip" title={{t 'workflow.draw.delete'}} class="btn btn-primary btn-md " href="#" {{action 'deleteWorkflow'}}>
-    <i class="fa fa-trash-o fa-lg"></i>
-  </a>
-  <a rel="tooltip" class="btn btn-primary btn-md" href="#" id="zoomIn">
-    <i class="fa fa-search-plus fa-lg"></i>
-  </a>
-  <a rel="tooltip" class="btn btn-primary btn-md" href="#" id="zoomOut">
-    <i class="fa fa-search-minus fa-lg"></i>
-  </a>
-  <div class="cluster">
-    <label> {{t 'forms.cluster.label'}}</label>
-    <select class="custom-select" onchange={{action (mut cluster) value="target.value"}}>
-      {{#each clusters as |cl|}}
-        <option value={{cl.id}} selected={{eq cluster cl.id}}>{{cl.name}}</option>
-      {{/each}}
-    </select>
+<div class="row">
+  <div id="flashSuccess" class="alert alert-success" style="display:none">
+    <span>{{t 'alert.save.workflow.success'}}</span>
+  </div>
+  <div id="flashError" class="alert alert-danger" style="display:none">
+    <span>{{t 'alert.save.workflow.error'}}</span>
+  </div>
+  <div id="flashNoDatasource" class="alert alert-danger" style="display:none">
+    <span>There was an error loading the datasources, seems like some of them no
+      longer exist. Please check the data reader operations.</span>
+  </div>
+  {{confirmation-modal modal=modal content=modalContent resource=workflow onSubmit=(action 'submit') goTo=goTo}}
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 name-editor">
+    {{input value=workflow.name class="form-control underlined"}}
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 buttons">
+    <a rel="tooltip" title={{t 'workflow.draw.save'}} class="btn btn-primary btn-md" href="#" {{action 'saveWorkflow'}}>
+      <i class="fa fa-floppy-o fa-lg"></i>
+    </a>
+    <a rel="tooltip" title={{t 'workflow.draw.delete'}} class="btn btn-primary btn-md " href="#" {{action 'deleteWorkflow'}}>
+      <i class="fa fa-trash-o fa-lg"></i>
+    </a>
+    <a rel="tooltip" class="btn btn-primary btn-md" href="#" id="zoomIn">
+      <i class="fa fa-search-plus fa-lg"></i>
+    </a>
+    <a rel="tooltip" class="btn btn-primary btn-md" href="#" id="zoomOut">
+      <i class="fa fa-search-minus fa-lg"></i>
+    </a>
+  </div>
+  <div class="col-xs-12  col-sm-12 col-md-6 col-lg-2 col-xl-2 execute">
+    <a onclick={{action 'play'}} class="play btn btn-md">
+      <i class="fa fa-play"></i> {{t 'workflow.draw.play'}}
+    </a>
   </div>
 </div>
-<div class="col-xs-12  col-sm-12 col-md-6 col-lg-2 col-xl-2 execute">
-  <a onclick={{action 'play'}} class="play btn btn-md">
-    <i class="fa fa-play"></i> {{t 'workflow.draw.play'}}
-  </a>
+<div class="row">
+
+  <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="cluster">
+      <label> {{t 'forms.cluster.label'}}</label>
+      <select class="custom-select" onchange={{action (mut cluster) value="target.value"}}>
+        {{#each clusters as |cl|}}
+          <option value={{cl.id}} selected={{eq cluster cl.id}}>{{cl.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
 </div>
