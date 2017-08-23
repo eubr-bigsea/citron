@@ -39,14 +39,14 @@ gViz.vis.map.create = function() {
           _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
 
           // Draw background grid
-          gViz.shared.visualComponents.backgroundGrid()
-            .id(_var._id)
-            .height(_var.height + _var.margin.top + _var.margin.bottom)
-            .width(_var.width + _var.margin.left + _var.margin.right)
-            .left(_var.margin.left)
-            .top(_var.margin.top)
-            .wrap(_var.container.d3)
-            .run();
+          // gViz.shared.visualComponents.backgroundGrid()
+          //   .id(_var._id)
+          //   .height(_var.height + _var.margin.top + _var.margin.bottom)
+          //   .width(_var.width + _var.margin.left + _var.margin.right)
+          //   .left(_var.margin.left)
+          //   .top(_var.margin.top)
+          //   .wrap(_var.container.d3)
+          //   .run();
 
           // Draw shadow
           gViz.shared.visualComponents.shadow()

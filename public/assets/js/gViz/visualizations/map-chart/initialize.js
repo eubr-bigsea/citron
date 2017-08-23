@@ -78,6 +78,15 @@ gViz.vis.map.initialize = function() {
             _var.container.d3.html("<h5 style='line-height: "+(_var.container.clientRect.height)+"px; text-align: center;'>NO DATA AVAILABLE</h5>");
           } else { _var.container.d3.selectAll("h5").remove(); }
 
+          _var.headerWrapper = d3.select(container).append("div").attr("class", "header-wrapper");
+
+          _var.container.map = d3.select(container)
+            .append("div")
+            .attr("class", "map-wrapper")
+            .style("height", _var.height + "px")
+            .style("margin-top", _var.margin.top)
+            .node();
+
           // Tile to be loaded
           _var.tile = tile;
 

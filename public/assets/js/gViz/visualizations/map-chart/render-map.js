@@ -58,7 +58,7 @@ gViz.vis.map.renderMap = function () {
           }
 
           // Creates Map
-          _var.map = L.map(_var.container.el, {
+          _var.map = L.map(_var.container.map, {
             minZoom: 2 ,
             attributionControl: false,
             zoomControl: false,

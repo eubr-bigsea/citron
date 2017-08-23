@@ -18,6 +18,7 @@ gViz.vis.map = function () {
     tiles:       gViz.vis.map.tiles,
     style:       gViz.vis.map.style,
     zoom:        gViz.vis.map.zoom,
+    misc:        gViz.vis.map.misc,
   };
 
   // Get attributes values
@@ -31,8 +32,8 @@ gViz.vis.map = function () {
   var colors      = { main: gViz.shared.helpers.colors.main, d3: d3.scaleOrdinal(d3.schemeCategory10) };
   var data        = [];
   var height      = null;
-  var margin      = { top: 0, right: 0, bottom: 0, left: 0};
-  var mode        = { heat: true, bars: true };
+  var margin      = { top: 10, right: 10, bottom: 10, left: 10};
+  var mode        = { heat: true };
   var width       = null;
   var tile        = "default";
   var startPoint  = null;
@@ -53,6 +54,7 @@ gViz.vis.map = function () {
       case 'style':      return true;
       case 'tiles':      return data != null && data.data != null;
       case 'zoom':       return data != null && data.data != null;
+      case 'misc':       return data != null && data.data != null;
       default: return false;
     }
   };
@@ -79,6 +81,7 @@ gViz.vis.map = function () {
           main('elements');
           main('zoom');
           main('legend');
+          main('misc');
           break;
 
 
@@ -199,8 +202,20 @@ gViz.vis.map = function () {
             .run();
           break;
 
+        // Show legend
+        case 'misc':
+
+          // Running
+          _var = components.misc()
+            ._var(_var)
+            .components(components)
+            .run();
+          break;
+
       }
     }
+
+    else { console.log("Failed to validate on step " + step); }
 
     return _var;
   };
