@@ -1,5 +1,5 @@
 // Initialize the visualization class
-gViz.vis.donut_chart.initialize = function () {
+gViz.vis.donutChart.initialize = function () {
   "use strict";
 
   // Get attributes values

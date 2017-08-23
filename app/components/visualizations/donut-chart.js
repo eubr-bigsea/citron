@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   didRender: function(){
 
     this.set('_var',
-      gViz.vis.donut_chart()
+      gViz.vis.donutChart()
         ._var(this.get('_var'))
         .container(`.gViz-wrapper-inner[data-id='${this.get('elementId')}']`)
         .data(this.get('data'))

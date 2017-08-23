@@ -69,7 +69,7 @@ export function initialize(/* application */) {
        subtitle: "Time Series",
        description: "Line Graphs are used to display quantitative value over a continuous interval or time span. It is most frequently used to show trends and relationships (when grouped with other lines).",
        url: "visualization?name=line",
-       dataUrl: "/assets/data/visualizations/line-chart-date.json" // change line-chart-date.json for date 'x'
+       dataUrl: "/assets/data/visualizations/line-chart.json" // change line-chart-date.json for date 'x'
      },
      area: {
        initials: "Area",

@@ -1,5 +1,5 @@
 // Initialize the visualization class
-gViz.vis.pie_chart = function () {
+gViz.vis.pieChart = function () {
   "use strict";
 
   // Auxiliar Functions
@@ -51,7 +51,7 @@ gViz.vis.pie_chart = function () {
 
           // Initializing
           if (!_var) { _var = {};  }
-          _var = gViz.vis.pie_chart.initialize()
+          _var = gViz.vis.pieChart.initialize()
             ._var(_var)
             ._id((_var._id != null) ? _var._id : _id)
             .animation(animation)
@@ -69,7 +69,7 @@ gViz.vis.pie_chart = function () {
         case 'parse':
 
           // Creating wrappers
-          _var = gViz.vis.pie_chart.parse()
+          _var = gViz.vis.pieChart.parse()
             ._var(_var)
             .run();
           break;
@@ -79,7 +79,7 @@ gViz.vis.pie_chart = function () {
         case 'create':
 
           // Creating wrappers
-          _var = gViz.vis.pie_chart.create()
+          _var = gViz.vis.pieChart.create()
             ._var(_var)
             .run();
           break;
@@ -88,9 +88,9 @@ gViz.vis.pie_chart = function () {
         case 'elements':
 
           // Creating wrappers
-          _var = gViz.vis.pie_chart.elements()
+          _var = gViz.vis.pieChart.elements()
             ._var(_var)
-            .components(gViz.vis.pie_chart)
+            .components(gViz.vis.pieChart)
             .data(_var.data.data)
             .run();
           break;
@@ -99,9 +99,9 @@ gViz.vis.pie_chart = function () {
         case 'misc':
 
           // Running
-          _var = gViz.vis.pie_chart.misc()
+          _var = gViz.vis.pieChart.misc()
             ._var(_var)
-            .components(gViz.vis.pie_chart)
+            .components(gViz.vis.pieChart)
             .run();
           break;
 

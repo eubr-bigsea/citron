@@ -1,5 +1,5 @@
 // Initialize the visualization class
-gViz.vis.donut_chart = function () {
+gViz.vis.donutChart = function () {
   "use strict";
 
   // Auxiliar Functions
@@ -51,7 +51,7 @@ gViz.vis.donut_chart = function () {
 
           // Initializing
           if (!_var) { _var = {};  }
-          _var = gViz.vis.donut_chart.initialize()
+          _var = gViz.vis.donutChart.initialize()
             ._var(_var)
             ._id((_var._id != null) ? _var._id : _id)
             .animation(animation)
@@ -69,7 +69,7 @@ gViz.vis.donut_chart = function () {
         case 'parse':
 
           // Creating wrappers
-          _var = gViz.vis.donut_chart.parse()
+          _var = gViz.vis.donutChart.parse()
             ._var(_var)
             .run();
           break;
@@ -79,7 +79,7 @@ gViz.vis.donut_chart = function () {
         case 'create':
 
           // Creating wrappers
-          _var = gViz.vis.donut_chart.create()
+          _var = gViz.vis.donutChart.create()
             ._var(_var)
             .run();
           break;
@@ -88,9 +88,9 @@ gViz.vis.donut_chart = function () {
         case 'elements':
 
           // Creating wrappers
-          _var = gViz.vis.donut_chart.elements()
+          _var = gViz.vis.donutChart.elements()
             ._var(_var)
-            .components(gViz.vis.donut_chart)
+            .components(gViz.vis.donutChart)
             .data(_var.data.data)
             .run();
           break;
@@ -99,9 +99,9 @@ gViz.vis.donut_chart = function () {
         case 'misc':
 
           // Running
-          _var = gViz.vis.donut_chart.misc()
+          _var = gViz.vis.donutChart.misc()
             ._var(_var)
-            .components(gViz.vis.donut_chart)
+            .components(gViz.vis.donutChart)
             .run();
           break;
 

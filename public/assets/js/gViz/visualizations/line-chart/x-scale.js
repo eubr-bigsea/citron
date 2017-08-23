@@ -1,3 +1,4 @@
+// Initialize the visualization class
 gViz.vis.lineChart.xScale = function () {
   "use strict";
 
@@ -25,63 +26,100 @@ gViz.vis.lineChart.xScale = function () {
         // Build entire visualizations
         case 'run':
 
-          // Define scale
-          _var.x = d3.scaleLinear().range([0, _var.width]);
+          // Set format
+          _var.xIsDate = (_var.data.x != null && _var.data.x.type === 'time' && _var.data.x.inFormat != null && _var.data.x.outFormat != null);
+          _var.xIsNumber = (_var.data.x != null && _var.data.x.type === 'number' && _var.data.x.format != null);
+          var xFmt = _var.xIsDate ? 'date' : (_var.xIsNumber ? 'number' : 'text');
+          _var.xFormat = gViz.shared.helpers[xFmt].parseFormat(_var.data == null ? null : _var.data.x);
+
+          // Define scales
+          _var.x = _var.xIsDate || _var.xIsNumber ? d3.scaleLinear().range([0, _var.width]) : d3.scaleBand().range([0, _var.width]).padding(0.1);
 
           // Define aux variables
-          var min = null,
-              max = null,
-              diff = null;
+          var min = null, max = null, diff = null;
 
-          // Get bounds
+          // Initialize domains
+          _var.xDomain = {};
+          var xDomain = [];
+
+          // Get domains
           data.forEach(function(d) {
             d.values.forEach(function(v) {
-              if(min == null || min > +v._x) { min = +v._x; }
-              if(max == null || max < +v._x) { max = +v._x; }
+
+              // Set parent
+              v._parent = d;
+
+              // Date value
+              if(_var.xIsDate) {
+
+                // Parse values
+                v.parsedX = d3.timeParse(_var.data.x.inFormat)(v.x).getTime();
+                v.formattedX = _var.xFormat(v.x);
+
+                // Set domain
+                if(min == null || min > +v.parsedX) { min = +v.parsedX; }
+                if(max == null || max < +v.parsedX) { max = +v.parsedX; }
+
+              // Number values
+              } else if(_var.xIsNumber) {
+
+                // Parse values
+                v.parsedX = +v.x;
+                v.formattedX = _var.xFormat(v.x);
+
+                // Set domain
+                if(min == null || min > +v.x) { min = +v.x; }
+                if(max == null || max < +v.x) { max = +v.x; }
+
+              // For ordinal scales
+              } else {
+
+                // Get ordinal values
+                v.parsedX = v.x;
+                v.formattedX = v.x;
+
+                // Add id to x domain value
+                if(_var.xDomain[v.x] == null) {
+                  _var.xDomain[v.x] = v;
+                  xDomain.push(v.x);
+                }
+              }
+
+
             });
           });
 
-          // Get axis target
-          if(_var.data.x != null && _var.data.x.target != null && !isNaN(+_var.data.x.target)) {
-            _var.xTarget = +_var.data.x.target;
-            if(min == null || min > +_var.data.x.target) { min = +_var.data.x.target; }
-            if(max == null || max < +_var.data.x.target) { max = +_var.data.x.target; }
-          }
+          // Date or number values
+          if(_var.xIsDate || _var.xIsNumber) {
 
-          // Check for default values
-          if(isNaN(min)) { min = 0; }
-          if(isNaN(max)) { max = 1; }
+            // Sort values
+            data.forEach(function(d) { d.values = d.values.sort(function(a,b) { return d3.ascending(a.parsedX, b.parsedX); }); });
 
-          // Get diff
-          var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : 0;
+            // Check for default values
+            if(isNaN(min)) { min = 0; }
+            if(isNaN(max)) { max = 1; }
 
-          // Set x domain
-          _var.x.domain([(min == 0 ? min : min - diff), max + diff]);
+            // Get diff
+            var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : 0;
 
-          // Get axis format with prefix and sufix
-          var prefix = _var.data.x != null && _var.data.x.prefix != null ? _var.data.x.prefix : "";
-          var sufix  = _var.data.x != null && _var.data.x.sufix != null ? _var.data.x.sufix : "";
+            // Set x domain
+            _var.x.domain([(min == 0 ? min : min - diff), max + diff]).nice();
 
-          // Set format
-          if(_var.data.x.type === 'time') {
-            _var.xFormat = function(d) { return prefix + d3.timeFormat(_var.data.x.format)(d) + sufix; };
+            // Get x axis ticks
+            var bins = d3.max([3, parseInt(_var.width / 100, 10)]);
+
+            // Define axis
+            _var.xAxis = d3.axisBottom(_var.x).ticks(bins).tickPadding(10).tickFormat(_var.xIsDate ? d3.timeFormat(_var.data.x.outFormat) : _var.xFormat);
+
           } else {
-            var format = _var.data.x.format == null || _var.data.x.format === '' ? gViz.shared.helpers.number.locale : d3.format(_var.data.x.format);
-            _var.xFormat = function(d) { return prefix + format(+d) + sufix; };
+
+            // Set x domain
+            _var.x.domain(xDomain);
+
+            // Define axis
+            _var.xAxis = d3.axisBottom(_var.x).tickPadding(10).tickFormat(function(d) { return d; });
+
           }
-
-          // Get x axis ticks
-          var bins = d3.max([3, parseInt(_var.width / 100, 10)]);
-          var size = Math.abs(_var.x.domain()[1] - _var.x.domain()[0]) / bins;
-          _var.xTicks = [];
-          d3.range(bins + 1).forEach(function(i) { _var.xTicks.push((_var.x.domain()[0] + size * i).toFixed(2)); });
-
-          // Add extra values
-          if(_var.x.domain()[1] > 0 && _var.x.domain()[0] < 0) { _var.xTicks.push(0); }
-          if(_var.xTarget != null) { _var.xTicks.push(_var.xTarget); }
-
-          // Define axis
-          _var.xAxis = d3.axisBottom(_var.x).tickValues(_var.xTicks).tickPadding(10).tickFormat(_var.xFormat);
 
           break;
       }

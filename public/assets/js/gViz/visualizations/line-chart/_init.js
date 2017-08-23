@@ -1,30 +1,31 @@
+// Initialize the visualization class
 gViz.vis.lineChart = function () {
   "use strict";
 
   // Get attributes values
-  var _id       = `vis-line-${Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5}`;
-  var _var      = null;
-  var action    = 'build';
+  var _id = `vis-line-graph-${Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5}`;
+  var _var = null;
+  var action = 'build';
   var animation = 900;
-  var chartType = 'normal'
   var container = null;
-  var colors    = { main: gViz.shared.helpers.colors.main };
-  var data      = [];
-  var height    = null;
-  var margin    = { top: 40, right: 10, bottom: 40, left: 10 };
-  var width     = null;
+  var colors = { main: gViz.shared.helpers.colors.main };
+  var data = [];
+  var height = null;
+  var margin = { top: 10, right: 2, bottom: 35, left: 0 };
+  var width = null;
 
   // Validate attributes
   var validate = function (step) {
     switch (step) {
-      case 'build': return (container != null) && (d3.selectAll(container).size() !== 0 || d3.select(container).size() !== 0);
+      case 'build':      return (container != null) && (d3.selectAll(container).size() !== 0 || d3.select(container).size() !== 0);
       case 'initialize': return true;
+      case 'axis':       return data != null && data.data != null && data.data.length > 0;
       case 'create':     return data != null && data.data != null && data.data.length > 0;
+      case 'elements':   return data != null && data.data != null && data.data.length > 0;
+      case 'misc':       return data != null && data.data != null;
+      case 'style':      return true;
       case 'xScale':     return data != null && data.data != null && data.data.length > 0;
       case 'yScale':     return data != null && data.data != null && data.data.length > 0;
-      case 'axis':       return true;
-      case 'elements':   return true;
-      case 'parse':      return true;
       default: return false;
     }
   };
@@ -41,24 +42,24 @@ gViz.vis.lineChart = function () {
         case 'build':
 
           main('initialize');
-          main('parse');
+          main('style');
           main('yScale');
           main('xScale');
           main('create');
           main('axis');
           main('elements');
+          main('misc');
           break;
 
         // Initialize visualization variable
         case 'initialize':
 
           // Initializing
-           if (_var == null) { _var = {};  }
+          if (!_var) { _var = {};  }
           _var = gViz.vis.lineChart.initialize()
             ._var(_var)
             ._id((_var._id != null) ? _var._id : _id)
             .animation(animation)
-            .chartType(chartType)
             .container(container)
             .colors(colors)
             .data(data)
@@ -66,14 +67,13 @@ gViz.vis.lineChart = function () {
             .margin(margin)
             .width(width)
             .run();
-
           break;
 
-        // Parse data elements
-        case 'parse':
+        // Setup style functions
+        case 'style':
 
-          // Creating wrappers
-          _var = gViz.vis.lineChart.parse()
+          // Setting styles
+          _var = gViz.vis.lineChart.style()
             ._var(_var)
             .run();
           break;
@@ -87,7 +87,7 @@ gViz.vis.lineChart = function () {
             .run();
           break;
 
-        // Setup x scale
+        // Setup X scale
         case 'xScale':
 
           // Creating
@@ -97,7 +97,7 @@ gViz.vis.lineChart = function () {
             .run();
           break;
 
-        // Setup y scale
+        // Setup Y scale
         case 'yScale':
 
           // Creating
@@ -117,13 +117,23 @@ gViz.vis.lineChart = function () {
             .run();
           break;
 
-        // Setup chart elements
+        // Setup elements
         case 'elements':
 
           // Running
           _var = gViz.vis.lineChart.elements()
             ._var(_var)
-            .data(_var.data.data)
+            .components(gViz.vis.lineChart)
+            .run();
+          break;
+
+        // Show misc
+        case 'misc':
+
+          // Running
+          _var = gViz.vis.lineChart.misc()
+            ._var(_var)
+            .components(gViz.vis.lineChart)
             .run();
           break;
 
@@ -134,7 +144,7 @@ gViz.vis.lineChart = function () {
   };
 
   // Expose global variables
-  ['_id', '_var', 'action', 'animation', 'container', 'colors', 'data', 'height', 'margin', 'width', 'chartType'].forEach(function (key) {
+  ['_id', '_var', 'action', 'animation', 'container', 'colors', 'data', 'height', 'margin', 'width'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {
@@ -152,7 +162,10 @@ gViz.vis.lineChart = function () {
   });
 
   // Secondary functions
-  main.build = _ => main("build");
+  main.build = function (_) { return main("build"); };
+
+  // Execute the specific called function
+  main.run = function (_) { return main(_); };
 
   return main;
 

@@ -1,5 +1,5 @@
 // Initialize the visualization class
-gViz.vis.pie_chart.parse = function () {
+gViz.vis.pieChart.parse = function () {
   "use strict";
 
   // Get attributes values

@@ -1,5 +1,5 @@
 // Initialize the visualization class
-gViz.vis.pieChart.misc = function () {
+gViz.vis.lineChart.misc = function () {
   "use strict";
 
   // Get attributes values
@@ -32,7 +32,7 @@ gViz.vis.pieChart.misc = function () {
           if(_var.data.legend != null && _var.data.legend.isVisible != null && _var.data.legend.isVisible === true) { top += 30; }
 
           // Update container
-          _var.container.d3.selectAll('.grid-background, .pie-chart').style('top', top + 'px')
+          _var.container.d3.selectAll('.grid-background, .line-chart').style('top', top + 'px')
 
           // Has title flag
           var hasTitle = _var.data.title != null && _var.data.title !== "";
@@ -87,22 +87,17 @@ gViz.vis.pieChart.misc = function () {
             var string = "";
             var stringObj = {};
 
-            // Iterate nodes
+            // Iterate over x domain
             _var.data.data.forEach(function(d, i) {
 
               // Get color
-              var fillColor = d.color == null ? "#666" : d.color;
-              var strokeColor = d.color == null ? "#666" : d.color;
-              var mutedColor = d._color == null ? "#bbb" : d._color;
-              var shape = 'rect';
+              var fillColor = d.color;
+              var strokeColor = d.color;
               var legend = _var.data.legend != null && _var.data.legend.text != null ? _var.data.legend.text : "{{name}}";
               var legendStr = "";
 
               // Add rect for obj
-              if(_var.muted) {
-                legendStr += "<span class='"+shape+"' style='background-color:"+mutedColor+"; margin-right: -2px;'></span>";
-              }
-              legendStr += "<span class='"+shape+"' style='background-color:"+fillColor+" ; '></span><span class='name'>";
+              legendStr += "<span class='rect-long' style='background-color:"+fillColor+" ; border-top: 2px solid "+strokeColor+";'></span><span class='name'>";
               legendStr += gViz.shared.helpers.text.replaceVariables(legend, d);
               legendStr += "</span>";
 
