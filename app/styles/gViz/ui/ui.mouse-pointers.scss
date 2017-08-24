@@ -1,0 +1,12 @@
+
+// Grab
+.grab, [data-action='pan'] { cursor: -webkit-grab; cursor: grab; }
+
+// Grabbing
+.grabbing, [data-action='panning'] { cursor: -webkit-grabbing !important; cursor: grabbing !important;}
+
+// Zoom
+.zoom, [data-action='zoom'] { cursor: crosshair; }
+
+// Drag
+[data-action='drag'] { cursor: pointer; }

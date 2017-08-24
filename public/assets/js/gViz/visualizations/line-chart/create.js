@@ -1,3 +1,4 @@
+// Initialize the visualization class
 gViz.vis.lineChart.create = function () {
   "use strict";
 
@@ -7,6 +8,7 @@ gViz.vis.lineChart.create = function () {
 
   // Validate attributes
   var validate = function (step) {
+
     switch (step) {
       case 'run': return true;
       default: return false;
@@ -25,9 +27,9 @@ gViz.vis.lineChart.create = function () {
         case 'run':
 
           // Draw svg
-          _var.wrap = _var.container.d3.selectAll(`svg.chart-${_var._id}`).data(["chart-svg-line"], d => d);
+          _var.wrap = _var.container.d3.selectAll(`svg.chart-${_var._id}`).data(["chart-svg"]);
           _var.wrap.exit().remove();
-          _var.wrap = _var.wrap.enter().append("svg").attr('class', `line-chart chart-${_var._id}`).merge(_var.wrap); // svg
+          _var.wrap = _var.wrap.enter().append("svg").attr('class', `line-graph line-chart chart-${_var._id}`).merge(_var.wrap); // svg
 
           // Update outer dimensions
           _var.wrap
@@ -38,9 +40,14 @@ gViz.vis.lineChart.create = function () {
           _var.g = _var.wrap.selectAll("g.chart-wrap").data(["chart-wrap"]); // svg:g
           _var.g.exit().remove();
           _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
-
-          // Update inner dimensions
           _var.g.attr("transform", `translate(${_var.margin.left},${_var.margin.top})`);
+
+          // Draw shadow
+          gViz.shared.visualComponents.shadow()
+            ._var(_var)
+            .wrap(_var.wrap)
+            .id(_var.shadowId)
+            .run();
 
           break;
       }

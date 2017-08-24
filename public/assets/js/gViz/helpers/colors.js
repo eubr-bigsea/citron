@@ -6,56 +6,48 @@ if (!gViz.helpers.colors) {
   gViz.helpers.colors = {};
 }
 
-// Initializer main color pallete
-gViz.helpers.colors.main = d3.scaleOrdinal(["#b172b2", "#eb65a0", "#bccf02", "#5bb12f", "#73c5e1"]);
+gViz.helpers.colors = {
+  // Initializer main color pallete
+  main: d3.scaleOrdinal(["#ea5c84","#ac73dc"]),
+  aux: d3.scaleOrdinal(["#FFFFFF","#ac73dc"]),
 
-gViz.helpers.colors.d310 = d3.scaleOrdinal(d3.schemeCategory10);
+  // Initializer gray scale color pallete
+  gray: d3.scaleOrdinal(["#434343","#666","#999","#aaa","#bbb","#ccc","#ddd","#eee"]),
 
-// Initializer gray scale color pallete
-gViz.helpers.colors.gray = d3.scaleOrdinal(["#000", "#333", "#666", "#999", "#bbb", "#ccc", "#ddd", "#eee"]);
+  //Function to convert hex format to a rgb color
+  rgb2hex: rgb2hex,
 
-// Initialize Linear Colour Scale. Params dependent
-gViz.helpers.colors.linear = function(data, colour_range, attr) {
+  // Is dark function
+  isDark: function(c) {
+    if(d3.color(c) != null) {
 
-  var ticks = colour_range.length - 1;
+      c = rgb2hex(d3.color(c).toString());
 
-  var min_max = d3.extent(data, function(d) {
-    if(attr) return d[attr];
-    return d;
-  })
+      c = c.substring(1);
+      // strip #
+      let rgb = parseInt(c, 16);
+      // convert rrggbb to decimal
+      let r = (rgb >> 16) & 0xff;
+      // extract red
+      let g = (rgb >> 8) & 0xff;
+      // extract green
+      let b = (rgb >> 0) & 0xff;
+      // extract blue
+      let luma = (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+      // per ITU-R BT.709
+      return luma < 168;
 
-  var interval = (min_max[1] - min_max[0])/ticks;
-  var domain = [];
-  var current = min_max[0];
+    } else { return true; }
+  },
 
-  domain.push(min_max[0]);
-
-  while(current < min_max[1]) {
-    current += interval;
-    domain.push(current);
+  // Heat colors
+  heat: function(d) {
+    if(!d || d == null || isNaN(+d)) { return "#FFF"; }
+    else if(+d < 30) { return "#10bbaa"; }
+    else if(+d >= 30 && +d < 50) { return "#edaf5c"; }
+    else if(+d >= 50 && +d < 75) { return "#e16b4d"; }
+    else if(+d >= 75 && +d < 90) { return "#fc7676"; }
+    else if(+d >= 90) { return "#d97055"; }
+    else { return "#FFF"; }
   }
-
-  domain.push(min_max[1]);
-
-  return d3.scaleLinear()
-          .domain(domain)
-          .range(colour_range);
 }
-
-// Is dark function
-gViz.helpers.colors.isDark = function (c) {
-
-  c = c.substring(1);
-  // strip #
-  var rgb = parseInt(c, 16);
-  // convert rrggbb to decimal
-  var r = rgb >> 16 & 0xff;
-  // extract red
-  var g = rgb >> 8 & 0xff;
-  // extract green
-  var b = rgb >> 0 & 0xff;
-  // extract blue
-  var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  // per ITU-R BT.709
-  return luma < 138;
-};

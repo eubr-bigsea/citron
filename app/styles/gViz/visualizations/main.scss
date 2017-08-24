@@ -1,0 +1,98 @@
+.gViz-header {
+
+  font-family: 'Yantramanav', sans-serif;
+
+  width: 100%;
+  height: 26px;
+  .title {
+    height: 24px;
+    line-height: 24px;
+    padding-top: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    letter-spacing: .7px;
+    color: $dark-gray;
+    display: block;
+    float: left;
+    width: calc(100% - 50px);
+  }
+  .subtitle {
+    font-size: 12px;
+    font-weight: normal;
+    color: $middle-gray;
+    display: block;
+    float: left;
+    width: calc(100% - 50px);
+  }
+  .symbol {
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    margin-right: 5px;
+    float: left;
+    .fa-stack {
+      width: 100%;
+      height: 2em;
+      i.fa-stack-2x {
+        color: $dark-gray;
+        font-size: 24px;
+      }
+      i.fa-stack-1x {
+        font-size: 11px;
+        margin-top: -5px;
+        color: $full-white;
+      }
+    }
+  }
+}
+
+.no-data {
+  margin: 0px;
+  padding: 0px 10px;
+  font-size: 14px;
+  small {
+    display: block;
+    padding-top: 10px;
+    line-height: 13px;
+  }
+}
+
+.gViz-relative {
+  position: relative;
+}
+
+[data-id='gViz-wrapper-breadcrumbs'] {
+
+  font-family: 'Yantramanav', sans-serif;
+
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  .breadcrumb-item, .breadcrumb-separator {
+    margin-right: 10px;
+    color: #FFF;
+    display: inline-block;
+    float: left;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 300;
+    font-size: 11px;
+
+    &[data-id='arrow'] {
+      text-decoration: none !important;
+      font-size: 9px !important;
+      color: $arrow-green;
+      line-height: 13px;
+      cursor: default;
+    }
+
+    &.last {
+      cursor: default;
+    }
+  }
+  .breadcrumb-separator {
+    color: #FFF;
+  }
+}
+

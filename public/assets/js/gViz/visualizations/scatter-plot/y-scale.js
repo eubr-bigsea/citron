@@ -1,3 +1,4 @@
+// Initialize the visualization class
 gViz.vis.scatterPlot.yScale = function () {
   "use strict";
 
@@ -35,8 +36,10 @@ gViz.vis.scatterPlot.yScale = function () {
 
           // Get bounds
           data.forEach(function(d) {
-            if(min == null || min > +d._y) { min = +d._y; }
-            if(max == null || max < +d._y) { max = +d._y; }
+            d.values.forEach(function(v) {
+              if(min == null || min > +v.y) { min = +v.y; }
+              if(max == null || max < +v.y) { max = +v.y; }
+            });
           });
 
           // Get axis target
@@ -53,32 +56,30 @@ gViz.vis.scatterPlot.yScale = function () {
           // Get diff
           var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : Math.abs(max - min) * 0.05;
 
+          // Add dot fix offset
+          var dotFix = 20 * Math.abs((max + diff) - (min == 0 ? min : min - diff)) / _var.height;
+          min = min - dotFix;
+          max = max + dotFix;
+
           // Set x domain
           _var.yBounds = [min, max]; //(min == 0 ? min : min - diff), max + diff];
-          _var.y.domain(_var.yBounds);
+          _var.y.domain(_var.yBounds).nice();
 
-          // Get axis format with prefix and sufix
-          var prefix   = _var.data.y != null && _var.data.y.prefix != null ? _var.data.y.prefix : "";
-          var sufix    = _var.data.y != null && _var.data.y.sufix != null ? _var.data.y.sufix : "";
-          _var.yFormat = function(d) { return prefix + gViz.helpers.number.locale(d) + sufix; };
+          // Set format
+          _var.yFormat = gViz.shared.helpers.number.parseFormat(_var.data == null ? null : _var.data.y);
 
-          // Get y axis ticks
-          var bins = d3.max([3, parseInt(_var.height / 60, 10)]);
-          var size = Math.abs(_var.y.domain()[1] - _var.y.domain()[0]) / bins;
-          _var.yTicks = [];
-          d3.range(bins + 1).forEach(function(i) { _var.yTicks.push((_var.y.domain()[0] + size * i).toFixed(2)); });
-
-          // Add eytra values
-          if(_var.y.domain()[1] > 0 && _var.y.domain()[0] < 0) { _var.yTicks.push(0); }
-          if(_var.yTarget != null) { _var.yTicks.push(_var.yTarget); }
+          // Get x axis ticks
+          var bins = d3.max([3, parseInt(_var.height / 25, 10)]);
 
           // Define y axis
-          _var.yAxis = d3.axisLeft(_var.y).tickPadding(10).tickFormat(_var.yFormat);
+          _var.yAxis = d3.axisLeft(_var.y).ticks(bins).tickPadding(10).tickFormat(_var.yFormat);
 
           // Update margin left and width
-          _var.width += _var.margin.left;
-          _var.margin.left = 5 + d3.max(_var.yAxis.scale().ticks().map(function(d) { return gViz.helpers.text.getSize(_var.yFormat(d)); }));
-          _var.width -= _var.margin.left;
+          if(data.length > 0) {
+            _var.width += _var.margin.left;
+            _var.margin.left = 5 + d3.max(_var.yAxis.scale().ticks().map(function(d) { return gViz.shared.helpers.text.getSize(_var.yFormat(d)); }));
+            _var.width -= _var.margin.left;
+          }
 
           break;
       }

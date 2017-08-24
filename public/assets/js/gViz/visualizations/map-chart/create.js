@@ -1,27 +1,22 @@
-'use strict';
-
 // Initialize the visualization class
-gViz.vis.map.create = function () {
+gViz.vis.map.create = function() {
   "use strict";
 
   // Get attributes values
-
-  var _var = undefined;
+  var _var      = undefined;
   var animation = 900;
+  var components = {};
 
   // Validate attributes
-  var validate = function validate(step) {
-
+  var validate = function(step) {
     switch (step) {
-      case 'run':
-        return true;
-      default:
-        return false;
+      case 'run': return true;
+      default: return false;
     }
   };
 
   // Main function
-  var main = function main(step) {
+  var main = function(step) {
 
     // Validate attributes if necessary
     if (validate(step)) {
@@ -31,15 +26,35 @@ gViz.vis.map.create = function () {
         // Build entire visualizations
         case 'run':
 
-          // Create map element
-          _var.map = L.map(_var.container.el, { minZoom: 2 })
-            .setView(_var.startPoint, _var.mapZoom);
+          // Draw svg
+          L.svg().addTo(_var.map);
 
-          // Set control zoom position
-          _var.map.zoomControl.setPosition('bottomright');
+          _var.wrap = d3.select(_var.map.getPanes().overlayPane).select("svg")
+            .attr("pointer-events", "all")
+            .attr('class', `map-heat-bars chart-${_var._id}`);
 
-          _var.currentTheme = _var.tiles[_var.tile];
-          _var.currentTheme.addTo(_var.map);
+          // Draw g
+          _var.g = _var.wrap.selectAll("g.chart-wrap").data(["chart-wrap"]); // svg:g
+          _var.g.exit().remove();
+          _var.g = _var.g.enter().append('g').attr('class', "chart-wrap").merge(_var.g);
+
+          // Draw background grid
+          // gViz.shared.visualComponents.backgroundGrid()
+          //   .id(_var._id)
+          //   .height(_var.height + _var.margin.top + _var.margin.bottom)
+          //   .width(_var.width + _var.margin.left + _var.margin.right)
+          //   .left(_var.margin.left)
+          //   .top(_var.margin.top)
+          //   .wrap(_var.container.d3)
+          //   .run();
+
+          // Draw shadow
+          gViz.shared.visualComponents.shadow()
+            ._var(_var)
+            .wrap(_var.wrap)
+            .id(_var.shadowId)
+            .run();
+
 
           break;
       }
@@ -49,31 +64,25 @@ gViz.vis.map.create = function () {
   };
 
   // Exposicao de variaveis globais
-  ['_var', 'animation'].forEach(function (key) {
+  ['_var','animation','components'].forEach(function(key) {
 
     // Attach variables to validation function
-    validate[key] = function (_) {
-      if (!arguments.length) {
-        eval('return ' + key);
-      }
-      eval(key + ' = _');
+    validate[key] = function(_) {
+      if (!arguments.length) { eval(`return ${key}`); }
+      eval(`${key} = _`);
       return validate;
     };
 
     // Attach variables to main function
-    return main[key] = function (_) {
-      if (!arguments.length) {
-        eval('return ' + key);
-      }
-      eval(key + ' = _');
+    return main[key] = function(_) {
+      if (!arguments.length) { eval(`return ${key}`); }
+      eval(`${key} = _`);
       return main;
     };
   });
 
   // Executa a funcao chamando o parametro de step
-  main.run = function (_) {
-    return main('run');
-  };
+  main.run = _ => main('run');
 
   return main;
 };

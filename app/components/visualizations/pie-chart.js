@@ -12,12 +12,12 @@ export default Ember.Component.extend({
   didRender: function(){
 
     this.set('_var',
-      gViz.vis.pie_chart()
+      gViz.vis.pieChart()
         ._var(this.get('_var'))
-        ._class("pie-chart")
         .container(`.gViz-wrapper-inner[data-id='${this.get('elementId')}']`)
         .data(this.get('data'))
         .build()
       );
-  },
+  }
+
 });

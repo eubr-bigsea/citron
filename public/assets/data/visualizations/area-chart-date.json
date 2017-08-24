@@ -3,7 +3,7 @@
     "title": "Revenue $",
     "tooltip": "Revenue",
     "prefix": "",
-    "sufix": "",
+    "suffix": "",
     "format": "%d, %b '%y",
     "type": "time",
     "parseFormat": "%Y-%d-%m"
@@ -12,7 +12,7 @@
     "title": "Contribution to sell Mix",
     "tooltip": "% Change in Sales",
     "prefix": "",
-    "sufix": "%",
+    "suffix": "%",
     "format": ""
   },
   "data": [{

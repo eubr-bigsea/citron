@@ -1,0 +1,113 @@
+// Main svg
+svg.map-chart {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+  stroke-width: 0px;
+  z-index: 10;
+  font-family: 'Yantramanav', sans-serif;
+
+  .bar, .bottom-bar, .map-shape {
+    cursor: pointer;
+  }
+}
+
+.legend-wrapper {
+  display: block;
+  color: #666;
+
+  .legend {
+    .scale-wrapper {
+      float: left;
+      width: auto;
+      span.low-name   { float: left; margin-right: 10px;  }
+      span.high-name  { float: left; margin-left: 10px;  }
+      span.scale-rect { float: left; width: 15px; height: 10px; }
+    }
+
+    .toggle-wrapper {
+      float: right;
+      width: auto;
+      span.bar-name  { float: left; margin-right: 10px;  }
+      span.heat-name { float: left; margin-left: 10px;  }
+      .toggle-ctn    {
+        background: #eee;
+        float: left;
+        .toggle {
+          background-color: rgb(204, 204, 204);
+        }
+      }
+    }
+
+    padding: 0px !important;
+    width: 50% !important;
+
+  }
+}
+
+.gViz-map-table-tooltip {
+  font-family: 'Yantramanav', sans-serif;
+  width: auto;
+  min-width: 100px;
+  position: absolute;
+  top: 74px;
+  left: 40px;
+  height: auto;
+  z-index: 1001;
+  font-size: 12px;
+  color: #666;
+
+  .axis-title, .node-header, .node-edge {
+    padding: 10px 15px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top: none;
+    background-color: rgba(255,255,255,0.6);
+    color: #666;
+
+    span.metric { max-width: 150px; font-weight: normal; margin-right: 20px;  }
+    span.number { float: right; font-weight: bold; font-family: 'Bebas'; }
+  }
+  .axis-title { color: #FFF; }
+  .node-header { background-color: #FFF; }
+
+}
+
+.gViz-map-actions {
+  font-family: 'Yantramanav', sans-serif;
+  width: auto;
+  position: absolute;
+  bottom: 30px;
+  right: 24px;
+  z-index: 1001;
+  font-size: 12px;
+  color: #666;
+  span {
+    display: block;
+    float: left;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #ddd;
+    border: 1px solid #eee;
+    margin-right: 5px;
+    &:hover {
+      background-color: #666;
+      color: #FFF;
+    }
+  }
+  span[data-action='reset'] {
+    background-color: transparent;
+    color: #e82110;
+    border: 1px solid transparent;
+    &:hover {
+      color: #e82110;
+      background-color: transparent;
+    }
+  }
+}

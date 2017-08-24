@@ -50,7 +50,8 @@ module.exports = function(defaults) {
   app.import('vendor/gViz/libs/d3.position/d3.position.js');
   app.import('vendor/gViz/libs/latinise/latinise_compact.js');
 
-
+  // Leaflet Heatmap
+  app.import('vendor/gViz/libs/leaflet-heat/leaflet-heat.js');
 
   return app.toTree();
 };

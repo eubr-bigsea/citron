@@ -7,7 +7,7 @@ gViz.vis.wordtree = function () {
   var action    = 'build';
   var animation = 900;
   var click     = { selector: 'svg', fn: function fn(d) { if (d == null) { d = "Clicked"; } return console.log(d); } };
-  var colors    = { scale: gViz.helpers.colors.main };
+  var colors    = { scale: gViz.shared.helpers.colors.main };
   var container = null;
   var data      = [];
   var height    = null;
