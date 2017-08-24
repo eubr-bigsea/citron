@@ -41,26 +41,6 @@ export function initialize(/* application */) {
        url: "visualization?name=map",
        dataUrl: "/assets/data/visualizations/map-chart.json"
      },
-     //graph: {
-     //  initials: "Graph",
-     //  component: "visualizations/graph-canvas",
-     //  icon: "fa-sitemap",
-     //  title: "Graph",
-     //  subtitle: "Distri",
-     //  description: "In mathematics, and more specifically in graph theory, a graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense 'related'. The objects correspond to mathematical abstractions called vertices (also called nodes or points) and each of the related pairs of vertices is called an edge (also called an arc or line).",
-     //  url: "visualization?name=graph",
-     //  dataUrl: "/assets/data/visualizations/graph-canvas.json"
-     //},
-     //wordtree: {
-     //  initials: "WrdT",
-     //  component: "visualizations/wordtree-diagram",
-     //  icon: "fa-sitemap",
-     //  title: "Wordtree",
-     //  subtitle: "Word Occurence Hierarchy",
-     //  description: "A Wordtree Diagram is a way of visually representing hierarchy in a tree-like structure.",
-     //  url: "visualization?name=wordtree",
-     //  dataUrl: "/assets/data/visualizations/wordtree.json"
-     //},
      line: {
        initials: "Line",
        component: "visualizations/line-chart",
@@ -71,16 +51,6 @@ export function initialize(/* application */) {
        url: "visualization?name=line",
        dataUrl: "/assets/data/visualizations/line-chart.json" // change line-chart-date.json for date 'x'
      },
-     //area: {
-     //  initials: "Area",
-     //  component: "visualizations/area-chart",
-     //  icon: "fa-area-chart",
-     //  title: "Area Chart",
-     //  subtitle: "Time Series",
-     //  description: "Area Graphs are Line Graphs but with the area below the line filled in with a certain colour or texture. Area Graphs are drawn by first plotting data points on a Cartesian coordinate grid, joining a line between the points and finally filling in the space below the completed line.",
-     //  url: "visualization?name=area",
-     //  dataUrl: "/assets/data/visualizations/area-chart.json" // change area-chart-date.json for date 'x'
-     //},
      scatter: {
        initials: "Scatter",
        component: "visualizations/scatter-plot",
@@ -103,16 +73,6 @@ export function initialize(/* application */) {
        url: "visualization?name=verticalbarchart",
        dataUrl: "/assets/data/visualizations/vertical-bar-chart.json"
      }
-     //histogram: {
-     //  initials: "Hist",
-     //  component: "visualizations/histogram-chart",
-     //  icon: "fa-bar-chart",
-     //  title: "Histogram",
-     //  subtitle: "Distribution",
-     //  description: "Histogram visualises the distribution of data over a continuous interval or certain time period. Each bar in a histogram represents the tabulated frequency at each interval/bin. The total area of the histogram is equal to the number of data.",
-     //  url: "visualization?name=histogram",
-     //  dataUrl: "/assets/data/visualizations/histogram.json"
-     //}
    };
 }
 

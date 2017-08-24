@@ -6,11 +6,8 @@ gViz.shared.helpers.loading = {
   // Mostra loading div
   show: function() {
 
+    // Add 1 to loading queue
     queue.push(1);
-
-    // Show loading div
-    // $(".loading-div").css('display', 'block').find(".loading-div-inner").css('height', $(window).outerHeight()).css('width', $(window).outerWidth());
-    // $("body").removeClass("no-scroll").addClass("no-scroll");
 
     // Show loading div
     d3.selectAll(".loading-div")
