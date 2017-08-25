@@ -42,7 +42,7 @@ gViz.vis.pieChart.elements = function () {
           // For each element in group
           groups.each(function (e, i) {
 
-            // Draw Background rect
+            // Draw arcs
             var arc = d3.select(this).selectAll("path.node-arc").data([e]);
             arc.exit().remove();
             arc = arc.enter().append('path').attr("class", "node-arc").merge(arc);
@@ -51,6 +51,18 @@ gViz.vis.pieChart.elements = function () {
               .style('stroke', function(d) { return d.data._color; })
               .transition()
                 .attr("d", _var.arc)
+
+            // Draw text text
+            var text = d3.select(this).selectAll("path.node-text").data([e]);
+            text.exit().remove();
+            text = text.enter().append('text').attr("class", "node-text").merge(text);
+            text
+              .attr("transform", function(d) { return "translate(" + _var.labelArc.centroid(d) + ")"; })
+              .attr("dy", ".3em")
+              .attr("font-size", "12px")
+              .attr("text-anchor", function(d) { return (d.startAngle + d.endAngle)/2 > Math.PI ? "end" : "start"; })
+              .style('fill', function(d) { return d.data._color; })
+              .html(function(d) { return _var.format(d.data.x); })
 
           });
 
