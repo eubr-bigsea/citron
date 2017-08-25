@@ -16,6 +16,10 @@
 @import 'ui/ui.bootstrap-slider.scss';
 @import 'ui/ui.mouse-pointers.scss';
 @import 'ui/ui.tooltipster.scss';
+@import 'ui/ui.toggle-switch.scss';
+
+// gViz
+@import 'gViz/main.scss';
 
 // Visualizations Main
 @import 'visualizations/main.scss';
@@ -25,17 +29,19 @@
 // Visualizations
 @import 'visualizations/area-chart/main.scss';
 @import 'visualizations/bar-chart/main.scss';
+@import 'visualizations/donut-chart/main.scss';
 @import 'visualizations/line-chart/main.scss';
 @import 'visualizations/correlation-matrix/main.scss';
-@import 'visualizations/sentiment-analysis/main.scss';
 @import 'visualizations/graph-canvas/main.scss';
 @import 'visualizations/histogram/main.scss';
-@import 'visualizations/topicos-vis/main.scss';
-@import 'visualizations/wordtree-diagram/main.scss';
+@import 'visualizations/map-chart/main.scss';
+@import 'visualizations/pie-chart/main.scss';
 @import 'visualizations/search-tool/main.scss';
 @import 'visualizations/scatter-plot/main.scss';
+@import 'visualizations/sentiment-analysis/main.scss';
 @import 'visualizations/table/main.scss';
-@import 'visualizations/map-chart/main.scss';
+@import 'visualizations/topicos-vis/main.scss';
+@import 'visualizations/wordtree-diagram/main.scss';
 
 // Visualizations Cards
 @import 'visualizations/vis-cards-container/main.scss';
@@ -64,6 +70,7 @@
 @import 'workflows/diagram-container-wrapper.scss';
 @import 'workflows/option-bar.scss';
 @import 'workflows/draw.scss';
+@import 'workflows/modals.scss';
 
 //Jobs
 @import 'jobs/large-table.scss';

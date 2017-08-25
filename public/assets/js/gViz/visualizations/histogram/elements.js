@@ -61,7 +61,7 @@ gViz.vis.histogram.elements = function () {
                   .attr("y", 6)
                   .attr("x", (_var.x(_var.bins[0].x1) - _var.x(_var.bins[0].x0)) / 2)
                   .attr("text-anchor", "middle")
-                  .text(function(d) { return gViz.helpers.number.locale(d.length); });
+                  .text(function(d) { return gViz.shared.helpers.number.locale(d.length); });
 
 
               });

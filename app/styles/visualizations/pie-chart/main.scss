@@ -1,0 +1,29 @@
+
+// Main svg
+svg.pie-chart {
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+  stroke-width: 0px;
+  z-index: 10;
+  //font-family: 'Yantramanav', sans-serif;
+
+  .center-title {
+    font-size: 11px;
+  }
+
+  .center-value {
+    font-size: 22px;
+    //font-family: 'Bebas';
+  }
+
+  .center-percentage {
+    font-size: 18px;
+    //font-family: 'Bebas';
+    fill: #666;
+  }
+
+}
+

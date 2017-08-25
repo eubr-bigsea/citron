@@ -21,6 +21,16 @@ export function initialize(/* application */) {
        url: "visualization?name=pie",
        dataUrl: "/assets/data/visualizations/pie-chart.json"
      },
+     donut: {
+       initials: "Donut",
+       component: "visualizations/donut-chart",
+       icon: "fa-pie-chart",
+       title: "Donut Chart",
+       subtitle: "Part to whole",
+       description: "A donut chart (or a circle chart) is a circular statistical graphic which is divided into slices to illustrate numerical proportion. In a pie chart, the arc length of each slice (and consequently its central angle and area), is proportional to the quantity it represents.",
+       url: "visualization?name=donut",
+       dataUrl: "/assets/data/visualizations/donut-chart.json"
+     },
      map: {
        initials: "Map",
        component: "visualizations/map-chart",
@@ -31,26 +41,6 @@ export function initialize(/* application */) {
        url: "visualization?name=map",
        dataUrl: "/assets/data/visualizations/map-chart.json"
      },
-     graph: {
-       initials: "Graph",
-       component: "visualizations/graph-canvas",
-       icon: "fa-sitemap",
-       title: "Graph",
-       subtitle: "Distri",
-       description: "In mathematics, and more specifically in graph theory, a graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense 'related'. The objects correspond to mathematical abstractions called vertices (also called nodes or points) and each of the related pairs of vertices is called an edge (also called an arc or line).",
-       url: "visualization?name=graph",
-       dataUrl: "/assets/data/visualizations/graph-canvas.json"
-     },
-     wordtree: {
-       initials: "WrdT",
-       component: "visualizations/wordtree-diagram",
-       icon: "fa-sitemap",
-       title: "Wordtree",
-       subtitle: "Word Occurence Hierarchy",
-       description: "A Wordtree Diagram is a way of visually representing hierarchy in a tree-like structure.",
-       url: "visualization?name=wordtree",
-       dataUrl: "/assets/data/visualizations/wordtree.json"
-     },
      line: {
        initials: "Line",
        component: "visualizations/line-chart",
@@ -59,17 +49,7 @@ export function initialize(/* application */) {
        subtitle: "Time Series",
        description: "Line Graphs are used to display quantitative value over a continuous interval or time span. It is most frequently used to show trends and relationships (when grouped with other lines).",
        url: "visualization?name=line",
-       dataUrl: "/assets/data/visualizations/line-chart-date.json" // change line-chart-date.json for date 'x'
-     },
-     area: {
-       initials: "Area",
-       component: "visualizations/area-chart",
-       icon: "fa-area-chart",
-       title: "Area Chart",
-       subtitle: "Time Series",
-       description: "Area Graphs are Line Graphs but with the area below the line filled in with a certain colour or texture. Area Graphs are drawn by first plotting data points on a Cartesian coordinate grid, joining a line between the points and finally filling in the space below the completed line.",
-       url: "visualization?name=area",
-       dataUrl: "/assets/data/visualizations/area-chart.json" // change area-chart-date.json for date 'x'
+       dataUrl: "/assets/data/visualizations/line-chart.json" // change line-chart-date.json for date 'x'
      },
      scatter: {
        initials: "Scatter",
@@ -81,27 +61,17 @@ export function initialize(/* application */) {
        url: "visualization?name=scatter",
        dataUrl: "/assets/data/visualizations/scatter-plot.json"
      },
-     barchart: {
-       initials: "Bar Chart",
-       component: "visualizations/bar-chart",
+     verticalbarchart: {
+       initials: "Bar Chart Vertical",
+       component: "visualizations/vertical-bar-chart",
        icon: "fa-bar-chart",
-       title: "Bar Chart",
+       title: "Vertical Bar Chart",
        subtitle: "Distribution",
-       description: `A bar chart or bar graph is a chart or graph that presents
+       description: `A vertical bar chart or bar graph is a chart or graph that presents
         grouped data with rectangular bars with lengths proportional to the
         values that they represent. `,
-       url: "visualization?name=barchart",
-       dataUrl: "/assets/data/visualizations/bar-chart.json"
-     },
-     histogram: {
-       initials: "Hist",
-       component: "visualizations/histogram-chart",
-       icon: "fa-bar-chart",
-       title: "Histogram",
-       subtitle: "Distribution",
-       description: "Histogram visualises the distribution of data over a continuous interval or certain time period. Each bar in a histogram represents the tabulated frequency at each interval/bin. The total area of the histogram is equal to the number of data.",
-       url: "visualization?name=histogram",
-       dataUrl: "/assets/data/visualizations/histogram.json"
+       url: "visualization?name=verticalbarchart",
+       dataUrl: "/assets/data/visualizations/vertical-bar-chart.json"
      }
    };
 }

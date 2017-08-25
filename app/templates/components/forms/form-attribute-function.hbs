@@ -21,13 +21,23 @@
             <tbody>
               {{#each currentValue as |row i|}}
                 <tr>
-                  <td>{{input class="form-control" value=row.attribute}}</td>
+                  <td class='select-attr-function'>
+                    <select class="form-control attr" onchange={{action (mut row.attribute) value='target.value'}} style="width: 100%">
+                      <option></option>
+                      {{#each suggestedAttrs as |attr|}}
+                        <option value={{attr.val}} selected={{eq attr.val row.attribute}}>
+                        {{attr.val}}
+                        </option>
+                      {{/each}}
+                    </select>
+                  </td>
+                  <!--                  <td>{{input class="form-control" value=row.attribute}}</td> -->
                   <td>
-                    <select class="form-control" onchange={{action (mut row.f) value='target.value'}}>
+                    <select class="form-control" onchange={{action (mut row.f) value='target.value'}} style="width:100%">
                       <option></option>
                       {{#each parsedValues as |function|}}
                         <option value={{function.key}} selected={{eq row.f function.key}}>
-                          {{function.value}}
+                        {{function.value}}
                         </option>
                       {{/each}}
                     </select>

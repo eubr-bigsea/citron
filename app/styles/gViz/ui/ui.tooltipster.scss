@@ -1,0 +1,93 @@
+[data-toggle='tooltipster'] {
+  cursor: hand; cursor: pointer;
+}
+
+.tooltipster-visualization {
+  position: absolute;
+  z-index: 9999999;
+  min-height: 10px;
+  min-width:  10px;
+  max-height: none;
+  max-width:  none;
+  display: none;
+  top: 0px;
+  left: 0px;
+  animation-duration: 350ms;
+  transition-duration: 350ms;
+
+  .tooltipster-arrow {
+    left: 50%;
+  }
+
+}
+
+.tooltipster-base {
+
+  max-height: none;
+  max-width:  none;
+
+  .tooltipster-box {
+    background: $full-white;
+    border: 2px solid $full-gray;
+    border-radius: 0px;
+
+    .tooltipster-content {
+      color: $dark-gray;
+      padding: 10px 20px;
+      font-size: 12px;
+
+      .title {
+        margin: 0px 0px 3px 0px;
+        padding: 0px;
+        font-size: 12px;
+        font-weight: bold;
+        color: $dark-gray;
+        display: block;
+        text-transform: uppercase;
+
+        small {
+          font-weight: normal;
+          font-style: italic;
+        }
+      }
+
+      .subtitle {
+        margin: 0px 0px 2px 0px;
+        padding: 0px;
+        display: block;
+        font-size: 10px;
+        font-weight: bold;
+        color: $middle-gray;
+      }
+
+      hr { margin: 2px; }
+
+      .info {
+        margin: 0px 0px 2px 0px;
+        padding: 0px;
+        display: block;
+        font-size: 10px;
+        font-weight: normal;
+        color: $middle-gray;
+
+        .key {
+        }
+        .value {
+          font-weight: normal;
+        }
+      }
+
+
+    }
+  }
+
+  .tooltipster-arrow {
+    .tooltipster-arrow-border {
+      border-top-color: $full-gray;
+    }
+    .tooltipster-arrow-background {
+      border-top-color: $full-white;
+    }
+  }
+
+}

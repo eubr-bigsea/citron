@@ -7,20 +7,21 @@ export default FormComponent.extend({
       tags: true,
       dropdownParent: this.$()
     });
-  },
-  didReceiveAttrs(){
     this.set('parsedValues', Ember.A());
 
     let parsed = this.get('parsedValues');
-    let values = JSON.parse(this.get('field.values'));
+    let values = this.get('field.suggestedAttrs');
     let currentValue = this.get('currentValue');
+    let selected = this.$('select').val()
 
     if(currentValue) {
       currentValue.forEach((el) => {
-        parsed.addObject({
-          val: el,
-          selected: true
-        });
+        if(selected.indexOf(el) === -1) {
+          parsed.addObject({
+            val: el,
+            selected: true
+          });
+        }
       });
     }
 
@@ -35,9 +36,38 @@ export default FormComponent.extend({
       });
     }
   },
+  didReceiveAttrs(){
+    this.set('parsedValues', Ember.A());
 
+    let parsed = this.get('parsedValues');
+    let values = this.get('field.suggestedAttrs');
+    let currentValue = this.get('currentValue');
+    if( this.$('select')){
+      var selected = this.$('select').val([])
+      if(currentValue) {
+        currentValue.forEach((el) => {
+          parsed.addObject({
+            val: el,
+            selected: true
+          });
+        });
+      }
+
+      if(values) {
+        values.forEach((el) => {
+          if(parsed.findBy('val', el) === undefined) {
+            parsed.addObject({
+              val: el,
+              selected: false
+            });
+          }
+        });
+      }
+    }
+  },
   actions: {
     valueChanged() {
+      this.set('selected',this.$('select').val());
       this._super(this.$('select').val());
     }
   }

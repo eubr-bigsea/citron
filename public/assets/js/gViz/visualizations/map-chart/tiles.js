@@ -1,21 +1,14 @@
-'use strict';
-
-gViz.vis.map.tiles = function () {
+gViz.vis.map.tiles = function() {
   "use strict";
 
   // Get attributes values
-
   var _var = undefined;
-  var action = 'initialize';
 
   // Validate attributes
   var validate = function validate(step) {
-
     switch (step) {
-      case 'run':
-        return true;
-      default:
-        return false;
+      case 'run': return true;
+      default: return false;
     }
   };
 
@@ -29,20 +22,15 @@ gViz.vis.map.tiles = function () {
         // Build entire visualizations
         case 'run':
 
-          switch (action) {
-
-            case 'initialize':
-              _var.tiles = {
-                "default":      L.tileLayer("http://{s}.osm.maptiles.xyz/{z}/{x}/{y}.png"),
-                "carto-light":  L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"),
-                "carto-dark":   L.tileLayer("http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"),
-                "wikimedia":    L.tileLayer("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"),
-              }
-
-              break;
+          // Define tiles array
+          _var.tiles = {
+            "default":  L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"),
+            "carto-light":  L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"),
+            "carto-dark":   L.tileLayer("http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"),
+            "wikimedia":    L.tileLayer("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"),
           }
 
-          break;
+        break;
       }
     }
 
@@ -50,7 +38,7 @@ gViz.vis.map.tiles = function () {
   };
 
   // Exposicao de variaveis globais
-  ['_var', 'action'].forEach(function (key) {
+  ['_var'].forEach(function (key) {
 
     // Attach variables to validation function
     validate[key] = function (_) {

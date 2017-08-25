@@ -7,6 +7,8 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   elementId: "lemonade-diagram",
   classNames: ["lemonade", "col-xs-12"],
+  zoomScale: 1,
+
   init() {
     this._super(...arguments);
     this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
@@ -25,14 +27,28 @@ export default Ember.Component.extend({
   didInsertElement() {
     let el = this;
 
+    Ember.$('#zoomIn').click(() => {
+      this.triggerAction({
+        action:'zoomIn',
+        target: this
+      });
+    }),
+
+    Ember.$('#zoomOut').click(() => {
+      this.triggerAction({
+        action:'zoomOut',
+        target: this
+      });
+    }),
+
     Ember.$(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
         let task = {
           id: generateUUID(),
           z_index: 0,
           forms: {},
-          left: ui.position.left,
-          top: ui.position.top,
+          left: ui.position.left/this.get('zoomScale'),
+          top: ui.position.top/this.get('zoomScale'),
           operation: {
             id: ui.helper.data('opid'),
             name: ui.helper.data('name'),
@@ -102,5 +118,20 @@ export default Ember.Component.extend({
       this.get('workflow').get('flows').removeObject(obj);
       this.get('flows').removeObject(obj);
     },
+    zoomIn(){
+      if(this.get('zoomScale') < 1.4){
+        this.set('zoomScale', this.get('zoomScale') + 0.1);
+        Ember.$('#lemonade-diagram:not(button)').animate({ 'zoom': this.get('zoomScale') }, 400);
+        this.get('jsplumb').setZoom(this.get('zoomScale'));
+      }
+    },
+
+    zoomOut(){
+      if(this.get('zoomScale') > 0.7){
+        this.set('zoomScale', this.get('zoomScale') - 0.1);
+        Ember.$('#lemonade-diagram').animate({ 'zoom': this.get('zoomScale') }, 400);
+        this.get('jsplumb').setZoom(this.get('zoomScale'));
+      }
+    }
   }
 });

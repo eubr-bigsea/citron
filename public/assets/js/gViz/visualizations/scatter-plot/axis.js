@@ -1,3 +1,4 @@
+// Initialize the visualization class
 gViz.vis.scatterPlot.axis = function () {
   "use strict";
 
@@ -7,9 +8,12 @@ gViz.vis.scatterPlot.axis = function () {
 
   // Validate attributes
   var validate = function validate(step) {
+
     switch (step) {
-      case 'run': return true;
-      default: return false;
+      case 'run':
+        return true;
+      default:
+        return false;
     }
   };
 
@@ -53,20 +57,20 @@ gViz.vis.scatterPlot.axis = function () {
               // Remove overlapping tick text
               _var.y_axis.selectAll(".tick text").filter(function(d) { return d === _var.yTarget; }).remove();
 
-              // Create and update Axis legend
-              _var.axis_legend = _var.g.selectAll(".axis-legend").data(['axis-legend']);
-              _var.axis_legend.exit().remove();
-              _var.axis_legend = _var.axis_legend.enter().append('text').attr("class", "axis-legend").merge(_var.axis_legend);
-              _var.axis_legend
-                .attr('text-anchor', 'start')
-                .attr('y', -15)
-                .text(function() {
-                  var t =  "Axis labels ( ";
-                      t += "Y-"+(_var.data.y != null && _var.data.y.title != null && _var.data.y.title !== "" ? _var.data.y.title : "No legend.")+" / ";
-                      t += "X-"+(_var.data.x != null && _var.data.x.title != null && _var.data.x.title !== "" ? _var.data.x.title : "No legend.");
-                      t += " )"
-                  return t;
-                });
+              // Set axis string
+              var yTitle = (_var.data.y != null && _var.data.y.title != null && _var.data.y.title !== "" ? "<b>Y - </b>"+_var.data.y.title : "");
+              var xTitle = (_var.data.x != null && _var.data.x.title != null && _var.data.x.title !== "" ? "<b>X - </b>"+_var.data.x.title : "");
+              var zTitle = (_var.data.z != null && _var.data.z.title != null && _var.data.z.title !== "" ? "<span class='circle' style='margin-left: 10px; background-color: #ccc;'></span>"+_var.data.z.title : "");
+
+              // Set axis title
+              if(yTitle !== "" && zTitle !== "" && xTitle !== "") { _var.axisTitle = yTitle+" / "+xTitle+" "+zTitle; }
+              else if(yTitle !== "" && zTitle !== "" && xTitle === "") { _var.axisTitle = yTitle+" "+zTitle; }
+              else if(yTitle !== "" && zTitle === "" && xTitle !== "") { _var.axisTitle = yTitle+" / "+xTitle; }
+              else if(yTitle === "" && zTitle !== "" && xTitle !== "") { _var.axisTitle = xTitle+" "+zTitle; }
+              else if(yTitle !== "" && zTitle === "" && xTitle === "") { _var.axisTitle = yTitle; }
+              else if(yTitle === "" && zTitle !== "" && xTitle === "") { _var.axisTitle = zTitle; }
+              else if(yTitle === "" && zTitle === "" && xTitle !== "") { _var.axisTitle = xTitle; }
+              else { _var.axisTitle = ""; }
 
               break;
 
@@ -108,3 +112,10 @@ gViz.vis.scatterPlot.axis = function () {
   return main;
 };
 
+function __range__(left, right, inclusive) {
+  var range = [];
+  var ascending = left < right;
+  var end = !inclusive ? right : ascending ? right + 1 : right - 1;
+  for (var i = left; ascending ? i < end : i > end; ascending ? i++ : i--) { range.push(i); }
+  return range;
+}

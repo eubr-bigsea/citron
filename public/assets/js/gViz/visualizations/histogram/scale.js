@@ -44,7 +44,7 @@ gViz.vis.histogram.scale = function () {
                 d.values.forEach(function (v) {
 
                   // Dates
-                  v.date = gViz.helpers.date.format.en.parse(v._date);
+                  v.date = gViz.shared.helpers.date.format.en.parse(v._date);
                   dates[v._date] = v.date;
 
                   // Values

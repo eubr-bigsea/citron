@@ -26,13 +26,26 @@
     <script src="{{rootURL}}assets/js/gViz/_init.js"></script>
     <script src="{{rootURL}}assets/js/gViz/initializers/tooltipster.js"></script>
     <script src="{{rootURL}}assets/js/gViz/initializers/libs.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/helpers/colors.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/helpers/date.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/helpers/loading.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/helpers/number.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/helpers/selection.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/helpers/text.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/helpers/map-markers.js"></script>
+
+    <!-- Helpers -->
+    <script src="{{rootURL}}assets/js/gViz/shared/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/helpers/colors.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/helpers/date.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/helpers/loading.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/helpers/number.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/helpers/selection.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/helpers/style.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/helpers/text.js"></script>
+
+    <!-- Visual Components -->
+    <script src="{{rootURL}}assets/js/gViz/shared/visual-components/axis-guide.js"></script>
+    <script
+src="{{rootURL}}assets/js/gViz/shared/visual-components/background-grid.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/visual-components/gradient.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/visual-components/shadow.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip.js"></script>
+    <script
+src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip-table.js"></script>
     <!-- /gViz Library -->
 
     <!-- gViz Library - Correlation Matrix -->
@@ -45,25 +58,6 @@
     <script src="{{rootURL}}assets/js/gViz/visualizations/matrix-chart/legend.js"></script>
     <script src="{{rootURL}}assets/js/gViz/visualizations/matrix-chart/sort.js"></script>
     <!-- /gViz Library - Correlation Matrix -->
-
-    <!-- gViz Library - Bar Chart -->
-    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/_init.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/initialize.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/create.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/scales.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/axis.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/draw.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/bar-chart/sort.js"></script>
-    <!-- /gViz Library - Bar Chart -->
-
-    <!-- gViz Library - Pie Chart -->
-    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/_init.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/initialize.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/create.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/elements.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/draw.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/sort.js"></script>
-    <!-- /gViz Library - Pie Chart -->
 
     <!-- gViz Library - Graph -->
     <script src="{{rootURL}}assets/js/gViz/visualizations/graph-canvas/_init.js"></script>
@@ -86,28 +80,10 @@
     <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/data_.js"></script>
     <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/create.js"></script>
     <script src="{{rootURL}}assets/js/gViz/visualizations/wordtree/setup.js"></script>
+
     <!-- /gViz Library - Wordtree -->
-    <script src="//dev.ctweb.inweb.org.br/tahiti/public/js/tahiti.js" language="JavaScript"></script>
-    <script src="/tahiti/public/js/tahiti.js" language="JavaScript"></script>
-
-    <!-- gViz Library - map-chart -->
-    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/_init.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/initialize.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/tiles.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/create.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/addMarkers.js"></script>
-    <!-- /gViz Library - map-chart -->
-
-    <!-- gViz Library - Line Chart -->
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/_init.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/initialize.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/create.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/x-scale.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/y-scale.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/axis.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/elements.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/parse.js"></script>
-    <!-- /gViz Library - Line Chart -->
+    <!--script src="//dev.ctweb.inweb.org.br/tahiti/public/js/tahiti.js" language="JavaScript"></script>
+    <script src="/tahiti/public/js/tahiti.js" language="JavaScript"></script-->
 
     <!-- gViz Library - Area Chart -->
     <script src="{{rootURL}}assets/js/gViz/visualizations/area-chart/_init.js"></script>
@@ -120,28 +96,6 @@
     <script src="{{rootURL}}assets/js/gViz/visualizations/area-chart/parse.js"></script>
     <!-- /gViz Library - Area Chart -->
 
-    <!-- gViz Library - Line Chart -->
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/_init.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/initialize.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/create.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/x-scale.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/y-scale.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/axis.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/elements.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/parse.js"></script>
-    <!-- /gViz Library - Line Chart -->
-
-    <!-- gViz Library - Scatter Plot -->
-    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/_init.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/initialize.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/create.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/x-scale.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/y-scale.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/axis.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/elements.js"></script>
-    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/parse.js"></script>
-    <!-- /gViz Library - Scatter Plot -->
-
     <!-- gViz Library - Histogram -->
     <script src="{{rootURL}}assets/js/gViz/visualizations/histogram/_init.js"></script>
     <script src="{{rootURL}}assets/js/gViz/visualizations/histogram/initialize.js"></script>
@@ -152,6 +106,89 @@
     <script src="{{rootURL}}assets/js/gViz/visualizations/histogram/elements.js"></script>
     <script src="{{rootURL}}assets/js/gViz/visualizations/histogram/parse.js"></script>
     <!-- /gViz Library - Histogram -->
+
+    <!-- **** gViz Library - Updated charts **** -->
+
+    <!-- gViz Library - Donut Chart -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/donut-chart/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/donut-chart/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/donut-chart/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/donut-chart/elements.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/donut-chart/events.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/donut-chart/misc.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/donut-chart/parse.js"></script>
+    <!-- /gViz Library - Donut Chart -->
+
+    <!-- gViz Library - Line Chart -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/x-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/y-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/axis.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/elements.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/events.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/style.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/line-chart/misc.js"></script>
+    <!-- /gViz Library - Line Chart -->
+
+    <!-- gViz Library - map-chart -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/bar-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/elements.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/events.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/heat-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/heat-layer.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/legend.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/render-map.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/style.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/tiles.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/zoom.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/map-chart/misc.js"></script>
+    <!-- /gViz Library - map-chart -->
+
+    <!-- gViz Library - Pie Chart -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/elements.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/events.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/legend.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/misc.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/pie-chart/parse.js"></script>
+    <!-- /gViz Library - Pie Chart -->
+
+    <!-- gViz Library - Scatter Plot -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/x-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/y-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/z-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/axis.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/elements.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/events.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/track.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/scatter-plot/misc.js"></script>
+    <!-- /gViz Library - Scatter Plot -->
+
+    <!-- gViz Library - Vertical Bar Chart -->
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/_init.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/initialize.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/style.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/events.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/create.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/x-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/y-scale.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/axis.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/elements.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/bars.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/misc.js"></script>
+    <!-- /gViz Library - Vertical Bar Chart -->
+
+    <!-- / **** gViz Library - Updated charts **** -->
 
     <!-- /Gfranciscani -->
 
