@@ -22,10 +22,10 @@ export default Ember.Component.extend({
 
     // Bind resize
     self.$().resizable({
-      start: function( event, ui ) {
+      start: function() {
         self.$().removeClass('hovering').addClass('hovering').css('opacity', 0.6);
       },
-      stop: function( event, ui ) {
+      stop: function() {
         self.incrementProperty('resizeIndex');
         self.$().removeClass('hovering').css('opacity', 1);
       },
