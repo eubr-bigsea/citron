@@ -24,7 +24,7 @@ export default Ember.Component.extend({
       url: self.get('dataUrl'),
       type: "GET",
       beforeSend() { gViz.shared.helpers.loading.show(); },
-      contentType: "application/json",
+      //contentType: "application/json",
       success(json) {
 
         self.set('data', json);
