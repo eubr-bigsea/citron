@@ -20,10 +20,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h5 class="title">{{t 'job.results.title' resource=(t (concat 'visualizations.' model.visu '.self'))}}</h5>
-      <div class="col-sm-12" style="height: 500px">
-        {{visualizations/vis-wrapper viz=model dataUrl=model.dataUrl}}
-      </div>
+      {{jobs/job-result-visualization viz=model dataUrl=model.dataUrl}}
     </div>
   </div>
 </div>
