@@ -84,7 +84,7 @@ gViz.vis.scatterPlot.misc = function () {
           if(innerWrapper != null) {
 
             // Initialize string
-            var string = "";
+            var string = _var.axisTitle != null && _var.axisTitle !== "" ? "<span class='axis-title'>"+_var.axisTitle+"</span>" : "";
             var stringObj = {};
 
             // Iterate over nodes
