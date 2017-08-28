@@ -33,13 +33,13 @@ gViz.vis.pieChart.events = function () {
           // Select groups
           var groups = _var.g.selectAll(".chart-elements").selectAll(".element-group");
           var arcs   = _var.g.selectAll(".chart-elements").selectAll(".element-group").selectAll(".node-arc");
+          var labels   = _var.g.selectAll(".chart-elements").selectAll(".element-group").selectAll(".node-text");
 
           switch (action) {
 
             case 'mouseover':
 
               // Update arc size
-              //
               var bigArc = d3.arc()
                 .outerRadius(_var.size + 5)
                 .innerRadius(0);
@@ -52,6 +52,23 @@ gViz.vis.pieChart.events = function () {
                 .style('opacity', function(g) { return g.data.id === node.data.id  ? 1 : 0.3; })
                 .style("filter", function(g) { return g.data.id === node.data.id ? "url(#"+_var.shadowId+")" : ""; })
 
+              // Update label arc size
+              var bigLabelArc = d3.arc()
+                .outerRadius(_var.size + 20)
+                .innerRadius(_var.size + 10);
+
+              // Update label arc size
+              labels
+                .html(function(d) {
+                  var y = (d.startAngle + d.endAngle)/2 < Math.PI/2 || (d.startAngle + d.endAngle)/2 > (Math.PI/2)*3 ? -12 : 0;
+                  var text = d.data.id === node.data.id ? "<tspan x='0' y='" + (y) + "' style='font-weight: bold;'>" + d.data.name + "</tspan>" : "";
+                  text += d.data.id === node.data.id ? "<tspan x='0' y='" + (y + 17) + "'>" + _var.format(d.data.x) + "</tspan>" : _var.format(d.data.x);
+                  return text;
+                })
+                .transition()
+                  .style('opacity', function(g) { return g.data.id === node.data.id  ? 1 : 0.3; })
+                  .attr("transform", function(d) { return "translate(" + (d.data.id === node.data.id ? bigLabelArc.centroid(d) : _var.labelArc.centroid(d)) + ")"; })
+
               // Initialize tooltip object
               var tooltipObj = {};
 
@@ -62,13 +79,20 @@ gViz.vis.pieChart.events = function () {
 
             case 'mouseout':
 
-              // Reset arcs and links opacity
+              // Reset arcs
               arcs.transition()
                 .style('fill', function(g) { return g.data._color; })
                 .style('stroke', function(g) { return g.data._color; })
                 .style('opacity', 1)
                 .style('filter', '')
                 .attr("d", _var.arc)
+
+              // Reset labels
+              labels
+                .html(function(d) { return _var.format(d.data.x); })
+                .transition()
+                  .style('opacity', 1)
+                  .attr("transform", function(d) { return "translate(" + _var.labelArc.centroid(d) + ")"; })
 
               // Set node
               node = _var.data[_var.metric];

@@ -33,7 +33,9 @@ gViz.vis.lineChart.xScale = function () {
           _var.xFormat = gViz.shared.helpers[xFmt].parseFormat(_var.data == null ? null : _var.data.x);
 
           // Define scales
-          _var.x = _var.xIsDate || _var.xIsNumber ? d3.scaleLinear().range([0, _var.width]) : d3.scaleBand().range([0, _var.width]).padding(0.1);
+          if(_var.xIsDate) { _var.x = d3.scaleTime().range([0, _var.width]); }
+          else if(_var.xIsNumber) { _var.x = d3.scaleLinear().range([0, _var.width]); }
+          else  { _var.x = d3.scaleBand().range([0, _var.width]).padding(0.1); }
 
           // Define aux variables
           var min = null, max = null, diff = null;
@@ -53,7 +55,7 @@ gViz.vis.lineChart.xScale = function () {
               if(_var.xIsDate) {
 
                 // Parse values
-                v.parsedX = d3.timeParse(_var.data.x.inFormat)(v.x).getTime();
+                v.parsedX = d3.timeParse(_var.data.x.inFormat)(v.x);
                 v.formattedX = _var.xFormat(v.x);
 
                 // Set domain
@@ -103,7 +105,7 @@ gViz.vis.lineChart.xScale = function () {
             var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : 0;
 
             // Set x domain
-            _var.x.domain([(min == 0 ? min : min - diff), max + diff]).nice();
+            _var.x.domain( _var.xIsDate ? [min, max] : [(min == 0 ? min : min - diff), max + diff]).nice();
 
             // Get x axis ticks
             var bins = d3.max([3, parseInt(_var.width / 100, 10)]);

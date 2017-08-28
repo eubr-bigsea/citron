@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+
   // Set html elements
   tagName: "div",
   classNames: ["gViz-outer-wrapper"],
@@ -8,12 +9,31 @@ export default Ember.Component.extend({
   // Initialize data
   data: null,
   isEmpty: Ember.computed.empty('data'),
+  resizeIndex: 0,
 
   // Initialize data
   didInsertElement() {
 
+    // Store this
+    var self = this;
+
     // Update data function
-    this.get('updateData')(this);
+    self.get('updateData')(self);
+
+    // Bind resize
+    self.$().resizable({
+      start: function() {
+        self.$().removeClass('hovering').addClass('hovering').css('opacity', 0.6);
+      },
+      stop: function() {
+        self.incrementProperty('resizeIndex');
+        self.$().removeClass('hovering').css('opacity', 1);
+      },
+      containment: self.$().parent(),
+      minWidth: 300,
+      minHeight: 300
+    });
+
   },
 
   // Update data function
@@ -24,7 +44,6 @@ export default Ember.Component.extend({
       url: self.get('dataUrl'),
       type: "GET",
       beforeSend() { gViz.shared.helpers.loading.show(); },
-      contentType: "application/json",
       success(json) {
 
         self.set('data', json);
@@ -38,5 +57,7 @@ export default Ember.Component.extend({
       complete() { gViz.shared.helpers.loading.hide(); }
 
     });
+
   }
+
 });
