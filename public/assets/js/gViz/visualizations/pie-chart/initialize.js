@@ -71,7 +71,7 @@ gViz.vis.pieChart.initialize = function () {
           if(_var.data.legend != null && _var.data.legend.isVisible != null && _var.data.legend.isVisible === true) { _var.height -= 30; }
 
           // Set donut size
-          _var.size   = d3.min([_var.width, _var.height]) / 2;
+          _var.size   = d3.min([_var.width, _var.height]) / 2 - 20;
 
           // Set attribute _id to container and update container
           _var.container.d3.attr('data-vis-id', _var._id);
@@ -91,6 +91,12 @@ gViz.vis.pieChart.initialize = function () {
           _var.arc = d3.arc()
             .outerRadius(_var.size)
             .innerRadius(0);
+
+          // Initialize arc function
+          _var.labelArc = d3.arc()
+            .outerRadius(_var.size + 20)
+            .innerRadius(_var.size);
+
 
           break;
       }

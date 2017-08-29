@@ -7,7 +7,7 @@ export default Ember.Component.extend({
       icon:   "fa-list",
       image:  "icon-th-outline",
       //link:   "'job.visualization' model.id 'correlation-matrix'",
-      link:   "visualizations.correlation-matrix",
+      link:   "visualizations/correlation-matrix",
       tooltip: "Correlation Metrics comments Authors x Law Articles.",
     },
     {
@@ -15,7 +15,7 @@ export default Ember.Component.extend({
       icon:   "fa-list",
       image:  "icon-emo-thumbsup",
       //link:   "'job.visualization' model.id 'sentiment-analysis'",
-      link:   "visualizations.sentiment-analysis",
+      link:   "visualizations/sentiment-analysis",
       tooltip: "Sentiment Analysis metrics of comments in law articles.",
     },
     {
@@ -23,7 +23,7 @@ export default Ember.Component.extend({
       icon:   "fa-bar-chart",
       image:  "icon-newspaper",
       //link:   "'job.visualization' model.id 'topicos-vis'",
-      link:    "visualizations.topicos-vis",
+      link:    "visualizations/topicos-vis",
       tooltip: "This visualization shows a table between topics and axis.",
     },
     {
@@ -31,7 +31,7 @@ export default Ember.Component.extend({
       icon:   "icon-flow-tree",
       image:  "icon-flow-split",
       //link:   "'job.visualization' model.id 'wordtree-diagram'",
-      link:   "visualizations.wordtree-diagram",
+      link:   "visualizations/wordtree-diagram",
       tooltip: "Wordtree Analysis visualization of all of the filtered comments.",
     },
     {
@@ -39,7 +39,7 @@ export default Ember.Component.extend({
       icon:   "fa-search",
       image:  "icon-search",
       //link:   "'job.visualization' model.id 'search-tool'",
-      link:   "visualizations.search-tool",
+      link:   "visualizations/search-tool",
       tooltip: "Exploratory Tool which can be used to search the filtered comments.",
     },
     {
@@ -47,7 +47,7 @@ export default Ember.Component.extend({
       icon:   "icon-flow-tree",
       image:  "icon-comment-1",
       //link:   "'job.visualization' model.id 'graph-canvas'",
-      link:   "visualizations.graph-canvas",
+      link:   "visualizations/graph-canvas",
       tooltip: "Co-ocurrence visualization of words within filtered comments.",
     },
     {
@@ -55,7 +55,7 @@ export default Ember.Component.extend({
       icon:   "icon-flow-tree",
       image:  "icon-chat-2",
       //link:   "'job.visualization' model.id 'graph-canvas-full'",
-      link:   "visualizations.graph-canvas",
+      link:   "visualizations/graph-canvas",
       tooltip: "Co-ocurrence visualization of words within filtered comments.",
     },
     {
@@ -63,7 +63,7 @@ export default Ember.Component.extend({
       icon:   "icon-flow-tree",
       image:  "icon-users",
       //link:   "'job.visualization' model.id 'part-item'",
-      link:   "visualizations.graph-canvas",
+      link:   "visualizations/graph-canvas",
       tooltip: "Graph showing relationship between participants and commentables.",
     },
   ],

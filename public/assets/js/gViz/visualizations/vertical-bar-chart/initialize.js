@@ -58,6 +58,7 @@ gViz.vis.verticalBarChart.initialize = function () {
 
           // Store data
           _var.data = data;
+          if(_var.data.colors == null) { _var.data.colors = {}; }
 
           // Map data and get labels
           _var.nodes = {};
