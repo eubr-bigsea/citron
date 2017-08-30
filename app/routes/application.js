@@ -49,6 +49,7 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
 
   actions: {
     error(error, transition) {
+      console.log(error);
       if( error.isAdapterError){
         if( error.message !== "The adapter operation was aborted") {
           var resource = transition.targetName.split('.')[0]

@@ -176,6 +176,11 @@ export default {
         'message': 'Você quer apagar permanentemente a datasource {{resource.name}}?',
         'submitButton': 'Apagar',
       },
+      'dashboard': {
+        'title': 'Apagando o dashboard:',
+        'message': 'Você quer apagar permanentemente o dashboard {{resource.name}}?',
+        'submitButton': 'Apagar',
+      },
     },
     'leave': {
       'workflow': {
@@ -291,6 +296,11 @@ export default {
     'emptyPermissions': 'Compartilhe com outros usuários',
     'sharedUsers': 'Compartilhado com estes usuários',
     'allUsers': 'Todos os usuários',
+  },
+  'dashboards': {
+    'self': 'Dashboards',
+    'description': 'Lista de todas os Dashboards - e.g. privados, publicos, etc..',
+    'searchFor': 'Buscar',
   },
   'en': 'English',
   'pt': 'Português',

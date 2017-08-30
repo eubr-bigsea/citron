@@ -180,6 +180,11 @@ export default {
         'message': 'Do you want to permanently delete the datasource {{resource.name}}?',
         'submitButton': 'Delete',
       },
+      'dashboard': {
+        'title': 'Deleting dashboard:',
+        'message': 'Do you want to permanently delete the dashboard {{resource.name}}?',
+        'submitButton': 'Delete',
+      },
     },
     'leave': {
       'workflow': {
@@ -299,6 +304,11 @@ export default {
     'emptyPermissions': 'Share with others users',
     'sharedUsers': 'Shared with those users',
     'allUsers': 'All users',
+  },
+  'dashboards': {
+    'self': 'Dashboards',
+    'description': 'List of all Dashboards - e.g. private, public, etc..',
+    'searchFor': 'Search',
   },
   'en': 'English',
   'pt': 'Português',

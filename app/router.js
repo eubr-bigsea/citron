@@ -34,9 +34,14 @@ Router.map(function() {
   this.route('user', {path: 'user/:id'});
   this.route('group', {path: 'group/:id'});
   this.route('policy');
-  this.route('notFound', {path: '/*path'});
   this.route('datasources');
   this.route('visualization');
+  this.route('dashboards');
+  this.route('dashboard', function() {
+    this.route('show', {path: ':id/show'});
+  });
+  this.route('notFound', {path: '/*path'});
+
 });
 
 export default Router;
