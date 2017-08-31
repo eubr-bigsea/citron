@@ -4,7 +4,12 @@ export default Ember.Component.extend({
 
   // Set html elements
   tagName: "div",
-  classNames: ["gViz-dashboard-wrapper"],
+  classNames: ["gViz-dashboard-wrapper","grid-stack-item"],
+  attributeBindings: ['x:data-gs-x','y:data-gs-y','width:data-gs-width','height:data-gs-height'],
+  x: 0,
+  y: 0,
+  width: 4,
+  height: 2,
 
   // Initialize data
   data: null,
@@ -17,32 +22,23 @@ export default Ember.Component.extend({
     // Store this
     var self = this;
 
-    // Get window height
-    var wHeight = jQuery(window).outerHeight();
-
-    // Get visual div and offset
-    var wrap = self.$();
-    var offset = wrap.offset().top;
-
-    // Set visual height
-    wrap.css('height', (wHeight - offset) + 'px');
-
     // Update data function
     self.get('updateData')(self);
 
-    // Bind resize
-    self.$().resizable({
-      start: function() {
-        self.$().removeClass('hovering').addClass('hovering').css('opacity', 0.6);
-      },
-      stop: function() {
+    // Add resize binding
+    var tm = new Date();
+    self.$().on('resize', function() {
+
+      // Clear timeout
+      clearTimeout(tm);
+
+      // Initialize timout
+      tm = setTimeout(function() {
         self.incrementProperty('resizeIndex');
-        self.$().removeClass('hovering').css('opacity', 1);
-      },
-      containment: self.$().parent(),
-      minWidth: 300,
-      minHeight: 300
+      }, 300);
+
     });
+
 
   },
 
@@ -69,7 +65,5 @@ export default Ember.Component.extend({
     });
 
   }
-
-
 
 });

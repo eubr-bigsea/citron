@@ -31,6 +31,39 @@ export default Ember.Component.extend({
 
       return this.get('model.visualizations');
 
-  })
+  }),
+
+  // After insert elements
+  didInsertElement() {
+
+    // Store this
+    var self = this;
+
+    // Initialize gridstack
+    var gs = self.$('.grid-stack').gridstack({
+      alwaysShowResizeHandle: true
+    });
+
+    // On resize start
+    gs.on('resizestart', function(event, ui) {
+
+      // Get grid and element
+      var grid = this;
+      var element = event.target;
+
+      // Set styles
+      self.$(element).removeClass('hovering').addClass('hovering').css('opacity', 0.6);
+
+    });
+
+    // On resize stop
+    gs.on('gsresizestop', function(event, element) {
+
+      // Set styles
+      self.$(element).removeClass('hovering').css('opacity', 1);
+
+    });
+
+  }
 
 });
