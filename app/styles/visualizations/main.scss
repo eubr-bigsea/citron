@@ -1,4 +1,4 @@
-.gViz-outer-wrapper {
+.gViz-outer-wrapper, .gViz-dashboard-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -6,6 +6,7 @@
   min-height: 300px;
   border: 1px solid transparent;
   overflow: hidden;
+  float: left;
   &:hover, &.hovering {
     border: 1px solid #dedede;
     -webkit-box-shadow: -5px 5px 5px 0px rgba(190,190,190,1);

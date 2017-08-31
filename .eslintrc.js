@@ -13,6 +13,7 @@ module.exports = {
   },
   'globals': {
     '$': true,
+    'jQuery': true,
     'd3': true,
     'gViz': true
   }

@@ -1,0 +1,7 @@
+{{#if isEmpty}}
+  Loading data...
+{{else }}
+  {{#each visualizations as |viz|}}
+    {{dashboards/vis-wrapper viz=viz dataUrl=viz.dataUrl}}
+  {{/each }}
+{{/if}}
