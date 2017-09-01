@@ -7,6 +7,7 @@
   border: 1px solid transparent;
   overflow: hidden;
   &:hover, &.hovering {
+    z-index: 1010;
     border: 1px solid #dedede;
     -webkit-box-shadow: -5px 5px 5px 0px rgba(190,190,190,1);
     -moz-box-shadow: -5px 5px 5px 0px rgba(190,190,190,1);

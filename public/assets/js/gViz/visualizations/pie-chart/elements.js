@@ -43,7 +43,7 @@ gViz.vis.pieChart.elements = function () {
           groups.each(function (e, i) {
 
             // Draw arcs
-            var arc = d3.select(this).selectAll("path.node-arc").data([e]);
+            var arc = d3.select(this).selectAll("path.node-arc").data([e], function(d) { return d.data.id; });
             arc.exit().remove();
             arc = arc.enter().append('path').attr("class", "node-arc").merge(arc);
             arc
@@ -53,7 +53,7 @@ gViz.vis.pieChart.elements = function () {
                 .attr("d", _var.arc)
 
             // Draw text text
-            var text = d3.select(this).selectAll("path.node-text").data([e]);
+            var text = d3.select(this).selectAll(".node-text").data([e], function(d) { return d.data.id; });
             text.exit().remove();
             text = text.enter().append('text').attr("class", "node-text").merge(text);
             text

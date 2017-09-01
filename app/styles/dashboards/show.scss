@@ -1,0 +1,59 @@
+.gViz-dashboard-canvas {
+  padding: 20px;
+
+  .header {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border-bottom: 1px solid #dedede;
+    margin: 0px 10px 20px;
+
+    .title {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      word-spacing: 3px;
+      color: #666;
+      height: 40px;
+      line-height: 40px;
+      width: 70%;
+      float: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0px;
+      white-space: nowrap;
+    }
+
+    .actions-custom {
+      width: 30%;
+      text-align: right;
+      float: right;
+      .btn {
+        background-color: #2A4747;
+        color: #FFF;
+        border: 1px solid #000;
+      }
+    }
+  }
+  .gViz-dashboard-wrapper {
+
+    .gViz-wrapper-inner {
+      border: 1px solid transparent;
+    }
+
+    &:hover, &.hovering {
+      z-index: 1010;
+      border: 1px solid transparent !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      box-shadow: none !important;
+
+      .gViz-wrapper-inner {
+        z-index: 1010;
+        border: 1px solid #dedede;
+        -webkit-box-shadow: -5px 5px 5px 0px rgba(190,190,190,1);
+        -moz-box-shadow: -5px 5px 5px 0px rgba(190,190,190,1);
+        box-shadow: -5px 5px 5px 0px rgba(190,190,190,1);
+      }
+    }
+  }
+}

@@ -59,6 +59,18 @@ export default Ember.Component.extend({
     // On resize stop
     gs.on('gsresizestop', function(event, element) {
 
+      // Get viz id
+      var dataVizId = self.$(element).attr('data-viz-id');
+
+      // Get visualization and increment resizeIndex property
+      var index = self.get('visualizations').map((d,i) => { return { index: i, id: `${d.id}` } }).find(d => `${d.id}` === `${dataVizId}`).index;
+
+      // Get obj
+      var obj = self.get('visualizations').objectAt(index);
+
+      // Update property
+      Ember.set(obj, 'resizeIndex', obj.resizeIndex+1);
+
       // Set styles
       self.$(element).removeClass('hovering').css('opacity', 1);
 

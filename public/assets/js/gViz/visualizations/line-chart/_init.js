@@ -11,7 +11,7 @@ gViz.vis.lineChart = function () {
   var colors = { main: gViz.shared.helpers.colors.main };
   var data = [];
   var height = null;
-  var margin = { top: 10, right: 2, bottom: 35, left: 0 };
+  var margin = { top: 10, right: 10, bottom: 35, left: 0 };
   var width = null;
 
   // Validate attributes

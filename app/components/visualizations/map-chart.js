@@ -10,9 +10,10 @@ export default Ember.Component.extend({
 
   didRender: function() {
 
+    self.$(`.gViz-wrapper-inner[data-id='${this.get('elementId')}']`).html('');
+
     // Draw visualization
     this.set('_var',
-      // Initializes map
       gViz.vis.map()
         ._var(this.get('_var'))
         .container(`.gViz-wrapper-inner[data-id='${this.get('elementId')}']`)

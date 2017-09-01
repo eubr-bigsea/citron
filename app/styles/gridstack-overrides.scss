@@ -2,13 +2,14 @@
   padding: 0px;
 
   .grid-stack-item-content {
-    padding: 0px;
+    padding: 0px 10px;
     width: 100% !important;
     left: 0px !important;
     top: 0px !important;
   }
   .ui-resizable-se {
-    right: 0px !important;
+    right: 10px !important;
+    bottom: 0px !important;
   }
 
   .ui-resizable-handle {

@@ -5,16 +5,18 @@ export default Ember.Component.extend({
   // Set html elements
   tagName: "div",
   classNames: ["gViz-dashboard-wrapper","grid-stack-item"],
-  attributeBindings: ['x:data-gs-x','y:data-gs-y','width:data-gs-width','height:data-gs-height'],
+  attributeBindings: ['x:data-gs-x','y:data-gs-y','width:data-gs-width','height:data-gs-height','dataVizId:data-viz-id'],
   x: 0,
   y: 0,
   width: 4,
   height: 2,
+  dataVizId: Ember.computed('viz', function() {
+    return this.get('viz.id');
+  }),
 
   // Initialize data
   data: null,
   isEmpty: Ember.computed.empty('data'),
-  resizeIndex: 0,
 
   // Initialize data
   didInsertElement() {
@@ -22,23 +24,11 @@ export default Ember.Component.extend({
     // Store this
     var self = this;
 
+    // Set resizeIndex
+    self.set('viz.resizeIndex', 0);
+
     // Update data function
     self.get('updateData')(self);
-
-    // Add resize binding
-    var tm = new Date();
-    self.$().on('resize', function() {
-
-      // Clear timeout
-      clearTimeout(tm);
-
-      // Initialize timout
-      tm = setTimeout(function() {
-        self.incrementProperty('resizeIndex');
-      }, 300);
-
-    });
-
 
   },
 

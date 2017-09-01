@@ -5,9 +5,6 @@ export default Ember.Component.extend({
   // Set html elements
   classNames: ["gViz-wrapper"],
 
-  // Chart var
-  _var: null,
-
   // Draw Chart
   didRender: function(){
 
