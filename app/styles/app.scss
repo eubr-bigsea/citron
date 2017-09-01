@@ -1,8 +1,6 @@
 @import "ember-bootstrap/bootstrap";
 @import "font-awesome";
 
-
-
 // Gfranciscani Styles
 @import 'mixins.scss';
 
@@ -17,6 +15,9 @@
 @import 'ui/ui.mouse-pointers.scss';
 @import 'ui/ui.tooltipster.scss';
 @import 'ui/ui.toggle-switch.scss';
+
+// Gridstack overrides
+@import "gridstack-overrides";
 
 // gViz
 @import 'gViz/main.scss';
@@ -84,6 +85,9 @@
 @import 'datasources/file-upload.scss';
 @import 'datasources/attributes-table.scss';
 
+//Dashboards
+@import 'dashboards/large-table.scss';
+@import 'dashboards/show.scss';
 
 
 @import "auth.scss";

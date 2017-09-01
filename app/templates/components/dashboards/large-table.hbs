@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-header">
+          <th class="id">
+            <span>{{t 'tables.id'}}</span>
+            {{link-to "" (query-params sort="id" asc="true") class="arrow-sorter fa fa-arrow-up"}}
+            {{link-to "" (query-params sort="id" asc="false") class="arrow-sorter fa fa-arrow-down"}}
+          </th>
+          <th class="name">
+            <span>{{t 'tables.name'}}</span>
+            {{link-to "" (query-params sort="name" asc="true") class="arrow-sorter fa fa-arrow-up"}}
+            {{link-to "" (query-params sort="name" asc="false") class="arrow-sorter fa fa-arrow-down"}}
+          </th>
+          <th class="options">
+            <span>{{t 'tables.options'}}</span>
+          </th>
+          <th class="date">
+            <span>{{t 'tables.created'}}</span>
+            {{link-to "" (query-params sort="created" asc="true") class="arrow-sorter fa fa-arrow-up"}}
+            {{link-to "" (query-params sort="created" asc="false") class="arrow-sorter fa fa-arrow-down"}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |dashboard|}}
+          <tr class="table-item">
+            <td class="id">
+              {{#link-to 'dashboard.show' dashboard.id}}
+                <span>{{dashboard.id}}</span>
+              {{/link-to}}
+            </td>
+            <td class="name">
+              {{#link-to 'dashboard.show' dashboard.id}}
+                <span>  {{dashboard.title}} </span>
+              {{/link-to}}
+            </td>
+            <td class="options">
+              {{#link-to 'dashboard.show' dashboard.id  }}
+                <i rel="tooltip" title="" class="fa fa-eye fa-lg"></i>
+              {{/link-to}}
+              <a class="remove" {{action 'deleteDashboard' dashboard}} href="#" >
+                <i rel="tooltip" title="Delete this dashboard" class="fa fa-trash-o fa-lg"></i>
+              </a>
+            </td>
+            <td class="date">
+              <span>{{format-date dashboard.created}}</span>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{table-paginate content=model}}
+    {{outlet}}
+  </div> <!-- col-xs-12 -->
+</div> <!-- row -->
+{{confirmation-modal modal=modal content=modalContent resource=toDelete onSubmit=(action 'submit')}}

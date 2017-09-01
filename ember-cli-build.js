@@ -53,5 +53,13 @@ module.exports = function(defaults) {
   // Leaflet Heatmap
   app.import('vendor/gViz/libs/leaflet-heat/leaflet-heat.js');
 
+  // Lodash for Gridstack
+  app.import('vendor/lodash/lodash.min.js');
+
+  // Gridstack for flex layout
+  app.import('vendor/gridstack/gridstack.css');
+  app.import('vendor/gridstack/gridstack.js');
+  app.import('vendor/gridstack/gridstack.jQueryUI.js');
+
   return app.toTree();
 };

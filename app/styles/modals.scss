@@ -136,3 +136,13 @@
     }
   }
 }
+.modal.show {
+  .modal-title {
+    display: inline-block;
+  }
+  .btn-success {
+    color: $color-text-lighter;
+    background: $color-light;
+    border-color: $color-light;
+  }
+}

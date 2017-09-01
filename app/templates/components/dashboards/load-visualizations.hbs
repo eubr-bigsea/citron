@@ -1,0 +1,15 @@
+<div class='header'>
+  <p class='title'>{{model.title}}</p>
+  <div class='actions-custom'>
+    <button class='btn btn-sm'><i class='fa fa-save'></i></button>
+  </div>
+</div>
+<div class="grid-stack">
+  {{#if isEmpty}}
+    Loading data...
+  {{else }}
+    {{#each visualizations as |viz|}}
+      {{dashboards/vis-wrapper viz=viz dataUrl=viz.dataUrl}}
+    {{/each }}
+  {{/if}}
+</div>

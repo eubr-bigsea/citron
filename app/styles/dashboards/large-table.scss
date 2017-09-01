@@ -1,0 +1,80 @@
+#large-table-dashboards {
+  margin: 5px 0 0 0;
+
+  .table-hover {
+    tbody tr:hover {
+      background-color: rgba($color-lighter, 0.5);
+    }
+  }
+
+  .table-header {
+
+    .arrow-sorter {
+      font-size: 0.8em;
+      display: inline;
+      color: $color-base;
+    }
+
+    .id {
+      text-align: center;
+    }
+
+    .date {
+      text-align: right;
+      width: 200px;
+      vertical-align: middle;
+    }
+  }
+
+  .table-item {
+
+    #result-btn {
+      text-align: center;
+    }
+    .options {
+      vertical-align: middle;
+
+      a {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin: 0px 8px 0px 8px;
+        text-decoration: none;
+        color: $color-text-dark;
+
+        &:hover {
+          color: $color-light;
+        }
+      }
+    }
+    .id {
+      text-align: center;
+      vertical-align: middle;
+
+      a {
+        text-decoration: none;
+        color: $color-text-dark;
+        &:hover {
+          color: $color-light;
+        }
+      }
+    }
+
+    .name {
+      vertical-align: middle;
+      a {
+        text-decoration: none;
+        color: $color-text-dark;
+        &:hover {
+          color: $color-light;
+        }
+      }
+    }
+
+    .date {
+      text-align: right;
+      vertical-align: middle;
+    }
+
+  }
+}
