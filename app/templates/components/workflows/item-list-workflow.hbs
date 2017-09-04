@@ -5,30 +5,25 @@
   </label>
 </td>
 <td class="logo">
-  {{#link-to 'workflow.draw' workflow.id}}
+  {{#link-to 'home.workflows.draw' workflow.id}}
     <img class="image" src="/assets/images/{{if workflow.image workflow.image "img1.png"}}">
   {{/link-to}}
 </td>
 <td class="id">
-  {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}
+  {{#link-to 'home.workflows.draw' workflow.id (query-params platform=workflow.platform.id) }}
     <span>{{workflow.id}}</span>
   {{/link-to}}
 </td>
 <td class="name">
-  {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}
+  {{#link-to 'home.workflows.draw' workflow.id (query-params platform=workflow.platform.id) }}
     <span>  {{workflow.name}} </span>
   {{/link-to}}
 </td>
 <td class="options">
-  {{!--
-  {{#link-to 'workflow.params' workflow.id }}
-    <i rel="tooltip" title="Create a job for this workflow" class="fa fa-sliders fa-lg"></i>
-  {{/link-to}}
-  --}}
-  {{#link-to 'workflow.edit' workflow.id }}
+  {{#link-to 'home.workflows.edit' workflow.id }}
     <i rel="tooltip" title="Change workflow's data" class="fa fa-cog fa-lg"></i>
   {{/link-to}}
-  {{#link-to 'workflow.draw' workflow.id (query-params platform=workflow.platform.id) }}
+  {{#link-to 'home.workflows.draw' workflow.id (query-params platform=workflow.platform.id) }}
     <i rel="tooltip" title="Draw this workflow" class="fa fa-pencil fa-lg"></i>
   {{/link-to}}
   <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" >

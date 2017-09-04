@@ -8,12 +8,12 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('landing-page');
-  this.route('home');
-  this.route('workflows');
-  this.route('workflow', function() {
-    this.route('new');
-    this.route('edit', {path: ':id/edit'});
-    this.route('draw', {path: ':id/draw'});
+  this.route('home', function() {
+    this.route('workflows', function() {
+      this.route('new');
+      this.route('edit', {path: ':id/edit'});
+      this.route('draw', {path: ':id/draw'});
+    });
   });
   this.route('jobs');
   this.route('job', function() {

@@ -6,12 +6,12 @@
     <p class="title-description"> {{t 'workflows.description'}} </p>
   </div>
   <div class="col-xs-4 buttons-menu">
-    {{#link-to 'workflow.new' class="create-new btn"}}{{t 'workflows.newBtn'}} {{/link-to}}
+    {{#link-to 'home.workflows.new' class="create-new btn"}}{{t 'workflows.newBtn'}} {{/link-to}}
     <div class="action dropdown ">
       <a class="btn dropdown-toggle" data-toggle="dropdown" >{{t 'workflows.moreActionsBtn'}}</a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <a class="dropdown-item" {{action 'deleteWorkflows'}} href="#">
-        <i class="fa fa-trash-o icon"></i> {{t 'workflows.deleteBtn'}}</a>
+          <i class="fa fa-trash-o icon"></i> {{t 'workflows.deleteBtn'}}</a>
       </div>
     </div>
   </div>
@@ -31,8 +31,8 @@
   </div>
 </div><!-- row -->
 <div id="flashSuccess" class="alert alert-success" style="display:none">
-   <span>{{t 'alert.delete.workflow.success' count=selectedWorkflows}}</span>
- </div>
- <div id="flashError" class="alert alert-danger" style="display:none">
-   <span>{{t 'alert.delete.workflow.error' errors=erros}}</span>
- </div>
+  <span>{{t 'alert.delete.workflow.success' count=selectedWorkflows}}</span>
+</div>
+<div id="flashError" class="alert alert-danger" style="display:none">
+  <span>{{t 'alert.delete.workflow.error' errors=erros}}</span>
+</div>

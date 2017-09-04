@@ -1,12 +1,12 @@
-<td>{{#link-to 'workflow.draw' workflow.id}}{{workflow.id}}{{/link-to}}</td>
-<td>{{#link-to 'workflow.draw' workflow.id}}{{workflow.name}}{{/link-to}}</td>
+<td>{{#link-to 'home.workflows.draw' workflow.id}}{{workflow.id}}{{/link-to}}</td>
+<td>{{#link-to 'home.workflows.draw' workflow.id}}{{workflow.name}}{{/link-to}}</td>
 <td>
   <div class="row">
     <div class="icon col-xs-3">
-      {{#link-to 'workflow.edit' workflow.id}}{{fa-icon "cog" size="lg"}}{{/link-to}}
+      {{#link-to 'home.workflows.edit' workflow.id}}{{fa-icon "cog" size="lg"}}{{/link-to}}
     </div>
     <div class="icon col-xs-3">
-      {{#link-to 'workflow.draw' workflow.id}}{{fa-icon "pencil" size="lg"}}{{/link-to}}
+      {{#link-to 'home.workflows.draw' workflow.id}}{{fa-icon "pencil" size="lg"}}{{/link-to}}
     </div>
     <div class="icon col-xs-3">
       <a class="remove" {{action 'deleteWorkflow' workflow}} href="#" >{{fa-icon "trash" size="lg"}}</a>
