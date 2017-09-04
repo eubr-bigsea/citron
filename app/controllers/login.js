@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
             headers: {
               'Authorization': `Token token=${token}, email=${email}`,
               'X-Auth-Token': '123456',
-              'Locale': this.get('session.data.locale')
+              'Locale': this.get('session.data.authenticated.locale')
             }
           });
 

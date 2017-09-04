@@ -9,7 +9,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
   headers: Ember.computed('session.data.locale', function(){
     return {
       'X-Auth-Token': '123456',
-      'Locale': this.get('session.data.locale')
+      'Locale': this.get('session.data.authenticated.locale')
     }
   }).property('session.data.locale'),
 });

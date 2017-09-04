@@ -33,8 +33,8 @@ export default FormComponent.extend({
 
     if(!knownValue && currentValue) {
       parsed.addObject({
-        key: currentValue,
-        value: currentValue,
+        key: currentValue.key,
+        value: currentValue.value,
         selected: true
       });
     }
@@ -42,7 +42,8 @@ export default FormComponent.extend({
 
   actions: {
     valueChanged() {
-      this._super(this.$('select').val());
+      let value = this.$('select').val();
+      this._super({key: value, value: value, selected: true});
     }
   }
 });
