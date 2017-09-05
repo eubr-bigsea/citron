@@ -27,17 +27,17 @@
         {{#each model as |dashboard|}}
           <tr class="table-item">
             <td class="id">
-              {{#link-to 'dashboard.show' dashboard.id}}
+              {{#link-to 'home.dashboards.show' dashboard.id}}
                 <span>{{dashboard.id}}</span>
               {{/link-to}}
             </td>
             <td class="name">
-              {{#link-to 'dashboard.show' dashboard.id}}
+              {{#link-to 'home.dashboards.show' dashboard.id}}
                 <span>  {{dashboard.title}} </span>
               {{/link-to}}
             </td>
             <td class="options">
-              {{#link-to 'dashboard.show' dashboard.id  }}
+              {{#link-to 'home.dashboards.show' dashboard.id  }}
                 <i rel="tooltip" title="" class="fa fa-eye fa-lg"></i>
               {{/link-to}}
               <a class="remove" {{action 'deleteDashboard' dashboard}} href="#" >

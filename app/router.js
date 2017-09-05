@@ -24,21 +24,23 @@ Router.map(function() {
     this.route('datasources', function() {
       this.route('edit', {path: ':id/edit'});
     });
+    this.route('dashboards', function() {
+      this.route('show', {path: ':id/show'});
+    });
+    this.route('user', function() {
+      this.route('edit', {path: ':id/edit'});
+      this.route('show', {path: ':id/show'});
+    });
   });
+
   this.route('login');
   this.route('signup');
   this.route('password', {path:'users/password'}, function() {
     this.route('request');
     this.route('edit');
   });
-  this.route('user', {path: 'user/:id'});
   this.route('group', {path: 'group/:id'});
   this.route('policy');
-  this.route('visualization');
-  this.route('dashboards');
-  this.route('dashboard', function() {
-    this.route('show', {path: ':id/show'});
-  });
   this.route('notFound', {path: '/*path'});
 
 });
