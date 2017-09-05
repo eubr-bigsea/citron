@@ -5,13 +5,27 @@ export default Ember.Component.extend({
   // Set html elements
   tagName: "div",
   classNames: ["gViz-dashboard-wrapper","grid-stack-item"],
-  attributeBindings: ['x:data-gs-x','y:data-gs-y','width:data-gs-width','height:data-gs-height','dataVizId:data-viz-id'],
-  x: 0,
-  y: 0,
-  width: 4,
-  height: 2,
-  dataVizId: Ember.computed('viz', function() {
+  attributeBindings: ['x:data-gs-x','y:data-gs-y','width:data-gs-width','height:data-gs-height','dataVizId:data-viz-id','dataJobId:data-viz-job-id','dataTaskId:data-viz-task-id'],
+  x: Ember.computed('viz.x', function() {
+    return this.get('viz').x == null || isNaN(+this.get('viz').x) ? 0 : +this.get('viz').x;
+  }),
+  y: Ember.computed('viz.y', function() {
+    return this.get('viz').y == null || isNaN(+this.get('viz').y) ? 0 : +this.get('viz').y;
+  }),
+  width: Ember.computed('viz.width', function() {
+    return this.get('viz').width == null || isNaN(+this.get('viz').width) ? 4 : +this.get('viz').width;
+  }),
+  height: Ember.computed('viz.height', function() {
+    return this.get('viz').height == null || isNaN(+this.get('viz').height) ? 3 : +this.get('viz').height;
+  }),
+  dataVizId: Ember.computed('viz.id', function() {
     return this.get('viz.id');
+  }),
+  dataTaskId: Ember.computed('viz.task_id', function() {
+    return this.get('viz.task_id');
+  }),
+  dataJobId: Ember.computed('viz.job_id', function() {
+    return this.get('viz.job_id');
   }),
 
   // Initialize data
