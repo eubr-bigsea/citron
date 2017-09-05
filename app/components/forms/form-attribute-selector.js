@@ -43,7 +43,6 @@ export default FormComponent.extend({
     let values = this.get('field.suggestedAttrs');
     let currentValue = this.get('currentValue');
     if( this.$('select')){
-      var selected = this.$('select').val([])
       if(currentValue) {
         currentValue.forEach((el) => {
           parsed.addObject({

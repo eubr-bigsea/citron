@@ -3,7 +3,6 @@ import FormComponent from 'lemonade-ember/lib/form-component';
 export default FormComponent.extend({
   didReceiveAttrs() {
     this._super(...arguments);
-    let isChecked;
     if(this.get('currentValue') === '1' || this.get('currentValue') === true ){
       this.set('isChecked', true);
     } else {
