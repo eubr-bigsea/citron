@@ -7,7 +7,7 @@
       </label>
     </div>
     <div class="item-col fixed item-col-img md">
-      {{#link-to 'datasource.edit' datasource.id class='datasource'}}
+      {{#link-to 'home.datasources.edit' datasource.id class='datasource'}}
         <div class="item-img rounded" style="background-image: url(http://www.clker.com/cliparts/3/a/e/b/1346440375869169067LemonandLime.svg.med.png)"></div>
       {{/link-to}}
     </div>
@@ -15,7 +15,7 @@
       <div class="item-col item-col-id no-overflow">
       <div class="item-heading">ID</div>
       <div class="no-overflow">
-      {{#link-to 'datasource.edit' datasource.id class='datasource text-center'}}
+      {{#link-to 'home.datasources.edit' datasource.id class='datasource text-center'}}
         {{datasource.id}}
       {{/link-to}}
       </div>
@@ -24,7 +24,7 @@
     <div class="item-col fixed pull-left item-col-title">
       <div class="item-heading">Name</div>
       <div>
-        {{#link-to 'datasource.edit' datasource.id}}
+        {{#link-to 'home.datasources.edit' datasource.id}}
           <h4 class="item-title">
             {{datasource.name}}
           </h4>
@@ -34,7 +34,7 @@
     <div class="item-col item-col-size no-overflow">
       <div class="item-heading">Size</div>
       <div class="no-overflow">
-        {{#link-to 'datasource.edit' datasource.id class='datasource'}}
+        {{#link-to 'home.datasources.edit' datasource.id class='datasource'}}
           {{datasource.size}}
         {{/link-to}}
       </div>
@@ -42,7 +42,7 @@
     <div class="item-col item-col-type no-overflow">
       <div class="item-heading">Type</div>
       <div class="no-overflow">
-        {{#link-to 'datasource.edit' datasource.id class='datasource'}}
+        {{#link-to 'home.datasources.edit' datasource.id class='datasource'}}
           {{datasource.data_type}}
         {{/link-to}}
       </div>
@@ -68,7 +68,7 @@
     <div class="item-col fixed item-col-actions-dropdown">
       <div class="item-actions-dropdown">
         <a class="remove" {{action 'deleteDatasource' datasource}} href="#" > <i class="fa fa-trash-o "></i></a>
-        {{#link-to 'datasource.edit' datasource.id }}
+        {{#link-to 'home.datasources.edit' datasource.id }}
           <i class="fa fa-pencil"></i>
         {{/link-to}}
       </div>

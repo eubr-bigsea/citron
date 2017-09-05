@@ -7,8 +7,6 @@ export default Ember.Route.extend({
   i18n: service(),
 
   model(params) {
-    this.controllerFor('job.show').set('stepsLogs', Ember.A());
-
     let queryParams = {
       lang: this.get('i18n.locale')
     };
@@ -18,4 +16,8 @@ export default Ember.Route.extend({
       operations: this.store.query('operation', queryParams)
     });
   },
+  setupController(controller, model){
+    this._super(...arguments);
+    controller.set('stepsLogs', Ember.A());
+  }
 });

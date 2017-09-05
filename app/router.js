@@ -21,6 +21,9 @@ Router.map(function() {
         this.route('visualizations', {path: ':jobId/visualizations/:taskId/:visu'});
       });
     });
+    this.route('datasources', function() {
+      this.route('edit', {path: ':id/edit'});
+    });
   });
   this.route('login');
   this.route('signup');
@@ -28,13 +31,9 @@ Router.map(function() {
     this.route('request');
     this.route('edit');
   });
-  this.route('datasource', function() {
-    this.route('edit', {path: ':id/edit'});
-  });
   this.route('user', {path: 'user/:id'});
   this.route('group', {path: 'group/:id'});
   this.route('policy');
-  this.route('datasources');
   this.route('visualization');
   this.route('dashboards');
   this.route('dashboard', function() {

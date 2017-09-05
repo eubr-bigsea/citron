@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:datasources', 'Unit | Controller | datasources', {
+moduleFor('controller:home/datasources/index', 'Unit | Controller | home/datasources/index', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
