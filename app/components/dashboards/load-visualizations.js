@@ -31,7 +31,7 @@ export default Ember.Component.extend({
 
       // Get configuration
       var conf = self.get('model').configuration == null ? {} : self.get('model').configuration;
-      var item = conf[`${v.job_id}----${v.task_id}----${v.id}`] == null ? {} : conf[`${v.job_id}----${v.task_id}----${v.idd}`];
+      var item = conf[v.id] == null ? {} : conf[v.id];
 
       // Set initial style and layouts
       v.x = item.x == null || isNaN(+item.x) ? 0 : +item.x;
@@ -109,7 +109,7 @@ export default Ember.Component.extend({
         var jobId  = self.$(this).attr('data-viz-job-id');
 
         // Save node to items
-        conf[`${jobId}----${taskId}----${vizId}`] = {
+        conf[vizId] = {
           vizId: vizId,
           taskId: taskId,
           jobId: jobId,
@@ -125,7 +125,6 @@ export default Ember.Component.extend({
       self.set('model.configuration', conf);
 
       // Save the configuration on dashboard
-      // MATHEUS, FAZER O SAVE AQUI. A VARIAVEL CONF TEM O CONFIGURATION DA DASHBOARD. NAO ESTÁ SALVANDO DA FORMA ABAIXO.
       self.get('model').save();
 
     }
