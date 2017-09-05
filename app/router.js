@@ -14,13 +14,13 @@ Router.map(function() {
       this.route('edit', {path: ':id/edit'});
       this.route('draw', {path: ':id/draw'});
     });
-  });
-  this.route('jobs');
-  this.route('job', function() {
-    this.route('show', {path: ':id/show'});
-    this.route('results', {path: ':id/results'});
-    this.route('result', {path: ':jobId/result/:taskId/:visu'});
-    this.route('not-found');
+    this.route('jobs', function() {
+      this.route('show', {path: ':id/show'});
+      this.route('results', function() {
+        this.route('index', {path: ':id'});
+        this.route('visualizations', {path: ':jobId/visualizations/:taskId/:visu'});
+      });
+    });
   });
   this.route('login');
   this.route('signup');

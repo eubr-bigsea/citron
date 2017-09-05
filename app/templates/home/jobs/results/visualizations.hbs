@@ -7,13 +7,13 @@
       <span class="status-icon"></span><span class="text">{{t model.job.status}}</span>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 buttons">
-      {{#link-to 'job.show' model.jobId class="log btn btn-primary btn-md"}}
+      {{#link-to 'home.jobs.show' model.jobId class="log btn btn-primary btn-md"}}
         <i class="fa fa-cube fa-lg"></i><span>{{t 'job.self'}}</span>
       {{/link-to}}
-      {{#link-to 'job.results' model.job.id class="results btn btn-primary btn-md"}}
+      {{#link-to 'home.jobs.results' model.job.id class="results btn btn-primary btn-md"}}
         <i class="fa fa-eye fa-lg"></i><span>{{t 'job.show.results'}}</span>
       {{/link-to}}
-      {{#link-to 'workflow.draw' model.job.workflow.id  class="workflow btn btn-primary btn-md"}}
+      {{#link-to 'home.workflows.draw' model.job.workflow.id  class="workflow btn btn-primary btn-md"}}
         <i class="fa fa-flask fa-lg"></i><span>{{t 'job.show.workflow'}}</span>
       {{/link-to}}
     </div>
