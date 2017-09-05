@@ -24,14 +24,14 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
 
   setupController(controller, model) {
     let session = this.get('session');
-    if(controller.set('isAuthenticated', session.get('isAuthenticated'))){
+    if(session.get('isAuthenticated')){
       let token = session.get('data.authenticated.token');
       let email = session.get('data.authenticated.email');
       $.ajaxSetup({
         headers: {
           'Authorization': `Token token=${token}, email=${email}`,
           'X-Auth-Token': '123456',
-          'Locale': this.get('session.data.locale')
+          'Locale': this.get('session.data.authenticated.locale')
         }
       });
     }
@@ -57,13 +57,6 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
         }
       }
       return this.transitionTo('/notFound');
-    },
-
-    didTransition(){
-      if(this.get('session.isAuthenticated')){
-        this._loadCurrentUser();
-        this.controller.set('isAuthenticated', true);
-      }
     },
 
     loading(transition) {
