@@ -57,10 +57,9 @@ export default Ember.Component.extend({
     }));
 
     // On resize start
-    self.get('gs').on('resizestart', function(event, ui) {
+    self.get('gs').on('resizestart', function(event) {
 
       // Get grid and element
-      var grid = this;
       var element = event.target;
 
       // Set styles
@@ -126,7 +125,8 @@ export default Ember.Component.extend({
       self.set('model.configuration', conf);
 
       // Save the configuration on dashboard
-      // MATHEUS, FAZER O SAVE AQUI. A VARIAVEL CONF TEM O CONFIGURATION DA DASHBOARD.
+      // MATHEUS, FAZER O SAVE AQUI. A VARIAVEL CONF TEM O CONFIGURATION DA DASHBOARD. NAO ESTÁ SALVANDO DA FORMA ABAIXO.
+      self.get('model').save();
 
     }
 

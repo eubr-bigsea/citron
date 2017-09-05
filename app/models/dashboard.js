@@ -8,6 +8,7 @@ export default DS.Model.extend({
   updated: attr('dates'),
   task_id: attr(),
   job_id: attr(),
+  configuration: attr(),
   visualizations: attr(),
   user: attr()
 });
