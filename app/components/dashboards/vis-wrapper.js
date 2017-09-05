@@ -32,17 +32,6 @@ export default Ember.Component.extend({
   data: null,
   isEmpty: Ember.computed.empty('data'),
 
-  didReceiveAttrs(){
-    let vizId = this.get('viz.id');
-    if(this.get('config')){
-      let config = this.get('config')[vizId];
-      let viz = this.get('viz');
-      viz.x = config.x;
-      viz.y = config.y;
-      viz.height = config.height;
-      viz.width = config.width;
-    }
-  },
   // Initialize data
   didInsertElement() {
 

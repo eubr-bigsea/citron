@@ -14,7 +14,6 @@ export default Ember.Component.extend({
     // Store this
     var self = this;
 
-
     // Iterate over visualizations to update parameters
     self.get('model.visualizations').forEach(v => {
 
@@ -30,8 +29,8 @@ export default Ember.Component.extend({
       v.component = ['visualizations',v.type.name].join('/').replace('bar-chart', 'vertical-bar-chart');
 
       // Get configuration
-      var conf = self.get('model').configuration == null ? {} : self.get('model').configuration;
-      var item = conf[v.id] == null ? {} : conf[v.id];
+      var conf = self.get('model.configuration') == null ? {} : self.get('model.configuration');
+      var item = conf[`${v.id}`] == null ? {} : conf[`${v.id}`];
 
       // Set initial style and layouts
       v.x = item.x == null || isNaN(+item.x) ? 0 : +item.x;
@@ -109,7 +108,7 @@ export default Ember.Component.extend({
         var jobId  = self.$(this).attr('data-viz-job-id');
 
         // Save node to items
-        conf[vizId] = {
+        conf[`${vizId}`] = {
           vizId: vizId,
           taskId: taskId,
           jobId: jobId,
