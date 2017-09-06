@@ -10,7 +10,7 @@ gViz.vis.map.initialize = function() {
   var container   = null;
   var colors      = { main: gViz.shared.helpers.colors.main, aux: gViz.shared.helpers.colors.aux };
   var data        = [];
-  var height      = 300;
+  var height      = null;
   var margin      = { top: 10, right: 10, bottom: 10, left: 10 };
   var mode        = { heat: true };
   var width       = null;
@@ -48,11 +48,14 @@ gViz.vis.map.initialize = function() {
           // Id for shadows
           _var.shadowId = `vis-shadow-${Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5}`
 
-           // Get container
+          // Resets map wrapper height, so the container value is updated
+          // correctly
+          if(_var.mapWrapper) { _var.mapWrapper.style("height", "0px"); }
+
+          // Get container
           _var.container = {
             selector: container,
             d3: d3.select(container),
-            // el: ((typeof container === 'string' || container instanceof String) ? container : d3.select(container).node()),
             el: d3.select(container).node(),
             clientRect: d3.select(container).node().getBoundingClientRect()
           };
@@ -66,9 +69,6 @@ gViz.vis.map.initialize = function() {
           // Define height and width
           _var.height = ((height != null) ? height : _var.container.clientRect.height) - (_var.margin.top + _var.margin.bottom);
           _var.width = ((width != null) ? width : _var.container.clientRect.width) - (_var.margin.left + _var.margin.right);
-
-          // Update height based on title and legend
-          if(_var.data.title == null || _var.data.title === "") { _var.height += 35; }
 
           // Set attribute _id to container
           _var.container.d3.attr('data-vis-id', _var._id);
@@ -88,7 +88,7 @@ gViz.vis.map.initialize = function() {
 
           _var.mapWrapper
             .attr("class", "map-wrapper")
-            .style("height", _var.height + "px")
+            .style("height", (_var.height - 70) + "px")
             .style("margin-top", _var.margin.top);
 
           // Tile to be loaded
