@@ -1,0 +1,16 @@
+<div id="page-content-wrapper" class="container-fluid page content wrapper">
+  <div class="not-found row home">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="message">
+        <h1 class="title">Oops!</h1>
+        <p>{{t 'notFound.message' resource=resource}}</p>
+        {{#link-to 'home' class='btn'}}
+          {{t 'notFound.goBack'}} {{t 'home.self'}}
+        {{/link-to}}
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      <img src="/assets/images/lemons_are_sad.png"/>
+    </div>
+  </div>
+</div>

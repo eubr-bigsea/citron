@@ -31,6 +31,7 @@ Router.map(function() {
       this.route('edit', {path: ':id/edit'});
       this.route('show', {path: ':id/show'});
     });
+    this.route('not-found');
   });
 
   this.route('login');
@@ -41,6 +42,7 @@ Router.map(function() {
   });
   this.route('group', {path: 'group/:id'});
   this.route('policy');
+  this.route('maintenance');
   this.route('notFound', {path: '/*path'});
 
 });

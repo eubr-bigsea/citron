@@ -17,17 +17,8 @@ export default Ember.Controller.extend({
           Ember.$('#password').addClass('has-error');
           Ember.$('#error-message').addClass('has-error');
         }).then(() => {
-          let token = session.get('data.authenticated.token');
-          let email = session.get('data.authenticated.email');
-
-          $.ajaxSetup({
-            headers: {
-              'Authorization': `Token token=${token}, email=${email}`,
-              'X-Auth-Token': '123456',
-              'Locale': this.get('session.data.authenticated.locale')
-            }
-          });
-
+          let locale = this.get('session.data.authenticated.locale')
+          this.set('session.data.locale', locale);
           self.transitionToRoute('home')
         });
     },
