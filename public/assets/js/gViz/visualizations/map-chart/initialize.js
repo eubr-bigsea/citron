@@ -10,7 +10,7 @@ gViz.vis.map.initialize = function() {
   var container   = null;
   var colors      = { main: gViz.shared.helpers.colors.main, aux: gViz.shared.helpers.colors.aux };
   var data        = [];
-  var height      = null;
+  var height      = 300;
   var margin      = { top: 10, right: 10, bottom: 10, left: 10 };
   var mode        = { heat: true };
   var width       = null;
@@ -43,7 +43,7 @@ gViz.vis.map.initialize = function() {
           _var.animation = animation;
           _var.colors = colors;
           _var.margin = margin;
-          _var.mode  = mode;
+          _var.mode  = data.mode || mode;
 
           // Id for shadows
           _var.shadowId = `vis-shadow-${Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5}`
@@ -78,14 +78,18 @@ gViz.vis.map.initialize = function() {
             _var.container.d3.html("<h5 style='line-height: "+(_var.container.clientRect.height)+"px; text-align: center;'>NO DATA AVAILABLE</h5>");
           } else { _var.container.d3.selectAll("h5").remove(); }
 
-          _var.headerWrapper = d3.select(container).append("div").attr("class", "header-wrapper");
+          _var.headerWrapper = _var.container.d3.selectAll(".header-wrapper").data(["header-wrapper"]);
+          _var.headerWrapper.exit().remove();
+          _var.headerWrapper = _var.headerWrapper.enter().append("div").attr("class", "header-wrapper").merge(_var.headerWrapper);
 
-          _var.container.map = d3.select(container)
-            .append("div")
+          _var.mapWrapper = _var.container.d3.selectAll(".map-wrapper").data(["map-wrapper"]);
+          _var.mapWrapper.exit().remove();
+          _var.mapWrapper = _var.mapWrapper.enter().append("div").attr("class", "map-wrapper").merge(_var.mapWrapper);
+
+          _var.mapWrapper
             .attr("class", "map-wrapper")
             .style("height", _var.height + "px")
-            .style("margin-top", _var.margin.top)
-            .node();
+            .style("margin-top", _var.margin.top);
 
           // Tile to be loaded
           _var.tile = tile;
