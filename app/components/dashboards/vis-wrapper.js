@@ -33,7 +33,7 @@ export default Ember.Component.extend({
   isEmpty: Ember.computed.empty('data'),
 
   hasCustomMoveHandle: Ember.computed('viz.component', function() {
-    return this.get('viz.component') === 'visualizations/map-chart' ? true : false;
+    return this.get('viz.component') === 'visualizations/map-chart';
   }),
 
   // Initialize data

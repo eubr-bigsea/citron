@@ -52,7 +52,7 @@ export default Ember.Component.extend({
 
     // Initialize gridstack
     self.set('gs', self.$('.grid-stack').gridstack({
-      alwaysShowResizeHandle: true,
+      alwaysShowResizeHandle: true
     }));
 
     // On resize start

@@ -1,13 +1,13 @@
 {{#unless hasCustomMoveHandle}}
   <div class="grid-stack-item-content">
-  {{#unless isEmpty}}
-    {{component viz.component viz=viz data=data resizeIndex=viz.resizeIndex}}
-  {{/unless}}
-</div>
+    {{#unless isEmpty}}
+      {{component viz.component viz=viz data=data resizeIndex=viz.resizeIndex}}
+    {{/unless}}
+  </div>
 {{else}}
   <div class="full-height">
-  {{#unless isEmpty}}
-    {{component viz.component viz=viz data=data resizeIndex=viz.resizeIndex}}
-  {{/unless}}
-</div>
+    {{#unless isEmpty}}
+      {{component viz.component viz=viz data=data resizeIndex=viz.resizeIndex}}
+    {{/unless}}
+  </div>
 {{/unless}}
