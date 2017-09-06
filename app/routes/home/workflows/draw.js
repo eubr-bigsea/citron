@@ -35,7 +35,7 @@ export default Ember.Route.extend({
     willTransition(transition){
       var previousTransition = this.controller.get('previousTransition');
       var hasChanged = this.controller.get('hasChanged');
-      if(!previousTransition && (transition.targetName !== 'job.show') && hasChanged){
+      if(!previousTransition && (transition.targetName !== 'home.jobs.show') && hasChanged){
         this.controller.set('previousTransition', transition);
         transition.abort();
         var modal = {

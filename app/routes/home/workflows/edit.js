@@ -25,7 +25,7 @@ export default Ember.Route.extend({
     save(){
       var workflow = this.currentModel.workflow;
       workflow.save();
-      this.transitionTo('workflow.draw', workflow.id);
+      this.transitionTo('home.workflows.draw', workflow.id);
     },
     selectImage(id, name){
       Ember.$('.image-container').removeClass('active');
