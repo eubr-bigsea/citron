@@ -1,29 +1,27 @@
-<div id="page-content-wrapper" class="container-fluid page content wrapper">
-  <article class="content dashboard-page">
-    <section class="section">
-      <div class="row sameheight-container">
-        {{cards-list cards=model.user.cards workflows=model.workflows jobs=model.jobs}}
-      </div>
-      <div id="container-floating">
-        <div class="nd1 nds" data-toggle="" data-placement="left"><img class="reminder">
-          <p class="letter popup-title">Your cards</p>
-          {{#each model.cards as |card|}}
-            <p class="letter">
-            <b><a> {{card.title}}</a></b>
-            <label class="switch">
-              <input style="float: right;" id={{card.id}} type="checkbox" checked={{helper-check-cards model.user.cards card.id}}  onclick={{action "editCards" value="target.id"}} class="input-checkbox">
-              <div class="slider round"></div>
-            </label>
-            </p>
-          {{/each}}
-        </div>
-        <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create">
-          <p class="plus">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-          </p>
-          <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
-        </div>
-      </div>
-    </section>
-  </article>
+<div id="main-wrapper" class="main wrapper">
+  {{main-sidebar id="main-sidebar-wrapper" class="main sidebar wrapper"}}
+  <div id="main-content-wrapper" class="main content wrapper">
+    {{app-header tagName="header" class="header"}}
+    {{outlet}}
+  </div>
+</div>
+<!-- Tooltipster markup -->
+<div class='tooltipster-visualization tooltipster-base tooltipster-sidetip tooltipster-top tooltipster-fade tooltipster-show'>
+  <div class='tooltipster-box'>
+    <div class='tooltipster-content'></div>
+  </div>
+  <div class='tooltipster-arrow'>
+    <div class='tooltipster-arrow-uncropped'>
+      <div class='tooltipster-arrow-border'></div>
+      <div class='tooltipster-arrow-background'></div>
+    </div>
+  </div>
+</div>
+<!-- Loading markup -->
+<div class="loading-div">
+  <div class="loading-div-inner">
+    <div class="loader">
+      <i class='fa fa-spinner fa-pulse fa-3x'></i>
+    </div>
+  </div>
 </div>

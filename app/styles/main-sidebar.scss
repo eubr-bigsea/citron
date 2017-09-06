@@ -38,8 +38,8 @@
     position: relative;
     width: $main-sidebar;
     height: calc(100% - 75px);
-    overflow: hidden;
-    overflow-y: scroll;
+    overflow: auto;
+    overflow-x: hidden;
     list-style: none;
     padding: 0px;
     margin: 0px;

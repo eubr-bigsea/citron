@@ -49,7 +49,7 @@ export default Ember.Component.extend({
       this.get('workflow').save();
       let job = this.get('store').createRecord('job', jobHash);
       job.save().then(function(job){
-        component.get('goTo')('job.show', job.id);
+        component.get('goTo')('home.jobs.show', job.id);
       } ).catch(function(error){ console.log(error) });
     },
   },

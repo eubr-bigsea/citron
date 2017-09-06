@@ -34,17 +34,17 @@
         {{#each model as |job|}}
           <tr class="table-item">
             <td class="id">
-              {{#link-to 'job.show' job.id}}
+              {{#link-to 'home.jobs.show' job.id}}
                 <span>{{job.id}}</span>
               {{/link-to}}
             </td>
             <td class="name">
-              {{#link-to 'job.show' job.id}}
+              {{#link-to 'home.jobs.show' job.id}}
                 <span>  {{job.workflow.name}} </span>
               {{/link-to}}
             </td>
             <td class="status">
-              {{#link-to 'job.show' job.id class="job" class=job.status}}
+              {{#link-to 'home.jobs.show' job.id class="job" class=job.status}}
                 <span class="status-icon"></span><h4>{{t job.status}}</h4>
               {{/link-to}}
             </td>

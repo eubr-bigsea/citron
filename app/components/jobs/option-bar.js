@@ -38,7 +38,7 @@ export default Ember.Component.extend({
         beforeSend: function(request) {
           request.setRequestHeader('X-Auth-Token', '123456');
         },
-      }).then(function(){Ember.getOwner(component).lookup('router:main').transitionTo('workflow.draw', workflowId);});
+      }).then(function(){Ember.getOwner(component).lookup('router:main').transitionTo('home.workflows.draw', workflowId);});
     },
   },
 });

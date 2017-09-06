@@ -51,7 +51,7 @@
               <span class="">{{datasource.id}}</span>
             </td>
             <td class="name">
-              {{#link-to 'datasource.edit' datasource.id}}
+              {{#link-to 'home.datasources.edit' datasource.id}}
                 <span>  {{datasource.name}} </span>
               {{/link-to}}
             </td>
@@ -59,7 +59,7 @@
               <a href='#' {{action 'share' datasource}}>
                 <i rel="tooltip" title="" class="fa fa-share-alt fa-lg"></i>
               </a>
-              {{#link-to 'datasource.edit' datasource.id  }}
+              {{#link-to 'home.datasources.edit' datasource.id}}
                 <i rel="tooltip" title="" class="fa fa-pencil fa-lg"></i>
               {{/link-to}}
               <a class="remove" {{action 'deleteDatasource' datasource}} href="#" >

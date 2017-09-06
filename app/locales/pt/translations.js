@@ -1,5 +1,7 @@
 export default {
   'notFound': {
+    'servers': 'Nossos servidores estão em manutenção.',
+    'moreLemonade': 'Estamos fazendo mais Lemonade para você.',
     'message': 'O {{resource}} que você está procurando não está disponível',
     'goBack': 'Voltar para'
   },
@@ -301,6 +303,12 @@ export default {
     'self': 'Dashboards',
     'description': 'Lista de todas os Dashboards - e.g. privados, publicos, etc..',
     'searchFor': 'Buscar',
+  },
+  'landing-page': {
+    'self': 'Página Inicial'
+  },
+  'home': {
+    'self': 'Página Inicial'
   },
   'en': 'English',
   'pt': 'Português',
