@@ -11,6 +11,7 @@ export default DS.Model.extend({
   estimated_rows: attr(),
   estimated_size_in_mega_bytes:  attr(),
   expiration: attr(),
+  is_public: attr(),
   format: attr(),
   name: attr(),
   privacy_aware: attr(),

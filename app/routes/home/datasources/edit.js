@@ -44,7 +44,9 @@ export default Ember.Route.extend({
       });
     },
     save(){
+      var isPublic = $('#isPublic').is(':checked');
       var datasource = this.currentModel;
+      datasource.is_public = isPublic;
       datasource.save().then(
         () => { this.transitionTo('datasources') },
         () => { $("#flashError").show().fadeIn().delay(2000).fadeOut('slow'); }
