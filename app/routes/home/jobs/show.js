@@ -16,7 +16,7 @@ export default Ember.Route.extend({
       operations: this.store.query('operation', queryParams)
     });
   },
-  setupController(controller, model){
+  setupController(controller){
     this._super(...arguments);
     controller.set('stepsLogs', Ember.A());
   }

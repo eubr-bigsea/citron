@@ -5,7 +5,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   i18n: service(),
   session: service(),
 
-  beforeModel(params) {
+  beforeModel() {
     let data = this.get('session.data');
     $.ajaxSetup({ headers: {
       'Authorization': `Token token=${data.token}, email=${data.email}`

@@ -40,7 +40,7 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
   },
 
   actions: {
-    error(error, transition) {
+    error(error) {
       console.log(error);
       if( error.isAdapterError ){
         if( error.errors.findBy('status', '404') ) {
