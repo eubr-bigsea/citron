@@ -43,16 +43,19 @@ gViz.vis.map.initialize = function() {
           _var.animation = animation;
           _var.colors = colors;
           _var.margin = margin;
-          _var.mode  = mode;
+          _var.mode  = data.mode || mode;
 
           // Id for shadows
           _var.shadowId = `vis-shadow-${Math.floor(Math.random() * ((1000000000 - 5) + 1)) + 5}`
 
-           // Get container
+          // Resets map wrapper height, so the container value is updated
+          // correctly
+          if(_var.mapWrapper) { _var.mapWrapper.style("height", "0px"); }
+
+          // Get container
           _var.container = {
             selector: container,
             d3: d3.select(container),
-            // el: ((typeof container === 'string' || container instanceof String) ? container : d3.select(container).node()),
             el: d3.select(container).node(),
             clientRect: d3.select(container).node().getBoundingClientRect()
           };
@@ -67,9 +70,6 @@ gViz.vis.map.initialize = function() {
           _var.height = ((height != null) ? height : _var.container.clientRect.height) - (_var.margin.top + _var.margin.bottom);
           _var.width = ((width != null) ? width : _var.container.clientRect.width) - (_var.margin.left + _var.margin.right);
 
-          // Update height based on title and legend
-          if(_var.data.title == null || _var.data.title === "") { _var.height += 35; }
-
           // Set attribute _id to container
           _var.container.d3.attr('data-vis-id', _var._id);
 
@@ -78,14 +78,18 @@ gViz.vis.map.initialize = function() {
             _var.container.d3.html("<h5 style='line-height: "+(_var.container.clientRect.height)+"px; text-align: center;'>NO DATA AVAILABLE</h5>");
           } else { _var.container.d3.selectAll("h5").remove(); }
 
-          _var.headerWrapper = d3.select(container).append("div").attr("class", "header-wrapper");
+          _var.headerWrapper = _var.container.d3.selectAll(".header-wrapper").data(["header-wrapper"]);
+          _var.headerWrapper.exit().remove();
+          _var.headerWrapper = _var.headerWrapper.enter().append("div").attr("class", "header-wrapper").merge(_var.headerWrapper);
 
-          _var.container.map = d3.select(container)
-            .append("div")
+          _var.mapWrapper = _var.container.d3.selectAll(".map-wrapper").data(["map-wrapper"]);
+          _var.mapWrapper.exit().remove();
+          _var.mapWrapper = _var.mapWrapper.enter().append("div").attr("class", "map-wrapper").merge(_var.mapWrapper);
+
+          _var.mapWrapper
             .attr("class", "map-wrapper")
-            .style("height", _var.height + "px")
-            .style("margin-top", _var.margin.top)
-            .node();
+            .style("height", (_var.height - 70) + "px")
+            .style("margin-top", _var.margin.top);
 
           // Tile to be loaded
           _var.tile = tile;

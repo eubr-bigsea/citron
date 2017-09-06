@@ -35,13 +35,20 @@ gViz.vis.map.misc = function () {
           // _var.container.d3.selectAll('.grid-background, .pie-chart').style('top', top + 'px')
 
           // Has title flag
-          var hasTitle = _var.data.title != null && _var.data.title !== "";
+          // var hasTitle = _var.data.title != null && _var.data.title !== "";
 
           // Draw title wrapper
-          var titleWrapper = _var.headerWrapper.selectAll(".title-wrapper").data(hasTitle ? ["title-wrapper"] : []); // svg:g
-          titleWrapper.exit().remove();
-          titleWrapper = titleWrapper.enter().append('div').attr('class', "title-wrapper").merge(titleWrapper);
-          titleWrapper
+          _var.titleWrapper = _var.headerWrapper.selectAll(".title-wrapper").data(["title-wrapper"]);// svg:g
+          _var.titleWrapper.exit().remove();
+          _var.titleWrapper = _var.titleWrapper.enter().append('div').attr('class', "title-wrapper grid-stack-item-content").merge(_var.titleWrapper);
+
+          var moveIcon = '<i class="fa fa-arrows"'
+          moveIcon += 'style="float: right; margin-top: 3px; cursor: pointer;">';
+          moveIcon += '</i>';
+
+          // _var.data.title = null;
+
+          _var.titleWrapper
             .style('width', '100%')
             .style('height', '30px')
             .style('margin', '0px 0px 5px 0px')
@@ -52,42 +59,57 @@ gViz.vis.map.misc = function () {
             .style('background-color', '#eee')
             .style('color', '#666')
             .style('font-size', '12px')
-            .html(_var.data.title)
+            .html(function() {
+              if(_var.data.title) { return _var.data.title + moveIcon; }
+              else return moveIcon;
+            });
 
           // Has legend flag
           var hasLegend = _var.data.legend != null && _var.data.legend.isVisible != null && _var.data.legend.isVisible === true;
           var legendWrapper, innerWrapper;
 
           // Draw legend wrapper
-          legendWrapper = _var.headerWrapper.selectAll(".legend-wrapper").data(hasLegend ? ["legend-wrapper"] : []); // svg:g
-          legendWrapper.exit().remove();
-          legendWrapper = legendWrapper.enter().append('div').attr('class', "legend-wrapper").merge(legendWrapper);
-          legendWrapper
+          _var.legendWrapper = _var.headerWrapper.selectAll(".legend-wrapper").data(hasLegend ? ["legend-wrapper"] : []); // svg:g
+          _var.legendWrapper.exit().remove();
+          _var.legendWrapper = _var.legendWrapper.enter().append('div').attr('class', "legend-wrapper").merge(_var.legendWrapper);
+
+          _var.legendWrapper
             .style('width', '100%')
             .style('height', '30px')
             .style('oveflow-y', 'hidden')
             .style('oveflow-x', 'auto')
-            .style('padding-left', _var.margin.left + "px");
+            .style('padding-left', _var.margin.left + "px")
+            .each(function(d) {
 
-          var scale = legendWrapper.append("div")
-            .attr("class", "legend")
-            .append("div")
-            .attr("class", "scale-wrapper")
-            .style("margin-top", "8px");
+              _var.scaleWrapper = d3.select(this).selectAll(".scale-wrapper").data(["scale-wrapper"]); // svg:g
+              _var.scaleWrapper.exit().remove();
+              _var.scaleWrapper = _var.scaleWrapper.enter().append("div").attr("class", "scale-wrapper").merge(_var.scaleWrapper);
 
-          scale.append("span").attr("class", "low-name toggle-left").text("Low");
-          scale.append("span").attr("class", "scale-rect");
-          scale.append("span").attr("class", "high-name toggle-right").text("High");
+              if(!_var.renderedScale) {
+                _var.scaleWrapper
+                  .each(function(d) {
+                    d3.select(this).append("span").attr("class", "legend-left").text("Low");
+	                  d3.select(this).append("svg").attr("class", "scale-rect").attr("width", 20).attr("height", 10);
+                    d3.select(this).append("span").attr("class", "legend-right").text("High");
+                  });
 
-          // Set margin left and display style
-          scale.select('.legend-wrapper, .legend-wrapper-full').style('display', 'block');
+                // Set margin left and display style
+                _var.scaleWrapper.select('.scale-wrapper, .scale-wrapper-full').style('display', 'block');
 
-          // Set margin left and display style
-          scale.select('.scale-wrapper')
-            .style('display', _var.mode.heat === true ? 'block' : 'none');
+                // Set margin left and display style
+                _var.scaleWrapper.select('.scale-wrapper')
+                  .style('display', _var.mode.heat === true ? 'block' : 'none');
 
-          d3.select('.scale-rect')
-            .style('background', "linear-gradient(to right, "+_var.heatColors.join(',')+")");
+                _var.renderedScale = true;
+
+                d3.select('.scale-rect')
+                  .style('background', "linear-gradient(to right, "+_var.heatColors.join(',')+")");
+              }
+
+            });
+
+          // _var.mapWrapper
+          //   .style("height", _var.container.clientRect.height - $(_var.headerWrapper.node()).height() - 1 + "px");
 
           /*
           var hasToggle = _var.data.legend != null && _var.data.toggle.isVisible != null && _var.data.toggle.isVisible === true;
