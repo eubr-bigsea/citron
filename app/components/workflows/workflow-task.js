@@ -49,6 +49,7 @@ export default Ember.Component.extend({
 
       let [id1, id2] = info.connection.getUuids().map((el) => el.split('/'));
 
+      this.get('closeForms')();
       this.get('addFlow')({
         source_id: id1[0],
         source_port: Number(id1[1]),
