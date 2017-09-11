@@ -54,7 +54,7 @@ gViz.vis.scatterPlot.yScale = function () {
           if(isNaN(max)) { max = 1; }
 
           // Get diff
-          var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : Math.abs(max - min) * 0.05;
+          var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : 0;
 
           // Add dot fix offset
           var dotFix = 20 * Math.abs((max + diff) - (min == 0 ? min : min - diff)) / _var.height;
@@ -62,7 +62,7 @@ gViz.vis.scatterPlot.yScale = function () {
           max = max + dotFix;
 
           // Set x domain
-          _var.yBounds = [min, max]; //(min == 0 ? min : min - diff), max + diff];
+          _var.yBounds = [(min == 0 ? min : min - diff), max + diff];
           _var.y.domain(_var.yBounds).nice();
 
           // Set format

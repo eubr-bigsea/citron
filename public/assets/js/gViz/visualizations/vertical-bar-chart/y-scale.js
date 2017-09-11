@@ -67,7 +67,7 @@ gViz.vis.verticalBarChart.yScale = function () {
           if(isNaN(max)) { max = 1; }
 
           // Get diff
-          var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : Math.abs(max - min) * 0.05;
+          var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : 0;
 
           // Get axis equal
           if(_var.data.y != null && _var.data.y.equal != null && _var.data.y.equal === true && max > 0 && min < 0) {
@@ -76,7 +76,7 @@ gViz.vis.verticalBarChart.yScale = function () {
           }
 
           // Set x domain
-          _var.yBounds = [min, max]; //(min == 0 ? min : min - diff), max + diff];
+          _var.yBounds = [(min == 0 ? min : min - diff), max + diff];
           _var.y.domain(_var.yBounds).nice();
 
           // Set format
