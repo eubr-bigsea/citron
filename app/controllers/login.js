@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
           Ember.$('#error-message').addClass('has-error');
         }).then(() => {
           let locale = this.get('session.data.authenticated.locale')
-          this.set('session.data.locale', locale);
+          this.get('session').set('data.locale', locale);
           self.transitionToRoute('home')
         });
     },
