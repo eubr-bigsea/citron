@@ -32,14 +32,14 @@ export default Ember.Component.extend({
         action:'zoomIn',
         target: this
       });
-    }),
+    });
 
     Ember.$('#zoomOut').click(() => {
       this.triggerAction({
         action:'zoomOut',
         target: this
       });
-    }),
+    });
 
     Ember.$(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
@@ -76,6 +76,11 @@ export default Ember.Component.extend({
     });
   },
   actions: {
+    closeForms(){
+      Ember.$('#forms').toggle(false);
+      this.set('forms', Ember.Object.create());
+      this.set('filledForms', Ember.Object.create());
+    },
     clickTask(forms, filledForms, task) {
       let fn = function(a, b) { return a.order > b.order; };
       this.set('forms', forms.sort(fn));
