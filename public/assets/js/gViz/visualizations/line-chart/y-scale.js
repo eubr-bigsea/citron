@@ -54,10 +54,10 @@ gViz.vis.lineChart.yScale = function () {
           if(isNaN(max)) { max = 1; }
 
           // Get diff
-          var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : Math.abs(max - min) * 0.05;
+          var diff = Math.abs(max - min) === 0 ? Math.abs(max * 0.1) : 0;
 
           // Set x domain
-          _var.yBounds = [min, max];
+          _var.yBounds = [(min == 0 ? min : min - diff), max + diff];
           _var.y.domain(_var.yBounds).nice();
 
           // Set format
