@@ -3,8 +3,13 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   store: Ember.inject.service('store'),
 
-  didInsertElement(){
-    hljs.initHighlightingOnLoad();
+  didReceiveAttrs(){
+    var sourceCode = Ember.copy(this.get('content.source'));
+    var isVisible = this.get('modal');
+    if(sourceCode && isVisible){
+      var codeHighlighted = Prism.highlight(sourceCode, Prism.languages.python);
+      $('#job-source-code').append(codeHighlighted);
+    }
   },
 
   actions:{

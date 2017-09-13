@@ -8,15 +8,18 @@ export default Ember.Component.extend({
   hasFinished: null,
   isRunning: null,
   modalCode: false,
+  content: { title: 'modal.code.title', cancelButton: 'modal.code.cancelButtom'},
 
   didReceiveAttrs(){
     let component = this;
     let jobId = this.get('job.id');
+    component.set('content.jobId', jobId);
     $.ajax({
       type: 'GET',
       url:`${config.stand}/jobs/${jobId}/source-code`,
       success: function(response){
-        component.set('sourceCode', response);
+        component.set('content.source', response.source);
+        component.set('content.lang', response.lang);
       }
     });
     var jobStatus = this.get('job.status');

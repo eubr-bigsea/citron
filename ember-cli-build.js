@@ -61,9 +61,8 @@ module.exports = function(defaults) {
   app.import('vendor/gridstack/gridstack.js');
   app.import('vendor/gridstack/gridstack.jQueryUI.js');
 
-  app.import('vendor/highlightjs/highlight.pack.js');
-  app.import('vendor/highlightjs/default.css');
-  app.import('vendor/highlightjs/color-brewer.css');
+  app.import('vendor/prism/prism.js');
+  app.import('vendor/prism/prism.css');
 
   return app.toTree();
 };
