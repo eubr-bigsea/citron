@@ -182,7 +182,7 @@ export default {
         'title': 'Apagando o dashboard:',
         'message': 'Você quer apagar permanentemente o dashboard {{resource.name}}?',
         'submitButton': 'Apagar',
-      },
+      }
     },
     'leave': {
       'workflow': {
@@ -191,6 +191,10 @@ export default {
         'submitButton': 'Sim, sair',
         'cancelButton': 'Ficar',
       }
+    },
+    'code': {
+      'title': 'Código Fonte gerado pelo Job {{jobId}}',
+      'cancelButton': 'Fechar'
     },
     'default': {
       'title': 'Aviso',
@@ -231,6 +235,7 @@ export default {
   'job': {
     'self': 'Job',
     'show': {
+      'code': 'Código',
       'results': 'Resultados',
       'log': 'Log',
       'stop': 'Parar',
