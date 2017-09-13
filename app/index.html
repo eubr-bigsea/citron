@@ -186,6 +186,7 @@ src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip-table.js"></scri
     <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/elements.js"></script>
     <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/bars.js"></script>
     <script src="{{rootURL}}assets/js/gViz/visualizations/vertical-bar-chart/misc.js"></script>
+
     <!-- /gViz Library - Vertical Bar Chart -->
 
     <!-- / **** gViz Library - Updated charts **** -->
@@ -193,7 +194,10 @@ src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip-table.js"></scri
     <!-- /Gfranciscani -->
 
     <script src="{{rootURL}}assets/lemonade-ember.js"></script>
-
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     {{content-for "body-footer"}}
   </body>
 </html>

@@ -1,0 +1,29 @@
+{{#bs-modal open=modal backdrop=false backdropClose=true fade=fade onHidden=(action (mut modal) false) as |modal| }}
+  {{#modal.header}}
+    <h4 class="modal-title">
+      {{#if content.title}}
+        {{t content.title count=count}}
+      {{else}}
+        {{t 'modal.default.title'}}
+      {{/if}}
+    </h4>
+  {{/modal.header}}
+  {{#modal.body}}
+    <div id='job-source-code'>
+      <pre><code class="python py gyp">{{source.source}}
+      </code></pre>
+    </div>
+  {{/modal.body}}
+  {{#modal.footer}}
+    {{#if content.submitButton}}
+      {{#bs-button type="success" onClick=onSubmit}}{{t content.submitButton count=count}}{{/bs-button}}
+    {{else}}
+      {{#bs-button type="success" onClick=(action 'submit')}}{{t 'modal.default.submitButton'}}{{/bs-button}}
+    {{/if}}
+    {{#if content.cancelButton}}
+      {{#bs-button onClick=onCancel}}{{t content.cancelButton}}{{/bs-button}}
+    {{else}}
+      {{#bs-button onClick=(action 'cancel')}}{{t 'modal.default.cancelButton' count=count}}{{/bs-button}}
+    {{/if}}
+  {{/modal.footer}}
+{{/bs-modal}}

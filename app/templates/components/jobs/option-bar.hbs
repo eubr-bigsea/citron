@@ -5,6 +5,7 @@
   <span class="status-icon"></span><span class="text">{{t job.status}}</span>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 buttons">
+  <a class="btn btn-primary btn-md" {{action 'toggleModalCode'}}></a>
   {{#link-to 'home.workflows.draw' job.workflow.id  class="workflow btn btn-primary btn-md"}}
     <i class="fa fa-flask fa-lg"></i><span>{{t 'job.show.workflow'}}</span>
   {{/link-to}}
@@ -23,3 +24,4 @@
   <i class="fa fa-list-ul"></i><span>{{t 'job.show.log'}}</span>
 </a>
 </div>
+{{jobs/source-code-modal modal=modalCode source=sourceCode}}

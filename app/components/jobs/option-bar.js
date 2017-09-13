@@ -7,8 +7,18 @@ export default Ember.Component.extend({
   sessionAccount: service(),
   hasFinished: null,
   isRunning: null,
+  modalCode: false,
 
   didReceiveAttrs(){
+    let component = this;
+    let jobId = this.get('job.id');
+    $.ajax({
+      type: 'GET',
+      url:`${config.stand}/jobs/${jobId}/source-code`,
+      success: function(response){
+        component.set('sourceCode', response);
+      }
+    });
     var jobStatus = this.get('job.status');
     this.set('isRunning', (jobStatus === 'running' || jobStatus === 'waiting'));
     this.set('hasFinished', (jobStatus === 'completed'));
@@ -24,6 +34,10 @@ export default Ember.Component.extend({
     }
   },
   actions:{
+    toggleModalCode(){
+      this.toggleProperty('modalCode');
+    },
+
     showLog(){
       Ember.$("#job-diagram-container-wrapper").toggleClass("toggled");
     },
