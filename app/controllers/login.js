@@ -19,6 +19,11 @@ export default Ember.Controller.extend({
         }).then(() => {
           let locale = this.get('session.data.authenticated.locale')
           this.get('session').set('data.locale', locale);
+          $.ajaxSetup({
+            headers: {
+              'Authorization': `Token token=${data.token}, email=${data.email}`
+            }
+          });
           self.transitionToRoute('home')
         });
     },
