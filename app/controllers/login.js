@@ -17,7 +17,8 @@ export default Ember.Controller.extend({
           Ember.$('#password').addClass('has-error');
           Ember.$('#error-message').addClass('has-error');
         }).then(() => {
-          let locale = this.get('session.data.authenticated.locale')
+          let data = this.get('session.data.authenticated');
+          let locale = data.locale;
           this.get('session').set('data.locale', locale);
         
           let data = this.get('session.data.authenticated');
