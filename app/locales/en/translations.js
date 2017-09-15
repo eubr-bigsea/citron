@@ -323,6 +323,7 @@ export default {
   'home': {
     'self': 'Home'
   },
+  'newLine': '[new_line]',
   'en': 'English',
   'pt': 'Português',
   'error': 'Error',

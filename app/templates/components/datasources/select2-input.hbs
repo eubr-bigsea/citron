@@ -1,0 +1,7 @@
+<select onchange={{action (mut delimiter) value="target.value"}} class="form-control" style="width: 100%">
+  <option></option>
+  {{#each values as |value|}}
+    <option selected={{eq delimiter value.key}} value={{value.key}}>{{value.value}}</option>
+  {{/each}}
+</select>
+

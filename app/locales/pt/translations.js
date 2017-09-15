@@ -315,6 +315,7 @@ export default {
   'home': {
     'self': 'Página Inicial'
   },
+  'newLine': '[nova_linha]',
   'en': 'English',
   'pt': 'Português',
   'error': 'Erro',
