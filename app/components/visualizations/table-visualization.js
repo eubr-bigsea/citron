@@ -53,41 +53,6 @@ export default Ember.Component.extend({
     Ember.run.scheduleOnce('afterRender', this, 'draw', 'none');
   }),
 
-  draw: function() {
-
-    let component = this;
-
-    /*
-    Ember.$.ajax({
-      url: component.get('dataUrl'),
-      type: "GET",
-      data: {},
-      beforeSend: (request) => {
-        gViz.shared.helpers.loading.show();
-
-        request.setRequestHeader('Authorization', `Token token=${component.get('session.data.authenticated.token')} email=${component.get('session.data.authenticated.email')}`);
-        request.setRequestHeader('X-Auth-Token', '123456');
-      },
-      success: (data) => {
-        component.set('title', data.title);
-        component.set('header', data.data.attributes);
-        component.set('data', data.data);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-      complete: () => {
-        gViz.shared.helpers.loading.hide();
-      },
-
-    });
-    */
-  },
-
-  didInsertElement: function(){
-    this.draw();
-  },
-
   actions: {
 
     // Update search field
