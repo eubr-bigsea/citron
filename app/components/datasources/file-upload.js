@@ -16,8 +16,10 @@ export default Ember.Component.extend({
     var authToken = '123456';
     var token = this.get('session.data.authenticated.token');
     var email = this.get('session.data.authenticated.email');
+    var userId = this.get('session.data.authenticated.userId');
+    
     let resumable = new Resumable({
-      headers: { 'Authorization': `Token token=${token}, email=${email}` },
+      headers: { 'Authorization': `Token token=${token}, email=${email}`, 'X-User-Id': userId },
       target: `${config.limonero}/datasources/upload`,
       query: {token: authToken, storage_id: 1},
       chunkSize: 1*1024*1024,
