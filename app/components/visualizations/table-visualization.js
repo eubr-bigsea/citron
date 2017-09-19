@@ -21,7 +21,8 @@ export default Ember.Component.extend({
     var data = this.get('cData');
     var sortBy = this.get('sortBy');
     var sortOrder = this.get('sortOrder');
-    return data.sort((a,b) => d3[`${sortOrder}ending`](a[sortBy], b[sortBy]));
+
+    return data.data.rows.sort((a,b) => d3[`${sortOrder}ending`](a[sortBy], b[sortBy]));
   }),
   sortBy: '0',
   sortOrder: 'asc',
@@ -34,6 +35,11 @@ export default Ember.Component.extend({
   }),
   search: "",
   searchIndex: 0,
+
+  header: Ember.computed('cData', function() {
+    var data = this.get('cData');
+    return data.data.attributes;
+  }),
 
   // Set my style for component
   myStyle: Ember.computed('cHeight', function(){ return Ember.String.htmlSafe(`height: ${this.get('cHeight')}px;`); }),
@@ -51,29 +57,31 @@ export default Ember.Component.extend({
 
     let component = this;
 
+    /*
     Ember.$.ajax({
       url: component.get('dataUrl'),
       type: "GET",
       data: {},
       beforeSend: (request) => {
-        gViz.helpers.loading.show();
+        gViz.shared.helpers.loading.show();
 
         request.setRequestHeader('Authorization', `Token token=${component.get('session.data.authenticated.token')} email=${component.get('session.data.authenticated.email')}`);
         request.setRequestHeader('X-Auth-Token', '123456');
       },
       success: (data) => {
         component.set('title', data.title);
-        component.set('header', data.labels);
+        component.set('header', data.data.attributes);
         component.set('data', data.data);
       },
       error: (err) => {
         console.log(err);
       },
       complete: () => {
-        gViz.helpers.loading.hide();
+        gViz.shared.helpers.loading.hide();
       },
 
     });
+    */
   },
 
   didInsertElement: function(){
