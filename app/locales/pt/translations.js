@@ -63,14 +63,23 @@ export default {
     'inferSchema': {
       'label': 'Inferir Atributos',
       'label-append': 'Defina opções para inferir campos da datasource',
-      'delimiter': 'Delimitador:',
-      'quote-char': 'Enclosure:',
-      'header': 'Cabeçalho ?',
+      'delimiter': 'Delimitador',
+      'quote-char': 'Enclosure',
+      'header': 'Cabeçalho',
       'infer': 'Inferir Atributos',
     },
     'attributes': {
       'label': 'Atributos',
       'label-append': 'Edite os atributos desta datasource'
+    },
+    'public': {
+      'label': 'Público',
+    },
+    'encode': {
+      'label': 'Encode',
+    },
+    'treat_as_missing': {
+      'label': 'Tratar como ausente',
     },
     'create': 'Criar',
     'save': 'Salvar',
@@ -103,7 +112,8 @@ export default {
     'type': 'Tipo',
     'precision': 'Precisão',
     'scale': 'Escala',
-    'nullable': 'Permite nulo'
+    'nullable': 'Permite nulo',
+    'treat_as_missing': 'Tratar como ausente',
   },
 
   'cards': {
@@ -315,6 +325,7 @@ export default {
   'home': {
     'self': 'Página Inicial'
   },
+  'newLine': '[nova_linha]',
   'en': 'English',
   'pt': 'Português',
   'error': 'Erro',

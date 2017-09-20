@@ -15,7 +15,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   },
 
   model(params) {
-    //    params.user_id = this.get('sessionAccount.userId');
+    params.user_id = this.get('sessionAccount.userId');
     params.enabled = true;
     params.paramMapping = { total_pages: 'pages' }
     return RSVP.hash({

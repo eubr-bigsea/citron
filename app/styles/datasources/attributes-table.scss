@@ -32,6 +32,12 @@
 
   td {
     vertical-align: middle;
+    &.missing {
+      width: 10%;
+      .form-control {
+        display: table-cell;
+      }
+    }
     &.num input{
       max-width: 2.5rem;
       padding: 0.5rem 0.2rem;

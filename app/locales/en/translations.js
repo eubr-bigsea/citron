@@ -63,14 +63,23 @@ export default {
     'inferSchema': {
       'label': 'Infer Schema',
       'label-append': 'Define options for infer schema of datasource',
-      'delimiter': 'Delimiter:',
-      'quote-char': 'Enclosure:',
-      'header': 'Header?',
+      'delimiter': 'Delimiter',
+      'quote-char': 'Enclosure',
+      'header': 'Header',
       'infer': 'Infer Schema',
     },
     'attributes': {
       'label': 'Attributes',
       'label-append': 'Edit attributes of datasource'
+    },
+    'public': {
+      'label': 'Public',
+    },
+    'encode': {
+      'label': 'Encode',
+    },
+    'treat_as_missing': {
+      'label': 'Treat as missing',
     },
     'create': 'Create',
     'save': 'Save',
@@ -104,6 +113,7 @@ export default {
     'precision': 'Precision',
     'scale': 'Scale',
     'nullable': 'Allow null',
+    'treat_as_missing': 'Treat as Missing',
   },
   'cards': {
     'latestEditedWorkflows': {
@@ -323,6 +333,7 @@ export default {
   'home': {
     'self': 'Home'
   },
+  'newLine': '[new_line]',
   'en': 'English',
   'pt': 'Português',
   'error': 'Error',
