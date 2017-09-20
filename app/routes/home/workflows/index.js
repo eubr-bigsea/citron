@@ -1,24 +1,25 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
 const { inject: { service } } = Ember;
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  session: service(),
+export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   sessionAccount: service(),
 
-  model() {
-    var params = {
-      user_id: this.get('sessionAccount.userId'),
-      enabled: true,
-    };
-
-    return this.store.query('workflow', params );
+  perPage: 20,
+  queryParams: {
+    sort: { refreshModel: true },
+    asc:  { refreshModel: true }
   },
 
-  setupController(controller, model){
-    controller.set('locale', this.get('session.data.locale'));
-    return this._super(controller, model);
-  }
 
+  model(params) {
+    params.user_id = this.get('sessionAccount.userId');
+    params.enabled = true;
+    params.paramMapping = { total_pages: 'pages' }
+
+    // return this.findPaged('workflow', params);
+    return this.store.query('workflow', params);
+  },
 });

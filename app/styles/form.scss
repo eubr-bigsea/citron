@@ -68,7 +68,8 @@ input, textarea {
 label, .control-label {
   font-weight: 600;
   .label-append {
-    font-size: 0.9rem;
+    display: inline-block;
+    font-size: 1rem;
   }
 }
 
@@ -262,7 +263,16 @@ label, .control-label {
 .card-block {
   margin: 0 !important;
 }
-
+.flex {
+  display: flex;
+  .form-control-label {
+    padding: 5px 0;
+  }
+  .select2-input-inline {
+    flex: 1;
+    padding: 0 5px;
+  }
+}
 .same-line {
   label {
   }
@@ -321,7 +331,20 @@ label, .control-label {
       }
     }
   }
+}
 
-
-
+.btn-infer {
+  margin: 15px;
+}
+.custom-select{
+  background: #ffffff url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat 90% 50%;
+  &.datasource-edit{
+    width: 100%;
+  }
+}
+.select2-selection__arrow {
+  background: #ffffff url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat 0% 100%;
+  b {
+    display: none;
+  }
 }

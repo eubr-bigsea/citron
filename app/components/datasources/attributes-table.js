@@ -21,6 +21,7 @@ export default Ember.Component.extend({
         missing_total: null,
         name: null,
         nullable: false,
+        treat_as_missing: false,
         precision: null,
         scale: null,
         size: null,
