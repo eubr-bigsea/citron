@@ -79,7 +79,7 @@ export default {
       'label': 'Encode',
     },
     'treat_as_missing': {
-      'label': 'Tratar como missing',
+      'label': 'Tratar como ausente',
     },
     'create': 'Criar',
     'save': 'Salvar',
@@ -113,7 +113,7 @@ export default {
     'precision': 'Precisão',
     'scale': 'Escala',
     'nullable': 'Permite nulo',
-    'treat_as_missing': 'Treat as Missing',
+    'treat_as_missing': 'Tratar como ausente',
   },
 
   'cards': {
