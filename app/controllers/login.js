@@ -20,9 +20,6 @@ export default Ember.Controller.extend({
           let data = this.get('session.data.authenticated');
           let locale = data.locale;
           this.get('session').set('data.locale', locale);
-        
-          let data = this.get('session.data.authenticated');
-         
           $.ajaxSetup({
             headers: {
               'Authorization': `Token token=${data.token}, email=${data.email}`,
