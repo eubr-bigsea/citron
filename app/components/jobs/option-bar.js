@@ -11,23 +11,14 @@ export default Ember.Component.extend({
   content: { title: 'modal.code.title', cancelButton: 'modal.code.cancelButtom'},
 
   didReceiveAttrs(){
-    let component = this;
-    let jobId = this.get('job.id');
-    component.set('content.jobId', jobId);
-    $.ajax({
-      type: 'GET',
-      url:`${config.stand}/jobs/${jobId}/source-code`,
-      success: function(response){
-        component.set('content.source', response.source);
-        component.set('content.lang', response.lang);
-      }
-    });
+    this.send('loadData');
     var jobStatus = this.get('job.status');
     this.set('isRunning', (jobStatus === 'running' || jobStatus === 'waiting'));
     this.set('hasFinished', (jobStatus === 'completed'));
   },
   didUpdate(){
     var jobStatus = this.get('job.status');
+    this.send('loadData');
     this.set('isRunning', (jobStatus === 'running'));
     this.set('hasFinished', (jobStatus === 'completed'));
   },
@@ -37,6 +28,19 @@ export default Ember.Component.extend({
     }
   },
   actions:{
+    loadData(){
+      let component = this;
+      let jobId = this.get('job.id');
+      component.set('content.jobId', jobId);
+      $.ajax({
+        type: 'GET',
+        url:`${config.stand}/jobs/${jobId}/source-code`,
+        success: function(response){
+          component.set('content.source', response.source);
+          component.set('content.lang', response.lang);
+        }
+      });
+    },
     toggleModalCode(){
       this.toggleProperty('modalCode');
     },
