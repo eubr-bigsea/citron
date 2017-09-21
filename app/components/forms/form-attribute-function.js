@@ -2,43 +2,29 @@ import Ember from 'ember';
 import FormComponent from 'lemonade-ember/lib/form-component';
 
 export default FormComponent.extend({
-  didReceiveAttrs() {
+  modalVisible: false,
+  isSort: false,
+
+
+  didInsertElement(){
     this._super(...arguments);
 
-    this.set('modalVisible', false);
+  },
+  didReceiveAttrs() {
+    this._super(...arguments);
+    this.set('suggestedAttrsArray', Ember.A());
     this.set('parsedValues', JSON.parse(this.get('field.values')).functions);
     this.set('options', JSON.parse(this.get('field.values')).options);
-    this.set('suggestedAttrs', Ember.A());
 
-    this.set('isAgg', this.get('options.show_alias'));
-    this.set('isFilter', !this.get('isAgg') && this.get('options.show_value'));
-    this.set('isSort', !this.get('isAgg') && !this.get('isFilter'));
-
-    if(this.get('currentValue') === null)
-      this.set('currentValue', Ember.A());
-
-    if(this.get('isAgg')) {
-      this.set('title', 'Aggregate operation');
-      this.set('subtitle', '');
-      this.set('column', 'Alias')
-    } else {
-      if(this.get('isFilter')) {
-        this.set('title', 'Filter');
-        this.set('subtitle', '');
-        this.set('column', 'Value')
-      } else {
-        this.set('title', 'Sort');
-        this.set('subtitle', '');
-        this.set('column', '')
-      }
-    }
+    let suggestedParsed =  this.get('suggestedAttrsArray');
+    let suggestedAttrs = this.get('field.suggestedAttrs');
     let currentValue = this.get('currentValue');
-
-    let suggested =  this.get('suggestedAttrs');
+    if(!currentValue){ this.set('currentValue', Ember.A()); }
+    if( this.get('field.name') === "attributes"){ this.set('isSort', true); }
 
     if(currentValue) {
       currentValue.forEach((el) => {
-        suggested.addObject({
+        suggestedParsed.addObject({
           val: el.attribute,
           selected: true
         });
@@ -47,10 +33,10 @@ export default FormComponent.extend({
 
 
 
-    if(this.get('field.suggestedAttrs')) {
-      this.get('field.suggestedAttrs').forEach((el) => {
-        if(suggested.findBy('val', el) === undefined) {
-          suggested.addObject({
+    if(suggestedAttrs) {
+      suggestedAttrs.forEach((el) => {
+        if(suggestedParsed.findBy('val', el) === undefined) {
+          suggestedParsed.addObject({
             val: el,
             selected: false
           });
