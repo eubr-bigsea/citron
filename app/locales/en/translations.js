@@ -5,6 +5,29 @@ export default {
     'message': 'The {{resource}} that you are looking for is not available',
     'goBack': 'Go back to'
   },
+  //components inside of forms folder
+  'form':{
+    'attribute-function': {
+      'button': 'Open Editor',
+      'modal': {
+        'buttons': {
+          'add': 'Adicionar',
+        },
+        'tab': {
+          'editor': 'Editor',
+          'references': 'References',
+        },
+        'table': {
+          'attribute': 'Attribute',
+          'function': 'Function',
+          'column': {
+            'function': 'Alias',
+            'filter': 'Value',
+          }
+        }
+      },
+    },
+  },
   //Forms
   'forms': {
     'email': {
@@ -114,6 +137,7 @@ export default {
     'scale': 'Scale',
     'nullable': 'Allow null',
     'treat_as_missing': 'Treat as Missing',
+    'description': 'Description',
   },
   'cards': {
     'latestEditedWorkflows': {

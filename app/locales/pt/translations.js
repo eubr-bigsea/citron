@@ -5,6 +5,29 @@ export default {
     'message': 'O {{resource}} que você está procurando não está disponível',
     'goBack': 'Voltar para'
   },
+  //components inside of forms folder
+  'form':{
+    'attribute-function': {
+      'button': 'Abrir o Editor',
+      'modal': {
+        'buttons': {
+          'add': 'Adicionar',
+        },
+        'tab': {
+          'editor': 'Editor',
+          'references': 'Referências',
+        },
+        'table': {
+          'attribute': 'Atributos',
+          'function': 'Função',
+          'column': {
+            'function': 'Nome',
+            'filter': 'Valor',
+          }
+        }
+      },
+    },
+  },
   //Forms
   'forms': {
     'email': {
@@ -114,6 +137,7 @@ export default {
     'scale': 'Escala',
     'nullable': 'Permite nulo',
     'treat_as_missing': 'Tratar como ausente',
+    'description': 'Descrição',
   },
 
   'cards': {

@@ -6,7 +6,6 @@
       {{component
         (concat 'forms/form-' field.suggested_widget)
         currentValue=(get (get filledForms field.name) 'value')
-        suggestedAttrs=(get (get filledForms field.name) 'suggestedAttrs')
         name=field.name
         field=field
         onValueChanged=(action 'formChanged')}}

@@ -201,7 +201,7 @@ export default Ember.Component.extend({
             aux = aux.concat(task.uiPorts.inputs[i].attributes)
           }
           for( i=0; i < attr.length; i++ ){
-            attr[i].suggestedAttrs = [...new Set(aux)];
+            Ember.set( attr[i], 'suggestedAttrs', [...new Set(aux)]);
           }
         }
         clickTask(component.get('forms'), task.forms, task);
