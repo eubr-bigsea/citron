@@ -2,8 +2,12 @@
   {{#if (eq log.type "TEXT")}}
     <span class="">{{log.message}}</span>
   {{else if (eq log.type "HTML")}}
-    <div id="log" style="font-size: 10px" class="table-sm table-compensate">
-      {{{log.message}}}
-    </div>
+    {{#if (eq modal true)}}
+      <div id="log" style="font-size: 10px" class="table-sm table-compensate">
+        {{{log.message}}}
+      </div>
+    {{else}}
+      <span>A table was generated</span>
+    {{/if}}
   {{/if}}
 </li>
