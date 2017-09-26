@@ -115,6 +115,7 @@ export default {
     'signUp': 'Inscreva-se',
     'login': 'Entrar',
     'yourProfile': 'Seu perfil',
+    'returnLogin': 'voltar para o Login',
   },
   'tables': {
     'id': 'ID',
@@ -348,6 +349,19 @@ export default {
   },
   'home': {
     'self': 'Página Inicial'
+  },
+  'password': {
+    'reset': {
+      'submit': 'Solicitar',
+      'success': 'Um email foi enviado para você!',
+      'error': 'Este email'
+    },
+    'edit': {
+      'header': 'Escolha sua nova senha.',
+      'submit': 'Mudar senha',
+      'success': 'Senha alterada com sucesso',
+    }
+
   },
   'newLine': '[nova_linha]',
   'en': 'English',

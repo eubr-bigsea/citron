@@ -36,9 +36,9 @@ Router.map(function() {
 
   this.route('login');
   this.route('signup');
-  this.route('password', {path:'users/password'}, function() {
+  this.route('password', {path:'password'}, function() {
     this.route('request');
-    this.route('edit');
+    this.route('edit', {path: ':id'});
   });
   this.route('group', {path: 'group/:id'});
   this.route('policy');

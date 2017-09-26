@@ -33,7 +33,8 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    // ENV.thorn = 'https://localhost:3000';
+    ENV.citron = 'http://localhost:4200';
+    //ENV.thorn = 'http://localhost:3000';
     ENV.thorn = 'https://teste.ctweb.inweb.org.br/thorn';
     ENV.stand = 'https://teste.ctweb.inweb.org.br/stand';
     ENV.tahiti = 'https://teste.ctweb.inweb.org.br/tahiti';

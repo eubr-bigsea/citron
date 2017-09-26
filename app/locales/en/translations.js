@@ -115,6 +115,7 @@ export default {
     'signUp': 'Sign up',
     'login': 'Sign in',
     'yourProfile': 'Your profile',
+    'returnLogin': 'return to Login',
   },
   'tables': {
     'id': 'ID',
@@ -356,6 +357,18 @@ export default {
   },
   'home': {
     'self': 'Home'
+  },
+  'password': {
+    'reset': {
+      'submit': 'Request',
+      'success': 'An email has been sent to you!',
+      'error': 'This email'
+    },
+    'edit': {
+      'header': 'Choose your new password',
+      'submit': 'Change password',
+      'success': 'Password changed with success',
+    }
   },
   'newLine': '[new_line]',
   'en': 'English',
