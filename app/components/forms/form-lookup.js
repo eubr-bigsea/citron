@@ -9,7 +9,10 @@ export default FormComponent.extend({
     if (this.get('field.values_url')) {
       var LIMONERO_URL = config.limonero; //don't delete this var, needed in next eval
       LIMONERO_URL;
-      Ember.$.get(eval(this.get('field.values_url'))).then((response) => {
+      Ember.$.ajax({
+        type: 'GET',
+        url: eval(this.get('field.values_url'))
+      }).then((response) => {
         this.set('parsedValues', response.map((v) => {
           return { "key": String(v.id), "value": v.name };
         }));
