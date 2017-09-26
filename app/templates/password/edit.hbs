@@ -1,40 +1,60 @@
 <div class="auth">
-  <div class="auth-container">
-    <div class="card">
-      <header class="auth-header">
-        <h1 class="auth-title">
-          <div class="logo"></div>
-          Lemonade
-        </h1>
-      </header>
-      <div class="auth-content">
-        <p class="text-xs-center"></p>
-        <form id="password-change-form" {{action 'request' on='submit'}}>
-          <div class={{emailFormGroup}}>
-            <label for="email">Email</label>
-            {{input type="email" class="form-control underlined" name="email" id="email" placeholder="Enter email address"  value=email}}
-            {{#if invalidEmailErrorMessage}}<span id="email-error" class="has-error">{{invalidEmailErrorMessage}}</span>{{/if}}
+  <div class="auth-container col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+    <header class="auth-header">
+      {{#link-to 'landing-page'}}<img src="/assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
+    </header>
+    <div class="auth-content">
+      {{#if successMessage}}
+        <h1> {{t 'password.reset.success'}}</h1>
+        <div class="form-group clearfix">
+          <a class="pull-right" > {{#link-to "login"}}{{t 'forms.returnLogin'}}{{/link-to}}</a>
+          <a class="pull-left" > {{#link-to "signup"}}{{t 'forms.signUp'}}!{{/link-to}}</a>
+        </div>
+
+        {{ else }}
+        <form id="login-form" {{action 'request' on='submit'}}>
+          <div class="form-group text-center" id="token">
+            <label for="email">{{t 'password.edit.header'}}</label>
           </div>
-          <div class={{passwordFormGroup}}> <label for="password">Password</label>
-            <div class="row">
-              <div class="col-sm-6">
-                {{input type="password" class="form-control underlined" name="password" id="password" placeholder="Enter password"  value=password}} </div>
-              <div class="col-sm-6">
-                {{input type="password" class="form-control underlined" name="retype_password" id="retype_password" placeholder="Re-type password" value=password_confirmation}}
-              </div>
-              {{#if invalidPasswordErrorMessage}} <span id="password-error" class="has-error">{{invalidPasswordErrorMessage}}</span>{{/if}}
+
+          {{#if tokenErrorMessage}}
+            <div class="form-group" id="email-error">
+              <span class="has-error">{{tokenErrorMessage}}</span>
             </div>
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-block btn-primary">Send email</button>
-          </div>
+            <div class="form-group clearfix">
+              <a class="pull-right" > {{#link-to "password.request"}}{{t 'forms.forgotPassword'}}?{{/link-to}}</a>
+              <a class="pull-left" > {{#link-to "signup"}}{{t 'forms.signUp'}}!{{/link-to}}</a>
+            </div>
+            <div class="form-group">
+              {{#link-to 'landing-page' class="btn btn-block btn-primary login"}}{{t 'landing-page.self'}}{{/link-to}}
+            </div>
+
+          {{else}}
+            <div class="form-group" id='passwords'>
+              <div class="row">
+                <div class="col-sm-6">
+                  <label for="password">{{t 'forms.password.label'}}</label>
+                  {{input type="password" class="form-control underlined" placeholder=(t 'forms.password.placeholder') value=password required=true}}
+                </div>
+                <div class="col-sm-6">
+                  <label for="password">{{t 'forms.passwordConfirmation.label'}}</label>
+                  {{input type="password" class="form-control underlined" placeholder=(t 'forms.passwordConfirmation.placeholder') value=password_confirmation required=true}}
+                </div>
+                <div class="form-group" id="password-error">
+                  {{#if passwordErrorMessage}} <span class="has-error">{{passwordErrorMessage}}</span> {{/if}}
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-block btn-primary" disabled={{processingRequest}}>{{t 'password.edit.submit'}}</button>
+            </div>
+            <div class="form-group clearfix">
+              <a class="pull-left" > {{#link-to "signup"}}{{t 'forms.signUp'}}!{{/link-to}}</a>
+              <a class="pull-right" > {{#link-to "login"}}{{t 'forms.returnLogin'}}{{/link-to}}</a>
+            </div>
+          {{/if}}
         </form>
-      </div>
+      {{/if}}
     </div>
   </div>
 </div>
-
-
-
-
-

@@ -5,41 +5,32 @@ const { RSVP: { Promise }, $: { ajax }, run } = Ember;
 
 export default Ember.Controller.extend({
   successMessage: null,
+  errorMessage: null,
   processingRequest: false,
-  emailFormGroup: 'form-group',
-  invalidEmailErrorMessage: null,
-
-  resetAlerts(){
-    this.setProperties({
-      successMessage: null,
-      mailFormGroup: 'form-group',
-      invalidEmailErrorMessage: null,
-      processingRequest: false,
-    });
-  },
+  email: null,
 
   actions:{
     request(){
-      this.resetAlerts();
       this.set('processingRequest', true);
-      var cred =  this.getProperties('email');
-      var requestOptions = {
-        url: `${config.thorn}/users/password`,
+      let email =  this.get('email');
+      let self = this;
+      $.ajax({
+        url: `${config.thorn}/api/users/password`,
         type: 'POST',
-        data: { email: cred.email, redirect_url:`${config.citron}` }
-      };
-      return new Promise((resolve, reject) => {
-        ajax(requestOptions).then(
-          (success) => { run(() => { resolve(success); }); },
-          (error) => { run(() => { reject(error.responseJSON); }); }
-        );
+        data: { user: {email: email}, redirect_url:`${config.citron}` },
+        success(response){
+          self.set('processingRequest', false);
+          self.set('successMessage', true);
+          run.later(() => { self.transitionToRoute('/'); }, 4000);
+        },
+        error(reason){
+          self.set('processingRequest', false);
+          self.set('successMessage', false);
+          Ember.$('#email').addClass('has-error');
+          Ember.$('#error-message').addClass('has-error');
+          self.set('errorMessage', reason.responseJSON.errors.email);
+        }
       })
-        .then(() =>{ run.later(() => { this.transitionToRoute('/'); }, 7000); })
-        .catch((reason) => {
-          this.set('processingRequest', false);
-          this.set('emailFormGroup', 'form-group has-error');
-          this.set('invalidEmailErrorMessage', reason.errors);
-        });
     },
   },
 });

@@ -4,10 +4,10 @@ import Ember from 'ember';
 
 
 export default DeviseAuthenticator.extend({
-  serverTokenEndpoint: `${config.thorn}/users/sign_in`,
+  serverTokenEndpoint: `${config.thorn}/api/users/sign_in`,
   invalidate() {
     return Ember.$.ajax({
-      url: `${config.thorn}/users/sign_out`,
+      url: `${config.thorn}/api/users/sign_out`,
       type: 'DELETE'
     }).catch(() => {});
   }
