@@ -34,8 +34,8 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.citron = 'http://localhost:4200';
-    //ENV.thorn = 'http://localhost:3000';
     ENV.thorn = 'https://teste.ctweb.inweb.org.br/thorn';
+    // ENV.thorn = 'http://localhost:3000';
     ENV.stand = 'https://teste.ctweb.inweb.org.br/stand';
     ENV.tahiti = 'https://teste.ctweb.inweb.org.br/tahiti';
     //ENV.limonero = 'https://teste.ctweb.inweb.org.br/limonero';
