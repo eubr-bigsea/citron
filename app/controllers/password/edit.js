@@ -35,6 +35,10 @@ export default Ember.Controller.extend({
           run.later(() => { self.transitionToRoute('login'); }, 3000);
         },
         error(reason){
+          if(reason.status === 500){
+            return self.transitionToRoute('maintenance');
+          }
+
           let err = reason.responseJSON.errors;
 
           if(err.reset_password_token){
