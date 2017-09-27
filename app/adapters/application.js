@@ -9,16 +9,12 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
   session: service(),
 
   authorizer: 'authorizer:devise',
-  headers: Ember.computed('i18n.locale', function(){
+  headers: Ember.computed('i18n.locale', 'session.data.authenticated.userId', function(){
     return {
       'X-Auth-Token': '123456',
-      'Locale': this.get('i18n.locale')
-    }
-  }).property('i18n.locale'),
-  headers: Ember.computed('session.data.authenticated.userId', function(){
-    return {
+      'Locale': this.get('i18n.locale'),
       'X-User-Id': this.get('session.data.authenticated.userId')
     }
-  }).property('session.data.authenticated.userId'),
+  }).property('i18n.locale', 'session.data.authenticated.userId'),
 });
 
