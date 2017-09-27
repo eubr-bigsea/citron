@@ -9,31 +9,23 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
   session: service(),
   sessionAccount: service(),
 
-  beforeModel() {
-    var self = this;
-    $( document ).ajaxComplete(function( event, xhr, settings) {
-      var h = settings.headers;
-      if(h){
-        if(!h['Authorization'] || !h['X-Auth-Token'] || !h['Locale'] || !h['X-User-Id']){
-          self.get('session').invalidate();
-        }
-      }
-    });
+  activate(){
+    let isAuthenticated = this.get('session.isAuthenticated');
 
-    let session = this.get('session');
-    let data = this.get('session.data.authenticated');
-    if (session.get('isAuthenticated')){
+    if(isAuthenticated){
+      let data = this.get('session.data.authenticated');
       $.ajaxSetup({
         headers: {
           'Authorization': `Token token=${data.token}, email=${data.email}`,
           'X-Auth-Token': '123456',
           'Locale': this.get('i18n.locale'),
-          'X-User-Id': data.userId
+          'X-User-Id': data.userId,
         }
       });
     }
     return this._loadCurrentUser();
   },
+
 
   model(params) {
     let authenticated = this.get('session.isAuthenticated');
