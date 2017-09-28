@@ -1,7 +1,7 @@
 <button {{action 'showModal'}} class="btn btn-primary">{{t 'form.attribute-function.button'}} </button>
 
 {{#if modalVisible}}
-  {{#bs-modal onHide=(action 'hideModal') fade=false as |modal|}}
+  {{#bs-modal class="logger-modal" onHide=(action 'hideModal') fade=false as |modal|}}
     {{#modal.header}}
       <h4>{{field.label}}</h4>
       <em>{{field.help}}</em>
@@ -11,12 +11,12 @@
         {{#tab.pane fade=false title=(t 'form.attribute-function.modal.tab.editor') as |tab|}}
           <table class="table table-striped table-bordered">
             <thead>
-              <th>{{t 'form.attribute-function.modal.table.attribute'}}</th>
-              <th>{{t 'form.attribute-function.modal.table.function'}}</th>
+              <th style="width: 25%">{{t 'form.attribute-function.modal.table.attribute'}}</th>
+              <th style="width: 25%">{{t 'form.attribute-function.modal.table.function'}}</th>
               {{#unless isSort}}
-                <th>{{t (concat 'form.attribute-function.modal.table.column.' name)}}</th>
+                <th style="width: 25%">{{t (concat 'form.attribute-function.modal.table.column.' name)}}</th>
               {{/unless}}
-              <th style="width: 25%"></th>
+              <th style="width: 15%"></th>
             </thead>
             <tbody>
               {{#each currentValue as |row i|}}
