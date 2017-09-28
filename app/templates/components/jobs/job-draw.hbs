@@ -1,9 +1,11 @@
 {{#each tasks as |task|}}
-  {{workflows/workflow-task
-  readOnly=true
+  {{jobs/job-task
   operations=operations
   elementId=task.id
   jsplumb=jsplumb
   task=task
+  job=job
+  operations=operations
+  stepsLogs=stepsLogs
   }}
 {{/each}}

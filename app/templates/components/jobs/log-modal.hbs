@@ -1,0 +1,34 @@
+{{#bs-modal open=modal backdrop=false backdropClose=true class="logger-modal" fade=fade onHidden=(action (mut modal) false) as |modal| }}
+  {{#modal.header}}
+    <h4 class="modal-title">
+    <i class="fa fa-lg {{icone}}"></i>
+        {{oi}}
+    </h4>
+  {{/modal.header}}
+  {{#modal.body}}
+  <ul class="tasks-list metismenu" id="tasks-list" style="height: 400px%">
+    {{#each stepsLogs as |step|}}
+      {{#if (eq step.task.id content.target)}}
+      <li>
+        {{#each step.logs as |log|}}
+          {{jobs/job-logger-content log=log modal=true}}
+        {{/each}}
+      </li>
+      {{/if}}
+  {{/each}}
+</ul>
+
+  {{/modal.body}}
+  {{#modal.footer}}
+    {{#if content.submitButton}}
+      {{#bs-button type="success" onClick=onSubmit}}{{t content.submitButton count=count}}{{/bs-button}}
+    {{else}}
+      {{#bs-button type="success" onClick=(action 'submit')}}{{t 'modal.default.submitButton'}}{{/bs-button}}
+    {{/if}}
+    {{#if content.cancelButton}}
+      {{#bs-button onClick=onCancel}}{{t content.cancelButton}}{{/bs-button}}
+    {{else}}
+      {{#bs-button onClick=(action 'cancel')}}{{t 'modal.default.cancelButton' count=count}}{{/bs-button}}
+    {{/if}}
+  {{/modal.footer}}
+{{/bs-modal}}

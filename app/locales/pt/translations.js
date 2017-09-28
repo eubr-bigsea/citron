@@ -277,6 +277,7 @@ export default {
       'workflow': 'Workflow',
       'logger': {
         'title': "Log da execução",
+        'information': "Completo. Clique duas vezes nas tarefas para ver detalhes."
       },
     },
     'results': {

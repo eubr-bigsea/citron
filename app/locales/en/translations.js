@@ -184,6 +184,9 @@ export default {
     },
   },
   'modal': {
+    'log': {
+      'close' : 'Close',
+    },
     'edit':{
       'title': 'Editing cards list',
       'message': '',
@@ -281,6 +284,7 @@ export default {
       'workflow': 'Workflow',
       'logger': {
         'title': "Job's Log",
+        'information': "Completed. Double click any task to see details."
       },
     },
     'results': {

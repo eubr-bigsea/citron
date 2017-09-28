@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    {{#if isComment}}
+      <div class="col-xs-11 comment-note">
+        <div class="comment-text">
+          <span>{{comment}}</span>
+        </div>
+      </div>
+    {{else}}
+      <div class="col-xs-11 operation">
+        <div class="name-container">
+          <span class="operation-name">
+            <i class="fa {{operation.icon}}"></i>{{operation.name}}
+          </span>
+        </div>
+        <div class="comment-container">
+          <div class="comment-text comment-task">
+            <span>{{comment}}</span>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+    <div id="testDelete" class="col-xs-1">
+      <div class="delete-btn">
+        <i id="testDelete" href="#" class="fa fa-trash-o"></i>
+      </div>
+    </div>
+  </div>
+</div>
+{{jobs/log-modal modal=modal content=modalContent job=job operations=operations
+  stepsLogs=stepsLogs
+  onSubmit=(action 'submit')}}

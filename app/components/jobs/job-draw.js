@@ -47,6 +47,7 @@ export default Ember.Component.extend({
     });
     socket.on('update task', function(frame, server_callback) {
       var step = component.get('steps').findBy('task.id', frame.id);
+      component.get('generateLogs')(step.operation.name, frame.message);
       var logStep = component.get('stepsLogs').findBy('task.id', frame.id);
       logStep.logs.pushObject(frame);
       var stepTemplate = $(`#${step.task.id}`);
@@ -111,13 +112,13 @@ export default Ember.Component.extend({
 
   didRender(){
     var steps = this.get('steps');
-    var component = this;
 
     steps.forEach(function(step){
       var stepTemplate = $(`#${step.task.id}`);
-      stepTemplate.removeClass(component.get('statusClasses').join(' '));
       var className = step.status.toLowerCase();
-      stepTemplate.addClass(className);
+      if(!(className == "pending" && (stepTemplate.hasClass("completed") || stepTemplate.hasClass("canceled") || stepTemplate.hasClass("error") || stepTemplate.hasClass("interrupted")))){
+        stepTemplate.addClass(className);
+      }
     });
   },
 
