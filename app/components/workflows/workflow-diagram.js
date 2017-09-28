@@ -61,6 +61,7 @@ export default Ember.Component.extend({
         this.get('hasChanged')(true);
       }
     }).selectable({
+      cancel: "a,.cancel",
       selected() {
         Ember.$('.ui-selected').removeClass('ui-selected');
       },
@@ -98,15 +99,47 @@ export default Ember.Component.extend({
       this.get('hasChanged')(true);
     },
     addFlow(flow, save = false) {
+      var closeId = null;
+      let jsplumb = this.get('jsplumb');
+
       if(save) {
         this.get('workflow').get('flows').addObject(flow);
         this.get('flows').addObject(flow);
       } else {
-        this.get('jsplumb').connect({
+        var connection = this.get('jsplumb').connect({
+          hoverPaintStyle:{ stroke:"red", strokeWidth: 2 },
+          paintStyle:{ stroke:"#373a3c", strokeWidth: 2 },
+          overlays: [
+            [
+              "Custom", {
+                cssClass: "conn-close-btn label-overlay conn-delete-btn btn btn-primary btn-md",
+                create:function(component) {
+                  closeId = component.getId();
+                  var el =  $('<a rel="tooltip" href="#" id="' + component.getId() + '"><i class="fa fa-times fa-lg"></i></a>');
+                  return el;
+                },
+                location: 0.5,
+                id:"customOverlay",
+              }
+            ]
+          ],
+
           uuids: [
             `${flow.source_id}/${flow.source_port}`,
             `${flow.target_id}/${flow.target_port}`
           ]
+        });
+        $('#' + closeId).click(() =>{
+          let [id1, id2] = connection.getUuids().map((el) => el.split('/'));
+          let flow = {
+            source_id: id1[0],
+            source_port: Number(id1[1]),
+            target_id: id2[0],
+            target_port: Number(id2[1])
+          };
+
+          this.send('removeFlow', flow);
+          jsplumb.detach(connection);
         });
       }
     },

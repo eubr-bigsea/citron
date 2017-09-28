@@ -41,7 +41,6 @@ export default Ember.Component.extend({
     this.get('jsplumb').bind('beforeDrop', (info) => {
       return info.sourceId !== info.targetId;
     });
-
     this.get('jsplumb').bind('connection', (info, originalEvent) => {
       if(originalEvent === undefined) {
         return;
@@ -156,6 +155,8 @@ export default Ember.Component.extend({
             ]
           ],
           connector: 'Flowchart',
+          connectorHoverStyle:{ stroke:"red", strokeWidth: 2 },
+          connectorStyle:{ stroke:"#373a3c", strokeWidth: 2 },
           connectorOverlays: [
             [
               "Arrow", {
