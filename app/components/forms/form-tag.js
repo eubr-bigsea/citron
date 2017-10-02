@@ -1,10 +1,53 @@
 import FormComponent from 'lemonade-ember/lib/form-component';
+import Ember from 'ember';
 
 export default FormComponent.extend({
   didInsertElement() {
     this.$('select').select2({
       tags: true,
-      dropdownParent: this.$()
+      dropdownParent: this.$(),
+      data: this.get('parsedValues')
     });
+  },
+
+  didReceiveAttrs(){
+    this.set('parsedValues', Ember.A());
+
+    let parsed = this.get('parsedValues');
+    let values = this.get('field.suggestedAttrs');
+    let currentValue = this.get('currentValue');
+
+    if(values) {
+      values.forEach((el) => {
+        if(parsed.findBy('id', el) === undefined) {
+          parsed.addObject({
+            id: el,
+            text: el,
+            selected: false
+          });
+        }
+      });
+    }
+
+    if(currentValue) {
+      currentValue.forEach((el) => {
+        if(parsed.findBy('id', el) === undefined) {
+          parsed.addObject({
+            id: el,
+            text: el,
+            selected: true
+          });
+        } else {
+          var current = parsed.findBy('id', el);
+          Ember.set(current, 'selected', true);
+        }
+      });
+    }
+
+  },
+  actions: {
+    valueChanged() {
+      this._super(this.$('select').val());
+    }
   }
 });

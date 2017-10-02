@@ -5,9 +5,11 @@ export default FormComponent.extend({
   didInsertElement() {
     this.$('select').select2({
       dropdownParent: this.$(),
-      tags: true
+      tags: true,
+      data: this.get('parsedValues')
     });
   },
+
   didReceiveAttrs(){
     this.set('parsedValues', Ember.A());
 
@@ -18,25 +20,27 @@ export default FormComponent.extend({
 
     if(values) {
       values.forEach((el) => {
-        if(parsed.findBy('val', el) === undefined) {
-          if(el.value === currentValue) {
-            knownValue = true;
-          }
+        if(parsed.findBy('id', el.key) === undefined) {
           parsed.addObject({
-            key: el.key,
-            value: el.value,
-            selected: el.value === currentValue
+            id: el.key,
+            text: el.value,
+            selected: el.key === currentValue.key
           });
         }
       });
     }
 
-    if(!knownValue && currentValue) {
-      parsed.addObject({
-        key: currentValue.key,
-        value: currentValue.value,
-        selected: true
-      });
+    if(currentValue){
+      if(parsed.findBy('id', currentValue.key) === undefined){
+        parsed.addObject({
+          id: currentValue.key,
+          text: currentValue.value,
+          selected: true
+        })
+      } else {
+        var current = parsed.findBy('id', currentValue.key);
+        Ember.set(current, 'selected', true);
+      }
     }
   },
 
