@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import config from '../../../config/environment';
-import { translationMacro as t } from "ember-i18n";
 
 const { inject: { service } } = Ember;
 
