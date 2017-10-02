@@ -32,7 +32,9 @@ export default Ember.Component.extend({
     let input = op.get('ports').filter(p => p.type === 'INPUT').sort(fn);
     let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
 
-    this.set('comment', task.forms.comment.value);
+    if(task.forms.comment && task.forms.comment.value){
+      this.set('comment', task.forms.comment.value);
+    }
 
     let isInput = true;
     [input, output].forEach((type) => {
@@ -83,6 +85,7 @@ export default Ember.Component.extend({
     jsplumb.draggable(el, false);
 
     Ember.$(el).dblclick(() => {
+      debugger;
       var modal = {
         target: el.attr('id'),
       };

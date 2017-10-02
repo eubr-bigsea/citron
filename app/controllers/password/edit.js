@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import config from '../../config/environment';
 
-const { $: { ajax }, run } = Ember;
+const { $, run } = Ember;
 
 export default Ember.Controller.extend({
   queryParams: ['reset_password_token'],
@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
           }
         },
         type : 'PATCH',
-        success(response){
+        success(){
           self.set('processingRequest', false);
           self.set('successMessage', true);
           run.later(() => { self.transitionToRoute('login'); }, 3000);

@@ -5,68 +5,48 @@ export default FormComponent.extend({
   didInsertElement() {
     this.$('select').select2({
       tags: true,
-      dropdownParent: this.$()
+      dropdownParent: this.$(),
+      data: this.get('parsedValues')
     });
-    this.set('parsedValues', Ember.A());
-
-    let parsed = this.get('parsedValues');
-    let values = this.get('field.suggestedAttrs');
-    let currentValue = this.get('currentValue');
-    let selected = this.$('select').val()
-
-    if(currentValue) {
-      currentValue.forEach((el) => {
-        if(selected.indexOf(el) === -1) {
-          parsed.addObject({
-            val: el,
-            selected: true
-          });
-        }
-      });
-    }
-
-    if(values) {
-      values.forEach((el) => {
-        if(parsed.findBy('val', el) === undefined) {
-          parsed.addObject({
-            val: el,
-            selected: false
-          });
-        }
-      });
-    }
   },
+
   didReceiveAttrs(){
     this.set('parsedValues', Ember.A());
 
     let parsed = this.get('parsedValues');
     let values = this.get('field.suggestedAttrs');
     let currentValue = this.get('currentValue');
-    if( this.$('select')){
-      if(currentValue) {
-        currentValue.forEach((el) => {
+
+    if(values) {
+      values.forEach((el) => {
+        if(parsed.findBy('id', el) === undefined) {
           parsed.addObject({
-            val: el,
+            id: el,
+            text: el,
+            selected: false
+          });
+        }
+      });
+    }
+
+    if(currentValue) {
+      currentValue.forEach((el) => {
+        if(parsed.findBy('id', el) === undefined) {
+          parsed.addObject({
+            id: el,
+            text: el,
             selected: true
           });
-        });
-      }
-
-      if(values) {
-        values.forEach((el) => {
-          if(parsed.findBy('val', el) === undefined) {
-            parsed.addObject({
-              val: el,
-              selected: false
-            });
-          }
-        });
-      }
+        } else {
+          var current = parsed.findBy('id', el);
+          Ember.set(current, 'selected', true);
+        }
+      });
     }
+
   },
   actions: {
     valueChanged() {
-      this.set('selected',this.$('select').val());
       this._super(this.$('select').val());
     }
   }
