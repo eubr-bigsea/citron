@@ -85,7 +85,6 @@ export default Ember.Component.extend({
     jsplumb.draggable(el, false);
 
     Ember.$(el).dblclick(() => {
-      debugger;
       var modal = {
         target: el.attr('id'),
       };
