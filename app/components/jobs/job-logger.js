@@ -4,7 +4,6 @@ export default Ember.Component.extend({
   tagName: 'nav',
 
   didReceiveAttrs(){
-    Ember.$("#job-diagram-container-wrapper").toggleClass("toggled");
     var steps = this.get('job.steps');
     var operations = this.get('operations');
     var component = this;
