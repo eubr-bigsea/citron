@@ -86,12 +86,8 @@ export default Component.extend({
 
     jsplumb.draggable(el, false);
 
-    $(el).dblclick(() => {
-      var modal = {
-        target: el.attr('id'),
-      };
-      this.set('modalContent', modal);
-      this.set('modal', true);
+    Ember.$(el).dblclick(() => {
+      this.get('openLogs')(el.attr('id'));
     });
   },
   actions: {
