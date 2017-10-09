@@ -56,7 +56,7 @@
               {{/link-to}}
             </td>
             <td class="options">
-              <a href='#' {{action 'download' datasource }}>
+              <a href={{concat limoneroUrl datasource.id endPoint}} >
                 <i rel="tooltip" title="" class="fa fa-download fa-lg"></i>
               </a>
               <a href='#' {{action 'share' datasource}}>
