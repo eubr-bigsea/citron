@@ -283,6 +283,8 @@ export default {
       'stop': 'Stop',
       'workflow': 'Workflow',
       'logger': {
+        'error': "An error occured, click to see details",
+        'success': "Task completed, click to see details",
         'title': "Job's Log",
         'information': "Completed. Double click any task to see details."
       },

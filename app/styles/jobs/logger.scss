@@ -84,6 +84,12 @@
               background-color: $color-dark;
             }
           }
+          li > a {
+            cursor: pointer;
+          }
+        }
+        ul > a{
+          cursor: pointer;
         }
 
       }

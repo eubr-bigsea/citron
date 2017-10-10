@@ -6,12 +6,12 @@
     </h4>
   {{/modal.header}}
   {{#modal.body}}
-  <ul class="tasks-list metismenu" id="tasks-list" style="height: 400px%">
+  <ul class="tasks-list metismenu" id="tasks-list">
     {{#each stepsLogs as |step|}}
       {{#if (eq step.task.id content.target)}}
       <li>
         {{#if (eq step.status 'ERROR')}}
-          <div id="flashError" class="alert alert-danger">
+          <div id="flashError" class="alert alert-danger" style="list-style-type: none;">
             {{#each step.logs as |log|}}
               {{jobs/job-logger-content log=log modal=true}}
             {{/each}}
