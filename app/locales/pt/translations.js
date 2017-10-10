@@ -276,6 +276,8 @@ export default {
       'stop': 'Parar',
       'workflow': 'Workflow',
       'logger': {
+        'error':"Ocorreu um erro, clique para ver detalhes",
+        'success':"Tarefa completa, clique para ver detalhes",
         'title': "Log da execução",
         'information': "Completo. Clique duas vezes nas tarefas para ver detalhes."
       },
