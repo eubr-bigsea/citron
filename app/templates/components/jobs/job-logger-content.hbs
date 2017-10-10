@@ -1,11 +1,11 @@
-<li style="padding-bottom: 1px ;padding-top: 2px;padding-right: 5px;">
+<li style="padding-left: 0px;">
   {{#if (eq log.type "TEXT")}}
     {{#if (eq modal true)}}
       <span class="">{{log.message}}</span>
     {{else}}
       {{#if (eq status 'ERROR')}}
-        <a {{action 'sendID'}} style="padding-left: 0px;">
-          An error occured, click to see details.
+        <a {{action 'sendID'}} style="padding-left: 20px;">
+          {{t 'job.show.logger.error'}}
         </a>
       {{else}}
         <span class="">{{log.message}}</span>
@@ -16,10 +16,6 @@
       <div id="log" style="font-size: 10px" class="table-sm table-compensate">
         {{{log.message}}}
       </div>
-    {{else}}
-      <a {{action 'sendID'}} style="padding-left: 0px;">
-        Open table
-      </a>
     {{/if}}
   {{/if}}
 </li>

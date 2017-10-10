@@ -18,5 +18,10 @@ export default Ember.Component.extend({
 
   didInsertElement(){
     this.$('#tasks-list').metisMenu();
-  }
+  },
+  actions: {
+    sendID(taskId){
+      this.get('openLogs')(taskId);
+    }
+  },
 });
