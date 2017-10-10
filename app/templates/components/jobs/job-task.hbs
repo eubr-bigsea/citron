@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" title="Double click this task to see details">
   <div class="row">
     {{#if isComment}}
       <div class="col-xs-11 comment-note">
@@ -27,6 +27,3 @@
     </div>
   </div>
 </div>
-{{jobs/log-modal modal=modal content=modalContent job=job operations=operations
-  stepsLogs=stepsLogs
-  onSubmit=(action 'submit')}}

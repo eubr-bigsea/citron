@@ -7,11 +7,16 @@
       <a href="#">
         <i class="fa fa-lg {{step.operation.icon}}"></i>
         <span>{{step.operation.name}}</span>
+        <i class="{{if (lt 0 step.logs.length) 'status-eye'}} status-{{step.status}}" style="float:right;"></i>
       </a>
       <ul>
-        {{#each step.logs as |log|}}
-          {{jobs/job-logger-content log=log}}
-        {{/each}}
+        {{#if (eq step.status 'COMPLETED')}}
+          <a {{action 'sendID' step.task.id}}>{{t 'job.show.logger.success'}}</a>
+        {{else}}
+          {{#each step.logs as |log|}}
+            {{jobs/job-logger-content log=log taskId=step.task.id openLogs=openLogs status=step.status}}
+            {{/each}}
+          {{/if}}
       </ul>
     </li>
   {{/each}}
