@@ -1,15 +1,18 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { sort } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   name: '',
   toDelete: '',
-  store: Ember.inject.service('store'),
+  store: service('store'),
 
 
   sortBy: ['name'],
-  sortedModel: Ember.computed.sort('filteredResults','sortBy'),
+  sortedModel: sort('filteredResults','sortBy'),
   filterText: '',
   show: false,
 
@@ -28,18 +31,18 @@ export default Ember.Component.extend({
   totalPages: "pagedContent.totalPages",
 
   didInsertElement(){
-    if(Ember.$("[rel=tooltip]").is(':focus')){
-      Ember.$("[rel=tooltip]").tooltip({ placement: 'right'});
+    if($("[rel=tooltip]").is(':focus')){
+      $("[rel=tooltip]").tooltip({ placement: 'right'});
     }
 
-    Ember.$('#submit').click(() =>{
+    $('#submit').click(() =>{
       this.triggerAction({
         action:'search',
         target: this
       });
     });
 
-    Ember.$('#input').on('keyup', () =>{
+    $('#input').on('keyup', () =>{
       this.triggerAction({
         action:'search',
         target: this
@@ -59,14 +62,14 @@ export default Ember.Component.extend({
       this.set('sortBy',[sortProp + ":" + sortOrder]);
     },
     search(){
-      this.set('filterText', Ember.$('#input').val().toString().toLowerCase());
+      this.set('filterText', $('#input').val().toString().toLowerCase());
       this.set('page', 1);
     },
     checked(){
-      if(Ember.$('#select-all-items').is(':checked')){
-        Ember.$('.input-checkbox').prop("checked", false);
+      if($('#select-all-items').is(':checked')){
+        $('.input-checkbox').prop("checked", false);
       } else {
-        Ember.$('.input-checkbox').prop("checked", true);
+        $('.input-checkbox').prop("checked", true);
       }
     }
   }

@@ -1,15 +1,17 @@
-import Ember from 'ember';
+import { computed, set } from '@ember/object';
+import { empty } from '@ember/object/computed';
+import Component from '@ember/component';
 import config from '../../config/environment';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   // Set html elements
   tagName: "div",
   classNames: ["gViz-dashboard-canvas"],
 
   // Initialize data
-  isEmpty: Ember.computed.empty('visualizations'),
-  visualizations: Ember.computed('model', function() {
+  isEmpty: empty('visualizations'),
+  visualizations: computed('model', function() {
 
     // Store this
     var self = this;
@@ -79,7 +81,7 @@ export default Ember.Component.extend({
       var obj = self.get('visualizations').objectAt(index);
 
       // Update property
-      Ember.set(obj, 'resizeIndex', obj.resizeIndex+1);
+      set(obj, 'resizeIndex', obj.resizeIndex+1);
 
       // Set styles
       self.$(element).removeClass('hovering').css('opacity', 1);

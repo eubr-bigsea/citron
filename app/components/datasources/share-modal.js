@@ -1,12 +1,12 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 import config from '../../config/environment';
 
-const { inject: { service } } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   store: service(),
   filterText: null,
-  allUsers: Ember.A(),
+  allUsers: A(),
   itemSelected: null,
   userID: null,
 
@@ -24,7 +24,7 @@ export default Ember.Component.extend({
   },
   didReceiveAttrs(){
     this._super(...arguments);
-    this.set('allUsers', Ember.A());
+    this.set('allUsers', A());
     let users = this.get('users');
     let allUsers = this.get('allUsers');
     let permissions = this.get('permissions');

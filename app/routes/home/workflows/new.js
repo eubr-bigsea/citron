@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
 
-const { inject: { service } } = Ember;
-
-export default Ember.Route.extend({
+export default Route.extend({
   sessionAccount: service(),
   session: service('session'),
 
@@ -40,7 +40,7 @@ export default Ember.Route.extend({
   actions:{
     create(){
       var workflow = this.currentModel.workflow;
-      var platform_id = Ember.$("#platform").val();
+      var platform_id = $("#platform").val();
       var user = this.get('sessionAccount.user');
 
       workflow.set('platform.id', platform_id);
@@ -50,8 +50,8 @@ export default Ember.Route.extend({
       });
     },
     selectImage(id, name){
-      Ember.$('.image-container').removeClass('active');
-      Ember.$(`#img${id}`).addClass('active');
+      $('.image-container').removeClass('active');
+      $(`#img${id}`).addClass('active');
       var workflow = this.currentModel.workflow;
       workflow.set('image', name);
     }

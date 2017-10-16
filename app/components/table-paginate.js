@@ -1,17 +1,19 @@
-import Ember from 'ember';
+import { observer, computed } from '@ember/object';
+import { alias, gt } from '@ember/object/computed';
+import Component from '@ember/component';
 import Util from 'ember-cli-pagination/util';
 import PageItems from 'ember-cli-pagination/lib/page-items';
 import Validate from 'ember-cli-pagination/validate';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['table-paginate'],
 
-  currentPage: Ember.computed.alias("content.page"),
-  totalPages: Ember.computed.alias("content.totalPages"),
+  currentPage: alias("content.page"),
+  totalPages: alias("content.totalPages"),
 
-  hasPages: Ember.computed.gt('totalPages', 1),
+  hasPages: gt('totalPages', 1),
 
-  watchInvalidPage: Ember.observer("content", function() {
+  watchInvalidPage: observer("content", function() {
     const c = this.get('content');
     if (c && c.on) {
       c.on('invalidPage', (e) => {
@@ -32,29 +34,29 @@ export default Ember.Component.extend({
     }
   },
 
-  pageItemsObj: Ember.computed(function() {
+  pageItemsObj: computed(function() {
     return PageItems.create({
       parent: this,
-      currentPage: Ember.computed.alias("parent.currentPage"),
-      totalPages: Ember.computed.alias("parent.totalPages"),
-      truncatePages: Ember.computed.alias("parent.truncatePages"),
-      numPagesToShow: Ember.computed.alias("parent.numPagesToShow"),
-      showFL: Ember.computed.alias("parent.showFL")
+      currentPage: alias("parent.currentPage"),
+      totalPages: alias("parent.totalPages"),
+      truncatePages: alias("parent.truncatePages"),
+      numPagesToShow: alias("parent.numPagesToShow"),
+      showFL: alias("parent.showFL")
     });
   }),
 
-  pageItems: Ember.computed("pageItemsObj.pageItems","pageItemsObj", function() {
+  pageItems: computed("pageItemsObj.pageItems","pageItemsObj", function() {
     this.validate();
     return this.get("pageItemsObj.pageItems");
   }),
 
-  canStepForward: Ember.computed("currentPage", "totalPages", function() {
+  canStepForward: computed("currentPage", "totalPages", function() {
     const page = Number(this.get("currentPage"));
     const totalPages = Number(this.get("totalPages"));
     return page < totalPages;
   }),
 
-  canStepBackward: Ember.computed("currentPage", function() {
+  canStepBackward: computed("currentPage", function() {
     const page = Number(this.get("currentPage"));
     return page > 1;
   }),

@@ -1,8 +1,11 @@
-import Ember from 'ember';
+import { scheduleOnce } from '@ember/runloop';
+import { htmlSafe } from '@ember/string';
+import { A } from '@ember/array';
+import { computed, observer } from '@ember/object';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
-const { inject: { service } } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   session: service(),
 
   init() {
@@ -10,14 +13,14 @@ export default Ember.Component.extend({
   },
 
   // Computed data
-  cData: Ember.computed('data', function() { return this.get('data') == null ? Ember.A() : this.get('data'); }),
+  cData: computed('data', function() { return this.get('data') == null ? A() : this.get('data'); }),
 
   // General Attributes
-  isEmpty: Ember.computed('filteredData', function() { return this.get('filteredData') == null ? true : this.get('filteredData').length === 0; }),
-  paddingTop: Ember.computed('cHeight', function() { return isNaN(this.get('cHeight')) ? 10 : this.get('cHeight') * 0.24; }),
+  isEmpty: computed('filteredData', function() { return this.get('filteredData') == null ? true : this.get('filteredData').length === 0; }),
+  paddingTop: computed('cHeight', function() { return isNaN(this.get('cHeight')) ? 10 : this.get('cHeight') * 0.24; }),
 
   // Sorting attrs
-  sortedData: Ember.computed('sortBy', 'sortOrder','cData', function() {
+  sortedData: computed('sortBy', 'sortOrder','cData', function() {
     var data = this.get('cData');
     var sortBy = this.get('sortBy');
     var sortOrder = this.get('sortOrder');
@@ -28,7 +31,7 @@ export default Ember.Component.extend({
   sortOrder: 'asc',
 
   // Search attrs
-  filteredData: Ember.computed('searchIndex','sortedData', function() {
+  filteredData: computed('searchIndex','sortedData', function() {
     var data = this.get('sortedData');
     var search = this.get('search');
     return data.filter( a => search.length < 1 || a.filter( d => d.toString().indexOf(search) >= 0).length > 0 );
@@ -36,21 +39,21 @@ export default Ember.Component.extend({
   search: "",
   searchIndex: 0,
 
-  header: Ember.computed('cData', function() {
+  header: computed('cData', function() {
     var data = this.get('cData');
     return data.data.attributes;
   }),
 
   // Set my style for component
-  myStyle: Ember.computed('cHeight', function(){ return Ember.String.htmlSafe(`height: ${this.get('cHeight')}px;`); }),
-  myTableStyle: Ember.computed('cHeight', function(){ return Ember.String.htmlSafe(`max-height: ${this.get('cHeight') - 40}px;`); }),
-  cHeight: Ember.computed('offsetTop','height', function() {
+  myStyle: computed('cHeight', function(){ return htmlSafe(`height: ${this.get('cHeight')}px;`); }),
+  myTableStyle: computed('cHeight', function(){ return htmlSafe(`max-height: ${this.get('cHeight') - 40}px;`); }),
+  cHeight: computed('offsetTop','height', function() {
     return this.get('height') === 0 ? ($(window).outerHeight() - this.get('offsetTop'))*0.4926 : this.get('height');
   }),
 
   // After search / order
-  searchChanged: Ember.observer('searchIndex', 'sortBy','sortOrder', function() {
-    Ember.run.scheduleOnce('afterRender', this, 'draw', 'none');
+  searchChanged: observer('searchIndex', 'sortBy','sortOrder', function() {
+    scheduleOnce('afterRender', this, 'draw', 'none');
   }),
 
   actions: {

@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function helperCheckCards(params) {
   var cards = params[0];
@@ -9,4 +9,4 @@ export function helperCheckCards(params) {
     return true;
   }
 }
-export default Ember.Helper.helper(helperCheckCards);
+export default helper(helperCheckCards);

@@ -1,8 +1,8 @@
-/* global Ps */
+import $ from 'jquery';
+import Component from '@ember/component';
+import Ps from 'npm:perfect-scrollbar';
 
-import Ember from 'ember';
-
-export default Ember.Component.extend({
+export default Component.extend({
   didInsertElement() {
     Ps.initialize(document.getElementById(this.elementId));
   },
@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     formChanged(key, value) {
       this.set(`filledForms.${key}.value`, value);
       if(key === 'color') {
-        Ember.$('#' + this.get('task').id).css('background-color', value);
+        $('#' + this.get('task').id).css('background-color', value);
       }
     }
   }

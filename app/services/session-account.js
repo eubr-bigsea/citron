@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import { isEmpty } from '@ember/utils';
+import Service, { inject as service } from '@ember/service';
+import RSVP from 'rsvp';
 
-const { inject: { service }, RSVP } = Ember;
-
-export default Ember.Service.extend ({
+export default Service.extend ({
   session: service('session'),
   store: service(),
   serverValidationComplete: false,
@@ -16,7 +16,7 @@ export default Ember.Service.extend ({
   // If valid, then set SessionAccount User.
   loadCurrentUser() {
     this.set('userId', this.get('session.data.authenticated.userId'));
-    if (!Ember.isEmpty(this.get('session.data.authenticated.userId'))) {
+    if (!isEmpty(this.get('session.data.authenticated.userId'))) {
       this.serverValidation().then(() => {
         return new RSVP.Promise((resolve, reject) => {
           const userId = this.get('session.data.authenticated.userId');

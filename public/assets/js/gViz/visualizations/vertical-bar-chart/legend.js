@@ -1,7 +1,3 @@
-// Imports
-var d3 = require("d3");
-var gViz.shared = require("../../gViz.shared/_init.js");
-
 // Initialize the visualization class
 module.exports = function() {
   "use strict";

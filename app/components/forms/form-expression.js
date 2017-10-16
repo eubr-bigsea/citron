@@ -1,5 +1,5 @@
+import $ from 'jquery';
 import jsep from 'npm:jsep';
-import Ember from 'ember';
 import FormComponent from 'lemonade-ember/lib/form-component';
 
 export default FormComponent.extend({
@@ -23,24 +23,24 @@ export default FormComponent.extend({
       return false;
     },
     parseExpression() {
-      let el = Ember.$('#resultExpression');
-      let exprVal = Ember.$('#typeExpression').val();
+      let el = $('#resultExpression');
+      let exprVal = $('#typeExpression').val();
 
       try {
         var expr = jsep(exprVal);
         el.addClass('alert-info');
         el.removeClass('alert-danger');
         el.text(JSON.stringify(expr));
-        Ember.$("#okButton").removeAttr('disabled');
+        $("#okButton").removeAttr('disabled');
       } catch (e) {
         el.addClass('alert-danger');
         el.removeClass('alert-info');
         el.text(e.message);
-        Ember.$("#okButton").attr('disabled', 'disabled');
+        $("#okButton").attr('disabled', 'disabled');
       }
     },
     valueChanged() {
-      let expr = Ember.$('#typeExpression').val();
+      let expr = $('#typeExpression').val();
       this.set('currentValue', { expression: expr, tree: jsep(expr) });
       this._super(JSON.stringify(this.get('currentValue')));
       this.set('modalVisible', false);

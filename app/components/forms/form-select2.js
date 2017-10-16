@@ -1,5 +1,6 @@
+import { set } from '@ember/object';
+import { A } from '@ember/array';
 import FormComponent from 'lemonade-ember/lib/form-component';
-import Ember from 'ember';
 
 export default FormComponent.extend({
   didInsertElement() {
@@ -11,12 +12,11 @@ export default FormComponent.extend({
   },
 
   didReceiveAttrs(){
-    this.set('parsedValues', Ember.A());
+    this.set('parsedValues', A());
 
     let parsed = this.get('parsedValues');
     let values = JSON.parse(this.get('field.values'));
     let currentValue = this.get('currentValue');
-    let knownValue = false;
 
     if(values) {
       values.forEach((el) => {
@@ -39,7 +39,7 @@ export default FormComponent.extend({
         })
       } else {
         var current = parsed.findBy('id', currentValue.key);
-        Ember.set(current, 'selected', true);
+        set(current, 'selected', true);
       }
     }
   },

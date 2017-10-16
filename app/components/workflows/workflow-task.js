@@ -1,10 +1,15 @@
 /* global Set TahitiAttributeSuggester*/
-import Ember from 'ember';
+import EmberObject, { set } from '@ember/object';
+
+import $ from 'jquery';
+import { A } from '@ember/array';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 import config from '../../config/environment';
 
-export default Ember.Component.extend({
-  store: Ember.inject.service(),
+export default Component.extend({
+  store: service(),
   classNames: ['task', 'decor'],
   classNameBindings: ['task.operation.slug','status'],
   status: null,
@@ -27,7 +32,7 @@ export default Ember.Component.extend({
 
   init() {
     this._super(...arguments);
-    this.set('endpoints', Ember.A());
+    this.set('endpoints', A());
 
     let opId = String(this.get("task").operation.id);
     let operations = this.get('operations');
@@ -99,7 +104,7 @@ export default Ember.Component.extend({
   didInsertElement() {
     const task = this.get('task');
     const op   = this.get('operation');
-    const el = Ember.$(`#${this.elementId}`);
+    const el = $(`#${this.elementId}`);
     const jsplumb = this.get('jsplumb');
     const clickTask = this.get('clickTask');
 
@@ -112,7 +117,7 @@ export default Ember.Component.extend({
 
     this.set('forms', op.get('forms'));
 
-    task.forms = Ember.Object.create(task.forms);
+    task.forms = EmberObject.create(task.forms);
     op.get('forms').forEach((el) => {
       el.fields.forEach((field) => {
         if(task.forms.get(field.name) === undefined ||
@@ -186,7 +191,7 @@ export default Ember.Component.extend({
         }
       });
     }
-    Ember.$(el).click((e) => {
+    $(el).click((e) => {
       var component = this;
       var workflow = component.get('workflow').toJSON({ includeId: true });
       var dataSourceLoader = component.get('dataSourceLoader');
@@ -202,16 +207,16 @@ export default Ember.Component.extend({
             aux = aux.concat(task.uiPorts.inputs[i].attributes)
           }
           for( i=0; i < attr.length; i++ ){
-            Ember.set( attr[i], 'suggestedAttrs', [...new Set(aux)]);
+            set( attr[i], 'suggestedAttrs', [...new Set(aux)]);
           }
         }
         clickTask(component.get('forms'), task.forms, task);
       };
       TahitiAttributeSuggester.compute(workflow, dataSourceLoader, callback);
 
-      Ember.$('#forms').toggle(e.target.id != 'testDelete');
-      Ember.$('.ui-selected').removeClass('ui-selected');
-      Ember.$(el).addClass('ui-selected');
+      $('#forms').toggle(e.target.id != 'testDelete');
+      $('.ui-selected').removeClass('ui-selected');
+      $(el).addClass('ui-selected');
 
 
 

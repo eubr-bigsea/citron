@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
 import FormComponent from 'lemonade-ember/lib/form-component';
 
 export default FormComponent.extend({
@@ -12,14 +12,14 @@ export default FormComponent.extend({
   },
   didReceiveAttrs() {
     this._super(...arguments);
-    this.set('suggestedAttrsArray', Ember.A());
+    this.set('suggestedAttrsArray', A());
     this.set('parsedValues', JSON.parse(this.get('field.values')).functions);
     this.set('options', JSON.parse(this.get('field.values')).options);
 
     let suggestedParsed =  this.get('suggestedAttrsArray');
     let suggestedAttrs = this.get('field.suggestedAttrs');
     let currentValue = this.get('currentValue');
-    if(!currentValue){ this.set('currentValue', Ember.A()); }
+    if(!currentValue){ this.set('currentValue', A()); }
     if( this.get('field.name') === "attributes"){ this.set('isSort', true); }
 
     if(currentValue) {

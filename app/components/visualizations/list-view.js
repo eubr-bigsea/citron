@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import ENV from 'lemonade-ember/config/environment';
 
-export default Ember.Component.extend({
+export default Component.extend({
   // Set html elements
   tagName: "div",
   classNames: ["gViz-wrapper"],

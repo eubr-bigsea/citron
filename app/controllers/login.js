@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 
-const { service } = Ember.inject;
-
-export default Ember.Controller.extend({
+export default Controller.extend({
   session: service('session'),
 
   actions: {
@@ -13,9 +13,9 @@ export default Ember.Controller.extend({
       session.authenticate('authenticator:devise', identification, password).catch(
         function(){
           self.set('errorMessage', 'Error with your email or password');
-          Ember.$('#email').addClass('has-error');
-          Ember.$('#password').addClass('has-error');
-          Ember.$('#error-message').addClass('has-error');
+          $('#email').addClass('has-error');
+          $('#password').addClass('has-error');
+          $('#error-message').addClass('has-error');
         }).then(() => {
           let data = this.get('session.data.authenticated');
           let locale = data.locale;

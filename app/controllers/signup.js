@@ -1,13 +1,13 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 
-const { service } = Ember.inject;
-
-export default Ember.Controller.extend({
+export default Controller.extend({
   session: service(),
   sessionAccount: service(),
 
   resetAlerts(){
-    var errors = Ember.$('.has-error')
+    var errors = $('.has-error')
     errors.removeClass('has-error')
   },
 
@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
     }).catch(() => {
       var errors = user.get('errors').toArray();
       for(var i=0, len=errors.length; i<len; i++){
-        Ember.$(`#${errors[i].attribute}`).addClass('has-error');
+        $(`#${errors[i].attribute}`).addClass('has-error');
       }
     }).then(() => {controller.transitionToRoute('home')});
   },

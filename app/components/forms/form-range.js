@@ -1,8 +1,8 @@
+import { computed } from '@ember/object';
 import FormComponent from 'lemonade-ember/lib/form-component';
-import Ember from 'ember';
 
 export default FormComponent.extend({
-  deltaValue: Ember.computed('currentValue', function() {
+  deltaValue: computed('currentValue', function() {
     return 100 - this.get('currentValue');
   })
 });

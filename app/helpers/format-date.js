@@ -1,5 +1,5 @@
+import { helper } from '@ember/component/helper';
 import moment from 'npm:moment/min/moment-with-locales';
-import Ember from 'ember';
 
 
 export function formatDate(params, hash) {
@@ -7,4 +7,4 @@ export function formatDate(params, hash) {
   return moment(params, "YYYY-MM-DD HH:mm").format('ll HH:mm');
 }
 
-export default Ember.Helper.helper(formatDate);
+export default helper(formatDate);

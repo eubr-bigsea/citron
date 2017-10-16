@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Component from '@ember/component';
 import Ps from 'npm:perfect-scrollbar';
 
-export default Ember.Component.extend({
+export default Component.extend({
   elementId: 'forms',
   classNames: ['sidebar', 'sidebar-container'],
   didInsertElement() {
@@ -9,7 +10,7 @@ export default Ember.Component.extend({
   },
   actions: {
     formChanged(key, value) {
-      let el = Ember.$('#' + this.get('task').id);
+      let el = $('#' + this.get('task').id);
       if(key === 'color') {
         el.css('background-color', value.background);
         el.css('color', value.foreground);

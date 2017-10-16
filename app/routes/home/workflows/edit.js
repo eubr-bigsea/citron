@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(params){
     this._super(...arguments);
     return RSVP.hash({
@@ -28,8 +29,8 @@ export default Ember.Route.extend({
       this.transitionTo('home.workflows.draw', workflow.id);
     },
     selectImage(id, name){
-      Ember.$('.image-container').removeClass('active');
-      Ember.$(`#img${id}`).addClass('active');
+      $('.image-container').removeClass('active');
+      $(`#img${id}`).addClass('active');
       var workflow = this.currentModel.workflow;
       workflow.set('image', name);
     }

@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import $ from 'jquery';
+import { run } from '@ember/runloop';
 import config from '../../config/environment';
 
-const { $, run } = Ember;
-
-export default Ember.Controller.extend({
+export default Controller.extend({
   queryParams: ['reset_password_token'],
   reset_password_token: null,
   successMessage: null,
@@ -44,12 +44,12 @@ export default Ember.Controller.extend({
           if(err.reset_password_token){
             self.set('tokenErrorMessage', err.reset_password_token);
           } else if(err.password) {
-            Ember.$('#passwords').addClass('has-error');
-            Ember.$('#password-error').addClass('has-error');
+            $('#passwords').addClass('has-error');
+            $('#password-error').addClass('has-error');
             self.set('passwordErrorMessage', err.password);
           } else if (err.password_confirmation) {
-            Ember.$('#passwords').addClass('has-error');
-            Ember.$('#password-error').addClass('has-error');
+            $('#passwords').addClass('has-error');
+            $('#password-error').addClass('has-error');
             self.set('passwordErrorMessage', err.password_confirmation);
           }
           self.set('processingRequest', false);

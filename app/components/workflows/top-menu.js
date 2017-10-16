@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
-const { inject: { service } } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   store: service(),
   errors: null,
   selectedWorkflows: 0,
@@ -32,7 +32,7 @@ export default Ember.Component.extend({
     },
 
     deleteWorkflows(){
-      var checked = Ember.$(":checkbox:checked");
+      var checked = $(":checkbox:checked");
       this.set('selectedWorkflows', checked.length);
 
       var modal = {

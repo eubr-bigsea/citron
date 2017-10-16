@@ -1,12 +1,12 @@
-import Ember from 'ember';
+import { alias } from '@ember/object/computed';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
-const { inject: { service } } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   i18n: service(),
   session: service(),
-  locales: Ember.computed.alias('i18n.locales'),
-  currentLocale: Ember.computed.alias('i18n.locale'),
+  locales: alias('i18n.locales'),
+  currentLocale: alias('i18n.locale'),
 
   actions: {
     save(){

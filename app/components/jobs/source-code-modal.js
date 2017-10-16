@@ -1,11 +1,14 @@
 /* global Prism */
-import Ember from 'ember';
+import { copy } from '@ember/object/internals';
 
-export default Ember.Component.extend({
-  store: Ember.inject.service('store'),
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
+
+export default Component.extend({
+  store: service('store'),
 
   didReceiveAttrs(){
-    var sourceCode = Ember.copy(this.get('content.source'));
+    var sourceCode = copy(this.get('content.source'));
     var isVisible = this.get('modal');
     if(sourceCode && isVisible){
       var codeHighlighted = Prism.highlight(sourceCode, Prism.languages.python);

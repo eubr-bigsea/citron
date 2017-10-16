@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   init() {
     this._super(...arguments);
@@ -11,20 +12,20 @@ export default Ember.Component.extend({
   offsetTop: null,
   resultsOffsetTop: null,
   hSize: 100,
-  cHeight: Ember.computed('offsetTop','hSize', function(){ return this.get('hSize') - this.get('offsetTop') - 40; }),
-  cResultsHeight: Ember.computed('resultsOffsetTop','hSize', function(){ return this.get('hSize') - this.get('resultsOffsetTop') - 50; }),
+  cHeight: computed('offsetTop','hSize', function(){ return this.get('hSize') - this.get('offsetTop') - 40; }),
+  cResultsHeight: computed('resultsOffsetTop','hSize', function(){ return this.get('hSize') - this.get('resultsOffsetTop') - 50; }),
 
   // Sort Attrs
-  cSortOrder: Ember.computed('sortOrder', function() { return this.get('sortOrder') == null ? 'ascending' : this.get('sortOrder'); }),
-  cSortBy: Ember.computed('sortBy', function() { return this.get('sortBy') == null ? [] : ((typeof this.get('sortBy') === 'string' || this.get('sortBy') instanceof String) ? [this.get('sortBy')] : this.get('sortBy')); }),
+  cSortOrder: computed('sortOrder', function() { return this.get('sortOrder') == null ? 'ascending' : this.get('sortOrder'); }),
+  cSortBy: computed('sortBy', function() { return this.get('sortBy') == null ? [] : ((typeof this.get('sortBy') === 'string' || this.get('sortBy') instanceof String) ? [this.get('sortBy')] : this.get('sortBy')); }),
 
   // Search attrs
-  cSearch: Ember.computed('search', function() { return this.get('search') == null ? '' : this.get('search'); }),
+  cSearch: computed('search', function() { return this.get('search') == null ? '' : this.get('search'); }),
   searchIndex: 0,
-  isEmpty: Ember.computed('filteredData', function() { return this.get('filteredData').length === 0; }),
+  isEmpty: computed('filteredData', function() { return this.get('filteredData').length === 0; }),
 
   // Filter function
-  filteredData: Ember.computed('searchIndex','data', function() {
+  filteredData: computed('searchIndex','data', function() {
 
     // Initialize variables
     let component = this;

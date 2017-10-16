@@ -1,22 +1,26 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { htmlSafe } from '@ember/string';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  session: Ember.inject.service(),
+export default Component.extend({
+  session: service(),
 
   init() {
     this._super(...arguments);
   },
 
   // Set my style for component
-  myStyle: Ember.computed('cHeight', function() {
-    return Ember.String.htmlSafe(`height: ${this.get('cHeight')}px;`);
+  myStyle: computed('cHeight', function() {
+    return htmlSafe(`height: ${this.get('cHeight')}px;`);
   }),
 
-  myTableStyle: Ember.computed('cHeight', function() {
-    return Ember.String.htmlSafe(`max-height: ${this.get('cHeight') - 40}px;`);
+  myTableStyle: computed('cHeight', function() {
+    return htmlSafe(`max-height: ${this.get('cHeight') - 40}px;`);
   }),
 
-  cHeight: Ember.computed('offsetTop','height', function() {
+  cHeight: computed('offsetTop','height', function() {
     if(this.get('height') === 0) {
       return ($(window).outerHeight() - this.get('offsetTop')) * 0.4926;
     }
@@ -27,7 +31,7 @@ export default Ember.Component.extend({
   didReceiveAttrs() {
     let component = this;
 
-    Ember.$.ajax({
+    $.ajax({
       url: component.get('dataUrl'),
       type: "GET",
       data: {},
