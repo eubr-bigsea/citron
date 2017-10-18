@@ -7,6 +7,7 @@ export default Component.extend({
   icone: '',
 
   didReceiveAttrs(){
+    var job = this.get('job.status_text');
     var steps = this.get('job.steps');
     var operations = this.get('operations');
 
