@@ -12,11 +12,13 @@
       <ul>
         {{#if (eq step.status 'COMPLETED')}}
           <a {{action 'sendID' step.task.id}}>{{t 'job.show.logger.success'}}</a>
+        {{else if (eq step.status 'ERROR')}}
+          <a {{action 'sendID' step.task.id}}>{{t 'job.show.logger.error'}}</a>
         {{else}}
           {{#each step.logs as |log|}}
             {{jobs/job-logger-content log=log taskId=step.task.id openLogs=openLogs status=step.status}}
-            {{/each}}
-          {{/if}}
+          {{/each}}
+        {{/if}}
       </ul>
     </li>
   {{/each}}
