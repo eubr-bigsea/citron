@@ -1,9 +1,9 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 
-export default Component.extend({
-  store: service('store'),
-  oi: '',
+export default Ember.Component.extend({
+  store: Ember.inject.service('store'),
+  name: '',
   icone: '',
 
   didReceiveAttrs(){
@@ -14,7 +14,7 @@ export default Component.extend({
     var opIndex = this.get('content.target');
     var operation = steps.findBy('task.id', opIndex);
     if(operation != undefined){
-      this.set('oi', operation.operation.name);
+      this.set('name', operation.operation.name);
       this.set('icone', operation.operation.icon);
     }
 
