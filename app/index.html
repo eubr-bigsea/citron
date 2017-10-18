@@ -10,17 +10,15 @@
 
     {{content-for "head"}}
 
-    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/lemonade-ember.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/lemonade-ember.css">
 
     {{content-for "head-footer"}}
   </head>
   <body>
     {{content-for "body"}}
 
-    <!-- Add vendors before -->
     <script src="{{rootURL}}assets/vendor.js"></script>
-    <!-- Add vendors before -->
 
     <!-- gViz Library -->
     <script src="{{rootURL}}assets/js/gViz/_init.js"></script>
@@ -39,13 +37,11 @@
 
     <!-- Visual Components -->
     <script src="{{rootURL}}assets/js/gViz/shared/visual-components/axis-guide.js"></script>
-    <script
-src="{{rootURL}}assets/js/gViz/shared/visual-components/background-grid.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/visual-components/background-grid.js"></script>
     <script src="{{rootURL}}assets/js/gViz/shared/visual-components/gradient.js"></script>
     <script src="{{rootURL}}assets/js/gViz/shared/visual-components/shadow.js"></script>
     <script src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip.js"></script>
-    <script
-src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip-table.js"></script>
+    <script src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip-table.js"></script>
     <!-- /gViz Library -->
 
     <!-- gViz Library - Correlation Matrix -->
@@ -83,7 +79,7 @@ src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip-table.js"></scri
 
     <!-- /gViz Library - Wordtree -->
     <script src="//dev.ctweb.inweb.org.br/tahiti/public/js/tahiti.js" language="JavaScript"></script>
-     <script src="//teste.ctweb.inweb.org.br/tahiti/public/js/tahiti.js" language="JavaScript"></script>
+    <script src="//teste.ctweb.inweb.org.br/tahiti/public/js/tahiti.js" language="JavaScript"></script>
     <script src="/tahiti/public/js/tahiti.js" language="JavaScript"></script>
 
     <!-- gViz Library - Area Chart -->
@@ -195,6 +191,7 @@ src="{{rootURL}}assets/js/gViz/shared/visual-components/tooltip-table.js"></scri
     <!-- /Gfranciscani -->
 
     <script src="{{rootURL}}assets/lemonade-ember.js"></script>
+
     {{content-for "body-footer"}}
   </body>
 </html>

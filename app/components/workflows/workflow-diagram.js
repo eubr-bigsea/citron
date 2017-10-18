@@ -1,10 +1,15 @@
 /* global jsPlumb */
 
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+
+import $ from 'jquery';
+import { A } from '@ember/array';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
 
-export default Ember.Component.extend({
-  store: Ember.inject.service(),
+export default Component.extend({
+  store: service(),
   elementId: "lemonade-diagram",
   classNames: ["lemonade", "col-xs-12"],
   zoomScale: 1,
@@ -13,8 +18,8 @@ export default Ember.Component.extend({
     this._super(...arguments);
     this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
 
-    this.set('tasks', Ember.A());
-    this.set('flows', Ember.A());
+    this.set('tasks', A());
+    this.set('flows', A());
 
     this.get('workflow').get('tasks').forEach((task) => {
       this.get('tasks').addObject(task);
@@ -27,21 +32,21 @@ export default Ember.Component.extend({
   didInsertElement() {
     let el = this;
 
-    Ember.$('#zoomIn').click(() => {
+    $('#zoomIn').click(() => {
       this.triggerAction({
         action:'zoomIn',
         target: this
       });
     });
 
-    Ember.$('#zoomOut').click(() => {
+    $('#zoomOut').click(() => {
       this.triggerAction({
         action:'zoomOut',
         target: this
       });
     });
 
-    Ember.$(`#${this.elementId}`).droppable({
+    $(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
         let task = {
           id: generateUUID(),
@@ -63,12 +68,12 @@ export default Ember.Component.extend({
     }).selectable({
       cancel: "a,.cancel",
       selected() {
-        Ember.$('.ui-selected').removeClass('ui-selected');
+        $('.ui-selected').removeClass('ui-selected');
       },
       stop() {
-        Ember.$('#forms').toggle(false);
-        el.set('forms', Ember.Object.create());
-        el.set('filledForms', Ember.Object.create());
+        $('#forms').toggle(false);
+        el.set('forms', EmberObject.create());
+        el.set('filledForms', EmberObject.create());
       }
     });
     this.get('workflow').get('flows').forEach((flow) => {
@@ -78,9 +83,9 @@ export default Ember.Component.extend({
   },
   actions: {
     closeForms(){
-      Ember.$('#forms').toggle(false);
-      this.set('forms', Ember.Object.create());
-      this.set('filledForms', Ember.Object.create());
+      $('#forms').toggle(false);
+      this.set('forms', EmberObject.create());
+      this.set('filledForms', EmberObject.create());
     },
     clickTask(forms, filledForms, task) {
       let fn = function(a, b) { return a.order > b.order; };
@@ -159,7 +164,7 @@ export default Ember.Component.extend({
     zoomIn(){
       if(this.get('zoomScale') < 1.4){
         this.set('zoomScale', this.get('zoomScale') + 0.1);
-        Ember.$('#lemonade-diagram:not(button)').animate({ 'zoom': this.get('zoomScale') }, 400);
+        $('#lemonade-diagram:not(button)').animate({ 'zoom': this.get('zoomScale') }, 400);
         this.get('jsplumb').setZoom(this.get('zoomScale'));
       }
     },
@@ -167,7 +172,7 @@ export default Ember.Component.extend({
     zoomOut(){
       if(this.get('zoomScale') > 0.7){
         this.set('zoomScale', this.get('zoomScale') - 0.1);
-        Ember.$('#lemonade-diagram').animate({ 'zoom': this.get('zoomScale') }, 400);
+        $('#lemonade-diagram').animate({ 'zoom': this.get('zoomScale') }, 400);
         this.get('jsplumb').setZoom(this.get('zoomScale'));
       }
     }

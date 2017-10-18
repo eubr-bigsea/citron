@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import { later, cancel } from '@ember/runloop';
+import Service from '@ember/service';
 
-export default Ember.Service.extend({
+export default Service.extend({
   started: false,
 
   schedulePollEvent(event) {
-    return Ember.run.later(()=>{
+    return later(()=>{
       event.apply(this);
       this.set('timer', this.schedulePollEvent(event));
     }, 3000);
@@ -18,7 +19,7 @@ export default Ember.Service.extend({
   },
 
   stopPolling() {
-    Ember.run.cancel(this.get('timer'));
+    cancel(this.get('timer'));
     this.set('started', false);
   }
 });

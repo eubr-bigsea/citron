@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import $ from 'jquery';
+import { run } from '@ember/runloop';
 import config from '../../config/environment';
 
-const { $, run } = Ember;
-
-export default Ember.Controller.extend({
+export default Controller.extend({
   successMessage: null,
   errorMessage: null,
   processingRequest: false,
@@ -12,8 +12,8 @@ export default Ember.Controller.extend({
 
   actions:{
     request(){
-      Ember.$('#email').removeClass('has-error');
-      Ember.$('#error-message').removeClass('has-error');
+      $('#email').removeClass('has-error');
+      $('#error-message').removeClass('has-error');
       this.set('errorMessage', null);
       this.set('processingRequest', true);
       let email =  this.get('email');
@@ -33,8 +33,8 @@ export default Ember.Controller.extend({
           }
           self.set('processingRequest', false);
           self.set('successMessage', false);
-          Ember.$('#email').addClass('has-error');
-          Ember.$('#error-message').addClass('has-error');
+          $('#email').addClass('has-error');
+          $('#error-message').addClass('has-error');
           self.set('errorMessage', reason.responseJSON.errors.email);
           return
         }

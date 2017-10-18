@@ -1,8 +1,10 @@
 /* eslint-env node */
+'use strict';
+
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
     'ember-bootstrap': {
       bootstrapVersion: 4,
       'importBootstrapFont': false,
@@ -15,13 +17,6 @@ module.exports = function(defaults) {
     fingerprint: {
       exclude: ['assets/images'],
     },
-    minifyJS: {
-      options: {
-        exclude: [
-          "assets/js/gViz/**",
-        ]
-      }
-    }
   });
 
   app.import('vendor/perfect-scrollbar/perfect-scrollbar.min.css');

@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import { hash } from 'rsvp';
+import Route from '@ember/routing/route';
 import ENV from 'lemonade-ember/config/environment';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(params) {
     var dic = ENV.APP.visualizations;
     var viz = params.name != null && dic[params.name] != null ? dic[params.name] : dic.list;
-    return Ember.RSVP.hash({
+    return hash({
       icon: viz.icon != null ? viz.icon : "",
       title: viz.title != null ? viz.title : "",
       subtitle: viz.subtitle != null ? viz.subtitle : "",

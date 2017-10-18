@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   didInsertElement() {
 
@@ -8,7 +9,7 @@ export default Ember.Component.extend({
     var wHeight = jQuery(window).outerHeight();
 
     // Get visual div and offset
-    var wrap = Ember.$(`[data-id='${this.get('elementId')}']`);
+    var wrap = $(`[data-id='${this.get('elementId')}']`);
     var offset = wrap.offset().top;
 
     // Set visual height

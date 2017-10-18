@@ -1,12 +1,13 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   // Set html elements
   classNames: ["gViz-wrapper"],
 
   // Set empty content
-  isEmpty: Ember.computed('data', function() {
+  isEmpty: computed('data', function() {
     return this.get('data') == null || this.get('data').nodes == null || this.get('data').nodes.length <= 0;
   }),
 

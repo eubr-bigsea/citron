@@ -1,10 +1,9 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-const { inject: { service } } = Ember;
-
-export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
+export default Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   sessionAccount: service(),
 
   perPage: 20,

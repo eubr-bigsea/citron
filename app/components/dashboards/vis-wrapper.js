@@ -1,38 +1,40 @@
-import Ember from 'ember';
+import { empty } from '@ember/object/computed';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   // Set html elements
   tagName: "div",
   classNames: ["gViz-dashboard-wrapper","grid-stack-item"],
   attributeBindings: ['x:data-gs-x','y:data-gs-y','width:data-gs-width','height:data-gs-height','dataVizId:data-viz-id','dataJobId:data-viz-job-id','dataTaskId:data-viz-task-id'],
-  x: Ember.computed('viz.x', function() {
+  x: computed('viz.x', function() {
     return this.get('viz').x == null || isNaN(+this.get('viz').x) ? 0 : +this.get('viz').x;
   }),
-  y: Ember.computed('viz.y', function() {
+  y: computed('viz.y', function() {
     return this.get('viz').y == null || isNaN(+this.get('viz').y) ? 0 : +this.get('viz').y;
   }),
-  width: Ember.computed('viz.width', function() {
+  width: computed('viz.width', function() {
     return this.get('viz').width == null || isNaN(+this.get('viz').width) ? 4 : +this.get('viz').width;
   }),
-  height: Ember.computed('viz.height', function() {
+  height: computed('viz.height', function() {
     return this.get('viz').height == null || isNaN(+this.get('viz').height) ? 3 : +this.get('viz').height;
   }),
-  dataVizId: Ember.computed('viz.id', function() {
+  dataVizId: computed('viz.id', function() {
     return this.get('viz.id');
   }),
-  dataTaskId: Ember.computed('viz.task_id', function() {
+  dataTaskId: computed('viz.task_id', function() {
     return this.get('viz.task_id');
   }),
-  dataJobId: Ember.computed('viz.job_id', function() {
+  dataJobId: computed('viz.job_id', function() {
     return this.get('viz.job_id');
   }),
 
   // Initialize data
   data: null,
-  isEmpty: Ember.computed.empty('data'),
+  isEmpty: empty('data'),
 
-  hasCustomMoveHandle: Ember.computed('viz.component', function() {
+  hasCustomMoveHandle: computed('viz.component', function() {
     return this.get('viz.component') === 'visualizations/map-chart';
   }),
 

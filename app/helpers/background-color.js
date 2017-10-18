@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
+import { htmlSafe } from '@ember/string';
 
 export function backgroundColor(params/*, hash*/) {
-  return Ember.String.htmlSafe(`background: ${params[0]}`);
+  return htmlSafe(`background: ${params[0]}`);
 }
 
-export default Ember.Helper.helper(backgroundColor);
+export default helper(backgroundColor);

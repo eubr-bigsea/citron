@@ -1,14 +1,15 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   init() {
     this._super(...arguments);
   },
   classNames: ["topicos-vis"],
 
   // Attributes bingins
-  json: Ember.A(),
-  tableData: Ember.A(),
+  json: A(),
+  tableData: A(),
   header: ["Tópicos","Eixos","# Comentários","Termos Mais Descritivos"],
   colorsEixos:  d3.scaleOrdinal(d3.schemeCategory20),
 

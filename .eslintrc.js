@@ -9,7 +9,7 @@ module.exports = {
     browser: true
   },
   rules: {
-    'no-console': 0,
+    'no-console': 0
   },
   'globals': {
     '$': true,

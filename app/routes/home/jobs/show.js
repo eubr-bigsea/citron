@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
 
-const { inject: { service } } = Ember
-
-export default Ember.Route.extend({
+export default Route.extend({
   i18n: service(),
 
   model(params) {
@@ -18,6 +18,6 @@ export default Ember.Route.extend({
   },
   setupController(controller){
     this._super(...arguments);
-    controller.set('stepsLogs', Ember.A());
+    controller.set('stepsLogs', A());
   }
 });

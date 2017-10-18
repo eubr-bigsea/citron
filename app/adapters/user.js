@@ -1,3 +1,4 @@
+import { underscore } from '@ember/string';
 import ApplicationAdapter from './application';
 import config from '../config/environment';
 import Ember from 'ember';
@@ -7,7 +8,7 @@ export default ApplicationAdapter.extend({
   host: `${config.thorn}`,
   // allows the multiword paths in urls to be underscored
   pathForType: function(type) {
-    var underscored = Ember.String.underscore(type);
+    var underscored = underscore(type);
     return Ember.String.pluralize(underscored);
   },
   shouldReloadAll() {

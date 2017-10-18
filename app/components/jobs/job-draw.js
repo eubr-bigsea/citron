@@ -1,12 +1,15 @@
 /* global jsPlumb */
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+
+import $ from 'jquery';
+import { A } from '@ember/array';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
 import config from '../../config/environment';
 import io from 'npm:socket.io-client';
 
-const { inject:{ service } } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   statusClasses: ['completed', 'error', 'canceled', 'interruped', 'pending', 'running', 'waiting'],
 
   store: service('store'),
@@ -16,8 +19,8 @@ export default Ember.Component.extend({
 
     this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
 
-    this.set('tasks', Ember.A());
-    this.set('flows', Ember.A());
+    this.set('tasks', A());
+    this.set('flows', A());
 
     this.get('workflow').tasks.forEach((task) => {
       this.get('tasks').addObject(task);
@@ -76,7 +79,7 @@ export default Ember.Component.extend({
 
     let el = this;
 
-    Ember.$(`#${this.elementId}`).droppable({
+    $(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
         let task = {
           id: generateUUID(),
@@ -96,12 +99,12 @@ export default Ember.Component.extend({
       }
     }).selectable({
       selected() {
-        Ember.$('.ui-selected').removeClass('ui-selected');
+        $('.ui-selected').removeClass('ui-selected');
       },
       stop() {
-        Ember.$('#forms').toggle(false);
-        el.set('forms', Ember.Object.create());
-        el.set('filledForms', Ember.Object.create());
+        $('#forms').toggle(false);
+        el.set('forms', EmberObject.create());
+        el.set('filledForms', EmberObject.create());
       }
     });
     this.get('workflow').flows.forEach((flow) => {

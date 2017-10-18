@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import Ps from 'npm:perfect-scrollbar';
-export default Ember.Component.extend({
+
+export default Component.extend({
   actualTask: '',
   message: '',
 

@@ -1,15 +1,16 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import { Promise as EmberPromise } from 'rsvp';
 import groupBy from 'lemonade-ember/utils/group-by';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | Group By');
 
 test('it works', function(assert) {
-  let data = new Ember.RSVP.Promise(function(resolve) {
+  let data = new EmberPromise(function(resolve) {
     resolve([
-      Ember.Object.create({name: "f1", group: [{type: "parent", name: "g1"}]}),
-      Ember.Object.create({name: "f2", group: [{type: "parent", name: "g2"}]}),
-      Ember.Object.create({name: "f3", group: [{type: "parent", name: "g1"}]}),
+      EmberObject.create({name: "f1", group: [{type: "parent", name: "g1"}]}),
+      EmberObject.create({name: "f2", group: [{type: "parent", name: "g2"}]}),
+      EmberObject.create({name: "f3", group: [{type: "parent", name: "g1"}]}),
     ]);
   });
 

@@ -1,8 +1,11 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { A } from '@ember/array';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 
-export default Ember.Component.extend({
-  store: Ember.inject.service(),
+export default Component.extend({
+  store: service(),
   classNames: ['task', 'decor'],
   classNameBindings: ['task.operation.slug','status'],
   status: null,
@@ -11,7 +14,7 @@ export default Ember.Component.extend({
 
   init() {
     this._super(...arguments);
-    this.set('endpoints', Ember.A());
+    this.set('endpoints', A());
 
     let opId = String(this.get("task").operation.id);
     let operations = this.get('operations');
@@ -22,7 +25,7 @@ export default Ember.Component.extend({
   didInsertElement() {
     const task = this.get('task');
     const op   = this.get('operation');
-    const el = Ember.$(`#${this.elementId}`);
+    const el = $(`#${this.elementId}`);
     const jsplumb = this.get('jsplumb');
 
     el.css('top', task.top);
@@ -84,7 +87,7 @@ export default Ember.Component.extend({
 
     jsplumb.draggable(el, false);
 
-    Ember.$(el).dblclick(() => {
+    $(el).dblclick(() => {
       var modal = {
         target: el.attr('id'),
       };

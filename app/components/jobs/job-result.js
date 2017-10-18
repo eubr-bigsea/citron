@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   init() {
     this._super(...arguments);
 
-    let results = Ember.A();
+    let results = A();
 
     this.get('job.results').forEach((el) => {
       let operation = this.get('operations').find(op => Number(op.id) === el.operation.id);

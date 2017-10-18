@@ -1,9 +1,15 @@
+import { getOwner } from '@ember/application';
+import $ from 'jquery';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 import Ember from 'ember';
 import config from '../../config/environment';
 
-const { inject: { service }, $:{ajax} } = Ember;
+const {
+  $:{ajax}
+} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   sessionAccount: service(),
   hasFinished: null,
   isRunning: null,
@@ -46,7 +52,7 @@ export default Ember.Component.extend({
     },
 
     showLog(){
-      Ember.$("#job-diagram-container-wrapper").toggleClass("toggled");
+      $("#job-diagram-container-wrapper").toggleClass("toggled");
     },
     stop(){
       let jobId = this.get('job.id');
@@ -59,7 +65,7 @@ export default Ember.Component.extend({
         beforeSend: function(request) {
           request.setRequestHeader('X-Auth-Token', '123456');
         },
-      }).then(function(){Ember.getOwner(component).lookup('router:main').transitionTo('home.workflows.draw', workflowId);});
+      }).then(function(){getOwner(component).lookup('router:main').transitionTo('home.workflows.draw', workflowId);});
     },
   },
 });

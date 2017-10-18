@@ -1,6 +1,6 @@
+import $ from 'jquery';
 import FormComponent from 'lemonade-ember/lib/form-component';
 import config from '../../config/environment';
-import Ember from 'ember';
 
 export default FormComponent.extend({
   init() {
@@ -9,7 +9,7 @@ export default FormComponent.extend({
     if (this.get('field.values_url')) {
       var LIMONERO_URL = config.limonero; //don't delete this var, needed in next eval
       LIMONERO_URL;
-      Ember.$.ajax({
+      $.ajax({
         type: 'GET',
         url: eval(this.get('field.values_url'))
       }).then((response) => {

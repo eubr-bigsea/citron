@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import { empty } from '@ember/object/computed';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   // Set html elements
   tagName: "div",
@@ -8,7 +9,7 @@ export default Ember.Component.extend({
 
   // Initialize data
   data: null,
-  isEmpty: Ember.computed.empty('data'),
+  isEmpty: empty('data'),
   resizeIndex: 0,
 
   // Initialize data
