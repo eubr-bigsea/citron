@@ -18,7 +18,7 @@ export default Component.extend({
 
     submit(){
       this.get('workflow').destroyRecord().then(
-        () => { this.get('goTo')('workflows'); },
+        () => { this.get('goTo')('home.workflows'); },
         () => { $("#flashError").show().fadeIn().delay(2000).fadeOut('slow'); }
       )
     },
