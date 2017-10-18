@@ -5,6 +5,13 @@
   @extend .fa-eye;
 }
 
+.status-completed{
+  padding-right: 10px;
+  padding-top: 5px;
+  @extend .fa;
+  @extend .fa-check;
+}
+
 .status-ERROR{
   padding-right: 10px;
   padding-top: 5px;

@@ -5,6 +5,9 @@ export default {
     'message': 'O {{resource}} que você está procurando não está disponível',
     'goBack': 'Voltar para'
   },
+  'task':{
+    'tooltip': 'Clique duas vezes para ver detalhes',
+  },
   //components inside of forms folder
   'form':{
     'attribute-function': {
