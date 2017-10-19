@@ -15,14 +15,13 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     this.set('endpoints', A());
+  },
 
+  didInsertElement() {
     let opId = String(this.get("task").operation.id);
     let operations = this.get('operations');
 
     this.set('operation', operations.find(el => String(el.id) === opId))
-  },
-
-  didInsertElement() {
     const task = this.get('task');
     const op   = this.get('operation');
     const el = $(`#${this.elementId}`);
