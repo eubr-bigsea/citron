@@ -1,3 +1,25 @@
+.status-eye{
+  padding-right: 10px;
+  padding-top: 5px;
+  @extend .fa;
+  @extend .fa-eye;
+}
+
+.status-completed{
+  padding-right: 10px;
+  padding-top: 5px;
+  @extend .fa;
+  @extend .fa-check;
+}
+
+.status-ERROR{
+  padding-right: 10px;
+  padding-top: 5px;
+  @extend .fa;
+  @extend .fa-exclamation-triangle;
+  color: red;
+}
+
 #job-logger {
   display: none;
 }
@@ -69,6 +91,12 @@
               background-color: $color-dark;
             }
           }
+          li > a {
+            cursor: pointer;
+          }
+        }
+        ul > a{
+          cursor: pointer;
         }
 
       }

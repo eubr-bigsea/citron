@@ -5,6 +5,9 @@ export default {
     'message': 'O {{resource}} que você está procurando não está disponível',
     'goBack': 'Voltar para'
   },
+  'task':{
+    'tooltip': 'Clique duas vezes para ver detalhes',
+  },
   //components inside of forms folder
   'form':{
     'attribute-function': {
@@ -276,6 +279,8 @@ export default {
       'stop': 'Parar',
       'workflow': 'Workflow',
       'logger': {
+        'error':"Ocorreu um erro, clique para ver detalhes",
+        'success':"Tarefa completa, clique para ver detalhes",
         'title': "Log da execução",
         'information': "Completo. Clique duas vezes nas tarefas para ver detalhes."
       },

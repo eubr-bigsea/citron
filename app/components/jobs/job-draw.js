@@ -53,6 +53,7 @@ export default Component.extend({
       component.get('generateLogs')(step.operation.name, frame.message);
       var logStep = component.get('stepsLogs').findBy('task.id', frame.id);
       logStep.logs.pushObject(frame);
+      Ember.set(logStep, 'status', frame.status);
       var stepTemplate = $(`#${step.task.id}`);
       stepTemplate.removeClass(component.get('statusClasses').join(' '));
       var className = frame.status.toLowerCase();
@@ -67,6 +68,8 @@ export default Component.extend({
       component.set('job.status', frame.status.toLowerCase());
       if(frame.status.toLowerCase() === 'error'){
         $("#flashError").text(frame.message).show()
+        var job = component.get('job');
+        Ember.set(job, 'status_text', frame.message);
       }
       if (server_callback){
         server_callback();

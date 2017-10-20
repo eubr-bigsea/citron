@@ -5,6 +5,9 @@ export default {
     'message': 'The {{resource}} that you are looking for is not available',
     'goBack': 'Go back to'
   },
+  'task':{
+    'tooltip': 'Double click this task to see details',
+  },
   //components inside of forms folder
   'form':{
     'attribute-function': {
@@ -283,6 +286,8 @@ export default {
       'stop': 'Stop',
       'workflow': 'Workflow',
       'logger': {
+        'error': "An error occured, click to see details",
+        'success': "Task completed, click to see details",
         'title': "Job's Log",
         'information': "Completed. Double click any task to see details."
       },

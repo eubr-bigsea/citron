@@ -5,7 +5,6 @@ export default Component.extend({
   tagName: 'nav',
 
   didReceiveAttrs(){
-    $("#job-diagram-container-wrapper").toggleClass("toggled");
     var steps = this.get('job.steps');
     var operations = this.get('operations');
     var component = this;
@@ -20,5 +19,10 @@ export default Component.extend({
 
   didInsertElement(){
     this.$('#tasks-list').metisMenu();
-  }
+  },
+  actions: {
+    sendID(taskId){
+      this.get('openLogs')(taskId);
+    }
+  },
 });
