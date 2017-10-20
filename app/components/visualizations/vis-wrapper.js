@@ -18,6 +18,11 @@ export default Component.extend({
     // Store this
     var self = this;
 
+    if(self.get('viz').visu === "table-visualization"){
+      var container = this.elementId;
+      $("#" + container).addClass("table-overflowing");
+    }
+
     // Update data function
     self.get('updateData')(self);
 
