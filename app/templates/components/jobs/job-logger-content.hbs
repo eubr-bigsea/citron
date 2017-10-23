@@ -1,22 +1,21 @@
 <li style="padding-left: 0px;">
-  {{#if (eq log.type "TEXT")}}
+  {{#if (eq log.type "HTML")}}
+    {{#if (eq modal true)}}
+      <div id="log" style="font-size: 10px" class="table-sm table-compensate">
+        {{{log.message}}}
+      </div>
+    {{/if}}
+  {{else}}
     {{#if (eq modal true)}}
       <span class="">{{log.message}}</span>
     {{else}}
       {{#if (eq status 'ERROR')}}
         <a {{action 'sendID'}} style="padding-left: 20px;">
           {{t 'job.show.logger.error'}}
-          asd
         </a>
       {{else}}
         <span class="">{{log.message}}</span>
       {{/if}}
-    {{/if}}
-  {{else if (eq log.type "HTML")}}
-    {{#if (eq modal true)}}
-      <div id="log" style="font-size: 10px" class="table-sm table-compensate">
-        {{{log.message}}}
-      </div>
     {{/if}}
   {{/if}}
 </li>

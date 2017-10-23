@@ -8,7 +8,7 @@ export function checkContent(params/*, hash*/) {
   else if(params[0].logs.length > 0)
   {
     for(var i=0; i < params[0].logs.length; i++){
-      if(params[0].logs[i].type === 'HTML'){
+      if(params[0].logs[i].type === 'HTML' || params[0].logs[i].type === 'STATUS'){
         return 'status-eye flash-button';
       }
     };

@@ -20,7 +20,7 @@ export default FormComponent.extend({
 
     if(values) {
       values.forEach((el) => {
-        if(parsed.findBy('id', el.key) === undefined) {
+        if(parsed.findBy('id', el.key) === null) {
           parsed.addObject({
             id: el.key,
             text: el.value,
