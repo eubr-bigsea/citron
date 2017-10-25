@@ -2,6 +2,7 @@ import { A } from '@ember/array';
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import config from '../../config/environment';
+import $ from 'jquery';
 
 export default Component.extend({
   store: service(),

@@ -1,5 +1,6 @@
 /* global Prism */
 import { copy } from '@ember/object/internals';
+import $ from 'jquery';
 
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';

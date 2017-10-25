@@ -86,7 +86,7 @@ export default Component.extend({
 
     jsplumb.draggable(el, false);
 
-    Ember.$(el).dblclick(() => {
+    $(el).dblclick(() => {
       this.get('openLogs')(el.attr('id'));
     });
   },

@@ -18,7 +18,7 @@ export default Component.extend({
   },
 
   didInsertElement(){
-    this.$('#tasks-list').metisMenu();
+    $('#tasks-list').metisMenu();
   },
   actions: {
     sendID(taskId){

@@ -6,7 +6,7 @@ export default Component.extend({
   didInsertElement() {
 
     // Get window height
-    var wHeight = jQuery(window).outerHeight();
+    var wHeight = $(window).outerHeight();
 
     // Get visual div and offset
     var wrap = $(`[data-id='${this.get('elementId')}']`);

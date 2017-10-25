@@ -1,6 +1,6 @@
 /* global NProgress */
 import Route from '@ember/routing/route';
-
+import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 

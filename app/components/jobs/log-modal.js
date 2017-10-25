@@ -1,13 +1,12 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  store: Ember.inject.service('store'),
+export default Component.extend({
+  store: service('store'),
   name: '',
   icone: '',
 
   didReceiveAttrs(){
-    var job = this.get('job.status_text');
     var steps = this.get('job.steps');
     var operations = this.get('operations');
 

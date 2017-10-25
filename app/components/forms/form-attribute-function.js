@@ -1,5 +1,6 @@
 import { A } from '@ember/array';
 import FormComponent from 'lemonade-ember/lib/form-component';
+import $ from 'jquery';
 
 export default FormComponent.extend({
   modalVisible: false,
