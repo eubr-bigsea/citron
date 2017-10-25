@@ -9,16 +9,18 @@ export default Route.extend({
   model(params) {
     this._super(...arguments);
 
-    var queryParams = {
-      platform: params.platform,
-      lang: this.get('i18n.locale')
-    }
+    return this.get('store').findRecord('workflow', params.id).then((workflow) => {
+      var queryParams = {
+        lang: this.get('i18n.locale'),
+        platform: workflow.get('platform.id')
+      }
 
-    return RSVP.hash({
-      clusters: this.get('store').findAll('cluster'),
-      workflow: this.get('store').findRecord('workflow', params.id),
-      operations: this.store.query('operation', queryParams),
-      groupedOperations: groupBy(this.store.query('operation', queryParams), 'categories'),
+      return RSVP.hash({
+        workflow,
+        clusters: this.get('store').findAll('cluster'),
+        operations: this.store.query('operation', queryParams),
+        groupedOperations: groupBy(this.store.query('operation', queryParams), 'categories'),
+      });
     });
   },
 
