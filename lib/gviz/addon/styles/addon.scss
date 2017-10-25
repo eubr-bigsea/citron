@@ -1,0 +1,34 @@
+@import 'variables.scss';
+
+// gViz
+@import 'gViz/main.scss';
+
+// Visualizations Main
+@import 'visualizations/main.scss';
+@import 'visualizations/list-view.scss';
+@import 'visualizations/test.scss';
+
+// Visualizations
+@import 'visualizations/area-chart/main.scss';
+@import 'visualizations/bar-chart/main.scss';
+@import 'visualizations/donut-chart/main.scss';
+@import 'visualizations/line-chart/main.scss';
+@import 'visualizations/correlation-matrix/main.scss';
+@import 'visualizations/graph-canvas/main.scss';
+@import 'visualizations/histogram/main.scss';
+@import 'visualizations/map-chart/main.scss';
+@import 'visualizations/pie-chart/main.scss';
+@import 'visualizations/search-tool/main.scss';
+@import 'visualizations/scatter-plot/main.scss';
+@import 'visualizations/sentiment-analysis/main.scss';
+@import 'visualizations/table/main.scss';
+@import 'visualizations/topicos-vis/main.scss';
+@import 'visualizations/wordtree-diagram/main.scss';
+
+// Visualizations Cards
+@import 'visualizations/vis-cards-container/main.scss';
+@import 'visualizations/vis-card/main.scss';
+
+@import 'dashboards/large-table.scss';
+@import 'dashboards/show.scss';
+@import "dashboard.scss";

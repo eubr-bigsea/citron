@@ -37,17 +37,6 @@ module.exports = function(defaults) {
 
   app.import('vendor/resumable.js/resumable.js');
 
-  // Visualizations Required Libraries
-  app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.js');
-  app.import('vendor/gViz/libs/tooltipster/tooltipster.bundle.min.css');
-
-  app.import('vendor/gViz/libs/d3.v4/d3.v4.min.js');
-  app.import('vendor/gViz/libs/d3.position/d3.position.js');
-  app.import('vendor/gViz/libs/latinise/latinise_compact.js');
-
-  // Leaflet Heatmap
-  app.import('vendor/gViz/libs/leaflet-heat/leaflet-heat.js');
-
   // Lodash for Gridstack
   app.import('vendor/lodash/lodash.min.js');
 
