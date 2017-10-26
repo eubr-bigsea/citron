@@ -40,5 +40,8 @@ module.exports = function(defaults) {
   app.import('vendor/prism/prism.js');
   app.import('vendor/prism/prism.css');
 
+  app.import('node_modules/raven-js/dist/raven.js');
+  app.import('node_modules/raven-js/dist/plugins/ember.js');
+
   return app.toTree();
 };
