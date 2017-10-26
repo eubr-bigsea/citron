@@ -2,12 +2,7 @@ import { getOwner } from '@ember/application';
 import $ from 'jquery';
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import Ember from 'ember';
 import config from '../../config/environment';
-
-const {
-  $:{ajax}
-} = Ember;
 
 export default Component.extend({
   sessionAccount: service(),
@@ -58,7 +53,7 @@ export default Component.extend({
       let jobId = this.get('job.id');
       let workflowId = this.get('job.workflow.id');
       let component = this;
-      ajax({
+      $.ajax({
         url: `${config.stand}/jobs/${jobId}/stop`,
         type: 'POST',
         data: {},

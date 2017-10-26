@@ -1,6 +1,6 @@
 /*global Resumable */
 import Component from '@ember/component';
-
+import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import config from '../../config/environment';
 
@@ -17,7 +17,7 @@ export default Component.extend({
     var token = this.get('session.data.authenticated.token');
     var email = this.get('session.data.authenticated.email');
     var userId = this.get('session.data.authenticated.userId');
-    
+
     let resumable = new Resumable({
       headers: { 'Authorization': `Token token=${token}, email=${email}`, 'X-User-Id': userId },
       target: `${config.limonero}/datasources/upload`,

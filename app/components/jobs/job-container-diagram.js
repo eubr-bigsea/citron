@@ -29,14 +29,15 @@ export default Component.extend({
   },
   actions:{
     openLogs(taskId){
+      var modal;
       if(taskId == null){
-        var modal = {
+        modal = {
           target: null,
           title: 'General error',
           message:this.get('job').data.status_text,
         };
       } else {
-        var modal = {
+        modal = {
           target: taskId,
         };
       }

@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function checkContent(params/*, hash*/) {
   if(params[0].status == 'ERROR')
@@ -11,9 +11,9 @@ export function checkContent(params/*, hash*/) {
       if(params[0].logs[i].type === 'HTML' || params[0].logs[i].type === 'STATUS'){
         return 'status-eye flash-button';
       }
-    };
+    }
     return 'status-completed';
   }
 }
 
-export default Ember.Helper.helper(checkContent);
+export default helper(checkContent);

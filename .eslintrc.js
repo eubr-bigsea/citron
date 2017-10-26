@@ -1,5 +1,8 @@
 module.exports = {
   root: true,
+  plugins: [
+    'ember'
+  ],
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module'
@@ -9,12 +12,7 @@ module.exports = {
     browser: true
   },
   rules: {
-    'no-console': 0
-  },
-  'globals': {
-    '$': true,
-    'jQuery': true,
-    'd3': true,
-    'gViz': true
+    'no-console': 0,
+    'ember/no-old-shims': 'error'
   }
 };

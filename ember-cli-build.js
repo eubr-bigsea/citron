@@ -37,14 +37,6 @@ module.exports = function(defaults) {
 
   app.import('vendor/resumable.js/resumable.js');
 
-  // Lodash for Gridstack
-  app.import('vendor/lodash/lodash.min.js');
-
-  // Gridstack for flex layout
-  app.import('vendor/gridstack/gridstack.css');
-  app.import('vendor/gridstack/gridstack.js');
-  app.import('vendor/gridstack/gridstack.jQueryUI.js');
-
   app.import('vendor/prism/prism.js');
   app.import('vendor/prism/prism.css');
 
