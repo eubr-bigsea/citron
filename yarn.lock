@@ -1483,7 +1483,7 @@ broccoli-lint-eslint@^4.1.0:
     lodash.defaultsdeep "^4.6.0"
     md5-hex "^2.0.0"
 
-broccoli-merge-trees@^1.0.0, broccoli-merge-trees@^1.1.0, broccoli-merge-trees@^1.1.1, broccoli-merge-trees@^1.1.2, broccoli-merge-trees@^1.2.4:
+broccoli-merge-trees@^1.0.0, broccoli-merge-trees@^1.1.0, broccoli-merge-trees@^1.1.1, broccoli-merge-trees@^1.1.2:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/broccoli-merge-trees/-/broccoli-merge-trees-1.2.4.tgz#a001519bb5067f06589d91afa2942445a2d0fdb5"
   dependencies:
@@ -2967,15 +2967,6 @@ ember-compatibility-helpers@^0.1.0:
     ember-cli-version-checker "^2.0.0"
     semver "^5.4.1"
 
-ember-composability-tools@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/ember-composability-tools/-/ember-composability-tools-0.0.8.tgz#9122e743c0aed759da7f20f3d5a9711a51bac619"
-  dependencies:
-    ember-cli-babel "^5.1.6"
-    ember-cli-htmlbars "^1.0.3"
-    ember-getowner-polyfill "1.1.1"
-    ember-wormhole "0.5.1"
-
 ember-cookies@^0.0.13:
   version "0.0.13"
   resolved "https://registry.yarnpkg.com/ember-cookies/-/ember-cookies-0.0.13.tgz#18350df766240793d46744e4ee5c9a55ae6b4e0a"
@@ -3060,20 +3051,6 @@ ember-font-awesome@^3.0.5:
     ember-cli-htmlbars "^1.1.1"
     font-awesome "^4.7.0"
 
-ember-get-config@0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-0.2.1.tgz#a1325cceefcb4534c78fc6ccb2be87a3feda6817"
-  dependencies:
-    broccoli-file-creator "^1.1.1"
-    ember-cli-babel "^5.1.6"
-
-ember-getowner-polyfill@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.1.1.tgz#6bb6603827dd2f8f33be2434570a86cc9e5273ff"
-  dependencies:
-    ember-cli-babel "^5.1.6"
-    ember-cli-version-checker "^1.2.0"
-
 ember-getowner-polyfill@^1.1.0, ember-getowner-polyfill@^1.2.2:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.2.5.tgz#ceff8a09897d0d7e05c821bb71666a95eb26dc92"
@@ -3103,27 +3080,6 @@ ember-inflector@^2.0.0:
   resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-2.0.1.tgz#e9ac469ffa17992a43276bb1c9b8d87992b10d37"
   dependencies:
     ember-cli-babel "^6.0.0"
-
-ember-invoke-action@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/ember-invoke-action/-/ember-invoke-action-1.4.0.tgz#2899854bd755f9331ca86c902bf6d4dbf8bdfcb3"
-  dependencies:
-    ember-cli-babel "^5.1.6"
-
-ember-leaflet@^3.0.11:
-  version "3.0.12"
-  resolved "https://registry.yarnpkg.com/ember-leaflet/-/ember-leaflet-3.0.12.tgz#ad64a3137cff3dbd2a7b00ea0b525fd69cb14dea"
-  dependencies:
-    broccoli-funnel "^1.2.0"
-    broccoli-merge-trees "^1.2.4"
-    ember-cli-babel "^6.0.0"
-    ember-cli-htmlbars "^1.1.1"
-    ember-cli-version-checker "^1.3.1"
-    ember-composability-tools "0.0.8"
-    ember-get-config "0.2.1"
-    ember-invoke-action "1.4.0"
-    ember-wormhole "^0.5.2"
-    fastboot-transform "^0.1.1"
 
 ember-load-initializers@^1.0.0:
   version "1.0.0"
@@ -3305,13 +3261,6 @@ ember-weakmap@^2.0.0:
   resolved "https://registry.yarnpkg.com/ember-weakmap/-/ember-weakmap-2.0.0.tgz#71c6819a8bfd0b077ae17ca1d9053fc5db06e4ac"
   dependencies:
     ember-cli-babel "^5.1.6"
-
-ember-wormhole@0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/ember-wormhole/-/ember-wormhole-0.5.1.tgz#f2a6fff13b1c037ffa83b2c9291d8b5978878e5b"
-  dependencies:
-    ember-cli-babel "^5.1.6"
-    ember-cli-htmlbars "^1.0.3"
 
 ember-wormhole@^0.5.2:
   version "0.5.2"
@@ -3763,7 +3712,7 @@ fast-sourcemap-concat@^1.0.1:
     source-map-url "^0.3.0"
     sourcemap-validator "^1.0.5"
 
-fastboot-transform@^0.1.0, fastboot-transform@^0.1.1:
+fastboot-transform@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/fastboot-transform/-/fastboot-transform-0.1.2.tgz#f910d666ab93e75604492ea655270d1804bc8de7"
   dependencies:
@@ -4878,10 +4827,6 @@ lcid@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
-
-leaflet@^1.0.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.2.0.tgz#fd5d93d9cb00091f5f8a69206d0d6744c1c82697"
 
 leek@0.0.24:
   version "0.0.24"
@@ -6208,6 +6153,10 @@ randombytes@^2.0.0, randombytes@^2.0.1:
 range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
+
+raven-js@^3.19.1:
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.19.1.tgz#a5d25646556fc2c86d2b188ae4f425c144c08dd8"
 
 raw-body@2.3.2:
   version "2.3.2"
