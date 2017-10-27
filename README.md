@@ -1,5 +1,5 @@
 # Citron
-[![Build Status](https://travis-ci.org/eubr-bigsea/ember-citron.svg?branch=gm_deploy)](https://travis-ci.org/eubr-bigsea/ember-citron)
+[![Build Status](https://travis-ci.org/eubr-bigsea/citron.svg?branch=master)](https://travis-ci.org/eubr-bigsea/citron)
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* git clone https://github.com/eubr-bigsea/ember-citron.git
+* git clone https://github.com/eubr-bigsea/citron.git
 * `cd lemonade-ember`
 * `yarn install`
 

@@ -20,7 +20,9 @@ module.exports = function(environment) {
     i18n:{
       defaultLocale: 'en'
     },
-
+    sentry: {
+      dns: 'https://41a865a4935e48a591714fdf12756e4e@sentry.io/236235'
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
