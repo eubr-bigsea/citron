@@ -10,7 +10,11 @@
       <div class="col-xs-11 operation">
         <div class="name-container">
           <span class="operation-name">
-            <i class="fa {{operation.icon}}"></i>{{operation.name}}
+            {{#if task.name}}
+              <i class="fa {{operation.icon}}"></i>{{task.name}}
+            {{else }}
+              <i class="fa {{operation.icon}}"></i>{{operation.name}}
+            {{/if}}
           </span>
         </div>
         <div class="comment-container">

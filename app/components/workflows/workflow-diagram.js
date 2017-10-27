@@ -29,8 +29,18 @@ export default Component.extend({
       this.get('flows').addObject(flow);
     });
   },
+
+  getTaskName(name, tasks){
+    var index = 1;
+    while(tasks.findBy('name', `${name} ${index}`)){
+      index++;
+    }
+    return `${name} ${index}`;
+  },
+
   didInsertElement() {
     let el = this;
+    let tasks = this.get('tasks');
 
     $('#zoomIn').click(() => {
       this.triggerAction({
@@ -48,25 +58,28 @@ export default Component.extend({
 
     $(`#${this.elementId}`).droppable({
       drop: (event, ui) => {
+        let data = ui.helper.data();
         let task = {
           id: generateUUID(),
           z_index: 0,
+          name: el.get('getTaskName')( data.name, tasks) ,
           forms: {},
           left: ui.position.left/this.get('zoomScale'),
           top: ui.position.top/this.get('zoomScale'),
           operation: {
-            id: ui.helper.data('opid'),
-            name: ui.helper.data('name'),
-            slug: ui.helper.data('slug')
+            id: data.opid,
+            name: data.name,
+            slug: data.slug
           },
-          operation_id: ui.helper.data('opid')
+          operation_id: data.opid
         };
+        console.log('drop', task);
         this.get('workflow').get('tasks').addObject(task);
         this.get('tasks').addObject(task);
         this.get('hasChanged')(true);
       }
     }).selectable({
-      cancel: "a,.cancel",
+      cancel: "a,.cancel,span,.cancel",
       selected() {
         $('.ui-selected').removeClass('ui-selected');
       },

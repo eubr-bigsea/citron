@@ -301,3 +301,26 @@ fieldset p {
 .select2-container .select2-selection--single{
   height: calc(2.5rem - 2px) !important;
 }
+
+
+
+::-webkit-input-placeholder { /* Chrome, Safari */
+  color: $color-text-base;
+}
+
+:-moz-placeholder {           /* Firefox 18- */
+  color: $color-text-base;
+  font-size: 1.1em;
+}
+
+::-moz-placeholder {          /* Firefox 19+ */
+  color: $color-text-base;
+  font-size: 1.1em;
+}
+
+:-ms-input-placeholder {      /* Internet Explorer */
+  color: $color-text-base;
+  font-size: 1.1em;
+}
+
+
