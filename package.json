@@ -33,6 +33,7 @@
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-sass": "^7.0.0",
     "ember-cli-sauce": "^2.1.0",
+    "ember-cli-sentry": "^3.0.0-beta.1",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
@@ -57,7 +58,6 @@
   },
   "dependencies": {
     "ember-tether": "^1.0.0-beta.0",
-    "raven-js": "^3.19.1",
     "socket.io-client": "^2.0.3",
     "tether": "^1.4.0"
   },
