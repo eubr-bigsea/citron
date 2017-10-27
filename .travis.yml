@@ -6,16 +6,13 @@ node_js:
 sudo: false
 dist: trusty
 
-addons:
-  chrome: stable
-
 cache:
   yarn: true
 
 env:
   global:
     # See https://git.io/vdao3 for details.
-    - JOBS=1
+    - JOBS=5
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -23,9 +20,16 @@ before_install:
 
 install:
   - yarn install --non-interactive
+  - cd lib/gviz && yarn install --no-interactive && cd -
+
+before_script:
+  - ember sauce:connect
+
+after_script:
+  - ember sauce:disconnect
 
 script:
-  - yarn test
+  - ember test --config-file testem.sauce.js --test-port 7000
 
 before_deploy:
   - |
