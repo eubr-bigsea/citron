@@ -44,6 +44,7 @@ module.exports = function(environment) {
     //ENV.limonero = 'https://beta.ctweb.inweb.org.br/limonero';
     ENV.limonero = 'https://teste.ctweb.inweb.org.br/limonero';
     ENV.caipirinha = 'https://teste.ctweb.inweb.org.br/caipirinha';
+    ENV.sentry = { dns: '' }
     ENV.webSocketIO = {
       url: 'https://teste.ctweb.inweb.org.br',
       namespace: '/stand',

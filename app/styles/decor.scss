@@ -43,6 +43,21 @@
         line-height: 17px;
         margin-top: 2px;
       }
+      input {
+        margin-top: 1px;
+        font-size: 1.1em;
+        height: 15px;
+        line-height: 15px;
+        position: absolute;
+        border: none;
+        width:140px;
+        &:hover {
+          cursor: pointer;
+        }
+        &:focus {
+          cursor: text;
+        }
+      }
     }
     .comment-container {
       width: 100%;
