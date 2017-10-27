@@ -14,11 +14,15 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 
 ENV CITRON_HOME=/usr/local/citron
+ENV CITRON_GVIZ_HOME=/usr/local/citron/lib/gviz
 
 COPY . $CITRON_HOME
 COPY extras/entrypoint.sh $CITRON_HOME
 COPY extras/update_env.py /usr/local/bin
 COPY extras/nginx.conf.sample /etc/nginx/conf.d/default.conf
+
+WORKDIR $CITRON_GVIZ_HOME
+RUN $HOME/.yarn/bin/yarn
 
 WORKDIR $CITRON_HOME
 RUN $HOME/.yarn/bin/yarn \
