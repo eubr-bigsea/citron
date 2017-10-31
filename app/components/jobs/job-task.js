@@ -18,12 +18,8 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    let opId = String(this.get("task").operation.id);
-    let operations = this.get('operations');
 
-    this.set('operation', operations.find(el => String(el.id) === opId))
     const task = this.get('task');
-    const op   = this.get('operation');
     const el = $(`#${this.elementId}`);
     const jsplumb = this.get('jsplumb');
 
@@ -31,8 +27,8 @@ export default Component.extend({
     el.css('left', task.left);
 
     let fn = function(a, b) { return a.order > b.order; };
-    let input = op.get('ports').filter(p => p.type === 'INPUT').sort(fn);
-    let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
+    let input = task.operation.ports.filter(p => p.type === 'INPUT').sort(fn);
+    let output = task.operation.ports.filter(p => p.type === 'OUTPUT').sort(fn);
 
     if(task.forms.comment && task.forms.comment.value){
       this.set('comment', task.forms.comment.value);
@@ -84,7 +80,7 @@ export default Component.extend({
       isInput = false;
     });
 
-    jsplumb.draggable(el, false);
+    jsplumb.setDraggable(el, false);
 
     $(el).dblclick(() => {
       this.get('openLogs')(el.attr('id'));

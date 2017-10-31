@@ -1,5 +1,4 @@
 .job-option-bar {
-  height: 60px;
   padding: 5px 0;
 
   .job-name {
@@ -81,13 +80,12 @@
   }
 
   .buttons {
-    text-align: right;
-
     .btn {
       background: none;
       border: none;
       color: $color-darker;
-      margin: 5px 1px;
+      padding: 8px 8px;
+      // margin: 0px 5px;
 
       &:hover {
         background: $color-lighter;
@@ -98,6 +96,7 @@
     span {
       margin: 0 0 0 5px;
       font-size: 1.1em;
+      display: none;
     }
 
     .workflow {
@@ -106,8 +105,6 @@
     }
 
     .results {
-      padding-left: 4em;
-      padding-right: 4em;
       background: $color-base;
       color: $color-text-lighter;
     }
@@ -127,15 +124,15 @@
     }
   }
 
-  .play {
-    background: $color-play;
-    margin: 5px;
-    color: $color-text-lighter !important;
-
-    &:hover {
-      background: $color-play-light;
-
-    }
-  }
 }
 
+@media (min-width: 600px){
+  .job-option-bar {
+    .buttons {
+      span {
+        display: inline;
+      }
+    }
+
+  }
+}

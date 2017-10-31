@@ -16,8 +16,25 @@ export default Route.extend({
       operations: this.store.query('operation', queryParams)
     });
   },
-  setupController(controller){
+  setupController(controller, model){
     this._super(...arguments);
+    let job = model.job;
+    let steps = job.get('steps');
+    let results = job.get('results');
+    let operations = model.operations;
+    let tasks = model.job.get('workflow.tasks');
+    tasks.forEach((task) => {
+      var op = operations.findBy('id', String(task.operation.id));
+      task.operation = op.toJSON({ includeId: true });
+
+      task.step = steps.findBy('task.id', task.id);
+      task.result = results.findBy('task.id', task.id);
+    });
+
+
+
     controller.set('stepsLogs', A());
+    controller.set('job', model.job);
+    controller.set('operations', model.operations);
   }
 });

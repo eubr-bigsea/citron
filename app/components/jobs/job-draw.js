@@ -10,37 +10,30 @@ import config from '../../config/environment';
 import io from 'npm:socket.io-client';
 
 export default Component.extend({
+  classNameBindings: ['status'],
   statusClasses: ['completed', 'error', 'canceled', 'interruped', 'pending', 'running', 'waiting'],
 
   store: service('store'),
 
   init() {
     this._super(...arguments);
-
-    this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
-
-    this.set('tasks', A());
-    this.set('flows', A());
-
-    this.get('workflow').tasks.forEach((task) => {
-      this.get('tasks').addObject(task);
-    });
-
-    this.get('workflow').flows.forEach((flow) => {
-      this.get('flows').addObject(flow);
-    });
-
     this.set('socket', io(config.webSocketIO.url + config.webSocketIO.namespace, { path:config.webSocketIO.path }, {upgrade: true}));
-    this.set('jobId', this.get('job.id'));
+    this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId, draggable: false}));
   },
 
-  didReceiveAttrs(){
+  didInsertElement() {
+    //Draw flow
+    this.get('workflow').flows.forEach((flow) => {
+      this.send('addFlow', flow);
+    });
+
     //Socket-io client
     var socket = this.get('socket');
+    let jobId = this.get('job.id');
     var component = this;
 
     socket.on('connect', () => {
-      socket.emit('join', {room: this.get('jobId')});
+      socket.emit('join', {room: jobId});
     });
     socket.on('connect_error', () => {
       console.debug('Web socket server offline');
@@ -77,44 +70,6 @@ export default Component.extend({
     });
   },
 
-  didInsertElement() {
-    this._super(...arguments);
-
-    let el = this;
-
-    $(`#${this.elementId}`).droppable({
-      drop: (event, ui) => {
-        let task = {
-          id: generateUUID(),
-          z_index: 0,
-          forms: {},
-          left: ui.position.left,
-          top: ui.position.top,
-          operation: {
-            id: ui.helper.data('opid'),
-            name: ui.helper.data('name'),
-            slug: ui.helper.data('slug')
-          },
-          operation_id: ui.helper.data('opid')
-        };
-        this.get('workflow').get('tasks').addObject(task);
-        this.get('tasks').addObject(task);
-      }
-    }).selectable({
-      selected() {
-        $('.ui-selected').removeClass('ui-selected');
-      },
-      stop() {
-        $('#forms').toggle(false);
-        el.set('forms', EmberObject.create());
-        el.set('filledForms', EmberObject.create());
-      }
-    });
-    this.get('workflow').flows.forEach((flow) => {
-      this.get('flows').addObject(flow);
-      this.send('addFlow', flow);
-    });
-  },
 
   didRender(){
     var steps = this.get('steps');
@@ -131,7 +86,8 @@ export default Component.extend({
   willDestroyElement() {
     this._super(...arguments);
     var socket = this.get('socket');
-    socket.emit('leave', { room: this.get('jobId') });
+    let jobId = this.get('job.id');
+    socket.emit('leave', { room: jobId });
     socket.emit('disconnect');
     socket.close();
   },
@@ -145,6 +101,7 @@ export default Component.extend({
     },
     addFlow(flow) {
       this.get('jsplumb').connect({
+        detachable: false,
         uuids: [
           `${flow.source_id}/${flow.source_port}`,
           `${flow.target_id}/${flow.target_port}`

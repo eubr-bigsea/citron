@@ -1,0 +1,73 @@
+.job-draw {
+  height: -webkit-calc(100% - 155px);
+  height: -moz-calc(100% - 155px);
+  height: calc(100% - 155px);
+  display: flex;
+  width: 100%;
+  .lemonade-container {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    margin-left: 15px;
+  }
+
+  #lemonade-diagram{
+    background: url('images/grid1.png');
+  }
+
+  #lemonade, .lemonade {
+    position: relative;
+    margin-top: 0px;
+    z-index: 0;
+    min-height: calc(690px * (90/150));
+    height: 5000px;
+    width: 5000px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
+  }
+}
+
+.drag-input svg *{
+  fill: lime;
+  stroke: black;
+}
+
+.label-overlay {
+  display: none;
+  color: #598629;
+  &.jtk-hover {
+    display: block;
+  }
+}
+
+.conn-close-btn {
+  border: 0px;
+  padding: 5px 0px 0px 0px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  &.jtk-hover{
+    background-color: #333333;
+    color: #6DD66E;
+  }
+}
+@media (min-width: 768px){
+  .job-draw {
+    height: -webkit-calc(100% - 105px);
+    height: -moz-calc(100% - 105px);
+    height: calc(100% - 105px);
+  }
+}
+@media (min-width: 1200px){
+  .job-draw {
+    height: -webkit-calc(100% - 70px);
+    height: -moz-calc(100% - 70px);
+    height: calc(100% - 70px);
+  }
+}
+
