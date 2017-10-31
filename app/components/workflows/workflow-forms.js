@@ -14,6 +14,7 @@ export default Component.extend({
       if(key === 'color') {
         el.css('background-color', value.background);
         el.css('color', value.foreground);
+        $('#' + this.get('task').id + ' input').css('color', value.foreground);
       }
       if(key === 'comment') {
         el.find('.comment-text span').text(value);

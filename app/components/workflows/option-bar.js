@@ -46,11 +46,12 @@ export default Component.extend({
         workflow: workflow,
         cluster: { id: this.get('cluster')}
       };
-      this.get('workflow').save();
-      let job = this.get('store').createRecord('job', jobHash);
-      job.save().then(function(job){
-        component.get('goTo')('home.jobs.show', job.id);
-      } ).catch(function(error){ console.log(error) });
+      this.get('workflow').save().then(() => {
+        let job = this.get('store').createRecord('job', jobHash);
+        job.save().then(function(job){
+          component.get('goTo')('home.jobs.show', job.id);
+        } ).catch(function(error){ console.log(error) });
+      })
     },
   },
 });

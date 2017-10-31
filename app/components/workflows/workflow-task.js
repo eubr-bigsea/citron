@@ -129,6 +129,7 @@ export default Component.extend({
     this.set('comment', task.forms.comment.value);
 
     if(!this.get('readOnly') ){
+      $('#' + this.get('task').id + ' input').css('color',task.forms.get('color').value.foreground);
       el.css('background-color', task.forms.get('color').value.background);
       el.css('color', task.forms.get('color').value.foreground);
     }

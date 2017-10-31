@@ -1,9 +1,9 @@
 import FormComponent from 'lemonade-ember/lib/form-component';
 
 export default FormComponent.extend({
-  init() {
+  didReceiveAttrs() {
     this._super(...arguments);
-
-    this.set('parsedValues', JSON.parse(this.get('field.values')));
+    var values = JSON.parse(this.get('field.values')).map( (el) => { return {key: String(el.key), value: el.value } })
+    this.set('parsedValues', values);
   }
 });
