@@ -34,13 +34,13 @@
             <div class="form-group">
               <label for="password">{{t 'forms.password.label'}}</label>
               <div class="row">
-                <div class="col-sm-6 form-group" id="password">
+                <div class="col-sm-6 form-group">
                   {{input type="password" class="form-control underlined" name="password" id="password" placeholder=(t 'forms.password.placeholder')  value=model.password}}
                   {{#each model.errors.password as |error|}}
                     <span class="has-error">{{error.message}}</span>
                   {{/each}}
                 </div>
-                <div class="col-sm-6 form-group" id="password_confirmation">
+                <div class="col-sm-6 form-group">
                   {{input type="password" class="form-control underlined" name="password_confirmation" id="password_confirmation" placeholder=(t 'forms.passwordConfirmation.placeholder') value=model.passwordConfirmation}}
                   {{#each model.errors.password_confirmation as |error|}}
                     <span class="has-error">{{error.message}}</span>
