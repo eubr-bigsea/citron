@@ -66,16 +66,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-    ENV.thorn = 'http://teste.ctweb.inweb.org.br/thorn';
-    ENV.stand = 'http://teste.ctweb.inweb.org.br/stand';
-    ENV.tahiti = 'http://teste.ctweb.inweb.org.br/tahiti';
-    ENV.limonero = 'http://teste.ctweb.inweb.org.br/limonero';
-    ENV.caipirinha = 'http://teste.ctweb.inweb.org.br/caipirinha';
-    ENV.webSocketIO = {
-      url: 'http://teste.ctweb.inweb.org.br',
-      namespace: '/stand',
-      path: '/stand/socket.io'
-    };
+    ENV.thorn = '';
   }
 
   if (environment === 'production') {
