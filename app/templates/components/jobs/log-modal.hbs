@@ -7,35 +7,35 @@
       </h4>
     {{else}}
       <h4 class="modal-title">
-      <i class="fa fa-lg {{icone}}"></i>
+        <i class="fa fa-lg {{icone}}"></i>
         {{name}}
       </h4>
     {{/if}}
   {{/modal.header}}
   {{#modal.body}}
-  <ul class="tasks-list metismenu" id="tasks-list">
-    {{#if content.message}}
-      <div id="flashError" class="alert alert-danger" style="list-style-type: none;">
-        {{job.status_text}}
-      </div>
-    {{else}}
-      {{#each stepsLogs as |step|}}
-        {{#if (eq step.task.id content.target)}}
-        <li>
-          {{#if (eq step.status 'ERROR')}}
-            <div id="flashError" class="alert alert-danger" style="list-style-type: none;">
-              {{job.status_text}}
-            </div>
-          {{else}}
-            {{#each step.logs as |log|}}
-              {{jobs/job-logger-content log=log modal=true}}
-            {{/each}}
+    <ul class="tasks-list metismenu" id="tasks-list">
+      {{#if content.message}}
+        <div id="flashError" class="alert alert-danger" style="list-style-type: none;">
+          {{job.status_text}}
+        </div>
+      {{else}}
+        {{#each stepsLogs as |step|}}
+          {{#if (eq step.task.id content.target)}}
+            <li>
+              {{#if (eq step.status 'ERROR')}}
+                <div id="flashError" class="alert alert-danger" style="list-style-type: none;">
+                  {{job.status_text}}
+                </div>
+              {{else}}
+                {{#each step.logs as |log|}}
+                  {{jobs/job-logger-content log=log modal=true}}
+                {{/each}}
+              {{/if}}
+            </li>
           {{/if}}
-        </li>
-        {{/if}}
-      {{/each}}
-    {{/if}}
-</ul>
+        {{/each}}
+      {{/if}}
+    </ul>
 
   {{/modal.body}}
   {{#modal.footer}}

@@ -1,20 +1,10 @@
 /* global jsPlumb */
-import EmberObject, { set } from '@ember/object';
-
-import $ from 'jquery';
-import { A } from '@ember/array';
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import generateUUID from 'lemonade-ember/utils/generate-uuid';
 import config from '../../config/environment';
 import io from 'npm:socket.io-client';
+import Ps from 'npm:perfect-scrollbar';
 
 export default Component.extend({
-  classNameBindings: ['status'],
-  statusClasses: ['completed', 'error', 'canceled', 'interruped', 'pending', 'running', 'waiting'],
-
-  store: service('store'),
-
   init() {
     this._super(...arguments);
     this.set('socket', io(config.webSocketIO.url + config.webSocketIO.namespace, { path:config.webSocketIO.path }, {upgrade: true}));
@@ -22,65 +12,54 @@ export default Component.extend({
   },
 
   didInsertElement() {
+    let job = this.get('job');
+    let tasks = job.get('workflow.tasks');
+    let selectedTask = this.get('selectedTask');
     //Draw flow
-    this.get('workflow').flows.forEach((flow) => {
+    job.get('workflow.flows').forEach((flow) => {
       this.send('addFlow', flow);
     });
 
     //Socket-io client
-    var socket = this.get('socket');
-    let jobId = this.get('job.id');
+    let socket = this.get('socket');
     var component = this;
 
-    socket.on('connect', () => {
-      socket.emit('join', {room: jobId});
-    });
-    socket.on('connect_error', () => {
-      console.debug('Web socket server offline');
-    });
-    socket.on('disconnect', () => {
-      console.debug('disconnect');
-    });
+    //make connection
+    socket.on('connect', () => { socket.emit('join', {room: job.id}); });
+    socket.on('connect_error', () => { console.debug('Web socket server offline'); });
+    socket.on('disconnect', () => { console.debug('disconnect'); });
+
+    //handle messages
     socket.on('update task', function(frame, server_callback) {
-      var step = component.get('steps').findBy('task.id', frame.id);
-      component.get('generateLogs')(step.operation.name, frame.message);
-      var logStep = component.get('stepsLogs').findBy('task.id', frame.id);
-      logStep.logs.pushObject(frame);
-      set(logStep, 'status', frame.status);
-      var stepTemplate = $(`#${step.task.id}`);
-      stepTemplate.removeClass(component.get('statusClasses').join(' '));
-      var className = frame.status.toLowerCase();
-      stepTemplate.addClass(className);
-      if (server_callback){
-        server_callback();
+      frame.task_id = frame.id;
+      frame.id = frame.step_id;
+      frame.status = frame.status.toLowerCase();
+      // console.log('update task', frame);
+      var task = tasks.findBy('id', frame.task_id);
+      if(task.step.logs.findBy('id', frame.id) == undefined){
+        Ember.set(task, 'step.status', frame.status);
+        task.step.logs.pushObject(frame);
       }
+      if(selectedTask && selectedTask.id === task.id){
+        //console.log('update selected Task', selectedTask, '->', task);
+        component.set('selectedTask', task);
+      }
+      if (server_callback){ server_callback(); }
     });
 
     socket.on('update job', function(frame, server_callback) {
-      console.debug('update job');
-      component.set('job.status', frame.status.toLowerCase());
-      if(frame.status.toLowerCase() === 'error'){
-        $("#flashError").text(frame.message).show()
-        var job = component.get('job');
-        set(job, 'status_text', frame.message);
-      }
-      if (server_callback){
-        server_callback();
-      }
+      // console.log('update job', frame);
+      job.set('status', frame.status.toLowerCase());
+      job.set('status_text', frame.message);
+      if (server_callback){ server_callback(); }
     });
   },
 
 
   didRender(){
+    Ps.initialize(document.getElementById("lemonade-container"));
     var steps = this.get('steps');
 
-    steps.forEach(function(step){
-      var stepTemplate = $(`#${step.task.id}`);
-      var className = step.status.toLowerCase();
-      if(!(className == "pending" && (stepTemplate.hasClass("completed") || stepTemplate.hasClass("canceled") || stepTemplate.hasClass("error") || stepTemplate.hasClass("interrupted")))){
-        stepTemplate.addClass(className);
-      }
-    });
   },
 
   willDestroyElement() {
@@ -93,12 +72,6 @@ export default Component.extend({
   },
 
   actions: {
-    clickTask(forms, filledForms, task) {
-      let fn = function(a, b) { return a.order > b.order; };
-      this.set('forms', forms.sort(fn));
-      this.set('filledForms', filledForms);
-      this.set('task', task);
-    },
     addFlow(flow) {
       this.get('jsplumb').connect({
         detachable: false,
@@ -108,7 +81,5 @@ export default Component.extend({
         ]
       });
     },
-    removeFlow() {},
-    removeTask() {}
   }
 });

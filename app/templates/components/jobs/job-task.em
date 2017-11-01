@@ -1,9 +1,9 @@
 .container title={t 'task.tooltip'}
   .row
-    if isComment
+    if (eq task.operation.slug 'comment')
       .col-xs-11.comment-note
         .comment-text
-          span: comment
+          span: task.forms.comment.value
     else
       .col-xs-11.operation
         .name-container
@@ -15,7 +15,7 @@
               task.operation.name
         .comment-container
           .comment-text.comment-task
-            span: comment
+            span: task.forms.comment.value
       #testDelete.col-xs-1
         .delete-btn
           i#testDelete.fa.fa-trash-o href="#"

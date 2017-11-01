@@ -1,15 +1,13 @@
 .job-draw {
-  height: -webkit-calc(100% - 155px);
-  height: -moz-calc(100% - 155px);
-  height: calc(100% - 155px);
+  flex: 1 1 auto;
   display: flex;
-  width: 100%;
+  height: 100%;
+
   .lemonade-container {
     height: 100%;
     position: relative;
     width: 100%;
     overflow: auto;
-    margin-left: 15px;
   }
 
   #lemonade-diagram{
@@ -54,20 +52,6 @@
   &.jtk-hover{
     background-color: #333333;
     color: #6DD66E;
-  }
-}
-@media (min-width: 768px){
-  .job-draw {
-    height: -webkit-calc(100% - 105px);
-    height: -moz-calc(100% - 105px);
-    height: calc(100% - 105px);
-  }
-}
-@media (min-width: 1200px){
-  .job-draw {
-    height: -webkit-calc(100% - 70px);
-    height: -moz-calc(100% - 70px);
-    height: calc(100% - 70px);
   }
 }
 

@@ -23,15 +23,20 @@ export default Route.extend({
     let results = job.get('results');
     let operations = model.operations;
     let tasks = model.job.get('workflow.tasks');
+    console.log(tasks);
     tasks.forEach((task) => {
+      console.log(task);
       var op = operations.findBy('id', String(task.operation.id));
       task.operation = op.toJSON({ includeId: true });
+      if(!task.name){ task.name = task.operation.name }
 
       task.step = steps.findBy('task.id', task.id);
+      task.step.status = task.step.status.toLowerCase();
       task.result = results.findBy('task.id', task.id);
     });
 
 
+    //    controller.set('selectedTask', tasks.findBy('id', "2a56ec36-b33c-4fa7-81e5-19b703715340"));
 
     controller.set('stepsLogs', A());
     controller.set('job', model.job);

@@ -4,10 +4,6 @@
   height: 100%;
   overflow-y: overlay;
   overflow-x: overlay;
-}
-
-#job-diagram-container-wrapper.toggled #lemonade-container {
-  width: -webkit-calc(100% - #{$size-logger-sidebar});
-  width: -moz-calc(100% - #{$size-logger-sidebar});
-  width: calc(100% - #{$size-logger-sidebar});
+  display: flex;
+  flex-flow: column;
 }

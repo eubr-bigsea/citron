@@ -44,7 +44,6 @@ Router.map(function() {
   this.route('policy');
   this.route('maintenance');
   this.route('notFound', {path: '/*path'});
-
 });
 
 export default Router;
