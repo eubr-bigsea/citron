@@ -31,14 +31,42 @@ export default Component.extend({
 
     //handle messages
     socket.on('update task', function(frame, server_callback) {
+      //console.log('update task', frame);
       frame.task_id = frame.id;
-      frame.id = frame.step_id;
+      if(frame.step_id){
+        frame.id = frame.step_id;
+      }
       frame.status = frame.status.toLowerCase();
-      // console.log('update task', frame);
       var task = tasks.findBy('id', frame.task_id);
       if(task.step.logs.findBy('id', frame.id) == undefined){
         Ember.set(task, 'step.status', frame.status);
         task.step.logs.pushObject(frame);
+        if(frame.type === 'HTML'){
+          task.tables.pushObject(frame);
+        } else if(frame.type === 'TEXT') {
+          task.logs.pushObject(frame);
+        }
+      }
+      if(selectedTask && selectedTask.id === task.id){
+        //console.log('update selected Task', selectedTask, '->', task);
+        component.set('selectedTask', task);
+      }
+      if (server_callback){ server_callback(); }
+    });
+
+    socket.on('task result', function(frame, server_callback) {
+      console.log('result', frame);
+      if(frame.task.id){
+        frame.task_id = frame.task.id;
+      }
+      if(frame.result_id){
+        frame.id = frame.result_id;
+      }
+      frame.status = frame.status.toLowerCase();
+      var task = tasks.findBy('id', frame.task_id);
+      if(task.result == undefined){
+        Ember.set(task, 'step.status', frame.status);
+        Ember.set(task, 'result', frame);
       }
       if(selectedTask && selectedTask.id === task.id){
         //console.log('update selected Task', selectedTask, '->', task);

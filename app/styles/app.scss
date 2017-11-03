@@ -57,11 +57,11 @@
 @import 'datasources/attributes-table.scss';
 
 @import "auth.scss";
-@import "card.scss";
-@import "card-header.scss";
-@import "card-misc.scss";
-@import "card-release-notes";
-@import "card-video-tutorial";
+//@import "card.scss";
+//@import "card-header.scss";
+//@import "card-misc.scss";
+//@import "card-release-notes";
+//@import "card-video-tutorial";
 @import "decor.scss";
 @import "filter.scss";
 @import "header.scss";
@@ -324,4 +324,6 @@ fieldset p {
   font-size: 1.1em;
 }
 
-
+.visualization-modal {
+  height: 150px;
+}

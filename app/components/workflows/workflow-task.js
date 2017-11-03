@@ -108,6 +108,10 @@ export default Component.extend({
     const jsplumb = this.get('jsplumb');
     const clickTask = this.get('clickTask');
 
+    if(!task.name){
+      Ember.set(task, 'name', op.get('name'));
+    }
+
     el.css('top', task.top);
     el.css('left', task.left);
 
