@@ -5,19 +5,31 @@
           selectedTask.name
       i.fa.fa-lg class={selectedTask.step.status}
     modal.body
-      = bs-tab fade=false as |tab|
-        if selectedTask.result
+      = bs-tab id='tabs' customTabs=true fade=false activeId=activeTab onChange=(action 'activateTab') as |tab|
+        = bs-nav type='tabs' as |nav|
+          if selectedTask.result
+            = nav.item active=(bs-eq tab.activeId 'results')
+              a href='#results' class="nav-link" role="tab" onclick={action tab.select "results"} Results
+          if selectedTask.logs
+            = nav.item active=(bs-eq tab.activeId 'logs')
+              a href='#logs' class="nav-link" active={bs-eq tab.activeId 'logs'} role="tab" onclick={action tab.select "logs"} Logs
+          if selectedTask.tables
+            = nav.item active=(bs-eq tab.activeId 'tables')
+              a href='#tables' class="nav-link" role="tab" onclick={action tab.select "tables"} Tables
+          if selectedTask.params
+            = nav.item active=(bs-eq tab.activeId 'params')
+              a href='#params' class="nav-link" role="tab" onclick={action tab.select "params"} Parameters
+        .tab-content
           = tab.pane id='results' title="Results"
             p
               selectedTask.result.title
               // fix height da visu
-              = visualizations/vis-wrapper viz=viz dataUrl=dataUrl class="visualization-modal"
-        if selectedTask.logs
+              if selectedTask.result
+                = visualizations/vis-wrapper viz=viz dataUrl=dataUrl class="visualization-modal"
           = tab.pane id='logs' title="Logs"
             each selectedTask.logs as |log|
               p class={log.status}
                 log.message
-        if selectedTask.tables
           = tab.pane id='tables' title="Tables"
             #tableAccordion role="tablist"
               = each selectedTask.tables as |table|
@@ -28,7 +40,6 @@
                   .collapse.show id={concat "table" table.id} role="tabpanel" aria-labelledby={concat 'tableHeading' table.id} data-parent="#tableAccordion"
                     .card-body
                       == table.message
-        if selectedTask.params
           = tab.pane id='params' title="Parameters"
             = each selectedTask.params.fields as |field|
               .form-inline
