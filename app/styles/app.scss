@@ -49,6 +49,7 @@
 @import 'jobs/logger.scss';
 @import 'jobs/source-code-modal.scss';
 @import 'jobs/draw.scss';
+@import 'jobs/status.scss';
 
 //Datasources
 @import 'datasources/large-table.scss';
@@ -325,5 +326,5 @@ fieldset p {
 }
 
 .visualization-modal {
-  height: 150px;
+  height: 450px;
 }

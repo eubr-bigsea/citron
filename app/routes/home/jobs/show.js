@@ -1,7 +1,10 @@
+/* global Prism */
 import { A } from '@ember/array';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
+import config from '../../../config/environment';
+
 
 export default Route.extend({
   i18n: service(),
@@ -37,6 +40,7 @@ export default Route.extend({
       task.logs = task.step.logs.filter((el) => { if(el.type === 'TEXT' || el.type === 'STATUS'){ return el; }})
       task.result = results.findBy('task.id', task.id);
     });
+
 
 
     //    controller.set('selectedTask', tasks.findBy('id', "2a56ec36-b33c-4fa7-81e5-19b703715340"));

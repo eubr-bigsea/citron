@@ -45,10 +45,6 @@ export default Component.extend({
     toggleModalCode(){
       this.toggleProperty('modalCode');
     },
-
-    showLog(){
-      $("#job-diagram-container-wrapper").toggleClass("toggled");
-    },
     stop(){
       let jobId = this.get('job.id');
       let workflowId = this.get('job.workflow.id');

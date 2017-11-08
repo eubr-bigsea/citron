@@ -13,10 +13,7 @@ export default Component.extend({
       selectedTask.tables.forEach((table) => {
         if(!table.title){ table.title = table.message.split('h4>')[1].replace('</', ''); }
       });
-      if(!activeTab){
-        if(selectedTask.result){ this.set('activeTab', 'results');
-        } else { this.set('activeTab', 'logs'); }
-      }
+      if(!activeTab && selectedTask.result){ this.set('activeTab', 'results'); }
 
       this.set('dataUrl', `${config.caipirinha}/visualizations/${this.get('jobId')}/${selectedTask.id}`);
       this.set('viz', { component: `visualizations/${selectedTask.operation.slug}`.replace('bar-chart', 'vertical-bar-chart')});
