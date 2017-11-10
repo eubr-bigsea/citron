@@ -6,11 +6,15 @@ export default Component.extend({
 
   didInsertElement(){
     $('#tasks-list').metisMenu();
-    $('#tasks-list li').addClass('active')
-    $('#tasks-list ul').addClass('collapse in')
+    this.send('collapseAll');
   },
 
   actions: {
+    collapseAll(){
+      $('#tasks-list li').toggleClass('active')
+      $('#tasks-list ul').toggleClass('collapse in')
+      $('#tasks-list ul').height('auto')
+    },
     openModal(task, tab){
       this.set('selectedTask', task);
       this.set('activeTab', tab);

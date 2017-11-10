@@ -41,11 +41,17 @@ export default Component.extend({
       //FIX THIS
       let workflow = this.get('workflow').toJSON({ includeId: true });
       var sort = toposort(workflow.flows.map((el) => { return [el.source_id, el.target_id] }));
+      workflow.tasks.mapBy('id').forEach((id) => {
+        if(!sort.includes(id)){
+          sort.push(id);
+        }
+      });
       var aux = Ember.A();
       sort.forEach((id) => {
         aux.pushObject(workflow.tasks.findBy('id', id))
       })
       workflow.tasks = aux;
+      this.set('workflow.tasks', aux);
       var user = this.get('sessionAccount.user');
       let jobHash = {
         name: 'teste',

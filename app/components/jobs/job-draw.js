@@ -12,6 +12,8 @@ export default Component.extend({
   },
 
   didInsertElement() {
+    Ps.initialize(document.getElementById("draw-container"));
+
     let job = this.get('job');
     let tasks = job.get('workflow.tasks');
     let selectedTask = this.get('selectedTask');
@@ -73,13 +75,6 @@ export default Component.extend({
         if (server_callback){ server_callback(); }
       });
     }
-  },
-
-
-  didRender(){
-    Ps.initialize(document.getElementById("lemonade-container"));
-    var steps = this.get('steps');
-
   },
 
   willDestroyElement() {

@@ -1,0 +1,126 @@
+& {
+  display: none;
+  height: 100%;
+  flex-flow: column;
+  width: auto;
+  background: $color-light;
+
+
+  span {
+    padding: 0 5px;
+  }
+
+  .header {
+    flex: 0 1 auto;
+    background: $color-light;
+    display: block;
+    height: auto;
+    text-align: center;
+    font-size: 1.4em;
+    color: $color-text-lighter;
+    padding: 10px;
+    cursor: pointer;
+
+  }
+
+  .logger-list-wrapper {
+    flex: 1 1 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    a {
+      cursor: pointer;
+    }
+
+    .tasks-list {
+      padding: 0;
+      list-style: none;
+
+      .task-menu {
+        margin: 5px 0;
+        white-space: nowrap;
+
+        &:first-child {
+          margin-top: 20px;
+        }
+
+        &:last-child {
+          margin-bottom: 20px;
+        }
+
+        .open-menu {
+          padding: 5px 5px 5px 20px;
+          width: 100%;
+          height: 100%;
+          display: block;
+          text-decoration: none;
+          color: $color-text-lighter;
+
+          &:hover, &:focus, &:active {
+            background: $color-darker;
+          }
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          color: $color-text-lighter;
+
+          li {
+            padding: 0 20px;
+            background-color: $color-dark;
+            text-align: left;
+
+            a {
+              width: 25px;
+              display: inline-block;
+              margin: 5px 3px;
+              text-align: center;
+              border-radius: 4px;
+
+              &:hover {
+                background-color: $color-darker;
+              }
+            }
+          }
+        }
+
+
+
+
+      }
+
+
+
+
+    }
+  }
+
+  .status-eye{
+    padding-right: 10px;
+    padding-top: 5px;
+    @extend .fa;
+    @extend .fa-eye;
+  }
+
+  .status-completed{
+    padding-right: 10px;
+    padding-top: 5px;
+    @extend .fa;
+    @extend .fa-check;
+  }
+
+  .status-ERROR{
+    padding-right: 10px;
+    padding-top: 5px;
+    @extend .fa;
+    @extend .fa-exclamation-triangle;
+    color: red;
+  }
+
+
+
+
+
+}
+

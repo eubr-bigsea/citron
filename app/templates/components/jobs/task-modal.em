@@ -1,4 +1,4 @@
-= bs-modal open=taskModal backdrop=false backdropClose=true class="logger-modal" fade=false onHidden=(action 'close') as |modal|
+= bs-modal open=taskModal backdropClose=true class="logger-modal" fade=fade onHidden=(action 'close') as |modal|
     modal.header
       h4.modal-title
         i.fa.fa-lg class=selectedTask.operation.icon

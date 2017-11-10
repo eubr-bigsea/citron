@@ -1,6 +1,9 @@
 @import "ember-bootstrap/bootstrap";
 @import "font-awesome";
-
+@import 'variables.scss';
+@import "theme-color.scss";
+@import "dimensions.scss";
+@import "pod-styles.scss";
 // Gfranciscani Styles
 @import 'mixins.scss';
 
@@ -8,6 +11,8 @@
 @import 'variables.scss';
 @import "theme-color.scss";
 @import "dimensions.scss";
+
+@import 'aligns';
 
 // Ui elements
 @import 'ui/ui.loader.scss';
@@ -44,10 +49,9 @@
 
 //Jobs
 @import 'jobs/large-table.scss';
-@import 'jobs/job-diagram-container-wrapper.scss';
 @import 'jobs/option-bar.scss';
 @import 'jobs/logger.scss';
-@import 'jobs/source-code-modal.scss';
+//@import 'jobs/source-code-modal.scss';
 @import 'jobs/draw.scss';
 @import 'jobs/status.scss';
 
@@ -67,17 +71,24 @@
 @import "filter.scss";
 @import "header.scss";
 @import "images.scss";
-@import "engage.scss";
-@import "engage-btn.scss";
-@import "engage-nav-bar.scss";
-@import "engage-main-menu.scss";
-@import "engage-slick-menu-responsive.scss";
-@import "engage-service.scss";
-@import "engage-team.scss";
-@import "engage-footer.scss";
+.landing-page-css {
+  @import "engage.scss";
+  @import "engage-btn.scss";
+  @import "engage-nav-bar.scss";
+  @import "engage-main-menu.scss";
+  @import "engage-slick-menu-responsive.scss";
+  @import "engage-service.scss";
+  @import "engage-team.scss";
+  @import "engage-footer.scss";
+}
 @import "dimensions.scss";
 @import "green.scss";
 @import "cards-popup.scss";
+
+
+//New structure CSS
+// home/jobs
+@import 'home/jobs/show';
 
 
 
@@ -324,6 +335,29 @@ fieldset p {
   color: $color-text-base;
   font-size: 1.1em;
 }
+
+
+
+
+
+
+//Overides
+@import 'modal-overides';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .visualization-modal {
   height: 450px;

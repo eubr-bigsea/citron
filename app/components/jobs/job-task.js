@@ -5,8 +5,6 @@ import Component from '@ember/component';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 
 export default Component.extend({
-  store: service(),
-  classNames: ['task', 'decor'],
   classNameBindings: ['task.operation.slug','status'],
   endpoints: A(),
 
@@ -33,7 +31,7 @@ export default Component.extend({
           uuid: `${task.id}/${port.id}`,
           endpoint: [ isInput ? "Dot" : "Rectangle", { radius: 5, width: 10, height: 10 } ],
           overlays: [ [ "Label",
-            { label: port.name, id: "id", location: isInput ? [0, -2] : [0, 3], cssClass: "label-overlay" }
+            { label: port.name, id: "id", location: isInput ? [0, -1] : [0, 2], cssClass: "label-overlay" }
           ] ],
           connector: 'Flowchart',
           connectorOverlays: [ [ "Arrow", { location: 0.75, length: 15, foldback: 0.8 } ] ],

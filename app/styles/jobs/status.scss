@@ -1,46 +1,65 @@
-.job-status {
+.__status {
   &.canceled {
-    color: #FF6C39;
-    @extend .fa;
-    @extend .fa-times;
+    color: $color-canceled;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-times;
+    }
   }
 
   &.completed {
-    color: #71BA51;
-    @extend .fa;
-    @extend .fa-check;
+    color: $color-completed;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-check;
+    }
   }
 
   &.error {
-    color: #E22211;
-    @extend .fa;
-    @extend .fa-exclamation-triangle;
+    color: $color-error;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-exclamation-triangle;
+    }
   }
 
   &.interrupted {
-    color: #FF9A43;
-    @extend .fa;
-    @extend .fa-exclamation;
+    color: $color-interrupted;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-exclamation;
+    }
   }
 
   &.pending {
-    color: #FFBD4B;
-    @extend .fa;
-    @extend .fa-hourglass-half;
+    color: $color-pending;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-hourglass-half;
+    }
   }
 
   &.running {
-    color: #3D8EB9;
-    @extend .fa;
-    @extend .fa-circle-o-notch;
-    @extend .fa-spin;
+    color: $color-running;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-circle-o-notch;
+      @extend .fa-spin;
+    }
   }
 
   &.waiting {
-    color: #7F6B4B;
-    @extend .fa;
-    @extend .fa-clock-o;
+    color: $color-waiting;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-clock-o;
+    }
   }
-
 }
-

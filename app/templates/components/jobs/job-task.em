@@ -16,6 +16,5 @@
         .comment-container
           .comment-text.comment-task
             span: task.forms.comment.value
-      #testDelete.col-xs-1
-        .delete-btn
-          i#testDelete.fa.fa-trash-o href="#"
+      .col-xs-1.__status class=task.step.status
+          i.__icon
