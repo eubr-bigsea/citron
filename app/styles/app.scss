@@ -49,11 +49,6 @@
 
 //Jobs
 @import 'jobs/large-table.scss';
-@import 'jobs/option-bar.scss';
-@import 'jobs/logger.scss';
-//@import 'jobs/source-code-modal.scss';
-@import 'jobs/draw.scss';
-@import 'jobs/status.scss';
 
 //Datasources
 @import 'datasources/large-table.scss';
@@ -89,6 +84,7 @@
 //New structure CSS
 // home/jobs
 @import 'home/jobs/show';
+@import 'home/jobs/status';
 
 
 

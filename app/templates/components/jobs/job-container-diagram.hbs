@@ -1,5 +1,0 @@
-<div class="lemonade-container" id="lemonade-container" style="">
-  {{jobs/job-draw id="lemonade-diagram" class="lemonade col-xs-12" workflow=workflow steps=steps job=job operations=operations stepsLogs=stepsLogs generateLogs=(action "generateLogs") openLogs=(action "openLogs")}}
-</div>
-{{jobs/job-logger id="job-logger" job=job stepsLogs=stepsLogs operations=operations openLogs=(action "openLogs")}}
-{{jobs/log-modal modal=modal content=modalContent job=job operations=operations  stepsLogs=stepsLogs onSubmit=(action 'submit')}}
