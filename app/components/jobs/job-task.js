@@ -44,7 +44,12 @@ export default Component.extend({
     });
 
     jsplumb.setDraggable(el, false);
+    if(task.result){
+      var tab = 'results';
+    } else {
+      var tab = 'logs';
+    }
 
-    $(el).dblclick(() => { this.get('selectTask')(task); });
+    $(el).dblclick(() => { this.get('selectTask')(task, tab); });
   },
 });

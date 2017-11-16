@@ -16,9 +16,7 @@ export default Component.extend({
       $('#tasks-list ul').height('auto')
     },
     openModal(task, tab){
-      this.set('selectedTask', task);
-      this.set('activeTab', tab);
-      this.set('taskModal', true);
+      this.get('selectTask')(task, tab);
     },
   },
 });

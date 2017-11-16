@@ -1,0 +1,66 @@
+& {
+  .modal-dialog {
+    width: 85%;
+    max-width: 1200px;
+    min-height: 400px;
+  }
+  .modal-content {
+    min-height: 400px;
+    height: calc(100vh - 60px);
+  }
+  .modal-header {
+    height: 70px;
+    i {
+      margin-right: 5px;
+    }
+    .__status {
+      display: inline-block;
+      margin-left: 50px;
+      font-size: 1.5rem;
+      i {
+        position: relative;
+        top: -5px;
+      }
+    }
+  }
+  .modal-body {
+    height: calc(100% - 70px);
+    #tabs {
+      height: 100%;
+      width: 100%;
+    }
+    .tab-content {
+      padding-top: 8px;
+      height: calc(100% - 50px);
+    }
+  }
+
+  #logs {
+    tbody {
+      tr:hover {
+        @extend .__status;
+        cursor: default;
+      }
+    }
+  }
+
+  #tables {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 3px;
+    .card {
+
+      .card-header {
+        h5 a {
+          color: $color-text-dark;
+        }
+      }
+      .table-wrapper {
+        min-height: 300px;
+        overflow: scroll;
+      }
+    }
+  }
+}
+

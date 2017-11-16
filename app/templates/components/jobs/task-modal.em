@@ -1,9 +1,11 @@
-= bs-modal open=taskModal backdropClose=true class="logger-modal" fade=fade onHidden=(action 'close') as |modal|
+= bs-modal class=componentCssClassName open=taskModal backdropClose=true fade=fade onHidden=(action 'close') as |modal|
     modal.header
       h4.modal-title
         i.fa.fa-lg class=selectedTask.operation.icon
-          selectedTask.name
-      i.fa.fa-lg class={selectedTask.step.status}
+        selectedTask.name
+      .__status class={selectedTask.step.status}
+        i.fa.fa-lg.__icon
+        span.__text: t selectedTask.step.status
     modal.body
       = bs-tab id='tabs' customTabs=true fade=false activeId=activeTab onChange=(action 'activateTab') as |tab|
         = bs-nav type='tabs' as |nav|
@@ -12,7 +14,7 @@
               a href='#results' class="nav-link" role="tab" onclick={action tab.select "results"} Results
           if selectedTask.logs
             = nav.item active=(bs-eq tab.activeId 'logs')
-              a href='#logs' class="nav-link" active={bs-eq tab.activeId 'logs'} role="tab" onclick={action tab.select "logs"} Logs
+              a href='#logs' class="nav-link" role="tab" onclick={action tab.select "logs"} Logs
           if selectedTask.tables
             = nav.item active=(bs-eq tab.activeId 'tables')
               a href='#tables' class="nav-link" role="tab" onclick={action tab.select "tables"} Tables
@@ -25,11 +27,23 @@
               selectedTask.result.title
               // fix height da visu
               if selectedTask.result
-                = visualizations/vis-wrapper viz=viz dataUrl=dataUrl class="visualization-modal"
+                = visualizations/vis-wrapper viz=viz dataUrl=dataUrl id="display-modal"
           = tab.pane id='logs' title="Logs"
-            each selectedTask.logs as |log|
-              p class={log.status}
-                log.message
+            table.table.table-hover
+              thead
+                tr
+                  th #
+                  th: t 'tables.logs.message'
+                  th: t 'tables.logs.date'
+                  th
+              tbody
+                each selectedTask.logs as |log|
+                  tr
+                    td: log.id
+                    td: log.message
+                    td: format-date log.date locale=locale
+                    td.__status class=log.status
+                      i.__icon
           = tab.pane id='tables' title="Tables"
             #tableAccordion role="tablist"
               = each selectedTask.tables as |table|
@@ -39,10 +53,8 @@
                       a data-toggle="collapse" href={concat "#table" table.id} aria-expanded="true" aria-controls={concat "table" table.id} = table.title
                   .collapse.show id={concat "table" table.id} role="tabpanel" aria-labelledby={concat 'tableHeading' table.id} data-parent="#tableAccordion"
                     .card-body
-                      == table.message
+                      .table-wrapper id={concat "wrapper" table.id}
+                        == table.message
           = tab.pane id='params' title="Parameters"
-            = each selectedTask.params.fields as |field|
-              .form-inline
-                label = field.label
-                = component (concat 'forms/form-' field.suggested_widget) class='component-inline' currentValue=(get (get selectedTask.forms field.name) 'value') name=field.name field=field
+            = jobs/display-params fields=selectedTask.params.fields forms=selectedTask.forms
 

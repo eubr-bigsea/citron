@@ -14,14 +14,12 @@
         span: t 'job.show.workflow'
       if job.isRunning
         a.btn.btn-primary.__stop click={action 'stopJob'}
-          i.fa.fa-stop
           span: t 'job.show.stop'
   .draw-wrapper
     .draw-container#draw-container
      = jobs/job-draw  selectTask=(action 'selectTask')  job=job selectedTask=selectedTask
     button.btn.btn-primary.__toggle-log click={action "toggleLog"}
       i.arrow
-    = jobs/job-logger #job-logger tasks=job.workflow.tasks steps=job.steps taskModal=taskModal selectedTask=selectedTask activeTab=activeTab
-= jobs/task-modal taskModal=taskModal selectedTask=selectedTask jobId=job.id activeTab=activeTab
+    = jobs/job-logger #job-logger tasks=job.workflow.tasks steps=job.steps taskModal=taskModal selectTask=(action 'selectTask')
+= jobs/task-modal taskModal=taskModal selectedTask=selectedTask jobId=job.id activeTab=activeTab activateTab=(action 'activateTab')
 = jobs/code-modal modalCode=modalCode content=codeContent jobId=job.id
-

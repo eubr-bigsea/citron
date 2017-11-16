@@ -39,9 +39,13 @@ export default Controller.extend({
   },
 
   actions: {
-    selectTask(task){
+    selectTask(task, tab){
       this.set('selectedTask', task);
+      this.set('activeTab', tab);
       this.set('taskModal', true);
+    },
+    activateTab(tab){
+      this.set('activeTab', tab);
     },
 
     stopJob(){

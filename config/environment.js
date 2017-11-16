@@ -38,6 +38,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV['ember-cli-mirage'] = { enabled: false };
     ENV.citron = 'http://localhost:4200';
     ENV.thorn = 'https://dev.ctweb.inweb.org.br/thorn';
     // ENV.thorn = 'http://localhost:3000';

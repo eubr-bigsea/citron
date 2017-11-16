@@ -2,6 +2,7 @@
   display: none;
   height: 100%;
   flex-flow: column;
+  max-width: 300px;
   width: auto;
   background: $color-light;
 
@@ -25,7 +26,8 @@
 
   .logger-list-wrapper {
     flex: 1 1 auto;
-    overflow-y: scroll;
+    min-width: 170px;
+    overflow-y: auto;
     overflow-x: hidden;
 
     a {

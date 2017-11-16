@@ -21,6 +21,6 @@
               a title={t 'jobs.show.job-logger.tables'} click={action 'openModal' task 'tables'}
                 i.fa.fa-table
             if task.result
-              a title={t 'jobs.show.job-logger.result'} click={action 'openModal' task 'result'}
+              a title={t 'jobs.show.job-logger.result'} click={action 'openModal' task 'results'}
                 i.fa.fa-dashboard
 

@@ -54,7 +54,6 @@ export default Component.extend({
       let [id1, id2] = info.connection.getUuids().map((el) => el.split('/'));
 
       this.get('closeForms')();
-      debugger;
       this.get('addFlow')({
         source_id: id1[0],
         source_port: Number(id1[1]),
