@@ -1,5 +1,7 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { A } from '@ember/array';
+import { set } from '@ember/object';
 
 export default Component.extend({
   store: service(),
@@ -11,7 +13,7 @@ export default Component.extend({
     let fields = this.get('fields');
     let forms = this.get('forms');
     if(fields && forms){
-      var params = Ember.A();
+      var params = A();
       fields.forEach((field) => {
         var el = {};
         var w = field.suggested_widget;
@@ -23,15 +25,15 @@ export default Component.extend({
         if(w === 'lookup'){
           this.get('store').findRecord('datasource', el.value).then((datasource) => {
             var aux = params.findBy('name', field.name);
-            Ember.set(aux, 'value', datasource.get('name'));
+            set(aux, 'value', datasource.get('name'));
           });
         } else if(w === 'dropdown'){
           if(el.value){
             var i = parseInt(el.value);
             if(i){
-              el.value = JSON.parse(field.values).findBy('key', i).value
+              el.value = JSON.parse(field.values).findBy('key', i).value;
             } else {
-              el.value = JSON.parse(field.values).findBy('key', el.value).value
+              el.value = JSON.parse(field.values).findBy('key', el.value).value;
             }
           }
         } else if(w === 'expression'){
@@ -49,7 +51,7 @@ export default Component.extend({
           }
         } else if(!this.get('text').includes(w)){
           el.component = 'display-form-' + w;
-        };
+        }
         params.pushObject(el);
       })
       this.set('params', params);

@@ -14,6 +14,7 @@
         span: t 'job.show.workflow'
       if job.isRunning
         a.btn.btn-primary.__stop click={action 'stopJob'}
+          i.fa.fa-stop
           span: t 'job.show.stop'
   .draw-wrapper
     .draw-container#draw-container
@@ -24,4 +25,3 @@
 = jobs/task-modal taskModal=taskModal selectedTask=selectedTask jobId=job.id activeTab=activeTab activateTab=(action 'activateTab')
 = jobs/code-modal codeModal=codeModal code=code jobId=job.id
 = jobs/report-modal reportModal=reportModal message=job.status_text status=job.status
-

@@ -3,6 +3,7 @@ import Component from '@ember/component';
 import config from '../../config/environment';
 import io from 'npm:socket.io-client';
 import Ps from 'npm:perfect-scrollbar';
+import { set } from '@ember/object';
 
 export default Component.extend({
   init() {
@@ -38,7 +39,7 @@ export default Component.extend({
         frame.status = frame.status.toLowerCase();
         var task = tasks.findBy('id', frame.task.id);
         if(task.step.logs.findBy('id', frame.id) == undefined){
-          Ember.set(task, 'step.status', frame.status);
+          set(task, 'step.status', frame.status);
           task.step.logs.pushObject(frame);
           if(frame.type === 'HTML'){
             task.tables.pushObject(frame);
@@ -58,8 +59,8 @@ export default Component.extend({
         frame.status = frame.status.toLowerCase();
         var task = tasks.findBy('id', frame.task.id);
         if(task.result == undefined){
-          Ember.set(task, 'step.status', frame.status);
-          Ember.set(task, 'result', frame);
+          set(task, 'step.status', frame.status);
+          set(task, 'result', frame);
         }
         if(selectedTask && selectedTask.id === task.id){
           //console.log('update selected Task', selectedTask, '->', task);

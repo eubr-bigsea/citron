@@ -27,7 +27,6 @@
                 = t 'jobs.taskModal.params'
         .tab-content
           = tab.pane id='results' title="Results"
-            // fix height da visu
             if selectedTask.result
               = visualizations/vis-wrapper viz=viz dataUrl=dataUrl id="display-modal"
           = tab.pane id='logs' title="Logs"
@@ -43,7 +42,7 @@
                   tr
                     td: log.id
                     td: log.message
-                    td: format-date log.date locale=locale
+                    td: = format-date log.date locale=locale
                     td.__status class=log.status
                       i.__icon
           = tab.pane id='tables' title="Tables"

@@ -1,6 +1,7 @@
+/* global Prism */
 import Controller from '@ember/controller';
 import config from '../../../config/environment';
-import { computed } from '@ember/object';
+import $ from 'jquery';
 
 export default Controller.extend({
   taskModal: false,
@@ -8,7 +9,7 @@ export default Controller.extend({
   reportModal: false,
   activeTab: 'logs',
   selectedTask: null,
-  codeContent: { title: 'modal.code.title', cancelButton: 'modal.code.cancelButton', code: null},
+  code: null,
 
   init() {
     this._super(...arguments);
@@ -16,8 +17,7 @@ export default Controller.extend({
   },
 
   statusDidChange() {
-    let code = this.get('codeContent.code');
-    let status = this.get('job.status');
+    let code = this.get('code');
     if(!code){
       let job = this.get('job');
       $.ajax({

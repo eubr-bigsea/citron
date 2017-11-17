@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { A } from '@ember/array';
 import $ from 'jquery';
 import toposort from 'npm:toposort';
 
@@ -46,7 +47,7 @@ export default Component.extend({
           sort.push(id);
         }
       });
-      var aux = Ember.A();
+      var aux = A();
       sort.forEach((id) => {
         aux.pushObject(workflow.tasks.findBy('id', id))
       })

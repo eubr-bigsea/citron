@@ -25,7 +25,10 @@ export default Component.extend({
     $('#tabs ul li a').removeClass('active');
     $('#tabs ul li a[href="#'+ this.get('activeTab') +'"]').addClass('active');
     $('.card-body .table').addClass('table-sm table-hover');
-    var height = $('#tables').height();
+    var height = $('.tab-content').height();
+    var width = $('.tab-content').width();
+    $('#display-modal').height(height);
+    $('#display-modal').width(width);
     var tables =  $('.table-wrapper');
     var card = $('.card').outerHeight(true);
     for(var i=0; i < tables.length; i++){

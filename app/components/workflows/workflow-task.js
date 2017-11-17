@@ -1,6 +1,5 @@
 /* global Set TahitiAttributeSuggester*/
 import EmberObject, { set } from '@ember/object';
-
 import $ from 'jquery';
 import { A } from '@ember/array';
 import { inject as service } from '@ember/service';
@@ -109,7 +108,7 @@ export default Component.extend({
     const clickTask = this.get('clickTask');
 
     if(!task.name){
-      Ember.set(task, 'name', op.get('name'));
+      set(task, 'name', op.get('name'));
     }
 
     el.css('top', task.top);

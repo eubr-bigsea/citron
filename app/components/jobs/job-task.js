@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { A } from '@ember/array';
-import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 
@@ -44,10 +43,9 @@ export default Component.extend({
     });
 
     jsplumb.setDraggable(el, false);
+    var tab = 'logs';
     if(task.result){
-      var tab = 'results';
-    } else {
-      var tab = 'logs';
+      tab = 'results';
     }
 
     $(el).dblclick(() => { this.get('selectTask')(task, tab); });
