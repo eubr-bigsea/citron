@@ -2,11 +2,11 @@
   .option-bar.row
     .col-xs-12.col-md-7.col-lg-8.col-xl-5.vcentered.__name
       h3.title: job.workflow.name
-    .col-xs-12.col-md-5.col-lg-4.col-xl-3.vcentered.__status class=job.status
+    .col-xs-12.col-md-5.col-lg-4.col-xl-3.vcentered.__status class=job.status click={action 'toggleReportModal'}
       i.__icon
       span.__text: t job.status
     .col-sm-12.col-xl-4.vcentered.__buttons
-      a.btn.btn-primary click={action 'toggleModalCode'}
+      a.btn.btn-primary click={action 'toggleCodeModal'}
         i.fa.fa-lg.fa-code
         span: t 'job.show.code'
       = link-to 'home.workflows.draw' job.workflow.id class="btn btn-primary"
@@ -20,6 +20,8 @@
      = jobs/job-draw  selectTask=(action 'selectTask')  job=job selectedTask=selectedTask
     button.btn.btn-primary.__toggle-log click={action "toggleLog"}
       i.arrow
-    = jobs/job-logger #job-logger tasks=job.workflow.tasks steps=job.steps taskModal=taskModal selectTask=(action 'selectTask')
+    = jobs/job-logger id='job-logger' tasks=job.workflow.tasks steps=job.steps taskModal=taskModal selectTask=(action 'selectTask')
 = jobs/task-modal taskModal=taskModal selectedTask=selectedTask jobId=job.id activeTab=activeTab activateTab=(action 'activateTab')
-= jobs/code-modal modalCode=modalCode content=codeContent jobId=job.id
+= jobs/code-modal codeModal=codeModal code=code jobId=job.id
+= jobs/report-modal reportModal=reportModal message=job.status_text status=job.status
+

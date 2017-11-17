@@ -1,12 +1,11 @@
 import Controller from '@ember/controller';
 import config from '../../../config/environment';
-
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   taskModal: false,
-  modalCode: false,
-  isRunning: false,
-  isCompleted: false,
+  codeModal: false,
+  reportModal: false,
   activeTab: 'logs',
   selectedTask: null,
   codeContent: { title: 'modal.code.title', cancelButton: 'modal.code.cancelButton', code: null},
@@ -18,6 +17,7 @@ export default Controller.extend({
 
   statusDidChange() {
     let code = this.get('codeContent.code');
+    let status = this.get('job.status');
     if(!code){
       let job = this.get('job');
       $.ajax({
@@ -28,7 +28,9 @@ export default Controller.extend({
           if(response.source){
             var lang = eval(`Prism.languages.${response.lang}`);
             var highlighted = Prism.highlight(response.source, lang)
-            this.set('codeContent.code', highlighted);
+            this.set('code', highlighted);
+          } else {
+            this.set('code', 'NONE');
           }
         },
         (error) => {
@@ -66,10 +68,12 @@ export default Controller.extend({
       );
     },
 
-    toggleModalCode(){
-      this.toggleProperty('modalCode');
+    toggleCodeModal(){
+      this.toggleProperty('codeModal');
     },
-
+    toggleReportModal(){
+      this.toggleProperty('reportModal');
+    },
     toggleLog(){
       $(".__job__show").toggleClass("toggled");
     }

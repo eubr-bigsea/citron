@@ -1,5 +1,5 @@
 td: b: = param.label
-td
+td.values
   table.table.table-sm
     thead
       tr

@@ -29,9 +29,11 @@
       .__text {
         margin: 5px;
         font-size: 1.9em;
+        cursor: pointer;
       }
 
       .__icon {
+        cursor: pointer;
         @extend .fa-2x;
       }
     }

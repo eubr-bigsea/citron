@@ -1,2 +1,2 @@
-td: = param.label
-td: = param.value
+td: b: = param.label
+td.values: = param.value

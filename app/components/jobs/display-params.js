@@ -1,10 +1,10 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-//case [text, code
+
 export default Component.extend({
   store: service(),
   text: ['decimal', 'integer', 'lookup', 'percentage', 'range','text', 'textarea'],
-  multi: ['select2', 'tag', 'attribute-selector'],
+  multi: ['tag', 'attribute-selector'],
 
   didReceiveAttrs(){
     this._super(...arguments);
@@ -19,25 +19,39 @@ export default Component.extend({
         el.label = field.label;
         el.value = forms[field.name].value;
         el.w = w;
+        el.component = 'display-form-text';
         if(w === 'lookup'){
-          el.component = 'display-form-text';
           this.get('store').findRecord('datasource', el.value).then((datasource) => {
             var aux = params.findBy('name', field.name);
             Ember.set(aux, 'value', datasource.get('name'));
           });
-        } else if(this.get('text').includes(w)){
+        } else if(w === 'dropdown'){
+          if(el.value){
+            var i = parseInt(el.value);
+            if(i){
+              el.value = JSON.parse(field.values).findBy('key', i).value
+            } else {
+              el.value = JSON.parse(field.values).findBy('key', el.value).value
+            }
+          }
+        } else if(w === 'expression'){
+          if(el.value){
+            el.value = JSON.parse(el.value).expression;
+          }
           el.component = 'display-form-text';
+        } else if(w === 'select2'){
+          if(el.value){
+            el.value = el.value.value
+          }
         } else if(this.get('multi').includes(w)){
           if(el.value){
             el.value = el.value.join(', ');
           }
-          el.component = 'display-form-text';
-        } else {
+        } else if(!this.get('text').includes(w)){
           el.component = 'display-form-' + w;
         };
         params.pushObject(el);
       })
-      console.log('params',params);
       this.set('params', params);
     }
   }

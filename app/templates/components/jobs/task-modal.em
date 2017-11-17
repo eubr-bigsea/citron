@@ -11,30 +11,32 @@
         = bs-nav type='tabs' as |nav|
           if selectedTask.result
             = nav.item active=(bs-eq tab.activeId 'results')
-              a href='#results' class="nav-link" role="tab" onclick={action tab.select "results"} Results
+              a href='#results' class="nav-link" role="tab" onclick={action tab.select "results"}
+                = t 'jobs.taskModal.results'
           if selectedTask.logs
             = nav.item active=(bs-eq tab.activeId 'logs')
-              a href='#logs' class="nav-link" role="tab" onclick={action tab.select "logs"} Logs
+              a href='#logs' class="nav-link" role="tab" onclick={action tab.select "logs"}
+                = t 'jobs.taskModal.logs'
           if selectedTask.tables
             = nav.item active=(bs-eq tab.activeId 'tables')
-              a href='#tables' class="nav-link" role="tab" onclick={action tab.select "tables"} Tables
+              a href='#tables' class="nav-link" role="tab" onclick={action tab.select "tables"}
+                = t 'jobs.taskModal.tables'
           if selectedTask.params
             = nav.item active=(bs-eq tab.activeId 'params')
-              a href='#params' class="nav-link" role="tab" onclick={action tab.select "params"} Parameters
+              a href='#params' class="nav-link" role="tab" onclick={action tab.select "params"}
+                = t 'jobs.taskModal.params'
         .tab-content
           = tab.pane id='results' title="Results"
-            p
-              selectedTask.result.title
-              // fix height da visu
-              if selectedTask.result
-                = visualizations/vis-wrapper viz=viz dataUrl=dataUrl id="display-modal"
+            // fix height da visu
+            if selectedTask.result
+              = visualizations/vis-wrapper viz=viz dataUrl=dataUrl id="display-modal"
           = tab.pane id='logs' title="Logs"
             table.table.table-hover
               thead
                 tr
                   th #
-                  th: t 'tables.logs.message'
-                  th: t 'tables.logs.date'
+                  th: t 'tables.message'
+                  th: t 'tables.time'
                   th
               tbody
                 each selectedTask.logs as |log|

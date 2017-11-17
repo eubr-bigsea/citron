@@ -1,2 +1,2 @@
 td: b: = param.label
-td: a Download
+td.values: a href='#' click={action 'download'} Download
