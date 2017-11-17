@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{jobs/report-modal}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#jobs/report-modal}}
-      template block text
-    {{/jobs/report-modal}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'Job Report\n  ×\n  Ok');
 });

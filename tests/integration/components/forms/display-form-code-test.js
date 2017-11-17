@@ -11,14 +11,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{forms/display-form-code}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Download');
 
   // Template block usage:
-  this.render(hbs`
-    {{#forms/display-form-code}}
-      template block text
-    {{/forms/display-form-code}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

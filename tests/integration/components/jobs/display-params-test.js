@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{jobs/display-params}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#jobs/display-params}}
-      template block text
-    {{/jobs/display-params}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'AttributesValues');
 });

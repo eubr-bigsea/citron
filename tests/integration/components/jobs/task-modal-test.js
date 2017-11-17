@@ -11,14 +11,6 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{jobs/task-modal}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(!this.$().text().trim(), false);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#jobs/task-modal}}
-      template block text
-    {{/jobs/task-modal}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
