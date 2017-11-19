@@ -35,7 +35,6 @@ export default Component.extend({
 
       //handle messages
       socket.on('update task', function(frame, server_callback) {
-        //        console.log('update task',frame.status, frame);
         frame.status = frame.status.toLowerCase();
         var task = tasks.findBy('id', frame.task.id);
         if(task.step.logs.findBy('id', frame.id) == undefined){
@@ -48,14 +47,12 @@ export default Component.extend({
           }
         }
         if(selectedTask && selectedTask.id === task.id){
-          //console.log('update selected Task', selectedTask, '->', task);
           component.set('selectedTask', task);
         }
         if (server_callback){ server_callback(); }
       });
 
       socket.on('task result', function(frame, server_callback) {
-        //console.log('result', frame);
         frame.status = frame.status.toLowerCase();
         var task = tasks.findBy('id', frame.task.id);
         if(task.result == undefined){
@@ -63,14 +60,12 @@ export default Component.extend({
           set(task, 'result', frame);
         }
         if(selectedTask && selectedTask.id === task.id){
-          //console.log('update selected Task', selectedTask, '->', task);
           component.set('selectedTask', task);
         }
         if (server_callback){ server_callback(); }
       });
 
       socket.on('update job', function(frame, server_callback) {
-        // console.log('update job', frame);
         job.set('status', frame.status.toLowerCase());
         job.set('status_text', frame.message);
         if (server_callback){ server_callback(); }

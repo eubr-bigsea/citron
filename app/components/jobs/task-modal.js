@@ -4,8 +4,6 @@ import { inject as service } from '@ember/service';
 import config from '../../config/environment';
 import { computed } from '@ember/object';
 
-
-
 export default Component.extend({
   i18n: service(),
 

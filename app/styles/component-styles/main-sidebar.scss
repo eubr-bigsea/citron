@@ -83,7 +83,6 @@
 #main-wrapper.toggled #main-sidebar-wrapper {
   width: $main-sidebar-toggled;
 
-
   &::-webkit-scrollbar-track-piece  {
     background-color: $color-base;
   }
@@ -152,7 +151,3 @@
     }
   }
 }
-
-
-
-

@@ -6,7 +6,6 @@
   width: auto;
   background: $color-light;
 
-
   span {
     padding: 0 5px;
   }
@@ -86,15 +85,7 @@
             }
           }
         }
-
-
-
-
       }
-
-
-
-
     }
   }
 
@@ -119,10 +110,4 @@
     @extend .fa-exclamation-triangle;
     color: red;
   }
-
-
-
-
-
 }
-

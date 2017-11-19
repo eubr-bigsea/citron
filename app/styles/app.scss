@@ -57,11 +57,6 @@
 @import 'datasources/attributes-table.scss';
 
 @import "auth.scss";
-//@import "card.scss";
-//@import "card-header.scss";
-//@import "card-misc.scss";
-//@import "card-release-notes";
-//@import "card-video-tutorial";
 @import "decor.scss";
 @import "filter.scss";
 @import "header.scss";
@@ -80,16 +75,9 @@
 @import "green.scss";
 @import "cards-popup.scss";
 
-
 //New structure CSS
-// home/jobs
 @import 'home/jobs/show';
 @import 'home/jobs/status';
-
-
-
-
-
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -112,8 +100,6 @@
     background: $color-dark;
   }
 }
-
-
 
 html,
 body {
@@ -311,8 +297,6 @@ fieldset p {
   height: calc(2.5rem - 2px) !important;
 }
 
-
-
 ::-webkit-input-placeholder { /* Chrome, Safari */
   color: $color-text-base;
 }
@@ -332,28 +316,8 @@ fieldset p {
   font-size: 1.1em;
 }
 
-
-
-
-
-
 //Overides
 @import 'modal-overides';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .visualization-modal {
   height: 450px;
