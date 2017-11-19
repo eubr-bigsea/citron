@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 const { attr } = DS;
 
@@ -14,4 +15,12 @@ export default DS.Model.extend({
   steps: attr(),
   results: attr(),
   status_text: attr(),
+
+  isCompleted: computed('status', function(){
+    return (this.get('status') === 'completed' || this.get('status') === 'error');
+  }),
+  isRunning: computed('status', function(){
+    return (this.get('status') === 'running' || this.get('status') === 'waiting');
+  }),
+
 });

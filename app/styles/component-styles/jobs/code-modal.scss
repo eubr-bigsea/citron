@@ -1,0 +1,36 @@
+& {
+  &.modal.show{
+    overflow-x: auto;
+  }
+  .modal-dialog {
+    width: auto;
+    max-width: calc(100vw - 100px);
+  }
+  .modal-content {
+    min-width: 300px;
+  }
+  .modal-header {
+    height: 75px;
+  }
+  .modal-title {
+    width: calc(100% - 15px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .modal-body pre {
+    margin: 0;
+    max-height: calc(100vh - 192px);
+    min-height: 200px;
+  }
+  .modal-footer {
+    height: 65px;
+  }
+}
+@media (min-width: 576px) {
+  & {
+    .modal-body pre {
+      max-height: calc(100vh - 232px);
+    }
+  }
+}

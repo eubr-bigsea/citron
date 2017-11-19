@@ -1,449 +1,451 @@
-<header id="header-wrap">
-  <section id="header">
-    <nav class="navbar navbar-light navbar-fixed-top" data-spy="affix" data-offset-top="50">
+<div class='landing-page-css'>
+  <header id="header-wrap">
+    <section id="header">
+      <nav class="navbar navbar-light navbar-fixed-top" data-spy="affix" data-offset-top="50">
+        <div class="container">
+          <button class='navbar-toggler hidden-md-up pull-xs-right' data-target='#main-menu' data-toggle='collapse' type='button'>
+
+          </button>
+          <a class="navbar-brand">
+            {{#link-to 'landing-page'}}<img src="assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
+          </a>
+          <div class="collapse navbar-toggleable-sm pull-xs-left pull-md-right" id="main-menu">
+            <ul class="nav nav-inline">
+              <li class="nav-item">
+                <a class="page-scroll nav-link" href="#header" >Home</a>
+
+              </li>
+              <li class="nav-item">
+                <a class="page-scroll nav-link" href="#about-us">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="page-scroll nav-link" href="#our-services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="page-scroll nav-link" href="#meet-us">Meet Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="page-scroll nav-link" href="#footer">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+  </header>
+  <div class="bgimg">
+    <div id="free-promo" style="text-align: center;">
       <div class="container">
-        <button class='navbar-toggler hidden-md-up pull-xs-right' data-target='#main-menu' data-toggle='collapse' type='button'>
-
-        </button>
-        <a class="navbar-brand">
-          {{#link-to 'landing-page'}}<img src="assets/images/logo2.png" alt="" height = 40px;>{{/link-to}}
-        </a>
-        <div class="collapse navbar-toggleable-sm pull-xs-left pull-md-right" id="main-menu">
-          <ul class="nav nav-inline">
-            <li class="nav-item">
-              <a class="page-scroll nav-link" href="#header" >Home</a>
-
-            </li>
-            <li class="nav-item">
-              <a class="page-scroll nav-link" href="#about-us">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="page-scroll nav-link" href="#our-services">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="page-scroll nav-link" href="#meet-us">Meet Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="page-scroll nav-link" href="#footer">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </section>
-</header>
-<div class="bgimg">
-  <div id="free-promo" style="text-align: center;">
-    <div class="container">
-      <div class="row text-center" style="padding-top:14%;">
-        <div class="error-page">
-          <h2><a class="titulo">Welcome to Lemonade!</a></h2>
-          {{link-to 'Login' 'login' class="btn-lndg-pg btn-common btn-lg"}}
-          {{link-to 'Sign Up' 'signup' class="btn-lndg-pg btn-common btn-lg"}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<a id="about-us"></a>
-<section id="service-block-main" class="section">
-  <div class="container">
-    <div class="row">
-      <h1 class="section-title wow fadeIn animated" data-wow-delay=".2s">
-        About us:
-      </h1>
-      <p class="section-subcontent">Lemonade is a web tool for data manipulation where you can import,<br> manage and export distinct datasets, create workflows and apply <br>several filters and operations avaiable to your data</p>
-      <div class="col-sm-6 col-md-3">
-        <div class="service-item wow fadeInUpQuick animated" data-wow-delay=".5s">
-          <div class="icon-wrapper">
-            <i class="icon-layers pulse-shrink"></i>
-          </div>
-          <h2>
-            Create a Processing Workflow
-          </h2>
-          <p>
-          You can create and cutomize workflows from scratch! There are several operations and filters avaiable so you can
-          manipulate your data by simply adding functionality boxes to your workflow with an easy drag-and-drop process.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-3">
-        <div class="service-item wow fadeInUpQuick animated" data-wow-delay=".8s">
-          <div class="icon-wrapper">
-            <i class="icon-settings pulse-shrink"></i>
-          </div>
-          <h2>
-            Import, Export or Manage Datasets
-          </h2>
-          <p>
-          All your data can be imported in different formats to the application for proper manipulation. You can manage the
-          imported datasets and later on you can export the resulting data with the formats of your choice.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-3">
-        <div class="service-item wow fadeInUpQuick animated" data-wow-delay="1.1s">
-          <div class="icon-wrapper">
-            <i class="icon-energy pulse-shrink"></i>
-          </div>
-          <h2>
-            Execute and Manage Existing Workflows
-          </h2>
-          <p>
-          All your workflows are manageable, so you can access, create, edit or delete them at any time. You can also follow
-          the progress of a workflow that is being executed and pause or stop it if you want.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-3">
-        <div class="service-item  wow fadeInUpQuick animated" data-wow-delay="1.4s">
-          <div class="icon-wrapper">
-            <i class="icon-cup pulse-shrink"></i>
-          </div>
-          <h2>
-            Data Visualization
-          </h2>
-          <p>
-          At the end of the process, you have features avaiable for a better visualization of the data, abstracting its schematic
-          information into graphs and other visual forms.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<a id="our-services"></a>
-<section id="other-services" class="section" style="background-color: #F6F6F6;">
-  <div class="container">
-    <div class="row">
-      <h1 class="section-title wow fadeInUpQuick">
-        OUR SERVICES
-      </h1>
-      <p class="section-subcontent">At vero eos et accusamus et iusto odio dignissimos ducimus qui <br> blanditiis praesentium</p>
-      <div class="col-sm-6 col-md-6">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home"><i class="icon-screen-desktop"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"><i class="icon-settings"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#messages" role="tab" aria-controls="messages"><i class="icon-heart"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-controls="settings"><i class="icon-layers"></i></a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="home" role="tabpanel">
-            <div class="service-content wow fadeInUpQuick">
-              <h3>Responsive Design</h3>
-              <p class="lead">At vero eos et accusamus et <a href="#">iusto</a> odio digniss- <br> imos <b>ducimus</b> qui blanditiis praesentium voluptatum deleniti</p>
-              <p>quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-            </div>
-          </div>
-          <div class="tab-pane" id="profile" role="tabpanel">
-            <div class="service-content wow fadeInUpQuick">
-              <h3>Very useful custom widget </h3>
-              <p class="lead">At vero eos et accusamus et <a href="#">iusto</a> odio digniss- <br> imos <b>ducimus</b> qui blanditiis praesentium voluptatum deleniti</p>
-              <p>quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-            </div>
-          </div>
-          <div class="tab-pane" id="messages" role="tabpanel">
-            <div class="service-content fadeInUpQuick">
-              <h3>Graphic Design</h3>
-              <p class="lead">At vero eos et accusamus et <a href="#">iusto</a> odio digniss- <br> imos <b>ducimus</b> qui blanditiis praesentium voluptatum deleniti</p>
-              <p>quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-            </div>
-          </div>
-          <div class="tab-pane" id="settings" role="tabpanel">
-            <div class="service-content fadeInUpQuick">
-              <h3>Parallax Background</h3>
-              <p class="lead">At vero eos et accusamus et <a href="#">iusto</a> odio digniss- <br> imos <b>ducimus</b> qui blanditiis praesentium voluptatum deleniti</p>
-              <p>quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 com-md-6">
-        <div class="skill-shortcode">
-          <div class="skill">
-            <p>
-            Web Design 91%
-            </p>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar"  data-percentage="91">
-                <span class="sr-only">
-                  91% Complete
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="skill">
-            <p>
-            HTML/CSS 86%
-            </p>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar"  data-percentage="86">
-                <span class="sr-only">
-                  86% Complete
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="skill">
-            <p>
-            Graphic Design 78%
-            </p>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar"  data-percentage="78">
-                <span class="sr-only">
-                  60% Complete
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="skill">
-            <p>
-            WordPress 65%
-            </p>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar"  data-percentage="65">
-                <span class="sr-only">
-                  60% Complete
-                </span>
-              </div>
-            </div>
+        <div class="row text-center" style="padding-top:14%;">
+          <div class="error-page">
+            <h2><a class="titulo">Welcome to Lemonade!</a></h2>
+            {{link-to 'Login' 'login' class="btn-lndg-pg btn-common btn-lg"}}
+            {{link-to 'Sign Up' 'signup' class="btn-lndg-pg btn-common btn-lg"}}
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
-<a id="meet-us"></a>
-<section id="team" class="section">
-  <div class="container">
-    <div class="row">
-      <h1 class="section-title wow fadeInDown" data-wow-delay=".5s">
-        MEET OUR TEAM
-      </h1>
-      <p class="section-subcontent">At vero eos et accusamus et iusto odio dignissimos ducimus qui <br> blanditiis praesentium</p>
-      <div class="col-sm-6 col-md-3">
-        <div class="team-item wow fadeInUpQuick" data-wow-delay="1s">
-          <figure class="team-profile">
-            <figcaption class="our-team">
-              <div class="details">
-                <p class="content-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <div class="orange-line"></div>
-                <div class="social">
-                  <a class="facebook" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                  <a class="twitter" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
-                  <a class="google-plus" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
-          <div class="info">
-            <h2>
-              Sara smith
-            </h2>
-            <div class="orange-line"></div>
-            <p>
-            Founder And ceo
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-3">
-        <div class="team-item wow fadeInUpQuick" data-wow-delay="1.4s">
-          <figure class="team-profile">
-            <figcaption class="our-team">
-              <div class="details">
-                <p class="content-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <div class="orange-line"></div>
-                <div class="social">
-                  <a class="facebook" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                  <a class="twitter" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
-                  <a class="google-plus" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
-          <div class="info">
-            <h2>
-              Sommer Christian
-            </h2>
-            <div class="orange-line"></div>
-            <p>
-            creative studio head
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-3">
-        <div class="team-item wow fadeInUpQuick" data-wow-delay="1.8s">
-          <figure class="team-profile">
-            <figcaption class="our-team">
-              <div class="details">
-                <p class="content-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <div class="orange-line"></div>
-                <div class="social">
-                  <a class="facebook" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                  <a class="twitter" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
-                  <a class="google-plus" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
-          <div class="info">
-            <h2>
-              Jane lupkin
-            </h2>
-            <div class="orange-line"></div>
-            <p>
-            magento developer
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-3">
-        <div class="team-item wow fadeInUpQuick" data-wow-delay="2.2s">
-          <figure class="team-profile">
-            <figcaption class="our-team">
-              <div class="details">
-                <p class="content-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <div class="orange-line"></div>
-                <div class="social">
-                  <a class="facebook" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                  <a class="twitter" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
-                  <a class="google-plus" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
-          <div class="info">
-            <h2>
-              Sebastian roll
-            </h2>
-            <div class="orange-line"></div>
-            <p>
-            Logo / branding designer
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<a id="footer"></a>
-<footer>
-  <div class="container">
-    <div class="row section">
-      <div class="footer-widget col-md-3 col-xs-12 wow fadeIn">
-        <h3 class="small-title">
-          ABOUT US
-        </h3>
-        <p>
-        Etiam ornare condimentum massa et scelerisque. Mauris nibh ipsum, laoreet at venenatis ac, rutrum sed risus,
-        </p>
-        <p>Aliquam magna nibh, mattis a urna nec. Semper venenatis magna.</p>
-        <div class="social-footer">
-          <a href="#"><i class="fa fa-facebook icon-round"></i></a>
-          <a href="#"><i class="fa fa-twitter icon-round"></i></a>
-          <a href="#"><i class="fa fa-linkedin icon-round"></i></a>
-          <a href="#"><i class="fa fa-google-plus icon-round"></i></a>
-        </div>
-      </div>
-
-      <div class="footer-widget col-md-3 col-xs-12 wow fadeIn" data-wow-delay=".2s">
-        <h3 class="small-title">
-          TWITTER
-        </h3>
-        <ul class="recent-tweets">
-          <li class="tweet">
-            My <a href="#">@Quora</a>
-            <span class="tweet-text">
-              answer to What's the best FAQ plugin for WordPress?
-            </span>
-            <a href="#">qr.ae/RFTbIGa</a>
-            <span class="tweet-date">
-              August 21, 2015 10:29pm
-            </span>
-          </li>
-
-
-          <li class="tweet">
-            WPB Advanced FAQ | Probably The Best WordPress FAQ Plugin <a href="#">wpbean.com/wpb-advanced-faq-pr…</a>
-            <span class="tweet-text">
-              via
-            </span>
-            <a href="#">@wpbean</a>
-            <span class="tweet-date">
-              August 19, 2015 8:49 am
-            </span>
-          </li>
-
-
-        </ul>
-      </div>
-
-      <div class="footer-widget col-md-3 col-xs-12 wow fadeIn" data-wow-delay=".8s">
-        <h3 class="small-title">
-          CONTACT US
-        </h3>
-        <div class="contact-us">
-          <p>Tellus aliquam at. Pellentesque gravida vel eros et pretium</p>
-          <form>
-            <div class="form-group">
-              <input type="text" class="form-control" id="exampleInputName2" placeholder="Enter your name">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter your email">
-            </div>
-            <button type="submit" class="btn btn-common">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="copyright">
+  <a id="about-us"></a>
+  <section id="service-block-main" class="section">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <p class="copyright-text">
-          ©  2016 Engage. All right reserved. Designed with by <a href="#">GrayGrids</a>
-          </p>
+        <h1 class="section-title wow fadeIn animated" data-wow-delay=".2s">
+          About us:
+        </h1>
+        <p class="section-subcontent">Lemonade is a web tool for data manipulation where you can import,<br> manage and export distinct datasets, create workflows and apply <br>several filters and operations avaiable to your data</p>
+        <div class="col-sm-6 col-md-3">
+          <div class="service-item wow fadeInUpQuick animated" data-wow-delay=".5s">
+            <div class="icon-wrapper">
+              <i class="icon-layers pulse-shrink"></i>
+            </div>
+            <h2>
+              Create a Processing Workflow
+            </h2>
+            <p>
+            You can create and cutomize workflows from scratch! There are several operations and filters avaiable so you can
+            manipulate your data by simply adding functionality boxes to your workflow with an easy drag-and-drop process.
+            </p>
+          </div>
         </div>
-        <div class="col-md-6  col-sm-6">
-          <ul class="nav nav-inline pull-xs-right">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sitemap</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Privacy Policy</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Terms of services</a>
-            </li>
-          </ul>
+
+        <div class="col-sm-6 col-md-3">
+          <div class="service-item wow fadeInUpQuick animated" data-wow-delay=".8s">
+            <div class="icon-wrapper">
+              <i class="icon-settings pulse-shrink"></i>
+            </div>
+            <h2>
+              Import, Export or Manage Datasets
+            </h2>
+            <p>
+            All your data can be imported in different formats to the application for proper manipulation. You can manage the
+            imported datasets and later on you can export the resulting data with the formats of your choice.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+          <div class="service-item wow fadeInUpQuick animated" data-wow-delay="1.1s">
+            <div class="icon-wrapper">
+              <i class="icon-energy pulse-shrink"></i>
+            </div>
+            <h2>
+              Execute and Manage Existing Workflows
+            </h2>
+            <p>
+            All your workflows are manageable, so you can access, create, edit or delete them at any time. You can also follow
+            the progress of a workflow that is being executed and pause or stop it if you want.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+          <div class="service-item  wow fadeInUpQuick animated" data-wow-delay="1.4s">
+            <div class="icon-wrapper">
+              <i class="icon-cup pulse-shrink"></i>
+            </div>
+            <h2>
+              Data Visualization
+            </h2>
+            <p>
+            At the end of the process, you have features avaiable for a better visualization of the data, abstracting its schematic
+            information into graphs and other visual forms.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
+  <a id="our-services"></a>
+  <section id="other-services" class="section" style="background-color: #F6F6F6;">
+    <div class="container">
+      <div class="row">
+        <h1 class="section-title wow fadeInUpQuick">
+          OUR SERVICES
+        </h1>
+        <p class="section-subcontent">At vero eos et accusamus et iusto odio dignissimos ducimus qui <br> blanditiis praesentium</p>
+        <div class="col-sm-6 col-md-6">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home"><i class="icon-screen-desktop"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"><i class="icon-settings"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#messages" role="tab" aria-controls="messages"><i class="icon-heart"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-controls="settings"><i class="icon-layers"></i></a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel">
+              <div class="service-content wow fadeInUpQuick">
+                <h3>Responsive Design</h3>
+                <p class="lead">At vero eos et accusamus et <a href="#">iusto</a> odio digniss- <br> imos <b>ducimus</b> qui blanditiis praesentium voluptatum deleniti</p>
+                <p>quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
+              </div>
+            </div>
+            <div class="tab-pane" id="profile" role="tabpanel">
+              <div class="service-content wow fadeInUpQuick">
+                <h3>Very useful custom widget </h3>
+                <p class="lead">At vero eos et accusamus et <a href="#">iusto</a> odio digniss- <br> imos <b>ducimus</b> qui blanditiis praesentium voluptatum deleniti</p>
+                <p>quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
+              </div>
+            </div>
+            <div class="tab-pane" id="messages" role="tabpanel">
+              <div class="service-content fadeInUpQuick">
+                <h3>Graphic Design</h3>
+                <p class="lead">At vero eos et accusamus et <a href="#">iusto</a> odio digniss- <br> imos <b>ducimus</b> qui blanditiis praesentium voluptatum deleniti</p>
+                <p>quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
+              </div>
+            </div>
+            <div class="tab-pane" id="settings" role="tabpanel">
+              <div class="service-content fadeInUpQuick">
+                <h3>Parallax Background</h3>
+                <p class="lead">At vero eos et accusamus et <a href="#">iusto</a> odio digniss- <br> imos <b>ducimus</b> qui blanditiis praesentium voluptatum deleniti</p>
+                <p>quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<a href="#" class="back-to-top">
-  <i class="fa fa-angle-up"></i>
-</a>
+        <div class="col-sm-6 com-md-6">
+          <div class="skill-shortcode">
+            <div class="skill">
+              <p>
+              Web Design 91%
+              </p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"  data-percentage="91">
+                  <span class="sr-only">
+                    91% Complete
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="skill">
+              <p>
+              HTML/CSS 86%
+              </p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"  data-percentage="86">
+                  <span class="sr-only">
+                    86% Complete
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="skill">
+              <p>
+              Graphic Design 78%
+              </p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"  data-percentage="78">
+                  <span class="sr-only">
+                    60% Complete
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="skill">
+              <p>
+              WordPress 65%
+              </p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"  data-percentage="65">
+                  <span class="sr-only">
+                    60% Complete
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a id="meet-us"></a>
+  <section id="team" class="section">
+    <div class="container">
+      <div class="row">
+        <h1 class="section-title wow fadeInDown" data-wow-delay=".5s">
+          MEET OUR TEAM
+        </h1>
+        <p class="section-subcontent">At vero eos et accusamus et iusto odio dignissimos ducimus qui <br> blanditiis praesentium</p>
+        <div class="col-sm-6 col-md-3">
+          <div class="team-item wow fadeInUpQuick" data-wow-delay="1s">
+            <figure class="team-profile">
+              <figcaption class="our-team">
+                <div class="details">
+                  <p class="content-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <div class="orange-line"></div>
+                  <div class="social">
+                    <a class="facebook" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                    <a class="twitter" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                    <a class="google-plus" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+            <div class="info">
+              <h2>
+                Sara smith
+              </h2>
+              <div class="orange-line"></div>
+              <p>
+              Founder And ceo
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+          <div class="team-item wow fadeInUpQuick" data-wow-delay="1.4s">
+            <figure class="team-profile">
+              <figcaption class="our-team">
+                <div class="details">
+                  <p class="content-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <div class="orange-line"></div>
+                  <div class="social">
+                    <a class="facebook" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                    <a class="twitter" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                    <a class="google-plus" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+            <div class="info">
+              <h2>
+                Sommer Christian
+              </h2>
+              <div class="orange-line"></div>
+              <p>
+              creative studio head
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+          <div class="team-item wow fadeInUpQuick" data-wow-delay="1.8s">
+            <figure class="team-profile">
+              <figcaption class="our-team">
+                <div class="details">
+                  <p class="content-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <div class="orange-line"></div>
+                  <div class="social">
+                    <a class="facebook" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                    <a class="twitter" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                    <a class="google-plus" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+            <div class="info">
+              <h2>
+                Jane lupkin
+              </h2>
+              <div class="orange-line"></div>
+              <p>
+              magento developer
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+          <div class="team-item wow fadeInUpQuick" data-wow-delay="2.2s">
+            <figure class="team-profile">
+              <figcaption class="our-team">
+                <div class="details">
+                  <p class="content-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <div class="orange-line"></div>
+                  <div class="social">
+                    <a class="facebook" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                    <a class="twitter" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                    <a class="google-plus" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+            <div class="info">
+              <h2>
+                Sebastian roll
+              </h2>
+              <div class="orange-line"></div>
+              <p>
+              Logo / branding designer
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a id="footer"></a>
+  <footer>
+    <div class="container">
+      <div class="row section">
+        <div class="footer-widget col-md-3 col-xs-12 wow fadeIn">
+          <h3 class="small-title">
+            ABOUT US
+          </h3>
+          <p>
+          Etiam ornare condimentum massa et scelerisque. Mauris nibh ipsum, laoreet at venenatis ac, rutrum sed risus,
+          </p>
+          <p>Aliquam magna nibh, mattis a urna nec. Semper venenatis magna.</p>
+          <div class="social-footer">
+            <a href="#"><i class="fa fa-facebook icon-round"></i></a>
+            <a href="#"><i class="fa fa-twitter icon-round"></i></a>
+            <a href="#"><i class="fa fa-linkedin icon-round"></i></a>
+            <a href="#"><i class="fa fa-google-plus icon-round"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-widget col-md-3 col-xs-12 wow fadeIn" data-wow-delay=".2s">
+          <h3 class="small-title">
+            TWITTER
+          </h3>
+          <ul class="recent-tweets">
+            <li class="tweet">
+              My <a href="#">@Quora</a>
+              <span class="tweet-text">
+                answer to What's the best FAQ plugin for WordPress?
+              </span>
+              <a href="#">qr.ae/RFTbIGa</a>
+              <span class="tweet-date">
+                August 21, 2015 10:29pm
+              </span>
+            </li>
+
+
+            <li class="tweet">
+              WPB Advanced FAQ | Probably The Best WordPress FAQ Plugin <a href="#">wpbean.com/wpb-advanced-faq-pr…</a>
+              <span class="tweet-text">
+                via
+              </span>
+              <a href="#">@wpbean</a>
+              <span class="tweet-date">
+                August 19, 2015 8:49 am
+              </span>
+            </li>
+
+
+          </ul>
+        </div>
+
+        <div class="footer-widget col-md-3 col-xs-12 wow fadeIn" data-wow-delay=".8s">
+          <h3 class="small-title">
+            CONTACT US
+          </h3>
+          <div class="contact-us">
+            <p>Tellus aliquam at. Pellentesque gravida vel eros et pretium</p>
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter your email">
+              </div>
+              <button type="submit" class="btn btn-common">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <p class="copyright-text">
+            ©  2016 Engage. All right reserved. Designed with by <a href="#">GrayGrids</a>
+            </p>
+          </div>
+          <div class="col-md-6  col-sm-6">
+            <ul class="nav nav-inline pull-xs-right">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sitemap</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Privacy Policy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Terms of services</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+</div>

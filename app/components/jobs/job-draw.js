@@ -1,157 +1,96 @@
 /* global jsPlumb */
-import EmberObject, { set } from '@ember/object';
-
-import $ from 'jquery';
-import { A } from '@ember/array';
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import generateUUID from 'lemonade-ember/utils/generate-uuid';
 import config from '../../config/environment';
 import io from 'npm:socket.io-client';
+import Ps from 'npm:perfect-scrollbar';
+import { set } from '@ember/object';
 
 export default Component.extend({
-  statusClasses: ['completed', 'error', 'canceled', 'interruped', 'pending', 'running', 'waiting'],
-
-  store: service('store'),
-
   init() {
     this._super(...arguments);
-
-    this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
-
-    this.set('tasks', A());
-    this.set('flows', A());
-
-    this.get('workflow').tasks.forEach((task) => {
-      this.get('tasks').addObject(task);
-    });
-
-    this.get('workflow').flows.forEach((flow) => {
-      this.get('flows').addObject(flow);
-    });
-
     this.set('socket', io(config.webSocketIO.url + config.webSocketIO.namespace, { path:config.webSocketIO.path }, {upgrade: true}));
-    this.set('jobId', this.get('job.id'));
-  },
-
-  didReceiveAttrs(){
-    //Socket-io client
-    var socket = this.get('socket');
-    var component = this;
-
-    socket.on('connect', () => {
-      socket.emit('join', {room: this.get('jobId')});
-    });
-    socket.on('connect_error', () => {
-      console.debug('Web socket server offline');
-    });
-    socket.on('disconnect', () => {
-      console.debug('disconnect');
-    });
-    socket.on('update task', function(frame, server_callback) {
-      var step = component.get('steps').findBy('task.id', frame.id);
-      component.get('generateLogs')(step.operation.name, frame.message);
-      var logStep = component.get('stepsLogs').findBy('task.id', frame.id);
-      logStep.logs.pushObject(frame);
-      set(logStep, 'status', frame.status);
-      var stepTemplate = $(`#${step.task.id}`);
-      stepTemplate.removeClass(component.get('statusClasses').join(' '));
-      var className = frame.status.toLowerCase();
-      stepTemplate.addClass(className);
-      if (server_callback){
-        server_callback();
-      }
-    });
-
-    socket.on('update job', function(frame, server_callback) {
-      console.debug('update job');
-      component.set('job.status', frame.status.toLowerCase());
-      if(frame.status.toLowerCase() === 'error'){
-        $("#flashError").text(frame.message).show()
-        var job = component.get('job');
-        set(job, 'status_text', frame.message);
-      }
-      if (server_callback){
-        server_callback();
-      }
-    });
+    this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId, draggable: false}));
   },
 
   didInsertElement() {
-    this._super(...arguments);
+    Ps.initialize(document.getElementById("draw-container"));
 
-    let el = this;
-
-    $(`#${this.elementId}`).droppable({
-      drop: (event, ui) => {
-        let task = {
-          id: generateUUID(),
-          z_index: 0,
-          forms: {},
-          left: ui.position.left,
-          top: ui.position.top,
-          operation: {
-            id: ui.helper.data('opid'),
-            name: ui.helper.data('name'),
-            slug: ui.helper.data('slug')
-          },
-          operation_id: ui.helper.data('opid')
-        };
-        this.get('workflow').get('tasks').addObject(task);
-        this.get('tasks').addObject(task);
-      }
-    }).selectable({
-      selected() {
-        $('.ui-selected').removeClass('ui-selected');
-      },
-      stop() {
-        $('#forms').toggle(false);
-        el.set('forms', EmberObject.create());
-        el.set('filledForms', EmberObject.create());
-      }
-    });
-    this.get('workflow').flows.forEach((flow) => {
-      this.get('flows').addObject(flow);
+    let job = this.get('job');
+    let tasks = job.get('workflow.tasks');
+    let selectedTask = this.get('selectedTask');
+    //Draw flow
+    job.get('workflow.flows').forEach((flow) => {
       this.send('addFlow', flow);
     });
-  },
 
-  didRender(){
-    var steps = this.get('steps');
+    if(!job.get('isCompleted')){
+      //Socket-io client
+      let socket = this.get('socket');
+      var component = this;
 
-    steps.forEach(function(step){
-      var stepTemplate = $(`#${step.task.id}`);
-      var className = step.status.toLowerCase();
-      if(!(className == "pending" && (stepTemplate.hasClass("completed") || stepTemplate.hasClass("canceled") || stepTemplate.hasClass("error") || stepTemplate.hasClass("interrupted")))){
-        stepTemplate.addClass(className);
-      }
-    });
+      //make connection
+      socket.on('connect', () => { socket.emit('join', {room: job.id}); });
+      socket.on('connect_error', () => { console.debug('Web socket server offline'); });
+      socket.on('disconnect', () => { console.debug('disconnect'); });
+
+      //handle messages
+      socket.on('update task', function(frame, server_callback) {
+        frame.status = frame.status.toLowerCase();
+        var task = tasks.findBy('id', frame.task.id);
+        if(task.step.logs.findBy('id', frame.id) == undefined){
+          set(task, 'step.status', frame.status);
+          task.step.logs.pushObject(frame);
+          if(frame.type === 'HTML'){
+            task.tables.pushObject(frame);
+          } else if(frame.type === 'TEXT') {
+            task.logs.pushObject(frame);
+          }
+        }
+        if(selectedTask && selectedTask.id === task.id){
+          component.set('selectedTask', task);
+        }
+        if (server_callback){ server_callback(); }
+      });
+
+      socket.on('task result', function(frame, server_callback) {
+        frame.status = frame.status.toLowerCase();
+        var task = tasks.findBy('id', frame.task.id);
+        if(task.result == undefined){
+          set(task, 'step.status', frame.status);
+          set(task, 'result', frame);
+        }
+        if(selectedTask && selectedTask.id === task.id){
+          component.set('selectedTask', task);
+        }
+        if (server_callback){ server_callback(); }
+      });
+
+      socket.on('update job', function(frame, server_callback) {
+        job.set('status', frame.status.toLowerCase());
+        job.set('status_text', frame.message);
+        if (server_callback){ server_callback(); }
+      });
+    }
   },
 
   willDestroyElement() {
     this._super(...arguments);
     var socket = this.get('socket');
-    socket.emit('leave', { room: this.get('jobId') });
+    let jobId = this.get('job.id');
+    socket.emit('leave', { room: jobId });
     socket.emit('disconnect');
     socket.close();
   },
 
   actions: {
-    clickTask(forms, filledForms, task) {
-      let fn = function(a, b) { return a.order > b.order; };
-      this.set('forms', forms.sort(fn));
-      this.set('filledForms', filledForms);
-      this.set('task', task);
-    },
     addFlow(flow) {
       this.get('jsplumb').connect({
+        detachable: false,
         uuids: [
           `${flow.source_id}/${flow.source_port}`,
           `${flow.target_id}/${flow.target_port}`
         ]
       });
     },
-    removeFlow() {},
-    removeTask() {}
   }
 });

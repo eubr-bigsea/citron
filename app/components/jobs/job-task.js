@@ -1,42 +1,23 @@
 import $ from 'jquery';
 import { A } from '@ember/array';
-import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 
 export default Component.extend({
-  store: service(),
-  classNames: ['task', 'decor'],
   classNameBindings: ['task.operation.slug','status'],
-  status: null,
-  comment: null,
-  isComment: false,
-
-  init() {
-    this._super(...arguments);
-    this.set('endpoints', A());
-  },
+  endpoints: A(),
 
   didInsertElement() {
-    let opId = String(this.get("task").operation.id);
-    let operations = this.get('operations');
-
-    this.set('operation', operations.find(el => String(el.id) === opId))
     const task = this.get('task');
-    const op   = this.get('operation');
-    const el = $(`#${this.elementId}`);
+    const el = this.$();
     const jsplumb = this.get('jsplumb');
 
     el.css('top', task.top);
     el.css('left', task.left);
 
     let fn = function(a, b) { return a.order > b.order; };
-    let input = op.get('ports').filter(p => p.type === 'INPUT').sort(fn);
-    let output = op.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
-
-    if(task.forms.comment && task.forms.comment.value){
-      this.set('comment', task.forms.comment.value);
-    }
+    let input = task.operation.ports.filter(p => p.type === 'INPUT').sort(fn);
+    let output = task.operation.ports.filter(p => p.type === 'OUTPUT').sort(fn);
 
     let isInput = true;
     [input, output].forEach((type) => {
@@ -46,52 +27,27 @@ export default Component.extend({
           isTarget: isInput,
           scope: port.interfaces.map(el => el.name).join(" "),
           anchors: anchorPosition(isInput, type.length, i),
-          uuid: `${this.get('elementId')}/${port.id}`,
-          endpoint: [
-            isInput ? "Dot" : "Rectangle", {
-              radius: 5,
-              width: 10,
-              height: 10
-            }
-          ],
-          overlays: [
-            [
-              "Label", {
-                label: port.name,
-                id: "id",
-                location: isInput ? [0, -2] : [0, 3],
-                cssClass: "label-overlay",
-              }
-            ]
-          ],
+          uuid: `${task.id}/${port.id}`,
+          endpoint: [ isInput ? "Dot" : "Rectangle", { radius: 5, width: 10, height: 10 } ],
+          overlays: [ [ "Label",
+            { label: port.name, id: "id", location: isInput ? [0, -1] : [0, 2], cssClass: "label-overlay" }
+          ] ],
           connector: 'Flowchart',
-          connectorOverlays: [
-            [
-              "Arrow", {
-                location: 0.75,
-                length: 15,
-                foldback: 0.8
-              }
-            ],
-          ],
+          connectorOverlays: [ [ "Arrow", { location: 0.75, length: 15, foldback: 0.8 } ] ],
           maxConnections: port.multiplicity === "ONE" ? 1 : -1,
-          dropOptions : {
-            activeClass: isInput ? 'drag-input' : 'drag-output',
-          },
+          dropOptions : { activeClass: isInput ? 'drag-input' : 'drag-output' },
         };
         this.get('endpoints').addObject(jsplumb.addEndpoint(el, opts));
       });
       isInput = false;
     });
 
-    jsplumb.draggable(el, false);
+    jsplumb.setDraggable(el, false);
+    var tab = 'logs';
+    if(task.result){
+      tab = 'results';
+    }
 
-    $(el).dblclick(() => {
-      this.get('openLogs')(el.attr('id'));
-    });
+    $(el).dblclick(() => { this.get('selectTask')(task, tab); });
   },
-  actions: {
-    submit(){
-    },
-  }
 });

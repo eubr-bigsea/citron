@@ -1,6 +1,8 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { A } from '@ember/array';
 import $ from 'jquery';
+import toposort from 'npm:toposort';
 
 export default Component.extend({
   sessionAccount: service(),
@@ -39,6 +41,18 @@ export default Component.extend({
       var component = this;
       //FIX THIS
       let workflow = this.get('workflow').toJSON({ includeId: true });
+      var sort = toposort(workflow.flows.map((el) => { return [el.source_id, el.target_id] }));
+      workflow.tasks.mapBy('id').forEach((id) => {
+        if(!sort.includes(id)){
+          sort.push(id);
+        }
+      });
+      var aux = A();
+      sort.forEach((id) => {
+        aux.pushObject(workflow.tasks.findBy('id', id))
+      })
+      workflow.tasks = aux;
+      this.set('workflow.tasks', aux);
       var user = this.get('sessionAccount.user');
       let jobHash = {
         name: 'teste',

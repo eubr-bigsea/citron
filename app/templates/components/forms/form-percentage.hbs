@@ -1,1 +1,10 @@
-{{yield}}
+<input
+type="range"
+onchange={{action 'valueChanged' value='target.value'}}
+class="form-control"
+value={{currentValue}}
+min="1"
+max="99"/>
+<span class="tag tag-pill tag-info">
+  {{currentValue}}% - {{deltaValue}}%
+</span>

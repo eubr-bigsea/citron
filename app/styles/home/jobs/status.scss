@@ -1,0 +1,65 @@
+.__status {
+  &.canceled {
+    color: $color-canceled;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-times;
+    }
+  }
+
+  &.completed {
+    color: $color-completed;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-check;
+    }
+  }
+
+  &.error {
+    color: $color-error;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-exclamation-triangle;
+    }
+  }
+
+  &.interrupted {
+    color: $color-interrupted;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-exclamation;
+    }
+  }
+
+  &.pending {
+    color: $color-pending;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-hourglass-half;
+    }
+  }
+
+  &.running {
+    color: $color-running;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-circle-o-notch;
+      @extend .fa-spin;
+    }
+  }
+
+  &.waiting {
+    color: $color-waiting;
+
+    .__icon {
+      @extend .fa;
+      @extend .fa-clock-o;
+    }
+  }
+}

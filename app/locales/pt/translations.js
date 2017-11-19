@@ -142,6 +142,10 @@ export default {
     'nullable': 'Permite nulo',
     'treat_as_missing': 'Tratar como ausente',
     'description': 'Descrição',
+    'attributes': 'Attributes',
+    'values': 'Valores',
+    'time': 'Tempo',
+    'message': 'Menssagem',
   },
 
   'cards': {
@@ -188,6 +192,9 @@ export default {
     },
   },
   'modal': {
+    'report': {
+      'title':  'Relatório do Job',
+    },
     'delete': {
       'workflow': {
         'title': 'Apagando o workflow:',
@@ -295,6 +302,12 @@ export default {
     'self': 'Jobs',
     'description': 'Lista de todos os jobs - e.g. em espera, rodando, completos, etc..',
     'searchFor': 'Pesquisar',
+    'taskModal': {
+      'results': 'Resultado',
+      'logs': 'Logs',
+      'tables': 'Tabelas',
+      'params': 'Parâmetros',
+    },
   },
   'datasources': {
     'self': 'Datasources',

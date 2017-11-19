@@ -142,6 +142,10 @@ export default {
     'nullable': 'Allow null',
     'treat_as_missing': 'Treat as Missing',
     'description': 'Description',
+    'attributes': 'Attributes',
+    'values': 'Values',
+    'time': 'Time',
+    'message': 'Message',
   },
   'cards': {
     'latestEditedWorkflows': {
@@ -187,6 +191,9 @@ export default {
     },
   },
   'modal': {
+    'report': {
+      'title':  'Job Report',
+    },
     'log': {
       'close' : 'Close',
     },
@@ -281,7 +288,6 @@ export default {
     'self': 'Job',
     'show': {
       'code': 'Code',
-      'results': 'Results',
       'log': 'Log',
       'stop': 'Stop',
       'workflow': 'Workflow',
@@ -302,6 +308,12 @@ export default {
     'self': 'Jobs',
     'description': 'List of all jobs - e.g. waiting, running, completed, etc..',
     'searchFor': 'Search',
+    'taskModal': {
+      'results': 'Results',
+      'logs': 'Logs',
+      'tables': 'Tables',
+      'params': 'Parameters',
+    },
   },
   'datasources': {
     'self': 'Datasources',

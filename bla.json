@@ -1,0 +1,392 @@
+// 20171116174520
+// https://dev.ctweb.inweb.org.br/tahiti/workflows/44?token=123456
+
+{
+  "id": 44,
+  "name": "EXEMPLO FORMS",
+  "description": "",
+  "enabled": true,
+  "created": "2017-11-14T19:05:19+00:00",
+  "updated": "2017-11-16T19:44:14+00:00",
+  "version": 20,
+  "image": "img0.png",
+  "tasks": Array[9][
+    {
+      "id": "158ecc3a-c500-4b7f-8ba9-a27bc826a26e",
+      "name": "Data writer 1",
+      "left": 290,
+      "top": 600,
+      "z_index": 0,
+      "forms": {
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        }
+      },
+      "version": 2,
+      "operation": {
+        "id": 30,
+        "name": "Data writer",
+        "slug": "data-writer"
+      }
+    },
+    {
+      "id": "22be9364-975d-46c3-84fb-6d5290cab607",
+      "name": "Join 1",
+      "left": 0,
+      "top": 160,
+      "z_index": 0,
+      "forms": {
+        "display_text": {
+          "value": "1"
+        },
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        },
+        "left_attributes": {
+          "value": Array[3][
+            "id",
+            "class",
+            "survived"
+          ]
+        },
+        "display_sample": {
+          "value": "0"
+        },
+        "display_schema": {
+          "value": "0"
+        },
+        "display_image": {
+          "value": "1"
+        },
+        "match_case": {
+          "value": "1"
+        },
+        "aliases": {
+          "value": "ds0_, ds1_"
+        }
+      },
+      "version": 3,
+      "operation": {
+        "id": 16,
+        "name": "Join",
+        "slug": "join"
+      }
+    },
+    {
+      "id": "257493e6-fd9b-4b2f-8ef1-0b24f75be548",
+      "name": "Transformation 1",
+      "left": 320,
+      "top": 200,
+      "z_index": 0,
+      "forms": {
+        "display_text": {
+          "value": "1"
+        },
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        },
+        "display_schema": {
+          "value": "0"
+        },
+        "display_sample": {
+          "value": "0"
+        },
+        "display_image": {
+          "value": "1"
+        }
+      },
+      "version": 2,
+      "operation": {
+        "id": 7,
+        "name": "Transformation",
+        "slug": "transformation"
+      }
+    },
+    {
+      "id": "34ff740a-37f7-4e8f-ad36-2a16f92c4a3e",
+      "name": "Data reader 1",
+      "left": 0,
+      "top": 0,
+      "z_index": 0,
+      "forms": {
+        "display_text": {
+          "value": "1"
+        },
+        "data_source": {
+          "value": "4"
+        },
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        },
+        "display_sample": {
+          "value": "1"
+        },
+        "infer_schema": {
+          "value": "FROM_LIMONERO"
+        },
+        "header": {
+          "value": "0"
+        },
+        "display_schema": {
+          "value": "1"
+        },
+        "separator": {
+          "value": ","
+        },
+        "mode": {
+          "value": "PERMISSIVE"
+        },
+        "display_image": {
+          "value": "1"
+        }
+      },
+      "version": 2,
+      "operation": {
+        "id": 18,
+        "name": "Data reader",
+        "slug": "data-reader"
+      }
+    },
+    {
+      "id": "4b640322-273a-4172-8fd9-a23d11499cee",
+      "name": "Aggregation 1",
+      "left": 0,
+      "top": 310,
+      "z_index": 0,
+      "forms": {
+        "display_text": {
+          "value": "1"
+        },
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        },
+        "display_schema": {
+          "value": "0"
+        },
+        "display_sample": {
+          "value": "0"
+        },
+        "display_image": {
+          "value": "1"
+        }
+      },
+      "version": 2,
+      "operation": {
+        "id": 15,
+        "name": "Aggregation",
+        "slug": "aggregation"
+      }
+    },
+    {
+      "id": "85fa0622-3895-466e-b324-555c11aa56f4",
+      "name": "Area chart 1",
+      "left": 20,
+      "top": 620,
+      "z_index": 0,
+      "forms": {
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        }
+      },
+      "version": 3,
+      "operation": {
+        "id": 71,
+        "name": "Area chart",
+        "slug": "area-chart"
+      }
+    },
+    {
+      "id": "ab038571-ab9b-4b6f-a681-e7781db0754c",
+      "name": "Sample 1",
+      "left": 270,
+      "top": 330,
+      "z_index": 0,
+      "forms": {
+        "display_text": {
+          "value": "1"
+        },
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        },
+        "display_sample": {
+          "value": "0"
+        },
+        "display_schema": {
+          "value": "0"
+        },
+        "display_image": {
+          "value": "1"
+        },
+        "fraction": {
+          "value": "1"
+        },
+        "type": {
+          "value": "percent"
+        }
+      },
+      "version": 2,
+      "operation": {
+        "id": 28,
+        "name": "Sample",
+        "slug": "sample"
+      }
+    },
+    {
+      "id": "b23f75ca-3836-4471-91c7-53bd57cc2f83",
+      "name": "Execute Python code 1",
+      "left": 60,
+      "top": 480,
+      "z_index": 0,
+      "forms": {
+        "display_text": {
+          "value": "1"
+        },
+        "code": {
+          "value": "# Write your Python code here\n# Inputs are available as in1 and in2, outputs are out1 and out2"
+        },
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        },
+        "display_sample": {
+          "value": "0"
+        },
+        "display_schema": {
+          "value": "0"
+        },
+        "display_image": {
+          "value": "1"
+        }
+      },
+      "version": 2,
+      "operation": {
+        "id": 82,
+        "name": "Execute Python code",
+        "slug": "execute-python"
+      }
+    },
+    {
+      "id": "ef864e79-8071-4f19-9bd1-6ccdf23ebcbf",
+      "name": "Split 1",
+      "left": 370,
+      "top": 60,
+      "z_index": 0,
+      "forms": {
+        "display_text": {
+          "value": "1"
+        },
+        "color": {
+          "value": "rgb(255, 255, 165)"
+        },
+        "display_schema": {
+          "value": "0"
+        },
+        "display_sample": {
+          "value": "0"
+        },
+        "display_image": {
+          "value": "1"
+        }
+      },
+      "version": 2,
+      "operation": {
+        "id": 17,
+        "name": "Split",
+        "slug": "split"
+      }
+    }
+  ],
+  "flows": Array[10][
+    {
+      "source_port": 35,
+      "target_port": 11,
+      "source_port_name": "output data",
+      "target_port_name": "input data 1",
+      "source_id": "34ff740a-37f7-4e8f-ad36-2a16f92c4a3e",
+      "target_id": "22be9364-975d-46c3-84fb-6d5290cab607"
+    },
+    {
+      "source_port": 13,
+      "target_port": 31,
+      "source_port_name": "output data",
+      "target_port_name": "input data",
+      "source_id": "22be9364-975d-46c3-84fb-6d5290cab607",
+      "target_id": "4b640322-273a-4172-8fd9-a23d11499cee"
+    },
+    {
+      "source_port": 35,
+      "target_port": 26,
+      "source_port_name": "output data",
+      "target_port_name": "input data",
+      "source_id": "34ff740a-37f7-4e8f-ad36-2a16f92c4a3e",
+      "target_id": "ef864e79-8071-4f19-9bd1-6ccdf23ebcbf"
+    },
+    {
+      "source_port": 27,
+      "target_port": 12,
+      "source_port_name": "splitted data 1",
+      "target_port_name": "input data 2",
+      "source_id": "ef864e79-8071-4f19-9bd1-6ccdf23ebcbf",
+      "target_id": "22be9364-975d-46c3-84fb-6d5290cab607"
+    },
+    {
+      "source_port": 28,
+      "target_port": 29,
+      "source_port_name": "splitted data 2",
+      "target_port_name": "input data",
+      "source_id": "ef864e79-8071-4f19-9bd1-6ccdf23ebcbf",
+      "target_id": "257493e6-fd9b-4b2f-8ef1-0b24f75be548"
+    },
+    {
+      "source_port": 30,
+      "target_port": 55,
+      "source_port_name": "output data",
+      "target_port_name": "input data",
+      "source_id": "257493e6-fd9b-4b2f-8ef1-0b24f75be548",
+      "target_id": "ab038571-ab9b-4b6f-a681-e7781db0754c"
+    },
+    {
+      "source_port": 56,
+      "target_port": 178,
+      "source_port_name": "sampled data",
+      "target_port_name": "input data 2",
+      "source_id": "ab038571-ab9b-4b6f-a681-e7781db0754c",
+      "target_id": "b23f75ca-3836-4471-91c7-53bd57cc2f83"
+    },
+    {
+      "source_port": 32,
+      "target_port": 177,
+      "source_port_name": "output data",
+      "target_port_name": "input data 1",
+      "source_id": "4b640322-273a-4172-8fd9-a23d11499cee",
+      "target_id": "b23f75ca-3836-4471-91c7-53bd57cc2f83"
+    },
+    {
+      "source_port": 180,
+      "target_port": 58,
+      "source_port_name": "output data 2",
+      "target_port_name": "input data",
+      "source_id": "b23f75ca-3836-4471-91c7-53bd57cc2f83",
+      "target_id": "158ecc3a-c500-4b7f-8ba9-a27bc826a26e"
+    },
+    {
+      "source_port": 179,
+      "target_port": 159,
+      "source_port_name": "output data 1",
+      "target_port_name": "input data",
+      "source_id": "b23f75ca-3836-4471-91c7-53bd57cc2f83",
+      "target_id": "85fa0622-3895-466e-b324-555c11aa56f4"
+    }
+  ],
+  "platform": {
+    "id": 1,
+    "name": "Spark",
+    "slug": "spark",
+    "description": "Apache Spark 2.0 - Execution platform",
+    "icon": "/static/spark.png"
+  },
+  "user": {
+    "login": "waltersf@gmail.com",
+    "id": 1,
+    "name": "Walter Filho"
+  }
+}

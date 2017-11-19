@@ -1,6 +1,9 @@
 @import "ember-bootstrap/bootstrap";
 @import "font-awesome";
-
+@import 'variables.scss';
+@import "theme-color.scss";
+@import "dimensions.scss";
+@import "pod-styles.scss";
 // Gfranciscani Styles
 @import 'mixins.scss';
 
@@ -8,6 +11,8 @@
 @import 'variables.scss';
 @import "theme-color.scss";
 @import "dimensions.scss";
+
+@import 'aligns';
 
 // Ui elements
 @import 'ui/ui.loader.scss';
@@ -44,10 +49,6 @@
 
 //Jobs
 @import 'jobs/large-table.scss';
-@import 'jobs/job-diagram-container-wrapper.scss';
-@import 'jobs/option-bar.scss';
-@import 'jobs/logger.scss';
-@import 'jobs/source-code-modal.scss';
 
 //Datasources
 @import 'datasources/large-table.scss';
@@ -56,31 +57,27 @@
 @import 'datasources/attributes-table.scss';
 
 @import "auth.scss";
-@import "card.scss";
-@import "card-header.scss";
-@import "card-misc.scss";
-@import "card-release-notes";
-@import "card-video-tutorial";
 @import "decor.scss";
 @import "filter.scss";
 @import "header.scss";
 @import "images.scss";
-@import "engage.scss";
-@import "engage-btn.scss";
-@import "engage-nav-bar.scss";
-@import "engage-main-menu.scss";
-@import "engage-slick-menu-responsive.scss";
-@import "engage-service.scss";
-@import "engage-team.scss";
-@import "engage-footer.scss";
+.landing-page-css {
+  @import "engage.scss";
+  @import "engage-btn.scss";
+  @import "engage-nav-bar.scss";
+  @import "engage-main-menu.scss";
+  @import "engage-slick-menu-responsive.scss";
+  @import "engage-service.scss";
+  @import "engage-team.scss";
+  @import "engage-footer.scss";
+}
 @import "dimensions.scss";
 @import "green.scss";
 @import "cards-popup.scss";
 
-
-
-
-
+//New structure CSS
+@import 'home/jobs/show';
+@import 'home/jobs/status';
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -103,8 +100,6 @@
     background: $color-dark;
   }
 }
-
-
 
 html,
 body {
@@ -302,8 +297,6 @@ fieldset p {
   height: calc(2.5rem - 2px) !important;
 }
 
-
-
 ::-webkit-input-placeholder { /* Chrome, Safari */
   color: $color-text-base;
 }
@@ -323,4 +316,9 @@ fieldset p {
   font-size: 1.1em;
 }
 
+//Overides
+@import 'modal-overides';
 
+.visualization-modal {
+  height: 450px;
+}
