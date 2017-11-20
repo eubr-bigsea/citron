@@ -304,6 +304,7 @@ export default {
     'searchFor': 'Pesquisar',
     'taskModal': {
       'results': 'Resultado',
+      'images': 'Imagens',
       'logs': 'Logs',
       'tables': 'Tabelas',
       'params': 'Parâmetros',

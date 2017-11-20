@@ -13,6 +13,10 @@
             = nav.item active=(bs-eq tab.activeId 'results')
               a href='#results' class="nav-link" role="tab" onclick={action tab.select "results"}
                 = t 'jobs.taskModal.results'
+          if selectedTask.images
+            = nav.item active=(bs-eq tab.activeId 'images')
+              a href='#images' class="nav-link" role="tab" onclick={action tab.select "images"}
+                = t 'jobs.taskModal.images'
           if selectedTask.logs
             = nav.item active=(bs-eq tab.activeId 'logs')
               a href='#logs' class="nav-link" role="tab" onclick={action tab.select "logs"}
@@ -29,6 +33,9 @@
           = tab.pane id='results' title="Results"
             if selectedTask.result
               = visualizations/vis-wrapper viz=viz dataUrl=dataUrl id="display-modal"
+          = tab.pane id='images' title="images"
+            each selectedTask.images as |image|
+              img src={concat "data:image/png;base64," image}
           = tab.pane id='logs' title="Logs"
             table.table.table-hover
               thead
@@ -51,7 +58,10 @@
                 .card
                   .card-header id={concat 'tableHeading' table.id} role="tab"
                     h5.mb-0
-                      a data-toggle="collapse" href={concat "#table" table.id} aria-expanded="true" aria-controls={concat "table" table.id} = table.title
+                      if table.title
+                        a data-toggle="collapse" href={concat "#table" table.id} aria-expanded="true" aria-controls={concat "table" table.id} = table.title
+                      else
+                         a data-toggle="collapse" href={concat "#table" table.id} aria-expanded="true" aria-controls={concat "table" table.id} Table
                   .collapse.show id={concat "table" table.id} role="tabpanel" aria-labelledby={concat 'tableHeading' table.id} data-parent="#tableAccordion"
                     .card-body
                       .table-wrapper id={concat "wrapper" table.id}
