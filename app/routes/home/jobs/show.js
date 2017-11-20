@@ -27,12 +27,16 @@ export default Route.extend({
       if(!task.name){ task.name = task.operation.name }
       task.tables = A();
       task.logs = A();
+      task.images = A();
       task.params = op.get('forms').findBy('category', 'execution');
       task.step = steps.findBy('task.id', task.id);
       task.step.status = task.step.status.toLowerCase();
+      task.images = task.step.logs.filterBy('type', 'IMAGE').mapBy('message');
       task.tables = task.step.logs.filterBy('type', 'HTML').map((el) => {
-        el.title = el.message.split('h4>')[1].replace('</', '');
-        el.message = el.message.replace(`<h4>${el.title}</h4>`, '')
+        if(el.message.split('h4>')[1]){
+          el.title = el.message.split('h4>')[1].replace('</', '');
+          el.message = el.message.replace(`<h4>${el.title}</h4>`, '')
+        }
         return el;
       });
       task.logs = task.step.logs.filter((el) => {

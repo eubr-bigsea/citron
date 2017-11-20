@@ -20,6 +20,9 @@
             if task.tables
               a title={t 'jobs.taskModal.tables'} click={action 'openModal' task 'tables'}
                 i.fa.fa-table
+            if task.images
+              a title={t 'jobs.taskModal.image'} click={action 'openModal' task 'images'}
+                i.fa.fa-picture-o
             if task.result
               a title={t 'jobs.taskModal.result'} click={action 'openModal' task 'results'}
                 i.fa.fa-dashboard
