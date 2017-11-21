@@ -19,7 +19,10 @@ export default Component.extend({
         var w = field.suggested_widget;
         el.name = field.name;
         el.label = field.label;
-        el.value = forms[field.name].value;
+        el.value = null;
+        if(forms[field.name]){
+          el.value = forms[field.name].value;
+        }
         el.w = w;
         el.component = 'display-form-text';
         if(w === 'lookup'){

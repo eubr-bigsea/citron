@@ -12,7 +12,6 @@ export default Component.extend({
   didReceiveAttrs(){
     this._super(...arguments);
     let selectedTask = this.get('selectedTask');
-    console.log('selectedTask', selectedTask)
     if(selectedTask && selectedTask.result){
       this.set('dataUrl', `${config.caipirinha}/visualizations/${this.get('jobId')}/${selectedTask.id}`);
       this.set('viz', { component: `visualizations/${selectedTask.operation.slug}`.replace('bar-chart', 'vertical-bar-chart')});

@@ -1,8 +1,15 @@
 &{
+  .modal-dialog {
+    max-width: 90vw;
+  }
   .__icon {
     margin-right: 5px;
   }
   .modal-body{
     min-height: 100px;
+  }
+  h4 {
+    white-space: normal;
+    word-break: break-word;
   }
 }
