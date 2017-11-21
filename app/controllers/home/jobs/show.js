@@ -38,6 +38,10 @@ export default Controller.extend({
         }
       );
     }
+    let status = this.get('job.status');
+    if(status === 'error'){
+      this.set('reportModal', true);
+    }
   },
 
   actions: {
