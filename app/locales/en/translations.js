@@ -288,6 +288,7 @@ export default {
     'self': 'Job',
     'show': {
       'code': 'Code',
+      'report': 'Report',
       'log': 'Log',
       'stop': 'Stop',
       'workflow': 'Workflow',

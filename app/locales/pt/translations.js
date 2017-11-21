@@ -281,6 +281,7 @@ export default {
     'self': 'Job',
     'show': {
       'code': 'Código',
+      'report': 'Relatório',
       'results': 'Resultados',
       'log': 'Log',
       'stop': 'Parar',
