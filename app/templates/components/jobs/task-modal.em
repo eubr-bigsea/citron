@@ -35,7 +35,7 @@
               = visualizations/vis-wrapper viz=viz dataUrl=dataUrl id="display-modal"
           = tab.pane id='images' title="images"
             each selectedTask.images as |image|
-              img src={concat "data:image/png;base64," image}
+              img src={concat "data:image/png;base64," image.message}
           = tab.pane id='logs' title="Logs"
             table.table.table-hover
               thead
