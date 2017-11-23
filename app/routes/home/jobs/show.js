@@ -31,7 +31,7 @@ export default Route.extend({
       task.params = op.get('forms').findBy('category', 'execution');
       task.step = steps.findBy('task.id', task.id);
       task.step.status = task.step.status.toLowerCase();
-      task.images = task.step.logs.filterBy('type', 'IMAGE').mapBy('message');
+      task.images = task.step.logs.filterBy('type', 'IMAGE');
       task.tables = task.step.logs.filterBy('type', 'HTML').map((el) => {
         if(el.message.split('h4>')[1]){
           el.title = el.message.split('h4>')[1].replace('</', '');
