@@ -42,6 +42,8 @@ export default Component.extend({
           task.step.logs.pushObject(frame);
           if(frame.type === 'HTML'){
             task.tables.pushObject(frame);
+          } else if(frame.type === 'IMAGE') {
+            task.images.pushObject(frame);
           } else if(frame.type === 'TEXT') {
             task.logs.pushObject(frame);
           }
