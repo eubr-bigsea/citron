@@ -1,8 +1,24 @@
 &{
+  .modal-dialog {
+    margin-left: 50px;
+    margin-right: 50px;
+    max-width: 1200px;
+    min-width: 300px;
+    min-height: 400px;
+  }
   .__icon {
     margin-right: 5px;
   }
   .modal-body{
     min-height: 100px;
+  }
+  .wrapper {
+    max-height: calc(100vh - 230px);
+
+    overflow: auto;
+  }
+  h5 {
+    white-space: normal;
+    word-break: break-word;
   }
 }

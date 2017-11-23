@@ -12,26 +12,25 @@ export default FormComponent.extend({
   },
 
   didReceiveAttrs(){
-    this.set('parsedValues', A());
 
+    this.set('parsedValues', A());
     let parsed = this.get('parsedValues');
     let values = JSON.parse(this.get('field.values'));
     let currentValue = this.get('currentValue');
 
     if(values) {
       values.forEach((el) => {
-        if(parsed.findBy('id', el.key) === null) {
+        if(!parsed.findBy('id', el.key)) {
           parsed.addObject({
             id: el.key,
             text: el.value,
-            selected: el.key === currentValue.key
           });
         }
       });
     }
 
     if(currentValue){
-      if(parsed.findBy('id', currentValue.key) === undefined){
+      if(!parsed.findBy('id', currentValue.key)){
         parsed.addObject({
           id: currentValue.key,
           text: currentValue.value,

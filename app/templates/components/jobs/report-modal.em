@@ -4,7 +4,8 @@
       i.__icon
       span.__text: t 'modal.report.title'
   modal.body
-      h4: = message
+    .wrapper
+      h5: = message
   modal.footer
     = bs-button onClick=(action (mut reportModal) false)
       t 'modal.default.submitButton'

@@ -12,6 +12,9 @@
       = link-to 'home.workflows.draw' job.workflow.id class="btn btn-primary"
         i.fa.fa-lg.fa-flask
         span: t 'job.show.workflow'
+      a.btn.btn-primary.flash class=job.status click={action 'toggleReportModal'}
+        i.fa.fa-list-alt
+        span: t 'job.show.report'
       if job.isRunning
         a.btn.btn-primary.__stop click={action 'stopJob'}
           i.fa.fa-stop
