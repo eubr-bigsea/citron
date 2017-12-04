@@ -117,7 +117,7 @@ export default {
     'noAccount': 'Still dont have an account',
     'signUp': 'Sign up',
     'login': 'Sign in',
-    'yourProfile': 'Your profile',
+    'yourProfile': 'Your profile, ',
     'returnLogin': 'return to Login',
   },
   'tables': {

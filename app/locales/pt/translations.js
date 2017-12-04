@@ -117,7 +117,7 @@ export default {
     'noAccount': 'Ainda não possui conta',
     'signUp': 'Inscreva-se',
     'login': 'Entrar',
-    'yourProfile': 'Seu perfil',
+    'yourProfile': 'Seu perfil, ',
     'returnLogin': 'voltar para o Login',
   },
   'tables': {
