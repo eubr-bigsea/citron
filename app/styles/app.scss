@@ -63,24 +63,15 @@
 @import "filter.scss";
 @import "header.scss";
 @import "images.scss";
-.__ialanding-page {
-  @import "engage.scss";
-  @import "engage-btn.scss";
-  @import "engage-nav-bar.scss";
-  @import "engage-main-menu.scss";
-  @import "engage-slick-menu-responsive.scss";
-  @import "engage-service.scss";
-  @import "engage-team.scss";
-  @import "engage-footer.scss";
-}
 @import "dimensions.scss";
 @import "green.scss";
 @import "cards-popup.scss";
 
 //New structure CSS
-@import "landing-page";
+@import 'landing-page';
 @import 'home/jobs/show';
 @import 'home/jobs/status';
+@import 'home/user/edit';
 
 ::-webkit-scrollbar {
   width: 7px;

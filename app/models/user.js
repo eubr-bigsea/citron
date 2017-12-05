@@ -22,6 +22,7 @@ export default DS.Model.extend({
 
   //Authentication
   authenticationToken: attr(''),
+  currentPassword: attr(''),
   password: attr(''),
   passwordConfirmation: attr('')
 });
