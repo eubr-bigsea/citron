@@ -16,16 +16,18 @@ export default Route.extend(AuthenticatedRouteMixin,{
     this._super(...arguments);
     controller.set('locales', this.get('i18n.locales'));
     controller.set('changePassword', false);
+    controller.set('modal', false);
   },
 
   actions: {
     save(){
+      $('span.has-error').removeClass('invisible');
       var model = this.get('currentModel');
       return model.save().then(
         ()=>{
           this.set('i18n.locale', model.get('locale'));
           this.get('session').set('data.locale', model.get('locale'));
-          this.transitionTo('home');
+          this.controller.toggleProperty('modal');
         }).catch(() => {
           var errors = model.get('errors').toArray();
           for(var i=0, len=errors.length; i<len; i++){
@@ -45,15 +47,26 @@ export default Route.extend(AuthenticatedRouteMixin,{
 
     togglePassword(id){
       var input = $('#' + id + ' input')[0];
-      var button = $('#' + id + ' a')[0];
+      var button = $('#' + id + ' a i');
 
       if(input.type === 'password'){
-        button.text = this.get('i18n').t('forms.hide');
+        button.removeClass('fa-eye')
+        button.addClass('fa-eye-slash')
         input.type = 'text';
       } else {
-        button.text= this.get('i18n').t('forms.show');
+        button.removeClass('fa-eye-slash')
+        button.addClass('fa-eye')
         input.type = 'password';
       }
+    },
+
+    removeError(id){
+      $('#' + id ).removeClass('has-error');
+      $('#' + id + ' span.has-error').addClass('invisible');
+    },
+
+    transitionToHome(){
+      this.transitionTo('home');
     }
   }
 });

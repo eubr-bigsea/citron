@@ -60,6 +60,15 @@ export default {
       'label': 'Last name',
       'placeholder': 'Last name'
     },
+    'currentPassword': {
+      'label': 'Current password',
+    },
+    'newPassword': {
+      'label': 'New password',
+    },
+    'newPasswordConfirmation': {
+      'label': 'Confirm new password',
+    },
     'agree': {
       'label': 'I agree with the policy terms'
     },
@@ -191,6 +200,11 @@ export default {
     },
   },
   'modal': {
+    'profile': {
+      'title': "It's updated",
+      'message': "Your informations have been updated successfully.",
+      'back': 'Back to home',
+    },
     'report': {
       'title':  'Job Report',
     },

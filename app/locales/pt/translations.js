@@ -60,6 +60,15 @@ export default {
       'label': 'Sobrenome',
       'placeholder': 'Último nome'
     },
+    'currentPassword': {
+      'label': 'Senha atual',
+    },
+    'newPassword': {
+      'label': 'Nova senha',
+    },
+    'newPasswordConfirmation': {
+      'label': 'Confirme a nova senha',
+    },
     'agree': {
       'label': 'Concordo com os termos e'
     },
@@ -192,6 +201,11 @@ export default {
     },
   },
   'modal': {
+    'profile': {
+      'title': "Foi atualizado",
+      'message': "Suas informações foram atualizadas com sucesso.",
+      'back': 'Voltar para home',
+    },
     'report': {
       'title':  'Relatório do Job',
     },
