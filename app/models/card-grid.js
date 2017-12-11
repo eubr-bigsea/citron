@@ -1,13 +1,12 @@
 import DS from 'ember-data';
 
-const { attr, hasMany } = DS;
-
+const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
-  user: hasMany('user'),
+  user: belongsTo('user'),
 
-  component: attr('string'),
-  content: attr(),
+  configurations: attr(),
   updated_at: attr('dates'),
   created_at: attr('dates'),
 });
+

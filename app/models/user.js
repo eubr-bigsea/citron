@@ -9,7 +9,7 @@ export default DS.Model.extend({
   workflows: hasMany('workflow', { async: true }),
   jobs: hasMany('job', { async: true }),
   cards: hasMany('card'),
-  cardBoard: belongsTo('cardBoard'),
+  cardGrid: belongsTo('cardGrid'),
 
   //Profile info
   firstName: attr(''),
