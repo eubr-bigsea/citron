@@ -11,4 +11,12 @@ export default Component.extend({
       this.set('card', card);
     });
   },
+
+  didRender(){
+    var width = $('#'+this.elementId + ' .card-block').width();
+    var height = $('#'+this.elementId + ' .card-block').height();
+
+    $('#EmberYoutube-player').height(height)
+    $('#EmberYoutube-player').width(width);
+  }
 });

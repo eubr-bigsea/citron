@@ -1,0 +1,23 @@
+& {
+  margin: 0 10px 10px 0;
+
+  .grid-stack-item-content {
+    padding: 10px 0 0 10px !important;
+    overflow: hidden !important;
+  }
+
+  .card {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    margin: 0;
+
+    .card-header {
+      flex: 0 1 auto;
+      height: 60px;
+    }
+    .card-block {
+      flex: 1 1 auto;
+    }
+  }
+}
