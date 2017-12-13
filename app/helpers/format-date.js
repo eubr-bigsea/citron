@@ -3,8 +3,13 @@ import moment from 'npm:moment/min/moment-with-locales';
 
 
 export function formatDate(params, hash) {
-  moment.locale(hash.locale);
-  return moment(params, "YYYY-MM-DD HH:mm").format('ll HH:mm');
+  var locale = hash.locale? hash.locale : 'en'
+  var format = hash.format? hash.format : 'YYYY-MM-DD HH:mm'
+  var suport = hash.suport? hash.suport : 'll HH:mm'
+
+  moment.locale(locale);
+
+  return moment(params, format).format(suport);
 }
 
 export default helper(formatDate);
