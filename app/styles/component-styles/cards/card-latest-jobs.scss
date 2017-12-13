@@ -7,10 +7,6 @@
     th {
       text-align: center;
     }
-    td {
-      text-align: center;
-      vertical-align: middle;
-    }
     a {
       color: $color-text-dark;
       cursor: pointer;
@@ -29,14 +25,19 @@
           background-color: rgba($color-base, 0.2);
         }
       }
-
-      td.image{
-        padding: 0.1rem 0.3rem;
-
-        img {
-          border-radius: 5px;
-          height: 30px;
-          width: 30px;
+      td {
+        text-align: center;
+        vertical-align: middle;
+        &.__status {
+          padding:0;
+        }
+        .__icon{
+          margin-right: 5px;
+          font-size: 0.8rem;
+          &.big {
+            vertical-align: middle;
+            font-size: 1.2rem;
+          }
         }
       }
 

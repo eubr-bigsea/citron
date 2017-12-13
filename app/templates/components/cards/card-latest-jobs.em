@@ -1,15 +1,25 @@
 .card
   .card-header
-    .header-block
-      h3.title: = card.title
-  .card-block#large-table-jobs
-    table.table.table-hover
+    h4.title: = card.title
+  .card-block
+    table.table.table-sm.table-hover
       thead
         tr
+          th
           th: = t 'tables.id'
-          th: = t 'workflow'
+          th: = t 'tables.name'
           th: = t 'tables.status'
-          th: = t 'tables.result'
+          th: = t 'tables.started'
       tbody
         each jobs as |job|
-          = cards/item-list-jobs job=job
+          tr
+            td.__status class=job.status
+              i.__icon.big
+            td: = link-to 'home.jobs.show' job.id
+              = job.id
+            td: = link-to 'home.jobs.show' job.id
+              = job.workflow.name
+            td.__status class=job.status
+              i.__icon
+              span.__text: t job.status
+            td: = format-date job.created locale=locale format='YYYY-MM-DD' suport='ll'
