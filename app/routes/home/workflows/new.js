@@ -16,7 +16,8 @@ export default Route.extend({
       image: "img0.png",
       name: "",
       description: "",
-      enabled: true
+      enabled: true,
+      is_public: false,
     };
     return RSVP.hash({
       workflow: this.get('store').createRecord('workflow', defaultWorkflow),

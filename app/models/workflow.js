@@ -14,4 +14,5 @@ export default DS.Model.extend({
   updated: attr('dates'),
   description: attr('string'),
   enabled: attr('boolean'),
+  is_public: attr('boolean'),
 });
