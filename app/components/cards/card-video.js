@@ -13,10 +13,11 @@ export default Component.extend({
   },
 
   didRender(){
-    var width = $('#'+this.elementId + ' .card-block').width();
-    var height = $('#'+this.elementId + ' .card-block').height();
-
-    $('#EmberYoutube-player').height(height)
-    $('#EmberYoutube-player').width(width);
+    var el = this.$().find('.card-block');
+    var width = el.width();
+    var height = el.height();
+    var player = el.find('#EmberYoutube-player');
+    player.height(height)
+    player.width(width);
   }
 });

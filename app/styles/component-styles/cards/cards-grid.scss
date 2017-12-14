@@ -1,23 +1,88 @@
 & {
-  margin: 0 10px 10px 0;
+  .grid-stack {
+    margin: 0 10px 10px 0;
 
-  .grid-stack-item-content {
-    padding: 10px 0 0 10px !important;
-    overflow: hidden !important;
+    .grid-stack-item-content {
+      padding: 10px 0 0 10px !important;
+      overflow: hidden !important;
+    }
+
+    .card {
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+      margin: 0;
+
+      .card-header {
+        flex: 0 1 auto;
+        height: 60px;
+      }
+      .card-block {
+        flex: 1 1 auto;
+      }
+    }
+    .remove {
+      position: absolute;
+      top: 30px;
+      z-index: 1;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+  .btn-circle {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+    outline: none;
+    background-color: $color-lighter;
+    box-shadow: 0px 9px 20px 0px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    i {
+      color: $color-darker;
+    }
+  }
+  .add-cards-popup {
+    z-index: 10000;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    .popup-block {
+      ul {
+        background-color: $color-text-lighter;
+        border: 1px solid rgba($color-lighter, 0.5);
+        list-style: none;
+        padding: 15px 2px 25px 2px;
+        margin: 0 30px 30px 0;
+        border-radius: 5px;
+
+        li {
+          line-height: 1.8rem;
+          cursor: pointer;
+          padding: 0 20px;
+          border-radius: 5px;
+
+          &:hover {
+            background-color: $color-lighter;
+            i {
+              color: $color-text-dark;
+            }
+          }
+          i {
+            font-size: 0.7rem;
+            margin-right: 5px;
+            vertical-align: middle;
+            color: rgba($color-lighter, 1)
+          }
+        }
+      }
+    }
   }
 
-  .card {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    margin: 0;
-
-    .card-header {
-      flex: 0 1 auto;
-      height: 60px;
-    }
-    .card-block {
-      flex: 1 1 auto;
-    }
-  }
 }

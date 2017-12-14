@@ -25,6 +25,8 @@ module.exports = function(defaults) {
   app.import('vendor/gridstack/gridstack.min.js');
   app.import('vendor/gridstack/gridstack-extra.min.css');
   app.import('vendor/gridstack/gridstack.min.map');
+  app.import('vendor/gridstack/gridstack.all.js');
+  app.import('vendor/gridstack/gridstack.jQueryUI.min.js');
 
 
   app.import('vendor/jquery-ui/jquery-ui.min.css');
