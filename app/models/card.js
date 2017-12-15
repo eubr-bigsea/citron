@@ -4,8 +4,6 @@ const { attr, hasMany } = DS;
 
 
 export default DS.Model.extend({
-  user: hasMany('user'),
-
   component: attr('string'),
   content: attr(),
   title: attr(),

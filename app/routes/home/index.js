@@ -11,7 +11,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model(){
     var userId = this.get('sessionAccount.userId');
 
-    return this.store.findRecord('user', userId).then((user) => {
+    return this.store.findRecord('user', userId, {reload: true}).then((user) => {
       return this.store.findRecord('cardGrid', user.get('cardGrid.id'));
     });
   },

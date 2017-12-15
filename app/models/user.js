@@ -8,7 +8,6 @@ export default DS.Model.extend({
   datasources: hasMany('datasource', { async: true }),
   workflows: hasMany('workflow', { async: true }),
   jobs: hasMany('job', { async: true }),
-  cards: hasMany('card'),
   cardGrid: belongsTo('cardGrid'),
 
   //Profile info
