@@ -1,14 +1,14 @@
 import { computed } from '@ember/object';
 import DS from 'ember-data';
 
-const { attr, hasMany } = DS;
+const { attr, hasMany, belongsTo } = DS;
 
 export default DS.Model.extend({
   //Relationships
   datasources: hasMany('datasource', { async: true }),
   workflows: hasMany('workflow', { async: true }),
   jobs: hasMany('job', { async: true }),
-  cards: hasMany('card'),
+  cardGrid: belongsTo('cardGrid'),
 
   //Profile info
   firstName: attr(''),

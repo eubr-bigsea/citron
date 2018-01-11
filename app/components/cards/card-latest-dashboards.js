@@ -13,15 +13,15 @@ export default Component.extend({
 
     this.get('store').findRecord('card', cardId, { reload: true }).then((card) => {
       this.set('card', card);
-      this.get('store').query('workflow', {
+      this.get('store').query('dashboard', {
         user_id: userId,
         enabled: true,
         page: '1',
         size: card.get('content.size'),
         sort: 'updated',
         asc: false
-      }).then((workflows) => {
-        this.set('workflows', workflows)
+      }).then((dashboards) => {
+        this.set('dashboards', dashboards)
       });
     });
   }

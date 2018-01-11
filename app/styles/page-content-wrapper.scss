@@ -1,8 +1,8 @@
 #page-content-wrapper {
   width: 100%;
-  height: -webkit-calc(100% - #{$app-header});
-  height: -moz-calc(100% - #{$app-header});
-  height: calc(100% - #{$app-header});
+  height: -webkit-calc(100vh - #{$app-header});
+  height: -moz-calc(100vh - #{$app-header});
+  height: calc(100vh - #{$app-header});
   z-index: 300;
   overflow: auto;
 }

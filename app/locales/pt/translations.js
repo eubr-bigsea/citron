@@ -130,7 +130,7 @@ export default {
     'returnLogin': 'voltar para o Login',
   },
   'tables': {
-    'id': 'ID',
+    'id': '#',
     'logo': 'Logo',
     'name': 'Nome',
     'author': 'Autor',

@@ -1,6 +1,6 @@
 @import "ember-bootstrap/bootstrap";
 @import "font-awesome";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Muli);
 @import 'variables.scss';
 @import "theme-color.scss";
@@ -69,6 +69,7 @@
 
 //New structure CSS
 @import 'landing-page';
+@import 'home/index';
 @import 'home/jobs/show';
 @import 'home/jobs/status';
 @import 'home/user/edit';

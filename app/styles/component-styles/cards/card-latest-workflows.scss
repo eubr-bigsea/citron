@@ -1,0 +1,51 @@
+& {
+  .card-block {
+    overflow: auto;
+    padding: 5px 20px;
+  }
+  .table {
+    th {
+      text-align: center;
+    }
+    td {
+      text-align: center;
+      vertical-align: middle;
+    }
+    a {
+      color: $color-text-dark;
+      cursor: pointer;
+      &:hover {
+        color: $color-light;
+      }
+    }
+    thead {
+      th {
+        border-top-color: rgba(0,0,0,0);
+      }
+    }
+    tbody {
+      tr {
+        &:hover {
+          background-color: rgba($color-base, 0.2);
+        }
+      }
+
+      td.image{
+        padding: 0.1rem 0.3rem;
+
+        img {
+          border-radius: 5px;
+          height: 30px;
+          width: 30px;
+        }
+      }
+
+      .icons {
+        min-width: 3em;
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

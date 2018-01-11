@@ -1,8 +1,8 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
+import { copy } from '@ember/object/internals';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import RSVP from 'rsvp';
-import $ from 'jquery';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   session: service(),
@@ -10,39 +10,44 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
   model(){
     var userId = this.get('sessionAccount.userId');
-    var params = {
-      user_id: userId,
-      enabled: true,
-      page: '1',
-      size: '5',
-      sort: 'updated_at',
-      asc: false
-    };
-    return RSVP.hash({
-      user: this.store.findRecord('user', userId),
-      workflows: this.store.query('workflow', params),
-      jobs: this.store.query('job', params),
-      cards: this.store.query('card', params),
+
+    return this.store.findRecord('user', userId, {reload: true}).then((user) => {
+      return this.store.findRecord('cardGrid', user.get('cardGrid.id'));
     });
   },
+
+  setupController(controller, model){
+    controller.set('configurations', copy(model.get('configurations')) );
+  },
+
   actions: {
-    editCards(id){
-      var isChecked = $('#'+ id).is(":checked");
-      var user = this.get('currentModel.user');
-      if(isChecked){
-        this.get('store').findRecord('card',id).then(
-          function(card){
-            user.get('cards').pushObject(card);
-            user.save();
-          });
-      } else {
-        this.get('store').findRecord('card',id).then(
-          function(card){
-            user.get('cards').removeObject(card);
-            user.save();
-          });
+    saveGrid(items){
+      var cardGrid = this.get('currentModel');
+      var configurations = this.controller.get('configurations');
+      if(items){
+        items.forEach((item) => {
+          var data = item.el.data();
+          var card = configurations.findBy('uuid', data.uuid);
+          if(card){
+
+            set(card, 'x', item.x);
+            set(card, 'y', item.y);
+            set(card, 'height', item.height);
+            set(card, 'width',  item.width);
+          }
+
+          if( data.cardComponent === 'video'){
+            console.log(data.uuid)
+            var el = item.el.find('#EmberYoutube-player');
+            el.height(item.el.height() - 102);
+            el.width(item.el.width() - 42 );
+          }
+        });
       }
+
+      cardGrid.set('configurations', configurations);
+
+      cardGrid.save();
     },
   }
-
 });
