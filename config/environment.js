@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
@@ -69,6 +68,7 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.thorn = '';
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {

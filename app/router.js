@@ -43,7 +43,7 @@ Router.map(function() {
   this.route('group', {path: 'group/:id'});
   this.route('policy');
   this.route('maintenance');
-  this.route('notFound', {path: '/*path'});
+  this.route('notfound', {path: '/*path'});
 });
 
 export default Router;
