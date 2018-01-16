@@ -16,9 +16,7 @@
 npm-debug.log*
 yarn-error.log
 testem.log
-.pem
-*.swp
-*.patch
+
 # ember-try
 .node_modules.ember-try/
 bower.json.ember-try
