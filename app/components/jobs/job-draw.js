@@ -13,7 +13,7 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    Ps.initialize(document.getElementById("draw-container"));
+    new Ps(document.getElementById("draw-container"));
 
     let job = this.get('job');
     let tasks = job.get('workflow.tasks');

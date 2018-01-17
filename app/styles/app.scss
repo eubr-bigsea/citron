@@ -1,5 +1,11 @@
 @import "ember-bootstrap/bootstrap";
-@import "font-awesome";
+
+$fa-font-path: "/assets/webfonts";
+@import "fontawesome/fontawesome";
+@import "fontawesome/fa-regular";
+@import "fontawesome/fa-brands";
+@import "fontawesome/fa-solid";
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Muli);
 @import 'variables.scss';

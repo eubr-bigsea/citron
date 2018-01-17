@@ -3,7 +3,7 @@
     .grid-stack-item id={el.uuid} data-card-id={el.card-id} data-card-component={el.component} data-gs-x={el.x} data-gs-y={el.y} data-gs-width={el.width} data-gs-height={el.height} data-uuid={el.uuid}
       .grid-stack-item-content
         a.remove click={action 'remove' el.uuid}
-          i.fa.fa-trash-o
+          i.fa.fa-trash-alt
         = component (concat 'cards/card-' el.component) conf=el class='card'
 .add-cards-popup
   if addingCards
