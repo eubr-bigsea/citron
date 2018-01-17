@@ -15,7 +15,7 @@ export default Component.extend({
   }),
 
   didInsertElement() {
-    Ps.initialize(document.getElementById("operations-list"));
+    new Ps("#operations-list");
     $('#categories-list').metisMenu();
   },
 

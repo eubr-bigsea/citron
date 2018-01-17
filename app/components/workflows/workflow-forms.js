@@ -6,7 +6,7 @@ export default Component.extend({
   elementId: 'forms',
   classNames: ['sidebar', 'sidebar-container'],
   didInsertElement() {
-    Ps.initialize(document.getElementById(this.elementId));
+    new Ps(document.getElementById(this.elementId));
   },
   actions: {
     formChanged(key, value) {
