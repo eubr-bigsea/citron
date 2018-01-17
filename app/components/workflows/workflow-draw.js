@@ -7,6 +7,6 @@ export default Component.extend({
   task: null,
   filledForms: EmberObject.create(),
   didInsertElement(){
-    Ps.initialize(document.getElementById("lemonade-container"));
+    new Ps("#lemonade-container");
   }
 });
