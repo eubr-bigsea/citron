@@ -129,7 +129,7 @@
           .status-icon {
             @extend .fa;
             @extend .fa-2x;
-            @extend .fa-circle-o-notch;
+            @extend .fa-circle-notch;
             @extend .fa-spin;
           }
         }
@@ -139,7 +139,7 @@
           .status-icon {
             @extend .fa;
             @extend .fa-2x;
-            @extend .fa-clock-o;
+            @extend .fa-clock;
           }
         }
       }
