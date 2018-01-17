@@ -13,7 +13,7 @@
           li
             if task.params
               a title={t 'jobs.taskModal.params'} click={action 'openModal' task 'params'}
-                i.fa.fa-pencil-square-o
+                i.fa.fa-edit
             if task.logs
               a title={t 'jobs.taskModal.logs'} click={action 'openModal' task 'logs'}
                 i.fa.fa-list-ul
@@ -22,7 +22,7 @@
                 i.fa.fa-table
             if task.images
               a title={t 'jobs.taskModal.image'} click={action 'openModal' task 'images'}
-                i.fa.fa-picture-o
+                i.fa.fa-image
             if task.result
               a title={t 'jobs.taskModal.result'} click={action 'openModal' task 'results'}
-                i.fa.fa-dashboard
+                i.fas.fa-tachometer-alt
