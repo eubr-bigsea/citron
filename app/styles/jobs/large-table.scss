@@ -6,6 +6,13 @@
       background-color: rgba($color-lighter, 0.5);
     }
   }
+  .table-item {
+    .__status {
+      a {
+        color: inherit !important;
+      }
+    }
+  }
 
   .table-header {
 

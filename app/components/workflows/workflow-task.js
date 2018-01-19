@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import anchorPosition from 'lemonade-ember/utils/anchor-position';
 import config from '../../config/environment';
+import { run } from '@ember/runloop';
 
 export default Component.extend({
   store: service(),
@@ -204,23 +205,26 @@ export default Component.extend({
         return el.suggested_widget === "attribute-selector" || el.suggested_widget === "attribute-function"
       }) : [];
       var callback = function(result){
-        task.uiPorts = result[task.id].uiPorts;
-        var aux = [];
-        if( attr.length && task.uiPorts && task.uiPorts.inputs){
-          for( var i=0; i < task.uiPorts.inputs.length; i++ ){
-            aux = aux.concat(task.uiPorts.inputs[i].attributes)
+        run(() => {
+          task.uiPorts = result[task.id].uiPorts;
+          var aux = [];
+          if( attr.length && task.uiPorts && task.uiPorts.inputs){
+            for( var i=0; i < task.uiPorts.inputs.length; i++ ){
+              aux = aux.concat(task.uiPorts.inputs[i].attributes)
+            }
+            for( i=0; i < attr.length; i++ ){
+              set( attr[i], 'suggestedAttrs', [...new Set(aux)]);
+            }
           }
-          for( i=0; i < attr.length; i++ ){
-            set( attr[i], 'suggestedAttrs', [...new Set(aux)]);
-          }
-        }
-        clickTask(component.get('forms'), task.forms, task);
+          clickTask(component.get('forms'), task.forms, task);
+        });
       };
-      TahitiAttributeSuggester.compute(workflow, dataSourceLoader, callback);
-
-      $('#forms').toggle(e.target.id != 'testDelete');
-      $('.ui-selected').removeClass('ui-selected');
-      $(el).addClass('ui-selected');
+      run(() => {
+        TahitiAttributeSuggester.compute(workflow, dataSourceLoader, callback);
+        $('#forms').toggle(e.target.id != 'testDelete');
+        $('.ui-selected').removeClass('ui-selected');
+        $(el).addClass('ui-selected');
+      });
 
 
 
