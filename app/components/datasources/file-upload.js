@@ -7,9 +7,15 @@ import config from '../../config/environment';
 export default Component.extend({
   session: service(),
   isUploading: false,
-  progress: { value: 0, rounded: '0%'},
+  progress: null,
   isPaused: false,
-  serverMessage: {},
+  serverMessage: null,
+
+  init(){
+    this._super(...arguments);
+    this.set('progress', { value: 0, rounded: '0%'});
+    this.set('serverMessage', {});
+  },
 
   didInsertElement(){
     this._super(...arguments);

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import FormComponent from 'lemonade-ember/lib/form-component';
 import config from '../../config/environment';
+import { run } from '@ember/runloop';
 
 export default FormComponent.extend({
   init() {
@@ -13,9 +14,11 @@ export default FormComponent.extend({
         type: 'GET',
         url: eval(this.get('field.values_url'))
       }).then((response) => {
-        this.set('parsedValues', response.map((v) => {
-          return { "key": String(v.id), "value": v.name };
-        }));
+        run(() =>{
+          this.set('parsedValues', response.map((v) => {
+            return { "key": String(v.id), "value": v.name };
+          }));
+        });
       });
     }
   }

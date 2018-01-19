@@ -7,6 +7,7 @@ import { A } from '@ember/array';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
+import { run } from '@ember/runloop';
 
 export default Component.extend({
   store: service(),
@@ -43,17 +44,21 @@ export default Component.extend({
     let tasks = this.get('tasks');
 
     $('#zoomIn').click(() => {
-      this.triggerAction({
-        action:'zoomIn',
-        target: this
-      });
+      run(() => {
+        this.triggerAction({
+          action:'zoomIn',
+          target: this
+        });
+      })
     });
 
     $('#zoomOut').click(() => {
-      this.triggerAction({
-        action:'zoomOut',
-        target: this
-      });
+      run(() => {
+        this.triggerAction({
+          action:'zoomOut',
+          target: this
+        });
+      })
     });
 
     $(`#${this.elementId}`).droppable({
@@ -148,16 +153,18 @@ export default Component.extend({
           ]
         });
         $('#' + closeId).click(() =>{
-          let [id1, id2] = connection.getUuids().map((el) => el.split('/'));
-          let flow = {
-            source_id: id1[0],
-            source_port: Number(id1[1]),
-            target_id: id2[0],
-            target_port: Number(id2[1])
-          };
+          run(() => {
+            let [id1, id2] = connection.getUuids().map((el) => el.split('/'));
+            let flow = {
+              source_id: id1[0],
+              source_port: Number(id1[1]),
+              target_id: id2[0],
+              target_port: Number(id2[1])
+            };
 
-          this.send('removeFlow', flow);
-          jsplumb.detach(connection);
+            this.send('removeFlow', flow);
+            jsplumb.detach(connection);
+          })
         });
       }
     },

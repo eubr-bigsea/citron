@@ -2,6 +2,7 @@
 import Controller from '@ember/controller';
 import config from '../../../config/environment';
 import $ from 'jquery';
+import { run } from '@ember/runloop';
 
 export default Controller.extend({
   taskModal: false,
@@ -24,18 +25,20 @@ export default Controller.extend({
         type: 'GET',
         url:`${config.stand}/jobs/${job.id}/source-code`
       }).then(
-        (response) => {
-          if(response.source){
-            var lang = eval(`Prism.languages.${response.lang}`);
-            var highlighted = Prism.highlight(response.source, lang)
-            this.set('code', highlighted);
-          } else {
-            this.set('code', 'NONE');
-          }
-        },
-        (error) => {
-          console.log('ERROR', error);
-        }
+        run(() => {
+          (response) => {
+            if(response.source){
+              var lang = eval(`Prism.languages.${response.lang}`);
+              var highlighted = Prism.highlight(response.source, lang)
+              this.set('code', highlighted);
+            } else {
+              this.set('code', 'NONE');
+            }
+          },
+            (error) => {
+              console.log('ERROR', error);
+            }
+        })
       );
     }
   },
@@ -58,13 +61,15 @@ export default Controller.extend({
         type: 'POST',
         data: {},
       }).then(
-        () => {
-          this.transitionToRoute('home.workflows.draw', workflowId);
-        },
-        (error) => {
-          console.log('Error', error.responseJSON);
-          this.transitionToRoute('home.workflows.draw', workflowId);
-        },
+        run(() => {
+          () => {
+            this.transitionToRoute('home.workflows.draw', workflowId);
+          },
+            (error) => {
+              console.log('Error', error.responseJSON);
+              this.transitionToRoute('home.workflows.draw', workflowId);
+            }
+        })
       );
     },
 

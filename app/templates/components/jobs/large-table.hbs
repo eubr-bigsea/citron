@@ -43,9 +43,9 @@
                 <span>  {{job.workflow.name}} </span>
               {{/link-to}}
             </td>
-            <td class="status">
+            <td class={{concat "__status " job.status}}>
               {{#link-to 'home.jobs.show' job.id class="job" class=job.status}}
-                <span class="status-icon"></span><h4>{{t job.status}}</h4>
+                <i class="__icon"></i><h4>{{t job.status}}</h4>
               {{/link-to}}
             </td>
             <td class="date">
