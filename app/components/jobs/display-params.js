@@ -5,8 +5,15 @@ import { set } from '@ember/object';
 
 export default Component.extend({
   store: service(),
-  text: ['decimal', 'integer', 'lookup', 'percentage', 'range','text', 'textarea'],
-  multi: ['tag', 'attribute-selector'],
+  text: null,
+  muilt: null,
+
+  init() {
+    this._super(...arguments);
+    this.set('text', ['decimal', 'integer', 'lookup', 'percentage', 'range','text', 'textarea']);
+    this.set('multi', ['tag', 'attribute-selector']);
+  },
+
 
   didReceiveAttrs(){
     this._super(...arguments);

@@ -1,4 +1,4 @@
-import { observer, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import { alias, gt } from '@ember/object/computed';
 import Component from '@ember/component';
 import Util from 'ember-cli-pagination/util';
@@ -12,15 +12,6 @@ export default Component.extend({
   totalPages: alias("content.totalPages"),
 
   hasPages: gt('totalPages', 1),
-
-  watchInvalidPage: observer("content", function() {
-    const c = this.get('content');
-    if (c && c.on) {
-      c.on('invalidPage', (e) => {
-        this.sendAction('invalidPageAction',e);
-      });
-    }
-  }),
 
   truncatePages: true,
   numPagesToShow: 10,
@@ -65,18 +56,14 @@ export default Component.extend({
     pageClicked: function(number) {
       Util.log("PageNumbers#pageClicked number " + number);
       this.set("currentPage", number);
-      this.sendAction('action',number);
     },
     incrementPage: function(num) {
       const currentPage = Number(this.get("currentPage")),
-           totalPages = Number(this.get("totalPages"));
+        totalPages = Number(this.get("totalPages"));
 
       if(currentPage === totalPages && num === 1) { return false; }
       if(currentPage <= 1 && num === -1) { return false; }
       this.incrementProperty('currentPage', num);
-
-      const newPage = this.get('currentPage');
-      this.sendAction('action',newPage);
     }
   }
 });

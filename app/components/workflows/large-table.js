@@ -3,6 +3,8 @@ import { sort } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
+import { computed } from '@ember/object';
+import { run } from '@ember/runloop';
 
 export default Component.extend({
 
@@ -11,17 +13,17 @@ export default Component.extend({
   store: service('store'),
 
 
-  sortBy: ['name'],
+  sortBy: null,
   sortedModel: sort('filteredResults','sortBy'),
   filterText: '',
   show: false,
 
-  filteredResults: function() {
+  filteredResults: computed('filterText', function() {
     var filter = this.get('filterText').toString().toLowerCase();
     return this.get('workflows').filter(function(item){
       return item.get('name').toString().toLowerCase().indexOf(filter) !== -1;
     });
-  }.property('filterText'),
+  }),
 
   queryParams: ["page", "perPage"],
   page: 1,
@@ -30,23 +32,32 @@ export default Component.extend({
   pagedContent: pagedArray('sortedModel', 'page, perPage'),
   totalPages: "pagedContent.totalPages",
 
+  init() {
+    this._super(...arguments);
+    this.set('sortBy', ['name']);
+  },
+
   didInsertElement(){
     if($("[rel=tooltip]").is(':focus')){
       $("[rel=tooltip]").tooltip({ placement: 'right'});
     }
 
     $('#submit').click(() =>{
-      this.triggerAction({
-        action:'search',
-        target: this
+      run(() => {
+        this.triggerAction({
+          action:'search',
+          target: this
+        });
       });
     });
 
     $('#input').on('keyup', () =>{
-      this.triggerAction({
-        action:'search',
-        target: this
-      });
+      run(() => {
+        this.triggerAction({
+          action:'search',
+          target: this
+        });
+      })
     });
   },
 

@@ -16,10 +16,6 @@ Router.map(function() {
     });
     this.route('jobs', function() {
       this.route('show', {path: ':id/show'});
-      this.route('results', function() {
-        this.route('index', {path: ':id'});
-        this.route('visualizations', {path: ':jobId/visualizations/:taskId/:visu'});
-      });
     });
     this.route('datasources', function() {
       this.route('edit', {path: ':id/edit'});
