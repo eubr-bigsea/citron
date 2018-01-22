@@ -1,8 +1,8 @@
-/* global Prism */
 import Controller from '@ember/controller';
 import config from '../../../config/environment';
 import $ from 'jquery';
 import { run } from '@ember/runloop';
+import Prism from '@prism';
 
 export default Controller.extend({
   taskModal: false,

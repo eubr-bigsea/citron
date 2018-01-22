@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import Ps from '@perfect-scrollbar';
-import generateUUID from 'lemonade-ember/utils/generate-uuid';
 import jsPlumb from '@jsplumb';
 import $ from 'jquery';
 import { computed } from '@ember/object';

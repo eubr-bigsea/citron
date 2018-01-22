@@ -51,8 +51,9 @@ module.exports = function(defaults) {
   /* FIXME Remove when we upgrade ember-bootstrap */
   app.import('node_modules/bootstrap/dist/js/bootstrap.js');
 
-  app.import('vendor/prism/prism.js');
-  app.import('vendor/prism/prism.css');
+  app.import('node_modules/prismjs/prism.js');
+  app.import('node_modules/prismjs/themes/prism.css');
+  app.import('vendor/shims/prism.js');
 
   app.import('node_modules/resumablejs/resumable.js');
   app.import('vendor/shims/resumable.js');
