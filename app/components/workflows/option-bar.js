@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { A } from '@ember/array';
 import $ from 'jquery';
-import toposort from 'npm:toposort';
+import toposort from 'lemonade-ember/utils/toposort';
 
 export default Component.extend({
   sessionAccount: service(),

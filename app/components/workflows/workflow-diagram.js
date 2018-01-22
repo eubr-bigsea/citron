@@ -1,5 +1,3 @@
-/* global jsPlumb */
-
 import EmberObject from '@ember/object';
 
 import $ from 'jquery';
@@ -8,6 +6,7 @@ import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
 import { run } from '@ember/runloop';
+import jsPlumb from '@jsplumb';
 
 export default Component.extend({
   store: service(),

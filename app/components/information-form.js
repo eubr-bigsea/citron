@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import Component from '@ember/component';
-import Ps from 'npm:perfect-scrollbar';
+import Ps from '@perfect-scrollbar';
 
 export default Component.extend({
   didInsertElement() {
-    Ps.initialize(document.getElementById(this.elementId));
+    new Ps(document.getElementById(this.elementId));
   },
   actions: {
     formChanged(key, value) {

@@ -1,8 +1,8 @@
-/*global Resumable */
 import Component from '@ember/component';
 import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import config from '../../config/environment';
+import Resumable from '@resumable';
 
 export default Component.extend({
   session: service(),

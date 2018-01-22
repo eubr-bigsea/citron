@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { computed } from '@ember/object';
 import Component from '@ember/component';
-import Ps from 'npm:perfect-scrollbar';
+import Ps from '@perfect-scrollbar';
 
 export default Component.extend({
   filterText: '',
