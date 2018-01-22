@@ -1,9 +1,9 @@
-/* global jsPlumb */
 import Component from '@ember/component';
 import config from '../../config/environment';
-import io from 'npm:socket.io-client';
-import Ps from 'npm:perfect-scrollbar';
 import { set } from '@ember/object';
+import Ps from '@perfect-scrollbar';
+import io from '@socket.io-client';
+import jsPlumb from '@jsplumb';
 
 export default Component.extend({
   init() {

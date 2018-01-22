@@ -1,9 +1,9 @@
-/*global Resumable */
 import Component from '@ember/component';
 import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import config from '../../config/environment';
 import generateUUID from 'lemonade-ember/utils/generate-uuid'
+import Resumable from '@resumable';
 
 export default Component.extend({
   session: service(),

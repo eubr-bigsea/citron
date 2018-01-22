@@ -1,6 +1,5 @@
 import { helper } from '@ember/component/helper';
-import moment from 'npm:moment/min/moment-with-locales';
-
+import moment from '@moment';
 
 export function formatDate(params, hash) {
   var locale = hash.locale? hash.locale : 'en'
