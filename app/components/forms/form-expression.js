@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import jsep from 'npm:jsep';
+import jsep from '@jsep';
 import FormComponent from 'lemonade-ember/lib/form-component';
 
 export default FormComponent.extend({

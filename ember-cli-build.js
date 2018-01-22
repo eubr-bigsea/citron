@@ -16,40 +16,50 @@ module.exports = function(defaults) {
 
   //Alphabetic order
 
-  app.import('vendor/gridstack/gridstack.min.css');
-  app.import('vendor/gridstack/gridstack.min.js');
-  app.import('vendor/gridstack/gridstack-extra.min.css');
-  app.import('vendor/gridstack/gridstack.min.map');
-  app.import('vendor/gridstack/gridstack.all.js');
-  app.import('vendor/gridstack/gridstack.jQueryUI.min.js');
+  app.import('node_modules/lodash/lodash.js');
+  app.import('node_modules/jquery-ui-dist/jquery-ui.css');
+  app.import('node_modules/jquery-ui-dist/jquery-ui.theme.css');
+  app.import('node_modules/jquery-ui-dist/jquery-ui.structure.css');
+  app.import('node_modules/jquery-ui-dist/jquery-ui.js');
+  app.import('node_modules/gridstack/dist/gridstack.css');
+  app.import('node_modules/gridstack/dist/gridstack-extra.css');
+  app.import('node_modules/gridstack/dist/gridstack.all.js');
 
+  app.import('node_modules/jsplumb/dist/js/jsplumb.js');
+  app.import('vendor/shims/jsplumb.js');
 
-  app.import('vendor/jquery-ui/jquery-ui.min.css');
-  app.import('vendor/jquery-ui/jquery-ui.theme.min.css');
-  app.import('vendor/jquery-ui/jquery-ui.structure.min.css');
-  app.import('vendor/jquery-ui/jquery-ui.min.js');
+  app.import('node_modules/metismenu/dist/metisMenu.js');
+  app.import('node_modules/metismenu/dist/metisMenu.css');
 
-  app.import('vendor/jquery.ui.touch-punch/jquery.ui.touch-punch.min.js');
+  app.import('node_modules/nprogress/nprogress.css');
+  app.import('node_modules/nprogress/nprogress.js');
+  app.import('vendor/shims/nprogress.js');
 
-  app.import('vendor/jsplumb/jsplumb.js');
+  app.import('node_modules/perfect-scrollbar/css/perfect-scrollbar.css');
+  app.import('node_modules/perfect-scrollbar/dist/perfect-scrollbar.js');
+  app.import('vendor/shims/perfect-scrollbar.js');
 
-  app.import('vendor/lodash/lodash.min.js');
+  app.import('node_modules/moment/min/moment-with-locales.js');
+  app.import('vendor/shims/moment.js');
 
-  app.import('vendor/metisMenu/metisMenu.js');
-  app.import('vendor/metisMenu/metisMenu.css');
+  app.import('node_modules/jsep/build/jsep.js');
+  app.import('vendor/shims/jsep.js');
 
-  app.import('vendor/nprogress/nprogress.css');
-  app.import('vendor/nprogress/nprogress.js');
+  app.import('node_modules/socket.io-client/dist/socket.io.js');
+  app.import('vendor/shims/socket.io-client.js');
 
-  app.import('vendor/perfect-scrollbar/perfect-scrollbar.min.css');
+  /* FIXME Remove when we upgrade ember-bootstrap */
+  app.import('node_modules/bootstrap/dist/js/bootstrap.js');
 
-  app.import('vendor/prism/prism.js');
-  app.import('vendor/prism/prism.css');
+  app.import('node_modules/prismjs/prism.js');
+  app.import('node_modules/prismjs/themes/prism.css');
+  app.import('vendor/shims/prism.js');
 
-  app.import('vendor/resumable.js/resumable.js');
+  app.import('node_modules/resumablejs/resumable.js');
+  app.import('vendor/shims/resumable.js');
 
-  app.import('vendor/select2/select2.full.js');
-  app.import('vendor/select2/select2.css');
+  app.import('node_modules/select2/dist/js/select2.full.js');
+  app.import('node_modules/select2/dist/css/select2.css');
 
   app.import('node_modules/raven-js/dist/raven.js');
   app.import('node_modules/raven-js/dist/plugins/ember.js');

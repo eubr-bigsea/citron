@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Component from '@ember/component';
-import Ps from 'npm:perfect-scrollbar';
+import Ps from '@perfect-scrollbar';
 
 export default Component.extend({
   elementId: 'forms',
