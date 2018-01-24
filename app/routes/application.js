@@ -9,10 +9,6 @@ export default Route.extend(ApplicationRouteMixin,{
   session: service(),
   sessionAccount: service(),
 
-  beforeModel(){
-    //debugger
-  },
-
   activate(){
     let isAuthenticated = this.get('session.isAuthenticated');
 
