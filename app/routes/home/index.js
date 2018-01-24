@@ -37,7 +37,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
           }
 
           if( data.cardComponent === 'video'){
-            console.log(data.uuid)
             var el = item.el.find('#EmberYoutube-player');
             el.height(item.el.height() - 102);
             el.width(item.el.width() - 42 );
