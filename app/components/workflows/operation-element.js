@@ -14,7 +14,6 @@ export default Component.extend({
       opacity: 0.3,
       helper: () => $(
         `<div class='task' data-slug='${slug}' data-name='${name}' data-opid='${id}'>${name}</div>`
-
       )
     });
   }
