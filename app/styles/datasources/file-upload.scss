@@ -1,10 +1,18 @@
 .file-upload-wrapper {
   position: relative;
+
 }
 .file-upload {
-  position: absolute;
   bottom: 0;
-  width: 100%;
+  margin-top:-150px;
+  display: flex;
+  justify-content: center;
+  
+
+// .uploadNone{
+//   display: flex;
+//   justify-content: center;
+// }
   .minimize {
     display: flex;
   }
@@ -14,12 +22,15 @@
     background: $color-text-lighter;
   }
   .dropzone {
+
     margin-bottom: 10px;
     border: 1px solid $color-text-lighter;
     border-radius: 10px;
     text-align: center;
     border:2px dashed #ccc;
     height: auto;
+
+
     .icon {
       display: block;
       color: $color-text-base;
@@ -54,6 +65,7 @@
     margin: 0px;
     transform: translate(-50%, -50%);
     color: $color-text-dark;
+
   }
   .options button {
     padding: 5px 15px;
@@ -72,22 +84,31 @@
     }
   }
   .server-message {
+
     padding: 15px;
     margin: 2px;
     position: absolute;
     margin-left: -7px;
     top: 40%;
     text-align: center;
-    left: 50%;
+    // left:  50%;
     z-index: 1000;
     font-size: 1.1em;
+    // right:50%;
+
+
+
+   
+     
     p {
       margin:0;
     }
     &.success {
-      background-color: rgba($color-completed, 0.7);
+      background-color: $color-completed;
 
       color: $color-text-dark;
+       
+
     }
     &.error {
 

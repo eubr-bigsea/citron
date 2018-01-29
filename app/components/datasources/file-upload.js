@@ -58,6 +58,11 @@ export default Component.extend({
       this.set('serverMessage.fileSuccess', message);
       this.set('serverMessage.fileName', file.fileName);
       this.get('refresh')();
+      // delete message 
+      // $('.server-message').delay(2000).fadeOut(2000);
+      $('.server-message').show().fadeIn().delay(2000).fadeOut('slow');
+      
+
     });
 
     resumable.on('fileError', (file, message) =>{
@@ -71,14 +76,17 @@ export default Component.extend({
 
     this.set('resumable', resumable);
   },
+  // willDestroyElement() {
+    
+  // },
 
   actions: {
     minimize(){
       this.set('isVisible', false);
       this.set('serverMessage', {});
     },
-    dismissMessage(){
-      this.set('serverMessage',{});
-    }
+    // dismissMessage(){
+    //   this.set('serverMessage',{});
+    // }
   },
 });
