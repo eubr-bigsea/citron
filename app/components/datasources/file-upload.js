@@ -3,6 +3,7 @@ import Component from '@ember/component';
 import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import config from '../../config/environment';
+import generateUUID from 'lemonade-ember/utils/generate-uuid'
 
 export default Component.extend({
   session: service(),
@@ -37,6 +38,7 @@ export default Component.extend({
     }
 
     resumable.on('fileAdded', (file) =>{
+      file.uniqueIdentifier = generateUUID();
       this.set('file', file);
       resumable.upload();
     });
