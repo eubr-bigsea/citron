@@ -14,7 +14,7 @@ export default Component.extend({
     let selectedTask = this.get('selectedTask');
     if(selectedTask && selectedTask.result){
       this.set('dataUrl', `${config.caipirinha}/visualizations/${this.get('jobId')}/${selectedTask.id}`);
-      this.set('viz', { component: `visualizations/${selectedTask.operation.slug}`.replace('bar-chart', 'vertical-bar-chart')});
+      this.set('viz', { component: `visualizations/${selectedTask.operation.slug}`.replace('bar-chart', 'vertical-bar-chart').replace('summary-statistics', 'table-visualization')});
     }
   },
   didRender(){
