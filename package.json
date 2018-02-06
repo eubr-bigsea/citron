@@ -47,7 +47,7 @@
     "ember-load-initializers": "^1.0.0",
     "ember-progress-bar": "^0.0.7",
     "ember-rapid-forms": "^1.0.0-beta14",
-    "ember-resolver": "^4.0.0",
+    "ember-resolver": "^4.5.0",
     "ember-route-action-helper": "^2.0.5",
     "ember-simple-auth": "1.4.0",
     "ember-source": "~2.16.0",

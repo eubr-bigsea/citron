@@ -11,6 +11,19 @@ export default Component.extend({
   shareModal: false,
   limoneroUrl: config.limonero,
 
+  didInsertElement(){
+    // search through table
+    var $rows = $('#datasourceTable tr');
+    $('#searchInput').keyup(function() {
+        var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+        $rows.show().filter(function() {
+            var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+            return !~text.indexOf(val);
+        }).hide();
+    });
+  },
+
   didReceiveAttrs(){
     this._super(...arguments);
     let token = this.get('session.data.authenticated.token');
