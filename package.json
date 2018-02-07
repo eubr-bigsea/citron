@@ -39,7 +39,7 @@
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
-    "ember-component-css": "^0.5.0",
+    "ember-component-css": "^0.6.1",
     "ember-data": "~2.18.0",
     "ember-export-application-global": "^2.0.0",
     "ember-i18n": "^5.0.1",
@@ -67,6 +67,10 @@
     "select2": "^4.0.6-rc.1",
     "socket.io-client": "^2.0.3",
     "tether": "^1.4.0"
+  },
+  "dependencies": {
+    "material-design-icons": "^3.0.1",
+    "mdi": "^2.1.19"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
