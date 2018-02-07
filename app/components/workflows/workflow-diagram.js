@@ -12,11 +12,10 @@ export default Component.extend({
   store: service(),
   elementId: "lemonade-diagram",
   classNames: ["lemonade", "col-xs-12"],
-  zoomScale: 1,
 
   init() {
     this._super(...arguments);
-    this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId}));
+    this.get('jsplumb').setContainer(this.elementId);
 
     this.set('tasks', A());
     this.set('flows', A());
@@ -77,10 +76,9 @@ export default Component.extend({
           },
           operation_id: data.opid
         };
-        console.log('drop', task);
         this.get('workflow').get('tasks').addObject(task);
         this.get('tasks').addObject(task);
-        this.get('hasChanged')(true);
+        this.set('hasChanged', true);
       }
     }).selectable({
       cancel: "a,.cancel,span,.cancel",
@@ -118,7 +116,7 @@ export default Component.extend({
       this.get('workflow').get('flows').removeObjects(toRemove);
       this.get('tasks').removeObject(task);
       this.get('flows').removeObjects(toRemove);
-      this.get('hasChanged')(true);
+      this.set('hasChanged', true);
     },
     addFlow(flow, save = false) {
       var closeId = null;
