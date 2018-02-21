@@ -1,3 +1,4 @@
+/* global Set TahitiAttributeSuggester*/
 import Controller from '@ember/controller';
 import jsPlumb from '@jsplumb';
 import { computed } from '@ember/object';
@@ -6,10 +7,25 @@ import { run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { A } from '@ember/array';
 import toposort from 'lemonade-ember/utils/toposort';
+import config from '../../../config/environment';
+import { set } from '@ember/object';
 
 export default Controller.extend({
   sessionAccount: service(),
-  store: service('store'),
+  store: service(),
+  // gets attributes from datasource to be used in suggestion attrs
+  datasourceLoader(id, callback){
+    $.ajax({
+      url: config.limonero + '/datasources/' + id,
+      data: { attributes_name: true },
+      success(response){
+        callback(response.attributes.map(function(attr) {return attr.name}));
+      },
+      error(){
+        callback(null);
+      }
+    })
+  },
 
   //Modals triggers
   executionModal: false,
@@ -18,12 +34,15 @@ export default Controller.extend({
   unsavedModal: false,
 
   alertContent: null,
-  jobHash: null,
-
   hasChanged: false,
   transition: null,
-  cluster: null,
+  jobHash: null,
+
+  // Diagram properties
   jsplumb: null,
+  selectedTask: null,
+  displayForm: false,
+  attrsReady: false,
 
   // Zoom property for jsPlumb
   zoomScale: 1,
@@ -32,10 +51,33 @@ export default Controller.extend({
 
   init(){
     this._super(...arguments);
+
+    jsPlumb.importDefaults({
+      Connector: 'Flowchart',
+      ConnectionOverlays: [ ["Arrow", {} ] ],
+      Overlays: [
+        ["Custom", {
+          id:'closeButton',
+          cssClass: "close",
+          create: () => {
+            return $("<a title='remove' href='#'><i class='fa fa-times fa-lg'></i></a>");
+          },
+        }]
+      ],
+    });
+
     this.set('jsplumb', jsPlumb.getInstance());
   },
 
   actions: {
+    toggleDeleteModal(){
+      this.toggleProperty('deleteModal');
+    },
+
+    toggleExecutionModal(){
+      this.toggleProperty('executionModal');
+    },
+
     saveWorkflow(){
       const workflow = this.get('model.workflow');
 
@@ -58,9 +100,6 @@ export default Controller.extend({
       );
     },
 
-    toggleDeleteModal(){
-      this.toggleProperty('deleteModal');
-    },
 
     deleteWorkflow(){
       const workflow = this.get('model.workflow');
@@ -111,10 +150,6 @@ export default Controller.extend({
         this.get('jsplumb').setZoom(scale);
         this.set('zoomScale', scale);
       }
-    },
-
-    toggleExecutionModal(){
-      this.toggleProperty('executionModal');
     },
 
     executeWorkflow(){
@@ -173,5 +208,59 @@ export default Controller.extend({
       this.set('unsavedModal', false);
       this.get('transition').retry();
     },
+
+
+    getAttributeSuggestions(){
+      this.set('attrsReady', false);
+      const workflow = this.get('model.workflow').toJSON({ includeId: true });
+      const datasourceLoader = this.get('datasourceLoader');
+
+      let callback = (result) => {
+        let tasks = this.get('model.workflow.tasks');
+
+        Object.keys(result).forEach((taskId) => {
+          let task = tasks.findBy('id', taskId);
+          const executionForm = task.operation.forms.findBy('category', 'execution');
+
+          if(executionForm){
+            const attributeForms = executionForm.fields.filter((el) => {
+              return el.suggested_widget === "attribute-selector" || el.suggested_widget === "attribute-function"
+            });
+
+            if(attributeForms.length ){
+              const el = result[taskId];
+              let attributes = []
+              if(el.uiPorts && el.uiPorts.inputs){
+                for(let i=0; i < el.uiPorts.inputs.length; i++){
+                  attributes = attributes.concat(el.uiPorts.inputs[i].attributes)
+                }
+                attributeForms.forEach((form) => {
+                  set(form, 'suggestedAttrs', [...new Set(attributes)]);
+                })
+              }
+            }
+          }
+        })
+        this.set('attrsReady', true);
+        this.set('displayForm', true);
+      }
+      run(() => {
+        TahitiAttributeSuggester.compute(workflow, datasourceLoader, callback);
+      });
+    },
+
+    closeForms(){
+      this.set('selectedTask', null);
+      this.set('displayForm', false);
+    },
+
+    clickTask(task){
+      this.set('selectedTask', task);
+      if(this.get('attrsReady')){
+        this.set('displayForm', true);
+      }
+
+    },
+
   },
 });
