@@ -26,6 +26,11 @@ export default Route.extend({
     );
   },
 
+  setupController(controller, model) {
+    this._super(controller, model);
+    controller.send('getAttributeSuggestions')
+  },
+
   actions: {
     willTransition(transition){
       const controller = this.controller;
