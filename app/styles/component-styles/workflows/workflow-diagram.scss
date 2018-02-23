@@ -1,0 +1,40 @@
+&{
+  position: relative;
+  margin-top: 0px;
+  z-index: 0;
+  min-height: calc(690px * (90/150));
+  height: 5000px;
+  width: 5000px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;
+
+  .jtk-connector {
+    path {
+      stroke: $color-darker;
+      stroke-width: 1.75;
+      cursor: pointer;
+      &.alert {
+        stroke: $color-error;
+        fill: $color-error;
+
+
+
+      }
+    }
+
+  }
+
+  .jtk-overlay {
+    &.close {
+      display: none;
+      position: fixed !important;
+
+    }
+  }
+
+
+}
