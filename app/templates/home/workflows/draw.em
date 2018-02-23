@@ -17,7 +17,11 @@
         a.btn.btn-md.play onclick={action 'toggleExecutionModal'}
           i.mdi.mdi-play
             = t 'workflow.draw.play'
-    = workflows/workflow-draw id="workflow-draw" class="draw row" workflow=model.workflow operations=model.operations hasChanged=hasChanged jsplumb=jsplumb zoomScale=zoomScale
+    .workflow.draw.row#workflow-draw
+      .lemonade-container#lemonade-container
+        = workflows/workflow-diagram jsplumb=jsplumb zoomScale=zoomScale workflow=model.workflow operations=model.operations hasChanged=hasChanged clickTask=(action 'clickTask') closeForms=(action 'closeForms') getAttributeSuggestions=(action 'getAttributeSuggestions')
+      if displayForm
+        = workflows/workflow-forms task=selectedTask formsChanged=formsChanged hasChanged=hasChanged getAttributeSuggestions=(action 'getAttributeSuggestions')
 = workflows/pre-execution-modal executionModal=executionModal clusters=model.clusters jobHash=jobHash workflowName=model.workflow.name executeWorkflow=(action 'executeWorkflow')
 = workflows/alert-modal title=alertContent.title message=alertContent.message alertModal=alertModal
 = workflows/delete-modal deleteModal=deleteModal deleteWorkflow=(action 'deleteWorkflow') workflow=model.workflow
