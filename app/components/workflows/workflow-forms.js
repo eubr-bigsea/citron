@@ -19,7 +19,8 @@ export default Component.extend({
       if(key === 'comment') {
         el.find('.comment-text span').text(value);
       }
-      this.set(`filledForms.${key}.value`, value);
+      this.set(`task.forms.${key}.value`, value);
+      this.set('formsChanged', true);
     }
   }
 });
