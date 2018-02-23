@@ -4,14 +4,18 @@
      i.mdi.mdi-lan
      span.text: t 'workflows.pre-execution-modal.title'
   modal.body
+    p: t 'workflows.pre-execution-modal.message'
+    br
+    label: t 'workflows.pre-execution-modal.name.label'
     = input value=jobHash.name
 
+    label: t 'workflows.pre-execution-modal.cluster.label'
     select onchange={action (mut jobHash.cluster.id) value="target.value"}
       each clusters as |cl|
         option value={cl.id} selected={eq jobHash.cluster.id cl.id}
           = cl.name
   modal.footer
     = bs-button onClick=executeWorkflow
-      t 'modal.default.submitButton'
+      t 'workflows.pre-execution-modal.runBtn'
     = bs-button onClick=(action (mut executionModal) false)
-      t 'modal.default.cancelButton'
+      t 'workflows.pre-execution-modal.cancel'

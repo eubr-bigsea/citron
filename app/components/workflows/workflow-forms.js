@@ -20,6 +20,7 @@ export default Component.extend({
         el.find('.comment-text span').text(value);
       }
       this.set(`task.forms.${key}.value`, value);
+      this.set('hasChanged', true);
       this.set('formsChanged', true);
     }
   }

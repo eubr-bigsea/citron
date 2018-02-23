@@ -289,15 +289,6 @@ export default {
       'play': 'Execute'
     }
   },
-  'workflows': {
-    'self':'workflows',
-    'title': 'Workflows',
-    'description': 'List of all workflows - e.g. owned, shared, etc..',
-    'newBtn': 'Create new',
-    'moreActionsBtn': 'More Actions',
-    'deleteBtn': 'Delete All',
-    'searchFor': 'Search',
-  },
   'job': {
     'self': 'Job',
     'show': {
@@ -420,4 +411,57 @@ export default {
   'completed': 'Completed',
   'profile': 'Profile',
   'logout': 'Logout',
+  'workflows': {
+    'self':'workflows',
+    'title': 'Workflows',
+    'description': 'List of all workflows - e.g. owned, shared, etc..',
+    'newBtn': 'Create new',
+    'moreActionsBtn': 'More Actions',
+    'deleteBtn': 'Delete All',
+    'searchFor': 'Search',
+    'alert-modal': {
+      'saveSuccess': {
+        'title': 'Save',
+        'message': 'The workflow was successfully saved.'
+      },
+      'saveFailed': {
+        'title': 'Save',
+        'message': 'An error occured, the workflow was not save.'
+      },
+      'deleteSuccess': {
+        'title': 'Delete',
+        'message': 'The workflow was successfully deleted. You will be redirect.'
+      },
+      'deleteFailed': {
+        'title': 'Delete',
+        'message': 'An error occured, the workflow was not deleted.'
+      },
+    },
+    'delete-modal': {
+      'title': 'Deleting "{{workflow.name}}"',
+      'message': 'Do you want to delete permanently the workflow: "{{workflow.name}}" ?',
+      'delete-btn': 'Delete',
+      'cancel': 'Cancel'
+    },
+    'unsaved-changes-modal': {
+      'title': 'Unsaved Changes',
+      'message': "The current workflow has unsaved changes. If you leave the changes won't be save.",
+      'save': 'Save and leave',
+      'leave': 'Leave',
+      'cancel': 'Cancel',
+    },
+    'pre-execution-modal': {
+      'title': 'Start Job',
+      'message': 'Setup your job before running.',
+      'name': {
+        'label': 'Name',
+      },
+      'cluster': {
+        'label': 'Cluster',
+      },
+      'runBtn': 'Run',
+      'cancel': 'Cancel',
+    }
+  },
+
 };

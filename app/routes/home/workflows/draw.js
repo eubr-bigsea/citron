@@ -28,7 +28,7 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(controller, model);
-    controller.send('getAttributeSuggestions')
+    controller.send('getAttributeSuggestions');
   },
 
   actions: {
@@ -40,6 +40,7 @@ export default Route.extend({
         transition.abort();
         controller.set('unsavedModal', true);
       }
+      controller.set('selectedTask', null);
     }
   }
 });
