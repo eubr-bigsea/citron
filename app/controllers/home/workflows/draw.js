@@ -35,6 +35,7 @@ export default Controller.extend({
 
   alertContent: null,
   hasChanged: false,
+  formsChanged: false,
   transition: null,
   jobHash: null,
 
@@ -252,9 +253,14 @@ export default Controller.extend({
     closeForms(){
       this.set('selectedTask', null);
       this.set('displayForm', false);
+      if(this.get('formsChanged')){
+        this.send('getAttributeSuggestions');
+        this.set('formsChanged', false);
+      }
     },
 
     clickTask(task){
+      this.send('closeForms', false);
       this.set('selectedTask', task);
       if(this.get('attrsReady')){
         this.set('displayForm', true);
