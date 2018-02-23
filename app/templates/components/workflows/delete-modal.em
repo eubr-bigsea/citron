@@ -10,5 +10,5 @@
     = bs-button onClick=deleteWorkflow
       t 'workflows.delete-modal.delete-btn'
     = bs-button onClick=(action (mut deleteModal) false)
-      t 'modal.default.cancelButton'
+      t 'workflows.delete-modal.cancel'
 

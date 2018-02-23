@@ -31,8 +31,10 @@ export default Component.extend({
 
     el.css('top', task.top);
     el.css('left', task.left);
-    el.css('color', task.forms.color.value.foreground);
-    el.css('background-color', task.forms.color.value.background);
+    if(task.color){
+      el.css('color', task.forms.color.value.foreground);
+      el.css('background-color', task.forms.color.value.background);
+    }
 
 
     [input, output].forEach((type) => {

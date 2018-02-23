@@ -1,19 +1,40 @@
 import Component from '@ember/component';
 import Ps from '@perfect-scrollbar';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
+import jsPlumb from '@jsplumb';
 import $ from 'jquery';
+import { computed } from '@ember/object';
 
 export default Component.extend({
-  elementId: "lemonade-diagram",
   classNames: ["col-xs-12"],
+  zoomScale: 1,
+  zoomMax: computed('zoomScale', function(){ return this.get('zoomScale') >= 1.4 ? 'deactive' : 'active' }),
+  zoomMin: computed('zoomScale', function(){ return this.get('zoomScale') <= 0.7 ? 'deactive' : 'active' }),
+
+
+  init(){
+    this._super(...arguments);
+    jsPlumb.importDefaults({
+      Connector: 'Flowchart',
+      ConnectionOverlays: [ ["Arrow", {} ] ],
+      Overlays: [
+        ["Custom", {
+          id:'closeButton',
+          cssClass: "close",
+          create: () => {
+            return $("<a title='remove' href='#'><i class='fa fa-times fa-lg'></i></a>");
+          },
+        }]
+      ],
+    });
+    this.set('jsplumb', jsPlumb.getInstance({Container: "lemonade-diagram"}));
+
+  },
 
   didInsertElement() {
     // bind DOM settings
     new Ps("#lemonade-container");
     const jsplumb = this.get('jsplumb');
-
-    // setup jsplumb on #lemonade-diagem element in DOM
-    jsplumb.setContainer(this.elementId);
 
     // handle connection event
     jsplumb.bind('connection', (info, originalEvent) => {
@@ -46,7 +67,6 @@ export default Component.extend({
       });
       // remove connect on click
       closeBtn.bind('click', () => {
-        this.send('removeFlow', flow);
         jsplumb.deleteConnection(connection);
       });
 
@@ -85,6 +105,7 @@ export default Component.extend({
         target_id: id2[0],
         target_port: Number(id2[1])
       });
+
       this.get('getAttributeSuggestions')();
       return false;
     });
@@ -106,7 +127,7 @@ export default Component.extend({
     };
 
     // apply jqery UI settings
-    this.$().droppable({ drop }).selectable({
+    this.$('#lemonade-diagram').droppable({ drop }).selectable({
       start,
       cancel: "a,.cancel,svg",
     });
@@ -121,6 +142,28 @@ export default Component.extend({
   },
 
   actions: {
+    zoomIn(){
+      let scale = this.get('zoomScale');
+
+      if(scale < 1.4){
+        scale = scale + 0.1;
+        $('#lemonade-diagram').animate({ 'zoom': scale }, 400);
+        this.get('jsplumb').setZoom(scale);
+        this.set('zoomScale', scale);
+      }
+    },
+
+    zoomOut(){
+      let scale = this.get('zoomScale');
+
+      if(scale > 0.7){
+        scale = scale - 0.1
+        $('#lemonade-diagram').animate({ 'zoom': scale }, 400);
+        this.get('jsplumb').setZoom(scale);
+        this.set('zoomScale', scale);
+      }
+    },
+
     addFlow(flow) {
       this.get('workflow.flows').addObject(flow);
       this.set('hasChanged', true);
@@ -180,6 +223,7 @@ export default Component.extend({
         grid:[10,10],
         containment: true,
         stop: (ev) => {
+          this.set('hasChanged', true);
           task.left = ev.pos[0];
           task.top  = ev.pos[1];
         }

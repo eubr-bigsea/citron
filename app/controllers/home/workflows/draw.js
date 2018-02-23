@@ -1,7 +1,5 @@
 /* global Set TahitiAttributeSuggester*/
 import Controller from '@ember/controller';
-import jsPlumb from '@jsplumb';
-import { computed } from '@ember/object';
 import $ from 'jquery';
 import { run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
@@ -34,41 +32,17 @@ export default Controller.extend({
   unsavedModal: false,
 
   alertContent: null,
+  alertCallback: null,
   hasChanged: false,
   formsChanged: false,
   transition: null,
+  willTransit: false,
   jobHash: null,
 
   // Diagram properties
-  jsplumb: null,
   selectedTask: null,
   displayForm: false,
   attrsReady: false,
-
-  // Zoom property for jsPlumb
-  zoomScale: 1,
-  zoomMax: computed('zoomScale', function(){ return this.get('zoomScale') >= 1.4 ? 'deactive' : 'active' }),
-  zoomMin: computed('zoomScale', function(){ return this.get('zoomScale') <= 0.7 ? 'deactive' : 'active' }),
-
-  init(){
-    this._super(...arguments);
-
-    jsPlumb.importDefaults({
-      Connector: 'Flowchart',
-      ConnectionOverlays: [ ["Arrow", {} ] ],
-      Overlays: [
-        ["Custom", {
-          id:'closeButton',
-          cssClass: "close",
-          create: () => {
-            return $("<a title='remove' href='#'><i class='fa fa-times fa-lg'></i></a>");
-          },
-        }]
-      ],
-    });
-
-    this.set('jsplumb', jsPlumb.getInstance());
-  },
 
   actions: {
     toggleDeleteModal(){
@@ -79,7 +53,7 @@ export default Controller.extend({
       this.toggleProperty('executionModal');
     },
 
-    saveWorkflow(){
+    saveWorkflow(callback){
       const workflow = this.get('model.workflow');
 
       workflow.save().then(
@@ -89,6 +63,9 @@ export default Controller.extend({
 
           this.set('hasChanged', false);
           this.set('alertContent', { title, message });
+          if(callback) {
+            this.set('alertCallback', callback);
+          }
           this.toggleProperty('alertModal');
         },
         () =>  { // Failed
@@ -129,28 +106,6 @@ export default Controller.extend({
         }
       );
 
-    },
-
-    zoomIn(){
-      let scale = this.get('zoomScale');
-
-      if(scale < 1.4){
-        scale = scale + 0.1;
-        $('#lemonade-diagram').animate({ 'zoom': scale }, 400);
-        this.get('jsplumb').setZoom(scale);
-        this.set('zoomScale', scale);
-      }
-    },
-
-    zoomOut(){
-      let scale = this.get('zoomScale');
-
-      if(scale > 0.7){
-        scale = scale - 0.1
-        $('#lemonade-diagram').animate({ 'zoom': scale }, 400);
-        this.get('jsplumb').setZoom(scale);
-        this.set('zoomScale', scale);
-      }
     },
 
     executeWorkflow(){
@@ -221,23 +176,25 @@ export default Controller.extend({
 
         Object.keys(result).forEach((taskId) => {
           let task = tasks.findBy('id', taskId);
-          const executionForm = task.operation.forms.findBy('category', 'execution');
+          if(task){
+            const executionForm = task.operation.forms.findBy('category', 'execution');
 
-          if(executionForm){
-            const attributeForms = executionForm.fields.filter((el) => {
-              return el.suggested_widget === "attribute-selector" || el.suggested_widget === "attribute-function"
-            });
+            if(executionForm){
+              const attributeForms = executionForm.fields.filter((el) => {
+                return el.suggested_widget === "attribute-selector" || el.suggested_widget === "attribute-function"
+              });
 
-            if(attributeForms.length ){
-              const el = result[taskId];
-              let attributes = []
-              if(el.uiPorts && el.uiPorts.inputs){
-                for(let i=0; i < el.uiPorts.inputs.length; i++){
-                  attributes = attributes.concat(el.uiPorts.inputs[i].attributes)
+              if(attributeForms.length ){
+                const el = result[taskId];
+                let attributes = []
+                if(el.uiPorts && el.uiPorts.inputs){
+                  for(let i=0; i < el.uiPorts.inputs.length; i++){
+                    attributes = attributes.concat(el.uiPorts.inputs[i].attributes)
+                  }
+                  attributeForms.forEach((form) => {
+                    set(form, 'suggestedAttrs', [...new Set(attributes)]);
+                  })
                 }
-                attributeForms.forEach((form) => {
-                  set(form, 'suggestedAttrs', [...new Set(attributes)]);
-                })
               }
             }
           }
@@ -260,7 +217,7 @@ export default Controller.extend({
     },
 
     clickTask(task){
-      this.send('closeForms', false);
+      this.send('closeForms');
       this.set('selectedTask', task);
       if(this.get('attrsReady')){
         this.set('displayForm', true);
