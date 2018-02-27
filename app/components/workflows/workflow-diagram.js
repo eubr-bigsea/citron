@@ -16,14 +16,16 @@ export default Component.extend({
     this._super(...arguments);
     jsPlumb.importDefaults({
       Connector: 'Flowchart',
-      ConnectionOverlays: [ ["Arrow", {} ] ],
-      Overlays: [
+      //ConnectionOverlays: [ ["Arrow", {width: 12, length: 12, location: 0.3} ], ["Arrow", {width: 12, length: 12, location: 0.7} ] ],
+      ConnectionOverlays: [
+        ["Arrow", {width: 12, length: 12} ],
         ["Custom", {
           id:'closeButton',
-          cssClass: "close",
+          cssClass: "closeBtn",
           create: () => {
             return $("<a title='remove' href='#'><i class='fa fa-times fa-lg'></i></a>");
           },
+          location: 0
         }]
       ],
     });
@@ -58,11 +60,11 @@ export default Component.extend({
       });
       // Style svg path with alert color
       closeBtn.bind('mouseover', () => {
-        $(connection.canvas).children().addClass('alert')
+        $(connection.canvas).children().addClass('jtk-hover')
       });
       // style svg path back to normal and hide 'X'
       closeBtn.bind('mouseout', () => {
-        $(connection.canvas).children().removeClass('alert')
+        $(connection.canvas).children().removeClass('jtk-hover')
         closeBtn.css({display: 'none'});
       });
       // remove connect on click

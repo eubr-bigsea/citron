@@ -1,40 +1,84 @@
-&{
-  position: relative;
-  margin-top: 0px;
-  z-index: 0;
-  min-height: calc(690px * (90/150));
-  height: 5000px;
-  width: 5000px;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;
+& {
+  padding-top: 5px;
+  width: 100%;
+  height: 100%;
 
-  .jtk-connector {
-    path {
-      stroke: $color-darker;
-      stroke-width: 1.75;
-      cursor: pointer;
-      &.alert {
-        stroke: $color-error;
-        fill: $color-error;
+  .diagram-options {
+    border: 1px solid #d7dde4;
+    display: inline-block;
+    height: 40px;
+    padding: 2.5px 15px;
+    label {
+      margin-right: 15px;
+    }
+    a {
+      background: none;
+      border: none;
+      color: $color-darker;
+      height: 35px;
+      width: 35px;
+      padding: 1px 4.5px;
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  #lemonade-container {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    height: -webkit-calc(100% - 40px);
+    height: -moz-calc(100% - 40px);
+    height: calc(100% - 40px);
+  }
 
 
+  #lemonade-diagram {
+    background: url('images/grid1.png');
+    position: relative;
+    z-index: 0;
+    min-height: calc(690px * (90/150));
+    height: 5000px;
+    width: 5000px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
 
+    .jtk-connector {
+      z-index: 2;
+      path {
+        stroke: $color-darker;
+        stroke-width: 1.75;
+        cursor: pointer;
+        &.alert {
+          stroke: $color-error;
+          fill: $color-error;
+        }
+      }
+      &.jtk-hover {
+        path {
+          stroke: $color-error;
+          fill: $color-error;
+        }
+      }
+    }
+
+    .jtk-overlay {
+      z-index: 3;
+      &.closeBtn {
+        display: none;
+        position: fixed !important;
+        background: none;
+        color: $color-error !important;
+        z-index: 3;
+        font-size: 1.3rem;
       }
     }
 
   }
-
-  .jtk-overlay {
-    &.close {
-      display: none;
-      position: fixed !important;
-
-    }
-  }
-
-
 }

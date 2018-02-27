@@ -1,3 +1,3 @@
 a href="#"
-  span class="fa {{operation.icon}}"
-    operation.name
+  i class="fa {{operation.icon}}"
+  span: operation.name
