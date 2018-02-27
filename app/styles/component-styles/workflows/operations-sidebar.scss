@@ -50,14 +50,15 @@
   .items-search {
     display: block;
     margin: 5px;
-    margin: ($main-sidebar - $app-header) 5px 15px 5px;
+    margin: ($main-sidebar - $app-header) 24px 15px 18px;
+    padding-right: 15px;
 
     .form-control {
       border-color: white;
     }
   }
   .operations-list {
-    position: fixed;
+    position: relative;
     overflow: hidden;
     height: 100%;
     display: inline-block;
@@ -84,8 +85,6 @@
             vertical-align: middle;
 
             i {
-              height: 21px;
-              width: 21px;
               vertical-align: middle;
               font-size: 1.2em;
               margin-right: 0.5rem;
