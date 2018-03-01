@@ -36,9 +36,9 @@
 
 
   #lemonade-diagram {
+    z-index: 0;
     background: url('images/grid1.png');
     position: relative;
-    z-index: 0;
     min-height: calc(690px * (90/150));
     height: 5000px;
     width: 5000px;
@@ -49,18 +49,17 @@
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;
 
+    //Default Connection
     .jtk-connector {
-      z-index: 2;
+      z-index: 1;
       path {
         stroke: $color-darker;
+        fill: $color-darker;
         stroke-width: 1.75;
         cursor: pointer;
-        &.alert {
-          stroke: $color-error;
-          fill: $color-error;
-        }
       }
-      &.jtk-hover {
+
+      &.will-remove {
         path {
           stroke: $color-error;
           fill: $color-error;
@@ -68,17 +67,463 @@
       }
     }
 
+    // style remove connection btn
     .jtk-overlay {
-      z-index: 3;
-      &.closeBtn {
+      &.close-btn {
+        z-index: 3;
         display: none;
         position: fixed !important;
-        background: none;
+        background: none !important;
         color: $color-error !important;
         z-index: 3;
         font-size: 1.3rem;
+        &.jtk-hover {
+          display: block;
+        }
+      }
+      // default label
+      &.label-overlay {
+        display: none;
+        color: $color-darker;
+        &.jtk-hover {
+          display: block;
+        }
       }
     }
 
+    // Default Endpoint
+
+    .jtk-endpoint {
+      z-index: 2;
+
+      &.will-remove {
+        rect {
+          fill: $color-error;
+        }
+        circle {
+          fill: $color-error;
+        }
+      }
+    }
+    /* .jtk-endpoint, .jtk-connector {
+    &.data {
+      path {
+        stroke: $color-data;
+        fill: $color-data;
+      }
+      rect {
+        fill: $color-data;
+      }
+      circle {
+        fill: $color-data;
+      }
+    }
+    &.iregressionalgorithm {
+      path {
+        stroke: $color-iregressionalgorithm;
+        fill: $color-iregressionalgorithm;
+      }
+      rect {
+        fill: $color-iregressionalgorithm;
+      }
+      circle {
+        fill: $color-iregressionalgorithm;
+      }
+    }
+    &.iregressionmodel {
+      path {
+        stroke: $color-iregressionmodel;
+        fill: $color-iregressionmodel;
+      }
+      rect {
+        fill: $color-iregressionmodel;
+      }
+      circle {
+        fill: $color-iregressionmodel;
+      }
+    }
+    &.irecommendationalgorithm {
+      path {
+        stroke: $color-irecommendationalgorithm;
+        fill: $color-irecommendationalgorithm;
+      }
+      rect {
+        fill: $color-irecommendationalgorithm;
+      }
+      circle {
+        fill: $color-irecommendationalgorithm;
+      }
+    }
+    &.irecommendationmodel {
+      path {
+        stroke: $color-irecommendationmodel;
+        fill: $color-irecommendationmodel;
+      }
+      rect {
+        fill: $color-irecommendationmodel;
+      }
+      circle {
+        fill: $color-irecommendationmodel;
+      }
+    }
+    &.classificationalgorithm {
+      path {
+        stroke: $color-classificationalgorithm;
+        fill: $color-classificationalgorithm;
+      }
+      rect {
+        fill: $color-classificationalgorithm;
+      }
+      circle {
+        fill: $color-classificationalgorithm;
+      }
+    }
+    &.classificationmodel {
+      path {
+        stroke: $color-classificationmodel;
+        fill: $color-classificationmodel;
+      }
+      rect {
+        fill: $color-classificationmodel;
+      }
+      circle {
+        fill: $color-classificationmodel;
+      }
+    }
+    &.iclusteringalgorithm {
+      path {
+        stroke: $color-iclusteringalgorithm;
+        fill: $color-iclusteringalgorithm;
+      }
+      rect {
+        fill: $color-iclusteringalgorithm;
+      }
+      circle {
+        fill: $color-iclusteringalgorithm;
+      }
+    }
+    &.iclusteringmodel {
+      path {
+        stroke: $color-iclusteringmodel;
+        fill: $color-iclusteringmodel;
+      }
+      rect {
+        fill: $color-iclusteringmodel;
+      }
+      circle {
+        fill: $color-iclusteringmodel;
+      }
+    }
+    &.transformationmodel {
+      path {
+        stroke: $color-transformationmodel;
+        fill: $color-transformationmodel;
+      }
+      rect {
+        fill: $color-transformationmodel;
+      }
+      circle {
+        fill: $color-transformationmodel;
+      }
+    }
+    &.indexermodel {
+      path {
+        stroke: $color-indexermodel;
+        fill: $color-indexermodel;
+      }
+      rect {
+        fill: $color-indexermodel;
+      }
+      circle {
+        fill: $color-indexermodel;
+      }
+    }
+    &.visualization {
+      path {
+        stroke: $color-visualization;
+        fill: $color-visualization;
+      }
+      rect {
+        fill: $color-visualization;
+      }
+      circle {
+        fill: $color-visualization;
+      }
+    }
+    &.ivocabulary {
+      path {
+        stroke: $color-ivocabulary;
+        fill: $color-ivocabulary;
+      }
+      rect {
+        fill: $color-ivocabulary;
+      }
+      circle {
+        fill: $color-ivocabulary;
+      }
+    }
+    &.ilistofmachinelearningmodels {
+      path {
+        stroke: $color-ilistofmachinelearningmodels;
+        fill: $color-ilistofmachinelearningmodels;
+      }
+      rect {
+        fill: $color-ilistofmachinelearningmodels;
+      }
+      circle {
+        fill: $color-ilistofmachinelearningmodels;
+      }
+    }
+    &.lshmodel {
+      path {
+        stroke: $color-lshmodel;
+        fill: $color-lshmodel;
+      }
+      rect {
+        fill: $color-lshmodel;
+      }
+      circle {
+        fill: $color-lshmodel;
+      }
+    }
+    &.machinelearningmodel {
+      path {
+        stroke: $color-machinelearningmodel;
+        fill: $color-machinelearningmodel;
+      }
+      rect {
+        fill: $color-machinelearningmodel;
+      }
+      circle {
+        fill: $color-machinelearningmodel;
+      }
+    }
+    &.modelwithevaluation {
+      path {
+        stroke: $color-modelwithevaluation;
+        fill: $color-modelwithevaluation;
+      }
+      rect {
+        fill: $color-modelwithevaluation;
+      }
+      circle {
+        fill: $color-modelwithevaluation;
+      }
+    }
   }
+  */
+
+  .jtk-endpoint, .jtk-connector {
+    &.jtk-dragging, &.drag-input, &.drag-output.jtk-drag, &.jtk-hover:not(.will-remove)  {
+      &.data {
+        path {
+          stroke: $color-data;
+          fill: $color-data;
+        }
+        rect {
+          fill: $color-data;
+        }
+        circle {
+          fill: $color-data;
+        }
+      }
+      &.iregressionalgorithm {
+        path {
+          stroke: $color-iregressionalgorithm;
+          fill: $color-iregressionalgorithm;
+        }
+        rect {
+          fill: $color-iregressionalgorithm;
+        }
+        circle {
+          fill: $color-iregressionalgorithm;
+        }
+      }
+      &.iregressionmodel {
+        path {
+          stroke: $color-iregressionmodel;
+          fill: $color-iregressionmodel;
+        }
+        rect {
+          fill: $color-iregressionmodel;
+        }
+        circle {
+          fill: $color-iregressionmodel;
+        }
+      }
+
+      &.irecommendationalgorithm {
+        path {
+          stroke: $color-irecommendationalgorithm;
+          fill: $color-irecommendationalgorithm;
+        }
+        rect {
+          fill: $color-irecommendationalgorithm;
+        }
+        circle {
+          fill: $color-irecommendationalgorithm;
+        }
+      }
+      &.irecommendationmodel {
+        path {
+          stroke: $color-irecommendationmodel;
+          fill: $color-irecommendationmodel;
+        }
+        rect {
+          fill: $color-irecommendationmodel;
+        }
+        circle {
+          fill: $color-irecommendationmodel;
+        }
+      }
+
+      &.classificationalgorithm {
+        path {
+          stroke: $color-classificationalgorithm;
+          fill: $color-classificationalgorithm;
+        }
+        rect {
+          fill: $color-classificationalgorithm;
+        }
+        circle {
+          fill: $color-classificationalgorithm;
+        }
+      }
+
+      &.classificationmodel {
+        path {
+          stroke: $color-classificationmodel;
+          fill: $color-classificationmodel;
+        }
+        rect {
+          fill: $color-classificationmodel;
+        }
+        circle {
+          fill: $color-classificationmodel;
+        }
+      }
+      &.iclusteringalgorithm {
+        path {
+          stroke: $color-iclusteringalgorithm;
+          fill: $color-iclusteringalgorithm;
+        }
+        rect {
+          fill: $color-iclusteringalgorithm;
+        }
+        circle {
+          fill: $color-iclusteringalgorithm;
+        }
+      }
+      &.iclusteringmodel {
+        path {
+          stroke: $color-iclusteringmodel;
+          fill: $color-iclusteringmodel;
+        }
+        rect {
+          fill: $color-iclusteringmodel;
+        }
+        circle {
+          fill: $color-iclusteringmodel;
+        }
+      }
+      &.transformationmodel {
+        path {
+          stroke: $color-transformationmodel;
+          fill: $color-transformationmodel;
+        }
+        rect {
+          fill: $color-transformationmodel;
+        }
+        circle {
+          fill: $color-transformationmodel;
+        }
+      }
+      &.indexermodel {
+        path {
+          stroke: $color-indexermodel;
+          fill: $color-indexermodel;
+        }
+        rect {
+          fill: $color-indexermodel;
+        }
+        circle {
+          fill: $color-indexermodel;
+        }
+      }
+      &.visualization {
+        path {
+          stroke: $color-visualization;
+          fill: $color-visualization;
+        }
+        rect {
+          fill: $color-visualization;
+        }
+        circle {
+          fill: $color-visualization;
+        }
+      }
+      &.ivocabulary {
+        path {
+          stroke: $color-ivocabulary;
+          fill: $color-ivocabulary;
+        }
+        rect {
+          fill: $color-ivocabulary;
+        }
+        circle {
+          fill: $color-ivocabulary;
+        }
+      }
+      &.ilistofmachinelearningmodels {
+        path {
+          stroke: $color-ilistofmachinelearningmodels;
+          fill: $color-ilistofmachinelearningmodels;
+        }
+        rect {
+          fill: $color-ilistofmachinelearningmodels;
+        }
+        circle {
+          fill: $color-ilistofmachinelearningmodels;
+        }
+      }
+      &.lshmodel {
+        path {
+          stroke: $color-lshmodel;
+          fill: $color-lshmodel;
+        }
+        rect {
+          fill: $color-lshmodel;
+        }
+        circle {
+          fill: $color-lshmodel;
+        }
+      }
+      &.machinelearningmodel {
+        path {
+          stroke: $color-machinelearningmodel;
+          fill: $color-machinelearningmodel;
+        }
+        rect {
+          fill: $color-machinelearningmodel;
+        }
+        circle {
+          fill: $color-machinelearningmodel;
+        }
+      }
+      &.modelwithevaluation {
+        path {
+          stroke: $color-modelwithevaluation;
+          fill: $color-modelwithevaluation;
+        }
+        rect {
+          fill: $color-modelwithevaluation;
+        }
+        circle {
+          fill: $color-modelwithevaluation;
+        }
+      }
+
+    }
+  }
+}
 }
