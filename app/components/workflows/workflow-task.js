@@ -39,10 +39,12 @@ export default Component.extend({
 
     [input, output].forEach((type) => {
       type.forEach((port, i) => {
+        let interfaces = port.interfaces.map(el => el.name.toLocaleLowerCase()).join(" ");
         let opts = {
           isSource: !isInput,
           isTarget: isInput,
-          scope: port.interfaces.map(el => el.name).join(" "),
+          scope: interfaces,
+          cssClass: interfaces,
           anchors: anchorPosition(isInput, type.length, i),
           uuid: `${task.id}/${port.id}`,
           endpoint: [
@@ -56,14 +58,15 @@ export default Component.extend({
             ["Label", {
               id: "label",
               label: port.name,
-              location: isInput ? [0, -2] : [0, 3],
+              location: isInput ? [0, -1] : [0, 2],
               cssClass: "label-overlay",
             }]
           ],
           maxConnections: port.multiplicity === "ONE" ? 1 : -1,
           dropOptions : { activeClass: isInput ? 'drag-input' : 'drag-output' },
+          connectionType: interfaces,
+          connectorClass: interfaces,
         };
-
         this.get('addEndpoint')(endpoints, el, opts)
       });
       isInput = false;

@@ -21,11 +21,12 @@ export default Component.extend({
         ["Arrow", {width: 12, length: 12} ],
         ["Custom", {
           id:'closeButton',
-          cssClass: "closeBtn",
+          cssClass: "close-btn",
+          hoverClass: 'will-remove',
           create: () => {
             return $("<a title='remove' href='#'><i class='fa fa-times fa-lg'></i></a>");
           },
-          location: 0
+          location: 0.5
         }]
       ],
     });
@@ -50,25 +51,35 @@ export default Component.extend({
         target_port: Number(id2[1])
       };
 
+      closeBtn.css({left: 10000, top: 10000, display: 'none'});
+      connection.addClass(connection.getType().join(' '));
+
       // set position and show the 'X' to remove connection
       connection.bind("mouseover", (conn, event) => {
-        const max_top = $(event.path[1]).height() + $(event.path[1]).position().top - 10;
-        const min_top = $(event.path[1]).position().top + 10;
-        if( event.clientY <= max_top &&  event.clientY >=  min_top ){
-          closeBtn.css({left: event.clientX, top: event.clientY, display: 'block' });
-        }
+        closeBtn.css({left: event.clientX, top: event.clientY, display: 'block' });
+      });
+      connection.bind("mouseout", (conn, event) => {
+        closeBtn.css({display: 'none' });
       });
       // Style svg path with alert color
       closeBtn.bind('mouseover', () => {
-        $(connection.canvas).children().addClass('jtk-hover')
+        $(info.sourceEndpoint.canvas).addClass('will-remove');
+        $(info.targetEndpoint.canvas).addClass('will-remove');
+        $(connection.canvas).addClass('will-remove')
       });
       // style svg path back to normal and hide 'X'
       closeBtn.bind('mouseout', () => {
-        $(connection.canvas).children().removeClass('jtk-hover')
+        $(info.sourceEndpoint.canvas).removeClass('will-remove');
+        $(info.targetEndpoint.canvas).removeClass('will-remove');
+        $(connection.canvas).removeClass('will-remove')
         closeBtn.css({display: 'none'});
       });
       // remove connect on click
       closeBtn.bind('click', () => {
+        $(info.sourceEndpoint.canvas).removeClass('will-remove');
+        $(info.targetEndpoint.canvas).removeClass('will-remove');
+        $(connection.canvas).removeClass('will-remove')
+        closeBtn.css({display: 'none'});
         jsplumb.deleteConnection(connection);
       });
 
