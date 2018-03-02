@@ -116,7 +116,7 @@ label, .control-label {
 }
 
 .radio + span:before, .checkbox + span:before {
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
   font-size: 21px;
   display: inline-block;
   vertical-align: middle;
@@ -310,7 +310,7 @@ label, .control-label {
       margin-bottom: 0px;
     }
     .input-checkbox + span:before {
-      font-family: FontAwesome;
+      font-family: "Font Awesome 5 Free";
       font-size: 1.4em;
       color: $color-lighter;
     }

@@ -1,11 +1,11 @@
 {{confirmation-modal modal=modal content=modalContent onSubmit=(action 'submit') count=selectedWorkflows}}
 <div class="row">
-  <div class="col-xs-3 title-block">
+  <div class="col-3 title-block">
     <h3 class="title"> <i class="fa fa-flask"></i> {{t 'workflows.title'}}
     </h3>
     <p class="title-description"> {{t 'workflows.description'}} </p>
   </div>
-  <div class="col-xs-4 buttons-menu">
+  <div class="col-4 buttons-menu">
     {{#link-to 'home.workflows.new' class="create-new btn"}}{{t 'workflows.newBtn'}} {{/link-to}}
     <div class="action dropdown ">
       <a class="btn dropdown-toggle" data-toggle="dropdown" >{{t 'workflows.moreActionsBtn'}}</a>
@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="col-xs-5 search-bar">
+  <div class="col-5 search-bar">
     <div class="pull-right items-search">
       <form onsubmit="return false" class="form-inline">
         <div class="input-group">
