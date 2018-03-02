@@ -31,19 +31,19 @@
         h1.section-title.wow.fadeIn.animated data-wow-delay=".2s" About Lemonade:
         p.section-subcontent
          "Data analytics is a concept related to pattern and relevant knowledge discovery from large amounts of data. In feneral, the task is complex and demands knowledge in very specific areas, such as massive data processing and parallel programming languages. However, analysts are usually not versed in Computer Science, but in the original data domain. In order to support them in such analysis, we present <b>Lemonade</b> - Live Exploration and Mining Of a Non-trivial Amount of Data from Everywhere - A Platform for visual creation and execution of data analysis workflow
-        div.col-sm-6.col-md-3
+        div.col-6.col-3
           .service-item.wow.fadeInUpQuick.animated data-wow-delay=".5s"
             h2 Create a Processing Workflow
             p You can create and cutomize workflows from scratch! There are several operations and filters available so you can manipulate your data by simply adding functionality boxes to your workflow with an easy drag-and-drop process.
-        .col-sm-6.col-md-3
+        .col-6.col-3
           .service-item.wow.fadeInUpQuick.animated data-wow-delay=".8s"
             h2 Import, Export or Manage Datasets
             p All your data can be imported in different formats to the application for proper manipulation. You can manage the imported datasets and later on you can export the resulting data with the formats of your choice.
-        .col-sm-6.col-md-3
+        .col-6.col-3
           .service-item.wow.fadeInUpQuick.animated data-wow-delay="1.1s"
             h2 Execute and Manage Existing Workflows
             p All your workflows are manageable, so you can access, create, edit or delete them at any time. You can also follow the progress of a workflow that is being executed and pause or stop it if you want.
-        .col-sm-6.col-md-3
+        .col-6.col-3
           .service-item.wow.fadeInUpQuick.animated data-wow-delay="1.4s"
             h2 Data Visualization
             p At the end of the process, you have features avaiable for a better visualization of the data, abstracting its schematic information into graphs and other visual forms.
@@ -53,7 +53,7 @@
       .row
         h1.section-title.wow.fadeInUpQuick OUR SERVICES
         p.section-subcontent We split our service in 7 micro-components
-        .col-sm-12.col-md-12
+        .col-12
           ul.nav.nav-tabs#myTab role="tablist"
             li.nav-item
               a.nav-link.active data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -158,7 +158,7 @@
   footer#team
     .container-fluid
       .row
-        .col-xs-12
+        .col-12
          h1.section-title.wow.fadeInDown data-wow-delay=".5s" OUR SUPPORTERS
          a href="http://www.eubra-bigsea.eu/"
            img src="assets/images/bigsea.png"

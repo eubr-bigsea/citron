@@ -2,14 +2,14 @@
   = workflows/operations-sidebar operations=model.operations groupedOperations=model.groupedOperations
   .container-fluid#diagram-container-wrapper
     .option-bar.row
-      .col-xs-12.col-lg-6.vcentered.__name
+      .col-12.col-6.vcentered.__name
         = input value=model.workflow.name class="form-control"
-      .col-xs-12.col-lg-6.vcentered.__buttons
+      .col-12.col-6.vcentered.__buttons
         .group.actions.pull-left
           a.btn.btn-primary.btn-md rel="tooltip" title={t 'workflow.draw.save'} onclick={action 'saveWorkflow' null}
-            i.mdi.mdi-content-save
+            i.far.fa-save
           a.btn.btn-primary.btn-md rel="tooltip" title={t 'workflow.draw.delete'} onclick={action 'toggleDeleteModal'}
-            i.mdi.mdi-delete
+            i.far.fa-trash-alt
         .group.execute.pull-left
           a.btn.btn-primary.btn-md onclick={action 'toggleExecutionModal'}
             i.mdi.mdi-play
