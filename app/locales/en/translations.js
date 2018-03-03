@@ -10,6 +10,11 @@ export default {
   },
   //components inside of forms folder
   'form':{
+    'title': 'Task Parameters',
+    'task': {
+      'name': 'Name',
+      'helper': 'Task name displayed on diagram',
+    },
     'attribute-function': {
       'button': 'Open Editor',
       'modal': {

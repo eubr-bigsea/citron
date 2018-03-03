@@ -7,6 +7,7 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   classNames: ["col-xs-12"],
+  classNameBindings: ['displayForm'],
   zoomScale: 1,
   zoomMax: computed('zoomScale', function(){ return this.get('zoomScale') >= 1.4 ? 'deactive' : 'active' }),
   zoomMin: computed('zoomScale', function(){ return this.get('zoomScale') <= 0.7 ? 'deactive' : 'active' }),
@@ -24,7 +25,7 @@ export default Component.extend({
           cssClass: "close-btn",
           hoverClass: 'will-remove',
           create: () => {
-            return $("<a title='remove' href='#'><i class='fa fa-times fa-lg'></i></a>");
+            return $("<a title='remove' href='#'><i class='fa fa-times'></i></a>");
           },
           location: 0.5
         }]
@@ -142,7 +143,7 @@ export default Component.extend({
     // apply jqery UI settings
     this.$('#lemonade-diagram').droppable({ drop }).selectable({
       start,
-      cancel: "a,.cancel,svg",
+      cancel: "a,.cancel,svg,textarea",
     });
 
     // draw the flows of loaded workflow

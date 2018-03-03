@@ -16,7 +16,7 @@
             span
               = t 'workflow.draw.play'
     .workflow-diagram-wrapper.row
-      = workflows/workflow-diagram workflow=model.workflow operations=model.operations hasChanged=hasChanged clickTask=(action 'clickTask') closeForms=(action 'closeForms') getAttributeSuggestions=(action 'getAttributeSuggestions')
+      = workflows/workflow-diagram workflow=model.workflow operations=model.operations hasChanged=hasChanged displayForm=displayForm clickTask=(action 'clickTask') closeForms=(action 'closeForms') getAttributeSuggestions=(action 'getAttributeSuggestions')
       if displayForm
         = workflows/workflow-forms task=selectedTask formsChanged=formsChanged hasChanged=hasChanged getAttributeSuggestions=(action 'getAttributeSuggestions')
 = workflows/pre-execution-modal executionModal=executionModal clusters=model.clusters jobHash=jobHash workflowName=model.workflow.name executeWorkflow=(action 'executeWorkflow')
