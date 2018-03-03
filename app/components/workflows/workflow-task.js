@@ -7,7 +7,6 @@ import { set } from '@ember/object'
 export default Component.extend({
   classNameBindings: ['task.operation.slug', 'status'],
   status: null,
-  comment: null,
   isComment: false,
 
   init() {
@@ -24,6 +23,14 @@ export default Component.extend({
 
     set(task, 'operation', operation.toJSON({includeId: true}));
     set(task, 'operation.forms', task.operation.forms.sort(fn));
+    this.set('isComment', task.operation.slug === 'comment');
+    task.operation.forms.forEach((form) =>{
+      form.fields.mapBy('name').forEach((key) => {
+        if (task.forms[key] === undefined) {
+          task.forms[key] = {value: null};
+        }
+      })
+    });
 
     let input = operation.get('ports').filter(p => p.type === 'INPUT').sort(fn);
     let output = operation.get('ports').filter(p => p.type === 'OUTPUT').sort(fn);
@@ -31,8 +38,8 @@ export default Component.extend({
 
     el.css('top', task.top);
     el.css('left', task.left);
-    if(task.color){
-      el.css('color', task.forms.color.value.foreground);
+    if(task.forms.color.value){
+      el.css('color', task.forms.color.value.background);
       el.css('background-color', task.forms.color.value.background);
     }
 

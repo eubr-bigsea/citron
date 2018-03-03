@@ -3,6 +3,11 @@
   width: 100%;
   height: 100%;
 
+  &.display-form {
+    width: calc(100% - 300px);
+    padding-right: 0;
+  }
+
   .diagram-options {
     border: 1px solid #d7dde4;
     display: inline-block;
@@ -77,6 +82,9 @@
         color: $color-error !important;
         z-index: 3;
         font-size: 1.3rem;
+        i {
+          //font-weight: 600;
+        }
         &.jtk-hover {
           display: block;
         }
@@ -95,6 +103,12 @@
 
     .jtk-endpoint {
       z-index: 2;
+      rect {
+        fill: $color-darker;
+      }
+      circle {
+        fill: $color-darker;
+      }
 
       &.will-remove {
         rect {

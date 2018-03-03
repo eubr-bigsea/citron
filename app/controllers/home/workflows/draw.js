@@ -200,7 +200,9 @@ export default Controller.extend({
           }
         })
         this.set('attrsReady', true);
-        this.set('displayForm', true);
+        if(this.get('selectedTask') !== null){
+          this.set('displayForm', true);
+        }
       }
       run(() => {
         TahitiAttributeSuggester.compute(workflow, datasourceLoader, callback);
@@ -222,7 +224,6 @@ export default Controller.extend({
       if(this.get('attrsReady')){
         this.set('displayForm', true);
       }
-
     },
 
   },

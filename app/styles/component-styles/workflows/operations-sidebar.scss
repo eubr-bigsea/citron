@@ -5,63 +5,24 @@
   float: left;
   background: $color-darker;
 
-  .operations-list {
-    display: none;
-  }
   .items-search {
     display: none;
-  }
-
-  #open-operations-list {
-    border: 0px;
-    margin: 0 0 0 0;
-    padding: 0 10px 0 10px;
-    float: right;
-    height: 100%;
-    width: $size-operations-sidebar;
-    background: $color-darker;
-    border-radius: 0;
-
-    i {
-      position: relative;
-      float: left;
-      top: 50%;
-      font-size: 1.5em;
-      color: $color-text-lighter;
-      @extend .fa-cogs;
-    }
-
-    &:hover {
-      background: $color-lighter;
-      padding: 0 4.8px 0 4.8px;
-
-      i {
-        font-size: 2em;
-      }
-    }
-  }
-}
-
-#page-content-wrapper.toggled & {
-
-  width: $size-operations-sidebar-toggled;
-  height: 100%;
-
-  .items-search {
-    display: block;
     margin: 5px;
     margin: ($main-sidebar - $app-header) 24px 15px 18px;
     padding-right: 15px;
+    line-height: 38px;
 
     .form-control {
       border-color: white;
     }
   }
+
   .operations-list {
+    display: none;
     position: relative;
     overflow: hidden;
-    height: 100%;
-    display: inline-block;
+    height: calc(100% - 97px);
+    width: 306px;
 
     ul {
 
@@ -149,6 +110,48 @@
         }
       }
     }
+  }
+
+  #open-operations-list {
+    border: 0px;
+    margin: 0 0 0 0;
+    padding: 0 10px 0 10px;
+    float: right;
+    height: 100%;
+    width: $size-operations-sidebar;
+    background: $color-darker;
+    border-radius: 0;
+
+    i {
+      position: relative;
+      float: left;
+      top: 50%;
+      font-size: 1.5em;
+      color: $color-text-lighter;
+      @extend .fa-cogs;
+    }
+
+    &:hover {
+      background: $color-lighter;
+      padding: 0 4.8px 0 4.8px;
+
+      i {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+#page-content-wrapper.toggled & {
+
+  width: $size-operations-sidebar-toggled;
+  height: 100%;
+
+  .items-search {
+    display: block;
+  }
+  .operations-list {
+    display: inline-block;
   }
 
   #open-operations-list {
