@@ -1,0 +1,45 @@
+{{#unless model.chosenVis}}
+
+  {{visualization.id}}
+
+  {{#each model.allVisualizations as |visType|}}
+
+    <div class="row">
+      <div class="col-md-12 vis-row">
+        <h2 class="vis-title">{{visType.name}}</h2>
+        <hr class="vis-hr">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 vis-row">
+
+        {{#each visType.visualizations as |vis|}}
+
+          <div {{action 'changeUrl' vis.id}}>
+          {{ visualizations/vis-card
+            name=vis.title
+            image=vis.image
+            icon=vis.icon
+          }}
+          </div>
+
+        {{/each}}
+
+      </div>
+    </div>
+
+  {{/each}}
+
+{{else}}
+
+  <div class='vis-container'>
+
+    {{visualizations/vis-wrapper
+      viz=model.chosenVis
+      dataUrl=model.chosenVis.dataUrl
+    }}
+
+  </div>
+
+{{/unless}}

@@ -1,12 +1,9 @@
-{{#link-to "home.jobs.results.visualizations" vis.jobId vis.taskId vis.component}}
-  <div class="card-wrap">
-    <div class="vis-card">
-      <i class="fa fa-question-circle question-mark pull-right" title="{{vis.tooltip}}" data-toggle="tooltip"></i>
-      <i class="fa vis-icon {{vis.image}}"></i>
-    </div>
-    <div class="vis-name" title="{{vis.name}}">
-      <i class="fa {{vis.icon}} fa-lg"></i>
-      {{vis.name}}
-    </div>
+<div class="card-wrap">
+ <div class="vis-card">
+   <img class="vis-icon" src="{{image}}" alt={{name}}>
   </div>
-{{/link-to}}
+  <div class="vis-name" title="{{name}}">
+    <i class="fa {{icon}} fa-lg"></i>
+    {{name}}
+  </div>
+</div>

@@ -1,0 +1,166 @@
+{
+  "title": "",
+  "legend": {
+    "isVisible": true,
+    "text": "{{group}}"
+  },
+  "tooltip": {
+    "hasImg": false,
+    "title": [
+      "{{group}}",
+      "<span class='metric'>Propensity</span><span class='number'>{{y}}</span>"
+    ],
+    "body": []
+  },
+  "x": {
+    "title": "",
+    "prefix": "",
+    "sufix": "",
+    "type": "time",
+    "outFormat": "%b - %Y",
+    "inFormat": "%m/%d/%Y"
+  },
+  "y": {
+    "title": "",
+    "prefix": "",
+    "sufix": "",
+    "format": ""
+  },
+  "colors": {
+    "05/01/2017": {
+      "fill": "#3eb1d4",
+      "gradient": "#6CD3EA ",
+      "stroke": "#0c3543"
+    },
+    "06/01/2017": {
+      "fill": "#3faca6",
+      "gradient": "#66CCC5",
+      "stroke": "#19807A"
+    },
+    "07/01/2017": {
+      "fill": "#3faca6",
+      "gradient": "#66CCC5",
+      "stroke": "#19807A"
+    },
+    "08/01/2017": {
+      "fill": "#3faca6",
+      "gradient": "#66CCC5",
+      "stroke": "#19807A"
+    },
+    "09/01/2017": {
+      "fill": "#3faca6",
+      "gradient": "#66CCC5",
+      "stroke": "#19807A"
+    }
+  },
+  "data": [
+    {
+      "x": "",
+      "name": "",
+      "values": [
+        {
+          "x": "05/01/2017",
+          "name": "05/01/2017",
+          "group": "Reserves",
+          "y": 102000000
+        },
+        {
+          "x": "06/01/2017",
+          "name": "06/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 76000000
+        },
+        {
+          "x": "07/01/2017",
+          "name": "07/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 54000000
+        },
+        {
+          "x": "08/01/2017",
+          "name": "08/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 32000000
+        },
+        {
+          "x": "09/01/2017",
+          "name": "09/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 12000000
+        }
+      ]
+    },
+    {
+      "x": "",
+      "name": "",
+      "values": [
+        {
+          "x": "05/01/2017",
+          "name": "05/01/2017",
+          "group": "Reserves",
+          "y": 98000000
+        },
+        {
+          "x": "06/01/2017",
+          "name": "06/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 50000000
+        },
+        {
+          "x": "07/01/2017",
+          "name": "07/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 123040598
+        },
+        {
+          "x": "08/01/2017",
+          "name": "08/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 134012504
+        },
+        {
+          "x": "09/01/2017",
+          "name": "09/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 85039201
+        }
+      ]
+    },
+    {
+      "x": "",
+      "name": "",
+      "values": [
+        {
+          "x": "05/01/2017",
+          "name": "05/01/2017",
+          "group": "Reserves",
+          "y": 103940293
+        },
+        {
+          "x": "06/01/2017",
+          "name": "06/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 29405823
+        },
+        {
+          "x": "07/01/2017",
+          "name": "07/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 129485409
+        },
+        {
+          "x": "08/01/2017",
+          "name": "08/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 39183048
+        },
+        {
+          "x": "09/01/2017",
+          "name": "09/01/2017",
+          "group": "Forecasted Reserves",
+          "y": 293840182
+        }
+      ]
+    }
+  ]
+}

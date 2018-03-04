@@ -1,0 +1,76 @@
+{
+  "title": "Here is an example title",
+  "subtitle": "Here is an example subtitle",
+  "x": {
+    "title": "Revenue $",
+    "tooltip": "Revenue",
+    "prefix": "",
+    "suffix": "",
+    "format": ""
+  },
+  "y": {
+    "title": "Contribution to sell Mix",
+    "tooltip": "% Change in Sales",
+    "prefix": "",
+    "suffix": "%",
+    "format": ""
+  },
+  "data": [{
+      "id": "Red Clutches",
+      "name": "Red Clutches",
+      "color": "#FF420A",
+      "values": [
+        { "x":  1, "y": 65 },
+        { "x":  2, "y": 25 },
+        { "x":  3, "y": 45 },
+        { "x":  4, "y": 15 },
+        { "x":  5, "y": 95 },
+        { "x":  6, "y": 35 },
+        { "x":  7, "y": 65 },
+        { "x":  8, "y": 15 },
+        { "x":  9, "y":  5 },
+        { "x": 10, "y": 85 },
+        { "x": 11, "y": 25 },
+        { "x": 12, "y": 35 }
+      ]
+    }, {
+      "id": "Blue Carryall",
+      "name": "Blue Carryall",
+      "img": "",
+      "color": "#00B3DA",
+      "values": [
+        { "x":  1, "y": 15 },
+        { "x":  2, "y": 25 },
+        { "x":  3, "y": 35 },
+        { "x":  4, "y": 45 },
+        { "x":  5, "y": 55 },
+        { "x":  6, "y": 65 },
+        { "x":  7, "y": 55 },
+        { "x":  8, "y": 45 },
+        { "x":  9, "y": 35 },
+        { "x": 10, "y": 25 },
+        { "x": 11, "y": 15 },
+        { "x": 12, "y": 65 }
+      ]
+    }, {
+      "id": "Green Cross-Body",
+      "name": "Green Cross-Body",
+      "img": "",
+      "color": "#00AA9E",
+      "values": [
+        { "x":  1, "y": 45 },
+        { "x":  2, "y": 15 },
+        { "x":  3, "y": 85 },
+        { "x":  4, "y": 25 },
+        { "x":  5, "y": 45 },
+        { "x":  6, "y": 75 },
+        { "x":  7, "y": 75 },
+        { "x":  8, "y": 25 },
+        { "x":  9, "y": 15 },
+        { "x": 10, "y": 45 },
+        { "x": 11, "y": 55 },
+        { "x": 12, "y":  5 }
+      ]
+    }
+  ]
+}
