@@ -58,16 +58,7 @@
     }
 
     &:hover {
-      height: 30px;
-      width: 30px;
-      border-radius: 30px;
-      border-color: $color-error;
-      top: -55px;
-      left: 20px;
-
       i {
-        font-size: 2em;
-        left: 4px;
         color: $color-error;
       }
     }
@@ -81,7 +72,7 @@
 
   &.comment {
     font-size: 10px;
-    background-color: #ffffa5;
+    background-color: #fff8a5;
     border: none !important;
     border-radius: 0 !important;
     width: 200px !important;

@@ -1,5 +1,8 @@
 fieldset style='border:none'
-  legend: t 'form.title'
+  .form-group.title
+    span: t 'form.title'
+    a.btn.btn-primary.btn-md.remove-task.pull-right href='#' click={action 'removeTask' task}
+      i.mdi.mdi-delete
   .form-group
     p.title
       span.label title={t 'form.task.name'}
