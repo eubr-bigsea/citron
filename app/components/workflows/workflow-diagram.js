@@ -220,15 +220,17 @@ export default Component.extend({
       this.set('hasChanged', true);
     },
 
-    removeTask(task, endpoints) {
+    removeTask(task) {
       const flows = this.get('workflow.flows');
       const flowsToRemove = flows.filter((el) => {
         return el.source_id === task.id || el.target_id === task.id;
       });
-      endpoints.forEach(e => this.get('jsplumb').deleteEndpoint(e));
+      task.endpoints.forEach(e => this.get('jsplumb').deleteEndpoint(e));
 
       flows.removeObjects(flowsToRemove);
       this.get('workflow.tasks').removeObject(task);
+      this.set('selectedTask', null);
+      this.set('displayForm', null);
       this.set('hasChanged', true);
     },
 
@@ -245,7 +247,8 @@ export default Component.extend({
     },
 
     addEndpoint(endpoints, el, opts){
-      endpoints.addObject(this.get('jsplumb').addEndpoint(el, opts));
+      this.get('jsplumb').addEndpoint(el, opts)
+      endpoints.addObject(opts.uuid);
     },
   }
 });

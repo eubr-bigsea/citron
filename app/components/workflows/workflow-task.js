@@ -11,13 +11,13 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.set('endpoints', A());
+    this.set('task.endpoints', A());
   },
 
   didInsertElement() {
     const fn = function(a, b) { return a.order > b.order; };
     const el = this.$();
-    const endpoints = this.get('endpoints');
+    const endpoints = this.get('task.endpoints');
     const task = this.get('task');
     let operation = this.get('operations').findBy('id', String(task.operation.id));
 
@@ -87,6 +87,9 @@ export default Component.extend({
       $('.ui-selected').removeClass('ui-selected');
       this.$().addClass('ui-selected');
       this.get('clickTask')(this.get('task'));
+    },
+    removeTask(){
+      this.get('removeTask')(this.get('task'));
     },
   }
 });

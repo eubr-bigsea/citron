@@ -19,6 +19,9 @@ export default Component.extend({
       this.set(`task.forms.${key}.value`, value);
       this.set('hasChanged', true);
       this.set('formsChanged', true);
+    },
+    removeTask(){
+      this.get('removeTask')(this.get('task'));
     }
   }
 });

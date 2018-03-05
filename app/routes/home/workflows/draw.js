@@ -28,6 +28,9 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(controller, model);
+    model.workflow.get('tasks').forEach((task) => {
+      task.operation = model.operations.findBy('id', String(task.operation.id)).toJSON({includeId: true});
+    })
     controller.send('getAttributeSuggestions');
   },
 

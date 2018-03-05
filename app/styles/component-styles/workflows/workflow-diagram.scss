@@ -4,13 +4,17 @@
   height: 100%;
 
   &.display-form {
-    width: calc(100% - 300px);
     padding-right: 0;
+    #lemonade-container {
+      width: calc(100% - 300px);
+      padding-right: 0;
+    }
   }
 
   .diagram-options {
     border: 1px solid #d7dde4;
-    display: inline-block;
+    display: block;
+    width: fit-content;
     height: 40px;
     padding: 2.5px 15px;
     label {
@@ -23,20 +27,38 @@
       height: 35px;
       width: 35px;
       padding: 1px 4.5px;
+      cursor: pointer;
       i {
         font-size: 1.5rem;
       }
+      &:focus {
+        background: white;
+        color: $color-darker;
+
+      }
+      &:hover {
+        background: $color-light;
+      }
+      &.deactive {
+        cursor: no-drop;
+        color: #ccc;
+      }
+      &.border {
+        padding: 0;
+        border: 1px solid #d7dde4;
+      }
     }
+
   }
 
   #lemonade-container {
-    height: 100%;
     position: relative;
     width: 100%;
     overflow: auto;
     height: -webkit-calc(100% - 40px);
     height: -moz-calc(100% - 40px);
     height: calc(100% - 40px);
+    float: left;
   }
 
 

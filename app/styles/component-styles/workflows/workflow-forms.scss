@@ -1,7 +1,7 @@
 & {
   background: white;
   position: relative;
-  top: 45px;
+  float: right;
   width: 300px;
   height: calc(100% - 45px);
   padding: 7px;
@@ -11,6 +11,7 @@
   .form-control {
     font-size: 1em;
     border-radius: 3px;
+
   }
 
 
@@ -18,6 +19,8 @@
     padding: 5px;
     border: 1px solid #ccc;
     margin: 5px 0;
+
+
 
     legend {
       border: 0;
@@ -30,6 +33,37 @@
       border: 1px solid #ccc;
       padding: 3px 4px 7px 4px;
       margin-bottom: 0.7em;
+      &.title {
+        border: none;
+        padding: 0;
+        margin: 0 0 0.7em 0;
+        span {
+          display: inline-block;
+          border: 0;
+          font-size: 1.3em;
+          font-weight: bold;
+          margin: 5px 0 0 0;
+          width: inherit;
+        }
+
+        a.remove-task {
+          background: none;
+          border: none;
+          color: $color-darker;
+          height: 35px;
+          width: 35px;
+          padding: 1px 4.5px;
+          display: inline-block;
+          &:hover {
+            background: $color-light;
+          }
+          cursor: pointer;
+          i {
+            font-size: 1.5rem;
+          }
+        }
+
+      }
 
       p.title {
         padding: 0;
