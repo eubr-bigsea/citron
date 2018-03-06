@@ -9,8 +9,8 @@ export default FormComponent.extend({
 
   didInsertElement(){
     this._super(...arguments);
-
   },
+
   didReceiveAttrs() {
     this._super(...arguments);
     this.set('suggestedAttrsArray', A());
