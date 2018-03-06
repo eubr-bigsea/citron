@@ -16,7 +16,7 @@
     display: block;
     width: fit-content;
     height: 40px;
-    padding: 2.5px 15px;
+    padding: 2px 15px;
     label {
       margin-right: 15px;
     }
@@ -26,22 +26,27 @@
       color: $color-darker;
       height: 35px;
       width: 35px;
-      padding: 1px 4.5px;
+      padding: 0px 4px;
       cursor: pointer;
       i {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
       }
-      &:focus {
+      &:focus, &:active {
         background: white;
         color: $color-darker;
-
+        box-shadow: none;
+        border: none !important;
       }
       &:hover {
         background: $color-light;
+        color: white;
       }
-      &.deactive {
+      &.disable {
         cursor: no-drop;
         color: #ccc;
+        &:hover {
+          background: none;
+        }
       }
       &.border {
         padding: 0;

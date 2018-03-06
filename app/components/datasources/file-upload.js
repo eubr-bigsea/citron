@@ -5,7 +5,6 @@ import config from '../../config/environment';
 import generateUUID from 'lemonade-ember/utils/generate-uuid'
 import Resumable from '@resumable';
 import generateUUID from 'lemonade-ember/utils/generate-uuid'
-import Resumable from '@resumable';
 
 export default Component.extend({
   session: service(),

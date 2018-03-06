@@ -2,9 +2,9 @@
   = workflows/operations-sidebar operations=model.operations groupedOperations=model.groupedOperations
   .container-fluid#diagram-container-wrapper
     .option-bar.row
-      .col-12.col-6.vcentered.__name
+      .col-12.col-lg-6.vcentered.__name
         = input value=model.workflow.name class="form-control"
-      .col-12.col-6.vcentered.__buttons
+      .col-12.col-lg-6.vcentered.__buttons
         .group.actions.pull-left
           a.btn.btn-primary.btn-md rel="tooltip" title={t 'workflow.draw.save'} onclick={action 'saveWorkflow' null}
             i.far.fa-save

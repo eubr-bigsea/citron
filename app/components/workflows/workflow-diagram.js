@@ -6,11 +6,11 @@ import $ from 'jquery';
 import { computed } from '@ember/object';
 
 export default Component.extend({
-  classNames: ["col-xs-12"],
+  classNames: ["col-12"],
   classNameBindings: ['displayForm'],
   zoomScale: 1,
-  zoomMax: computed('zoomScale', function(){ return this.get('zoomScale') >= 1.4 ? 'deactive' : 'active' }),
-  zoomMin: computed('zoomScale', function(){ return this.get('zoomScale') <= 0.7 ? 'deactive' : 'active' }),
+  zoomMax: computed('zoomScale', function(){ return this.get('zoomScale') >= 1.4 ? 'disable' : 'enable' }),
+  zoomMin: computed('zoomScale', function(){ return this.get('zoomScale') <= 0.7 ? 'disable' : 'enable' }),
 
 
   init(){
@@ -59,7 +59,7 @@ export default Component.extend({
       connection.bind("mouseover", (conn, event) => {
         closeBtn.css({left: event.clientX, top: event.clientY, display: 'block' });
       });
-      connection.bind("mouseout", (conn, event) => {
+      connection.bind("mouseout", () => {
         closeBtn.css({display: 'none' });
       });
       // Style svg path with alert color
