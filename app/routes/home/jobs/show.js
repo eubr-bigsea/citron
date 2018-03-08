@@ -2,6 +2,8 @@ import { A } from '@ember/array';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
+import config from '../../../config/environment';
+import { run } from '@ember/runloop';
 
 export default Route.extend({
   i18n: service(),
@@ -48,8 +50,11 @@ export default Route.extend({
     controller.set('job', model.job);
   },
   actions: {
-    willTransition(){
-      this.get('controller').set("codeModal", false);
-    },
+    didTransition(){
+      this.controller.set('taskModal', false);
+      this.controller.set('codeModal', false);
+      this.controller.set('code', null);
+      this.controller.set('selectedTask', null);
+    }
   }
 });

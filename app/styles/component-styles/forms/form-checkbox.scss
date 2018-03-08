@@ -1,0 +1,39 @@
+& {
+  .title {
+    margin: 5px !important;
+  }
+  .label {
+    font-size: 1.2em !important;
+    padding-top: 5px;
+    max-width: calc(100% - 50px) !important;
+  }
+  span.fa-asterisk{
+    padding-top: 7px;
+  }
+  .btn-secondary {
+    height: 20px;
+    width: 20px;
+    margin: 0 5px 0 0;
+    padding: 0;
+    background: white;
+    border-color: $color-darker;
+    color: $color-darker;
+    position: relative;
+    top: -5px;
+
+    i {
+      top: -1px;
+      position: relative;
+      display: none;
+    }
+  }
+
+  &.checked {
+    .btn-secondary {
+      i {
+        display: block;
+      }
+    }
+  }
+
+}
