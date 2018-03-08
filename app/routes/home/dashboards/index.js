@@ -18,5 +18,8 @@ export default Route.extend(AuthenticatedRouteMixin, RouteMixin,{
 
     return this.findPaged('dashboard', params);
   },
-
+  setupController(controller, model) {
+    model = model.get('content');
+    this._super(controller, model);
+  }
 });

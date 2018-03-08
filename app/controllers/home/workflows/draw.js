@@ -162,6 +162,8 @@ export default Controller.extend({
     retryTransition(){
       this.set('hasChanged', false);
       this.set('unsavedModal', false);
+      this.set('displayForm', false);
+      this.set('selectedTask', null);
       this.get('transition').retry();
     },
 

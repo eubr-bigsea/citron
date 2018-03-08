@@ -25,7 +25,7 @@ export default Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('users', model.users);
-    controller.set('datasources', model.datasources);
+    controller.set('datasources', model.datasources.get('content'));
   },
   actions: {
     refreshModel(){

@@ -44,6 +44,9 @@ export default Route.extend({
         controller.set('unsavedModal', true);
       }
       controller.set('selectedTask', null);
+    },
+    didTransition(){
+      this.controller.set('displayForm', null);
     }
   }
 });

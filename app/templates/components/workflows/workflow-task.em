@@ -6,6 +6,5 @@ if isComment
 else
   .task-wrapper.pull-left click={action 'clickTask'}
     .name-container
-      span.operation-name
-        i class={concat 'fa' operation.icon}
-        =task.name
+      i class={concat 'fa' task.operation.icon}
+      span.operation-name: =task.name

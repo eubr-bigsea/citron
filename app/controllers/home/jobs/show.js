@@ -1,8 +1,8 @@
+/* global Prism */
 import Controller from '@ember/controller';
 import config from '../../../config/environment';
 import $ from 'jquery';
 import { run } from '@ember/runloop';
-import Prism from '@prism';
 
 export default Controller.extend({
   taskModal: false,
@@ -11,37 +11,6 @@ export default Controller.extend({
   activeTab: 'logs',
   selectedTask: null,
   code: null,
-
-  init() {
-    this._super(...arguments);
-    this.addObserver('job.status', this, 'statusDidChange');
-  },
-
-  statusDidChange() {
-    let code = this.get('code');
-    if(!code){
-      let job = this.get('job');
-      $.ajax({
-        type: 'GET',
-        url:`${config.stand}/jobs/${job.id}/source-code`
-      }).then(
-        run(() => {
-          (response) => {
-            if(response.source){
-              var lang = eval(`Prism.languages.${response.lang}`);
-              var highlighted = Prism.highlight(response.source, lang)
-              this.set('code', highlighted);
-            } else {
-              this.set('code', 'NONE');
-            }
-          },
-            (error) => {
-              console.log('ERROR', error);
-            }
-        })
-      );
-    }
-  },
 
   actions: {
     selectTask(task, tab){
@@ -74,7 +43,33 @@ export default Controller.extend({
     },
 
     toggleCodeModal(){
-      this.toggleProperty('codeModal');
+      let code = this.get('code');
+      if(code == 'NONE' || code == null){
+        let job = this.get('job');
+        $.ajax({
+          type: 'GET',
+          url:`${config.stand}/jobs/${job.id}/source-code`
+        }).then(
+          (response) => {
+            if(response.source){
+              var lang = eval(`Prism.languages.${response.lang}`);
+              var highlighted = Prism.highlight(response.source, lang)
+              this.set('code', highlighted);
+              this.toggleProperty('codeModal');
+            } else {
+              this.set('code', 'NONE');
+              this.toggleProperty('codeModal');
+            }
+          },
+          (error) => {
+            console.log('ERROR', error);
+            this.toggleProperty('codeModal');
+          }
+
+        );
+      } else {
+        this.toggleProperty('codeModal');
+      }
     },
     toggleReportModal(){
       this.toggleProperty('reportModal');

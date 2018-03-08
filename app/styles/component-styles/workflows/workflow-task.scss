@@ -25,14 +25,23 @@
     max-width: 108px;
     height: 38px;
     max-height: 38px;
-    padding: 5px;
+    padding: 5px 2px 2px 5px;
     background: white;
     border-radius: 3px;
     border: 1px solid #aaa;
-
-    .operation-name {
-      text-shadow: 0.2px 0.2px 1px #ccc;
+    overflow: hidden;
+    .name-container {
+      color: $color-darker;
+      //      text-shadow: 0.2px 0.2px 1px #ccc;
+      i {
+        font-size: 1.1em;
+        margin-right: 3px;
+      }
+      .operation-name {
+        word-break: break-all;
+      }
     }
+
   }
 
   .remove-task {

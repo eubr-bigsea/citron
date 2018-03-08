@@ -19,4 +19,8 @@ export default Route.extend(AuthenticatedRouteMixin, RouteMixin, {
 
     return this.findPaged('job', params);
   },
+  setupController(controller, model) {
+    model = model.get('content');
+    this._super(controller, model);
+  }
 });
