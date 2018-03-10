@@ -114,6 +114,7 @@ export default {
     },
     'public': {
       'label': 'Public',
+      'helper': 'This will be public to all users',
     },
     'encode': {
       'label': 'Encode',
@@ -275,24 +276,6 @@ export default {
     },
   },
   'workflow': {
-    'self': 'Workflow',
-    'edit': {
-      'title': 'Editing workflow:',
-    },
-    'new': {
-      'title': 'Creating new workflow:',
-      'name': {
-        'placeholder': 'My workflow',
-      },
-      'description': {
-        'placeholder': 'This is my workflow...',
-      },
-    },
-    'draw': {
-      'save': 'Save',
-      'delete': 'Delete this workflow',
-      'play': 'Execute'
-    }
   },
   'job': {
     'self': 'Job',
@@ -424,6 +407,17 @@ export default {
     'moreActionsBtn': 'More Actions',
     'deleteBtn': 'Delete All',
     'searchFor': 'Search',
+    'singular': 'Workflow',
+    'edit': {
+      'title': 'Editing workflow:',
+    },
+    'create-new-modal': {
+      'title': 'Creating new workflow',
+      'name': 'My workflow',
+      'description': 'This is my workflow...',
+      'create': 'Create',
+      'cancel': 'Cancel',
+    },
     'alert-modal': {
       'saveSuccess': {
         'title': 'Save',
