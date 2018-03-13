@@ -413,6 +413,13 @@ export default {
       'create': 'Create',
       'cancel': 'Cancel',
     },
+    'edit-modal': {
+      'title': 'Editing workflow',
+      'name': 'My workflow',
+      'description': 'This is my workflow...',
+      'save': 'Save',
+      'cancel': 'Cancel',
+    },
     'draw': {
       'executeBtn': 'Execute',
     },

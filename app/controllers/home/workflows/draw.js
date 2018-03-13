@@ -30,6 +30,7 @@ export default Controller.extend({
   deleteModal: false,
   alertModal: false,
   unsavedModal: false,
+  editModal: false,
 
   alertContent: null,
   alertCallback: null,
@@ -51,6 +52,10 @@ export default Controller.extend({
 
     toggleExecutionModal(){
       this.toggleProperty('executionModal');
+    },
+
+    toggleEditModal(){
+      this.toggleProperty('editModal');
     },
 
     saveWorkflow(callback){
