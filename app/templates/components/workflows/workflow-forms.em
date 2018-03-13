@@ -1,9 +1,10 @@
-fieldset style='border:none'
-  .form-group.title
+.fixed-upper-menu.form-group
+  .title
     span: t 'form.title'
     a.btn.btn-primary.btn-md.remove-task.pull-right href='#' click={action 'removeTask' task}
       i.mdi.mdi-delete
-  .form-group
+fieldset style='border:none'
+  .form-group.field-name.name
     p.title
       span.label title={t 'form.task.name'}
         =t 'form.task.name'
