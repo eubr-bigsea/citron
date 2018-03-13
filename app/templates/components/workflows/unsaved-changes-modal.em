@@ -7,9 +7,9 @@
     .wrapper
       h5: t 'workflows.unsaved-changes-modal.message'
   modal.footer
-    = bs-button onClick=(action 'saveWorkflow')
+    = bs-button onClick=(action 'saveWorkflow') class="btn-success"
       t 'workflows.unsaved-changes-modal.save'
-    = bs-button onClick=confirmTransition
+    = bs-button onClick=confirmTransition class="btn-danger"
       t 'workflows.unsaved-changes-modal.leave'
     = bs-button onClick=cancelTransition
       t 'workflows.unsaved-changes-modal.cancel'

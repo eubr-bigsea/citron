@@ -12,11 +12,16 @@
   }
 
   .diagram-options {
+    position: absolute;
+    margin-top: 5px;
+    left: 22px;
+    background-color: #fff;
+    z-index: 1;
     border: 1px solid #d7dde4;
     display: block;
     width: fit-content;
     height: 40px;
-    padding: 2px 15px;
+    padding: 2px 5px;
     label {
       margin-right: 15px;
     }
@@ -60,9 +65,9 @@
     position: relative;
     width: 100%;
     overflow: auto;
-    height: -webkit-calc(100% - 40px);
-    height: -moz-calc(100% - 40px);
-    height: calc(100% - 40px);
+    height: -webkit-calc(100% - 10px);
+    height: -moz-calc(100% - 10px);
+    height: calc(100% - 10px);
     float: left;
   }
 

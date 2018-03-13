@@ -51,6 +51,7 @@ export default Route.extend({
     willTransition(transition){
       const controller = this.controller;
 
+      controller.set('displayForm', null);
       if(controller.get('hasChanged')){
         controller.set('transition', transition);
         transition.abort();
