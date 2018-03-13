@@ -72,7 +72,6 @@ export default Controller.extend({
             run(() => {
               console.log('ERROR', error);
               this.set('codeModal', false);
-
             })
           }
         );
