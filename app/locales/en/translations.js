@@ -275,8 +275,6 @@ export default {
       'submitButton': 'Ok',
     },
   },
-  'workflow': {
-  },
   'job': {
     'self': 'Job',
     'show': {
@@ -401,13 +399,10 @@ export default {
   'logout': 'Logout',
   'workflows': {
     'self':'workflows',
+    'singular': 'Workflow',
     'title': 'Workflows',
     'description': 'List of all workflows - e.g. owned, shared, etc..',
-    'newBtn': 'Create new',
-    'moreActionsBtn': 'More Actions',
-    'deleteBtn': 'Delete All',
     'searchFor': 'Search',
-    'singular': 'Workflow',
     'edit': {
       'title': 'Editing workflow:',
     },
@@ -417,6 +412,9 @@ export default {
       'description': 'This is my workflow...',
       'create': 'Create',
       'cancel': 'Cancel',
+    },
+    'draw': {
+      'executeBtn': 'Execute',
     },
     'alert-modal': {
       'saveSuccess': {
@@ -437,8 +435,14 @@ export default {
       },
     },
     'delete-modal': {
-      'title': 'Deleting "{{workflow.name}}"',
-      'message': 'Do you want to delete permanently the workflow: "{{workflow.name}}" ?',
+      'title': {
+        'one':  'Deleting "{{workflow.name}}"',
+        'other': 'Deleting {{count}} workflows',
+      },
+      'message': {
+        'one': 'Do you want to delete permanently the workflow: "{{workflow.name}}" ?',
+        'other':'Do you want to delete permanently {{count}} workflows ?',
+      },
       'delete-btn': 'Delete',
       'cancel': 'Cancel'
     },

@@ -9,6 +9,7 @@ export default Service.extend ({
   server422: false,
 
   init(){
+    this._super(...arguments);
     this.set('userId', this.get('session.data.authenticated.userId'));
   },
 

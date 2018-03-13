@@ -14,7 +14,7 @@
           a.btn.btn-primary.btn-md onclick={action 'toggleExecutionModal'}
             i.mdi.mdi-play
             span
-              = t 'workflow.draw.play'
+              = t 'workflows.draw.executeBtn'
     .workflow-diagram-wrapper.row
       = workflows/workflow-diagram workflow=model.workflow operations=model.operations hasChanged=hasChanged formsChanged=formsChanged displayForm=displayForm clickTask=(action 'clickTask') closeForms=(action 'closeForms') getAttributeSuggestions=(action 'getAttributeSuggestions') selectedTask=selectedTask
 = workflows/pre-execution-modal executionModal=executionModal clusters=model.clusters jobHash=jobHash workflowName=model.workflow.name executeWorkflow=(action 'executeWorkflow')

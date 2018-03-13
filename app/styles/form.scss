@@ -106,62 +106,6 @@ label, .control-label {
   border-color: $color-completed;
 }
 
-.radio, .checkbox {
-  display: none;
-}
-
-.radio + span, .checkbox + span {
-  padding: 0;
-  padding-right: 10px;
-}
-
-.radio + span:before, .checkbox + span:before {
-  font-family: "Font Awesome 5 Free";
-  font-size: 21px;
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: 10px;
-  color: $color-lighter;
-}
-
-.radio:checked + span:before, .checkbox:checked + span:before {
-  color: $color-darker;
-}
-
-.radio:disabled + span:before, .checkbox:disabled + span:before {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.radio:checked:disabled + span:before {
-  color: #c8d0da;
-}
-
-.checkbox {
-  &:checked {
-    &:disabled + span:before {
-      color: #c8d0da;
-    }
-
-    + span:before {
-      content: "\f14a";
-    }
-  }
-
-  + span:before {
-    content: "\f0c8";
-  }
-
-  &.rounded {
-    + span:before {
-      content: "\f111";
-    }
-
-    &:checked + span:before {
-      content: "\f058";
-    }
-  }
-}
 
 .radio {
   + span:before {

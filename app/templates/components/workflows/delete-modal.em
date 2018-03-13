@@ -2,13 +2,12 @@
   modal.header
     h4.modal-title.vcentered.__status class=status
       i.__icon.mdi.mdi-alert
-      span.__text: t 'workflows.delete-modal.title' workflow=workflow
+      span.__text: t 'workflows.delete-modal.title' count=count workflow=workflow
   modal.body
     .wrapper
-      h5: = t 'workflows.delete-modal.message' workflow=workflow
+      h5: = t 'workflows.delete-modal.message' count=count workflow=workflow
   modal.footer
     = bs-button onClick=deleteWorkflow
       t 'workflows.delete-modal.delete-btn'
     = bs-button onClick=(action (mut deleteModal) false)
       t 'workflows.delete-modal.cancel'
-

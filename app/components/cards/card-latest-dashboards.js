@@ -21,7 +21,9 @@ export default Component.extend({
         sort: 'updated',
         asc: false
       }).then((dashboards) => {
-        this.set('dashboards', dashboards)
+        if(!this.isDestroyed){
+          this.set('dashboards', dashboards);
+        }
       });
     });
   }
