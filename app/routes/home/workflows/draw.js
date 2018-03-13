@@ -21,6 +21,19 @@ export default Route.extend({
           clusters: this.get('store').findAll('cluster'),
           operations: this.store.query('operation', queryParams),
           groupedOperations: groupBy(this.store.query('operation', queryParams), 'categories'),
+          images: [
+            {id: 0, name: 'img0.jpg'},
+            {id: 1, name: 'img1.jpg'},
+            {id: 2, name: 'img2.jpg'},
+            {id: 3, name: 'img3.jpg'},
+            {id: 4, name: 'img4.jpg'},
+            {id: 5, name: 'img5.jpg'},
+            {id: 6, name: 'img6.jpg'},
+            {id: 7, name: 'img7.jpg'},
+            {id: 8, name: 'img8.jpg'},
+            {id: 9, name: 'img9.jpg'},
+          ],
+
         });
       }
     );
