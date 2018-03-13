@@ -128,9 +128,15 @@ acorn@^3.0.4:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 acorn@^5.2.1:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.3.0.tgz#7446d39459c54fb49a80e6ee6478149b940ec822"
+=======
+acorn@^5.2.1, acorn@^5.5.0:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
+>>>>>>> implement workflows/index route
 =======
 acorn@^5.2.1, acorn@^5.5.0:
   version "5.5.3"
@@ -1865,11 +1871,15 @@ can-symlink@^1.0.0:
     tmp "0.0.28"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 caniuse-lite@^1.0.30000792:
   version "1.0.30000792"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000792.tgz#d0cea981f8118f3961471afbb43c9a1e5bbf0332"
 
 caniuse-lite@^1.0.30000813:
+=======
+caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000813:
+>>>>>>> implement workflows/index route
 =======
 caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000813:
 >>>>>>> implement workflows/index route
@@ -2101,13 +2111,19 @@ commander@2.8.x:
     graceful-readlink ">= 1.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 commander@^2.5.0, commander@^2.6.0, commander@^2.9.0, commander@~2.13.0:
 =======
+=======
+>>>>>>> implement workflows/index route
 commander@^2.5.0, commander@^2.6.0, commander@^2.9.0:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.0.tgz#ad2a23a1c3b036e392469b8012cec6b33b4c1322"
 
 commander@~2.13.0:
+<<<<<<< HEAD
+>>>>>>> implement workflows/index route
+=======
 >>>>>>> implement workflows/index route
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
@@ -2512,6 +2528,7 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 electron-releases@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/electron-releases/-/electron-releases-2.1.0.tgz#c5614bf811f176ce3c836e368a0625782341fd4e"
@@ -2523,6 +2540,9 @@ electron-to-chromium@^1.3.30:
     electron-releases "^2.1.0"
 
 electron-to-chromium@^1.3.36:
+=======
+electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.36:
+>>>>>>> implement workflows/index route
 =======
 electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.36:
 >>>>>>> implement workflows/index route
@@ -2822,8 +2842,13 @@ ember-cli-qunit@^4.3.0:
 
 ember-cli-sass@^7.0.0:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/ember-cli-sass/-/ember-cli-sass-7.1.3.tgz#d4a418d68bb513c40270b88576bd2cf07301fdf2"
+=======
+  version "7.1.7"
+  resolved "https://registry.yarnpkg.com/ember-cli-sass/-/ember-cli-sass-7.1.7.tgz#66899134788ec8d2406a45f5346d4db47a2aa012"
+>>>>>>> implement workflows/index route
 =======
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/ember-cli-sass/-/ember-cli-sass-7.1.7.tgz#66899134788ec8d2406a45f5346d4db47a2aa012"
@@ -2832,7 +2857,7 @@ ember-cli-sass@^7.0.0:
     broccoli-funnel "^1.0.0"
     broccoli-merge-trees "^1.1.0"
     broccoli-sass-source-maps "^2.1.0"
-    ember-cli-version-checker "^1.0.2"
+    ember-cli-version-checker "^2.1.0"
 
 ember-cli-sauce@^2.1.0:
   version "2.2.0"
@@ -2844,16 +2869,23 @@ ember-cli-sauce@^2.1.0:
 
 ember-cli-sentry@^3.0.0-beta.1:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "3.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/ember-cli-sentry/-/ember-cli-sentry-3.0.0-beta.2.tgz#5832ec436e36f2e0b4387ecceadf4db01d937522"
 =======
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-sentry/-/ember-cli-sentry-3.0.0.tgz#72e5462d21a699b3dd54d8ea15c06bf2bd9a8ad7"
 >>>>>>> implement workflows/index route
+=======
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-sentry/-/ember-cli-sentry-3.0.0.tgz#72e5462d21a699b3dd54d8ea15c06bf2bd9a8ad7"
+>>>>>>> implement workflows/index route
   dependencies:
-    ember-cli-babel "^6.1.0"
-    ember-cli-node-assets "^0.2.2"
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^2.0.0"
+    ember-cli-babel "^6.6.0"
     raven-js "^3.15.0"
+    resolve "^1.5.0"
 
 ember-cli-shims@^1.2.0:
   version "1.2.0"
@@ -3388,8 +3420,13 @@ engine.io-client@1.8.0:
 
 engine.io-client@~3.1.0:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-3.1.4.tgz#4fcf1370b47163bd2ce9be2733972430350d4ea1"
+=======
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-3.1.6.tgz#5bdeb130f8b94a50ac5cbeb72583e7a4a063ddfd"
+>>>>>>> implement workflows/index route
 =======
   version "3.1.6"
   resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-3.1.6.tgz#5bdeb130f8b94a50ac5cbeb72583e7a4a063ddfd"
@@ -3397,7 +3434,7 @@ engine.io-client@~3.1.0:
   dependencies:
     component-emitter "1.2.1"
     component-inherit "0.0.3"
-    debug "~2.6.9"
+    debug "~3.1.0"
     engine.io-parser "~2.1.1"
     has-cors "1.1.0"
     indexof "0.0.1"
@@ -3532,8 +3569,13 @@ eslint-visitor-keys@^1.0.0:
 
 eslint@^4.0.0:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "4.15.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.15.0.tgz#89ab38c12713eec3d13afac14e4a89e75ef08145"
+=======
+  version "4.18.2"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.18.2.tgz#0f81267ad1012e7d2051e186a9004cc2267b8d45"
+>>>>>>> implement workflows/index route
 =======
   version "4.18.2"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.18.2.tgz#0f81267ad1012e7d2051e186a9004cc2267b8d45"
@@ -3545,7 +3587,7 @@ eslint@^4.0.0:
     concat-stream "^1.6.0"
     cross-spawn "^5.1.0"
     debug "^3.1.0"
-    doctrine "^2.0.2"
+    doctrine "^2.1.0"
     eslint-scope "^3.7.1"
     eslint-visitor-keys "^1.0.0"
     espree "^3.5.2"
@@ -3579,10 +3621,17 @@ eslint@^4.0.0:
 
 espree@^3.5.2:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/espree/-/espree-3.5.2.tgz#756ada8b979e9dcfcdb30aad8d1a9304a905e1ca"
   dependencies:
     acorn "^5.2.1"
+=======
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/espree/-/espree-3.5.4.tgz#b0f447187c8a8bed944b815a660bddf5deb5d1a7"
+  dependencies:
+    acorn "^5.5.0"
+>>>>>>> implement workflows/index route
 =======
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/espree/-/espree-3.5.4.tgz#b0f447187c8a8bed944b815a660bddf5deb5d1a7"
@@ -3785,7 +3834,7 @@ extend-shallow@^2.0.1:
   dependencies:
     is-extendable "^0.1.0"
 
-extend-shallow@^3.0.0:
+extend-shallow@^3.0.0, extend-shallow@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend-shallow/-/extend-shallow-3.0.2.tgz#26a71aaf073b39fb2127172746131c2704028db8"
   dependencies:
@@ -5824,6 +5873,7 @@ micromatch@^3.0.4:
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 mime-db@~1.30.0:
   version "1.30.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.30.0.tgz#74c643da2dd9d6a45399963465b26d5ca7d71f01"
@@ -5835,6 +5885,9 @@ mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.17, mime-types@~2.1.7:
     mime-db "~1.30.0"
 
 mime-types@^2.1.18, mime-types@~2.1.18:
+=======
+mime-types@^2.1.12, mime-types@^2.1.18, mime-types@~2.1.11, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.7:
+>>>>>>> implement workflows/index route
 =======
 mime-types@^2.1.12, mime-types@^2.1.18, mime-types@~2.1.11, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.7:
 >>>>>>> implement workflows/index route
@@ -6413,8 +6466,13 @@ pluralize@^7.0.0:
 
 popper.js@^1.12.9:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "1.12.9"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.9.tgz#0dfbc2dff96c451bb332edcfcfaaf566d331d5b3"
+=======
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.0.tgz#3d73132100c83bfdc5fabb4769be925f57e59dc2"
+>>>>>>> implement workflows/index route
 =======
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.0.tgz#3d73132100c83bfdc5fabb4769be925f57e59dc2"
@@ -6593,8 +6651,13 @@ range-parser@~1.2.0:
 
 raven-js@^3.15.0:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "3.22.1"
   resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.22.1.tgz#1117f00dfefaa427ef6e1a7d50bbb1fb998a24da"
+=======
+  version "3.23.1"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.23.1.tgz#34a5d7b5b3dd626a3d59e7a264e1d19a4c799cdb"
+>>>>>>> implement workflows/index route
 =======
   version "3.23.1"
   resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.23.1.tgz#34a5d7b5b3dd626a3d59e7a264e1d19a4c799cdb"
@@ -6979,6 +7042,10 @@ resumablejs@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/resumablejs/-/resumablejs-1.1.0.tgz#3160633688ac35bc2a0f119803c190ec369ef4d2"
 
+ret@~0.1.10:
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
+
 right-align@^0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/right-align/-/right-align-0.1.3.tgz#61339b722fe6a3515689210d24e14c96148613ef"
@@ -7052,6 +7119,12 @@ safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, s
 safe-json-parse@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/safe-json-parse/-/safe-json-parse-1.0.1.tgz#3e76723e38dfdda13c9b1d29a1e07ffee4b30b57"
+
+safe-regex@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
+  dependencies:
+    ret "~0.1.10"
 
 sane@^2.2.0:
   version "2.2.0"
@@ -7655,7 +7728,11 @@ symlink-or-copy@^1.0.0, symlink-or-copy@^1.0.1, symlink-or-copy@^1.1.8:
   resolved "https://registry.yarnpkg.com/symlink-or-copy/-/symlink-or-copy-1.2.0.tgz#5d49108e2ab824a34069b68974486c290020b393"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 table@^4.0.1:
+=======
+table@4.0.2:
+>>>>>>> implement workflows/index route
 =======
 table@4.0.2:
 >>>>>>> implement workflows/index route
@@ -7904,8 +7981,13 @@ uc.micro@^1.0.1, uc.micro@^1.0.5:
 
 uglify-es@^3.1.3:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.7.tgz#d1249af668666aba7cb1163e277455be9eb393cf"
+=======
+  version "3.3.9"
+  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
+>>>>>>> implement workflows/index route
 =======
   version "3.3.9"
   resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
