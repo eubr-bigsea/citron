@@ -21,7 +21,9 @@ export default Component.extend({
         sort: 'updated',
         asc: false
       }).then((workflows) => {
-        this.set('workflows', workflows)
+        if(!this.isDestroyed){
+          this.set('workflows', workflows)
+        }
       });
     });
   }

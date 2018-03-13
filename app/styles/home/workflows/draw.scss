@@ -63,6 +63,13 @@
               background: $color-execute;
               border: $color-execute;
               color: $color-text-lighter;
+              &:hover {
+                background: $color-execute-light;
+                border: $color-execute-light;
+              }
+              span {
+                vertical-align: middle;
+              }
             }
           }
         }

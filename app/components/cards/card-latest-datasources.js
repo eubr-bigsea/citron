@@ -32,7 +32,9 @@ export default Component.extend({
         sort: 'updated',
         asc: false
       }).then((datasources) => {
-        this.set('datasources', datasources)
+        if(!this.isDestroyed){
+          this.set('datasources', datasources);
+        }
       });
     });
   }

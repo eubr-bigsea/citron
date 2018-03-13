@@ -1,6 +1,11 @@
 .__worflows__index {
   padding: 30px 0;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
   .menu {
+    flex: 0 1 auto;
     .centered {
       align-items: center;
       .search-block {
@@ -11,6 +16,9 @@
           border-radius: 0 $btn-border-radius $btn-border-radius 0;
           color: $color-darker;
           height: 34px;
+          &:focus {
+            box-shadow: 0;
+          }
         }
       }
     }
@@ -25,10 +33,20 @@
     position: absolute;
     right: 0;
     bottom: 0;
-
     i {
       color: $color-darker;
       font-size: 2em;
+    }
+  }
+  .model {
+    height: calc(100% - 105px);
+    .row {
+      height: 100%;
+    }
+  }
+  @media (min-width: 767px) {
+    .model {
+      height: calc(100% - 71px);
     }
   }
 }

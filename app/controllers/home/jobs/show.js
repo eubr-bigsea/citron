@@ -46,25 +46,28 @@ export default Controller.extend({
       let code = this.get('code');
       if(code == 'NONE' || code == null){
         let job = this.get('job');
+
         $.ajax({
           type: 'GET',
           url:`${config.stand}/jobs/${job.id}/source-code`
         }).then(
-          (response) => {
-            if(response.source){
-              var lang = eval(`Prism.languages.${response.lang}`);
-              var highlighted = Prism.highlight(response.source, lang)
-              this.set('code', highlighted);
-              this.toggleProperty('codeModal');
-            } else {
-              this.set('code', 'NONE');
-              this.toggleProperty('codeModal');
-            }
-          },
-          (error) => {
-            console.log('ERROR', error);
-            this.toggleProperty('codeModal');
-          }
+          run(() => {
+            (response) => {
+              if(response.source){
+                var lang = eval(`Prism.languages.${response.lang}`);
+                var highlighted = Prism.highlight(response.source, lang)
+                this.set('code', highlighted);
+                this.toggleProperty('codeModal');
+              } else {
+                this.set('code', 'NONE');
+                this.toggleProperty('codeModal');
+              }
+            },
+              (error) => {
+                console.log('ERROR', error);
+                this.toggleProperty('codeModal');
+              }
+          })
 
         );
       } else {
