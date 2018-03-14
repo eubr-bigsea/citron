@@ -17,13 +17,15 @@ export default FormComponent.extend({
       $.ajax({
         type: 'GET',
         url: eval(this.get('field.values_url'))
-      }).then((response) => {
-        run(() =>{
-          this.set('parsedValues', response.map((v) => {
-            return { "key": String(v.id), "value": v.name };
-          }));
-        });
-      });
+      }).then(
+        (response) => {
+          run(() =>{
+            this.set('parsedValues', response.map((v) => {
+              return { "key": String(v.id), "value": v.name };
+            }));
+          });
+        }
+      );
     }
   }
 });
