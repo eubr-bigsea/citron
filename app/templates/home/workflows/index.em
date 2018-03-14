@@ -13,7 +13,7 @@
             .input-group
               =input class='form-control' placeholder=(t 'workflows.searchFor') value=name key-up=(action 'search')
               span.input-group-btn
-                button.btn.btn-secundary#submit type='button'
+                button.btn.btn-secondary#submit type='button'
                   i.fa.fa-search
   .container-fluid.model: .row: .col-12
     = workflows/workflows-table toggleSelect=(action 'toggleSelect') sortBy=(action 'sortBy') sortFromDropdown=(action 'sortFromDropdown') selectSingle=(action 'selectSingle') toggleDeleteModal=(action 'toggleDeleteModal') selectAll=selectAll timeProperties=timeProperties workflows=model.workflows loadNext=(action 'loadNext') locale=locale sort=sort asc=asc

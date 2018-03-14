@@ -12,3 +12,6 @@
           each parsedValues as |opt|
             option selected={eq currentValue opt.key} value=opt.key
               =opt.value
+      else
+        span class="loading-datasources"
+          i.mdi.mdi-loading.mdi-spin

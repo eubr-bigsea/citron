@@ -10,6 +10,11 @@ export default {
   },
   //components inside of forms folder
   'form':{
+    'title': 'Parâmetros da tarefa',
+    'task': {
+      'name': 'Nome',
+      'helper': 'Nome da tarefa que será mostrado no diagrama',
+    },
     'attribute-function': {
       'button': 'Abrir o Editor',
       'modal': {
@@ -282,15 +287,6 @@ export default {
       'play': 'Executar'
     }
   },
-  'workflows': {
-    'self':'workflows',
-    'title': 'Workflows',
-    'description': 'Lista de todos os workflows - e.g. próprios, compartilhados, etc..',
-    'newBtn': 'Criar novo',
-    'moreActionsBtn': 'Mais ações',
-    'deleteBtn': 'Apagar todos',
-    'searchFor': 'Pesquisar',
-  },
   'job': {
     'self': 'Job',
     'show': {
@@ -411,4 +407,57 @@ export default {
   'completed': 'Completo',
   'profile': 'Perfil',
   'logout': 'Sair',
+  'workflows': {
+    'self':'workflows',
+    'title': 'Workflows',
+    'description': 'Lista de todos os workflows - e.g. próprios, compartilhados, etc..',
+    'newBtn': 'Criar novo',
+    'moreActionsBtn': 'Mais ações',
+    'deleteBtn': 'Apagar todos',
+    'searchFor': 'Pesquisar',
+    'alert-modal': {
+      'saveSuccess': {
+        'title': 'Salvar',
+        'message': 'O workflow foi salvo com sucesso.'
+      },
+      'saveFailed': {
+        'title': 'Salvar',
+        'message': 'Ocorreu um erro, o workflow não pode ser salvo.'
+      },
+      'deleteSuccess': {
+        'title': 'Deletar',
+        'message': 'O workflow foi deletado com sucesos. Você será redirecionado.'
+      },
+      'deleteFailed': {
+        'title': 'Deletar',
+        'message': 'Ocorreu um erro, o workflow não pôde ser salvo.'
+      },
+    },
+    'delete-modal': {
+      'title': 'Deletando "{{workflow.name}}"',
+      'message': 'Você deseja remover permanentemente o workflow: "{{workflow.name}}" ?',
+      'delete-btn': 'Deletar',
+      'cancel': 'Cancelar'
+    },
+    'unsaved-changes-modal': {
+      'title': 'Mudanças não salvas',
+      'message': "Este workflow tem mudanças que não foram salvas. Se você sair sem salvar perderá essas mudanças.",
+      'save': 'Salvar e sair',
+      'leave': 'Sair',
+      'cancel': 'Cancelar',
+    },
+    'pre-execution-modal': {
+      'title': 'Executar job',
+      'message': 'Configurar job antes da execução.',
+      'name': {
+        'label': 'Nome',
+      },
+      'cluster': {
+        'label': 'Cluster',
+      },
+      'runBtn': 'Executar',
+      'cancel': 'Cancelar',
+    }
+  },
+
 };

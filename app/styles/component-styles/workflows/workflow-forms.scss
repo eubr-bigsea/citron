@@ -14,6 +14,46 @@
 
   }
 
+  .fixed-upper-menu {
+    position: fixed;
+    margin-top: -7px;
+    padding: 5px;
+    background-color: #fff;
+    height: 44px;
+    z-index: 1;
+    width: 280px;
+    border-bottom: 1px solid $color-light;
+    .title {
+      border: none;
+      padding: 0;
+      margin: 0 0 0.7em 0;
+      span {
+        display: inline-block;
+        border: 0;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin: 5px 0 0 0;
+        width: inherit;
+      }
+      a.remove-task {
+        background: none;
+        border: none;
+        color: $color-darker;
+        height: 35px;
+        width: 35px;
+        padding: 1px 4.5px;
+        display: inline-block;
+        &:hover {
+          background: $color-light;
+        }
+        cursor: pointer;
+        i {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+  }
 
   fieldset {
     padding: 5px;
@@ -33,6 +73,9 @@
       border: 1px solid #ccc;
       padding: 3px 4px 7px 4px;
       margin-bottom: 0.7em;
+      &.name {
+        margin-top: 43px;
+      }
       &.title {
         border: none;
         padding: 0;

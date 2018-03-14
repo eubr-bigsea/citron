@@ -1,4 +1,4 @@
-&{
+& {
   z-index: 500;
   width: $size-operations-sidebar;
   height: 100%;
@@ -11,9 +11,19 @@
     margin: ($main-sidebar - $app-header) 24px 15px 18px;
     padding-right: 15px;
     line-height: 38px;
-
-    .form-control {
-      border-color: white;
+    .input-group-btn {
+      .btn-secondary {
+        height: 100%;
+        vertical-align: top;
+        background-color: $input-bg;
+        border: $input-border-width solid $input-border-color;
+        border-left: none;
+        border-radius: 0 $btn-border-radius $btn-border-radius 0;
+        color: $color-darker;
+        &:focus {
+          box-shadow: 0;
+        }
+      }
     }
   }
 

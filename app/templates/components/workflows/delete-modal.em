@@ -7,7 +7,7 @@
     .wrapper
       h5: = t 'workflows.delete-modal.message' count=count workflow=workflow
   modal.footer
-    = bs-button onClick=deleteWorkflow
+    = bs-button onClick=deleteWorkflow class="btn-danger"
       t 'workflows.delete-modal.delete-btn'
     = bs-button onClick=(action (mut deleteModal) false)
       t 'workflows.delete-modal.cancel'

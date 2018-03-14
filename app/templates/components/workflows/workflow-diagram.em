@@ -1,5 +1,5 @@
 .diagram-options
-  label: "Diagram Option
+  //label: "Diagram Option
   a.btn.btn-primary.btn-md class={zoomMax} href="#" onclick={action 'zoomIn'}
     i.mdi.mdi-magnify-plus-outline
   a.btn.btn-primary.btn-md class={zoomMin} href="#"  onclick={action 'zoomOut'}

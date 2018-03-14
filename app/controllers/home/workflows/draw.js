@@ -208,6 +208,8 @@ export default Controller.extend({
         })
         this.set('attrsReady', true);
         if(this.get('selectedTask') !== null){
+          $('#page-content-wrapper').css('cursor', 'default');
+          $('.ui-selected').css('cursor', 'default');
           this.set('displayForm', true);
         }
       }
@@ -229,6 +231,8 @@ export default Controller.extend({
       this.send('closeForms');
       this.set('selectedTask', task);
       if(this.get('attrsReady')){
+        $('#page-content-wrapper').css('cursor', 'default');
+        $('.ui-selected').css('cursor', 'default');
         this.set('displayForm', true);
       }
     },

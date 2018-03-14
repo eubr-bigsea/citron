@@ -13,6 +13,7 @@ input, textarea {
   outline: none;
 }
 
+
 .form-group {
   a {
     color: $color-dark;
@@ -26,6 +27,10 @@ input, textarea {
       padding-left: 10px;
       padding-right: 10px;
     }
+  }
+
+  .form-field {
+    text-align: center;
   }
 
   &.has-error {

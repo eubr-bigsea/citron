@@ -7,6 +7,6 @@
     .wrapper
       h5: t message
   modal.footer
-    = bs-button onClick=(action 'closeModal')
+    = bs-button onClick=(action 'closeModal') class="btn-success"
       t 'modal.default.submitButton'
 
