@@ -42,6 +42,10 @@ export default Controller.extend({
       );
     },
 
+    getCode(){
+
+    },
+
     toggleCodeModal(){
       let code = this.get('code');
       if(code == 'NONE' || code == null){
@@ -51,24 +55,26 @@ export default Controller.extend({
           type: 'GET',
           url:`${config.stand}/jobs/${job.id}/source-code`
         }).then(
-          run(() => {
-            (response) => {
+          (response) => {
+            run(() => {
               if(response.source){
                 var lang = eval(`Prism.languages.${response.lang}`);
                 var highlighted = Prism.highlight(response.source, lang)
                 this.set('code', highlighted);
-                this.toggleProperty('codeModal');
+                this.set('codeModal', true);
               } else {
                 this.set('code', 'NONE');
-                this.toggleProperty('codeModal');
+                this.set('codeModal', true);
               }
-            },
-              (error) => {
-                console.log('ERROR', error);
-                this.toggleProperty('codeModal');
-              }
-          })
+            })
+          },
+          (error) => {
+            run(() => {
+              console.log('ERROR', error);
+              this.set('codeModal', false);
 
+            })
+          }
         );
       } else {
         this.toggleProperty('codeModal');
