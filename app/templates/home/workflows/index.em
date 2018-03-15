@@ -1,4 +1,4 @@
-.__worflows__index
+.__workflows__index
   .container-fluid.menu
     .row.centered
       .col-12.col-md-7
@@ -11,13 +11,12 @@
         .search-block.pull-right
           form.form-inline onsubmit='return false'
             .input-group
-              =input class='form-control' placeholder=(t 'workflows.searchFor') value=name key-up=(action 'search')
+              =input class='form-control' placeholder=(t 'workflows.searchFor') value=name insert-newline=(action 'search')
               span.input-group-btn
                 button.btn.btn-secondary#submit type='button'
                   i.fa.fa-search
   .container-fluid.model: .row: .col-12
     = workflows/workflows-table toggleSelect=(action 'toggleSelect') sortBy=(action 'sortBy') sortFromDropdown=(action 'sortFromDropdown') selectSingle=(action 'selectSingle') toggleDeleteModal=(action 'toggleDeleteModal') selectAll=selectAll timeProperties=timeProperties workflows=model.workflows loadNext=(action 'loadNext') locale=locale sort=sort asc=asc
-  = workflows/alert-modal title=alertContent.title message=alertContent.message alertModal=alertModal alertCallback=alertCallback
   = workflows/delete-modal deleteModal=deleteModal deleteWorkflow=(action 'deleteWorkflow') workflow=toDelete.firstObject workflows=toDelete
   button.btn.btn-default.btn-circle
     if deleteButton

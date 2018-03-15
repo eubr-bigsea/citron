@@ -85,6 +85,7 @@
     thead, tbody tr {
       display: table;
       table-layout: fixed;
+      word-break: break-word;
     }
     thead {
       flex: 0 0 auto;

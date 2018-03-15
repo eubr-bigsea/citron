@@ -10,6 +10,6 @@
     button.btn.btn-secondary click={action 'cancel'}
       i.mdi.mdi-stop
 .progress-wrapper
-  i.mdi.mdi-paused
+  i.mdi.mdi-pause
   = ember-progress-bar progress=progress.value class='progress'
   span.percentage: = progress.rounded

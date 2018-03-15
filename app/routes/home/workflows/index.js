@@ -45,9 +45,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       controller.set('createModal', false);
       controller.set('deleteModal', false);
       controller.set('deleteMultipleModal', false);
-      controller.set('alertModal', false);
       controller.set('selectAll', false);
-      controller.set('createModal', false);
       controller.set('deleteButton', false);
       controller.set('toDelete', A());
     }
