@@ -14,7 +14,6 @@ export default Controller.extend({
   // modals triggers
   createModal: false,
   deleteModal: false,
-  alertModal: false,
   // select and delete vars
   selectAll: false,
   deleteButton: false,
