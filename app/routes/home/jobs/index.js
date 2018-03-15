@@ -22,5 +22,10 @@ export default Route.extend(AuthenticatedRouteMixin, RouteMixin, {
   setupController(controller, model) {
     model = model.get('content');
     this._super(controller, model);
+  },
+  actions: {
+    reloadModel(){
+      this.refresh();
+    },
   }
 });
