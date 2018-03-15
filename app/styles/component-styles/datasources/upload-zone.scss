@@ -1,0 +1,29 @@
+& {
+  padding: 10px 15px;
+  border:2px dashed #ccc;
+  &.is-dragover {
+    opacity: 0.5;
+  }
+  .dropzone {
+    border-radius: 10px;
+    text-align: center;
+    height: auto;
+    .__icon {
+      display: block;
+      color: $color-text-base;
+      font-size: 4em;
+    }
+    .btn.btn-secondary#browseButton {
+      margin-top: 10px;
+      background: $color-base;
+      border: $color-base;
+      &:hover {
+        background: $color-light;
+        border: $color-light;
+      }
+      i {
+        margin-left: 5px;
+      }
+    }
+  }
+}
