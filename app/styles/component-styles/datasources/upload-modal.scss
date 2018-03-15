@@ -1,0 +1,16 @@
+& {
+  .modal-dialog {
+    width: 80vw;
+    .modal-body {
+      .alert {
+        border-radius: 3px;
+      }
+    }
+    .modal-footer {
+      .upload-more {
+        background: $color-darker;
+        border: $color-darker;
+      }
+    }
+  }
+}

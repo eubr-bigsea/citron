@@ -308,19 +308,6 @@ export default {
       'params': 'Parameters',
     },
   },
-  'datasources': {
-    'self': 'Datasources',
-    'description': 'List of all datasources - e.g. owned, shared, etc..',
-    'searchFor': 'Search',
-    'upload': {
-      'uploadDatabase': 'Upload database',
-      'chooseButton': 'Choose your file',
-      'dropzone': 'Or drag and drop the file here',
-      'uploading': 'Uploading file: <strong>{{resource}}</strong>',
-      'successMessage': 'The file <strong>{{resource}}</strong> was successfully uploaded.',
-      'errorMessage': 'An error occurried to the upload of file <strong>{{resource}}</strong>. The server message error is: {{message}}',
-    }
-  },
   'datasource': {
     'self': 'Datasource',
     'edit': {
@@ -472,6 +459,34 @@ export default {
       'runBtn': 'Run',
       'cancel': 'Cancel',
     }
+  },
+  'datasources': {
+    'self': 'Datasources',
+    'title': 'Datasources',
+    'description': 'List of all datasources - e.g. owned, shared, etc..',
+    'searchFor': 'Search',
+    'upload-modal': {
+      'title': 'Upload Datasource',
+      'uploading-header': 'Uploading file: <strong>{{fileName}}</strong>',
+      'dropzone-message': 'Drag and drop your file here or',
+      'browse-button':'Choose your file',
+      'success-message': 'The  <strong>{{fileName}}</strong> has been successfully uploaded.',
+      'error-message': 'A error occuried on upload of  <strong>{{fileName}}</strong>. The server respond with:',
+      'upload-more': 'New Upload',
+      'cancel': 'Cancel'
+    },
+    'delete-modal': {
+      'title': {
+        'one':  'Deleting "{{datasource.name}}"',
+        'other': 'Deleting {{count}} datasources',
+      },
+      'message': {
+        'one': 'Do you want to delete permanently the datasource: <strong>{{datasource.name}}</strong>?',
+        'other':'Do you want to delete permanently <strong>{{count}}</strong> datasources ?',
+      },
+      'delete-btn': 'Delete',
+      'cancel': 'Cancel'
+    },
   },
 
 };
