@@ -42,10 +42,6 @@ export default Controller.extend({
       );
     },
 
-    getCode(){
-
-    },
-
     toggleCodeModal(){
       let code = this.get('code');
       if(code == 'NONE' || code == null){
