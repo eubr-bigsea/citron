@@ -323,6 +323,7 @@ export default {
   },
   'datasources': {
     'self': 'Datasources',
+    'title': 'Datasources',
     'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
     'searchFor': 'Pesquisar',
     'upload': {
@@ -415,6 +416,26 @@ export default {
     'moreActionsBtn': 'Mais ações',
     'deleteBtn': 'Apagar todos',
     'searchFor': 'Pesquisar',
+    'edit': {
+      'title': 'Editando workflow:',
+    },
+    'create-new-modal': {
+      'title': 'Criando novo workflow',
+      'name': 'Meu workflow',
+      'description': 'Este é o meu workflow...',
+      'create': 'Criar',
+      'cancel': 'Cancelar',
+    },
+    'edit-modal': {
+      'title': 'Editando workflow',
+      'name': 'Meu workflow',
+      'description': 'Este é meu workflow...',
+      'save': 'Salvar',
+      'cancel': 'Cancelar',
+    },
+    'draw': {
+      'executeBtn': 'Executar',
+    },
     'alert-modal': {
       'saveSuccess': {
         'title': 'Salvar',

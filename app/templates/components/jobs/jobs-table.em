@@ -36,11 +36,11 @@ table.table.table-hover
           td.name
             = link-to 'home.jobs.show' job.id
               = job.workflow.name
-          td class={concat '__status ' job.status}
+          td class={concat '__status' job.status}
             = link-to 'home.jobs.show' job.id class="job" class=job.status
               i.__icon
-                .h4
-                  = t job.status
+              h4
+                = t job.status
           td.date
             = format-date job.created
           td.date

@@ -1,10 +1,11 @@
-.__worflows__index
+.__jobs__index
   .container-fluid.menu
     .row.centered
       .col-12.col-md-7
        .title-block.pull-left
          h3.title
            i.fa.fa-tasks
+           '
            = t 'jobs.self'
          p.title-description: =t 'jobs.description'
       .col-12.col-md-5
