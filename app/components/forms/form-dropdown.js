@@ -7,6 +7,10 @@ export default FormComponent.extend({
 
   didReceiveAttrs() {
     this._super(...arguments);
+    let currentValue = this.get('currentValue');
+    if(!currentValue){
+      this.set('currentValue', this.get('field.default'));
+    }
     var values = JSON.parse(this.get('field.values')).map( (el) => { return {key: String(el.key), value: el.value } })
     this.set('parsedValues', values);
   }
