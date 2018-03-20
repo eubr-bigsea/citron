@@ -1,18 +1,2 @@
 & {
-  height: 42px;
-  .color-item {
-    float: left;
-    height: 20px;
-    margin: 0 2px 2px 0;
-    width: 20px;
-    border: 1px solid #CCC;
-  }
-
-  .color-item.active {
-    border-color: $color-darker;
-    border-width: 2px;
-    margin: 0 0 2px 0;
-    height: 21px;
-    width: 21px;
-  }
 }

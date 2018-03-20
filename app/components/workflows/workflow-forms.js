@@ -13,7 +13,7 @@ export default Component.extend({
       if(key === 'color') {
         el.css('background-color', value.background);
         el.css('border-color', value.background);
-        el.css('color', value.background);
+        // el.css('color', value.background);
         $('#' + this.get('task').id + ' input').css('color', value.foreground);
       }
       this.set(`task.forms.${key}.value`, value);
