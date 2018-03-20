@@ -1,9 +1,12 @@
+/* global Prism */
 import { A } from '@ember/array';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
 import config from '../../../config/environment';
 import { run } from '@ember/runloop';
+import $ from 'jquery';
+
 
 export default Route.extend({
   i18n: service(),

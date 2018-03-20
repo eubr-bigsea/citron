@@ -11,7 +11,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model(params) {
     params.user_id = this.get('sessionAccount.userId');
     params.enabled = true;
-    console.log('params')
 
     return RSVP.hash({
       datasources: this.store.query('datasource', params),
