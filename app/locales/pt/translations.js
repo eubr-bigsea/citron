@@ -320,6 +320,18 @@ export default {
       'tables': 'Tabelas',
       'params': 'Parâmetros',
     },
+    'delete-modal': {
+      'title': {
+        'one':  'Deletndo "{{job.name}}"',
+        'other': 'Deletando {{count}} jobs',
+      },
+      'message': {
+        'one': 'Tem certeza que deseja remover permanentemente o job: "{{job.name}}" ?',
+        'other':'Tem certeza que deseja deletar esses {{count}} jobs?',
+      },
+      'delete-btn': 'Delete',
+      'cancel': 'Cancel'
+    },
   },
   'datasources': {
     'self': 'Datasources',

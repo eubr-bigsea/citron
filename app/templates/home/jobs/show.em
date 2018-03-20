@@ -1,7 +1,7 @@
 .container-fluid.__job__show.toggled
   .option-bar.row
     .col-xs-12.col-md-7.col-lg-8.col-xl-5.vcentered.__name
-      h3.title: job.workflow.name
+      h3.title: job.name
     .col-xs-12.col-md-5.col-lg-4.col-xl-3.vcentered.__status class=job.status click={action 'toggleReportModal'}
       i.__icon
       span.__text: t job.status
