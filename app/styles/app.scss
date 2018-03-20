@@ -84,6 +84,8 @@ $fa-font-path: "/assets/webfonts";
 @import 'home/workflows/index';
 @import 'home/datasources/index';
 @import 'home/datasources/edit';
+@import 'home/dashboards/index';
+@import 'home/dashboards/show';
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -128,4 +130,3 @@ body {
 .visualization-modal {
   height: 450px;
 }
-

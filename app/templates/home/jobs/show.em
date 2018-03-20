@@ -6,9 +6,10 @@
       i.__icon
       span.__text: t job.status
     .col-sm-12.col-xl-4.vcentered.__buttons
-      a.btn.btn-primary click={action 'toggleCodeModal'}
-        i.fa.fa-lg.fa-code
-        span: t 'job.show.code'
+      if job.isCompleted
+        a.btn.btn-primary click={action 'toggleCodeModal'}
+          i.fa.fa-lg.fa-code
+          span: t 'job.show.code'
       = link-to 'home.workflows.draw' job.workflow.id class="btn btn-primary"
         i.fa.fa-lg.fa-flask
         span: t 'job.show.workflow'

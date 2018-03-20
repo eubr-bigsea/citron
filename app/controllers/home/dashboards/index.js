@@ -1,6 +1,5 @@
 import Controller from '@ember/controller';
 import { A } from '@ember/array';
-import $ from 'jquery';
 
 export default Controller.extend({
   // query params for backend
@@ -12,43 +11,45 @@ export default Controller.extend({
   sort: 'name',
   name: '',
   timeProperties: null,
+  // modals triggers
+  deleteModal: false,
+  // select and delete vars
   selectAll: false,
   deleteButton: false,
   toDelete: A(),
 
   init(){
     this._super(...arguments);
-    this.set('timeProperties', { selected: 'finished', options: ['created', 'finished'] } );
+    this.set('timeProperties', { selected: 'updated', options: ['updated', 'created'] } );
   },
 
   actions: {
     search(){ //tahiti only support search by name
       this.send('reloadModel');
     },
-    toggleDeleteModal(job){
+    toggleDeleteModal(dashboard){
       this.send('unselectAll');
       let toDelete = this.get('toDelete');
-      toDelete.pushObject(job);
+      toDelete.pushObject(dashboard);
       this.set('deleteModal', true);
     },
     toggleDeleteMultipleModal(){
-      let jobs = this.get('model').filterBy('selected', true);
-      this.set('toDelete', jobs);
+      let dashboards = this.get('model').filterBy('selected', true);
+      this.set('toDelete', dashboards);
       this.set('deleteModal', true);
     },
-    deleteJob(){
+    deleteDashboard(){
       this.set('deleteModal', false);
       let toDelete = this.get('toDelete');
-      toDelete.forEach((job) => { job.destroyRecord() });
+      toDelete.forEach((dashboard) => { dashboard.destroyRecord() });
       this.send('unselectAll');
     },
     unselectAll(){
       this.set('toDelete', A());
       this.set('selectAll', false);
       this.set('deleteButton', false);
-      $('#fading-button').removeClass('anim');
-      let jobs = this.get('model');
-      jobs.forEach((job) => { job.set('selected', false) });
+      let dashboards = this.get('model');
+      dashboards.forEach((dashboard) => { dashboard.set('selected', false) });
     },
     toggleSelect(){
       if(this.get('selectAll')){
@@ -58,31 +59,28 @@ export default Controller.extend({
       }
     },
     selectAll(){
-      let jobs = this.get('model');
+      let dashboards = this.get('model');
       this.set('selectAll', true);
-      $('#fading-button').addClass('anim');
       this.set('deleteButton', true);
-      jobs.forEach((job) => { job.set('selected', true) });
+      dashboards.forEach((dashboard) => { dashboard.set('selected', true) });
     },
-    selectSingle(job){
-      job.toggleProperty('selected');
-      let jobs = this.get('model').filterBy('selected', true);
-      if(jobs.length > 0){
+    selectSingle(dashboard){
+      dashboard.toggleProperty('selected');
+      let dashboards = this.get('model').filterBy('selected', true);
+      if(dashboards.length > 0){
         this.set('deleteButton', true);
-        $('#fading-button').addClass('anim');
-        if(jobs.length == this.get('model.length')){
+        if(dashboards.length == this.get('model.dashboards.length')){
           this.set('selectAll', true);
         } else {
           this.set('selectAll', false);
         }
       } else {
         this.set('deleteButton', false);
-        $('#fading-button').removeClass('anim');
       }
     },
     deleteAll(){
-      let jobs = this.get('model');
-      let toDelete = jobs.filterBy('selected', true);
+      let dashboards = this.get('model');
+      let toDelete = dashboards.filterBy('selected', true);
       this.set('toDelete', toDelete);
       this.set('deleteModal', true);
     },
