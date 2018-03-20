@@ -1,0 +1,21 @@
+.sp-replacer {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+  .sp-preview {
+    width: calc(100% - 15px);
+  }
+}
+.sp-container {
+  background-color: $input-bg !important;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+}
+
