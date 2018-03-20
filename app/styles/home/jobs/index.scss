@@ -33,10 +33,18 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    opacity: 0;
+    transition: opacity 1s ease 0s;
+    visibility: hidden;
     i {
       color: $color-darker;
       font-size: 2em;
     }
+
+  }
+  .btn-circle.anim{
+    visibility: visible;
+    opacity: 1;
   }
   .model {
     height: calc(100% - 105px);
