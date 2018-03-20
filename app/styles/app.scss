@@ -63,7 +63,6 @@ $fa-font-path: "/assets/webfonts";
 @import 'datasources/large-table.scss';
 @import 'datasources/datasource-share-table.scss';
 @import 'datasources/file-upload.scss';
-@import 'datasources/attributes-table.scss';
 
 @import "auth.scss";
 @import "decor.scss";
@@ -84,6 +83,7 @@ $fa-font-path: "/assets/webfonts";
 @import 'home/workflows/draw';
 @import 'home/workflows/index';
 @import 'home/datasources/index';
+@import 'home/datasources/edit';
 
 ::-webkit-scrollbar {
   width: 7px;

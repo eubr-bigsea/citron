@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import config from '../../config/environment';
 import generateUUID from 'lemonade-ember/utils/generate-uuid';
@@ -73,7 +72,7 @@ export default Component.extend({
 
   actions: {
     setFile(file){
-      this.set('file', null);
+      this.set('file', file);
     },
     closeUploadModal(){
       let r = this.get('resumable');

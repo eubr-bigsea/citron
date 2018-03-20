@@ -1,11 +1,11 @@
 form {
   .btn-primary {
-    color: $color-text-lighter !important;
-    background-color: $color-base !important;
-    border-color: $color-base !important;
+    color: $color-text-lighter;
+    background-color: $color-base;
+    border-color: $color-base;
     &:hover {
-      background-color: $color-dark !important;
-      border-color: $color-dark !important;
+      background-color: $color-dark;
+      border-color: $color-dark;
     }
   }
 }
