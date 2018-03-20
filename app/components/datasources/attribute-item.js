@@ -30,6 +30,9 @@ export default Component.extend({
   },
 
   actions: {
+    toggleNullable(){
+      this.toggleProperty('attr.nullable');
+    },
     removeAttr(){
       this.get('removeAttr')(this.get('attr'));
     },

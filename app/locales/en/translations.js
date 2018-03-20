@@ -100,13 +100,17 @@ export default {
       'label-append': 'Share this {{resource}} with others users',
       'searchFor': 'Search users to share'
     },
-    'inferSchema': {
+    'delimiter': {
+      'label': 'Delimiter',
+    },
+    'quote-char': {
+      'label': 'Enclosure',
+    },
+    'header': {
+      'label': 'Header',
+    },
+    'infer-schema': {
       'label': 'Infer Schema',
-      'label-append': 'Define options for infer schema of datasource',
-      'delimiter': 'Delimiter',
-      'quote-char': 'Enclosure',
-      'header': 'Header',
-      'infer': 'Infer Schema',
     },
     'attributes': {
       'label': 'Attributes',
@@ -152,10 +156,10 @@ export default {
     'email': 'Email',
     'permission': 'Permisson',
     'type': 'Type',
-    'precision': 'Precision',
+    'precision': 'Prec',
     'scale': 'Scale',
-    'nullable': 'Allow null',
-    'treat_as_missing': 'Treat as Missing',
+    'nullable': 'Null',
+    'treat_as_missing': 'TaM',
     'description': 'Description',
     'attributes': 'Attributes',
     'values': 'Values',
@@ -465,6 +469,34 @@ export default {
     'title': 'Datasources',
     'description': 'List of all datasources - e.g. owned, shared, etc..',
     'searchFor': 'Search',
+    'edit': {
+      'title': 'Edit parameters of <strong>{{datasourceName}}</strong>',
+      'save-button': 'Save',
+      'transition-button': 'Back to {{route}}',
+      'helpers': {
+        'precision': 'Precision',
+        'treat_as_missing': 'Treat as Missing',
+        'nullable': 'Allow null',
+      },
+    },
+    'alert-modal': {
+      'inferSuccess': {
+        'title': 'Infer schema has succeed',
+        'message': 'Please review the infered attributes and feel free to edit them.'
+      },
+      'inferFailed': {
+        'title': 'Infer schema Failed',
+        'message': 'An error occured when we tried to infer schema, the server responded with the message:'
+      },
+      'saveSuccess': {
+        'title': 'Save',
+        'message': 'The datasource was successfully saved.'
+      },
+      'saveFailed': {
+        'title': 'Save',
+        'message': 'An error occured, the datasource was not save.'
+      },
+    },
     'upload-modal': {
       'title': 'Upload Datasource',
       'uploading-header': 'Uploading file: <strong>{{fileName}}</strong>',

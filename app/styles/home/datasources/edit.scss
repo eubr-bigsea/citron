@@ -1,0 +1,123 @@
+.__datasources__edit {
+  padding: 15px 30px;
+  .container-fluid {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: $modal-content-border-width solid $modal-content-border-color;
+    @include border-radius($border-radius-lg);
+    @include box-shadow($modal-content-box-shadow-xs);
+    .row.title-block {
+      padding: $modal-header-padding;
+      margin-bottom: 15px;
+      border-bottom: $modal-header-border-width solid $modal-header-border-color;
+      @include border-top-radius($border-radius-lg);
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+  textarea {
+    resize: none;
+  }
+  label {
+    font-weight: 600;
+    .label-append {
+      font-weight: 300;
+    }
+    &.checkbox-label {
+      padding-right: 0;
+    }
+  }
+  .checkbox {
+    padding-left: 5px;
+    padding-top: calc(#{$input-padding-y} + #{$input-border-width});
+    .btn-secondary.check {
+      height: 20px;
+      width: 20px;
+      margin: 0;
+      padding: 0;
+      background: white;
+      border-color: $color-base;
+      color: $color-base;
+      position: relative;
+
+      i {
+        top: -2px;
+        position: relative;
+        display: none;
+      }
+      &.true {
+        i {
+          display: block;
+        }
+      }
+    }
+  }
+  .select2-container .select2-selection--single{
+    height: calc(2.5rem - 2px) !important;
+    display: block;
+    width: 100%;
+    padding: 0.1rem $input-padding-x;
+    font-size: $font-size-base;
+    line-height: $input-line-height;
+    color: $input-color;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color !important;
+  }
+  .select2-selection__rendered {
+    color: $input-color !important;
+  }
+  .select2-selection__choice {
+  }
+  .select2-selection__arrow {
+    top: 1px !important;
+    height: 100% !important;
+    clip-path: circle(7px at center);
+    b {
+      border-color: #495057 transparent transparent transparent !important;
+    }
+  }
+  .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: $color-light;
+  }
+  .select2-search__field {
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-size: $font-size-base;
+    line-height: $input-line-height;
+    color: $input-color;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+  }
+  .btn-secondary.infer-schema {
+    width: 100%;
+    background-color: $color-base;
+    border-color: $color-base;
+  }
+  .btn.btn-primary {
+    &.save {
+      background-color: $color-base;
+      border-color: $color-base;
+      &:hover {
+        background-color: $color-light;
+        border-color: $color-light;
+      }
+    }
+    i {
+      margin-right: 3px;
+    }
+  }
+
+  .row.form-footer {
+    padding: $modal-inner-padding;
+    border-top: $modal-footer-border-width solid $modal-footer-border-color;
+    margin-bottom: 0;
+
+
+    .btn:not(:first-child) { margin-left: .25rem; }
+    .btn:not(:last-child) { margin-right: .25rem; }
+  }
+
+}

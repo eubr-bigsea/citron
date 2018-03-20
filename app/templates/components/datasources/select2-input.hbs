@@ -1,7 +1,0 @@
-<select onchange={{action (mut attr) value="target.value"}} class="form-control" style="width: 100%">
-  <option></option>
-  {{#each values as |value|}}
-    <option selected={{eq attr value.key}} value={{value.key}}>{{value.value}}</option>
-  {{/each}}
-</select>
-
