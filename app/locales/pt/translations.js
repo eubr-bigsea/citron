@@ -100,13 +100,17 @@ export default {
       'label-append': 'Compartilhe essa {{resource}} com outros usuários',
       'searchFor': 'Busque outros usuários para compartilhar'
     },
-    'inferSchema': {
-      'label': 'Inferir Atributos',
-      'label-append': 'Defina opções para inferir campos da datasource',
-      'delimiter': 'Delimitador',
-      'quote-char': 'Enclosure',
-      'header': 'Cabeçalho',
-      'infer': 'Inferir Atributos',
+    'delimiter': {
+      'label': 'Delimitadores',
+    },
+    'quote-char': {
+      'label': 'Enclosure',
+    },
+    'header': {
+      'label': 'Cabeçalho',
+    },
+    'infer-schema': {
+      'label': 'Inferir esquema',
     },
     'attributes': {
       'label': 'Atributos',
@@ -338,6 +342,16 @@ export default {
     'title': 'Datasources',
     'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
     'searchFor': 'Pesquisar',
+    'edit': {
+      'title': 'Editar parametetros de <strong>{{datasourceName}}</strong>',
+      'save-button': 'Salvar',
+      'transition-button': 'Voltar para {{route}}',
+      'helpers': {
+        'precision': 'Precisão',
+        'treat_as_missing': 'Tratar como ausente',
+        'nullable': 'Aceitar nulo',
+      },
+    },
     'upload': {
       'uploadDatabase': 'Carregar base',
       'chooseButton': 'Escolha o arquivo',
@@ -385,6 +399,7 @@ export default {
   },
   'dashboards': {
     'self': 'Dashboards',
+    'title': 'Dashboards',
     'description': 'Lista de todas os Dashboards - e.g. privados, publicos, etc..',
     'searchFor': 'Buscar',
   },

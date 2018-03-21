@@ -366,6 +366,7 @@ export default {
   },
   'dashboards': {
     'self': 'Dashboards',
+    'title': 'Dashboards',
     'description': 'List of all Dashboards - e.g. private, public, etc..',
     'searchFor': 'Search',
   },
