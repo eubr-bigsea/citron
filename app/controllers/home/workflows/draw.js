@@ -209,7 +209,7 @@ export default Controller.extend({
         this.set('attrsReady', true);
         if(this.get('selectedTask') !== null){
           $('#page-content-wrapper').css('cursor', 'default');
-          $('.ui-selected').css('cursor', 'default');
+          $('.ui-selectee').css('cursor', 'default');
           this.set('displayForm', true);
         }
       }

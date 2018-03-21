@@ -84,10 +84,9 @@ export default Component.extend({
 
   actions: {
     clickTask(){
-      $('.ui-selected').css('cursor', 'default');
+      $('.ui-selectee').css('cursor', 'wait');
       $('.ui-selected').removeClass('ui-selected');
       $('#page-content-wrapper').css('cursor', 'wait');
-      $('.ui-selected').css('cursor', 'wait');
       this.$().addClass('ui-selected');
       this.get('clickTask')(this.get('task'));
     },
