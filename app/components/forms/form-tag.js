@@ -1,7 +1,7 @@
 import { set } from '@ember/object';
 import { A } from '@ember/array';
 import { computed } from '@ember/object';
-import FormComponent from 'lemonade-ember/lib/form-component';
+import FormComponent from 'citron/lib/form-component';
 
 export default FormComponent.extend({
   classNameBindings: ['error'],

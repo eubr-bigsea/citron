@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import $ from 'jquery';
 import { A } from '@ember/array';
-import anchorPosition from 'lemonade-ember/utils/anchor-position';
+import anchorPosition from 'citron/utils/anchor-position';
 import { set } from '@ember/object'
 
 export default Component.extend({

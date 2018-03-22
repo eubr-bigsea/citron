@@ -1,5 +1,5 @@
 import { A } from '@ember/array';
-import FormComponent from 'lemonade-ember/lib/form-component';
+import FormComponent from 'citron/lib/form-component';
 import $ from 'jquery';
 import { computed } from '@ember/object';
 

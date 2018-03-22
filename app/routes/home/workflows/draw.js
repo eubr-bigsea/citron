@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import groupBy from 'lemonade-ember/utils/group-by';
+import groupBy from 'citron/utils/group-by';
 import RSVP from 'rsvp';
 
 export default Route.extend({

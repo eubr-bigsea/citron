@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import FormComponent from 'lemonade-ember/lib/form-component';
+import FormComponent from 'citron/lib/form-component';
 import config from '../../config/environment';
 import { run } from '@ember/runloop';
 import { computed } from '@ember/object';

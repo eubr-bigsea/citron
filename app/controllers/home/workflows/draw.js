@@ -4,7 +4,7 @@ import $ from 'jquery';
 import { run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { A } from '@ember/array';
-import toposort from 'lemonade-ember/utils/toposort';
+import toposort from 'citron/utils/toposort';
 import config from '../../../config/environment';
 import { set } from '@ember/object';
 

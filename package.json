@@ -1,8 +1,8 @@
 {
-  "name": "lemonade-ember",
+  "name": "citron",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for lemonade-ember goes here",
+  "description": "Small description for citron goes here",
   "license": "MIT",
   "author": "",
   "directories": {

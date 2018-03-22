@@ -53,7 +53,7 @@ if  (parseFloat(acceptedVersions[browser.sName]) == -1 ){
   document.write('<div class="not-found making-lemonade"><div class="message"><h1 class="title">Oops!<\/h1><span class="block">Lemonade was tested on the following browsers: Chrome and Firefox, and might be susceptible to errors in this browser. Please use it in one of the two options, to ensure a best experience! <\/span><\/div><\/div>');
 } else if (parseFloat(browser.sVersion) >  parseFloat(acceptedVersions[browser.sName])){
   document.write('<script src="/assets/vendor.js"><\/script>')
-  document.write('<script src="/assets/lemonade-ember.js"><\/script>');
+  document.write('<script src="/assets/citron.js"><\/script>');
 } else {
   document.write('<div class="not-found making-lemonade"><div class="message"><h1 class="title">Oops!<\/h1><span class="block">It seems like you are using an older browser. Please update you browser. <\/span><span class="block">The versions accepted for ', browser.sName, ' are newer than ', acceptedVersions[browser.sName], '<\/span><\/div><\/div>');
 }

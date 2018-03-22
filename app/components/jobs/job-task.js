@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { A } from '@ember/array';
 import Component from '@ember/component';
-import anchorPosition from 'lemonade-ember/utils/anchor-position';
+import anchorPosition from 'citron/utils/anchor-position';
 
 export default Component.extend({
   classNameBindings: ['task.operation.slug','status'],

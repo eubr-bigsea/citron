@@ -1,6 +1,6 @@
 import { hash } from 'rsvp';
 import Route from '@ember/routing/route';
-import ENV from 'lemonade-ember/config/environment';
+import ENV from 'citron/config/environment';
 
 export default Route.extend({
   model(params) {

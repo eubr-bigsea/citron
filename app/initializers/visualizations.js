@@ -1,4 +1,4 @@
-import ENV from 'lemonade-ember/config/environment';
+import ENV from 'citron/config/environment';
 
 export function initialize(/* application */) {
    ENV.APP.visualizations = {
