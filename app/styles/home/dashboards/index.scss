@@ -42,6 +42,10 @@
     height: calc(100% - 105px);
     .row {
       height: 100%;
+      .col-12 {
+        height: 100%;
+      }
+
     }
   }
   @media (min-width: 767px) {

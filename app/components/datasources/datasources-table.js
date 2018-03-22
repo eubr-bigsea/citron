@@ -20,7 +20,7 @@ export default Component.extend({
     let tbody = this.$('tbody');
 
     bodyWrapper.scroll(() => {
-      if ( tbody.height() - ( bodyWrapper.height() + bodyWrapper.scrollTop() ) == 0) {
+      if ( tbody.height() - ( bodyWrapper.height() + bodyWrapper.scrollTop() ) < 1) {
         this.get('loadNext')();
       }
     })
