@@ -1,0 +1,12 @@
+.vis-row {
+  padding: 25px 0px 0px 40px;
+}
+
+.vis-container {
+  position: absolute;
+  top: 50%;
+  width: calc(100% - 50px);
+  margin-left: 25px;
+  margin-right: 25px;
+  transform: translate(0, -50%);
+}

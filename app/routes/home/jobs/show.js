@@ -48,7 +48,7 @@ export default Route.extend({
     controller.set('job', model.job);
   },
   actions: {
-    willTransition(transition){
+    willTransition(){
       this.get('controller').set("codeModal", false);
     },
   }
