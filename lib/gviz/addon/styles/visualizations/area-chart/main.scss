@@ -1,23 +1,26 @@
 svg.area-chart {
 
+  font-family: Helvetica, Arial, Sans-Serif;
+
+  .x-in-text { font-size: 10px; font-weight: 300; letter-spacing: 1px;  fill: #706f6f; }
+  .x.axis, .y.axis {
+    text { font-size: 10px; font-weight: 300; letter-spacing: 1px;  fill: #706f6f; }
+    line { fill: none; stroke-width: 1px; stroke: #dcdcdc; stroke-opacity: 0.8; shape-rendering: crispEdges; stroke-dasharray: 2 2; }
+    path { fill: none; stroke-width: 1px; stroke: #dcdcdc; stroke-opacity: 1; shape-rendering: crispEdges; }
+  }
+  .axis-legend { font-size: 10px; font-weight: 300; letter-spacing: 1px;  fill: #706f6f; }
+  .axis-line, .axis-line-mid { fill: none; stroke-width: 1px; stroke: $full-white; stroke-opacity: 0.6; shape-rendering: crispEdges; }
+  .avg-reference-label { fill: $full-white; }
+  .avg-reference-label-text { fill: $dark-gray; font-size: 10px; }
+  .avg { stroke-width: 0px; shape-rendering: crispEdges; }
+  .element { cursor: pointer; }
+  .bg-rect { fill: transparent; fill-opacity: 1; }
+  .name { font-size: 10px; font-weight: 300; letter-spacing: 1px;  fill: #afa5b7; fill-opacity: 0.75; }
+
+
   .area { stroke-width: 0px; fill-opacity: .8; }
   .line { fill: none !important; stroke-width: 5px; }
   .bg-rect { fill: $middle-white; fill-opacity: 1; }
-
-  font-family: Helvetica, Arial, Sans-Serif;
-
-  .x.axis, .y.axis {
-    text {
-      font-size: 12px; font-weight: normal; letter-spacing: 1px;  fill: $middle-gray;
-      tspan {
-        &.day   { font-size: 10px; }
-        &.month { font-size: 13px; }
-        &.year  { font-size: 9px; }
-      }
-    }
-    line { stroke: $light-gray; fill: none;}
-    path { fill: none; stroke: none; }
-  }
   .bg-rect-stroke { fill: transparent; stroke: $light-gray; stroke-width: 1; }
 
 }
