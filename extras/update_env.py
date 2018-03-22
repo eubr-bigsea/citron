@@ -18,7 +18,7 @@ def update_ember_env(index_file, env_file):
     with open(env_file, 'r') as source_env:
         updates = json.loads(source_env.read())
 
-    expr = re.compile(r'(name="lemonade-ember/config/environment" content=)"(.+?)"')
+    expr = re.compile(r'(name="citron/config/environment" content=)"(.+?)"')
     encoded = urllib.quote(json.dumps(updates))
     with open(new_file, 'w') as target:
         print >> target, expr.sub(r'\1"{}"'.format(encoded), data)
