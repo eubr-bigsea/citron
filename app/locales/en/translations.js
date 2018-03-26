@@ -533,5 +533,20 @@ export default {
       'cancel': 'Cancel'
     },
   },
-
+  'form-expression': {
+    'buttons': {
+      'save': 'Save',
+      'cancel': 'Cancel',
+      'open-editor': 'Open Editor',
+    },
+    'modal': {
+      'table': {
+        'expression': 'Expression',
+        'alias': 'Alias',
+      },
+      'buttons': {
+        'add': 'Add new expression'
+      },
+    }
+  },
 };

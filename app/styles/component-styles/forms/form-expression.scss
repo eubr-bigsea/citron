@@ -17,54 +17,97 @@
         max-height: 80vh;
         min-height: 550px;
         .modal-header {
-          height: 60px;
           h4 {
             margin-bottom: 5px;
           }
         }
         .modal-body {
-          .nav-tabs {
-            .nav-item .nav-link {
-              color: $color-darker;
-              &.active {
-                color: $color-base;
+          table.expressions {
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+            width: 100%;
+            max-height: calc(80vh - 225px);
+            thead, tbody tr {
+              display: table;
+              table-layout: fixed;
+            }
+            thead {
+              flex: 0 0 auto;
+              width: 100%;
+              .buttons {
+                vertical-align: middle;
+                padding-left: 0;
+                padding-right: 0;
+                width: 40px;
+              }
+              .alias {
+                width: 40%;
+              }
+            }
+            tbody {
+              flex: 1 1 auto;
+              display: block;
+              overflow-y: auto;
+              tr {
+                width: 100%;
+                .alert {
+                  border-radius: 5px;
+                  //margin: 3px;
+                }
+                .separator {
+                  padding: 1px;
+                }
+                .alias {
+                  width: 40%;
+                }
+                .buttons {
+                  vertical-align: middle;
+                  padding-left: 0;
+                  padding-right: 0;
+                  width: 40px;
+                  .btn-sm {
+                    background: none;
+                    border: none;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    color: $color-stop;
+                    &:hover {
+                      color: $color-stop-light;
+                    }
+                    i {
+                      font-size: 1.9em;
+                    }
+
+                  }
+                }
               }
             }
           }
-          .tab-pane {
-            padding-top: 5px;
-          }
-          .table-wrapper {
-            overflow-y: auto;
-            overflow-x: hidden;
-            min-height: 200px;
-            height: 35vh;
-            max-height: 450px;
-          }
-          .form-control {
-            margin-top: 7px;
-          }
-          #resultExpression {
-            margin-top: 5px;
-            border-radius: 3px;
-            padding: 0 10px;
-            overflow-y: auto;
-            height: 90px;
-
-          }
-        }
-        .modal-footer {
-          padding: 12px 14px;
-          height: 60px;
-          button.btn-success {
-            background-color: $color-base;
-            border-color: $color-base;
+          .add {
+            color: white;
+            background-color: $color-darker;
+            border-color: $color-darker;
+            width: 100%;
             &:hover {
-              background: $color-light;
-              border-color: $color-light;
+              background-color: $color-base;
+              border-color: $color-base;
             }
           }
         }
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: 12px 14px;
+    height: 60px;
+    button.btn-success {
+      background-color: $color-base;
+      border-color: $color-base;
+      &:hover {
+        background: $color-light;
+        border-color: $color-light;
       }
     }
   }

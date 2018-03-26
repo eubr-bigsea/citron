@@ -507,5 +507,20 @@ export default {
       'cancel': 'Cancelar',
     }
   },
-
+  'form-expression': {
+    'buttons': {
+      'save': 'Salvar',
+      'cancel': 'Cancelar',
+      'open-editor': 'Abir Editor',
+    },
+    'modal': {
+      'table': {
+        'expression': 'Expressão',
+        'alias': 'Alias',
+      },
+      'buttons': {
+        'add': 'Adicionar nova expressão'
+      },
+    }
+  },
 };
