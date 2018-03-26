@@ -7,4 +7,4 @@
     span.fa.fa-question-circle.pull-right title=field.help
   .form-field
     .color-wrapper
-      = spectrum-color-picker color=taskColor clickoutFiresChange=true showButtons=false preferredFormat='hex' change=(action 'colorChanged') onMove=(action 'colorChanged')
+      = spectrum-color-picker color=taskColor clickoutFiresChange=true showButtons=false preferredFormat='hex' onMove=(action 'colorChanged') onChange=(action 'colorChanged') onHide=(action 'colorChanged')

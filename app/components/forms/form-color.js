@@ -1,5 +1,4 @@
 import FormComponent from 'citron/lib/form-component';
-import { computed } from '@ember/object';
 
 export default FormComponent.extend({
   taskColor: '#FFFFFF',
@@ -13,7 +12,7 @@ export default FormComponent.extend({
 
   actions: {
     colorChanged(newValue){
-      newValue = { 'foreground': newValue, 'background': newValue}
+      newValue = { 'foreground': newValue, 'background': newValue};
       this.send('valueChanged', newValue);
     }
   }
