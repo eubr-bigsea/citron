@@ -427,6 +427,10 @@ export default {
         'title': 'Delete',
         'message': 'An error occured, the workflow was not deleted.'
       },
+      'executionFailed': {
+        'title':'Execution failed',
+        'message':'The execution failed, please check the settings of your workflow and try again.'
+      }
     },
     'delete-modal': {
       'title': {

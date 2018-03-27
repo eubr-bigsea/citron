@@ -453,6 +453,10 @@ export default {
         'title': 'Deletar',
         'message': 'Ocorreu um erro, o workflow não pôde ser salvo.'
       },
+      'executionFailed': {
+        'title':'Falha na execução',
+        'message':'A execução do workflow falhou, por favor cheque as configurações do seu workflow.'
+      }
     },
     'delete-modal': {
       'title': 'Deletando "{{workflow.name}}"',
