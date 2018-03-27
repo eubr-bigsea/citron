@@ -36,41 +36,18 @@ $fa-font-path: "/assets/webfonts";
 @import "visualizations-page";
 
 //Global
-@import 'main-sidebar.scss';
 @import 'main-wrapper.scss';
 @import 'main-content-wrapper.scss';
 @import 'page-content-wrapper.scss';
-@import 'table-paginate.scss';
 @import 'form.scss';
 @import 'perfect-scrollbar.scss';
 @import 'not-found.scss';
-@import 'modals.scss';
 
 //Animations
 @import 'animations.scss';
 
-//Workflows
-@import 'workflows/top-menu.scss';
-@import 'workflows/large-table.scss';
-//@import 'workflows/diagram-container-wrapper.scss';
-//@import 'workflows/draw.scss';
-@import 'workflows/modals.scss';
-
-//Jobs
-@import 'jobs/large-table.scss';
-
-//Datasources
-@import 'datasources/large-table.scss';
-@import 'datasources/datasource-share-table.scss';
-@import 'datasources/file-upload.scss';
 
 @import "auth.scss";
-@import "decor.scss";
-@import "filter.scss";
-@import "images.scss";
-@import "dimensions.scss";
-@import "green.scss";
-@import "cards-popup.scss";
 
 //New structure CSS
 @import 'landing-page';
@@ -85,6 +62,9 @@ $fa-font-path: "/assets/webfonts";
 @import 'home/datasources/edit';
 @import 'home/dashboards/index';
 @import 'home/dashboards/show';
+
+
+@import 'component-styles/main-sidebar';
 
 ::-webkit-scrollbar {
   width: 7px;
