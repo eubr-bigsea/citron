@@ -32,7 +32,6 @@ export default Component.extend({
       ],
     });
     this.set('jsplumb', jsPlumb.getInstance({Container: "lemonade-diagram"}));
-
   },
 
   didInsertElement() {
@@ -215,6 +214,13 @@ export default Component.extend({
         top: position.top/zoomScale,
         operation_id: data.opid
       };
+      operation.forms.forEach((form) =>{
+        form.fields.mapBy('name').forEach((key) => {
+          if (task.forms[key] === undefined) {
+            task.forms[key] = {value: ''};
+          }
+        })
+      });
 
       this.get('workflow.tasks').addObject(task);
       this.set('hasChanged', true);

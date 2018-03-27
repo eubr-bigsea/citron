@@ -18,12 +18,14 @@
   .container-fluid.model: .row: .col-12
     = workflows/workflows-table toggleSelect=(action 'toggleSelect') sortBy=(action 'sortBy') sortFromDropdown=(action 'sortFromDropdown') selectSingle=(action 'selectSingle') toggleDeleteModal=(action 'toggleDeleteModal') selectAll=selectAll timeProperties=timeProperties workflows=model.workflows loadNext=(action 'loadNext') locale=locale sort=sort asc=asc
   = workflows/delete-modal deleteModal=deleteModal deleteWorkflow=(action 'deleteWorkflow') workflow=toDelete.firstObject workflows=toDelete
-  button.btn.btn-default.btn-circle
-    if deleteButton
-      i.mdi.mdi-delete click={action 'toggleDeleteMultipleModal'}
-    else if createModal
+  if deleteButton
+    button.btn.btn-default.btn-circle click={action 'toggleDeleteMultipleModal'}
+      i.mdi.mdi-delete
+  else if createModal
+    button.btn.btn-default.btn-circle
       i.mdi.mdi-dots-horizontal
-    else
-      i.mdi.mdi-plus click={action 'toggleCreateModal'}
+  else
+    button.btn.btn-default.btn-circle click={action 'toggleCreateModal'}
+      i.mdi.mdi-plus
 = workflows/create-new-modal createModal=createModal platforms=model.platforms images=model.images transitionToDraw=(action 'transitionToDraw')
 = outlet

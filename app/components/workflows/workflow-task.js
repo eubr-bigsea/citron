@@ -27,7 +27,7 @@ export default Component.extend({
     task.operation.forms.forEach((form) =>{
       form.fields.mapBy('name').forEach((key) => {
         if (task.forms[key] === undefined) {
-          task.forms[key] = {value: null};
+          task.forms[key] = {value: ""};
         }
       })
     });

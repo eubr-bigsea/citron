@@ -20,11 +20,13 @@
   = datasources/delete-modal deleteModal=deleteModal deleteDatasource=(action 'deleteDatasource') datasource=toDelete.firstObject datasources=toDelete
   = datasources/upload-modal uploadModal=uploadModal reloadModel=(route-action 'reloadModel')
   //= datasources/share-modal shareModal=shareModal datasource=shareDatasource users=users permissions=shareDatasource.permissions
-  button.btn.btn-default.btn-circle
-    if deleteButton
-      i.mdi.mdi-delete click={action 'toggleDeleteMultipleModal'}
-    else if uploadModal
+  if deleteButton
+    button.btn.btn-default.btn-circle click={action 'toggleDeleteMultipleModal'}
+      i.mdi.mdi-delete
+  else if uploadModal
+    button.btn.btn-default.btn-circle
       i.mdi.mdi-dots-horizontal
-    else
-      i.mdi.mdi-upload click={action 'toggleUploadModal'}
+  else
+    button.btn.btn-default.btn-circle click={action 'toggleUploadModal'}
+      i.mdi.mdi-upload
 = outlet

@@ -19,27 +19,27 @@
       .modal-content {
         max-height: 80vh;
         .modal-header {
-          height: 60px;
-          h4 {
-            margin-bottom: 5px;
-          }
         }
         .modal-body {
-          max-height: calc(80vh - 120px);
+          max-height: calc(80vh - 170px);
           padding: 7px;
           .tabs {
-            max-height: calc(80vh - 148px);
+            height: 100%;
+            max-height: calc(80vh - 184px);
             .tab-content {
               padding: 5px 0;
-              .tab-pane {
-                max-height: calc(80vh - 185px);
 
-                table.functions {
+              height: calc(100% - 42px);
+              .tab-pane {
+                height: 100%;
+                // max-height: calc(80vh - 226px);
+
+                table {
                   display: flex;
                   flex-flow: column;
-                  height: 100%;
+                  height: calc(100% - 40px);
                   width: 100%;
-                  max-height: calc(80vh - 225px);
+                  max-height: calc(80vh - 260px);
                   thead, tbody tr {
                     display: table;
                     table-layout: fixed;
@@ -55,7 +55,7 @@
                   tbody {
                     flex: 1 1 auto;
                     display: block;
-                    overflow-y: scroll;
+                    overflow-y: auto;
                     tr {
                       width: 100%;
                       /* Force select2 to use the same height as bootstrap */
