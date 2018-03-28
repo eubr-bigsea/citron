@@ -1,35 +1,43 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import RSVP from 'rsvp';
+import { A } from '@ember/array';
 
-export default Route.extend(AuthenticatedRouteMixin, RouteMixin, {
+export default Route.extend(AuthenticatedRouteMixin, {
   sessionAccount: service(),
-
-  perPage: 20,
-  queryParams: {
-    sort: { refreshModel: true },
-    asc:  { refreshModel: true }
-  },
+  i18n: service(),
 
   model(params) {
     params.user_id = this.get('sessionAccount.userId');
     params.enabled = true;
-    params.paramMapping = { total_pages: 'pages' }
+
     return RSVP.hash({
-      datasources: this.findPaged('datasource', params),
-      users: this.store.findAll('user')
+      datasources: this.store.query('datasource', params),
     });
   },
-  setupController(controller, model) {
-    this._super(controller, model);
-    controller.set('users', model.users);
-    controller.set('datasources', model.datasources);
+  setupController(controller){
+    this._super(...arguments);
+    controller.set('locale', this.get('i18n.locale'));
+  },
+  resetController(controller, isExiting, transition) {
+    if (isExiting && transition.targetName !== 'error') {
+      controller.set('page', 1);
+      controller.set('size', 10);
+      controller.set('asc', true);
+      controller.set('sort', name);
+      controller.set('name', '');
+      controller.set('uploadModal', false);
+      controller.set('deleteModal', false);
+      controller.set('deleteMultipleModal', false);
+      controller.set('selectAll', false);
+      controller.set('deleteButton', false);
+      controller.set('toDelete', A());
+    }
   },
   actions: {
-    refreshModel(){
+    reloadModel(){
       this.refresh();
-    }
+    },
   }
 });

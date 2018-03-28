@@ -1,0 +1,114 @@
+& {
+  .open-editor {
+    width: 100%;
+    background: $color-darker;
+    border-color: $color-darker;
+    &:hover {
+      background: $color-light;
+      border-color: $color-light;
+    }
+  }
+  &.expression-modal {
+
+    .modal-dialog {
+      width: 60vw;
+      max-width: 60vw;
+      .modal-content {
+        max-height: 80vh;
+        min-height: 550px;
+        .modal-header {
+          h4 {
+            margin-bottom: 5px;
+          }
+        }
+        .modal-body {
+          table.expressions {
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+            width: 100%;
+            max-height: calc(80vh - 225px);
+            thead, tbody tr {
+              display: table;
+              table-layout: fixed;
+            }
+            thead {
+              flex: 0 0 auto;
+              width: 100%;
+              .buttons {
+                vertical-align: middle;
+                padding-left: 0;
+                padding-right: 0;
+                width: 40px;
+              }
+              .alias {
+                width: 40%;
+              }
+            }
+            tbody {
+              flex: 1 1 auto;
+              display: block;
+              overflow-y: auto;
+              tr {
+                width: 100%;
+                .alert {
+                  border-radius: 5px;
+                  //margin: 3px;
+                }
+                .separator {
+                  padding: 1px;
+                }
+                .alias {
+                  width: 40%;
+                }
+                .buttons {
+                  vertical-align: middle;
+                  padding-left: 0;
+                  padding-right: 0;
+                  width: 40px;
+                  .btn-sm {
+                    background: none;
+                    border: none;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    color: $color-stop;
+                    &:hover {
+                      color: $color-stop-light;
+                    }
+                    i {
+                      font-size: 1.9em;
+                    }
+
+                  }
+                }
+              }
+            }
+          }
+          .add {
+            color: white;
+            background-color: $color-darker;
+            border-color: $color-darker;
+            width: 100%;
+            &:hover {
+              background-color: $color-base;
+              border-color: $color-base;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: 12px 14px;
+    height: 60px;
+    button.btn-success {
+      background-color: $color-base;
+      border-color: $color-base;
+      &:hover {
+        background: $color-light;
+        border-color: $color-light;
+      }
+    }
+  }
+}

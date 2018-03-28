@@ -10,6 +10,11 @@ export default {
   },
   //components inside of forms folder
   'form':{
+    'title': 'Parâmetros da tarefa',
+    'task': {
+      'name': 'Nome',
+      'helper': 'Nome da tarefa que será mostrado no diagrama',
+    },
     'attribute-function': {
       'button': 'Abrir o Editor',
       'modal': {
@@ -95,13 +100,17 @@ export default {
       'label-append': 'Compartilhe essa {{resource}} com outros usuários',
       'searchFor': 'Busque outros usuários para compartilhar'
     },
-    'inferSchema': {
-      'label': 'Inferir Atributos',
-      'label-append': 'Defina opções para inferir campos da datasource',
-      'delimiter': 'Delimitador',
-      'quote-char': 'Enclosure',
-      'header': 'Cabeçalho',
-      'infer': 'Inferir Atributos',
+    'delimiter': {
+      'label': 'Delimitadores',
+    },
+    'quote-char': {
+      'label': 'Enclosure',
+    },
+    'header': {
+      'label': 'Cabeçalho',
+    },
+    'infer-schema': {
+      'label': 'Inferir esquema',
     },
     'attributes': {
       'label': 'Atributos',
@@ -282,15 +291,6 @@ export default {
       'play': 'Executar'
     }
   },
-  'workflows': {
-    'self':'workflows',
-    'title': 'Workflows',
-    'description': 'Lista de todos os workflows - e.g. próprios, compartilhados, etc..',
-    'newBtn': 'Criar novo',
-    'moreActionsBtn': 'Mais ações',
-    'deleteBtn': 'Apagar todos',
-    'searchFor': 'Pesquisar',
-  },
   'job': {
     'self': 'Job',
     'show': {
@@ -324,11 +324,34 @@ export default {
       'tables': 'Tabelas',
       'params': 'Parâmetros',
     },
+    'delete-modal': {
+      'title': {
+        'one':  'Deletando "{{job.name}}"',
+        'other': 'Deletando {{count}} jobs',
+      },
+      'message': {
+        'one': 'Tem certeza que deseja remover permanentemente o job: "{{job.name}}" ?',
+        'other':'Tem certeza que deseja deletar esses {{count}} jobs?',
+      },
+      'delete-btn': 'Delete',
+      'cancel': 'Cancel'
+    },
   },
   'datasources': {
     'self': 'Datasources',
+    'title': 'Datasources',
     'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
     'searchFor': 'Pesquisar',
+    'edit': {
+      'title': 'Editar parametetros de <strong>{{datasourceName}}</strong>',
+      'save-button': 'Salvar',
+      'transition-button': 'Voltar para {{route}}',
+      'helpers': {
+        'precision': 'Precisão',
+        'treat_as_missing': 'Tratar como ausente',
+        'nullable': 'Aceitar nulo',
+      },
+    },
     'upload': {
       'uploadDatabase': 'Carregar base',
       'chooseButton': 'Escolha o arquivo',
@@ -376,6 +399,7 @@ export default {
   },
   'dashboards': {
     'self': 'Dashboards',
+    'title': 'Dashboards',
     'description': 'Lista de todas os Dashboards - e.g. privados, publicos, etc..',
     'searchFor': 'Buscar',
   },
@@ -411,4 +435,96 @@ export default {
   'completed': 'Completo',
   'profile': 'Perfil',
   'logout': 'Sair',
+  'workflows': {
+    'self':'workflows',
+    'title': 'Workflows',
+    'description': 'Lista de todos os workflows - e.g. próprios, compartilhados, etc..',
+    'newBtn': 'Criar novo',
+    'moreActionsBtn': 'Mais ações',
+    'deleteBtn': 'Apagar todos',
+    'searchFor': 'Pesquisar',
+    'edit': {
+      'title': 'Editando workflow:',
+    },
+    'create-new-modal': {
+      'title': 'Criando novo workflow',
+      'name': 'Meu workflow',
+      'description': 'Este é o meu workflow...',
+      'create': 'Criar',
+      'cancel': 'Cancelar',
+    },
+    'edit-modal': {
+      'title': 'Editando workflow',
+      'name': 'Meu workflow',
+      'description': 'Este é meu workflow...',
+      'save': 'Salvar',
+      'cancel': 'Cancelar',
+    },
+    'draw': {
+      'executeBtn': 'Executar',
+    },
+    'alert-modal': {
+      'saveSuccess': {
+        'title': 'Salvar',
+        'message': 'O workflow foi salvo com sucesso.'
+      },
+      'saveFailed': {
+        'title': 'Salvar',
+        'message': 'Ocorreu um erro, o workflow não pode ser salvo.'
+      },
+      'deleteSuccess': {
+        'title': 'Deletar',
+        'message': 'O workflow foi deletado com sucesos. Você será redirecionado.'
+      },
+      'deleteFailed': {
+        'title': 'Deletar',
+        'message': 'Ocorreu um erro, o workflow não pôde ser salvo.'
+      },
+      'executionFailed': {
+        'title':'Falha na execução',
+        'message':'A execução do workflow falhou, por favor cheque as configurações do seu workflow.'
+      }
+    },
+    'delete-modal': {
+      'title': 'Deletando "{{workflow.name}}"',
+      'message': 'Você deseja remover permanentemente o workflow: "{{workflow.name}}" ?',
+      'delete-btn': 'Deletar',
+      'cancel': 'Cancelar'
+    },
+    'unsaved-changes-modal': {
+      'title': 'Mudanças não salvas',
+      'message': "Este workflow tem mudanças que não foram salvas. Se você sair sem salvar perderá essas mudanças.",
+      'save': 'Salvar e sair',
+      'leave': 'Sair',
+      'cancel': 'Cancelar',
+    },
+    'pre-execution-modal': {
+      'title': 'Executar job',
+      'message': 'Configurar job antes da execução.',
+      'name': {
+        'label': 'Nome',
+      },
+      'cluster': {
+        'label': 'Cluster',
+      },
+      'runBtn': 'Executar',
+      'cancel': 'Cancelar',
+    }
+  },
+  'form-expression': {
+    'buttons': {
+      'save': 'Salvar',
+      'cancel': 'Cancelar',
+      'open-editor': 'Abir Editor',
+    },
+    'modal': {
+      'table': {
+        'expression': 'Expressão',
+        'alias': 'Alias',
+      },
+      'buttons': {
+        'add': 'Adicionar nova expressão'
+      },
+    }
+  },
 };

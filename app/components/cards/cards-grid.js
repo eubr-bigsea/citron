@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import $ from 'jquery';
-import generateUUID from 'lemonade-ember/utils/generate-uuid';
+import generateUUID from 'citron/utils/generate-uuid';
 
 export default Component.extend({
   store: service(),

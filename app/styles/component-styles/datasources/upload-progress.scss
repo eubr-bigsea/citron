@@ -1,0 +1,64 @@
+& {
+  .header-wrapper {
+    height: 35px;
+    span {
+      vertical-align: middle;
+    }
+    .btn.btn-secondary {
+      color: $color-dark;
+      background: none;
+      border: none;
+      padding-top: 0;
+      padding-bottom: 0;
+      i {
+        font-size: 1.7em;
+        &.mdi-play {
+          color: $color-execute;
+        }
+        &.mdi-pause {
+          color: $color-pause;
+        }
+        &.mdi-stop {
+          color: $color-stop;
+        }
+      }
+    }
+  }
+  .progress-wrapper {
+    text-align: center;
+    .mdi-pause {
+      color: $color-pause;
+      position: absolute;
+      font-size: 1.7em;
+      left: calc(50% - 12px);
+      display: none;
+    }
+    .progress {
+      height: 3em;
+      border-radius: 4px;
+      svg {
+        height: 100%;
+        path {
+          stroke: $color-base;
+        }
+      }
+    }
+    .percentage {
+      margin-top: 2px;
+      display: block;
+      color: $color-text-darker;
+    }
+  }
+  &.paused {
+    .mdi-pause {
+      display: block;
+    }
+    .progress {
+      svg {
+        path {
+          stroke: $color-pause;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { computed } from '@ember/object';
 import Component from '@ember/component';
-import Ps from 'npm:perfect-scrollbar';
+import Ps from '@perfect-scrollbar';
 
 export default Component.extend({
   filterText: '',
@@ -15,7 +15,7 @@ export default Component.extend({
   }),
 
   didInsertElement() {
-    Ps.initialize(document.getElementById("operations-list"));
+    new Ps("#operations-list");
     $('#categories-list').metisMenu();
   },
 

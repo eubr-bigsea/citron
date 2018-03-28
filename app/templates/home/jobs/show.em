@@ -1,14 +1,15 @@
 .container-fluid.__job__show.toggled
   .option-bar.row
     .col-xs-12.col-md-7.col-lg-8.col-xl-5.vcentered.__name
-      h3.title: job.workflow.name
+      h3.title: job.name
     .col-xs-12.col-md-5.col-lg-4.col-xl-3.vcentered.__status class=job.status click={action 'toggleReportModal'}
       i.__icon
       span.__text: t job.status
     .col-sm-12.col-xl-4.vcentered.__buttons
-      a.btn.btn-primary click={action 'toggleCodeModal'}
-        i.fa.fa-lg.fa-code
-        span: t 'job.show.code'
+      if job.isCompleted
+        a.btn.btn-primary click={action 'toggleCodeModal'}
+          i.fa.fa-lg.fa-code
+          span: t 'job.show.code'
       = link-to 'home.workflows.draw' job.workflow.id class="btn btn-primary"
         i.fa.fa-lg.fa-flask
         span: t 'job.show.workflow'

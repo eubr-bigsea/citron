@@ -1,9 +1,8 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'lemonade-ember',
+    modulePrefix: 'citron',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -45,6 +44,8 @@ module.exports = function(environment) {
     ENV.stand = 'https://dev.ctweb.inweb.org.br/stand';
     ENV.tahiti = 'https://dev.ctweb.inweb.org.br/tahiti';
     ENV.limonero = 'https://dev.ctweb.inweb.org.br/limonero';
+    //ENV.limonero = 'http://150.164.203.132:3321';
+
     ENV.caipirinha = 'https://dev.ctweb.inweb.org.br/caipirinha';
     ENV.sentry = { dns: '' }
     ENV.webSocketIO = {
@@ -69,6 +70,7 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.thorn = '';
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {

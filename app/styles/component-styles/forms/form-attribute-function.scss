@@ -1,0 +1,119 @@
+& {
+  .suggested-widget {
+    text-align: center;
+    .open-editor {
+      width: 100%;
+      background: $color-darker;
+      border-color: $color-darker;
+      &:hover {
+        background: $color-light;
+        border-color: $color-light;
+      }
+    }
+  }
+
+  &.attribute-function-modal {
+    .modal-dialog {
+      width: 60vw;
+      max-width: 60vw;
+      .modal-content {
+        max-height: 80vh;
+        .modal-header {
+        }
+        .modal-body {
+          max-height: calc(80vh - 170px);
+          padding: 7px;
+          .tabs {
+            height: 100%;
+            max-height: calc(80vh - 184px);
+            .tab-content {
+              padding: 5px 0;
+
+              height: calc(100% - 42px);
+              .tab-pane {
+                height: 100%;
+                // max-height: calc(80vh - 226px);
+
+                table {
+                  display: flex;
+                  flex-flow: column;
+                  height: calc(100% - 40px);
+                  width: 100%;
+                  max-height: calc(80vh - 260px);
+                  thead, tbody tr {
+                    display: table;
+                    table-layout: fixed;
+                  }
+                  thead {
+                    flex: 0 0 auto;
+                    width: 100%;
+                    .buttons {
+                      width: calc(6em + 8px);
+                      border-right: none;
+                    }
+                  }
+                  tbody {
+                    flex: 1 1 auto;
+                    display: block;
+                    overflow-y: auto;
+                    tr {
+                      width: 100%;
+                      /* Force select2 to use the same height as bootstrap */
+                      .select2-selection {
+                        border-radius: 3px;
+                        border: 1px solid rgba(0, 0, 0, 0.15) !important;
+                      }
+                      .select2-selection__rendered {
+                        line-height: 1.8 !important;
+                        color: white !important;
+                      }
+                      .select2-container .select2-selection--single{
+                        height: calc(2.5rem - 2px) !important;
+                      }
+                      .select2-selection__choice {
+                        border-radius: 3px !important;
+                      }
+                      .select2-selection__arrow {
+                        top: 1px !important;
+                        clip-path: circle(7px at center);
+                      }
+                      .buttons {
+                        vertical-align: middle;
+                        width: 6em;
+                        span {
+                          font-size: 1.3em;
+                        }
+                      }
+                    }
+                  }
+                }
+                .add {
+                  color: white;
+                  background-color: $color-darker;
+                  border-color: $color-darker;
+                  width: 100%;
+                  &:hover {
+                    background-color: $color-base;
+                    border-color: $color-base;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .modal-footer {
+          padding: 12px 14px;
+          height: 60px;
+          button.btn-success {
+            background-color: $color-base;
+            border-color: $color-base;
+            &:hover {
+              background: $color-light;
+              border-color: $color-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}

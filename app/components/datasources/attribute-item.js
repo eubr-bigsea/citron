@@ -2,27 +2,13 @@ import Component from '@ember/component';
 
 export default Component.extend({
   tagName: 'tr',
-  types: [
-    'CHARACTER',
-    'DATE',
-    'DATETIME',
-    'DECIMAL',
-    'DOUBLE',
-    'ENUM',
-    'FLOAT',
-    'INTEGER',
-    'LAT_LONG',
-    'LONG',
-    'TEXT',
-    'TIME',
-    'TIMESTAMP',
-    'VECTOR'
-  ],
+  types: null,
   isNotChar: false,
   isNotNum: false,
 
   init(){
     this._super(...arguments);
+    this.set('types', [ 'CHARACTER', 'DATE', 'DATETIME', 'DECIMAL', 'DOUBLE', 'ENUM', 'FLOAT', 'INTEGER', 'LAT_LONG', 'LONG', 'TEXT', 'TIME', 'TIMESTAMP', 'VECTOR' ]);
     this.addObserver('attr.type', this, 'typeDidChange');
     this.typeDidChange();
   },
@@ -44,6 +30,9 @@ export default Component.extend({
   },
 
   actions: {
+    toggleNullable(){
+      this.toggleProperty('attr.nullable');
+    },
     removeAttr(){
       this.get('removeAttr')(this.get('attr'));
     },

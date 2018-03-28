@@ -1,0 +1,104 @@
+.__workflows__draw {
+  height: 100%;
+
+  #diagram-container-wrapper {
+    margin-left: $size-operations-sidebar;
+    width: 100%;
+    width: -webkit-calc(100% - #{$size-operations-sidebar});
+    width: -moz-calc(100% - #{$size-operations-sidebar});
+    width: calc(100% - #{$size-operations-sidebar});
+    height: 100%;
+    overflow-y: overlay;
+    overflow-x: overlay;
+
+    .option-bar {
+      text-align: center;
+
+      .__name {
+        height: 50px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        input {
+          font-size: 1.2rem;
+          border-radius: 0;
+          border: none;
+          border-radius: 0;
+          border-bottom: 1px solid #d7dde4;
+          padding: 0.3rem 0.75rem;
+        }
+      }
+
+      .__buttons {
+
+        .group {
+          display: inline-flex;
+          height: 50px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+
+          a {
+            margin-right: 5px;
+            height: 40px;
+            width: 40px;
+            padding: 2.5px 8px;
+            text-align: center;
+            background: none;
+            border: none;
+            color: $color-darker;
+
+            i {
+              vertical-align: middle;
+              font-size: 1.5rem;
+            }
+          }
+
+          &.actions {
+            border-right: 1px solid #d7dde4;
+          }
+          &.execute {
+            padding-left: 10px;
+
+            a {
+              width: auto;
+              background: $color-execute;
+              border: $color-execute;
+              color: $color-text-lighter;
+              &:hover {
+                background: $color-execute-light;
+                border: $color-execute-light;
+              }
+              span {
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+
+
+
+      }
+
+
+    }
+  }
+
+  .workflow-diagram-wrapper {
+    height: -webkit-calc(100% - 100px);
+    height: -moz-calc(100% - 100px);
+    height: calc(100% - 100px);
+    display: flex;
+
+    @media (min-width: 992px){
+      height: -webkit-calc(100% - 50px);
+      height: -moz-calc(100% - 50px);
+      height: calc(100% - 50px);
+    }
+  }
+}
+
+#page-content-wrapper.toggled .__workflows__draw #diagram-container-wrapper {
+  margin-left: $size-operations-sidebar-toggled;
+  width: -webkit-calc(100% - #{$size-operations-sidebar-toggled});
+  width: -moz-calc(100% - #{$size-operations-sidebar-toggled});
+  width: calc(100% - #{$size-operations-sidebar-toggled});
+}

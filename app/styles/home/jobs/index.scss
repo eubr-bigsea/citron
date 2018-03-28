@@ -1,0 +1,63 @@
+.__jobs__index {
+  padding: 30px 0;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  .menu {
+    flex: 0 1 auto;
+    .centered {
+      align-items: center;
+      .search-block {
+        .btn-secondary {
+          background-color: $input-bg;
+          border: $input-border-width solid $input-border-color;
+          border-left: none;
+          border-radius: 0 $btn-border-radius $btn-border-radius 0;
+          color: $color-darker;
+          height: 34px;
+          &:focus {
+            box-shadow: 0;
+          }
+        }
+      }
+    }
+  }
+  .btn-circle {
+    margin: 15px;
+    text-align: center;
+    width: 55.5px;
+    border-radius: 25px;
+    box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.4);
+    background-color: $color-lighter;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 1s ease 0s;
+    visibility: hidden;
+    i {
+      color: $color-darker;
+      font-size: 2em;
+    }
+
+  }
+  .btn-circle.anim{
+    visibility: visible;
+    opacity: 1;
+  }
+  .model {
+    height: calc(100% - 105px);
+    .row {
+      height: 100%;
+      .col-12 {
+        height: 100%;
+      }
+    }
+  }
+  @media (min-width: 767px) {
+    .model {
+      height: calc(100% - 71px);
+    }
+  }
+}

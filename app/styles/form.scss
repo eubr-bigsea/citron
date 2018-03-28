@@ -1,17 +1,18 @@
 form {
   .btn-primary {
-    color: $color-text-lighter !important;
-    background-color: $color-base !important;
-    border-color: $color-base !important;
+    color: $color-text-lighter;
+    background-color: $color-base;
+    border-color: $color-base;
     &:hover {
-      background-color: $color-dark !important;
-      border-color: $color-dark !important;
+      background-color: $color-dark;
+      border-color: $color-dark;
     }
   }
 }
 input, textarea {
   outline: none;
 }
+
 
 .form-group {
   a {
@@ -26,6 +27,10 @@ input, textarea {
       padding-left: 10px;
       padding-right: 10px;
     }
+  }
+
+  .form-field {
+    text-align: center;
   }
 
   &.has-error {
@@ -106,62 +111,6 @@ label, .control-label {
   border-color: $color-completed;
 }
 
-.radio, .checkbox {
-  display: none;
-}
-
-.radio + span, .checkbox + span {
-  padding: 0;
-  padding-right: 10px;
-}
-
-.radio + span:before, .checkbox + span:before {
-  font-family: FontAwesome;
-  font-size: 21px;
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: 10px;
-  color: $color-lighter;
-}
-
-.radio:checked + span:before, .checkbox:checked + span:before {
-  color: $color-darker;
-}
-
-.radio:disabled + span:before, .checkbox:disabled + span:before {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.radio:checked:disabled + span:before {
-  color: #c8d0da;
-}
-
-.checkbox {
-  &:checked {
-    &:disabled + span:before {
-      color: #c8d0da;
-    }
-
-    + span:before {
-      content: "\f14a";
-    }
-  }
-
-  + span:before {
-    content: "\f0c8";
-  }
-
-  &.rounded {
-    + span:before {
-      content: "\f111";
-    }
-
-    &:checked + span:before {
-      content: "\f058";
-    }
-  }
-}
 
 .radio {
   + span:before {
@@ -256,9 +205,6 @@ label, .control-label {
 
 }
 
-.title-block {
-  margin: 15px 0 0 0;
-}
 
 .flex {
   display: flex;
@@ -310,7 +256,7 @@ label, .control-label {
       margin-bottom: 0px;
     }
     .input-checkbox + span:before {
-      font-family: FontAwesome;
+      font-family: "Font Awesome 5 Free";
       font-size: 1.4em;
       color: $color-lighter;
     }

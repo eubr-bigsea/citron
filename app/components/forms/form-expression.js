@@ -1,49 +1,47 @@
-import $ from 'jquery';
-import jsep from 'npm:jsep';
-import FormComponent from 'lemonade-ember/lib/form-component';
+import jsep from '@jsep';
+import FormComponent from 'citron/lib/form-component';
+import { computed } from '@ember/object';
+import { A } from '@ember/array';
+import { set } from '@ember/object';
+import { copy } from '@ember/object/internals';
 
 export default FormComponent.extend({
+  classNameBindings: ['error'],
+  error: computed('field.error', function(){ return this.get('field.error') }),
+  expressionModal: false,
+
   init() {
     this._super(...arguments);
 
-    this.set('currentValue', JSON.parse(this.get('currentValue')));
-    this.set('expression', this.get('currentValue.expression'));
-    this.set('tree', JSON.stringify(this.get('currentValue.tree')));
-    this.set('modalVisible', false);
-    this.set('parsedValues', JSON.parse(this.get('field.values')));
+    let currentValue = A(this.get('currentValue'));
+    this.set('parsedValues', copy(currentValue, true));
   },
+
   actions: {
+    addRow(){
+      this.get('parsedValues').addObject({ expression: null, error: null, alias: null, tree: null });
+    },
+    removeRow(row){
+      this.get('parsedValues').removeObject(row);
+    },
     showModal() {
-      this.set('modalVisible', true);
+      let currentValue = A(this.get('currentValue'));
+      console.log(currentValue);
+      this.set('parsedValues', copy(currentValue, true));
+      this.set('expressionModal', true);
     },
-    hideModal() {
-      this.set('modalVisible', false);
-
-      /* We don't want to destroy the modal, just hide it */
-      return false;
-    },
-    parseExpression() {
-      let el = $('#resultExpression');
-      let exprVal = $('#typeExpression').val();
-
+    parseExpression(value) {
+      set(value, 'error', null);
       try {
-        var expr = jsep(exprVal);
-        el.addClass('alert-info');
-        el.removeClass('alert-danger');
-        el.text(JSON.stringify(expr));
-        $("#okButton").removeAttr('disabled');
+        let tree = jsep(value.expression);
+        set(value, 'tree', tree);
       } catch (e) {
-        el.addClass('alert-danger');
-        el.removeClass('alert-info');
-        el.text(e.message);
-        $("#okButton").attr('disabled', 'disabled');
+        set(value, 'error', e);
       }
     },
     valueChanged() {
-      let expr = $('#typeExpression').val();
-      this.set('currentValue', { expression: expr, tree: jsep(expr) });
-      this._super(JSON.stringify(this.get('currentValue')));
-      this.set('modalVisible', false);
+      this._super(this.get('parsedValues'));
+      this.set('expressionModal', false);
     }
   }
 });

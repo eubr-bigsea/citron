@@ -1,85 +1,100 @@
-<button {{action 'showModal'}} class="btn btn-primary">{{t 'form.attribute-function.button'}} </button>
+<div class="form-group" >
+  <p class="title">
+  <span class="label" title={{ field.label }}> {{field.label}} </span>
+  {{#if field.required}}
+    <i class="fa fa-asterisk"></i>
+  {{/if}}
+  <i class="fa fa-question-circle pull-right" title={{field.help}}></i>
+  </p>
+  <div class="suggested-widget">
+    <button {{action 'showModal'}} class="btn btn-primary open-editor">{{t 'form.attribute-function.button'}} </button>
 
-{{#if modalVisible}}
-  {{#bs-modal class="logger-modal" onHide=(action 'hideModal') fade=false as |modal|}}
-    {{#modal.header}}
-      <h4>{{field.label}}</h4>
-      <em>{{field.help}}</em>
-    {{/modal.header}}
-    {{#modal.body}}
-      {{#bs-tab as |tab|}}
-        {{#tab.pane fade=false title=(t 'form.attribute-function.modal.tab.editor') as |tab|}}
-          <table class="table table-striped table-bordered">
-            <thead>
-              <th style="width: 25%">{{t 'form.attribute-function.modal.table.attribute'}}</th>
-              <th style="width: 25%">{{t 'form.attribute-function.modal.table.function'}}</th>
-              {{#unless isSort}}
-                <th style="width: 25%">{{t (concat 'form.attribute-function.modal.table.column.' name)}}</th>
-              {{/unless}}
-              <th style="width: 15%"></th>
-            </thead>
-            <tbody>
-              {{#each currentValue as |row i|}}
-                <tr>
-                  <td class='select-attr-function'>
-                    <select class="form-control attr" onchange={{action (mut row.attribute) value='target.value'}} style="width: 100%">
-                      <option></option>
-                      {{#each suggestedAttrsArray as |attr|}}
-                        <option value={{attr.val}} selected={{eq attr.val row.attribute}}>
-                        {{attr.val}}
-                        </option>
-                      {{/each}}
-                    </select>
-                  </td>
-                  <!--                  <td>{{input class="form-control" value=row.attribute}}</td> -->
-                  <td>
-                    <select class="form-control" onchange={{action (mut row.f) value='target.value'}} style="width:100%">
-                      <option></option>
-                      {{#each parsedValues as |function|}}
-                        <option value={{function.key}} selected={{eq row.f function.key}}>
-                        {{function.value}}
-                        </option>
-                      {{/each}}
-                    </select>
-                  </td>
-                  {{#unless isSort}}
-                    <td>{{input class="form-control" value=row.alias}}</td>
-                  {{/unless}}
-                  <td>
-                    <span {{action 'removeRow' i}} class="fa fa-2x fa-minus-circle"></span>
-                    <span {{action 'moveRow' i -1}} class="fa fa-2x fa-chevron-circle-up"></span>
-                    <span {{action 'moveRow' i 1}} class="fa fa-2x fa-chevron-circle-down"></span>
-                  </td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
-          <button {{action 'addRow'}} class="btn btn-success btn-sm">
-            <span class="fa fa-plus-circle"></span> {{t 'form.attribute-function.modal.buttons.add'}}
-          </button>
-        {{/tab.pane}}
-        {{#tab.pane fade=false title=(t 'form.attribute-function.modal.tab.references') as |tab|}}
-          <table class="table-striped table-bordered table">
-            <thead>
-              <tr>
-                <th>{{t 'tables.name'}}</th>
-                <th>{{t 'tables.description'}}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each parsedValues as |function|}}
-                <tr>
-                  <td>{{function.value}}</td>
-                  <td>{{function.help}}</td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
-        {{/tab.pane}}
-      {{/bs-tab}}
-    {{/modal.body}}
-    {{#modal.footer}}
-      {{#bs-button id="okButton" onClick=(action 'valueChanged') type="success"}}{{t 'modal.default.submitButton'}}{{/bs-button}}
-    {{/modal.footer}}
-  {{/bs-modal}}
-{{/if}}
+    {{#if modalVisible}}
+      {{#bs-modal class=(concat componentCssClassName " attribute-function-modal") onHide=(action 'hideModal') fade=false as |modal|}}
+        {{#modal.header}}
+          <div class="title">
+            <h4>{{field.label}}</h4>
+            <p>{{field.help}}</p>
+          </div>
+        {{/modal.header}}
+        {{#modal.body}}
+          {{#bs-tab class="tabs" as |tab|}}
+            {{#tab.pane fade=false title=(t 'form.attribute-function.modal.tab.editor') as |tab|}}
+              <table class="table table-striped table-bordered functions">
+                <thead>
+                  <tr>
+                    <th style="">{{t 'form.attribute-function.modal.table.attribute'}}</th>
+                    <th style="">{{t 'form.attribute-function.modal.table.function'}}</th>
+                    {{#unless isSort}}
+                      <th style="">{{t (concat 'form.attribute-function.modal.table.column.' name)}}</th>
+                    {{/unless}}
+                    <th class="buttons"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each currentValue as |row i|}}
+                    <tr>
+                      <td class='select-attr-function'>
+                        <select class="form-control attr" onchange={{action (mut row.attribute) value='target.value'}} style="width: 100%">
+                          <option></option>
+                          {{#each suggestedAttrsArray as |attr|}}
+                            <option value={{attr.val}} selected={{eq attr.val row.attribute}}>
+                            {{attr.val}}
+                            </option>
+                          {{/each}}
+                        </select>
+                      </td>
+                      <!--                  <td>{{input class="form-control" value=row.attribute}}</td> -->
+                      <td>
+                        <select class="form-control" onchange={{action (mut row.f) value='target.value'}} style="width:100%">
+                          <option></option>
+                          {{#each parsedValues as |function|}}
+                            <option value={{function.key}} selected={{eq row.f function.key}}>
+                            {{function.value}}
+                            </option>
+                          {{/each}}
+                        </select>
+                      </td>
+                      {{#unless isSort}}
+                        <td>{{input class="form-control" value=row.alias}}</td>
+                      {{/unless}}
+                      <td class="buttons">
+                        <span {{action 'removeRow' i}} class="fa fa-times-circle"></span>
+                        <span {{action 'moveRow' i -1}} class="fa fa-chevron-circle-up"></span>
+                        <span {{action 'moveRow' i 1}} class="fa fa-chevron-circle-down"></span>
+                      </td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+              <button {{action 'addRow'}} class="btn btn-sm add">
+                <span class="fa fa-plus-circle"></span> {{t 'form.attribute-function.modal.buttons.add'}}
+              </button>
+            {{/tab.pane}}
+            {{#tab.pane fade=false title=(t 'form.attribute-function.modal.tab.references') as |tab|}}
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>{{t 'tables.name'}}</th>
+                    <th>{{t 'tables.description'}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each parsedValues as |function|}}
+                    <tr>
+                      <td>{{function.value}}</td>
+                      <td>{{function.help}}</td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            {{/tab.pane}}
+          {{/bs-tab}}
+        {{/modal.body}}
+        {{#modal.footer}}
+          {{#bs-button id="okButton" onClick=(action 'valueChanged') type="success"}}{{t 'modal.default.submitButton'}}{{/bs-button}}
+        {{/modal.footer}}
+      {{/bs-modal}}
+    {{/if}}
+  </div>
+</div>

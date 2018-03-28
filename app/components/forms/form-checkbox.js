@@ -1,20 +1,20 @@
-import FormComponent from 'lemonade-ember/lib/form-component';
+import FormComponent from 'citron/lib/form-component';
+import { computed } from '@ember/object';
 
 export default FormComponent.extend({
-  didReceiveAttrs() {
-    this._super(...arguments);
-    if(this.get('currentValue') === '1' || this.get('currentValue') === true ){
-      this.set('isChecked', true);
-    } else {
-      this.set('isChecked', false);
-    }
-  },
+  classNameBindings: ['checked', 'error'],
+  checked: computed('currentValue', function(){
+    return this.get('currentValue') == '1' ? 'checked' : 'unchecked'
+  }),
+  error: computed('field.error', function(){ return this.get('field.error') }),
+
   actions:{
-    valueChanged(newValue){
-      if(newValue === true){
-        this.set('currentValue', '1');
-      } else {
+    valueChanged(){
+      let currentValue = this.get('currentValue')
+      if(currentValue === '1'){
         this.set('currentValue', '0');
+      } else {
+        this.set('currentValue', '1');
       }
       let onValueChanged = this.get('onValueChanged');
 

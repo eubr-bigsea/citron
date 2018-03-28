@@ -21,7 +21,9 @@ export default Component.extend({
         sort: 'created',
         asc: false
       }).then((jobs) => {
-        this.set('jobs', jobs);
+        if(!this.isDestroyed){
+          this.set('jobs', jobs);
+        }
       });
     });
   }

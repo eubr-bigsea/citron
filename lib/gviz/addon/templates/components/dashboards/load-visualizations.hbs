@@ -1,15 +1,20 @@
-<div class='header'>
-  <p class='title'>{{model.title}}</p>
-  <div class='actions-custom'>
-    <button class='btn btn-sm' {{action 'save'}}><i class='fa fa-save'></i></button>
+<div class='col-12 vcentered'>
+  {{input class='form-control float-left' value=model.title }}
+  <div class='actions-custom float-right'>
+    <button class='btn btn-primary btn-md' {{action 'save'}}>
+      <i class='mdi mdi-content-save'></i>
+      {{t 'forms.save'}}
+    </button>
   </div>
 </div>
-<div class="grid-stack">
-  {{#if isEmpty}}
-    Loading data...
-  {{else }}
-    {{#each visualizations as |viz|}}
-      {{dashboards/vis-wrapper viz=viz dataUrl=viz.dataUrl}}
-    {{/each }}
-  {{/if}}
+<div class="col-12 grid-stack-wrapper">
+  <div class="grid-stack">
+    {{#if isEmpty}}
+      Loading data...
+    {{else }}
+      {{#each visualizations as |viz|}}
+        {{dashboards/vis-wrapper viz=viz dataUrl=viz.dataUrl}}
+      {{/each }}
+    {{/if}}
+  </div>
 </div>

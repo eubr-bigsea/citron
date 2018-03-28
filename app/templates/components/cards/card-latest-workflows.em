@@ -8,8 +8,7 @@
           th
           th: = t 'tables.id'
           th: = t 'tables.name'
-          th: = t 'tables.options'
-          th: = t 'tables.created'
+          th: = t 'tables.updated'
       tbody
         each workflows as |workflow|
           tr
@@ -18,9 +17,4 @@
               = workflow.id
             td: = link-to 'home.workflows.draw' workflow.id
               = workflow.name
-            td.icons
-              = link-to 'home.workflows.edit' workflow.id
-                i.fa.fa-lg.fa-cog
-              = link-to 'home.workflows.draw' workflow.id
-                i.fa.fa-lg.fa-pencil
             td: = format-date workflow.updated locale=locale format='YYYY-MM-DD' suport='ll'

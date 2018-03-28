@@ -1,5 +1,11 @@
 @import "ember-bootstrap/bootstrap";
-@import "font-awesome";
+
+$fa-font-path: "/assets/webfonts";
+@import "fontawesome/fontawesome";
+@import "fontawesome/fa-regular";
+@import "fontawesome/fa-brands";
+@import "fontawesome/fa-solid";
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Muli);
 @import 'variables.scss';
@@ -30,52 +36,35 @@
 @import "visualizations-page";
 
 //Global
-@import 'main-sidebar.scss';
 @import 'main-wrapper.scss';
 @import 'main-content-wrapper.scss';
 @import 'page-content-wrapper.scss';
-@import 'table-paginate.scss';
 @import 'form.scss';
 @import 'perfect-scrollbar.scss';
 @import 'not-found.scss';
-@import 'modals.scss';
 
 //Animations
 @import 'animations.scss';
 
-//Workflows
-@import 'workflows/top-menu.scss';
-@import 'workflows/large-table.scss';
-@import 'workflows/operations-sidebar.scss';
-@import 'workflows/diagram-container-wrapper.scss';
-@import 'workflows/option-bar.scss';
-@import 'workflows/draw.scss';
-@import 'workflows/modals.scss';
-
-//Jobs
-@import 'jobs/large-table.scss';
-
-//Datasources
-@import 'datasources/large-table.scss';
-@import 'datasources/datasource-share-table.scss';
-@import 'datasources/file-upload.scss';
-@import 'datasources/attributes-table.scss';
 
 @import "auth.scss";
-@import "decor.scss";
-@import "filter.scss";
-@import "header.scss";
-@import "images.scss";
-@import "dimensions.scss";
-@import "green.scss";
-@import "cards-popup.scss";
 
 //New structure CSS
 @import 'landing-page';
 @import 'home/index';
+@import 'home/jobs/index';
 @import 'home/jobs/show';
 @import 'home/jobs/status';
 @import 'home/user/edit';
+@import 'home/workflows/draw';
+@import 'home/workflows/index';
+@import 'home/datasources/index';
+@import 'home/datasources/edit';
+@import 'home/dashboards/index';
+@import 'home/dashboards/show';
+
+
+@import 'component-styles/main-sidebar';
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -86,16 +75,17 @@
 
 ::-webkit-scrollbar-track {
   border-radius: 0;
+  background-color: $color-scrollbar-track !important;
+
 }
 
 /* Handle */
-
 ::-webkit-scrollbar-thumb {
   border-radius: 0;
-  background: $color-dark;
+  background: $color-base;
 
   &:window-inactive {
-    background: $color-dark;
+    background: $color-base;
   }
 }
 
@@ -106,216 +96,16 @@ body {
   height: 100%;
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
-  overflow-x: hidden;
 }
 
-.main-wrapper {
-  width: 100%;
-  position: absolute;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.no-padding {
-  padding: 0px;
-
-}
-
-.app {
-  position: relative;
-  width: 100%;
-  padding-left: 75px;
-  padding-right: 15px;
-  min-height: 100vh;
-  margin: 0 auto;
-  left: 0;
-  background-color: #f0f3f6;
-  box-shadow: 0 0 3px #ccc;
-  -webkit-transition: left 0.3s ease, padding-left 0.3s ease;
-  transition: left 0.3s ease, padding-left 0.3s ease;
-  overflow: hidden;
-}
-
-.app .content {
-  padding: 110px 30px 90px 30px;
-  min-height: 100vh;
-}
-
-@media (min-width: 1200px) {
-  .app .content {
-    padding: 40px 10px 0px 10px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  .app .content {
-    padding: 40px 0px 90px 0px;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .app .content {
-    padding: 40px 0px 75px 0px;
-  }
-}
-@media (max-width: 767px) {
-  .app .content {
-    padding: 40px 0px 65px 0px;
-  }
-}
-@media (max-width: 991px) {
-  .app {
-    padding-left: 0;
-  }
-}
-@media (max-width: 991px) {
-  .app.sidebar-open {
-    left: 0;
-  }
-}
-.app.blank {
-  background-color: #667380;
-}
-.app .drawer{
-  background-color: #fff;
-  padding: 110px 30px 90px 30px;
-  min-height: 100vh;
-}
-@media (min-width: 1200px) {
-  .app .drawer {
-    padding: 45px 20px 0px 45px;
-  }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-  .app .drawer {
-    padding: 45px 30px 90px 45px;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .app .drawer {
-    padding: 45px 20px 75px 45px;
-  }
-}
-@media (max-width: 767px) {
-  .app .drawer {
-    padding: 45px 10px 65px 45px;
-  }
-}
-@media (max-width: 991px) {
-  .app .drawer {
-    padding: 45px 10px 65px 45px;
-  }
-}
-
-.app .drawer{
-  padding: 110px 30px 90px 30px;
-  min-height: 100vh;
-}
-@media (min-width: 1200px) {
-  .app .drawer {
-    padding: 45px 20px 0px 45px;
-  }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-  .app .drawer {
-    padding: 45px 30px 90px 45px;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .app .drawer {
-    padding: 45px 20px 75px 45px;
-  }
-}
-@media (max-width: 767px) {
-  .app .drawer {
-    padding: 45px 10px 65px 45px;
-  }
-}
-@media (max-width: 991px) {
-  .app .drawer {
-    padding: 45px 10px 65px 45px;
-  }
-}
-
+//using on datasource fix this
 #description {
   height: 30vh;
 }
 
-#forms fieldset {
-  zoom: 75%;
-  margin: 0;
-}
-
-fieldset {
-  padding: 10px 5px 20px 5px;
-  border: 1px solid #ccc;
-  margin: 5px 0;
-}
-
-legend {
-  border: 0;
-  font-size: 12pt;
-  font-weight: bold;
-  margin: 5px 0 0 0;
-  width: inherit;
-}
-
-fieldset p {
-  padding: 0;
-  margin: 5px 0 0 0;
-}
-
-.color-item {
-  float: left;
-  height: 20px;
-  margin-right: 1px;
-  width: 20px;
-  border: 1px solid #CCC;
-}
-
-.color-item.active {
-  border-color: #555;
-}
-
-.sidebar-active {
-  background: $main-theme-green;
-}
-.sidebar-active .fa {
-  color: white;
-}
-.sidebar-active span{
-  color: white;
-}
-
-/* Force select2 to use the same height as bootstrap */
-.select2-selection__rendered {
-  line-height: 38px !important;
-}
-.select2-container .select2-selection--single{
-  height: calc(2.5rem - 2px) !important;
-}
-
-::-webkit-input-placeholder { /* Chrome, Safari */
-  color: $color-text-base;
-}
-
-:-moz-placeholder {           /* Firefox 18- */
-  color: $color-text-base;
-  font-size: 1.1em;
-}
-
-::-moz-placeholder {          /* Firefox 19+ */
-  color: $color-text-base;
-  font-size: 1.1em;
-}
-
-:-ms-input-placeholder {      /* Internet Explorer */
-  color: $color-text-base;
-  font-size: 1.1em;
-}
-
 //Overides
 @import 'modal-overides';
+@import 'spectrum-color-picker-overides';
 
 .visualization-modal {
   height: 450px;

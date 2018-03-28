@@ -1,0 +1,70 @@
+& {
+  margin-top: 15px;
+  overflow: hidden;
+  overflow-x: overlay;
+  .table.table-sm {
+    min-width: 600px;
+    width: 100%;
+    th {
+      i.mdi.mdi-help {
+        font-size: 0.7rem;
+        cursor: help;
+        position: relative;
+        top: -5px;
+      }
+    }
+    td.remove-attr {
+      .btn.btn-secondary {
+        padding: 0;
+        background: none;
+        border: none;
+        i {
+          color: $color-error;
+          vertical-align: middle;
+          font-size: 1.5em;
+          opacity: 0.8;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .center {
+      text-align: center;
+    }
+    td {
+      vertical-align: middle;
+      &.name {
+        input {
+          // width: auto;
+        }
+      }
+      &.types {
+        select {
+          display: inline-block;
+          width: 9rem;
+        }
+      }
+      &.num {
+        input {
+          display: inline-block;
+          max-width: 2.5rem;
+          width: auto;
+          padding-left: 4px;
+          padding-right: 4px;
+        }
+      }
+    }
+  }
+  .footer {
+    .btn.btn-primary.add-attr {
+      background-color: $color-base;
+      border-color: $color-base;
+      width: 100%;
+      &:hover {
+        background-color: $color-light;
+        border-color: $color-light;
+      }
+    }
+  }
+}

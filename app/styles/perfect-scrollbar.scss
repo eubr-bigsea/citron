@@ -1,19 +1,36 @@
-.ps__scrollbar-y-rail {
-  background-color: $color-base !important;
-  width: 10px !important;
-  .ps__scrollbar-y {
-    background-color: $color-dark !important;
-    border-radius: 0 !important;
-    width: 6px !important;
+.ps:hover {
+  .ps__rail-y, .ps__rail-x {
+    opacity: 0.9
   }
 }
 
-.ps__scrollbar-x-rail {
-  background-color: $color-base !important;
-  height: 10px !important;
-  .ps__scrollbar-x {
-    background-color: $color-dark !important;
-    border-radius: 0 !important;
-    height: 6px !important;
+.ps__thumb-y, .ps__thumb-x {
+  background: $color-base;
+  border-radius: 0 !important;
+}
+
+.ps__rail-y, .ps__rail-x {
+  background-color: $color-scrollbar-track !important;
+  &:hover {
+    opacity: 1;
+    .ps__thumb-y, .ps__thumb-x {
+      background: $color-dark;
+    }
+  }
+}
+
+.ps__rail-y {
+  width: 7px !important;
+  .ps__thumb-y {
+    width: 7px !important;
+    right: 0;
+  }
+}
+
+.ps__rail-x {
+  height: 7px !important;
+  .ps__thumb-x {
+    height: 7px !important;
+    bottom: 0;
   }
 }

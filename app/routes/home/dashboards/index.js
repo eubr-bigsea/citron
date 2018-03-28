@@ -1,22 +1,40 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
+import { A } from '@ember/array';
 
-export default Route.extend(AuthenticatedRouteMixin, RouteMixin,{
+export default Route.extend(AuthenticatedRouteMixin, {
   sessionAccount: service(),
-  perPage: 20,
-  queryParams: {
-    sort: { refreshModel: true },
-    asc:  { refreshModel: true }
-  },
+  i18n: service(),
 
   model(params) {
     params.user_id = this.get('sessionAccount.userId');
     params.enabled = true;
-    params.paramMapping = { total_pages: 'pages' }
 
-    return this.findPaged('dashboard', params);
+    return this.store.query('dashboard', params);
   },
-
+  setupController(controller){
+    this._super(...arguments);
+    controller.set('locale', this.get('i18n.locale'));
+  },
+  resetController(controller, isExiting, transition) {
+    if (isExiting && transition.targetName !== 'error') {
+      controller.set('page', 1);
+      controller.set('size', 10);
+      controller.set('asc', true);
+      controller.set('sort', name);
+      controller.set('name', '');
+      controller.set('timeProperties.selected', 'updated');
+      controller.set('deleteModal', false);
+      controller.set('deleteMultipleModal', false);
+      controller.set('selectAll', false);
+      controller.set('deleteButton', false);
+      controller.set('toDelete', A());
+    }
+  },
+  actions: {
+    reloadModel(){
+      this.refresh();
+    },
+  }
 });

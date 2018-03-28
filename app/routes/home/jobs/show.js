@@ -1,7 +1,12 @@
+/* global Prism */
 import { A } from '@ember/array';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
+import config from '../../../config/environment';
+import { run } from '@ember/runloop';
+import $ from 'jquery';
+
 
 export default Route.extend({
   i18n: service(),
@@ -46,10 +51,35 @@ export default Route.extend({
     });
 
     controller.set('job', model.job);
+
+    $.ajax({
+      type: 'GET',
+      url:`${config.stand}/jobs/${job.id}/source-code`
+    }).then(
+      (response) => {
+        run(() => {
+          if(response.source){
+            var lang = eval(`Prism.languages.${response.lang}`);
+            var highlighted = Prism.highlight(response.source, lang);
+            controller.set('code', highlighted);
+          } else {
+            controller.set('code', 'NONE');
+          }
+        });
+      },
+      (error) => {
+        run(() => {
+          console.log('ERROR', error);
+        })
+      }
+    );
   },
   actions: {
-    willTransition(){
-      this.get('controller').set("codeModal", false);
-    },
+    didTransition(){
+      this.controller.set('taskModal', false);
+      this.controller.set('codeModal', false);
+      this.controller.set('code', null);
+      this.controller.set('selectedTask', null);
+    }
   }
 });

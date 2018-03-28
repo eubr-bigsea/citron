@@ -1,19 +1,23 @@
-/* global jsPlumb */
 import Component from '@ember/component';
 import config from '../../config/environment';
-import io from 'npm:socket.io-client';
-import Ps from 'npm:perfect-scrollbar';
 import { set } from '@ember/object';
+import Ps from '@perfect-scrollbar';
+import io from '@socket.io-client';
+import jsPlumb from '@jsplumb';
 
 export default Component.extend({
   init() {
     this._super(...arguments);
+    jsPlumb.importDefaults({
+      Connector: 'Flowchart',
+      ConnectionOverlays: [ ["Arrow", {width: 12, length: 12} ] ]
+    });
     this.set('socket', io(config.webSocketIO.url + config.webSocketIO.namespace, { path:config.webSocketIO.path }, {upgrade: true}));
     this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId, draggable: false}));
   },
 
   didInsertElement() {
-    Ps.initialize(document.getElementById("draw-container"));
+    new Ps(document.getElementById("draw-container"));
 
     let job = this.get('job');
     let tasks = job.get('workflow.tasks');

@@ -6,6 +6,7 @@ const { attr } = DS;
 export default DS.Model.extend({
   /* Config STAND */
   user: attr(),
+  name: attr(),
   workflow: attr(),
   cluster: attr(),
   created: attr('dates'),
@@ -15,6 +16,7 @@ export default DS.Model.extend({
   steps: attr(),
   results: attr(),
   status_text: attr(),
+  selected: attr('boolean'),
 
   isCompleted: computed('status', function(){
     return (this.get('status') === 'completed' || this.get('status') === 'error');

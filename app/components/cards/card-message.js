@@ -8,7 +8,9 @@ export default Component.extend({
     var cardId = this.get('conf.card-id');
 
     this.get('store').findRecord('card', cardId, { reload: true }).then((card) => {
-      this.set('card', card);
+      if(!this.isDestroyed){
+        this.set('card', card);
+      }
     });
   }
 });

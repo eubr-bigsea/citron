@@ -49,7 +49,7 @@
 
     .__icon {
       @extend .fa;
-      @extend .fa-circle-o-notch;
+      @extend .fa-circle-notch;
       @extend .fa-spin;
     }
   }
@@ -59,7 +59,7 @@
 
     .__icon {
       @extend .fa;
-      @extend .fa-clock-o;
+      @extend .fa-clock;
     }
   }
 }

@@ -1,5 +1,5 @@
 import { test } from 'qunit';
-import moduleForAcceptance from 'lemonade-ember/tests/helpers/module-for-acceptance';
+import moduleForAcceptance from 'citron/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | new user');
 test('creating a new user', function(assert) {

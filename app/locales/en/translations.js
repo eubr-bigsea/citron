@@ -10,6 +10,11 @@ export default {
   },
   //components inside of forms folder
   'form':{
+    'title': 'Task Parameters',
+    'task': {
+      'name': 'Name',
+      'helper': 'Task name displayed on diagram',
+    },
     'attribute-function': {
       'button': 'Open Editor',
       'modal': {
@@ -95,13 +100,17 @@ export default {
       'label-append': 'Share this {{resource}} with others users',
       'searchFor': 'Search users to share'
     },
-    'inferSchema': {
+    'delimiter': {
+      'label': 'Delimiter',
+    },
+    'quote-char': {
+      'label': 'Enclosure',
+    },
+    'header': {
+      'label': 'Header',
+    },
+    'infer-schema': {
       'label': 'Infer Schema',
-      'label-append': 'Define options for infer schema of datasource',
-      'delimiter': 'Delimiter',
-      'quote-char': 'Enclosure',
-      'header': 'Header',
-      'infer': 'Infer Schema',
     },
     'attributes': {
       'label': 'Attributes',
@@ -109,6 +118,7 @@ export default {
     },
     'public': {
       'label': 'Public',
+      'helper': 'This will be public to all users',
     },
     'encode': {
       'label': 'Encode',
@@ -146,10 +156,10 @@ export default {
     'email': 'Email',
     'permission': 'Permisson',
     'type': 'Type',
-    'precision': 'Precision',
+    'precision': 'Prec',
     'scale': 'Scale',
-    'nullable': 'Allow null',
-    'treat_as_missing': 'Treat as Missing',
+    'nullable': 'Null',
+    'treat_as_missing': 'TaM',
     'description': 'Description',
     'attributes': 'Attributes',
     'values': 'Values',
@@ -269,35 +279,6 @@ export default {
       'submitButton': 'Ok',
     },
   },
-  'workflow': {
-    'self': 'Workflow',
-    'edit': {
-      'title': 'Editing workflow:',
-    },
-    'new': {
-      'title': 'Creating new workflow:',
-      'name': {
-        'placeholder': 'My workflow',
-      },
-      'description': {
-        'placeholder': 'This is my workflow...',
-      },
-    },
-    'draw': {
-      'save': 'Save',
-      'delete': 'Delete this workflow',
-      'play': 'Execute'
-    }
-  },
-  'workflows': {
-    'self':'workflows',
-    'title': 'Workflows',
-    'description': 'List of all workflows - e.g. owned, shared, etc..',
-    'newBtn': 'Create new',
-    'moreActionsBtn': 'More Actions',
-    'deleteBtn': 'Delete All',
-    'searchFor': 'Search',
-  },
   'job': {
     'self': 'Job',
     'show': {
@@ -330,19 +311,18 @@ export default {
       'tables': 'Tables',
       'params': 'Parameters',
     },
-  },
-  'datasources': {
-    'self': 'Datasources',
-    'description': 'List of all datasources - e.g. owned, shared, etc..',
-    'searchFor': 'Search',
-    'upload': {
-      'uploadDatabase': 'Upload database',
-      'chooseButton': 'Choose your file',
-      'dropzone': 'Or drag and drop the file here',
-      'uploading': 'Uploading file: <strong>{{resource}}</strong>',
-      'successMessage': 'The file <strong>{{resource}}</strong> was successfully uploaded.',
-      'errorMessage': 'An error occurried to the upload of file <strong>{{resource}}</strong>. The server message error is: {{message}}',
-    }
+    'delete-modal': {
+      'title': {
+        'one':  'Deleting "{{job.name}}"',
+        'other': 'Deleting {{count}} jobs',
+      },
+      'message': {
+        'one': 'Do you want to delete permanently the job: "{{job.name}}" ?',
+        'other':'Do you want to delete permanently {{count}} jobs ?',
+      },
+      'delete-btn': 'Delete',
+      'cancel': 'Cancel'
+    },
   },
   'datasource': {
     'self': 'Datasource',
@@ -386,6 +366,7 @@ export default {
   },
   'dashboards': {
     'self': 'Dashboards',
+    'title': 'Dashboards',
     'description': 'List of all Dashboards - e.g. private, public, etc..',
     'searchFor': 'Search',
   },
@@ -420,4 +401,156 @@ export default {
   'completed': 'Completed',
   'profile': 'Profile',
   'logout': 'Logout',
+  'workflows': {
+    'self':'workflows',
+    'singular': 'Workflow',
+    'title': 'Workflows',
+    'description': 'List of all workflows - e.g. owned, shared, etc..',
+    'searchFor': 'Search',
+    'edit': {
+      'title': 'Editing workflow:',
+    },
+    'create-new-modal': {
+      'title': 'Creating new workflow',
+      'name': 'My workflow',
+      'description': 'This is my workflow...',
+      'create': 'Create',
+      'cancel': 'Cancel',
+    },
+    'edit-modal': {
+      'title': 'Editing workflow',
+      'name': 'My workflow',
+      'description': 'This is my workflow...',
+      'save': 'Save',
+      'cancel': 'Cancel',
+    },
+    'draw': {
+      'executeBtn': 'Execute',
+    },
+    'alert-modal': {
+      'saveSuccess': {
+        'title': 'Save',
+        'message': 'The workflow was successfully saved.'
+      },
+      'saveFailed': {
+        'title': 'Save',
+        'message': 'An error occured, the workflow was not save.'
+      },
+      'deleteSuccess': {
+        'title': 'Delete',
+        'message': 'The workflow was successfully deleted. You will be redirect.'
+      },
+      'deleteFailed': {
+        'title': 'Delete',
+        'message': 'An error occured, the workflow was not deleted.'
+      },
+      'executionFailed': {
+        'title':'Execution failed',
+        'message':'The execution failed, please check the settings of your workflow and try again.'
+      }
+    },
+    'delete-modal': {
+      'title': {
+        'one':  'Deleting "{{workflow.name}}"',
+        'other': 'Deleting {{count}} workflows',
+      },
+      'message': {
+        'one': 'Do you want to delete permanently the workflow: "{{workflow.name}}" ?',
+        'other':'Do you want to delete permanently {{count}} workflows ?',
+      },
+      'delete-btn': 'Delete',
+      'cancel': 'Cancel'
+    },
+    'unsaved-changes-modal': {
+      'title': 'Unsaved Changes',
+      'message': "The current workflow has unsaved changes. If you leave the changes won't be save.",
+      'save': 'Save and leave',
+      'leave': 'Leave',
+      'cancel': 'Cancel',
+    },
+    'pre-execution-modal': {
+      'title': 'Start Job',
+      'message': 'Setup your job before running.',
+      'name': {
+        'label': 'Name',
+      },
+      'cluster': {
+        'label': 'Cluster',
+      },
+      'runBtn': 'Run',
+      'cancel': 'Cancel',
+    }
+  },
+  'datasources': {
+    'self': 'Datasources',
+    'title': 'Datasources',
+    'description': 'List of all datasources - e.g. owned, shared, etc..',
+    'searchFor': 'Search',
+    'edit': {
+      'title': 'Edit parameters of <strong>{{datasourceName}}</strong>',
+      'save-button': 'Save',
+      'transition-button': 'Back to {{route}}',
+      'helpers': {
+        'precision': 'Precision',
+        'treat_as_missing': 'Treat as Missing',
+        'nullable': 'Allow null',
+      },
+    },
+    'alert-modal': {
+      'inferSuccess': {
+        'title': 'Infer schema has succeed',
+        'message': 'Please review the infered attributes and feel free to edit them.'
+      },
+      'inferFailed': {
+        'title': 'Infer schema Failed',
+        'message': 'An error occured when we tried to infer schema, the server responded with the message:'
+      },
+      'saveSuccess': {
+        'title': 'Save',
+        'message': 'The datasource was successfully saved.'
+      },
+      'saveFailed': {
+        'title': 'Save',
+        'message': 'An error occured, the datasource was not save.'
+      },
+    },
+    'upload-modal': {
+      'title': 'Upload Datasource',
+      'uploading-header': 'Uploading file: <strong>{{fileName}}</strong>',
+      'dropzone-message': 'Drag and drop your file here or',
+      'browse-button':'Choose your file',
+      'success-message': 'The  <strong>{{fileName}}</strong> has been successfully uploaded.',
+      'error-message': 'A error occuried on upload of  <strong>{{fileName}}</strong>. The server respond with:',
+      'upload-more': 'New Upload',
+      'cancel': 'Cancel'
+    },
+    'delete-modal': {
+      'title': {
+        'one':  'Deleting "{{datasource.name}}"',
+        'other': 'Deleting {{count}} datasources',
+      },
+      'message': {
+        'one': 'Do you want to delete permanently the datasource: <strong>{{datasource.name}}</strong>?',
+        'other':'Do you want to delete permanently <strong>{{count}}</strong> datasources ?',
+      },
+      'delete-btn': 'Delete',
+      'cancel': 'Cancel'
+    },
+  },
+  'form-expression': {
+    'buttons': {
+      'save': 'Save',
+      'cancel': 'Cancel',
+      'open-editor': 'Open Editor',
+    },
+    'modal': {
+      'table': {
+        'expression': 'Expression',
+        'alias': 'Alias',
+      },
+      'buttons': {
+        'add': 'Add new expression'
+      },
+    }
+  },
 };

@@ -23,14 +23,16 @@ $color-text-base: #788475;
 $color-text-dark: #504b45;
 $color-text-darker: #1A1A1A;
 
-$color-play: #6DD66E;
-$color-play-light: #179318;
+$color-scrollbar-track: #CCCFD1;
+
+$color-execute: #6DD66E;
+$color-execute-light: #179318;
 $color-stop: #D60015;
 $color-stop-light: #E5323B;
 $color-log: #e6ac00;
 $color-log-light: #ffbf00;
-$color-pause: #74BFAD;
-$color-pause-light: #0b6c54;
+$color-pause: #FFAE03;
+$color-pause-light: #FFBC30;
 
 $color-canceled: #FF6C39;
 $color-completed: #71BA51;
@@ -40,4 +42,23 @@ $color-pending: #FFBD4B;
 $color-running: #3D8EB9;
 $color-waiting: #7F6B4B;
 
+$color-cancel: #E55649;
+$color-cancel-light: #F96C60;
 
+$color-data: $color-lighter;
+$color-iregressionalgorithm: $color-lighter;
+$color-iregressionmodel: $color-lighter;
+$color-irecommendationalgorithm: $color-lighter;
+$color-irecommendationmodel: $color-lighter;
+$color-classificationalgorithm: $color-lighter;
+$color-classificationmodel: $color-lighter;
+$color-iclusteringalgorithm: $color-lighter;
+$color-iclusteringmodel: $color-lighter;
+$color-transformationmodel: $color-lighter;
+$color-indexermodel: $color-lighter;
+$color-visualization: $color-lighter;
+$color-ivocabulary: $color-lighter;
+$color-ilistofmachinelearningmodels: $color-lighter;
+$color-lshmodel: $color-lighter;
+$color-machinelearningmodel: $color-lighter;
+$color-modelwithevaluation: $color-lighter;

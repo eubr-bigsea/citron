@@ -1,10 +1,14 @@
 import { A } from '@ember/array';
-import FormComponent from 'lemonade-ember/lib/form-component';
+import FormComponent from 'citron/lib/form-component';
 import $ from 'jquery';
+import { computed } from '@ember/object';
 
 export default FormComponent.extend({
   modalVisible: false,
   isSort: false,
+  classNameBindings: ['error'],
+  error: computed('field.error', function(){ return this.get('field.error') }),
+
 
 
   didInsertElement(){
@@ -25,10 +29,12 @@ export default FormComponent.extend({
 
     if(currentValue) {
       currentValue.forEach((el) => {
-        suggestedParsed.addObject({
-          val: el.attribute,
-          selected: true
-        });
+        if(el.attribute !== null){
+          suggestedParsed.addObject({
+            val: el.attribute,
+            selected: true
+          });
+        }
       });
     }
 
@@ -45,9 +51,6 @@ export default FormComponent.extend({
       });
     }
 
-
-  },
-  didRender(){
     $('select.attr').select2({
       tags: true,
     });
