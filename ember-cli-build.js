@@ -15,12 +15,11 @@ module.exports = function(defaults) {
   });
 
   //Alphabetic order
-
-  app.import('node_modules/lodash/lodash.js');
-  app.import('node_modules/jquery-ui-dist/jquery-ui.css');
-  app.import('node_modules/jquery-ui-dist/jquery-ui.theme.css');
-  app.import('node_modules/jquery-ui-dist/jquery-ui.structure.css');
-  app.import('node_modules/jquery-ui-dist/jquery-ui.js');
+  app.import('node_modules/lodash/lodash.js'); // gridstack requirements
+  app.import('node_modules/jquery-ui-dist/jquery-ui.css'); // gridstack requirements
+  app.import('node_modules/jquery-ui-dist/jquery-ui.theme.css'); // gridstack requirements
+  app.import('node_modules/jquery-ui-dist/jquery-ui.structure.css'); // gridstack requirements
+  app.import('node_modules/jquery-ui-dist/jquery-ui.js'); // gridstack requirements
   app.import('node_modules/gridstack/dist/gridstack.css');
   app.import('node_modules/gridstack/dist/gridstack-extra.css');
   app.import('node_modules/gridstack/dist/gridstack.all.js');
