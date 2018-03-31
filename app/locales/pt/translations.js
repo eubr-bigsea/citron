@@ -352,14 +352,42 @@ export default {
         'nullable': 'Aceitar nulo',
       },
     },
-    'upload': {
-      'uploadDatabase': 'Carregar base',
-      'chooseButton': 'Escolha o arquivo',
-      'dropzone': 'Ou arraste e solte o arquivo aqui',
-      'uploading': 'Carregando o arquivo: <strong>{{resource}}</strong>',
-      'successMessage': 'O arquivo <strong>{{resource}}</strong> foi carregado com sucesso.',
-      'errorMessage': 'Um erro ocorreu ao carregar o arquivo <strong>{{resource}}</strong>. A mensagem de erro foi: {{message}}',
-    }
+    'alert-modal': {
+      'inferSuccess': {
+        'title': 'O Esquema foi inferido com sucesso',
+        'message': 'Por favor, revise os atributos inferidos e sinta-se livre para editá-los'
+      },
+      'inferFailed': {
+        'title': 'Falha ao inferir o esquema',
+        'message': 'Um erro ocorreu durante a tentativa de inferir o esquema, o servidor respondeu com a seguinte mensagem:'
+      },
+      'saveSuccess': {
+        'title': 'Salvo',
+        'message': 'A fonte de dados foi salva com sucesso.'
+      },
+    },
+    'upload-modal': {
+      'title': 'Carregar fonte de dados',
+      'uploading-header': 'Carregando arquivo: <strong>{{fileName}}</strong>',
+      'dropzone-message': 'Arraste e solte seu arquivo aqui ou',
+      'browse-button': 'Escolha seu arquivo',
+      'success-message': 'O <strong>{{fileName}}</strong> carregado com sucesso',
+      'error-message': 'Um erro ocorreu no carregamento do arquivo <strong>{{fileName}}</strong>. Servidor respondeu com:',
+      'upload-more': 'Carregar um novo',
+      'cancel': 'Cancelar'
+    },
+    'delete-modal': {
+      'title': {
+        'one':  'Deletando "{{datasource.name}}"',
+        'other': 'Deletando {{count}} fontes de dados',
+      },
+      'message': {
+        'one': 'Você deseja mesmo deletar de forma permanente a fonte de dados: <strong>{{datasource.name}}</strong>?',
+        'other':'Você deseja deletar permanentemente <strong>{{count}}</strong> as fontes de dados?',
+      },
+      'delete-btn': 'Delete',
+      'cancel': 'Cancel'
+    },
   },
   'datasource': {
     'self': 'Datasource',
