@@ -180,30 +180,10 @@ export default Controller.extend({
 
       let callback = (result) => {
         let tasks = this.get('model.workflow.tasks');
-
         Object.keys(result).forEach((taskId) => {
           let task = tasks.findBy('id', taskId);
           if(task){
-            const executionForm = task.operation.forms.findBy('category', 'execution');
-
-            if(executionForm){
-              const attributeForms = executionForm.fields.filter((el) => {
-                return el.suggested_widget === "attribute-selector" || el.suggested_widget === "attribute-function"
-              });
-
-              if(attributeForms.length ){
-                const el = result[taskId];
-                let attributes = []
-                if(el.uiPorts && el.uiPorts.inputs){
-                  for(let i=0; i < el.uiPorts.inputs.length; i++){
-                    attributes = attributes.concat(el.uiPorts.inputs[i].attributes)
-                  }
-                  attributeForms.forEach((form) => {
-                    set(form, 'suggestedAttrs', [...new Set(attributes)]);
-                  })
-                }
-              }
-            }
+            set(task, 'uiPorts', result[taskId].uiPorts)
           }
         })
         this.set('attrsReady', true);

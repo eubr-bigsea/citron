@@ -22,7 +22,16 @@ export default FormComponent.extend({
     this.set('options', JSON.parse(this.get('field.values')).options);
 
     let suggestedParsed =  this.get('suggestedAttrsArray');
-    let suggestedAttrs = this.get('field.suggestedAttrs');
+    let uiPorts = this.get('task.uiPorts');
+    let suggestedAttrs = null;
+    if(uiPorts && uiPorts.inputs){
+      let attributes = []
+      for(let i=0; i < uiPorts.inputs.length; i++){
+        attributes = attributes.concat(uiPorts.inputs[i].attributes)
+      }
+      suggestedAttrs = [...new Set(attributes)]
+    }
+
     let currentValue = this.get('currentValue');
     if(!currentValue){ this.set('currentValue', A()); }
     if( this.get('field.name') === "attributes"){ this.set('isSort', true); }

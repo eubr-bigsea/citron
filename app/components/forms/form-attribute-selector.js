@@ -17,9 +17,16 @@ export default FormComponent.extend({
 
   didReceiveAttrs(){
     this.set('parsedValues', A());
-
     let parsed = this.get('parsedValues');
-    let values = this.get('field.suggestedAttrs');
+    let uiPorts = this.get('task.uiPorts');
+    let values = null;
+    if(uiPorts && uiPorts.inputs){
+      let attributes = []
+      for(let i=0; i < uiPorts.inputs.length; i++){
+        attributes = attributes.concat(uiPorts.inputs[i].attributes)
+      }
+      values = [...new Set(attributes)]
+    }
     let currentValue = this.get('currentValue');
 
     if(values) {
