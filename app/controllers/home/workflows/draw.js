@@ -206,11 +206,13 @@ export default Controller.extend({
     },
 
     clickTask(task){
-      this.send('closeForms');
-      this.set('selectedTask', task);
-      if(this.get('attrsReady')){
-        this.set('displayForm', true);
-      }
+      run(() => { this.send('closeForms'); })
+      run.later(() => {
+        this.set('selectedTask', task);
+        if(this.get('attrsReady')){
+          this.set('displayForm', true);
+        }
+      });
     },
 
   },
