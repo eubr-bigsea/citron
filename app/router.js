@@ -40,7 +40,7 @@ Router.map(function() {
   this.route('policy');
   this.route('maintenance');
   this.route('visualizations');
-  this.route('notFound', {path: '/*path'});
+  this.route('not-found', {path: '/*path'});
 });
 
 export default Router;

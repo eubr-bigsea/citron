@@ -5,6 +5,8 @@ import Ps from '@perfect-scrollbar';
 export default Component.extend({
   elementId: 'forms',
   didInsertElement() {
+    $('#page-content-wrapper').css('cursor', 'default');
+    $('.ui-selectee').css('cursor', 'pointer');
     new Ps("#forms");
   },
   actions: {
