@@ -6,4 +6,4 @@
       span.fa.fa-asterisk
     span.fa.fa-question-circle.pull-right title=field.help
   .form-field
-    textarea.form-control value=currentValue key-up='valueChanged' rows='5'
+    = textarea class='form-control' value=currentValue key-up=(action 'valueChanged' currentValue) rows='5'
