@@ -29,7 +29,7 @@ export default {
           'attribute': 'Atributos',
           'function': 'Função',
           'column': {
-            'function': 'Nome',
+            'alias': 'Alias',
             'filter': 'Valor',
           }
         }
