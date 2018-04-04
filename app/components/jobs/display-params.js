@@ -47,10 +47,7 @@ export default Component.extend({
             }
           }
         } else if(w === 'expression'){
-          if(el.value){
-            el.value = JSON.parse(el.value).expression;
-          }
-          el.component = 'display-form-text';
+          el.component = 'display-form-expression';
         } else if(w === 'select2'){
           if(el.value){
             el.value = el.value.value
