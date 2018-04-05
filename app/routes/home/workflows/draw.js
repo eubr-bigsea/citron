@@ -44,7 +44,6 @@ export default Route.extend({
     model.workflow.get('tasks').forEach((task) => {
       task.operation = model.operations.findBy('id', String(task.operation.id)).toJSON({includeId: true});
     })
-    controller.send('getAttributeSuggestions');
   },
 
   actions: {

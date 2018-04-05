@@ -152,6 +152,7 @@ export default Component.extend({
         `${flow.target_id}/${flow.target_port}`
       ] });
     })
+    this.get('getAttributeSuggestions')();
   },
 
   actions: {
