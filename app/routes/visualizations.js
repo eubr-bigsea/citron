@@ -194,6 +194,10 @@ export default Route.extend({
       });
     });
 
+    if(params['data']) {
+      visualization.dataUrl = `assets/data/visualizations/${params['data']}.json`
+    }
+
     this.set('visualization', visualization)
 
     const model = {
