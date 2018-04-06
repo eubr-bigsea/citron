@@ -1,8 +1,9 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  queryParams: ['vis'],
+  queryParams: ['vis', 'data'],
   vis: null,
+  data: null,
 
   actions: {
 
