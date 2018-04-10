@@ -39,17 +39,15 @@ module.exports = function(environment) {
   if (environment === 'development') {
     ENV['ember-cli-mirage'] = { enabled: false };
     ENV.citron = 'http://localhost:4200';
-    ENV.thorn = 'https://dev.ctweb.inweb.org.br/thorn';
+    ENV.thorn = 'https://teste.ctweb.inweb.org.br/thorn';
     //ENV.thorn = 'http://localhost:3000';
-    ENV.stand = 'https://dev.ctweb.inweb.org.br/stand';
-    ENV.tahiti = 'https://dev.ctweb.inweb.org.br/tahiti';
-    ENV.limonero = 'https://dev.ctweb.inweb.org.br/limonero';
-    //ENV.limonero = 'http://150.164.203.132:3321';
-
-    ENV.caipirinha = 'https://dev.ctweb.inweb.org.br/caipirinha';
+    ENV.stand = 'https://teste.ctweb.inweb.org.br/stand';
+    ENV.tahiti = 'https://teste.ctweb.inweb.org.br/tahiti';
+    ENV.limonero = 'https://teste.ctweb.inweb.org.br/limonero';
+    ENV.caipirinha = 'https://teste.ctweb.inweb.org.br/caipirinha';
     ENV.sentry = { dns: '' }
     ENV.webSocketIO = {
-      url: 'https://dev.ctweb.inweb.org.br',
+      url: 'https://teste.ctweb.inweb.org.br',
       namespace: '/stand',
       path: '/stand/socket.io'
     };
