@@ -1,9 +1,11 @@
 <div class='gViz-wrapper gViz-table-wrapper' data-id={{_id}} style='{{myStyle}}'>
-  <div class="row gViz-title-fixed">
-    <div class="col-xs-6 pull-right">
-      <div class="input-group input-group-search">
+  <div class="row">
+    <div class="col-4">
+      <div class="input-group">
         <input type="text" class="form-control" data-action='search' onkeyup={{action 'updateSearch'}} placeholder="Search..." />
-        <span class="input-group-addon" {{action 'submitSearch'}}><i class='fa fa-search'></i></span>
+        <div class="input-group-append" {{action 'submitSearch'}}>
+          <span class="input-group-text"><i class='fa fa-search'></i></span>
+        </div>
       </div>
     </div>
   </div>
