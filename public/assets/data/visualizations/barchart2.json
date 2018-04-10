@@ -1,0 +1,128 @@
+{
+    "colors": {
+        "2017-01-05": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "2017-01-07": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "2017-01-06": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "y": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "2017-01-09": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "2017-01-08": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        }
+    },
+    "title": "Olar Bar Chart",
+    "y": {
+        "prefix": null,
+        "format": null,
+        "suffix": null,
+        "equal": true,
+        "title": null
+    },
+    "x": {
+        "prefix": null,
+        "format": null,
+        "type": "number",
+        "suffix": null,
+        "title": null
+    },
+    "data": [
+        {
+            "color": "#3FA8AD",
+            "x": "2017-01-05",
+            "values": [
+                {
+                    "y": 102000000,
+                    "x": "y",
+                    "name": "2017-01-05"
+                }
+            ],
+            "name": "2017-01-05",
+            "key": "2017-01-05"
+        },
+        {
+            "color": "#71AD3F",
+            "x": "2017-01-06",
+            "values": [
+                {
+                    "y": 76000000,
+                    "x": "y",
+                    "name": "2017-01-06"
+                }
+            ],
+            "name": "2017-01-06",
+            "key": "2017-01-06"
+        },
+        {
+            "color": "#FFCA5C",
+            "x": "2017-01-07",
+            "values": [
+                {
+                    "y": 54000000,
+                    "x": "y",
+                    "name": "2017-01-07"
+                }
+            ],
+            "name": "2017-01-07",
+            "key": "2017-01-07"
+        },
+        {
+            "color": "#FFA75C",
+            "x": "2017-01-08",
+            "values": [
+                {
+                    "y": 32000000,
+                    "x": "y",
+                    "name": "2017-01-08"
+                }
+            ],
+            "name": "2017-01-08",
+            "key": "2017-01-08"
+        },
+        {
+            "color": "#AD443F",
+            "x": "2017-01-09",
+            "values": [
+                {
+                    "y": 12000000,
+                    "x": "y",
+                    "name": "2017-01-09"
+                }
+            ],
+            "name": "2017-01-09",
+            "key": "2017-01-09"
+        }
+    ],
+    "legend": {
+        "text": "{{name}}",
+        "isVisible": true
+    },
+    "tooltip": {
+        "body": [
+            "<span class='metric'>{{x}}</span><span class='number'>{{y}}</span>"
+        ],
+        "title": [
+            "{{name}}"
+        ]
+    }
+}

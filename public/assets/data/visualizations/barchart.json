@@ -1,0 +1,393 @@
+{
+    "colors": {
+        "count": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Progs de Governo": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Educacao": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Trabalho": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Empresa/Servico": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Recurso Logistico": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Policia Civil": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Imprensa": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Turismo": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Lei Municipal": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Cidadao": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "PM": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "SUS": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Cultura": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Meio-Ambiente": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Empresas": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Comercio/Servico": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Lei Estadual": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "Legislacao": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        },
+        "TIC": {
+            "gradient": "#506FBB",
+            "stroke": "#506FBB",
+            "fill": "#506FBB"
+        }
+    },
+    "title": "Olar Bar Chart",
+    "y": {
+        "prefix": null,
+        "format": null,
+        "suffix": null,
+        "equal": true,
+        "title": null
+    },
+    "x": {
+        "prefix": null,
+        "format": null,
+        "type": "string",
+        "suffix": null,
+        "title": null
+    },
+    "data": [
+        {
+            "color": "#3FA8AD",
+            "x": "Lei Estadual",
+            "values": [
+                {
+                    "y": "120182",
+                    "x": "count",
+                    "name": "Lei Estadual"
+                }
+            ],
+            "name": "Lei Estadual",
+            "key": "Lei Estadual"
+        },
+        {
+            "color": "#71AD3F",
+            "x": "Cidadao",
+            "values": [
+                {
+                    "y": "114065",
+                    "x": "count",
+                    "name": "Cidadao"
+                }
+            ],
+            "name": "Cidadao",
+            "key": "Cidadao"
+        },
+        {
+            "color": "#FFCA5C",
+            "x": "Comercio/Servico",
+            "values": [
+                {
+                    "y": "108006",
+                    "x": "count",
+                    "name": "Comercio/Servico"
+                }
+            ],
+            "name": "Comercio/Servico",
+            "key": "Comercio/Servico"
+        },
+        {
+            "color": "#FFCA5C",
+            "x": "Lei Estadual",
+            "values": [
+                {
+                    "y": "102934",
+                    "x": "count",
+                    "name": "Lei Estadual"
+                }
+            ],
+            "name": "Lei Estadual",
+            "key": "Lei Estadual"
+        },
+        {
+            "color": "#AD443F",
+            "x": "Trabalho",
+            "values": [
+                {
+                    "y": "97947",
+                    "x": "count",
+                    "name": "Trabalho"
+                }
+            ],
+            "name": "Trabalho",
+            "key": "Trabalho"
+        },
+        {
+            "color": "#3054AD",
+            "x": "Cultura",
+            "values": [
+                {
+                    "y": "84081",
+                    "x": "count",
+                    "name": "Cultura"
+                }
+            ],
+            "name": "Cultura",
+            "key": "Cultura"
+        },
+        {
+            "color": "#1E969C",
+            "x": "Imprensa",
+            "values": [
+                {
+                    "y": "81454",
+                    "x": "count",
+                    "name": "Imprensa"
+                }
+            ],
+            "name": "Imprensa",
+            "key": "Imprensa"
+        },
+        {
+            "color": "#579C1E",
+            "x": "Policia Civil",
+            "values": [
+                {
+                    "y": "81188",
+                    "x": "count",
+                    "name": "Policia Civil"
+                }
+            ],
+            "name": "Policia Civil",
+            "key": "Policia Civil"
+        },
+        {
+            "color": "#FFBB30",
+            "x": "SUS",
+            "values": [
+                {
+                    "y": "76942",
+                    "x": "count",
+                    "name": "SUS"
+                }
+            ],
+            "name": "SUS",
+            "key": "SUS"
+        },
+        {
+            "color": "#FF9030",
+            "x": "Lei Municipal",
+            "values": [
+                {
+                    "y": "76575",
+                    "x": "count",
+                    "name": "Lei Municipal"
+                }
+            ],
+            "name": "Lei Municipal",
+            "key": "Lei Municipal"
+        },
+        {
+            "color": "#9C241E",
+            "x": "Meio-Ambiente",
+            "values": [
+                {
+                    "y": "72469",
+                    "x": "count",
+                    "name": "Meio-Ambiente"
+                }
+            ],
+            "name": "Meio-Ambiente",
+            "key": "Meio-Ambiente"
+        },
+        {
+            "color": "#113A9F",
+            "x": "Progs de Governo",
+            "values": [
+                {
+                    "y": "69795",
+                    "x": "count",
+                    "name": "Progs de Governo"
+                }
+            ],
+            "name": "Progs de Governo",
+            "key": "Progs de Governo"
+        },
+        {
+            "color": "#01898F",
+            "x": "Empresa/Servico",
+            "values": [
+                {
+                    "y": "68802",
+                    "x": "count",
+                    "name": "Empresa/Servico"
+                }
+            ],
+            "name": "Empresa/Servico",
+            "key": "Empresa/Servico"
+        },
+        {
+            "color": "#428F01",
+            "x": "Turismo",
+            "values": [
+                {
+                    "y": "68653",
+                    "x": "count",
+                    "name": "Turismo"
+                }
+            ],
+            "name": "Turismo",
+            "key": "Turismo"
+        },
+        {
+            "color": "#ED9F00",
+            "x": "TIC",
+            "values": [
+                {
+                    "y": "62676",
+                    "x": "count",
+                    "name": "TIC"
+                }
+            ],
+            "name": "TIC",
+            "key": "TIC"
+        },
+        {
+            "color": "#ED6E00",
+            "x": "Empresas",
+            "values": [
+                {
+                    "y": "59232",
+                    "x": "count",
+                    "name": "Empresas"
+                }
+            ],
+            "name": "Empresas",
+            "key": "Empresas"
+        },
+        {
+            "color": "#8F0701",
+            "x": "Legislacao",
+            "values": [
+                {
+                    "y": "56820",
+                    "x": "count",
+                    "name": "Legislacao"
+                }
+            ],
+            "name": "Legislacao",
+            "key": "Legislacao"
+        },
+        {
+            "color": "#0C2D7F",
+            "x": "Recurso Logistico",
+            "values": [
+                {
+                    "y": "56521",
+                    "x": "count",
+                    "name": "Recurso Logistico"
+                }
+            ],
+            "name": "Recurso Logistico",
+            "key": "Recurso Logistico"
+        },
+        {
+            "color": "#016D72",
+            "x": "PM",
+            "values": [
+                {
+                    "y": "52547",
+                    "x": "count",
+                    "name": "PM"
+                }
+            ],
+            "name": "PM",
+            "key": "PM"
+        },
+        {
+            "color": "#347201",
+            "x": "Educacao",
+            "values": [
+                {
+                    "y": "50239",
+                    "x": "count",
+                    "name": "Educacao"
+                }
+            ],
+            "name": "Educacao",
+            "key": "Educacao"
+        }
+    ],
+    "legend": {
+        "text": "{{name}}",
+        "isVisible": true
+    },
+    "tooltip": {
+        "body": [
+            "<span class='metric'>{{x}}</span><span class='number'>{{y}}</span>"
+        ],
+        "title": [
+            "{{name}}"
+        ]
+    }
+}
