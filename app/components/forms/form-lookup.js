@@ -10,8 +10,9 @@ export default FormComponent.extend({
 
   init() {
     this._super(...arguments);
-
+    this.set('loading', false);
     if (this.get('field.values_url')) {
+      this.set('loading', true);
       var LIMONERO_URL = config.limonero; //don't delete this var, needed in next eval
       LIMONERO_URL;
       $.ajax({
@@ -19,6 +20,7 @@ export default FormComponent.extend({
         url: eval(this.get('field.values_url'))
       }).then(
         (response) => {
+          this.set('loading', false);
           run(() =>{
             this.set('parsedValues', response.map((v) => {
               return { "key": String(v.id), "value": v.name };
