@@ -6,12 +6,12 @@
         span.fa.fa-asterisk
       span.fa.fa-question-circle.pull-right title=field.help
     .form-field
-      if parsedValues
+      if loading
+        span class="loading-datasources"
+          i.mdi.mdi-loading.mdi-spin
+      else
         select class="form-control" onchange={action 'valueChanged' value='target.value'}
           option
           each parsedValues as |opt|
             option selected={eq currentValue opt.key} value=opt.key
               =opt.value
-      else
-        span class="loading-datasources"
-          i.mdi.mdi-loading.mdi-spin
