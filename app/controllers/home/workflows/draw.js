@@ -59,7 +59,18 @@ export default Controller.extend({
     },
 
     saveWorkflow(callback){
-      const workflow = this.get('model.workflow');
+      let workflow = this.get('model.workflow');
+      workflow.get('tasks').forEach((task) => {
+        let op = task.operation;
+        set(task, 'operation', {
+          id: op.id,
+          name: op.name,
+          slug: op.slug
+        });
+        set(task, 'endpoints', null);
+        set(task, 'uiPorts', null);
+
+      });
 
       workflow.save().then(
         () => { // Success
@@ -123,6 +134,18 @@ export default Controller.extend({
       workflow.tasks = aux;
 
       this.set('model.workflow.tasks', aux);
+
+      this.get('model.workflow.tasks').forEach((task) => {
+        let op = task.operation;
+        set(task, 'operation', {
+          id: op.id,
+          name: op.name,
+          slug: op.slug
+        });
+        set(task, 'endpoints', null);
+        set(task, 'uiPorts', null);
+
+      });
 
       this.get('model.workflow').save().then(
         (workflow) => {
