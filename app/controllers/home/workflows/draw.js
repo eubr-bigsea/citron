@@ -59,6 +59,7 @@ export default Controller.extend({
     },
 
     saveWorkflow(callback){
+      this.send('closeForms');
       let workflow = this.get('model.workflow');
       workflow.get('tasks').forEach((task) => {
         let op = task.operation;
@@ -125,6 +126,7 @@ export default Controller.extend({
     },
 
     executeWorkflow(){
+      this.send('closeForms');
       let workflow = this.get('model.workflow').toJSON({ includeId: true });
       let aux = A();
       const sort = toposort(workflow.flows.map((el) => { return [el.source_id, el.target_id] }));
