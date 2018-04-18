@@ -2,7 +2,7 @@
   i.fa.fa-tasks
   span: = t 'job.self'
 .logger-list-wrapper
-  ul.tasks-list#tasks-list
+  ul.tasks-list.metismenu#tasks-list
     each tasks as |task|
       li.task-menu
         a.open-menu

@@ -7,8 +7,8 @@ export default Controller.extend({
   page: 1,
   perPage: 10,
   size: 10,
-  asc: true,
-  sort: 'name',
+  asc: false,
+  sort: 'id',
   name: '',
   // modals triggers
   uploadModal: false,

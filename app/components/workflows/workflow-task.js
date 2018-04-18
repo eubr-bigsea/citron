@@ -25,9 +25,13 @@ export default Component.extend({
     set(task, 'operation.forms', task.operation.forms.sort(fn));
     this.set('isComment', task.operation.slug === 'comment');
     task.operation.forms.forEach((form) =>{
-      form.fields.mapBy('name').forEach((key) => {
-        if (task.forms[key] === undefined) {
-          task.forms[key] = {value: ""};
+      form.fields.forEach((field) => {
+        if (task.forms[field.name] === undefined || task.forms[field.name] === null) {
+          if(field.default) {
+            task.forms[field.name] = {value: field.default};
+          } else {
+            task.forms[field.name] = {value: ''};
+          }
         }
       })
     });
