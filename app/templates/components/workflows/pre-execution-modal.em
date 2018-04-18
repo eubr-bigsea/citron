@@ -6,7 +6,7 @@
   modal.body
     p: t 'workflows.pre-execution-modal.message'
     label: t 'workflows.pre-execution-modal.name.label'
-    = input value=jobHash.name class="form-control"
+    = input value=jobHash.name class="form-control" maxlength='49'
     br
     label: t 'workflows.pre-execution-modal.cluster.label'
     select id='clusters-pre-execution' onchange={action (mut jobHash.cluster.id) value="target.value"} class="form-control"
