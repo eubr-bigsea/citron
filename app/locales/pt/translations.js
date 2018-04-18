@@ -1,4 +1,11 @@
 export default {
+  'main-sidebar': {
+    'home': 'Início',
+    'workflows': 'Fluxos',
+    'jobs': 'Tarefas',
+    'datasources': 'Base de dados',
+    'dashboards': 'Dashboards'
+  },
   'notFound': {
     'servers': 'Nossos servidores estão em manutenção.',
     'moreLemonade': 'Estamos fazendo mais Lemonade para você.',
