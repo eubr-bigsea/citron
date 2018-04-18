@@ -164,7 +164,6 @@ export default Component.extend({
         $('#lemonade-diagram').animate({ 'zoom': scale }, 400);
         this.get('jsplumb').setZoom(scale);
         this.set('zoomScale', scale);
-        console.log('in');
       }
     },
 
