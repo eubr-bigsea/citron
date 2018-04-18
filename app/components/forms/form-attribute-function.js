@@ -9,8 +9,6 @@ export default FormComponent.extend({
   classNameBindings: ['error'],
   error: computed('field.error', function(){ return this.get('field.error') }),
 
-
-
   didInsertElement(){
     this._super(...arguments);
   },
@@ -59,9 +57,10 @@ export default FormComponent.extend({
         }
       });
     }
-
+  },
+  didRender(){
     $('select.attr').select2({
-      tags: true,
+      tags: true
     });
   },
   actions: {
