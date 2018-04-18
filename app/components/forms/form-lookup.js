@@ -20,8 +20,8 @@ export default FormComponent.extend({
         url: eval(this.get('field.values_url'))
       }).then(
         (response) => {
-          this.set('loading', false);
           run(() =>{
+            this.set('loading', false);
             this.set('parsedValues', response.map((v) => {
               return { "key": String(v.id), "value": v.name };
             }));
