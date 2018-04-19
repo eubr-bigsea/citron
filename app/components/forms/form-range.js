@@ -6,12 +6,6 @@ export default FormComponent.extend({
   error: computed('field.error', function(){ return this.get('field.error') }),
   init(){
     this._super(...arguments);
-    console.log(this.get('value'));
-    //this.set('value', 50);
-    //if(this.get('value') == ""){
-    //  this.set('value', '50');
-    //  this.set('currentValue', '50');
-    //}
   },
   deltaValue: computed('value', function() {
     return 100 - this.get('value');

@@ -24,8 +24,8 @@ export default Route.extend(AuthenticatedRouteMixin,{
   actions: {
     save(){
       $('span.has-error').removeClass('invisible');
-      this.set('currentModel.firstName', this.controller.firstName);
-      this.set('currentModel.lastName', this.controller.lastName);
+      this.set('currentModel.firstName', this.controller.get('firstName'));
+      this.set('currentModel.lastName', this.controller.get('lastName'));
       var model = this.get('currentModel');
       return model.save().then(
         ()=>{
