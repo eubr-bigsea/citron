@@ -9,14 +9,14 @@
         label.col-2.col-form-label for='firstName'
           = concat (t 'forms.firstName.label') ":"
         .col-10
-          = input#firstName value=model.firstName name='firstName' type='text' placeholder=(t 'forms.firstName.placeholder')
+          = input#firstName value=firstName name='firstName' type='text' placeholder=(t 'forms.firstName.placeholder')
           each model.errors.firstName as |error|
             span.has-error : = error.message
       .form-group.row#last_name
         label.col-2.col-form-label for='lastName'
           = concat (t 'forms.lastName.label') ":"
         .col-10
-         = input#lastName name='lastName' type='text' placeholder=(t 'forms.lastName.placeholder') value=model.lastName
+         = input#lastName name='lastName' type='text' placeholder=(t 'forms.lastName.placeholder') value=lastName
          each model.errors.lastName as |error|
            span.has-error : = error.message
       .form-group.row

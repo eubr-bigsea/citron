@@ -12,16 +12,20 @@ export default Route.extend(AuthenticatedRouteMixin,{
     return this.store.findRecord('user', params.id);
   },
 
-  setupController(controller){
+  setupController(controller, currentModel){
     this._super(...arguments);
     controller.set('locales', this.get('i18n.locales'));
     controller.set('changePassword', false);
     controller.set('modal', false);
+    controller.set('firstName', this.get('currentModel.firstName'));
+    controller.set('lastName', this.get('currentModel.lastName'));
   },
 
   actions: {
     save(){
       $('span.has-error').removeClass('invisible');
+      this.set('currentModel.firstName', this.controller.firstName);
+      this.set('currentModel.lastName', this.controller.lastName);
       var model = this.get('currentModel');
       return model.save().then(
         ()=>{
