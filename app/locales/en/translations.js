@@ -433,6 +433,8 @@ export default {
     },
     'draw': {
       'executeBtn': 'Execute',
+      'drawMode': 'Draw mode',
+      'drawModeTooltip': 'In draw mode the main sidebar gets disabled, so you might have a better experience drawing your workflow.',
     },
     'alert-modal': {
       'saveSuccess': {

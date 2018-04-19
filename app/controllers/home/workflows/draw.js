@@ -44,6 +44,7 @@ export default Controller.extend({
   selectedTask: null,
   displayForm: false,
   attrsReady: false,
+  isLocked: false,
 
   actions: {
     toggleDeleteModal(){
@@ -57,7 +58,16 @@ export default Controller.extend({
     toggleEditModal(){
       this.toggleProperty('editModal');
     },
+    lockSidebar(){
+      this.toggleProperty('isLocked');
+      if(this.get('isLocked')){
+        $("#main-wrapper").removeClass('toggled');
+        $("#main-wrapper").addClass('locked');
+      } else {
+        $("#main-wrapper").removeClass('locked');
 
+      }
+    },
     saveWorkflow(callback){
       let workflow = this.get('model.workflow');
       workflow.get('tasks').forEach((task) => {

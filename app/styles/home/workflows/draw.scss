@@ -14,6 +14,24 @@
     .option-bar {
       text-align: center;
 
+      .__locker{
+        margin-top: 10px;
+        height: 20px;
+        width: 20px;
+        background: white;
+        border-color: #48BF84;
+        color: #48BF84;
+        position: relative;
+      }
+
+      .__locker-text {
+        color: #2A4747;
+        font-weight: 600;
+        font-size: 1.0rem;
+        padding: 5px;
+        margin-right: 5px;
+      }
+
       .__name {
         height: 50px;
         padding-top: 5px;

@@ -497,6 +497,8 @@ export default {
     },
     'draw': {
       'executeBtn': 'Executar',
+      'drawMode': 'Modo desenho',
+      'drawModeTooltip': 'No modo desenho, a barra lateral principal é desativada para que você tenha uma melhor experiência montando o seu fluxo.',
     },
     'alert-modal': {
       'saveSuccess': {

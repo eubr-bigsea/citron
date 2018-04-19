@@ -17,6 +17,10 @@
             i.mdi.mdi-play
             span
               = t 'workflows.draw.executeBtn'
+          span.__locker-text rel="tooltip" title={t 'workflows.draw.drawModeTooltip'}
+            = t 'workflows.draw.drawMode'
+          label
+            input.__locker  type='checkbox' onclick={action 'lockSidebar'}
     .workflow-diagram-wrapper.row
       = workflows/workflow-diagram workflow=model.workflow operations=model.operations hasChanged=hasChanged formsChanged=formsChanged displayForm=displayForm clickTask=(action 'clickTask') closeForms=(action 'closeForms') getAttributeSuggestions=(action 'getAttributeSuggestions') selectedTask=selectedTask
 = workflows/pre-execution-modal executionModal=executionModal clusters=model.clusters jobHash=jobHash workflowName=model.workflow.name executeWorkflow=(action 'executeWorkflow')
