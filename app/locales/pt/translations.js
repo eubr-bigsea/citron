@@ -350,7 +350,7 @@ export default {
     'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
     'searchFor': 'Pesquisar',
     'edit': {
-      'title': 'Editar parametetros de <strong>{{datasourceName}}</strong>',
+      'title': 'Editar parâmetros de <strong>{{datasourceName}}</strong>',
       'save-button': 'Salvar',
       'transition-button': 'Voltar para {{route}}',
       'helpers': {
