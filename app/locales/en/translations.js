@@ -1,4 +1,11 @@
 export default {
+  'main-sidebar': {
+    'home': 'Home',
+    'workflows': 'Workflows',
+    'jobs': 'Jobs',
+    'datasources': 'Datasources',
+    'dashboards': 'Dashboards'
+  },
   'notFound': {
     'servers': 'Our servers are in maintenance.',
     'moreLemonade': 'We are making more Lemonade for you.',
@@ -426,6 +433,8 @@ export default {
     },
     'draw': {
       'executeBtn': 'Execute',
+      'drawMode': 'Draw mode',
+      'drawModeTooltip': 'In draw mode the main sidebar gets disabled, so you might have a better experience drawing your workflow.',
     },
     'alert-modal': {
       'saveSuccess': {

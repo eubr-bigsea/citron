@@ -1,4 +1,11 @@
 export default {
+  'main-sidebar': {
+    'home': 'Início',
+    'workflows': 'Fluxos',
+    'jobs': 'Tarefas',
+    'datasources': 'Base de dados',
+    'dashboards': 'Dashboards'
+  },
   'notFound': {
     'servers': 'Nossos servidores estão em manutenção.',
     'moreLemonade': 'Estamos fazendo mais Lemonade para você.',
@@ -343,7 +350,7 @@ export default {
     'description': 'Lista de todas as datasources - e.g. próprias, compartilhadas, etc..',
     'searchFor': 'Pesquisar',
     'edit': {
-      'title': 'Editar parametetros de <strong>{{datasourceName}}</strong>',
+      'title': 'Editar parâmetros de <strong>{{datasourceName}}</strong>',
       'save-button': 'Salvar',
       'transition-button': 'Voltar para {{route}}',
       'helpers': {
@@ -490,6 +497,8 @@ export default {
     },
     'draw': {
       'executeBtn': 'Executar',
+      'drawMode': 'Modo desenho',
+      'drawModeTooltip': 'No modo desenho, a barra lateral principal é desativada para que você tenha uma melhor experiência montando o seu fluxo.',
     },
     'alert-modal': {
       'saveSuccess': {

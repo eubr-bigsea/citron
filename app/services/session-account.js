@@ -5,12 +5,14 @@ import RSVP from 'rsvp';
 export default Service.extend ({
   session: service('session'),
   store: service(),
+  i18n: service(),
   serverValidationComplete: false,
   server422: false,
 
   init(){
     this._super(...arguments);
     this.set('userId', this.get('session.data.authenticated.userId'));
+    this.set('i18n.locale', this.get('session.data.locale'));
   },
 
   // Create a Promise to handle a server request that validates the current LocalStorage

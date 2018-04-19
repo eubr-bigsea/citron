@@ -3,7 +3,13 @@ import $ from 'jquery';
 
 export default Component.extend({
   didInsertElement() {
-    this.$().hover(function() {$("#main-wrapper").toggleClass('toggled')});
+    this.$().hover(function() {
+      let mainWrapper = $("#main-wrapper");
+
+      if(!mainWrapper.hasClass("locked")){
+        mainWrapper.toggleClass('toggled')
+      }
+    });
   },
 
   actions: {
