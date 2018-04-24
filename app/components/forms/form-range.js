@@ -9,10 +9,10 @@ export default FormComponent.extend({
   }),
   value: computed('currentValue', function(){
     let currentValue = this.get('currentValue');
-    return currentValue == null ? '50' : currentValue;
+    return currentValue == "" ? '50' : currentValue;
   }),
   willDestroyElement(){
-    if(this.get('currentValue') == null){
+    if(this.get('currentValue') == ""){
       this.set('currentValue', '50');
     }
   }
