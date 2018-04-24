@@ -13,7 +13,6 @@ before_install:
 - export PATH=$HOME/.yarn/bin:$PATH
 install:
 - yarn install --non-interactive
-- cd lib/gviz && yarn install --no-interactive && cd -
 before_script:
 - ember sauce:connect
 after_script:
