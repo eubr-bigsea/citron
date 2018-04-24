@@ -12,13 +12,13 @@ export default Route.extend(AuthenticatedRouteMixin,{
     return this.store.findRecord('user', params.id);
   },
 
-  setupController(controller, currentModel){
+  setupController(controller, model){
     this._super(...arguments);
     controller.set('locales', this.get('i18n.locales'));
     controller.set('changePassword', false);
     controller.set('modal', false);
-    controller.set('firstName', this.get('currentModel.firstName'));
-    controller.set('lastName', this.get('currentModel.lastName'));
+    controller.set('firstName', model.get('firstName'));
+    controller.set('lastName', model.get('lastName'));
   },
 
   actions: {
