@@ -12,7 +12,6 @@ export default Service.extend ({
   init(){
     this._super(...arguments);
     this.set('userId', this.get('session.data.authenticated.userId'));
-    this.set('i18n.locale', this.get('session.data.locale'));
   },
 
   // Create a Promise to handle a server request that validates the current LocalStorage
@@ -27,6 +26,7 @@ export default Service.extend ({
           // Get User to Session-Account Block
           if(this.get('serverValidationComplete') === true) {
             return this.get('store').find('user', userId).then((user) => {
+              this.set('i18n.locale', user.get('locale'));
               this.set('user', user);
               resolve();
             }).catch((reason) => {
