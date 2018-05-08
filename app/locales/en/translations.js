@@ -378,7 +378,49 @@ export default {
     'searchFor': 'Search',
   },
   'landing-page': {
-    'self': 'Landing Page'
+    'self': 'Landing Page',
+    'home': 'Home',
+    'about-us': 'About Us',
+    'services': 'Services',
+    'meet-us': 'Meet Us',
+    'greeting': 'Welcome To Lemonade!',
+    'login': 'Login',
+    'sign-up': 'Sign up',
+    'about-lemonade': {
+      'title': 'About Lemonade',
+      'text': 'Data analytics is a concept related to pattern and relevant knowledge discovery from large amounts of data. In feneral, the task is complex and demands knowledge in very specific areas, such as massive data processing and parallel programming languages. However, analysts are usually not versed in Computer Science, but in the original data domain. In order to support them in such analysis, we present <b>Lemonade</b> - Live Exploration and Mining Of a Non-trivial Amount of Data from Everywhere - A Platform for visual creation and execution of data analysis workflow'
+    },
+    'workflows': {
+      'title': 'Create a Processing Workflow',
+      'text': 'You can create and cutomize workflows from scratch! There are several operations and filters available so you can manipulate your data by simply adding functionality boxes to your workflow with an easy drag-and-drop process.'
+    },
+    'datasources': {
+      'title': 'Import, Export or Manage Datasets',
+      'text': 'All your data can be imported in different formats to the application for proper manipulation. You can manage the imported datasets and later on you can export the resulting data with the formats of your choice.'
+    },
+    'jobs': {
+      'title': 'Execute and Manage Existing Workflows',
+      'text': 'All your workflows are manageable, so you can access, create, edit or delete them at any time. You can also follow the progress of a workflow that is being executed and pause or stop it if you want.'
+    },
+    'dashboards': {
+      'title': 'Data Visualization',
+      'text': 'At the end of the process, you have features avaiable for a better visualization of the data, abstracting its schematic information into graphs and other visual forms.'
+    },
+    'our-services': {
+      'title': 'OUR SERVICES',
+      'text': 'We split our service in 7 micro-components'
+    },
+    'limonero': 'Limonero stores meta-data about data sources and provides them as service.For each data source, it has information about its location access permissions, storage details (such as name, data type, size, precision, data format) and data characteristics such as distribution, missing values, mean and maximum values.',
+    'tahiti': 'Tahiti maintains metadata about individual operations and dataflows created by users and provides them as service. Operations are the smallest units in Lemonade, and they are divided in five categories: execution, privacy/security, monitoring, appearance, and quality of service requirements (QoS).',
+    'citron': 'Citron is the web interface user use to create, execute, and monitor their data flows. With it, users can choose predefined operations, drag and conncect them throught their ports to compose a data flow.<br> Each operation’s associated parameters may be inspected and flows can be instantiated by the user. Citron also allows users to track the execution of operations by showing their status in real time.',
+    'juicer': 'Juicer is the module that actually runs the data flows and supports the monitoring of their execution. Upon receiving a data flow, it generates the equivalent Spark source code, acting as a transpiler (source-to-source compiler), where each operation becomes a method.<br> The Spark code is then instantiated in the cloud execution environment, observing the user-defined QoS parameters to make sure operations execute with sufficient resources to meet user demands (e.g., the user may indicate the number of compute nodes required). During execution, Juicer is also responsible for logging any new datasets produced as output, recording any runtime events, and reporting status changes.',
+    'stand': 'Stand coordinates the communication between Citron and Juicer, ensuring independence between the two components. Execution starts when a user requests to run a dataflow through the Citron interface, which then invokes Stand,  which connects back to the first to provide feedback to the user.',
+    'thorn': 'Thorn is responsible for security, privacy and access control (AAA) in Lemonade. Some of its tasks are challenging, such as determining who will be able to access the results from applying an operation to a database that contains sensitive attributes.Further, when an operation has multiple inputs, each with a different permission level, it must decide what should be the access policy for the resulting output. The current version implements simple control metrics, but its modular design allows more sophisticated control policies to be easily inserted.',
+    'caipirinha': 'Caipirinha provides visualizations through different visual metaphors.<br> Those include static data visualizations in well-defined formats, such as displaying samples from database records, time series graphs and histograms, and exploratory  views where users can parametrize the display according to their interests , such as zooming in on a particular region of a complex graph.',
+    'meet-team': 'MEET OUR TEAM',
+    'principals': 'Principal Investigators',
+    'devs': 'Researchers and Developers',
+    'supporters': 'OUR SUPPORTERS'
   },
   'home': {
     'self': 'Home'
