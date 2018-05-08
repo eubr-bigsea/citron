@@ -22,12 +22,14 @@
               li.nav-item
                 a.page-scroll.nav-link href="#meet-us"
                   = t 'landing-page.meet-us'
-              li.nav-item.locales class={i18n.locale}
-                a.en click={action 'setLocale' 'en'}
-                  img src='assets/images/en.png'
-              li.nav-item.locales class={i18n.locale}
-                a.pt click={action 'setLocale' 'pt'}
-                  img src='assets/images/pt.png'
+              if (eq i18n.locale "pt")
+                li.nav-item.locales class={i18n.locale}
+                  a.en click={action 'setLocale' 'en'}
+                    img src='assets/images/en.png'
+              else
+                li.nav-item.locales class={i18n.locale}
+                  a.pt click={action 'setLocale' 'pt'}
+                    img src='assets/images/pt.png'
   .bgimg
     #free-promo style="text-align: center;"
       .container

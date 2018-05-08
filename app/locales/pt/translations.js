@@ -439,7 +439,49 @@ export default {
     'searchFor': 'Buscar',
   },
   'landing-page': {
-    'self': 'Página Inicial'
+    'self': 'Landing Page',
+    'home': 'Início',
+    'about-us': 'Sobre nós',
+    'services': 'Serviços',
+    'meet-us': 'Nos conheça',
+    'greeting': 'Bem vindo ao Lemonade!',
+    'login': 'Entrar',
+    'sign-up': 'Registrar',
+    'about-lemonade': {
+      'title': 'Sobre o Lemonade',
+      'text': 'Análise de dados é o conceito relacionado à descoberta de padrões e conhecimentos relevantes de uma quantidade grande de dados. Em geral, a tarefa é complexa e demanda conhecimentos em áreas bem específicas, tais como processamento de dados massivos e programação paralela. No entanto, analistas normalmente não tem conhecimento aprofundado em computação, e sim no domínio original dos dados. Para ajudá-los nestas análises, nós apresentamos <b>Lemonade</b> - Live Exploration and Mining of a Non-trivial Amount of Data from Everywhere - Uma plataforma para criação visual e execução de fluxos de análise de dados.'
+    },
+    'workflows': {
+      'title': 'Criar um fluxo de processamento',
+      'text': 'Você pode criar e customizar fluxos como quiser! Estão disponíveis várias operações e filtros disponíveis para que você possa manipular seus dados, tendo apenas que adicionar as caixas de funcionalidades ao fluxo, arrastando e soltando onde elas se encaixarem melhor.'
+    },
+    'datasources': {
+      'title': 'Importar, exportar or gerenciar datasets',
+      'text': 'Todos os seus dados podem ser importados em diferentes formatos para a aplicação, para serem manipulados. Você pode gerenciar as bases de dados importadas e depois exportar o resultado de suas manipulações no formato que quiser.'
+    },
+    'jobs': {
+      'title': 'Execute and gerencie fluxos existentes',
+      'text': 'Todos os seus fluxos podem são gerenciáveis, você pode criar, editar ou deletar eles quando quiser. Você também pode seguir o progresso dos fluxos que estão sendo executados, deletando ou pausando eles se quiser.'
+    },
+    'dashboards': {
+      'title': 'Visualização de dados',
+      'text': 'No fim do processo, estão disponíveis ferramentas para melhor visualizar os dados, abstraindo suas informações para gráficos ou outros métodos visuais.'
+    },
+    'our-services': {
+      'title': 'NOSSOS SERVIÇOS',
+      'text': 'Nós dividimos nossos serviços em 7 micro-componentes'
+    },
+    'limonero': 'Limonero armazena metadados sobre as bases de dados e envia eles como serviço. Para cada bases de dados, o serviço tem informação sobre as premissões de acesso, detalhes de armazenamento (tais como nome, tipo de dados, tamanho, precisão, formato de dados) e características como distribuição, valores vazios, média, valores mínimos e máximos.',
+    'tahiti': 'Tahiti mantém metadados sobre operações individuais e fluxos criados por usuários e oferece eles como serviço. Operações são as menores unidades no Lemonade, e elas são divididas em cinco categorias: execução, privacidade/segurança, monitoramento, aparencia e qualidade do requerimento de serviçoes (QoS).',
+    'citron': 'Citron é a interface web que o usuário usará para criar, executar e monitorar seus fluxos.Com esse serviço, usuários podem escolher operações pré definidas, arrastar e conectar e conectar elas usando suas portas disponíveis para construir um fluxo.<br> Cada parametro assiciado a uma operação pode ser inspecionado e fluxos podem ser instanciados pelo usuário. Citron também permite que usuários obtenham registros de execução das operações mostrando o status das mesmas em tempo real.',
+    'juicer': 'Juicer é o módulo que realmente roda os fluxos e suporta o monitoramento e execução dos mesmos. Ao receber um fluxo de dados, o serviço gera o código Spark equivalente à operação, atuando como um "transpiler" (compilador de fonte a fonte), onde cada operação se torna um método. <br> O código Spark é então instanciado no ambiente de execução em nuvem, observando os parâmetros QoS definidos pelo usuário para ter certeza que as operações executem com recursos suficientes para preencher as demandas do usuário (por exemplo, o usuário pode indicar o número de nós cumputacionais necessários). Durante a execução, Juicer tabmém é responsável por enviar qualquer novo dataset gerado como saída, junto com os eventos ocorridos em tempo real, e reportando qualquer mudança no status da operação.',
+    'stand': 'Stand coordena a comunicação entre Citron e Juicer, assegurando a independência entre os dois componentes. Execução começa quando um usuário pede para rodar um fluxo no Citron, que então envia uma requisição ao Stand, que conecta ao Citron, enviando o feedback para o usuário.',
+    'thorn': 'Thorn é responsável pela segurança, privacidade e controle de acessos no Lemonade. Algumas de suas tarefas são bem desafiadoras, tais como determinar quem poderá ter acesso aos resultados de uma operação a uma base de dados que contém dados sensíveis. Além disso, quando uma operação tem múltiplas entradas, cada um com diferentes níveis de permissão, o serviço precisa decidir qual deve ser a política de acesso para a saída resultante. A versão atual implementa métrica de controles simples, mas suaa modularização permite que uma política de controle mais sofisticada possa ser facilmente implementada.',
+    'caipirinha': 'Caipirinha provém visualizações usando várias metáforas visuais.<br> Estas incluem visualizações estáticas em formatos bem definidos, tais quais a amostra de resultados, gráficos de séries temporais e histogramas, e visualizações exploratórias onde o usuário pode parametrizar de acordo com seu interesse, e usar ferramentas para melhor visualizar áreas de um gráfico mais complexo.',
+    'meet-team': 'CONHEÇA NOSSO TIME',
+    'principals': 'Investigadores principais',
+    'devs': 'Pesquisadores e Desenvolvedores',
+    'supporters': 'NOSSOS PARCEIROS'
   },
   'home': {
     'self': 'Página Inicial'
