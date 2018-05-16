@@ -380,6 +380,7 @@ export default {
   'landing-page': {
     'self': 'Landing Page',
     'home': 'Home',
+    'documentation': 'Documentation',
     'about-us': 'About Us',
     'services': 'Services',
     'meet-us': 'Meet Us',

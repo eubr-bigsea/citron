@@ -11,22 +11,25 @@
           .collapse.navbar-collapse.float-xs-left id="main-menu"
             ul.navbar-nav.ml-auto
               li.nav-item.active
-                a.page-scroll.nav-link href="#header"
+                = link-to 'landing-page' class="page-scroll nav-link"
                   = t 'landing-page.home'
               li.nav-item
-                a.page-scroll.nav-link href="#about-us"
+                = link-to 'landing-page' class="page-scroll nav-link"
                   = t 'landing-page.about-us'
               li.nav-item
-                a.page-scroll.nav-link href="#our-services"
+                = link-to 'landing-page' class="page-scroll nav-link"
                   = t 'landing-page.services'
               li.nav-item
-                a.page-scroll.nav-link href="#meet-us"
+                = link-to 'landing-page' class="page-scroll nav-link"
                   = t 'landing-page.meet-us'
+              li.nav-item.active
+                = link-to 'documentation' class="page-scroll nav-link"
+                  = t 'landing-page.documentation'
         .locales class={i18n.locale}
           a.en click={action 'setLocale' 'en'}
             img src='assets/images/en.png'
           a.pt click={action 'setLocale' 'pt'}
             img src='assets/images/pt.png'
-  = documentation/side-menu operations=model currentOperation=currentOperation
-  = documentation/iframe-current-documentation currentDocLink=currentDocLink
+  = documentation/side-menu operations=model setPageSlug=(action 'setPageSlug')
+  = documentation/iframe-current-documentation pageDocumentation=pageDocumentation
 = outlet

@@ -22,8 +22,7 @@
             li
               a href="#"
                 i class="fa fa-th-large"
-                span
-                  = group
+                span: group
               ul
                 each subgroup as |subElements|
                   = each-in subElements as |op elements|

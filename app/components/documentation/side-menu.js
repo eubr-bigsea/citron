@@ -28,7 +28,7 @@ export default Component.extend({
 
   actions: {
     setOperation(slug){
-      this.set('currentOperation', slug);
+      this.get('setPageSlug')(slug);
     },
     toggleSidebar(){
       $("#page-content-wrapper").toggleClass('toggled');

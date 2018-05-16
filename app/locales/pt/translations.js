@@ -441,6 +441,7 @@ export default {
   'landing-page': {
     'self': 'Landing Page',
     'home': 'Início',
+    'documentation': 'Documentação',
     'about-us': 'Sobre nós',
     'services': 'Serviços',
     'meet-us': 'Nos conheça',
