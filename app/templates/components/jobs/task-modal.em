@@ -32,7 +32,7 @@
         .tab-content
           = tab.pane id='results' title="Results"
             if selectedTask.result
-              = visualizations/vis-wrapper viz=viz dataUrl=dataUrl id="display-modal"
+              = visualizations/vis-wrapper viz=viz data=data id="display-modal"
           = tab.pane id='images' title="images"
             each selectedTask.images as |image|
               img src={concat "data:image/png;base64," image.message}
@@ -68,4 +68,3 @@
                         == table.message
           = tab.pane id='params' title="Parameters"
             = jobs/display-params fields=selectedTask.params.fields forms=selectedTask.forms
-

@@ -9,14 +9,57 @@ export default Component.extend({
 
   locale: computed('i18n', function(){ return this.get('i18n.locale')} ),
 
-  didReceiveAttrs(){
+  didReceiveAttrs: async function() {
     this._super(...arguments);
     let selectedTask = this.get('selectedTask');
     if(selectedTask && selectedTask.result){
-      this.set('dataUrl', `${config.caipirinha}/visualizations/${this.get('jobId')}/${selectedTask.id}`);
-      this.set('viz', { component: `visualizations/${selectedTask.operation.slug}`.replace('bar-chart', 'vertical-bar-chart').replace('summary-statistics', 'table-visualization')});
+      const dataUrl = `${config.caipirinha}/visualizations/${this.get('jobId')}/${selectedTask.id}`;
+      this.set('viz', {
+        component: `visualizations/${selectedTask.operation.slug}`
+          .replace('bar-chart', 'vertical-bar-chart')
+          .replace('summary-statistics', 'table-visualization')
+      });
+
+      // Get data from API
+      const data = await $.get({
+        url: dataUrl,
+        error(err) { throw err; },
+      });
+
+      if(selectedTask.operation.slug.toLowerCase() === 'map-chart') {
+        // mode is polygon and geojson
+        if(data.mode.polygon && data.geojson && data.geojson.url) {
+          data.geojsonProperty = data.geojson.idProperty;
+
+          data.geojson = await $.get({
+            url: data.geojson.url,
+            error(err) {
+              console.log(err);
+              throw err;
+            }
+          });
+
+          data.geojson.features = data.geojson.features.filter(function(d) { return d.geometry; });
+
+          // converts linestrings to polygons
+          data.geojson.features.forEach(function(feature, idx) {
+            if(feature.geometry.type.toLowerCase() === 'linestring') {
+              const coordinates = feature.geometry.coordinates;
+              feature.geometry.coordinates = [];
+
+              feature.geometry.type = 'Polygon';
+              feature.geometry.coordinates.push(coordinates);
+
+              data.geojson.features[idx] = feature;
+            }
+          });
+        }
+      }
+
+      this.set('data', data);
     }
   },
+
   didRender(){
     $('a[href$="#params"]').click(function(){ $('.form-inline').find('*').prop('disabled', true) })
     $('#tabs ul li a').removeClass('active');
