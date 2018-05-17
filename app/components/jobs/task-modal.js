@@ -31,6 +31,12 @@ export default Component.extend({
         if(data.mode.polygon && data.geojson && data.geojson.url) {
           data.geojsonProperty = data.geojson.idProperty;
 
+          // stash
+          const headers = locale = $.ajaxSettings.headers;
+          for(const header in headers) { delete $.ajaxSettings.headers[header]; }
+
+          delete $.ajaxSettings.headers.Locale;
+
           data.geojson = await $.get({
             url: data.geojson.url,
             error(err) {
@@ -38,6 +44,9 @@ export default Component.extend({
               throw err;
             }
           });
+
+          // restore
+          $.ajaxSettings.headers = headers;
 
           data.geojson.features = data.geojson.features.filter(function(d) { return d.geometry; });
 
