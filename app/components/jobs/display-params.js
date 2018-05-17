@@ -33,10 +33,12 @@ export default Component.extend({
         el.w = w;
         el.component = 'display-form-text';
         if(w === 'lookup'){
-          this.get('store').findRecord('datasource', el.value).then((datasource) => {
-            var aux = params.findBy('name', field.name);
-            set(aux, 'value', datasource.get('name'));
-          });
+          if(el.value) {
+            this.get('store').findRecord('datasource', el.value).then((datasource) => {
+              var aux = params.findBy('name', field.name);
+              set(aux, 'value', datasource.get('name'));
+            });
+          }
         } else if(w === 'dropdown'){
           if(el.value){
             var i = parseInt(el.value);
