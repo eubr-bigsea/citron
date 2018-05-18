@@ -1,4 +1,4 @@
-.__landing-page
+.__documentation
   header#header-wrap
     section#header
       .navbar.navbar-expand-md.navbar-light.bg-faded.fixed-top
@@ -30,6 +30,7 @@
             img src='assets/images/en.png'
           a.pt click={action 'setLocale' 'pt'}
             img src='assets/images/pt.png'
-  = documentation/side-menu operations=model setPageSlug=(action 'setPageSlug')
-  = documentation/iframe-current-documentation pageDocumentation=pageDocumentation
+  .page-wrapper
+    = documentation/side-menu operations=model setPageSlug=(action 'setPageSlug') 
+    = documentation/iframe-current-documentation pageDocumentation=pageDocumentation
 = outlet
