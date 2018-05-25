@@ -1,22 +1,34 @@
-FROM node:10 as ember_build
-LABEL maintainer="Walter dos Santos Filho <walter AT dcc.ufmg.br> Guilherme Maluf Balzana <guimaluf AT dcc.ufmg.br"
+# nginx is based on debia image
+FROM nginx
+
+MAINTAINER "Walter dos Santos Filho" <walter AT dcc.ufmg.br>
+
+# Install Nodejs
+RUN apt-get update && apt-get install -y \
+      python2.7 \
+      curl \
+      gnupg2 \
+  && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+  && apt-get update && apt-get install -y nodejs \
+  && curl -o- -L https://yarnpkg.com/install.sh | bash \
+  && rm -rf /var/lib/apt/lists/*
 
 ENV CITRON_HOME=/usr/local/citron
-WORKDIR $CITRON_HOME
-COPY . $CITRON_HOME
+ENV CITRON_GVIZ_HOME=/usr/local/citron/lib/gviz
 
-RUN yarn \
+COPY . $CITRON_HOME
+COPY extras/entrypoint.sh $CITRON_HOME
+COPY extras/update_env.py /usr/local/bin
+COPY extras/nginx.conf.sample /etc/nginx/conf.d/default.conf
+
+WORKDIR $CITRON_GVIZ_HOME
+RUN $HOME/.yarn/bin/yarn
+
+WORKDIR $CITRON_HOME
+RUN $HOME/.yarn/bin/yarn \
   && ./node_modules/ember-cli/bin/ember build --prod
 
-###
-
-FROM nginx
-LABEL maintainer="Walter dos Santos Filho <walter AT dcc.ufmg.br> Guilherme Maluf Balzana <guimaluf AT dcc.ufmg.br"
-
-ENV CITRON_HOME=/usr/local/citron
-WORKDIR $CITRON_HOME
-
-COPY extras/nginx.conf.sample /etc/nginx/conf.d/default.conf
-COPY --from=ember_build /usr/local/citron/dist ./dist
-
 EXPOSE 8080
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
+
