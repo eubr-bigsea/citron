@@ -9,7 +9,6 @@
     }
   }
   &.expression-modal {
-
     .modal-dialog {
       width: 60vw;
       max-width: 60vw;
@@ -27,8 +26,9 @@
             flex-flow: column;
             height: 100%;
             width: 100%;
-            max-height: calc(80vh - 225px);
-            thead, tbody tr {
+            max-height: calc(80vh - 290px);
+            thead,
+            tbody tr {
               display: table;
               table-layout: fixed;
             }
@@ -78,7 +78,6 @@
                     i {
                       font-size: 1.9em;
                     }
-
                   }
                 }
               }
