@@ -1,5 +1,5 @@
 & {
-  height: 100%;
+  height: calc(100% - 70px);
   table {
     display: flex;
     flex-flow: column;
@@ -82,7 +82,8 @@
         }
       }
     }
-    thead, tbody tr {
+    thead,
+    tbody tr {
       display: table;
       table-layout: fixed;
       word-break: break-word;
@@ -112,7 +113,7 @@
           a {
             text-decoration: none;
             color: $color-darker;
-            &:hover{
+            &:hover {
               color: $color-base;
             }
           }
@@ -121,5 +122,3 @@
     }
   }
 }
-
-
