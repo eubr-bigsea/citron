@@ -22,6 +22,8 @@
               li.nav-item
                 a.page-scroll.nav-link href="#meet-us"
                   = t 'landing-page.meet-us'
+              li.nav-item.active
+                = link-to (t 'landing-page.documentation') 'documentation' class="page-scroll nav-link"
         .locales class={i18n.locale}
           a.en click={action 'setLocale' 'en'}
             img src='assets/images/en.png'

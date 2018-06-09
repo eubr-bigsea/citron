@@ -41,6 +41,7 @@ Router.map(function() {
   this.route('maintenance');
   this.route('visualizations');
   this.route('not-found', {path: '/*path'});
+  this.route('documentation');
 });
 
 export default Router;
