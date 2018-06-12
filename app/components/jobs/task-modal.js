@@ -12,6 +12,7 @@ export default Component.extend({
   didReceiveAttrs() {
     this._super(...arguments);
     let selectedTask = this.get('selectedTask');
+
     if(selectedTask && selectedTask.result) {
       this.set('htmlContent', selectedTask.result.data.html);
       this.set('viz', {
@@ -22,20 +23,26 @@ export default Component.extend({
     }
   },
 
+  didInsertElement() {
+  },
+
   didRender(){
     $('a[href$="#params"]').click(function(){ $('.form-inline').find('*').prop('disabled', true) })
-    $('#uabs ul li a').removeClass('active');
-    $('#tbbs ul li a[href="#'+ this.get('activeTab') +'"]').addClass('active');
+    $('#tabs ul li a').removeClass('active');
+    $('#tabs ul li a[href="#'+ this.get('activeTab') +'"]').addClass('active');
     $('.card-body .table').addClass('table-sm table-hover');
     var height = $('.tab-content').height();
     var width = $('.tab-content').width();
-    $('#display-modal').height(height);
-    $('#display-modal').width(width);
+    //$('#display-modal').height(height);
+    //$('#display-modal').width(width);
     var tables =  $('.table-wrapper');
     var card = $('.card').outerHeight(true);
     for(var i=0; i < tables.length; i++){
       $(`#${tables[i].id}`).height(height - tables.length*card );
     }
+
+    $('.tab-pane').off();
+    $('.tab-pane').bind('isVisible', function() { console.log('OLAR'); });
   },
 
   actions: {

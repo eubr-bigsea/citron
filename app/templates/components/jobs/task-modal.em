@@ -32,10 +32,11 @@
         .tab-content
           = tab.pane id='results' title="Results"
             if selectedTask.result
-              unless htmlContent
-                = visualizations/vis-wrapper viz=viz data=selectedTask.result.data id="display-modal"
-              else
-                == htmlContent
+              if isVisible
+                unless htmlContent
+                  = visualizations/vis-wrapper viz=viz data=selectedTask.result.data id="display-modal"
+                else
+                  == htmlContent
           = tab.pane id='images' title="images"
             each selectedTask.images as |image|
               img src={concat "data:image/png;base64," image.message}
