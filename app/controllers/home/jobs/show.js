@@ -13,11 +13,73 @@ export default Controller.extend({
   code: null,
 
   actions: {
-    selectTask(task, tab){
-      this.set('selectedTask', task);
-      this.set('activeTab', tab);
-      this.set('taskModal', true);
+    selectTask(task, tab) {
+      const self = this;
+      const url =  `${config.caipirinha}/visualizations/${this.get('job.id')}/${task.id}`;
+
+      if(task.result && task.result.type.toLowerCase() === 'visualization' && !task.result.data) {
+        $.ajax({
+          type: 'GET',
+          url: url,
+          success(data)  {
+            if(data.mode && data.mode.polygon && data.geojson && data.geojson.url) {
+              data.geojsonProperty = data.geojson.idProperty;
+              // stash
+              const headers = locale = $.ajaxSettings.headers;
+              for(const header in headers) { delete $.ajaxSettings.headers[header]; }
+              delete $.ajaxSettings.headers.Locale;
+
+              $.ajax({
+                type: 'GET',
+                url: data.geojson.url,
+                success(geojson) {
+                  data.geojson = geojson;
+
+                  data.geojson.features.forEach((feature, idx) => {
+                    if(feature.geometry && feature.geometry.type.toLowerCase() === 'linestring') {
+                      const coordinates = feature.geometry.coordinates;
+                      feature.geometry.coordinates = [];
+
+                      feature.geometry.type = 'Polygon';
+                      feature.geometry.coordinates.push(coordinates);
+
+                      data.geojson.features[idx] = feature;
+                    }
+                  });
+
+                  task.result.data = data;
+                  self.set('selectedTask', task);
+                  self.set('activeTab', tab);
+                  self.set('taskModal', true);
+                },
+                error(err) {
+                  console.log(err);
+                  throw err;
+                },
+              });
+
+              // restore
+              $.ajaxSettings.headers = headers;
+            }
+
+            else {
+              task.result.data = data;
+              self.set('selectedTask', task);
+              self.set('activeTab', tab);
+              self.set('taskModal', true);
+            }
+          },
+          error(err) { throw(err); }
+        });
+      }
+
+      else {
+        self.set('selectedTask', task);
+        self.set('activeTab', tab);
+        self.set('taskModal', true);
+      }
     },
+
     activateTab(tab){
       this.set('activeTab', tab);
     },
