@@ -9,11 +9,17 @@ export default Component.extend({
 
   locale: computed('i18n', function(){ return this.get('i18n.locale')} ),
 
-  didReceiveAttrs(){
+  didReceiveAttrs: async function() {
     this._super(...arguments);
     let selectedTask = this.get('selectedTask');
     if(selectedTask && selectedTask.result){
       this.set('dataUrl', `${config.caipirinha}/visualizations/${this.get('jobId')}/${selectedTask.id}`);
+
+      const data = await $.get(this.get('dataUrl'));
+      if(data.html) {
+        this.set('html', data.html);
+      }
+
       this.set('viz', { component: `visualizations/${selectedTask.operation.slug}`.replace('bar-chart', 'vertical-bar-chart').replace('summary-statistics', 'table-visualization')});
     }
   },
