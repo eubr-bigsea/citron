@@ -2,7 +2,10 @@
   modal.header
     h4.modal-title.vcentered
       i.mdi.mdi-plus.__icon
-      span.__text: t 'workflows.create-new-modal.title'
+      if isSaveAS
+        span.__text: t 'workflows.save-as-modal.title'
+      else
+        span.__text: t 'workflows.create-new-modal.title'
   modal.body
     form
       .form-group.row
@@ -16,7 +19,7 @@
       .form-group.row
         label.col-12.col-md-3.col-form-label #{t 'forms.platform.label'}:
         .col-12.col-md-9
-          select.form-control onchange={action (mut platform) value='target.value'}
+          select.form-control onchange={action (mut platform) value='target.value'} disabled={isSaveAs}
             each platforms as |platform|
               option value={platform.id}
                 = platform.name
@@ -32,7 +35,11 @@
             each images as |image|
               img.logo id={image.id} src='/assets/images/#{image.name}' click={action 'selectImage' image}
   modal.footer
-    = bs-button id='create' onClick=(action 'createNew')
-      t 'workflows.create-new-modal.create'
+    if isSaveAs
+      = bs-button id='saveAs' onClick=(action 'saveAs')
+        t 'workflows.save-as-modal.create'
+    else
+      = bs-button id='create' onClick=(action 'createNew')
+        t 'workflows.create-new-modal.create'
     = bs-button id='cancel' onClick=(action (mut createModal) false)
       t 'workflows.create-new-modal.cancel'
