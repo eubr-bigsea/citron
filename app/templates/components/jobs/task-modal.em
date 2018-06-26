@@ -1,4 +1,4 @@
-= bs-modal class=componentCssClassName open=taskModal backdropClose=true fade=fade onHidden=(action 'close') as |modal|
+= bs-modal class=componentCssClassName open=taskModal backdropClose=true fade=fade onHidden=(action 'close') onShown=(action 'updateVis') as |modal|
     modal.header
       h4.modal-title
         i.fa.fa-lg class=selectedTask.operation.icon
@@ -32,7 +32,7 @@
         .tab-content
           = tab.pane id='results' title="Results"
             if selectedTask.result
-              if isVisible
+              if visualizationIsVisible
                 unless htmlContent
                   = visualizations/vis-wrapper viz=viz data=selectedTask.result.data id="display-modal"
                 else
