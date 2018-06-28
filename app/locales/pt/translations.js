@@ -232,7 +232,7 @@ export default {
       workflow: {
         title: "Apagando o workflow:",
         message:
-          "Você quer apagar permanentemente o workflow {{resource.name}}?",
+        "Você quer apagar permanentemente o workflow {{resource.name}}?",
         submitButton: "Apagar"
       },
       workflows: {
@@ -245,7 +245,7 @@ export default {
           zero: "Você precisa de selecionar um workflow antes de apagar.",
           one: "Você quer apagar permanentemente o workflow selecionado?",
           other:
-            "Você quer apagar permanentemente todos os {{count}} workflows selecionados?"
+          "Você quer apagar permanentemente todos os {{count}} workflows selecionados?"
         },
         submitButton: {
           zero: "Ok",
@@ -256,13 +256,13 @@ export default {
       datasource: {
         title: "Apagando a datasource:",
         message:
-          "Você quer apagar permanentemente a datasource {{resource.name}}?",
+        "Você quer apagar permanentemente a datasource {{resource.name}}?",
         submitButton: "Apagar"
       },
       dashboard: {
         title: "Apagando o dashboard:",
         message:
-          "Você quer apagar permanentemente o dashboard {{resource.name}}?",
+        "Você quer apagar permanentemente o dashboard {{resource.name}}?",
         submitButton: "Apagar"
       }
     },
@@ -270,7 +270,7 @@ export default {
       workflow: {
         title: "Saindo da área de edição",
         message:
-          "Todas as mudanças não salvas serão perdidas. Deseja continuar?",
+        "Todas as mudanças não salvas serão perdidas. Deseja continuar?",
         submitButton: "Sim, sair",
         cancelButton: "Ficar"
       }
@@ -303,6 +303,8 @@ export default {
     draw: {
       save: "Salvar",
       delete: "Apagar este workflow",
+      saveAs: 'Salvar como',
+      edit: 'Editar propriedades do workflow',
       play: "Executar"
     }
   },
@@ -320,7 +322,7 @@ export default {
         success: "Tarefa completa, clique para ver detalhes",
         title: "Log da execução",
         information:
-          "Completo. Clique duas vezes nas tarefas para ver detalhes."
+        "Completo. Clique duas vezes nas tarefas para ver detalhes."
       }
     },
     results: {
@@ -332,7 +334,7 @@ export default {
   jobs: {
     self: "Jobs",
     description:
-      "Lista de todos os jobs - e.g. em espera, rodando, completos, etc..",
+    "Lista de todos os jobs - e.g. em espera, rodando, completos, etc..",
     searchFor: "Pesquisar",
     taskModal: {
       results: "Resultado",
@@ -348,7 +350,7 @@ export default {
       },
       message: {
         one:
-          'Tem certeza que deseja remover permanentemente o job: "{{job.name}}" ?',
+        'Tem certeza que deseja remover permanentemente o job: "{{job.name}}" ?',
         other: "Tem certeza que deseja deletar esses {{count}} jobs?"
       },
       "delete-btn": "Delete",
@@ -359,7 +361,7 @@ export default {
     self: "Datasources",
     title: "Datasources",
     description:
-      "Lista de todas as datasources - e.g. próprias, compartilhadas, etc..",
+    "Lista de todas as datasources - e.g. próprias, compartilhadas, etc..",
     searchFor: "Pesquisar",
     edit: {
       title: "Editar parâmetros de <strong>{{datasourceName}}</strong>",
@@ -375,12 +377,12 @@ export default {
       inferSuccess: {
         title: "O Esquema foi inferido com sucesso",
         message:
-          "Por favor, revise os atributos inferidos e sinta-se livre para editá-los"
+        "Por favor, revise os atributos inferidos e sinta-se livre para editá-los"
       },
       inferFailed: {
         title: "Falha ao inferir o esquema",
         message:
-          "Um erro ocorreu durante a tentativa de inferir o esquema, o servidor respondeu com a seguinte mensagem:"
+        "Um erro ocorreu durante a tentativa de inferir o esquema, o servidor respondeu com a seguinte mensagem:"
       },
       saveSuccess: {
         title: "Salvo",
@@ -393,9 +395,9 @@ export default {
       "dropzone-message": "Arraste e solte seu arquivo aqui ou",
       "browse-button": "Escolha seu arquivo",
       "success-message":
-        "O <strong>{{fileName}}</strong> carregado com sucesso",
+      "O <strong>{{fileName}}</strong> carregado com sucesso",
       "error-message":
-        "Um erro ocorreu no carregamento do arquivo <strong>{{fileName}}</strong>. Servidor respondeu com:",
+      "Um erro ocorreu no carregamento do arquivo <strong>{{fileName}}</strong>. Servidor respondeu com:",
       "upload-more": "Carregar um novo",
       cancel: "Cancelar"
     },
@@ -406,9 +408,9 @@ export default {
       },
       message: {
         one:
-          "Você deseja mesmo deletar de forma permanente a fonte de dados: <strong>{{datasource.name}}</strong>?",
+        "Você deseja mesmo deletar de forma permanente a fonte de dados: <strong>{{datasource.name}}</strong>?",
         other:
-          "Você deseja deletar permanentemente <strong>{{count}}</strong> as fontes de dados?"
+        "Você deseja deletar permanentemente <strong>{{count}}</strong> as fontes de dados?"
       },
       "delete-btn": "Delete",
       cancel: "Cancel"
@@ -454,7 +456,7 @@ export default {
     self: "Dashboards",
     title: "Dashboards",
     description:
-      "Lista de todas os Dashboards - e.g. privados, publicos, etc..",
+    "Lista de todas os Dashboards - e.g. privados, publicos, etc..",
     searchFor: "Buscar"
   },
   "landing-page": {
@@ -470,46 +472,46 @@ export default {
     "about-lemonade": {
       title: "Sobre o Lemonade",
       text:
-        "Análise de dados é o conceito relacionado à descoberta de padrões e conhecimentos relevantes de uma quantidade grande de dados. Em geral, a tarefa é complexa e demanda conhecimentos em áreas bem específicas, tais como processamento de dados massivos e programação paralela. No entanto, analistas normalmente não tem conhecimento aprofundado em computação, e sim no domínio original dos dados. Para ajudá-los nestas análises, nós apresentamos <b>Lemonade</b> - Live Exploration and Mining of a Non-trivial Amount of Data from Everywhere - Uma plataforma para criação visual e execução de fluxos de análise de dados."
+      "Análise de dados é o conceito relacionado à descoberta de padrões e conhecimentos relevantes de uma quantidade grande de dados. Em geral, a tarefa é complexa e demanda conhecimentos em áreas bem específicas, tais como processamento de dados massivos e programação paralela. No entanto, analistas normalmente não tem conhecimento aprofundado em computação, e sim no domínio original dos dados. Para ajudá-los nestas análises, nós apresentamos <b>Lemonade</b> - Live Exploration and Mining of a Non-trivial Amount of Data from Everywhere - Uma plataforma para criação visual e execução de fluxos de análise de dados."
     },
     workflows: {
       title: "Criar um fluxo de processamento",
       text:
-        "Você pode criar e customizar fluxos como quiser! Estão disponíveis várias operações e filtros disponíveis para que você possa manipular seus dados, tendo apenas que adicionar as caixas de funcionalidades ao fluxo, arrastando e soltando onde elas se encaixarem melhor."
+      "Você pode criar e customizar fluxos como quiser! Estão disponíveis várias operações e filtros disponíveis para que você possa manipular seus dados, tendo apenas que adicionar as caixas de funcionalidades ao fluxo, arrastando e soltando onde elas se encaixarem melhor."
     },
     datasources: {
       title: "Importar, exportar or gerenciar datasets",
       text:
-        "Todos os seus dados podem ser importados em diferentes formatos para a aplicação, para serem manipulados. Você pode gerenciar as bases de dados importadas e depois exportar o resultado de suas manipulações no formato que quiser."
+      "Todos os seus dados podem ser importados em diferentes formatos para a aplicação, para serem manipulados. Você pode gerenciar as bases de dados importadas e depois exportar o resultado de suas manipulações no formato que quiser."
     },
     jobs: {
       title: "Execute and gerencie fluxos existentes",
       text:
-        "Todos os seus fluxos podem são gerenciáveis, você pode criar, editar ou deletar eles quando quiser. Você também pode seguir o progresso dos fluxos que estão sendo executados, deletando ou pausando eles se quiser."
+      "Todos os seus fluxos podem são gerenciáveis, você pode criar, editar ou deletar eles quando quiser. Você também pode seguir o progresso dos fluxos que estão sendo executados, deletando ou pausando eles se quiser."
     },
     dashboards: {
       title: "Visualização de dados",
       text:
-        "No fim do processo, estão disponíveis ferramentas para melhor visualizar os dados, abstraindo suas informações para gráficos ou outros métodos visuais."
+      "No fim do processo, estão disponíveis ferramentas para melhor visualizar os dados, abstraindo suas informações para gráficos ou outros métodos visuais."
     },
     "our-services": {
       title: "NOSSOS SERVIÇOS",
       text: "Nós dividimos nossos serviços em 7 micro-componentes"
     },
     limonero:
-      "Limonero armazena metadados sobre as bases de dados e envia eles como serviço. Para cada bases de dados, o serviço tem informação sobre as premissões de acesso, detalhes de armazenamento (tais como nome, tipo de dados, tamanho, precisão, formato de dados) e características como distribuição, valores vazios, média, valores mínimos e máximos.",
+    "Limonero armazena metadados sobre as bases de dados e envia eles como serviço. Para cada bases de dados, o serviço tem informação sobre as premissões de acesso, detalhes de armazenamento (tais como nome, tipo de dados, tamanho, precisão, formato de dados) e características como distribuição, valores vazios, média, valores mínimos e máximos.",
     tahiti:
-      "Tahiti mantém metadados sobre operações individuais e fluxos criados por usuários e oferece eles como serviço. Operações são as menores unidades no Lemonade, e elas são divididas em cinco categorias: execução, privacidade/segurança, monitoramento, aparencia e qualidade do requerimento de serviçoes (QoS).",
+    "Tahiti mantém metadados sobre operações individuais e fluxos criados por usuários e oferece eles como serviço. Operações são as menores unidades no Lemonade, e elas são divididas em cinco categorias: execução, privacidade/segurança, monitoramento, aparencia e qualidade do requerimento de serviçoes (QoS).",
     citron:
-      "Citron é a interface web que o usuário usará para criar, executar e monitorar seus fluxos.Com esse serviço, usuários podem escolher operações pré definidas, arrastar e conectar e conectar elas usando suas portas disponíveis para construir um fluxo.<br> Cada parametro assiciado a uma operação pode ser inspecionado e fluxos podem ser instanciados pelo usuário. Citron também permite que usuários obtenham registros de execução das operações mostrando o status das mesmas em tempo real.",
+    "Citron é a interface web que o usuário usará para criar, executar e monitorar seus fluxos.Com esse serviço, usuários podem escolher operações pré definidas, arrastar e conectar e conectar elas usando suas portas disponíveis para construir um fluxo.<br> Cada parametro assiciado a uma operação pode ser inspecionado e fluxos podem ser instanciados pelo usuário. Citron também permite que usuários obtenham registros de execução das operações mostrando o status das mesmas em tempo real.",
     juicer:
-      'Juicer é o módulo que realmente roda os fluxos e suporta o monitoramento e execução dos mesmos. Ao receber um fluxo de dados, o serviço gera o código Spark equivalente à operação, atuando como um "transpiler" (compilador de fonte a fonte), onde cada operação se torna um método. <br> O código Spark é então instanciado no ambiente de execução em nuvem, observando os parâmetros QoS definidos pelo usuário para ter certeza que as operações executem com recursos suficientes para preencher as demandas do usuário (por exemplo, o usuário pode indicar o número de nós cumputacionais necessários). Durante a execução, Juicer tabmém é responsável por enviar qualquer novo dataset gerado como saída, junto com os eventos ocorridos em tempo real, e reportando qualquer mudança no status da operação.',
+    'Juicer é o módulo que realmente roda os fluxos e suporta o monitoramento e execução dos mesmos. Ao receber um fluxo de dados, o serviço gera o código Spark equivalente à operação, atuando como um "transpiler" (compilador de fonte a fonte), onde cada operação se torna um método. <br> O código Spark é então instanciado no ambiente de execução em nuvem, observando os parâmetros QoS definidos pelo usuário para ter certeza que as operações executem com recursos suficientes para preencher as demandas do usuário (por exemplo, o usuário pode indicar o número de nós cumputacionais necessários). Durante a execução, Juicer tabmém é responsável por enviar qualquer novo dataset gerado como saída, junto com os eventos ocorridos em tempo real, e reportando qualquer mudança no status da operação.',
     stand:
-      "Stand coordena a comunicação entre Citron e Juicer, assegurando a independência entre os dois componentes. Execução começa quando um usuário pede para rodar um fluxo no Citron, que então envia uma requisição ao Stand, que conecta ao Citron, enviando o feedback para o usuário.",
+    "Stand coordena a comunicação entre Citron e Juicer, assegurando a independência entre os dois componentes. Execução começa quando um usuário pede para rodar um fluxo no Citron, que então envia uma requisição ao Stand, que conecta ao Citron, enviando o feedback para o usuário.",
     thorn:
-      "Thorn é responsável pela segurança, privacidade e controle de acessos no Lemonade. Algumas de suas tarefas são bem desafiadoras, tais como determinar quem poderá ter acesso aos resultados de uma operação a uma base de dados que contém dados sensíveis. Além disso, quando uma operação tem múltiplas entradas, cada um com diferentes níveis de permissão, o serviço precisa decidir qual deve ser a política de acesso para a saída resultante. A versão atual implementa métrica de controles simples, mas suaa modularização permite que uma política de controle mais sofisticada possa ser facilmente implementada.",
+    "Thorn é responsável pela segurança, privacidade e controle de acessos no Lemonade. Algumas de suas tarefas são bem desafiadoras, tais como determinar quem poderá ter acesso aos resultados de uma operação a uma base de dados que contém dados sensíveis. Além disso, quando uma operação tem múltiplas entradas, cada um com diferentes níveis de permissão, o serviço precisa decidir qual deve ser a política de acesso para a saída resultante. A versão atual implementa métrica de controles simples, mas suaa modularização permite que uma política de controle mais sofisticada possa ser facilmente implementada.",
     caipirinha:
-      "Caipirinha provém visualizações usando várias metáforas visuais.<br> Estas incluem visualizações estáticas em formatos bem definidos, tais quais a amostra de resultados, gráficos de séries temporais e histogramas, e visualizações exploratórias onde o usuário pode parametrizar de acordo com seu interesse, e usar ferramentas para melhor visualizar áreas de um gráfico mais complexo.",
+    "Caipirinha provém visualizações usando várias metáforas visuais.<br> Estas incluem visualizações estáticas em formatos bem definidos, tais quais a amostra de resultados, gráficos de séries temporais e histogramas, e visualizações exploratórias onde o usuário pode parametrizar de acordo com seu interesse, e usar ferramentas para melhor visualizar áreas de um gráfico mais complexo.",
     "meet-team": "CONHEÇA NOSSO TIME",
     principals: "Investigadores principais",
     devs: "Pesquisadores e Desenvolvedores",
@@ -547,7 +549,7 @@ export default {
     self: "workflows",
     title: "Workflows",
     description:
-      "Lista de todos os workflows - e.g. próprios, compartilhados, etc..",
+    "Lista de todos os workflows - e.g. próprios, compartilhados, etc..",
     newBtn: "Criar novo",
     moreActionsBtn: "Mais ações",
     deleteBtn: "Apagar todos",
@@ -561,6 +563,10 @@ export default {
       description: "Este é o meu workflow...",
       create: "Criar",
       cancel: "Cancelar"
+    },
+    'save-as-modal': {
+      title: 'Salvando workflow flow como',
+      create: 'Salvar como'
     },
     "edit-modal": {
       title: "Editando workflow",
@@ -592,20 +598,20 @@ export default {
       executionFailed: {
         title: "Falha na execução",
         message:
-          "A execução do workflow falhou, por favor cheque as configurações do seu workflow."
+        "A execução do workflow falhou, por favor cheque as configurações do seu workflow."
       }
     },
     "delete-modal": {
       title: 'Deletando "{{workflow.name}}"',
       message:
-        'Você deseja remover permanentemente o workflow: "{{workflow.name}}" ?',
+      'Você deseja remover permanentemente o workflow: "{{workflow.name}}" ?',
       "delete-btn": "Deletar",
       cancel: "Cancelar"
     },
     "unsaved-changes-modal": {
       title: "Mudanças não salvas",
       message:
-        "Este workflow tem mudanças que não foram salvas. Se você sair sem salvar perderá essas mudanças.",
+      "Este workflow tem mudanças que não foram salvas. Se você sair sem salvar perderá essas mudanças.",
       save: "Salvar e sair",
       leave: "Sair",
       cancel: "Cancelar"

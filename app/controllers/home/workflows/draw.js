@@ -7,6 +7,8 @@ import { A } from '@ember/array';
 import toposort from 'citron/utils/toposort';
 import config from '../../../config/environment';
 import { set } from '@ember/object';
+import generateUUID from 'citron/utils/generate-uuid';
+import { copy } from '@ember/object/internals';
 
 export default Controller.extend({
   sessionAccount: service(),
@@ -27,6 +29,7 @@ export default Controller.extend({
 
   //Modals triggers
   executionModal: false,
+  createModal: false,
   deleteModal: false,
   alertModal: false,
   unsavedModal: false,
@@ -56,6 +59,17 @@ export default Controller.extend({
 
     toggleEditModal(){
       this.toggleProperty('editModal');
+    },
+
+    transitionToDrawAfterSaveAs(id, queryParams){
+      const title = 'workflows.alert-modal.saveSuccess.title';
+      const message = 'workflows.alert-modal.saveSuccess.message';
+
+      this.set('hasChanged', false);
+      this.set('alertContent', { title, message });
+      this.set('alertCallback', this.transitionToRoute('home.workflows.draw', id, queryParams) );
+      this.toggleProperty('alertModal');
+
     },
 
     saveWorkflow(callback){
@@ -93,6 +107,37 @@ export default Controller.extend({
           this.toggleProperty('alertModal');
         }
       );
+    },
+
+    saveAsWorkflow(callback){
+      this.send('closeForms');
+      let workflow = this.get('model.workflow');
+      workflow.get('tasks').forEach((task) => {
+        let op = task.operation;
+        set(task, 'operation', {
+          id: op.id,
+          name: op.name,
+          slug: op.slug
+        });
+        set(task, 'endpoints', null);
+        set(task, 'uiPorts', null);
+      });
+      let newWorkflow = copy(workflow.toJSON(), true);
+      newWorkflow.tasks.forEach( task => {
+        const oldId = task.id;
+
+        set(task, 'id', generateUUID());
+        newWorkflow.flows.forEach( flow => {
+          if(flow.source_id == oldId) { set(flow, 'source_id', task.id) }
+          if(flow.target_id == oldId) { set(flow, 'target_id', task.id) }
+        })
+      });
+      delete newWorkflow.created
+      delete newWorkflow.updated
+      delete newWorkflow.selected
+
+      this.set('newWorkflow', newWorkflow);
+      this.set('createModal', true);
     },
 
 
