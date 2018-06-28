@@ -47,6 +47,14 @@
         border-color: $color-lighter;
       }
     }
+    #saveAs {
+      background-color: $color-base;
+      border-color: $color-base;
+      &:hover, &:focus {
+        background-color: $color-lighter;
+        border-color: $color-lighter;
+      }
+    }
     #cancel {
       background-color: $color-cancel;
       border-color: $color-cancel;

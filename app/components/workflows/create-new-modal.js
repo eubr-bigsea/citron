@@ -52,7 +52,7 @@ export default Component.extend({
         name: this.get('name'),
         description: this.get('description'),
         platform: { id: this.get('platform') },
-        is_public: this.get('is_public'),
+        is_public: this.get('isPublic'),
         image: this.get('image.name'),
         enabled: true,
         user: { id: user.get('id'), login: user.get('email'), name: user.get('name')}
@@ -72,14 +72,15 @@ export default Component.extend({
       let json = this.get('workflow');
       json.name = this.get('name');
       json.description = this.get('description');
-      json.platform = { id: json.platform.id }
-      json.is_public = this.get('is_public');
+      json.platform = { id: json.platform.id };
+      json.is_public = this.get('isPublic');
       json.image = this.get('image.name');
       json.user = { id: user.get('id'), login: user.get('email'), name: user.get('name')};
 
       let workflow = this.get('store').createRecord('workflow', json);
       workflow.save().then(
         (workflow) => {
+          this.set('createModal', false);
           this.get('transitionToDraw')(workflow.get('id'), { queryParams: {platform: workflow.get('platform.id')} })
         }
       )

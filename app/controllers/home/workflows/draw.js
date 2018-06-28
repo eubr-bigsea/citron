@@ -67,9 +67,7 @@ export default Controller.extend({
 
       this.set('hasChanged', false);
       this.set('alertContent', { title, message });
-      if(callback) {
-        this.set('alertCallback', this.transitionToRoute('home.workflows.draw', id, queryParams) );
-      }
+      this.set('alertCallback', this.transitionToRoute('home.workflows.draw', id, queryParams) );
       this.toggleProperty('alertModal');
 
     },

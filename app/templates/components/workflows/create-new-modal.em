@@ -2,7 +2,7 @@
   modal.header
     h4.modal-title.vcentered
       i.mdi.mdi-plus.__icon
-      if isSaveAS
+      if isSaveAs
         span.__text: t 'workflows.save-as-modal.title'
       else
         span.__text: t 'workflows.create-new-modal.title'

@@ -20,6 +20,7 @@ export default Route.extend({
           workflow,
           clusters: this.get('store').findAll('cluster'),
           operations: this.store.query('operation', queryParams),
+          platforms: this.store.query('platform', { enabled: true} ),
           groupedOperations: groupBy(this.store.query('operation', queryParams), 'categories'),
           images: [
             {id: 0, name: 'img0.jpg'},
