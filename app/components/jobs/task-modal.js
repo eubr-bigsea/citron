@@ -9,20 +9,14 @@ export default Component.extend({
 
   locale: computed('i18n', function(){ return this.get('i18n.locale')} ),
 
-  didReceiveAttrs: async function() {
+  didReceiveAttrs() {
     this._super(...arguments);
-    let selectedTask = this.get('selectedTask');
-    if(selectedTask && selectedTask.result){
-      this.set('dataUrl', `${config.caipirinha}/visualizations/${this.get('jobId')}/${selectedTask.id}`);
 
-      const data = await $.get(this.get('dataUrl'));
-      if(data.html) {
-        this.set('html', data.html);
-      }
-
-      this.set('viz', { component: `visualizations/${selectedTask.operation.slug}`.replace('bar-chart', 'vertical-bar-chart').replace('summary-statistics', 'table-visualization')});
-    }
+    if(!this.get('viz')) {
+      this.set('visualizationIsVisible', false);
+    };
   },
+
   didRender(){
     $('a[href$="#params"]').click(function(){ $('.form-inline').find('*').prop('disabled', true) })
     $('#tabs ul li a').removeClass('active');
@@ -30,8 +24,6 @@ export default Component.extend({
     $('.card-body .table').addClass('table-sm table-hover');
     var height = $('.tab-content').height();
     var width = $('.tab-content').width();
-    $('#display-modal').height(height);
-    $('#display-modal').width(width);
     var tables =  $('.table-wrapper');
     var card = $('.card').outerHeight(true);
     for(var i=0; i < tables.length; i++){
@@ -43,10 +35,27 @@ export default Component.extend({
     close(){
       this.set('selectedTask', null);
       this.set('taskModal', false);
+      this.set('viz', null);
     },
+
     activateTab(tab){
       this.get('activateTab')(tab);
       return tab;
+    },
+
+    updateVis() {
+      const selectedTask = this.get('selectedTask');
+
+      if(selectedTask && selectedTask.result) {
+        this.set('htmlContent', selectedTask.result.data.html);
+        this.set('viz', {
+          component: `visualizations/${selectedTask.operation.slug}`
+            .replace('bar-chart', 'vertical-bar-chart')
+            .replace('summary-statistics', 'table-visualization')
+        });
+
+        this.set('visualizationIsVisible', true);
+      }
     }
   }
 });

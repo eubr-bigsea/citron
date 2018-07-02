@@ -1,4 +1,4 @@
-= bs-modal class=componentCssClassName open=taskModal backdropClose=true fade=fade onHidden=(action 'close') as |modal|
+= bs-modal class=componentCssClassName open=taskModal backdropClose=true fade=fade onHidden=(action 'close') onShown=(action 'updateVis') as |modal|
     modal.header
       h4.modal-title
         i.fa.fa-lg class=selectedTask.operation.icon
@@ -32,10 +32,11 @@
         .tab-content
           = tab.pane id='results' title="Results"
             if selectedTask.result
-              unless html
-                = visualizations/vis-wrapper viz=viz dataUrl=dataUrl id="display-modal"
-              else
-                == html
+              if visualizationIsVisible
+                unless htmlContent
+                  = visualizations/vis-wrapper viz=viz data=selectedTask.result.data id="display-modal"
+                else
+                  == htmlContent
           = tab.pane id='images' title="images"
             each selectedTask.images as |image|
               img src={concat "data:image/png;base64," image.message}
@@ -71,4 +72,3 @@
                         == table.message
           = tab.pane id='params' title="Parameters"
             = jobs/display-params fields=selectedTask.params.fields forms=selectedTask.forms
-
