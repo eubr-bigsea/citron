@@ -70,3 +70,5 @@ table.table.table-hover
               = format-date (get workflow timeProperties.selected) locale=locale
           td.delete
             i.mdi.mdi-delete click={toggleDeleteModal workflow}
+          td.delete
+            i.mdi.mdi-download click={action 'downloadWorkflow' workflow}

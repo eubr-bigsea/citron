@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import FileSaver from 'file-saver';
 
 export default Component.extend({
   didInsertElement(){
@@ -19,6 +20,13 @@ export default Component.extend({
 
     if(tbody.height() < bodyWrapper.height()){
       this.get('loadNext')();
+    }
+  },
+  actions: {
+    downloadWorkflow(workflow){
+      const workflowString = JSON.stringify(workflow.toJSON());
+      var blob = new Blob([workflowString], {type: "application/json;charset=utf-8"});
+      FileSaver.saveAs(blob, `${workflow.name}.json`)
     }
   }
 });
