@@ -82,6 +82,18 @@
         }
       }
     }
+    .download {
+      width: 45px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      i {
+        cursor: pointer;
+        font-size: 1.7em;
+        &:hover {
+          color: $color-base;
+        }
+      }
+    }
     thead,
     tbody tr {
       display: table;
