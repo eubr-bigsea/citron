@@ -15,9 +15,8 @@ export default Component.extend({
 
   init(){
     this._super(...arguments);
-    jsPlumb.importDefaults({
+    this.set('jsplumb', jsPlumb.getInstance({Container: "lemonade-diagram",
       Connector: 'Flowchart',
-      //ConnectionOverlays: [ ["Arrow", {width: 12, length: 12, location: 0.3} ], ["Arrow", {width: 12, length: 12, location: 0.7} ] ],
       ConnectionOverlays: [
         ["Arrow", {width: 12, length: 12} ],
         ["Custom", {
@@ -30,8 +29,7 @@ export default Component.extend({
           location: 0.5
         }]
       ],
-    });
-    this.set('jsplumb', jsPlumb.getInstance({Container: "lemonade-diagram"}));
+    }));
   },
 
   didInsertElement() {

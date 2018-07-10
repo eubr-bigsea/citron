@@ -173,7 +173,9 @@ export default {
     attributes: "Attributes",
     values: "Valores",
     time: "Tempo",
-    message: "Menssagem"
+    message: "Menssagem",
+    download: "Download",
+    delete: "Delete"
   },
 
   cards: {

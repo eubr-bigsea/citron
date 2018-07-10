@@ -109,7 +109,7 @@ export default Controller.extend({
       );
     },
 
-    saveAsWorkflow(callback){
+    saveAsWorkflow(){
       this.send('closeForms');
       let workflow = this.get('model.workflow');
       workflow.get('tasks').forEach((task) => {

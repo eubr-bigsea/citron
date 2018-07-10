@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import $ from 'jquery';
 import { inject as service } from '@ember/service';
-import config from '../../config/environment';
 import { computed } from '@ember/object';
 
 export default Component.extend({
@@ -14,7 +13,7 @@ export default Component.extend({
 
     if(!this.get('viz')) {
       this.set('visualizationIsVisible', false);
-    };
+    }
   },
 
   didRender(){
@@ -23,7 +22,6 @@ export default Component.extend({
     $('#tabs ul li a[href="#'+ this.get('activeTab') +'"]').addClass('active');
     $('.card-body .table').addClass('table-sm table-hover');
     var height = $('.tab-content').height();
-    var width = $('.tab-content').width();
     var tables =  $('.table-wrapper');
     var card = $('.card').outerHeight(true);
     for(var i=0; i < tables.length; i++){
@@ -50,8 +48,8 @@ export default Component.extend({
         this.set('htmlContent', selectedTask.result.data.html);
         this.set('viz', {
           component: `visualizations/${selectedTask.operation.slug}`
-            .replace('bar-chart', 'vertical-bar-chart')
-            .replace('summary-statistics', 'table-visualization')
+          .replace('bar-chart', 'vertical-bar-chart')
+          .replace('summary-statistics', 'table-visualization')
         });
 
         this.set('visualizationIsVisible', true);

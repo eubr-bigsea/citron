@@ -69,4 +69,6 @@ table.table.table-hover
             = link-to 'home.workflows.draw' workflow.id
               = format-date (get workflow timeProperties.selected) locale=locale
           td.delete
-            i.mdi.mdi-delete click={toggleDeleteModal workflow}
+            i.mdi.mdi-delete click={toggleDeleteModal workflow} title={t 'tables.delete'}
+          td.download
+            i.mdi.mdi-download click={action 'downloadWorkflow' workflow} title={t 'tables.download'}

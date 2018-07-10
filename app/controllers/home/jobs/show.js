@@ -25,7 +25,7 @@ export default Controller.extend({
             if(data.mode && data.mode.polygon && data.geojson && data.geojson.url) {
               data.geojsonProperty = data.geojson.idProperty;
               // stash
-              const headers = locale = $.ajaxSettings.headers;
+              const headers = $.ajaxSettings.headers;
               for(const header in headers) { delete $.ajaxSettings.headers[header]; }
               delete $.ajaxSettings.headers.Locale;
 

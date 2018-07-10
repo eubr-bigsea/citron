@@ -174,7 +174,9 @@ export default {
     attributes: "Attributes",
     values: "Values",
     time: "Time",
-    message: "Message"
+    message: "Message",
+    download: "Download",
+    delete: "Delete"
   },
   cards: {
     latestEditedWorkflows: {
