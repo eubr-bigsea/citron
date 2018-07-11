@@ -16,11 +16,14 @@ export default Controller.extend({
     selectTask(task, tab) {
       const self = this;
       const url =  `${config.caipirinha}/visualizations/${this.get('job.id')}/${task.id}`;
+      console.log(task);
 
       if(task.result && task.result.type.toLowerCase() === 'visualization' && !task.result.data) {
-        $.ajax({
-          type: 'GET',
+        $.get({
           url: url,
+          beforeSend(request) {
+            request.setRequestHeader('X-Auth-Token', '123456');
+          },
           success(data)  {
             if(data.mode && data.mode.polygon && data.geojson && data.geojson.url) {
               data.geojsonProperty = data.geojson.idProperty;
@@ -29,9 +32,11 @@ export default Controller.extend({
               for(const header in headers) { delete $.ajaxSettings.headers[header]; }
               delete $.ajaxSettings.headers.Locale;
 
-              $.ajax({
-                type: 'GET',
+              $.get({
                 url: data.geojson.url,
+                beforeSend(request) {
+                  request.setRequestHeader('X-Auth-Token', '123456');
+                },
                 success(geojson) {
                   data.geojson = geojson;
 

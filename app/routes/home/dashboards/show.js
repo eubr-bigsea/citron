@@ -3,6 +3,11 @@ import RSVP from 'rsvp';
 import config from '../../../config/environment';
 
 export default Route.extend({
+  saveDashboard(dashboard) {
+    console.log('Olar');
+    console.log(dashboard);
+  },
+
   model: async function(params) {
     const url = `${config.caipirinha}/dashboards/${params.id}`;
 
@@ -80,6 +85,8 @@ export default Route.extend({
 
       v.data = visData;
     }
+
+    data.save = this.get('saveDashboard');
 
     return data;
   }
