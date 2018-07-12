@@ -16,7 +16,6 @@ export default Controller.extend({
     selectTask(task, tab) {
       const self = this;
       const url =  `${config.caipirinha}/visualizations/${this.get('job.id')}/${task.id}`;
-      console.log(task);
 
       if(task.result && task.result.type.toLowerCase() === 'visualization' && !task.result.data) {
         $.get({
@@ -54,7 +53,8 @@ export default Controller.extend({
 
                   task.result.data = data;
                   self.set('selectedTask', task);
-                  self.set('activeTab', tab);
+                  //self.set('activeTab', tab);
+                  self.set('activeTab', 'results');
                   self.set('taskModal', true);
                 },
                 error(err) {
@@ -70,7 +70,8 @@ export default Controller.extend({
             else {
               task.result.data = data;
               self.set('selectedTask', task);
-              self.set('activeTab', tab);
+              //self.set('activeTab', tab);
+              self.set('activeTab', 'results');
               self.set('taskModal', true);
             }
           },

@@ -43,7 +43,6 @@ export default Component.extend({
 
     updateVis() {
       const selectedTask = this.get('selectedTask');
-      console.log(selectedTask)
 
       if(selectedTask && selectedTask.result) {
         this.set('htmlContent', selectedTask.result.data.html);
