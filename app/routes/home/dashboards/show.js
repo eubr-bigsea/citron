@@ -3,30 +3,17 @@ import RSVP from 'rsvp';
 import config from '../../../config/environment';
 
 export default Route.extend({
-  saveDashboard(dashboard) {
-    console.log('Olar');
-    console.log(dashboard);
-  },
-
   model: async function(params) {
-    const url = `${config.caipirinha}/dashboards/${params.id}`;
+    const model = await this.store.findRecord('dashboard', params.id);
 
-    const data = await $.get({
-      url: url,
-      beforeSend(request) {
-        request.setRequestHeader('X-Auth-Token', '123456');
-      },
-      error(err) { throw(err); }
-    });
-
-    for(const v of data.visualizations) {
+    for(const v of model.visualizations) {
       // Set component name for data visualization
       v.component = ['visualizations',v.type.name]
         .join('/')
         .replace('bar-chart', 'vertical-bar-chart');
 
       // Get configuration
-      const conf = data.configuration == null ? {} : data.configuration;
+      const conf = model.configuration == null ? {} : model.configuration;
       const item = conf[`${v.id}`] == null ? {} : conf[`${v.id}`];
 
       // Set initial style and layouts
@@ -86,8 +73,6 @@ export default Route.extend({
       v.data = visData;
     }
 
-    data.save = this.get('saveDashboard');
-
-    return data;
-  }
+    return model;
+  },
 });
