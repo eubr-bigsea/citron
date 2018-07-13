@@ -19,10 +19,13 @@
       .form-group.row
         label.col-12.col-md-3.col-form-label #{t 'forms.platform.label'}:
         .col-12.col-md-9
-          select.form-control onchange={action (mut platform) value='target.value'} disabled={isSaveAs}
-            each platforms as |platform|
-              option value={platform.id}
-                = platform.name
+          if isSaveAs
+             = input .form-control type="text" value=platform.name disabled=true
+          else
+            select.form-control onchange={action (mut platform) value='target.value'}
+              each platforms as |platform|
+                option value={platform.id}
+                  = platform.name
       .form-group.row
         .col-12.col-md-9.offset-md-3
           label.btn.btn-secondary.check class={isPublic} click={action 'toggleIsPublic'}

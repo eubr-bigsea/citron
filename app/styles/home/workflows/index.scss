@@ -22,21 +22,6 @@
       }
     }
   }
-  .btn-circle {
-    margin: 15px;
-    text-align: center;
-    width: 55.5px;
-    border-radius: 28px;
-    box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.4);
-    background-color: $color-lighter;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    i {
-      color: $color-darker;
-      font-size: 2em;
-    }
-  }
   .model {
     height: calc(100% - 105px);
     .row {
@@ -51,4 +36,56 @@
       height: calc(100% - 71px);
     }
   }
+  .footer {
+    z-index: 10000;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    font-size: 1.2em;
+    .btn-circle {
+      text-align: center;
+      width: 55.5px;
+      border-radius: 28px;
+      box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.4);
+      background-color: $color-lighter;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      i {
+        color: $color-darker;
+        font-size: 2em;
+      }
+    }
+    .popup-block {
+      ul {
+        background-color: $color-text-lighter;
+        border: 1px solid rgba($color-lighter, 0.5);
+        list-style: none;
+        padding: 15px 2px 25px 2px;
+        margin: 0 30px 30px 0;
+        border-radius: 5px;
+
+        li {
+          line-height: 1.8rem;
+          cursor: pointer;
+          padding: 0 20px;
+          border-radius: 5px;
+
+          &:hover {
+            background-color: $color-lighter;
+            i {
+              color: $color-text-dark;
+            }
+          }
+          i {
+            font-size: 1.4rem;
+            margin-right: 5px;
+            vertical-align: middle;
+            color: rgba($color-lighter, 1)
+          }
+        }
+      }
+    }
+  }
+
 }
