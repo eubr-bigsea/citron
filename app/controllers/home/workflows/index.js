@@ -14,6 +14,8 @@ export default Controller.extend({
   // modals triggers
   createModal: false,
   deleteModal: false,
+  importModal: false,
+  popup: false,
   // select and delete vars
   selectAll: false,
   deleteButton: false,
@@ -28,11 +30,19 @@ export default Controller.extend({
     search(){ //tahiti only support search by name
       this.send('reloadModel');
     },
+    toggleImportModal(){
+      this.set('popup', false);
+      this.set('importModal', true);
+    },
     toggleCreateModal(){
+      this.set('popup', false);
       this.set('createModal', true);
     },
     transitionToDraw(id, queryParams){
       this.transitionToRoute('home.workflows.draw', id, queryParams);
+    },
+    togglePopup(){
+      this.toggleProperty('popup');
     },
     toggleDeleteModal(workflow){
       this.send('unselectAll');

@@ -556,6 +556,8 @@ export default {
     moreActionsBtn: "Mais ações",
     deleteBtn: "Apagar todos",
     searchFor: "Pesquisar",
+    import: "Importar fluxo",
+    createNew: "Criar novo fluxo",
     edit: {
       title: "Editando workflow:"
     },
@@ -565,6 +567,10 @@ export default {
       description: "Este é o meu workflow...",
       create: "Criar",
       cancel: "Cancelar"
+    },
+    'import-modal': {
+      title: 'Importar Workflow',
+      create: 'Importar'
     },
     'save-as-modal': {
       title: 'Salvando workflow flow como',

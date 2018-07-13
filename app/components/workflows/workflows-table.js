@@ -24,7 +24,7 @@ export default Component.extend({
   },
   actions: {
     downloadWorkflow(workflow){
-      const workflowString = JSON.stringify(workflow.toJSON());
+      const workflowString = JSON.stringify(workflow.toJSON({id: true}));
       var blob = new Blob([workflowString], {type: "application/json;charset=utf-8"});
       FileSaver.saveAs(blob, `${workflow.name}.json`)
     }

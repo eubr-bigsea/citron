@@ -488,6 +488,8 @@ export default {
     title: "Workflows",
     description: "List of all workflows - e.g. owned, shared, etc..",
     searchFor: "Search",
+    import: "Import workflow",
+    createNew: "Create new workflow",
     edit: {
       title: "Editing workflow:"
     },
@@ -497,6 +499,10 @@ export default {
       description: "This is my workflow...",
       create: "Create",
       cancel: "Cancel"
+    },
+    'import-modal': {
+      title: 'Importar Workflow',
+      create: 'Importar'
     },
     'save-as-modal': {
       title: 'Save workflow as',

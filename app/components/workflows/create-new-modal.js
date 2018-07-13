@@ -22,7 +22,7 @@ export default Component.extend({
       this.set('name', `${workflow.name} 2`);
       this.set('description', `${workflow.description}`);
       this.set('isPublic', workflow.isPublic );
-      this.set('platform', workflow.platform.id);
+      this.set('platform', workflow.platform);
     } else {
       this.set('name', '');
       this.set('description', '');
@@ -51,7 +51,7 @@ export default Component.extend({
       let json = {
         name: this.get('name'),
         description: this.get('description'),
-        platform: { id: this.get('platform') },
+        platform: { id: this.get('platform.id') },
         is_public: this.get('isPublic'),
         image: this.get('image.name'),
         enabled: true,
