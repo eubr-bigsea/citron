@@ -21,4 +21,7 @@
       button.btn.btn-secondary.upload-more click={action 'setFile' null}
         = t 'datasources.upload-modal.upload-more'
     = bs-button .btn-danger onClick=(action 'closeUploadModal')
-      t 'datasources.upload-modal.cancel'
+      if file.isFinished
+        t 'datasources.upload-modal.exit'
+      else
+        t 'datasources.upload-modal.cancel'
