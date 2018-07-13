@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "@mdi/font": "^2.4.85",
-    "lemonade-datavis": "^0.1.6"
+    "lemonade-datavis": "^0.3.6",
+    "mdi": "^2.1.19"
   }
 }

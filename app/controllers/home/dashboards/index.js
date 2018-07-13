@@ -106,6 +106,6 @@ export default Controller.extend({
         this.set('size', size + this.get('perPage'));
         this.send('reloadModel');
       }
-    }
+    },
   }
 });
