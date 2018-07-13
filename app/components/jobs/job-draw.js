@@ -8,12 +8,16 @@ import jsPlumb from '@jsplumb';
 export default Component.extend({
   init() {
     this._super(...arguments);
-    jsPlumb.importDefaults({
-      Connector: 'Flowchart',
-      ConnectionOverlays: [ ["Arrow", {width: 12, length: 12} ] ]
-    });
     this.set('socket', io(config.webSocketIO.url + config.webSocketIO.namespace, { path:config.webSocketIO.path }, {upgrade: true}));
-    this.set('jsplumb', jsPlumb.getInstance({Container: this.elementId, draggable: false}));
+
+    this.set('jsplumb', jsPlumb.getInstance({
+      Container: this.elementId,
+      draggable: false,
+      Connector: 'Flowchart',
+      ConnectionOverlays: [
+        ["Arrow", {width: 12, length: 12} ]      ],
+    }));
+
   },
 
   didInsertElement() {
