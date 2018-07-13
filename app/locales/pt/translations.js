@@ -401,7 +401,8 @@ export default {
       "error-message":
       "Um erro ocorreu no carregamento do arquivo <strong>{{fileName}}</strong>. Servidor respondeu com:",
       "upload-more": "Carregar um novo",
-      cancel: "Cancelar"
+      cancel: "Cancelar",
+      exit: "Sair"
     },
     "delete-modal": {
       title: {

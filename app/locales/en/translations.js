@@ -621,7 +621,9 @@ export default {
       "error-message":
       "A error occuried on upload of  <strong>{{fileName}}</strong>. The server respond with:",
       "upload-more": "New Upload",
-      cancel: "Cancel"
+      cancel: "Cancel",
+      exit: "Exit"
+
     },
     "delete-modal": {
       title: {
