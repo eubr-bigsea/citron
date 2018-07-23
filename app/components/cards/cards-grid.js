@@ -57,7 +57,7 @@ export default Component.extend({
         'component': card.get('component'),
         'card-id': card.get('id'),
         'uuid': generateUUID(),
-        'width': 5,
+        'width': 6,
         'height': 5,
         'x': 0,
         'y': 0
