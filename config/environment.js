@@ -72,13 +72,13 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.thorn = 'http://demo.ctweb.inweb.org.br/thorn';
-    ENV.stand = 'http://demo.ctweb.inweb.org.br/stand';
-    ENV.tahiti = 'http://demo.ctweb.inweb.org.br/tahiti';
-    ENV.limonero = 'http://demo.ctweb.inweb.org.br/limonero';
-    ENV.caipirinha = 'http://demo.ctweb.inweb.org.br/caipirinha';
+    ENV.thorn = '/thorn';
+    ENV.stand = '/stand';
+    ENV.tahiti = '/tahiti';
+    ENV.limonero = '/limonero';
+    ENV.caipirinha = '/caipirinha';
     ENV.webSocketIO = {
-      url: 'http://demo.ctweb.inweb.org.br',
+      url: '',
       namespace: '/stand',
       path: '/stand/socket.io'
     };
