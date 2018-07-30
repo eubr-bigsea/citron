@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
-import RSVP from 'rsvp';
 import config from '../../../config/environment';
+import $ from 'jquery';
 
 export default Route.extend({
   model: async function(params) {
@@ -43,7 +43,7 @@ export default Route.extend({
         visData.geojsonProperty = visData.geojson.idProperty;
 
         // stash
-        const headers = locale = $.ajaxSettings.headers;
+        const headers = $.ajaxSettings.headers;
         for(const header in headers) { delete $.ajaxSettings.headers[header]; }
         delete $.ajaxSettings.headers.Locale;
 

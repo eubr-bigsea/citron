@@ -1,8 +1,8 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import generateUUID from 'citron/utils/generate-uuid';
 import { set } from '@ember/object';
+import $ from 'jquery';
 
 export default Component.extend({
   file: null,
