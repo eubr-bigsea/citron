@@ -14,14 +14,14 @@ export default Component.extend({
     return this.get('workflow') ? true : false;
   }),
 
-  didUpdateAttrs(){
+  didUpdateAttrs() {
     const firstImage = this.get('images.firstObject');
     const workflow = this.get('workflow');
     this.set('image', firstImage);
-    if(workflow){
+    if (workflow) {
       this.set('name', `${workflow.name} 2`);
       this.set('description', `${workflow.description}`);
-      this.set('isPublic', workflow.isPublic );
+      this.set('isPublic', workflow.isPublic);
       this.set('platform', workflow.platform);
     } else {
       this.set('name', '');
@@ -31,42 +31,42 @@ export default Component.extend({
     }
   },
 
-  didRender(){
+  didRender() {
     $('.images-container img').removeClass('selected');
     $(`.images-container #${this.get('image.id')}`).addClass('selected');
   },
 
   actions: {
-    toggleIsPublic(){
+    toggleIsPublic() {
       this.toggleProperty('isPublic');
     },
-    selectImage(image){
+    selectImage(image) {
       this.set('image', image);
       $('.images-container img').removeClass('selected');
       $(`.images-container #${image.id}`).addClass('selected');
     },
-    createNew(){
+    createNew() {
       //add spinner loadding
       const user = this.get('sessionAccount.user');
       let json = {
         name: this.get('name'),
         description: this.get('description'),
-        platform: { id: this.get('platform.id') },
+        platform: { id: this.get('platform') },
         is_public: this.get('isPublic'),
         image: this.get('image.name'),
         enabled: true,
-        user: { id: user.get('id'), login: user.get('email'), name: user.get('name')}
-      }
+        user: { id: user.get('id'), login: user.get('email'), name: user.get('name') }
+      };
 
       let workflow = this.get('store').createRecord('workflow', json);
-      workflow.save().then(
-        (workflow) => {
-          this.get('transitionToDraw')(workflow.get('id'), { queryParams: {platform: workflow.get('platform.id')} })
-        }
-      )
+      workflow.save().then(workflow => {
+        this.get('transitionToDraw')(workflow.get('id'), {
+          queryParams: { platform: workflow.get('platform.id') }
+        });
+      });
     },
 
-    saveAs(){
+    saveAs() {
       //add spinner loadding
       const user = this.get('sessionAccount.user');
       let json = this.get('workflow');
@@ -75,15 +75,15 @@ export default Component.extend({
       json.platform = { id: json.platform.id };
       json.is_public = this.get('isPublic');
       json.image = this.get('image.name');
-      json.user = { id: user.get('id'), login: user.get('email'), name: user.get('name')};
+      json.user = { id: user.get('id'), login: user.get('email'), name: user.get('name') };
 
       let workflow = this.get('store').createRecord('workflow', json);
-      workflow.save().then(
-        (workflow) => {
-          this.set('createModal', false);
-          this.get('transitionToDraw')(workflow.get('id'), { queryParams: {platform: workflow.get('platform.id')} })
-        }
-      )
+      workflow.save().then(workflow => {
+        this.set('createModal', false);
+        this.get('transitionToDraw')(workflow.get('id'), {
+          queryParams: { platform: workflow.get('platform.id') }
+        });
+      });
     }
   }
 });
