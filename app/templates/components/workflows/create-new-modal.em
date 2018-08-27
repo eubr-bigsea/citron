@@ -9,9 +9,9 @@
   modal.body
     form
       .form-group.row
-        label.col-12.col-md-3.col-form-label #{t 'forms.name.label'}:
+        label.col-12.col-md-3.col-form-label #{t 'forms.name.label'}*:
         .col-12.col-md-9
-          = input .form-control type="text" required=true placeholder=(t 'workflows.create-new-modal.name') value=name
+          = input .form-control type="text" required=true placeholder=(t 'workflows.create-new-modal.name') value=name maxlength='49'
       .form-group.row
         label.col-12.col-md-3.col-form-label #{t 'forms.description.label'}:
         .col-12.col-md-9
@@ -39,10 +39,10 @@
               img.logo id={image.id} src='/assets/images/#{image.name}' click={action 'selectImage' image}
   modal.footer
     if isSaveAs
-      = bs-button id='saveAs' onClick=(action 'saveAs')
+      = bs-button id='saveAs' onClick=(action 'saveAs') disabled=(eq name '')
         t 'workflows.save-as-modal.create'
     else
-      = bs-button id='create' onClick=(action 'createNew')
+      = bs-button id='create' onClick=(action 'createNew') disabled=(eq name '')
         t 'workflows.create-new-modal.create'
     = bs-button id='cancel' onClick=(action (mut createModal) false)
       t 'workflows.create-new-modal.cancel'

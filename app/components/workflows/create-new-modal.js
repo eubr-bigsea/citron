@@ -55,7 +55,11 @@ export default Component.extend({
         is_public: this.get('isPublic'),
         image: this.get('image.name'),
         enabled: true,
-        user: { id: user.get('id'), login: user.get('email'), name: user.get('name') }
+        user: {
+          id: user.get('id'),
+          login: user.get('email'),
+          name: user.get('name')
+        }
       };
 
       let workflow = this.get('store').createRecord('workflow', json);
@@ -75,7 +79,11 @@ export default Component.extend({
       json.platform = { id: json.platform.id };
       json.is_public = this.get('isPublic');
       json.image = this.get('image.name');
-      json.user = { id: user.get('id'), login: user.get('email'), name: user.get('name') };
+      json.user = {
+        id: user.get('id'),
+        login: user.get('email'),
+        name: user.get('name')
+      };
 
       let workflow = this.get('store').createRecord('workflow', json);
       workflow.save().then(workflow => {
