@@ -25,7 +25,7 @@
             each images as |image|
               img.logo id={image.id} src='/assets/images/#{image.name}' click={action 'selectImage' image}
   modal.footer
-    = bs-button id='edit' onClick=(action 'save')
+    = bs-button id='edit' onClick=(action 'save') disabled=(eq workflow.name '')
       t 'workflows.edit-modal.save'
     = bs-button id='cancel' onClick=(action (mut editModal) false)
       t 'workflows.edit-modal.cancel'

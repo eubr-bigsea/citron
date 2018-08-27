@@ -46,7 +46,7 @@
 
   modal.footer
     if file
-      = bs-button id='create' onClick=(action 'createNew')
+      = bs-button id='create' onClick=(action 'createNew') disabled=(eq file.name '')
         t 'workflows.import-modal.create'
     = bs-button id='cancel' onClick=(action (mut importModal) false)
       t 'workflows.create-new-modal.cancel'
