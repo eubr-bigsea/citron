@@ -8,7 +8,7 @@
       .form-group.row
         label.col-12.col-md-3.col-form-label #{t 'forms.name.label'}:
         .col-12.col-md-9
-          = input .form-control type="text" required=true placeholder=(t 'workflows.edit-modal.name') value=workflow.name
+          = input .form-control type="text" required=true placeholder=(t 'workflows.edit-modal.name') value=workflow.name maxlength='49'
       .form-group.row
         label.col-12.col-md-3.col-form-label #{t 'forms.description.label'}:
         .col-12.col-md-9
