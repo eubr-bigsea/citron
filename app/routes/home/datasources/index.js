@@ -14,10 +14,12 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
     return RSVP.hash({
       datasources: this.store.query('datasource', params),
+      storages: this.store.query('storage', params)
     });
   },
-  setupController(controller){
+  setupController(controller, model) {
     this._super(...arguments);
+    console.log(model.storages);
     controller.set('locale', this.get('i18n.locale'));
   },
   resetController(controller, isExiting, transition) {
@@ -36,8 +38,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
     }
   },
   actions: {
-    reloadModel(){
+    reloadModel() {
       this.refresh();
-    },
+    }
   }
 });
