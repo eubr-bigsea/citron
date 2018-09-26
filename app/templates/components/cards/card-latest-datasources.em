@@ -18,8 +18,9 @@
             td: = link-to 'home.datasources.edit' datasource.id
               = datasource.name
             td.icons
-              a href={concat limoneroUrl datasource.id endPoint}
-                i.fa.fa-lg.fa-download
+              if (not-eq datasource.format 'JDBC')
+                a href={concat limoneroUrl datasource.id endPoint}
+                  i.fa.fa-lg.fa-download
               = link-to 'home.datasources.edit' datasource.id
                 i.fa.fa-lg.fa-pencil
             td: = datasource.format
