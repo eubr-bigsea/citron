@@ -19,46 +19,49 @@
             .col-10
               = textarea class="form-control" value=model.description maxlength=1000 rows=8
           .form-group.row
-            label.col-2.col-form-label
-              "#{t 'forms.format.label'}:
-            .col-10.col-md-3
-              select.form-control onchange={action (mut model.format) value='target.value'}
-                option
-                each formats as |format|
-                  option value={format.value} selected={eq format.value model.format}
-                    = format.name
-            label.col-2.col-md-auto.col-form-label
-              "#{t 'forms.encode.label'}:
-            .col-10.col-md-3
-              select.form-control onchange={action (mut model.encoding) value='target.value'}
-                option
-                each encodings as |encoding|
-                  option value={encoding.value} selected={eq encoding.value model.encoding}
-                    = encoding.name
+            if (not-eq model.format 'JDBC')
+              label.col-2.col-form-label
+                "#{t 'forms.format.label'}:
+              .col-10.col-md-3
+                select.form-control onchange={action (mut model.format) value='target.value'}
+                  option
+                  each formats as |format|
+                    option value={format.value} selected={eq format.value model.format}
+                      = format.name
+              label.col-2.col-md-auto.col-form-label
+                "#{t 'forms.encode.label'}:
+              .col-10.col-md-3
+                select.form-control onchange={action (mut model.encoding) value='target.value'}
+                  option
+                  each encodings as |encoding|
+                    option value={encoding.value} selected={eq encoding.value model.encoding}
+                      = encoding.name
+
             label.col-2.col-md-auto.col-form-label.checkbox-label
               "#{t 'forms.public.label'}:
             .col-10.col-md-auto.checkbox
               label.btn.btn-secondary.check class={model.is_public} click={action 'toggleIsPublic'}
                 i.mdi.mdi-check
-          .form-group.row
-            label.col-2.col-form-label
-              "#{t 'forms.treat_as_missing.label'}:
-            .col-10
-              = input type="text" class="form-control" value=model.treat_as_missing
-          .form-group.row
-            label.col-2.col-form-label
-              "#{t 'forms.delimiter.label'}:
-            .col-10.col-md-3
-              = datasources/select2-input attr=model.attribute_delimiter options=attrDelimiters
-            label.col-2.col-md-auto.col-form-label
-              "#{t 'forms.quote-char.label'}:
-            .col-10.col-md-3
-              = datasources/select2-input attr=model.text_delimiter options=textDelimiters
-            label.col-2.col-sm-auto.col-form-label.checkbox-label
-              "#{t 'forms.header.label'}:
-            .col-10.col-md-auto.checkbox
-              label.btn.btn-secondary.check class={model.is_first_line_header} click={action 'toggleIsFirstLineHeader'}
-                i.mdi.mdi-check
+          if (not-eq model.format 'JDBC')
+            .form-group.row
+              label.col-2.col-form-label
+                "#{t 'forms.treat_as_missing.label'}:
+              .col-10
+                = input type="text" class="form-control" value=model.treat_as_missing
+            .form-group.row
+              label.col-2.col-form-label
+                "#{t 'forms.delimiter.label'}:
+              .col-10.col-md-3
+                = datasources/select2-input attr=model.attribute_delimiter options=attrDelimiters
+              label.col-2.col-md-auto.col-form-label
+                "#{t 'forms.quote-char.label'}:
+              .col-10.col-md-3
+                = datasources/select2-input attr=model.text_delimiter options=textDelimiters
+              label.col-2.col-sm-auto.col-form-label.checkbox-label
+                "#{t 'forms.header.label'}:
+              .col-10.col-md-auto.checkbox
+                label.btn.btn-secondary.check class={model.is_first_line_header} click={action 'toggleIsFirstLineHeader'}
+                  i.mdi.mdi-check
           .form-group.row
             .col-2
             .col-10

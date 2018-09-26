@@ -616,7 +616,7 @@ export default {
       }
     },
     'upload-modal': {
-      title: 'Upload Datasource',
+      title: 'Upload Database',
       'uploading-header': 'Uploading file: <strong>{{fileName}}</strong>',
       'dropzone-message': 'Drag and drop your file here or',
       'browse-button': 'Choose your file',
@@ -625,7 +625,17 @@ export default {
       'error-message':
         'A error occuried on upload of  <strong>{{fileName}}</strong>. The server respond with:',
       'upload-more': 'New Upload',
-      cancel: 'Cancel'
+      cancel: 'Cancel',
+      create: 'Create',
+      missingFields: 'Please, fill all fields from form',
+      storage: {
+        label: 'Select Datasource',
+      },
+      datasource: {
+        name: 'Name',
+        url: 'Url',
+        command: 'SQL Command'
+      }
     },
     'delete-modal': {
       title: {

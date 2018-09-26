@@ -4,8 +4,8 @@
       i.__icon.mdi.mdi-upload
       span.__text: t 'datasources.upload-modal.title'
   modal.body
-    .form-group
-      p.title
+    .form-group.select-datasource
+      p.title.select-datasource-label
         span.label title="datasources.upload-modal.storage.label"
           = t 'datasources.upload-modal.storage.label'
       .form-field
@@ -15,24 +15,18 @@
             option selected={eq storage.id opt.id} value=opt.id
               = opt.name 
     if (eq storage.type 'JDBC')
-      .form-group
+      .form-group.inline
         p.title
           span.label title="datasources.upload-modal.datasource.name"
             = t 'datasources.upload-modal.datasource.name'
         .form-field
-          = textarea .sql-input value=name
-      .form-group
-        p.title
-          span.label title="datasources.upload-modal.datasource.url"
-            = t 'datasources.upload-modal.datasource.url'
-        .form-field
-          = textarea .sql-input value=url
-      .form-group
+          = input .form-control.name value=name
+      .form-group.inline
         p.title
           span.label title="datasources.upload-modal.datasource.command"
             = t 'datasources.upload-modal.datasource.command'
         .form-field
-          = textarea .sql-input value=command
+          = textarea .form-control.command value=command
           
       .form-group
         label.btn.btn-secondary.check class={isPublic} click={action 'toggleIsPublic'}

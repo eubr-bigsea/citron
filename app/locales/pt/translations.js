@@ -392,7 +392,7 @@ export default {
       }
     },
     'upload-modal': {
-      title: 'Carregar fonte de dados',
+      title: 'Carregar Base de dados',
       'uploading-header': 'Carregando arquivo: <strong>{{fileName}}</strong>',
       'dropzone-message': 'Arraste e solte seu arquivo aqui ou',
       'browse-button': 'Escolha seu arquivo',
@@ -402,7 +402,17 @@ export default {
         'Um erro ocorreu no carregamento do arquivo <strong>{{fileName}}</strong>. Servidor respondeu com:',
       'upload-more': 'Carregar um novo',
       cancel: 'Cancelar',
-      exit: 'Sair'
+      exit: 'Sair',
+      create: 'Criar',
+      missingFields: 'Por favor, preencha todos os campos',
+      storage: {
+        label: 'Selecione a fonte de dados',
+      },
+      datasource: {
+        name: 'Nome',
+        url: 'Url',
+        command: 'Comando SQL'
+      }
     },
     'delete-modal': {
       title: {

@@ -11,6 +11,7 @@ export default Component.extend({
   store: service(),
   progress: null,
   isPublic: false,
+  router: service(),
 
   init() {
     this._super(...arguments);
@@ -85,7 +86,6 @@ export default Component.extend({
     setStorage(storageId) {
       let storage = this.storages.findBy('id', storageId);
       this.set('storage', storage);
-      console.log(storage);
     },
     toggleIsPublic() {
       this.toggleProperty('isPublic');
@@ -93,24 +93,30 @@ export default Component.extend({
     createJDBC() {
       this.set('errorMessage', null);
       let name = this.get('name');
-      let url = this.get('url');
+      let url = 'placeholder';
       let command = this.get('command');
       let is_public = this.get('isPublic');
       let storage_id = this.get('storage.id');
       let format = 'JDBC';
-      if (name && url && command && is_public && format) {
+      let email = this.get('session.data.authenticated.email');
+    let userId = this.get('session.data.authenticated.userId');
+      if (name && url && command && format) {
         let datasourceJson = {
           name,
           url,
           command,
           is_public,
           storage_id,
-          format
+          format,
+          user_id: userId,
+          user_login: email
         };
         let datasource = this.store.createRecord('datasource', datasourceJson);
+        let er = EmberRouter
         datasource.save().then(
           response => {
-            EmberRouter.transitionTo(`/home/datasource/${response.id}/edit`);
+            this.get('reloadModel')();
+            this.router.transitionTo(`/home/datasources/${response.id}/edit`);
           },
           erro => {
             console.log(erro);
