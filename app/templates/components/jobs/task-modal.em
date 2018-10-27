@@ -35,7 +35,15 @@
             if selectedTask.result
               if visualizationIsVisible
                 unless htmlContent
-                  i class='save-button fa fa-save' title='Export chart as image' click={action 'saveVis'}
+                  i class='export-button fa fa-image' title='Export chart as image' click={action 'exportToPng'}
+                  #export-image
+                    .buttons
+                      = bs-button class='save-button' type='success' title='Save' onClick=(action 'saveVis')
+                        span Salvar
+                      = bs-button class='close-button' type='danger' title='Close' onClick=(action 'closeImageWrapper')
+                        span Fechar
+                    #image-container
+
                   = visualizations/vis-wrapper viz=viz data=selectedTask.result.data id="display-modal"
                 else
                   == htmlContent

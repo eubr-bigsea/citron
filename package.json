@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "@mdi/font": "^2.6.95",
+    "html2canvas": "^1.0.0-alpha.12",
     "lemonade-datavis": "^0.3.6",
     "mdi": "^2.1.19"
   }

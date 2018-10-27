@@ -110,3 +110,17 @@ body {
 .visualization-modal {
   height: 450px;
 }
+
+.global-mask {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(black, 0.9);
+  display: none;
+
+  .active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

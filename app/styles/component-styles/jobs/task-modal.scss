@@ -40,9 +40,43 @@
       }
     }
 
-    .save-button {
+    #export-image {
+      position: fixed;
+      height: 100vh;
+      width: 100vw;
+      left: -9.8%;
+      top: -4.1%;
+      z-index: 20;
+      background-color: rgba(black, 0.9);
+      justify-content: center;
+      align-items: center;
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+
+      .buttons {
+         position: absolute;
+         left: 50%;
+         transform: translate(-50%);
+         top: 16px;
+
+        .close-button {
+          cursor: pointer;
+          margin-left: 16px;
+        }
+
+        .save-button {
+          cursor: pointer;
+        }
+      }
+
+    }
+
+    .export-button {
       position: absolute;
-      right: 24px;
+      right: 0px;
       top: -50px;
       color: #aaaaaa;
       font-size: 24px;
