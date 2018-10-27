@@ -54,6 +54,10 @@ export default Component.extend({
 
         this.set('visualizationIsVisible', true);
       }
-    }
+    },
+
+    saveVis() {
+      console.log('Exporting visualization..')
+    },
   }
 });

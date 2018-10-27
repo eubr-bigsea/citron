@@ -29,11 +29,13 @@
             = nav.item active=(bs-eq tab.activeId 'params')
               a href='#params' class="nav-link" role="tab" onclick={action tab.select "params"}
                 = t 'jobs.taskModal.params'
+
         .tab-content
           = tab.pane id='results' title="Results"
             if selectedTask.result
               if visualizationIsVisible
                 unless htmlContent
+                  i class='save-button fa fa-save' title='Export chart as image' click={action 'saveVis'}
                   = visualizations/vis-wrapper viz=viz data=selectedTask.result.data id="display-modal"
                 else
                   == htmlContent

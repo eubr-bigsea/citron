@@ -39,6 +39,15 @@
         height: 100%;
       }
     }
+
+    .save-button {
+      position: absolute;
+      right: 24px;
+      top: -50px;
+      color: #aaaaaa;
+      font-size: 24px;
+      cursor: pointer;
+    }
   }
 
   #logs {
