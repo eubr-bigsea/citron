@@ -63,6 +63,7 @@ module.exports = function(defaults) {
   app.import('node_modules/raven-js/dist/plugins/ember.js');
 
   app.import('node_modules/@mdi/font/css/materialdesignicons.css');
+  app.import('node_modules/html2canvas/dist/html2canvas.min.js');
 
   return app.toTree();
 };
