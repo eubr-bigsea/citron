@@ -6,12 +6,12 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'ember-bootstrap': {
       bootstrapVersion: 4,
-      'importBootstrapFont': false,
-      'importBootstrapCSS': false
+      importBootstrapFont: false,
+      importBootstrapCSS: false
     },
     fingerprint: {
-      exclude: ['assets/images'],
-    },
+      exclude: ['assets/images']
+    }
   });
 
   //Alphabetic order
@@ -63,6 +63,8 @@ module.exports = function(defaults) {
   app.import('node_modules/raven-js/dist/plugins/ember.js');
 
   app.import('node_modules/@mdi/font/css/materialdesignicons.css');
+
+  app.import('node_modules/jointjs/dist/joint.css');
 
   return app.toTree();
 };
