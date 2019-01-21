@@ -657,7 +657,7 @@ export default {
     buttons: {
       save: 'Salvar',
       cancel: 'Cancelar',
-      'open-editor': 'Abir Editor'
+      'open-editor': 'Abrir Editor'
     },
     modal: {
       table: {
