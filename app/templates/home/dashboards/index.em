@@ -8,7 +8,7 @@
            =t 'dashboards.title'
          p.title-description: =t 'dashboards.description'
       .col-12.col-md-5
-        .search-block.pull-right
+        //.search-block.pull-right
           form.form-inline onsubmit='return false'
             .input-group
               =input class='form-control' placeholder=(t 'dashboards.searchFor') value=name insert-newline=(action 'search')

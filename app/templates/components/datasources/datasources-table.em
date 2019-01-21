@@ -65,17 +65,19 @@ table.table.table-hover
             = link-to 'home.datasources.edit' datasource.id
               = datasource.name
           td.options
-            a.btn.btn-secondary href={concat limoneroUrl datasource.id endPoint}
-              i.mdi.mdi-download
-              //study the best way of share resources
-            //a.btn.btn-secondary
-              i.mdi.mdi-share-variant
+            if (not-eq datasource.format 'JDBC')  
+              a.btn.btn-secondary href={concat limoneroUrl datasource.id endPoint}
+                i.mdi.mdi-download
+                //study the best way of share resources
+              //a.btn.btn-secondary
+                i.mdi.mdi-share-variant
           td.author
             = link-to 'home.datasources.edit' datasource.id
               = datasource.user_name
           td.size
-            = link-to 'home.datasources.edit' datasource.id
-              "#{datasource.estimated_size_in_mega_bytes} MB
+            if (not-eq datasource.format 'JDBC')  
+              = link-to 'home.datasources.edit' datasource.id
+                "#{datasource.estimated_size_in_mega_bytes} MB
           td.format
             = link-to 'home.datasources.edit' datasource.id
               = datasource.format

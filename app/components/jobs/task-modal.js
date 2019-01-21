@@ -54,6 +54,28 @@ export default Component.extend({
 
         this.set('visualizationIsVisible', true);
       }
-    }
+    },
+
+    exportToPng() {
+      const node = document.getElementById('display-modal');
+
+      $('#export-image').addClass('active');
+      $('#image-container').append('<canvas id="image-canvas">');
+      const canvas = document.getElementById('image-canvas');
+
+      html2canvas(node, { canvas }).then(canvas => {
+        document.getElementById('image-container').appendChild(canvas);
+      });
+    },
+
+    closeImageWrapper() {
+      $('#image-container').empty();
+      $('#export-image').removeClass('active');
+    },
+
+    saveVis() {
+      const canvas = document.getElementById('image-canvas');
+      canvas.toBlob(blob => saveAs(blob, 'chart.png'));
+    },
   }
 });

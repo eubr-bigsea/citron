@@ -8,6 +8,6 @@
   .form-field
     select class="form-control" onchange={action 'valueChanged' value='target.value'}
       option
-      each parsedValues as |option|
-        option selected={eq currentValue option.key} value=option.key
-          =option.value
+      each parsedValues as |opt|
+        option selected={eq currentValue opt.key} value=opt.key
+          =opt.value

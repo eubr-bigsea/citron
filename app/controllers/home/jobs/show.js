@@ -18,9 +18,11 @@ export default Controller.extend({
       const url =  `${config.caipirinha}/visualizations/${this.get('job.id')}/${task.id}`;
 
       if(task.result && task.result.type.toLowerCase() === 'visualization' && !task.result.data) {
-        $.ajax({
-          type: 'GET',
+        $.get({
           url: url,
+          beforeSend(request) {
+            request.setRequestHeader('X-Auth-Token', '123456');
+          },
           success(data)  {
             if(data.mode && data.mode.polygon && data.geojson && data.geojson.url) {
               data.geojsonProperty = data.geojson.idProperty;
@@ -29,9 +31,11 @@ export default Controller.extend({
               for(const header in headers) { delete $.ajaxSettings.headers[header]; }
               delete $.ajaxSettings.headers.Locale;
 
-              $.ajax({
-                type: 'GET',
+              $.get({
                 url: data.geojson.url,
+                beforeSend(request) {
+                  request.setRequestHeader('X-Auth-Token', '123456');
+                },
                 success(geojson) {
                   data.geojson = geojson;
 
@@ -49,7 +53,8 @@ export default Controller.extend({
 
                   task.result.data = data;
                   self.set('selectedTask', task);
-                  self.set('activeTab', tab);
+                  //self.set('activeTab', tab);
+                  self.set('activeTab', 'results');
                   self.set('taskModal', true);
                 },
                 error(err) {
@@ -65,7 +70,8 @@ export default Controller.extend({
             else {
               task.result.data = data;
               self.set('selectedTask', task);
-              self.set('activeTab', tab);
+              //self.set('activeTab', tab);
+              self.set('activeTab', 'results');
               self.set('taskModal', true);
             }
           },
