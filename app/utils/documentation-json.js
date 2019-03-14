@@ -5,177 +5,227 @@ export const documentationJson = {
       "https://docs.google.com/document/d/e/2PACX-1vRptFe9Qc9SyAlZiI8vv538sZxHgeT5UGIPJbeLcuQarWJ7F5s72eovpIAlI-oKGQfJw8G29dDWTSMb/pub"
     }
   },
+  "overview-doc":{
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vRp9igE3-GHANmb5CVPfMgZb7hkBCqAsYzoonTSapwOYha3RmZp8j8KRh3g19Z0wblU5JaNUPqyRTMK/pub"
+    }
+  },
   "data-reader": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRIfm1eFK7J3P8cOrdOM1gEA1JfhI020VjQ17N_LBGw3EIN4NUHSFp0YEy1Qh_t1d2WzTMeZv3Js5Lq/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vT4MbjwnEmkQikNIotwP4AGAJEm3bo-GELP76M8xYXvI7QPg5APA9BnwMw3-1eLopRmmOTD33PZChyb/pub"
     }
   },
   "data-writer": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRCmYdPMarJt4xxkz5XrDtTwkQE-utJi8lH_P_rTg5dlGYjC5R_TuxQJea691TdrOPQ7Xsnky31kDV4/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQBW7h3u6YKAIqoiRLAPwQmLSPwexN9Cg2Mq3QxRaO9HqZD10rx5M6ahj-wQ2kwgDFyRdVI_SwCJykT/pub"
     }
   },
-  "add-columns": {
+  "load-model": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQqUAjKF2hZRaJLJeHwsO67HX-VRohPxpduuoJVbSY186xtVNhfMpLHAnq6h5cT4aYLcqU9usdQtCsk/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQUGBW4W4ABvDApx0coUu9vx8bg7qnQyOXeI6I8NuEosylmUJumN6nKugJpte2XPW2JppyifD3ay_l0/pub"
     }
   },
-  "add-rows": {
+  "save-model": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQuAzHLsOu0RcuFB2gWBd84VfQUIidVI8fCHsj7NagVUSvCvHhj9thYjZvPYIS0ddFyZqLUTjf91rcx/pub"
-    }
-  },
-  aggregation: {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSoc34DJND-Jkhs151mefp-FbxGiadpTQaDJ0Da8PTcmS1fY73F-JA0rKka6VqPZY8A_xIrwYzAtu4G/pub"
-    }
-  },
-  "clean-missing": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQ2jHocFtPStYswr70RfCJmllVjhl1HEXFKKSbBZJnjuAy631TrubyuJxN4gfXEgGaHdd2Z4sivq2SU/pub"
-    }
-  },
-  difference: {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRj5M4Ab4YfP5syy6RrsCK7QAhWDkcR0g0Y1jI3_qIg4ASYIIF3G_cQNlFp62C2bVA_18BGN4Bg1Syr/pub"
-    }
-  },
-  "execute-sql": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTJ8jzOXfqFMw-19AmDECv4ny41vehnYgrp8yafXMGY6EO9Ps7NX5K8VDRBuSSzH7pBn9fRuNjEoJCl/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQBW7h3u6YKAIqoiRLAPwQmLSPwexN9Cg2Mq3QxRaO9HqZD10rx5M6ahj-wQ2kwgDFyRdVI_SwCJykT/pub"
     }
   },
   "filter-selection": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRpKC71ArSctLnfwpiXpXGt_oIXtVQihShgTrx2LgZ4jf3wVpvklx0hmwbHf5-7SZS-MKrZNVM9qguR/pub"
-    }
-  },
-  join: {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vT6IOJvxlgEVdF0ydMznp7yKnQRIJmBRX4pj0nwmVM_-OP6TTdRBjN9JvZygN0ljKQ_72rRgLYMmORV/pub"
-    }
-  },
-  projection: {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQcbfUI1THLkjeyjWTFJlWc99yO2XFGokVAolHtnttg_g_590aZTDXH9HiHy2vGw1GT8X-74RNvaO7l/pub"
-    }
-  },
-  "remove-duplicated-rows": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRYUqcmZMSi_j07K-M4ee5Me2l3TtAksZdECFf25Vh84e13jPJqMsY7bgqf8Xrr7nQaAUDSqqrjq4n2/pub"
-    }
-  },
-  "replace-value": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRb2eJc6ifxma6MatjJAQYCk4JHGSijKxqrJhmQf0XW3kBVzvOCcb55OiToZAkUTcqC5cM3f5qd2U73/pub"
-    }
-  },
-  sample: {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQgEj6lt1VxqwDDunO3RBHkC-E4-sp59kNN6MgBmlWoT75EJ9HmufF8zrbLwr_RwyGWC19QRrBmfagC/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vTPFq7DIg6wZsTNwhSRr0sEMUuMaXC2MJR6SGWUv3ZKA46ippgfTzxuavsM9wzJtISfPfYGCfks7c34/pub"
     }
   },
   "set-intersection": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRzq0Rhk5dB8B2zv7RfyWugEtE-HHqD4SZ9rdByt6E71UNwg58ogDJDwaaLnVyKON4RCNnzLF88epL1/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSubsb6pg0b3b-KgeYO60AierA8yEdSpCQvOsNYJMewZeW91eF7Dx9Ali8IxRCLUrzJN_D4uxu2q2zU/pub"
     }
   },
-  sort: {
+  "join": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vS92ZTnsLMFMbSdKcE3L01_LVTsFckVWenZ-xjRJhauGVclIi0xgZTsGZUVbdtxkE75osvzK5qtSCx4/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vT2bQJFFk8HwZuH5sax6o8qjaFza9yby7btbZripXaQwKowkpByWnNj2qU4VUM1qEnh406WiL8Zg0VU/pub"
     }
   },
-  split: {
+  "projection": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vR5YniXyc1wLj1qUkMc-Yz9162yWdGN2PXt2eCpWQlKFwi-r5sExxCOSRHehY4dYBCroKgfXaqbufpP/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQbhzvofWh23-L1SVfzuGvgHktY7Jl5p42zR7mWAhAV-WD1pIibX4pwUK2Fau2TP9S71b3VPdWnYVWb/pub"
     }
   },
-  "window-transformation": {
+  "clean-missing": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSmYHoUbLthNGPoOf7UvPS4gM3SoOTU9_oP95vPiJW5kW9Opjd1TGcZazpIklauVHEYECxxebNQHF3w/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vRCoq91MknC2laZGdwTXkiscLgQ1pn6RVDtTpSeNZr4XirzgjguGsxVWJNYzkof1eu4lkwRwdXAOCiP/pub"
     }
   },
-  transformation: {
+  "add-columns": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRzdu5kR3t6OA7UOCDBwjhsHW-H3nPQvbbJK_zZ1fw7fRWiF5wzn0WKNhku0Os0bqmBh1yrbrVYtEK2/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vTMG0B_M_HwdlbLZFHQBvCCFmT12edZQ5m-kUXM4J3cQuacYohTJFfHSbRWNKky2hRQQGOyrXao7Rdv/pub"
     }
   },
-  "area-chart": {
-    url: {
-      pt: null
-    }
-  },
-  "bar-chart": {
+  "difference": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRlR-BBgRwFo5iSRBy-PAGdKoxoTFZM2Ahs43Lh2HG790yXs9d4vT_exX4iNuLCNm0RP4vV99geqRnT/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vTD2qYt3CiTidJE6shyUbw91Gi4eJrPo-mwUo4OKuQlPFtv8GcH_AsSoMySdT7CkPoYpAI18BQHzW2m/pub"
     }
   },
-  "donut-chart": {
+  "sort": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTG4Qvju3Vv2ayuYm587EWFD2hQg7dQmkW0jTH9CZyKPgE3Td5VFs6-vjeRUPD3AGksjeevvquJ2XPQ/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSMTVN9GqXqzGFodwdc5tDY68QjkyUBVG9x1XfxNo2dVug67tAvEr-I9-354MaLtqmFugt6vXU3eM43/pub"
     }
   },
-  "line-chart": {
+  "replace-value": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRM-GAExmRjVDPH5POPgoUCZpGkmdDEujb4JCGp2GxtBuq3Wmue9q58jTrGuntM9vvzHIVKqELez0zr/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vT2OrmgrKnhBSNpjFSoQKBAjt_c_X3XvGhYfuQnP0zQ97jwfngJx_2bqf99nzxjoqcq6GcP2AI2SM9A/pub"
     }
   },
-  "map-chart": {
+  "add-rows": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTkP82GPW-2bW4yLy6iakxzB11eB3FZSIhRtPdNeI9vax01O46ngpRGeq9YKRVvCDFrm8LIj_fN5kVr/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQQVR8YGbRH2P-EGPdQSvU-PREQNJsloTAkMickqq98HxOyDq_AkVOcpqUKcS4mZ83gFWGb-JSojWHa/pub"
     }
   },
-  "pie-chart": {
+  "aggregation": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSRJhP7R1UT_TaOhQqRlcowg22vqB3Wi12lO9ViFDE_XEShUdsQ8qz_ugsfs0PY32YsOYNUi2sL3Rww/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQtqevGXyWwQqu617xJYLMgp4C71Cu7xCzePOH7REIYGA5ctUNWfGKBMkNlxk1Gd7y7ccN_CnPMz1r0/pub"
     }
   },
-  "publish-as-visualization": {
+  "remove-duplicated-rows": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSr6Nsp0w8wdq1KGogJOBLkFkyKWMwf91k54Ciznr-rgGCqFj9SxxC5B8rmru-XHxWYPqIRUtLCItuM/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSafYMwviQh7_SlAc5-BNvF4DJmdZPlzz8UEpAs2psXZuJVCHj73MFQeCiAVoxgcdEUwXT1YlUkQOjq/pub"
     }
   },
-  "scatter-plot": {
+  "sample": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTDBSWrxdChLtxJzdivXoEzfTzw_M0I_LiY6JJ6SQcCvUk99W9ozHnIH5wSGkwQh6vr6K47HHJKDJT1/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQiCKBdy5IbfC6lPvJG998aNcavEcGLUI-0YOXIscx15kXpPjXh2rdu9h8oE4XQPRykHqGoOBKlVfin/pub"
     }
   },
-  "summary-statistics": {
+  "split": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQVY8Ztn8E8xjyrCqa2Am-3EDPrk5CC1seJVdIQwrRoxOLJjAE_MVlkmNlrcf3o4qQCJ3QjtYUbMlZ9/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSVZWhF85u6TbmtFhdZjb10iPaYbv4tufld3R3GhTtoyTnLBJfVL2dGnPMaXQFKuVy3Jf6He_bs2ZnC/pub"
     }
   },
-  "table-visualization": {
+  "bucketizer": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRXlrv5sIAtqtrzIs3actNzxIjOM-5HXoYE-LWWYNlNgnMkSesNrzduGWwW4K7j2ltUQioswOkcENCz/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vRfIG4acO8ZIuoqdj7kMuuq9_zNnaW3t-Z9ppaynRoE8RX7qljFWgBJTPf_SFyDg9kog9YhRgJyS-Uc/pub"
+    }
+  },
+  "quantile-discretizer": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vRhVEPUOxTY38ffoYBugJH0kBVgw2wqGZqbE6LnIryUSJfqTPg2Tn_sc09zUUBa3kUNJjs_c7-kBlKO/pub"
+    }
+  },
+  "tokenizer": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vTX6iSCo-rIzyG_AnaGOTfetVNPsm_c5ozNwZM0pkX49UxFiS9wIpivR9lf59_qkarl5bbdW4elWFU6/pub"
+    }
+  },
+  "remove-stop-words": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vTc3sN_CtZOBV1tmxmuXapxQWi6zHBfaGus-odQOrSONslcV_AXcjXMux-nw1FfDXsU2NajRzanQIXk/pub"
+    }
+  },
+  "generate-n-grams": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vRM_DPzOZnztZ0CmqtsJQIz8ueq46LUCJykmvRceZrlvy4G1duGsTTDW1MldGiKdGJWC1pSNXV0xDXa/pub"
+    }
+  },
+  "word-to-vector": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vSQAblad6AHBfFIAtl09KaDsVzuEcC_G6sO7D3J9WRGBI4qALW6sZ3ZQMw6AMf8eKBMOnqHpSLdPxK2/pub"
+    }
+  },
+  "lda-clustering": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vRj59ckZdLhbd6t32JCZtNbgxu6O4tg74MqvUBUN5wZ-DOWligJycvjztzilXmgyAozoIEtatQL3Czv/pub"
+    }
+  },
+  "topic-report": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vSOHl1mNDeoPY_6611suolXKl65PCq0N8r8LnZG760VW4PaoZSb3xNnjMfF88MTFHGDGy6_D2oqfoBH/pub"
+    }
+  },
+
+  "max-abs-scaler": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQAdtIQEJ8N9qKDIalI1pjmeEWydDN2MnLQNndxbPU-qioa0lmXxTDc-6NAlnFQ0QTlR6T2RyC_MVjU/pub"
+    }
+  },
+  "min-max-scaler": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQHm3jjttHNUsW0akYF8x7OWn_WSkOBlyXbdzq0ams5VWn_kQzCZaMQbWVo5A1P3m6kGtJq0nU7Qvz8/pub"
+    }
+  },
+  "standard-scaler": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vShohN_O2H9_gBO-rT97h6yglyQEvrWUfN-t2RTiI-E7kXKzctrBEwYmMEhWXoEkDY7TEft77C9Lr5E/pub"
+    }
+  },
+  "pca": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQttj_kNm9aRz3ETEs1XnYX2wdUrWHytTsYsdhEOCcD2SN8DZJapPOjC0PPQAWcSJ2EcOjIQIFTYqju/pub"
+    }
+  },
+  "lsh": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQ2jHocFtPStYswr70RfCJmllVjhl1HEXFKKSbBZJnjuAy631TrubyuJxN4gfXEgGaHdd2Z4sivq2SU/pub"
+    }
+  },
+  "one-hot-encoder": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vS4jF-w357nRi2TnsSceUdE-bHztVhsVTkAwrQePBsdV-DuYW5av_0kAnwPY877GauRoz9eoXzV9tRV/pub"
+    }
+  },
+  "feature-assembler": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQ9cmmwNOPn7aTVEarPwoETZfMqXHiYPQGX21GUf0b0W1drtUHWu9ZsH_aiLh4uBReZKquMWTfNz0ph/pub"
+    }
+  },
+  "feature-indexer": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vRcpKHcCdCWAUfNokkPirwzX9Rhw46TWubbOFsk0j94_ZdWn08kCDnok6pmZhM9MYcCdTQFLYZfKiY5/pub"
+    }
+  },
+  "gaussian-mixture-clustering": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vRxR1z5JWurMGvgyRf5F9ewr1L_piCqN97A1Pmvg7fZFAWTkzqnvpg2qfiHaY6M20SM1kuGG3EtAk5A/pub"
+    }
+  },
+  "k-means-clustering": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vRFKnkmdg8htTG7nRz33N1qHuVg0UL-x4ZoWyhLWo1Te0fHGsrCLivhEaXYevTphWPcl2Bp94JGV4Vj/pub"
     }
   },
   "association-rules": {
@@ -186,189 +236,76 @@ export const documentationJson = {
   "frequent-item-set": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQZylD3_ylpNZgsWCJsp-x66aUazADglG_KFzBfAJSnSuYNtw7eYSU-vsxAnnPZ6PMoXUmBDchzktwK/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSI1fCvkb8lWHUnfKcLrGLzBeMViBjsx4qd-6-KsOlz2tHr5JkFUkRmZGjrDaU_MHwmikNJiDxmdisn/pub"
     }
   },
   "sequence-mining": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQ31BFSIqXJJrjl5uWXU-ghsLbpEpt73fom2DInqAlrZHljyc1sKhBA2CIqNJDUTSZYoHj_Q7CV--0F/pub"
-    }
-  },
-  "classification-model": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQSPvg7OkebOaGPKdlQVSU1Bbk8HHTkv8DQwpEgrEA2fpomHPbE3OU5G4cM4A5h2MV2FF8R6v9nAnY5/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQRnWrxKnbHROvJnxLQmixX8KDtJ-HgdYHT6179m1IdpFfmxenx0PwtPz2i9-2GI42_m1ECH3k1ir4d/pub"
     }
   },
   "decision-tree-classifier": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vS2Tgyyvd0L_spNePXSxFqocHs9Hm1dsX5liVt1nRUIEiIov9-KiM8_Upkbhm0Eu53---zYV4KXWfcH/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vTOAbbUyZb-BvdwIm5pgWuTK08AZTgSk1IrMlPlRMsi3WsCthdreYiLCC91fhnEhT7HCloM4Lb9TQS6/pub"
     }
   },
   "gbt-classifier": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQ-muT9BhxuU7mtWT9REuFCUd71KMHJxtjRAP_JbINas-tqbbRH8VvbQw6RwWJxBS-N4lmr-V4ATlCD/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQqt6ZViu25QN_EacMnLy1ZNUwNDHWfVK3UJ_zKFSnvWHf0p4JxJUKIJf0R34n1BHyXrvC-emJTWPQP/pub"
     }
   },
   "logistic-regression": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSrlhyXnls9nf-fGL5Kr-Q1zUFThM3AHwvOiqkyCZLC6FMdUUYnR_7IfT3nQf-VbWnF4YFEXmrpKP0f/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vS-Ocnweav9XuHakNdbW6HHxmkse09cgyKURD4s1QsE4Tq79Ulmd696ISoYaIU-hGRGCTTLHrOG1zeV/pub"
     }
   },
   "naive-bayes-classifier": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQCzPB17MgiiKPzPS-0G_NhtgEqw9WYIN-NLdV4ndnMPE--caI0oKL5JaYg5P20aXPykc51X7TcpNVr/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vRCATJUWw1hMK9T3XEy7wopIRFdzZunJBWVXrOqBX6ZCQIaB9VtA5kXOMWNJQvzVzcx-pK5nxRcJQcO/pub"
     }
   },
   "one-vs-rest-classifier": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTB5lFAkw68-kD3Z3ePocYCUIw5kUmpjOeXXg88DfJCxpBJ5FaDhWHf2b3hDh4zafFO0FcfZu7D6tVf/pub"
+
     }
   },
   "perceptron-classifier": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSIc-O92Bx67pC6CylJszh1u9050ZgzRENElCxLvD2DvKppH4DMbsTdjNI4VK0QvVTAFgsUPqzBxYfV/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSq6fUQDDEroLeFi2UmrmKyboHrPfERyntkOSHuxuppWcZxfMQW59olKad87bppdVyHQ2BM6iYMlPSw/pub"
     }
   },
   "random-forest-classifier": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTCx-iLR2UoS1IeHA0FUqT5Y_Dipr4CkfsTAlfvYhiypw_uNwVi2LEndKrgPEOQeuV4wgUboFPB5rqJ/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vRG0JkPEVt7yyCLSYKxdycVKf5t1RaVEFoaG-UeT-J5UjYhO5klnQPT4e6T253cshQ6hVsKF82tXFWs/pub"
     }
   },
   "svm-classification": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vS1o6wiIHWoRuq6MQrWmxX2ie5gthICCORvWsSs6XfsIntJplNVJzRbijHRNvbjH4WCgH-TG0VXh8iG/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vRXAqS1Bzbc5RBgZlLnCtyTqIfPvFzHojoP3EzV4ZrvwIEfM6FPo2DrYSKyOvVujf4p-wzd1Kj0C0XY/pub"
     }
   },
   "voting-classifier": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSJ23YdPROBZv7BNhkUGBkuEVUw6Po-FyyR0K__dQFLcefsudcUcwoKzjmHZpIpZk851NbIoNvAJwFn/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQZmk9xdNrLzf1MCq5DFqjA4cyR3D6jrIncvC0xxZ3-sYDG48T0mZGjAgoz4-nITAxTgm_sqc6efygI/pub"
     }
   },
-  "clustering-model": {
+  "outlier-detection": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSNeI4FAlx30xq4TkomVxMcYGAYB6sGXE_2YgFv0lw2Ku-qG8JbF4wBH3W8zQCyQvrnAz_aIS2T8wkS/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSC039IlEaBJBdQVDl_PhdK2r7uQxnq2qd-lPq1zmc9G46c7YsA9TXAxWxZ93vbRS5Gqo1li9qzMtRa/pub"
     }
   },
-  "gaussian-mixture-clustering": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRX3ojdWnsz7V0Cjxue7UA0HBmopYFvQHApZkp2pCxHKHTWrpSzusQ1D-zxgZbeJjOfQ1wqtl8CKQHt/pub"
-    }
-  },
-  "k-means-clustering": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTSfbxNC-x-HGJ3cywDlv444rXIDnUFwHRJob5gntptPoVhlSX6cMk1QHN13G90WkimeWAmrjyTp8ZA/pub"
-    }
-  },
-  "lda-clustering": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vR94_Gl75zEZ63pa1hYSbSl3UO_biO5sXH_ZlmEAVyEAzmd2GVr7xF8ixw-vTBruAmPl-pI5qT8Uzup/pub"
-    }
-  },
-  "topic-report": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTd7aWpiFFbIffkAHdnJE1w-20xlBp5vU8y8uMWpSgVnFqSGT9sCREdRkI3sZk01MRp4C9c7bU7Gc4K/pub"
-    }
-  },
-  "feature-assembler": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRQTom9J4tGIjXG9NMlEdFA8zp_43E-2-tAV5C-f8Ipe_1EdLRWL9LtUCvDkfkR6WZQh_YuUsHnFkmO/pub"
-    }
-  },
-  "feature-indexer": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQv2qjuu8t6GB5B5SeGZZRFx3NpFAaGzaS9mkvZqqKR_H-abDfrWrjc0BJXopbHaxRFXW6nJxZ4ImML/pub"
-    }
-  },
-  lsh: {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRBHw0Hu45eXf81ZfvIUGQU7eRhHLV1mh-NCmotMVlsuLNVnravPdDoJJnNAda3fQlruEBsrQyfGeH9/pub"
-    }
-  },
-  "max-abs-scaler": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSTN-Fl7UYuh4-PK7l9YMm4rhozbZF_KMqYNwYfzqsLE0Pe2_w7zEiu96nXeD-NvIQHxGvbROj1Nc_b/pub"
-    }
-  },
-  "min-max-scaler": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vR6KazpacB8lwx-Y8ao1jyKticrtW1Mohepd4bjapwCSK8v7jhuK4fKC-qlMusq8lgLxky9Km1H9p28/pub"
-    }
-  },
-  "one-hot-encoder": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRPu70NVR4h4NNJ_szoqKWJvpbsRW9JI6LFxrxfC9pkygzTzPoKUW-KU9GbXjNixuZf3LRDumZI-tJ4/pub"
-    }
-  },
-  "standard-scaler": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRXhvP7Ef8xatG3QKx_xIEiGQ7jiAJ_V8jVTAsQv5SuZipJ2zD03xA8_uviDo-Ziu0qCPY0l43hloxU/pub"
-    }
-  },
-  "apply-model": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vT4q6ClJLeEOFG32cZwv41LEk0Bq6Y11GbyNHWNDXFt7kRTCwEoPLJnl1C_LSxPqRm1-CV-SOmn7Kpf/pub"
-    }
-  },
-  "cross-validation": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQGFU4zww2_LE1AOfaYlJGimPKD_YKBWxFVbo9X5dsaVlTmoyPPcofcTlcQu5lN2etCcd4DQsX1-QQX/pub"
-    }
-  },
-  "evaluate-model": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTDq9m-vhIWqQE-wvQldhf3Fd9scTrLIFN9NG5KfaZEvOhMKDdCzvg9xObn_75KMwqVMWpVMfe6WWRn/pub"
-    }
-  },
-  "load-model": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTY_wif2MMO8_Ya8KD8bVW5KqArDYojqVesyL-f9oAVYOZvSd8W7EvDHZ-Q36YyBgDHHB7HmZ00UuVo/pub"
-    }
-  },
-  "save-model": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSkHUryet5jQg-IakAfBSQkVlYu3G_us5SbN5wEM0v2QkyQEK-2JR215DRI2tp-utlTTWHCVMYX_1Ww/pub"
-    }
-  },
-  "als-recommender": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSvxy6qjyNlccu_39IamdLUJAjlybqln6buWb5Npg3fnm7naf42EhFmAPZoGs3H_MDDupU26VepIvF3/pub"
-    }
-  },
-  "recommendation-model": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQXvikGEaXEUWjwQZALnq0l-5HQbQewGQ36ZgufXf0k2Tfj9MIPHclFJ0H8_FaESOb3EHqoIv9K8-0e/pub"
-    }
-  },
+
   "aft-survival-regression": {
     url: {
       pt: null
@@ -377,101 +314,142 @@ export const documentationJson = {
   "gbt-regressor": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTRwszsdh7vXWz9zFgZAFWF4ug-qqyNl_b2mDOvfzb55KtdjMJuKD1p74MqcJI7obZ8OUaCkkbKLjEJ/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSnTM-IPrZ_PxrCj8LQZIN5FU7mMenqtDNI7PQjgDLu8_p_ofE-bE0sRndwAaEo66FK-gxBf9gA5xiq/pub"
     }
   },
   "generalized-linear-regressor": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vRF9b4BbKpetxu-RExKHNGcU2v4i1ZWdcFgAruYP1Ort8q13u4Q08OEb-cSpPCDajc6YR4f-K5LhwmJ/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQreuOAt3P9sIVId1y7OppwWWgzDmWNyPPu6O5I7twmloOrT9XWcWI17soXXa4LJk9copm2-FMR84k7/pub"
     }
   },
   "isotonic-regression": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTx5XL1WjNO_v8iHBwo8ffhmQbZSM5L9LrglsqdMdFIlNkSRvZPIDpvT7w-OSrr_x6rExXUojQNupDb/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQRsLLEiXmWF49-uU6fJ44m4a8_JCwG-zfWfA-eMUYwcNPRK9EYleyfv9DLQYi-RpcWjlESmz6m_TOx/pub"
     }
   },
   "linear-regression": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQgcgUiLBMXFTJTlYyWdjAyrU8kVzwJynd1YMAaciopKciEovx28M1gJnM8aMzivVJOZYAp19C_aHWq/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vTke5BLOjt4_VcUNDub3vMzPgNC3NgzsEgyXcg5ROlW0Igx1pOf4Xpg50xoL7KJx3Ubz58ijgvbHRxe/pub"
     }
   },
   "random-forest-regressor": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQckw5Yi4ucxEZg0jWPq-1_SfYZpAAWXddS_vmpLc3tgxyo3Q2_IASunt0VomCcpcEOu2YIc_5fL7Uo/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vTPId9QNbLYqBDn7FaaIxdzsn4js_WAIKvFq5s7rq1omcRGRkg5lKIcnD2D_r0h5SHziewGnDP7ZWoU/pub"
     }
   },
-  "regression-model": {
+
+  "apply-model": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQZOnSuLsETKR-Cyxp5YMVxeuEpKfY6qEWfqa0fORPefyqf7q5zp7UWAW2_G8ND0S0qW7ATn7o53X6q/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vRUHkSElXeJH1Mrt6mQ3h3vCjhH1PBZZtzpm6DEPm9IQIZUrL_7MuN15sqI1iZHOz7yYGCsphSwAF9e/pub"
     }
   },
-  "word-to-vector": {
+  "cross-validation": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSQAblad6AHBfFIAtl09KaDsVzuEcC_G6sO7D3J9WRGBI4qALW6sZ3ZQMw6AMf8eKBMOnqHpSLdPxK2/pub"
+      null
     }
   },
-  "generate-n-grams": {
+  "evaluate-model": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSaUAGPBre2pmckL_fOO46IuPCNlVwoz-veN4LGZ72bi7BU59tEwnNVesxs-v8TVxx2b5u1PPZdoXs7/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQ-eKfXMeQ5GDoiQiqr5lkvu_6ntKoA1Fqvc1j8wWA2y_F29Quh82J99OT-AJ7gsnFmnWjNvSRtXSxG/pub"
     }
   },
-  "remove-stop-words": {
+  "execute-sql": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTe67tlgYGRGUJvVsj0Gebhah3FQOGZqKOMFnCTbqV_MbTntvNQ_49hXLzZ4xMFr4-0N8IxJTEf-1JO/pub"
-    }
-  },
-  tokenizer: {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vTbkAy8moGD96ve0kCchD6L8sor3JUy9L1I_wy3B18WaEz9hUzj0a4eEM4iqTR9pf2v1u7RP-x6oIc3/pub"
-    }
-  },
-  within: {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQsYtFzHFqIVpSWZ_2pV9WZEn33zr0IDFdUfrgZKRppL2xa0jH4npAG7LqX95EX2yBC2wFuwbO9v-Z_/pub"
-    }
-  },
-  "read-shapefile": {
-    url: {
-      pt:  "https://docs.google.com/document/d/e/2PACX-1vRq9H3C1XMbQ_yeBI378ewAVL5ZDzkEWTwi2nZEzimdDrbFFxVRDFNzZgJorxNllFOK4iI3TyQenpgh/pub"
-    }
-  },
-  pca: {
-    url: {
-      pt: "https://docs.google.com/document/d/e/2PACX-1vRK0HcEUHG1rU30G9pjdNV0_0TjUrufENp1fSliIuBmEE-N0EOTK8w2OPGXtT-xl_VROGXQmBrGr37R/pub"
-    }
-  },
-  "quantile-discretizer": {
-    url: {
-      pt: "https://docs.google.com/document/d/e/2PACX-1vSPHtGvX9SQropgIR5UNAQVDLWxGAbbGFvBNnwksrKHXU0P2yCzK_2FX2Muv0XSyNUTG5BqZsBYbmEA/pub"
-    }
-  },
-  bucketizer: {
-    url: {
-      pt: "https://docs.google.com/document/d/e/2PACX-1vSvUMEierrY3GWvhXwzYyq4IbSnbl8qlzzrwWFkPPhVutlahX1MNAtDQbjky8hZ7q0vnN6AIKQgh1AT/pub"
-    }
-  },
-  "outlier-detection": {
-    url: {
-      pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQCOqPMwdsusP2MtqEC6u_pbaHsmgxhMpa9_7SgT-7exjzT4DWbMDK_ZnZo3UlNNLA6aMHjTvsHYH8T/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vRgGsXTV23_o_6ooeG5TRDgiJjRGuiZZJVaHXNcwV3CLow_khlDpc4j9BONuQ895oduF_1Npua3tDIi/pub"
     }
   },
   "execute-python": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vSEBzKJwcl70tBszMurIBnSDfPAFR8hQwFohFC0r8poYB09dn6LNX70pjVQE5KsENGc8Qycagoj_4OR/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vSoUY5SQBEyQQmQT-QwdFlxRtUzFiFt2xN8QC5dioe2AzQJhw_LrSqEUhkoM8lxpjJjC2yR3-jHvalc/pub"
     }
   }
+  "area-chart": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vR53U04X5S5ZB1i_RivhnZcmpyKpacM9lKf6rQVUB8POtzKsRxzN9hazix0cL6swq6vOJ75ZoNSJW3P/pub"
+    }
+  },
+  "bar-chart": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQCtgfYdJcbz8UqoJJkRyYwryT3-qAezAUJr_7MUcVf2KaZSr-6dLnqwZJZOfff_v0JiY3wWnY5i0jR/pub"
+    }
+  },
+  "donut-chart": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQET27f2q1TZk1mnu08FRk1Mr2niJFOqcIZhbaR1bRhsjXCHQdCXyddM-ipvgHorPqjhcFS39SBAwNJ/pub"
+    }
+  },
+  "line-chart": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vS4dPbIvfcpzNmyOr_6IETSXr_r7X0p8v91TlOj-qaw3jH3YHRX3l3TJJ47YyrnLctrtPEodecvPVse/pub"
+    }
+  },
+  "map-chart": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vRZ6VjvEFFd8L0Bv3JgBprGAX2tUN8e8dzTUFZymMBC7PiRDBJV5dZFL8O55Y8qU5EABR7_3Q03sPbF/pub"
+    }
+  },
+  "pie-chart": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vTCrX5GPHBanaEQATotX4n6WTYsP3vnKTvjUp9Zhplw9G5r_fiMzanHbO6sT1a3IIs-s5SH-JL70HNy/pub"
+    }
+  },
+  "publish-as-visualization": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQGzvzSA5-o2Ygt8evu940DX3CEHpJlz-VCwg4l_6HhXh2ZrDz_siLDKd4J9iW6uAK9FCx_YchSwyMK/pub"
+    }
+  },
+  "scatter-plot": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vTz9d8jWB0JVBf-jTjch25bON5cvgdsHbiS7cLnxrM2RxyoFutvc9ArYK8wW9HOlqKm4q9tFLHn26PM/pub"
+    }
+  },
+  "summary-statistics": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vS9A_iILWNmDnYz9PCADII2ZGik2Po6A_41MNLIoSds2yHNCDLZF-5Rtdjl27xJ_80T8ymq4Ri0zMMh/pub"
+    }
+  },
+  "table-visualization": {
+    url: {
+      pt:
+      "https://docs.google.com/document/d/e/2PACX-1vQaYLwivEO3Qvc3_Srs06rSo-vQKQotaaKpiFi9scgS7NlcDEg7kYk9kqVPHw5b3namFwHKVb5pviv4/pub"
+    }
+  },
+  "window-transformation": {
+    url: {
+      pt:
+      null
+    }
+  },
+  transformation: {
+    url: {
+      pt:
+      null
+    }
+  },
+  "cross-validation": {
+    url: {
+      pt:
+      null
+    }
+  },
 };
 
 export const extrasJson = {
