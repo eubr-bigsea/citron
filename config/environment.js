@@ -16,14 +16,20 @@ module.exports = function(environment) {
         Date: false
       }
     },
-
+    i18n: {
+      defaultLocale: 'pt'
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    emblemOptions: {
+      blueprints: false
     }
   };
 
   if (environment === 'development') {
+    ENV.tahiti = 'https://teste.ctweb.inweb.org.br/tahiti';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -44,7 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV.tahiti = '/tahiti';
   }
 
   return ENV;
