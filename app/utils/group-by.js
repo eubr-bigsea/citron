@@ -1,59 +1,72 @@
-export default function groupBy(data, group) {
-  return data.then(function(rawData) {
-    let el = {};
-    let types = { subgroup: 2, group: 1 };
-    let elems = ["group", "subgroup"];
+export default function groupBy(data) {
+  const groupBy = function(xs, keySelector) {
+    return xs.reduce(function(rv, x) {
+      var key = keySelector(x);
+      rv.set(key, rv.get(key) || []);
+      rv.get(key).push(x);
+      return rv;
+    }, new Map());
+  };
+  let ops = data.filterBy("enabled").map(op => {
+    const group = op.categories.find(cat => {
+      return cat.type === "group";
+    }) || { name: "", order: 0, default_order: 0 };
+    const subGroup = op.categories.find(cat => {
+      return cat.type === "subgroup";
+    }) || { name: "", order: 0, default_order: 0 };
 
-    var groups = []
-
-    rawData.forEach(function(o) {
-      let myEl = el;
-      o.get(group).filter((a) => elems.indexOf(a.type) !== -1 )
-        .sort((a, b) => types[a.type] - types[b.type])
-        .forEach((e) => {
-          if(!myEl[e.name]) {
-            myEl[e.name] = {}
-            groups.push(e.name)
-          }
-          myEl = myEl[e.name];
-        });
-
-      if(!myEl['_data']) {
-        myEl['_data'] = [];
-      }
-      myEl['_data'].push(o);
-    });
-
-    var func = function(el){
-      var newArray = []
-
-      Object.keys(el).forEach(function(key){
-        var o = {}
-        o[key] = el[key]
-        newArray.push(o);
-      });
-
-      newArray = newArray.sort((a, b) => {
-        var nameA = Object.keys(a)[0];
-        var nameB = Object.keys(b)[0];
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-        return 0;
-      });
-      return newArray;
-    }
-    groups = func(el);
-    groups.forEach(function(o){
-      Object.keys(o).forEach(function(obj){
-        if(o[obj].constructor.name === 'Object'){
-          o[obj] = func(o[obj]);
-        }
-      });
-    });
-    return groups;
+    return {
+      group: group.name,
+      operation: op,
+      subGroup: subGroup.name,
+      order: group.order,
+      default_order: group.default_order,
+      subGroupOrder: subGroup.order,
+      subGroupDefaultOrder: subGroup.default_order
+    };
   });
+
+  ops.sort((a, b) => {
+    if (a.order < b.order) return -1;
+    if (a.order > b.order) return 1;
+    if (a.default_order < b.default_order) return -1;
+    if (a.default_order > b.default_order) return 1;
+    const groupCompare = a.group.localeCompare(b.group);
+    if (groupCompare != 0) return groupCompare;
+    return a.subGroup.localeCompare(b.subGroup);
+  });
+  let grouped = [...groupBy(ops, x => x.group)].map(item => {
+    if (item[1][0].subGroup === "") {
+      return {
+        group: item[0],
+        operations: item[1].sort((a, b) =>
+          a.operation.name.localeCompare(b.operation.name)
+        )
+      };
+    } else {
+      return {
+        group: item[0],
+        subGroups: [...groupBy(item[1], x => x.subGroup)]
+          .map(subItem => {
+            return {
+              group: item[0],
+              subGroup: subItem[0],
+              subGroupOrder: item[1][0].subGroupOrder,
+              subGroupDefaultOrder: item[1][0].subGroupDefaultOrder,
+              operations: subItem[1].sort((a, b) =>
+                a.operation.name.localeCompare(b.operation.name)
+              )
+            };
+          })
+          .sort((a, b) => {
+            if (a.subGroupOrder < b.subGroupOrder) return -1;
+            if (a.subGroupOrder > b.subGroupOrder) return 1;
+            if (a.subGroupDefaultOrder < b.subGroupDefaultOrder) return -1;
+            if (a.subGroupDefaultOrder > b.subGroupDefaultOrder) return 1;
+            return a.subGroup.localeCompare(b.subGroup);
+          })
+      };
+    }
+  });
+  return grouped;
 }

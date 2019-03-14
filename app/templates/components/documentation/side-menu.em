@@ -1,33 +1,33 @@
 .operations-list#operations-list
   ul.metismenu#categories-list
     each operations as | elementArray |
-      = each-in elementArray as |group subgroup|
-        if (eq group "_data")
-          each subgroup as |operation|
-            li
-              a href="#" onclick={action 'setOperation' operation.slug}
-                span: operation.name
-        else
-          li
-            a href="#"
-              i class="fa"
-              span: group
-            ul
-              each subgroup as |subElements|
-                = each-in subElements as |op elements|
-                  if (eq op "_data")
-                    each elements as |element|
-                      li
-                        a href="#" onclick={action 'setOperation' element.slug}
-                          span: element.name
-                  else
+      if elementArray.operation
+        li
+          a href="#" onclick={action 'setOperation' operation.slug}
+            span: elementArray.group
+      else if elementArray.operations
+        li
+          a href="#"
+            i class="fa"
+            span: elementArray.group
+          ul
+            = each elementArray.operations as |element|
+              li.vrau
+                a href="#" onclick={action 'setOperation' element.operation.slug}
+                  span: element.operation.name
+      else if elementArray.subGroups
+        li
+          a href="#"
+            i class="fa"
+            span: elementArray.group
+          ul
+            = each elementArray.subGroups as |subGroup|
+              li
+                a href="#"
+                  i class="fa"
+                  span: subGroup.subGroup
+                ul
+                  = each subGroup.operations as |element|
                     li
-                      a href="#"
-                        i class="fa"
-                        span: op
-                      ul
-                       = each-in elements as |sub element|
-                          each element as |el|
-                            li
-                              a href="#" onclick={action 'setOperation' el.slug}
-                                span: el.name
+                      a href="#" onclick={action 'setOperation' element.operation.slug}
+                        span: element.operation.name

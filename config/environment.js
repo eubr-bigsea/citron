@@ -29,7 +29,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.tahiti = 'https://teste.ctweb.inweb.org.br/tahiti';
+    ENV.tahiti = 'https://lemonade.ctweb.inweb.org.br/tahiti';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
