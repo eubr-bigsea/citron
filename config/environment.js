@@ -50,7 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.tahiti = '/tahiti';
+    ENV.tahiti = 'https://lemonade.ctweb.inweb.org.br/tahiti';
   }
 
   return ENV;
