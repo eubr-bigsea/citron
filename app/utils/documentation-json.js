@@ -32,7 +32,7 @@ export const documentationJson = {
   "save-model": {
     url: {
       pt:
-      "https://docs.google.com/document/d/e/2PACX-1vQBW7h3u6YKAIqoiRLAPwQmLSPwexN9Cg2Mq3QxRaO9HqZD10rx5M6ahj-wQ2kwgDFyRdVI_SwCJykT/pub"
+      "https://docs.google.com/document/d/e/2PACX-1vQS69oLMpS89lP5f1eGwcKFLdcDKb_p8d2baA29CYb4urZy_dOE0E3JeWcjpHtQiONqkrMomUFc0m7x/pub"
     }
   },
   "filter-selection": {
@@ -272,7 +272,7 @@ export const documentationJson = {
   "one-vs-rest-classifier": {
     url: {
       pt:
-
+      null
     }
   },
   "perceptron-classifier": {
@@ -371,7 +371,7 @@ export const documentationJson = {
       pt:
       "https://docs.google.com/document/d/e/2PACX-1vSoUY5SQBEyQQmQT-QwdFlxRtUzFiFt2xN8QC5dioe2AzQJhw_LrSqEUhkoM8lxpjJjC2yR3-jHvalc/pub"
     }
-  }
+  },
   "area-chart": {
     url: {
       pt:
